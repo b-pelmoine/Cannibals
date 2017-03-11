@@ -32,10 +32,14 @@ public class FollowCam : MonoBehaviour {
     [Tooltip("How Far the camera can be")]
     public float farPlan;
 
+    [Range(.5f, 4)]
+    [Tooltip("change the point of view angle")]
+    public float verticalityFactor;
+
     [Range(-5f, 5)]
     [Tooltip("pas trop en abuser")]
     public float cameraXOffset;
-    public float cameraZOffset;
+    private float cameraZOffset;
 
     public float cameraSpeed = 5f;
     private float prevDistance = 0f;
@@ -76,6 +80,7 @@ public class FollowCam : MonoBehaviour {
             float Yoffset = (verticalVariation < closePlan) ? barycenter.y + closePlan : transform.position.y;
             Yoffset = (verticalVariation > farPlan) ? barycenter.y + farPlan : Yoffset;
             cameraZOffset = -Yoffset;
+            cameraZOffset = Mathf.Round(cameraZOffset * 100f) / (100f*verticalityFactor);
             transform.position = new Vector3(barycenter.x + cameraXOffset, Yoffset, barycenter.z + cameraZOffset);
             transform.LookAt(barycenter);
 

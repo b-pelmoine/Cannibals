@@ -29,10 +29,6 @@ public class PlayerController : MonoBehaviour {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
     }
-
-	void Start () {
-		
-	}
 	
 	void Update () {
 
@@ -41,12 +37,12 @@ public class PlayerController : MonoBehaviour {
         {
             case PlayerID.PLAYER_ONE:
                 {
-                    movePosition = new Vector3(Input.GetAxis("Horizontal"), rb.velocity.y, Input.GetAxis("Vertical"));
+                    movePosition = new Vector3(Input.GetAxis("Horizontal_P1"), 0, Input.GetAxis("Vertical_P1"));
                 }
                 break;
             case PlayerID.PLAYER_TWO:
                 {
-                    movePosition = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+                    movePosition = new Vector3(Input.GetAxis("Horizontal_P2"), 0, Input.GetAxis("Vertical_P2"));
                 }
                 break;
         }
@@ -56,7 +52,7 @@ public class PlayerController : MonoBehaviour {
 
     void FixedUpdate()
     {
-        if (movePosition != Vector3.zero && id != PlayerID.PLAYER_ONE)
+        if (movePosition != Vector3.zero)
             rb.MovePosition(transform.position + movePosition * moveSpeed * Time.deltaTime);
 
         if (rb.velocity.sqrMagnitude == 0)
