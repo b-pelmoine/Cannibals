@@ -36,6 +36,11 @@ public class FollowCam : MonoBehaviour {
     [Tooltip("change the point of view angle")]
     public float verticalityFactor;
 
+    [Range(.5f, 1f)]
+    public float stickFactor;
+    [Range(.5f, 5f)]
+    public float dragFactor;
+
     [Range(-5f, 5)]
     [Tooltip("pas trop en abuser")]
     public float cameraXOffset;
@@ -44,8 +49,30 @@ public class FollowCam : MonoBehaviour {
     public float cameraSpeed = 5f;
     private float prevDistance = 0f;
 
-    Vector3 goToPosition;
-    float distanceRemaining;
+    private Vector3 goToPosition;
+    private float distanceRemaining;
+
+    // elements / characters / whatever that the camera must show to the players
+    private List<GameObject> leadingElements;
+    public float catchElementsRadius = 40f;
+
+    Vector3 getBarycenter()
+    {
+        Vector3 centerOfAttention = Vector3.Lerp(playerOne.position, playerTwo.position, .5f);
+        int layerMask = 1 << LayerMask.NameToLayer("AI_Agent");
+        Collider[] nearbyElements = Physics.OverlapSphere(centerOfAttention, catchElementsRadius, layerMask);
+        int sumOfLevels = 1; //Importance level of both players
+        Vector3 elementsBarycenter = centerOfAttention;
+        foreach(Collider elt in nearbyElements)
+        {
+            int level = elt.GetComponent<LevelOfImportance>().getLevel();
+            elementsBarycenter = Vector3.Lerp(elementsBarycenter, elt.transform.position, (float)level/(float)(sumOfLevels+level));
+            sumOfLevels += level;
+        }
+        Vector3 newBarycenter = Vector3.Lerp(elementsBarycenter, centerOfAttention, stickFactor); 
+
+        return newBarycenter;
+    }
 
     void Start () {
         barycenter = Vector3.Lerp(playerOne.position, playerTwo.position, .5f);
@@ -56,13 +83,16 @@ public class FollowCam : MonoBehaviour {
         if(playerOne.hasChanged || playerTwo.hasChanged || forceUpdate)
         {
             prevBarycenter = barycenter;
-            barycenter = Vector3.Lerp(playerOne.position, playerTwo.position, .5f);
+            barycenter = getBarycenter();
+            barycenter = Vector3.Lerp(prevBarycenter, barycenter, Time.deltaTime* dragFactor);
 
+            Vector3 playersBarycenter = Vector3.Lerp(playerOne.position, playerTwo.position, .5f);
+            float distanceplayersBarycenter = Vector3.Distance(barycenter, playersBarycenter);
             float distanceBetweenPlayers = Vector3.Distance(playerOne.position, playerTwo.position);
-            float distanceBetweenCamBarycenter = Vector3.Distance(barycenter, transform.position);
-            float distance = distanceBetweenPlayers - distanceBetweenCamBarycenter;
+            float distanceBetweenCamPlayersBarycenter = Vector3.Distance(playersBarycenter, transform.position);
+            float distance = distanceBetweenPlayers - distanceBetweenCamPlayersBarycenter + (distanceplayersBarycenter);
 
-            cameraCanSeePlayers = (distanceBetweenCamBarycenter >= farPlan+closePlan) ? false : true;
+            cameraCanSeePlayers = (distanceBetweenPlayers >= farPlan+closePlan) ? false : true;
 
             if (state == CameraState.IDLE && barycenter != prevBarycenter)
             {
@@ -81,7 +111,7 @@ public class FollowCam : MonoBehaviour {
             Yoffset = (verticalVariation > farPlan) ? barycenter.y + farPlan : Yoffset;
             cameraZOffset = -Yoffset;
             cameraZOffset = Mathf.Round(cameraZOffset * 100f) / (100f*verticalityFactor);
-            transform.position = new Vector3(barycenter.x + cameraXOffset, Yoffset, barycenter.z + cameraZOffset);
+            transform.position = new Vector3(barycenter.x + cameraXOffset, Yoffset, barycenter.z + cameraZOffset + distanceplayersBarycenter/5);
             transform.LookAt(barycenter);
 
             prevDistance = distance;
@@ -94,6 +124,10 @@ public class FollowCam : MonoBehaviour {
         Gizmos.DrawLine(playerOne.position, playerTwo.position);
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(barycenter, transform.position);
+        Gizmos.DrawLine(barycenter, playerOne.position);
+        Gizmos.DrawLine(barycenter, playerTwo.position);
+        Gizmos.color = Color.grey - new Color(0, 0, 0, .5f);
+        Gizmos.DrawWireSphere(barycenter, catchElementsRadius);
     }
 
     void moveCamera(float distance)
@@ -101,7 +135,7 @@ public class FollowCam : MonoBehaviour {
         Vector3 oldPos = transform.position + Vector3.up * prevDistance * Time.deltaTime * cameraSpeed;
         goToPosition = transform.position + Vector3.up * distance * Time.deltaTime * cameraSpeed;
         float offset = Vector3.Distance(oldPos, goToPosition);
-        transform.position = Vector3.Lerp(oldPos, goToPosition, offset/distance);
+        transform.position = Vector3.Lerp(oldPos, goToPosition, (offset*1.5f)/distance);
         distanceRemaining = distance;
     }
 }
