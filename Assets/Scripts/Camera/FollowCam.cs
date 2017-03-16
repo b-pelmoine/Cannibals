@@ -52,9 +52,17 @@ public class FollowCam : MonoBehaviour {
     private Vector3 goToPosition;
     private float distanceRemaining;
 
+    float distanceBetweenPlayers;
+
     // elements / characters / whatever that the camera must show to the players
     private List<GameObject> leadingElements;
     public float catchElementsRadius = 40f;
+
+    public bool arePlayersTooFarAway(out float distance)
+    {
+        distance = distanceBetweenPlayers;
+        return distanceBetweenPlayers > farPlan;
+    }
 
     Vector3 getBarycenter()
     {
@@ -79,7 +87,7 @@ public class FollowCam : MonoBehaviour {
         state = CameraState.IDLE;
     }
 
-	void Update () {
+	void FixedUpdate () {
         if(playerOne.hasChanged || playerTwo.hasChanged || forceUpdate)
         {
             prevBarycenter = barycenter;
@@ -88,7 +96,7 @@ public class FollowCam : MonoBehaviour {
 
             Vector3 playersBarycenter = Vector3.Lerp(playerOne.position, playerTwo.position, .5f);
             float distanceplayersBarycenter = Vector3.Distance(barycenter, playersBarycenter);
-            float distanceBetweenPlayers = Vector3.Distance(playerOne.position, playerTwo.position);
+            distanceBetweenPlayers = Vector3.Distance(playerOne.position, playerTwo.position);
             float distanceBetweenCamPlayersBarycenter = Vector3.Distance(playersBarycenter, transform.position);
             float distance = distanceBetweenPlayers - distanceBetweenCamPlayersBarycenter + (distanceplayersBarycenter);
 
