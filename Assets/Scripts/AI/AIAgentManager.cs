@@ -8,11 +8,16 @@ public class AIAgentManager : MonoBehaviour {
     public GameObject testAgentPrefab;
     public Material agentMaterial;
     public Terrain walkable;
+    [Range (1.0f,100.0f)]
+    public float framerate = 30.0f;
 
     private List<GameObject> agents;
+    private List<LineOfSight> agents_sight;
+    int turn = 0;
 
 	void Start () {
         agents = new List<GameObject>();
+        agents_sight = new List<LineOfSight>();
 		for(int i=0; i<20; i++)
         {
             GameObject instance = Instantiate(testAgentPrefab, transform);
@@ -25,6 +30,21 @@ public class AIAgentManager : MonoBehaviour {
             script.destination = Vector3.zero;
 
             agents.Add(instance);
+            LineOfSight.Register(instance);
+            agents_sight.Add(instance.GetComponentInChildren<LineOfSight>());
         }
-	}
+        StartCoroutine(Detect());
+    }
+
+    public IEnumerator Detect()
+    {
+        while (true)
+        {
+            agents_sight[turn].Rendering();
+            yield return new WaitForSeconds(1/framerate);
+            agents_sight[turn].Analyse();
+            turn = (turn + 1) % agents.Count;
+            //yield return new WaitForSeconds(framerate);
+        }
+    }
 }
