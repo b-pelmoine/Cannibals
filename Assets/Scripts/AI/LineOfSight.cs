@@ -7,12 +7,11 @@ public class LineOfSight : MonoBehaviour {
     new Camera camera;
     public Shader shader;
     RenderTexture texture;
-    public float framerate = 1.0f;
     static Texture2D tex2D;
     static List<GameObject> detected_objects;
     public List<GameObject> sighted;
+    static List<int> detect_rate;
 
-	// Use this for initialization
 	void Awake () {
         camera = GetComponent<Camera>();
         camera.enabled = false;
@@ -22,17 +21,16 @@ public class LineOfSight : MonoBehaviour {
         camera.SetReplacementShader(shader, "RenderType");
         sighted = new List<GameObject>();
         if (detected_objects == null)
+        {
             detected_objects = new List<GameObject>();
+            detect_rate = new List<int>();
+        }
     }
-	
-	// Update is called once per frame
-	void Update () {
 
-	}
-
-    public static void Register(GameObject obj)
+    public static void Register(GameObject obj, int detect=30)
     {
         detected_objects.Add(obj);
+        detect_rate.Add(detect);
         obj.GetComponent<Renderer>().material.SetColor("LoSColor", new Color(detected_objects.Count,0,0));
     }
 
@@ -52,10 +50,9 @@ public class LineOfSight : MonoBehaviour {
         sighted.Clear();
         for(int i = 0; i < detected_objects.Count;i++)
         {
-            if (pixnum[i] > 30)
+            if (pixnum[i] > detect_rate[i])
             {
                 sighted.Add(detected_objects[i]);
-                Debug.Log(detected_objects[i] + " detected");
             }
         }
         RenderTexture.active = null;

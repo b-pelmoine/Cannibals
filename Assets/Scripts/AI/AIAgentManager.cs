@@ -30,7 +30,6 @@ public class AIAgentManager : MonoBehaviour {
             script.destination = Vector3.zero;
 
             agents.Add(instance);
-            LineOfSight.Register(instance);
             agents_sight.Add(instance.GetComponentInChildren<LineOfSight>());
         }
         StartCoroutine(Detect());
@@ -40,11 +39,12 @@ public class AIAgentManager : MonoBehaviour {
     {
         while (true)
         {
+            walkable.drawTreesAndFoliage = false;
             agents_sight[turn].Rendering();
+            walkable.drawTreesAndFoliage = true;
             yield return new WaitForSeconds(1/framerate);
             agents_sight[turn].Analyse();
             turn = (turn + 1) % agents.Count;
-            //yield return new WaitForSeconds(framerate);
         }
     }
 }
