@@ -18,7 +18,7 @@ public class AIAgentManager : MonoBehaviour {
 	void Start () {
         agents = new List<GameObject>();
         agents_sight = new List<LineOfSight>();
-		for(int i=0; i<20; i++)
+		for(int i=0; i<5; i++)
         {
             GameObject instance = Instantiate(testAgentPrefab, transform);
 

@@ -10,7 +10,7 @@ public class AIAgentPriorityTest : MonoBehaviour {
     public Terrain walkable;
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		if(destination == Vector3.zero)
         {
             newDestination();
