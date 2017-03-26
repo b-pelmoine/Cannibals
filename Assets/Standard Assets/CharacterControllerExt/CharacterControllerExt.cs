@@ -979,7 +979,7 @@ namespace EquilibreGames
             }
             // If the initial SphereCast fails, likely due to the controller clipping a wall,
             // fallback to a raycast simulated to SphereCast data
-            else if (Physics.Raycast(startingPoint, down, Mathf.Infinity, walkableLayer))
+            else if (Physics.Raycast(startingPoint, down, out hit, Mathf.Infinity, walkableLayer))
             {
                 if (hit.collider.isTrigger || ignoredColliders3D.Contains(hit.collider))
                     return;
