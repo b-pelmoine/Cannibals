@@ -1303,7 +1303,7 @@ namespace EquilibreGames
             }
             foreach (ColliderInfo colInfo in characterControllerColliders[circleConfigurationIndex].colliders)
             {
-                Gizmos.DrawWireSphere((Vector2)colInfo.position, colInfo.radius);
+                Gizmos.DrawWireSphere(colInfo.position, colInfo.radius);
             }
 
 

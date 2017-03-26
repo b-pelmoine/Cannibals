@@ -14,24 +14,22 @@ public class Cannibal_Movement : MonoBehaviour {
     }
 
     [Space(20)]
-    float m_maxSpeed = 1;
+    [SerializeField]
+    float m_maxRunSpeed = 1;
 
 
     /// <summary>
     /// Move the cannibal on x/z.
     /// </summary>
     /// <param name="input">input x/z between 0 and 1 </param>
-    public void Move(Vector2 input)
+    public void GroundMove(Vector2 input)
     {
-        if (m_characterControllerExt.velocity.magnitude < m_maxSpeed)
-        {
-            m_characterControllerExt.velocity.x = input.x;
-            m_characterControllerExt.velocity.z = input.y;
+        m_characterControllerExt.velocity.x = m_maxRunSpeed*input.x;
+        m_characterControllerExt.velocity.z = m_maxRunSpeed*input.y;
 
-            if(m_characterControllerExt.velocity.magnitude > m_maxSpeed)
-            {
-                m_characterControllerExt.velocity = m_characterControllerExt.velocity.normalized * m_maxSpeed;
-            }
+        if(m_characterControllerExt.velocity.magnitude > m_maxRunSpeed)
+        {
+            m_characterControllerExt.velocity = m_characterControllerExt.velocity .normalized* m_maxRunSpeed;
         }
     }
 
