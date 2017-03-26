@@ -23,8 +23,16 @@ public class Cannibal_Movement : MonoBehaviour {
     /// <param name="input">input x/z between 0 and 1 </param>
     public void Move(Vector2 input)
     {
-        m_characterControllerExt.velocity.x = input.x;
-        m_characterControllerExt.velocity.z = input.y;
+        if (m_characterControllerExt.velocity.magnitude < m_maxSpeed)
+        {
+            m_characterControllerExt.velocity.x = input.x;
+            m_characterControllerExt.velocity.z = input.y;
+
+            if(m_characterControllerExt.velocity.magnitude > m_maxSpeed)
+            {
+                m_characterControllerExt.velocity = m_characterControllerExt.velocity.normalized * m_maxSpeed;
+            }
+        }
     }
 
     /// <summary>
