@@ -46,8 +46,8 @@ namespace EquilibreGames
 
         private class GroundHit
         {
-            public Vector2 point { get; private set; }
-            public Vector2 normal { get; private set; }
+            public Vector3 point { get; private set; }
+            public Vector3 normal { get; private set; }
             public float distance { get; private set; }
 
             public GroundHit(Vector3 point, Vector3 normal, float distance)
