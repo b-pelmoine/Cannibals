@@ -11,6 +11,7 @@ namespace NodeCanvas.Tasks.Conditions{
 	public class CheckTrigger : ConditionTask<Collider> {
 
 		public TriggerTypes checkType = TriggerTypes.TriggerEnter;
+        public LayerMask layerMask;
 		public bool specifiedTagOnly;
 		[TagField]
 		public string objectTag = "Untagged";
@@ -30,7 +31,8 @@ namespace NodeCanvas.Tasks.Conditions{
 		}
 
 		public void OnTriggerEnter(Collider other){
-			if (!specifiedTagOnly || other.gameObject.tag == objectTag){
+			if ( (((1<<other.gameObject.layer) & layerMask) != 0) && (!specifiedTagOnly || other.gameObject.tag == objectTag))
+            {
 				stay = true;
 				if (checkType == TriggerTypes.TriggerEnter || checkType == TriggerTypes.TriggerStay){
 					saveGameObjectAs.value = other.gameObject;
@@ -40,7 +42,8 @@ namespace NodeCanvas.Tasks.Conditions{
 		}
 
 		public void OnTriggerExit(Collider other){
-			if (!specifiedTagOnly || other.gameObject.tag == objectTag){
+			if ((((1 << other.gameObject.layer) & layerMask) != 0) && (!specifiedTagOnly || other.gameObject.tag == objectTag))
+            {
 				stay = false;
 				if (checkType == TriggerTypes.TriggerExit){
 					saveGameObjectAs.value = other.gameObject;				

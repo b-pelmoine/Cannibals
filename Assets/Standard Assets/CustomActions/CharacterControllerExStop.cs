@@ -16,6 +16,8 @@ public class CharacterControllerExStop : ActionTask<CharacterControllerExt> {
         agent.acceleration.x = 0;
         agent.acceleration.y = 0;
         agent.acceleration.z = 0;
+
+        EndAction();
     }
 
 
