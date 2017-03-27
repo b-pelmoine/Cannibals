@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using NodeCanvas.Framework;
-using Rewired;
 using ParadoxNotion.Design;
 
 [Category("Rewired")]

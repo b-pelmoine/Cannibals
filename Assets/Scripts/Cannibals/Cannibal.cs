@@ -21,6 +21,7 @@ public class Cannibal : MonoBehaviour {
         get { return m_cannibalMovement; }
     }
 
+    public Call m_call;
 
     /// <summary>
     /// Knock out the cannibal.
