@@ -10,15 +10,9 @@ public class Cannibal : MonoBehaviour {
     public RewiredInput m_rewiredInput;
 
     [Space(20)]
-    [SerializeField]
-    Cannibal_Movement m_cannibalMovement;
+    public Cannibal_Movement m_cannibalMovement;
 
-    public Cannibal_Movement CannibalMovement
-    {
-        get { return m_cannibalMovement; }
-    }
-
-    public Call m_call;
+    public Cannibal_Skill m_cannibalSkill;
 
     /// <summary>
     /// Knock out the cannibal.
@@ -31,7 +25,5 @@ public class Cannibal : MonoBehaviour {
     /// </summary>
     /// <returns>false if the cannibal can't be resuscitate for the moment</returns>
     public bool Resuscitate() { return ((Cannibal_State)m_stateMachine.behaviour.currentState).Resuscitate(); }
-
-
 
 }

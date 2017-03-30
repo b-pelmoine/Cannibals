@@ -5,7 +5,7 @@ using ParadoxNotion.Design;
 [Category("Cannibal")]
 public abstract class Cannibal_State : ActionState {
 
-    public BBParameter<Cannibal> m_cannibal;
+    public BBParameter<Cannibal> cannibal;
 
 
     /// <summary>

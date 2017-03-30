@@ -31,7 +31,7 @@ public class Cannibal_Hidden : Cannibal_State {
     protected override void OnUpdate()
     {
         base.OnUpdate();
-        m_cannibal.value.CannibalMovement.GroundMove(new Vector2(m_cannibal.value.m_rewiredInput.m_playerInput.GetAxis("SideMove"), m_cannibal.value.m_rewiredInput.m_playerInput.GetAxis("FrontMove")));
+        cannibal.value.m_cannibalMovement.GroundMove(new Vector2(cannibal.value.m_rewiredInput.m_playerInput.GetAxis("SideMove"), cannibal.value.m_rewiredInput.m_playerInput.GetAxis("FrontMove")));
     }
 
 
@@ -49,7 +49,7 @@ public class Cannibal_Hidden : Cannibal_State {
 #if UNITY_EDITOR
     void OnGUI()
     {
-      Handles.Label(m_cannibal.value.CannibalMovement.CharacterControllerEx.CharacterTransform.position + new Vector3(-1, 1, 0), "Hidden");
+      Handles.Label(cannibal.value.m_cannibalMovement.CharacterControllerEx.CharacterTransform.position + new Vector3(-1, 1, 0), "Hidden");
     }
 #endif
 }
