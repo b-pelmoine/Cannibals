@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IDisposable  {
+namespace Cannibals
+{
+    public interface IDisposable
+    {
 
-    void Throw(Vector3 force);
+        void Throw(Vector3 force);
 
+    }
 }
