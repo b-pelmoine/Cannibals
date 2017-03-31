@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
-  m_Name: dog
+  m_Name: dog(SubAsset)
   m_EditorClassIdentifier: 
   _serializedGraph: '{"version":2.6,"type":"NodeCanvas.StateMachines.FSM","name":"FSM","translation":{"x":-4617.0,"y":-4364.0},"zoomFactor":0.9163585,"nodes":[{"_actionList":{"executionMode":"ActionsRunInParallel","actions":[{"speed":{"_value":4.0},"stoppingDistance":{"_value":0.1},"minWanderDistance":{"_value":5.0},"maxWanderDistance":{"_value":20.0},"repeat":false,"$type":"NodeCanvas.Tasks.Actions.Wander"}]},"_repeatStateActions":true,"_position":{"x":5544.0,"y":5204.0},"_name":"Wandering","$type":"NodeCanvas.StateMachines.ActionState","$id":"2"},{"_actionList":{"executionMode":"ActionsRunInParallel","actions":[{"target":{"_name":"Hunter","_targetVariableID":"576d50ea-e083-4b6e-b15f-264dbf1f9dac"},"speed":{"_value":3.0,"_name":"dogBaseSpeed","_targetVariableID":"9d0a7aa7-91ed-4aae-931f-059fcc49d7e7"},"keepDistance":5.0,"$type":"NodeCanvas.Tasks.Actions.MoveToGameObject"}]},"_repeatStateActions":true,"_position":{"x":5329.0,"y":5368.0},"_name":"Going
     back to hunter","$type":"NodeCanvas.StateMachines.ActionState","$id":"10"},{"_actionList":{"executionMode":"ActionsRunInParallel","actions":[{"valueA":{"_name":"barkingTarget","_targetVariableID":"3c5c9e6d-cfae-4fd9-b8be-81e1e888efad"},"valueB":{},"$type":"NodeCanvas.Tasks.Actions.SetVariable`1[[UnityEngine.GameObject,

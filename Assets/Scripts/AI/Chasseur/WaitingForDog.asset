@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
+  m_Name: WaitingForDog
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"version":2.6,"type":"NodeCanvas.StateMachines.FSM","name":"Waiting
+    for dog","translation":{"x":-5087.0,"y":-4985.0},"nodes":[{"_actionList":{"executionMode":"ActionsRunInParallel","actions":[{"waitTime":{"_value":10.0},"$type":"NodeCanvas.Tasks.Actions.Wait"}]},"_position":{"x":5229.0,"y":5285.0},"_name":"Waiting
+    for dog","$type":"NodeCanvas.StateMachines.ActionState","$id":"2"},{"_onEnterList":{"executionMode":"ActionsRunInParallel","actions":[{"targetVariableName":{"_value":"HunterCalling"},"newValue":{"_type":"System.Boolean","_value":{"$content":true,"$type":"System.Boolean"}},"overrideAgent":{"_name":"dogBB","_targetVariableID":"1297b179-4606-4fa0-b4c8-8d0ba679a15e"},"$type":"NodeCanvas.Tasks.Actions.SetOtherBlackboardVariable"}]},"_onUpdateList":{"executionMode":"ActionsRunInParallel","actions":[]},"_onExitList":{"actions":[{"waitTime":{"_value":1.0},"$type":"NodeCanvas.Tasks.Actions.Wait"}]},"foldEnter":true,"foldExit":true,"_position":{"x":5371.0,"y":5456.0},"$type":"NodeCanvas.StateMachines.SuperActionState","$id":"7"}],"connections":[{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"primeNode":{"$ref":"2"},"localBlackboard":{"_name":"Local
+    Blackboard","_variables":{}}}'
+  _objectReferences: []
+  _deserializationFailed: 0
