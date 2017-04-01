@@ -216,6 +216,15 @@ MonoBehaviour:
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 1
+    - _id: 4
+      _name: ThrowObject
+      _type: 1
+      _descriptiveName: ThrowObject
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 1
     actionCategories:
     - _name: Default
       _descriptiveName: Default
@@ -232,7 +241,7 @@ MonoBehaviour:
       - categoryId: 0
         actionIds: 
       - categoryId: 1
-        actionIds: 00000000010000000200000003000000
+        actionIds: 0000000001000000020000000300000004000000
     inputBehaviors:
     - _id: 0
       _name: Default
@@ -356,11 +365,22 @@ MonoBehaviour:
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
+      - _actionCategoryId: 1
+        _actionId: 4
+        _elementType: 1
+        _elementIdentifierId: -1
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 97
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
     mouseMaps: []
     customControllerMaps: []
     customControllers: []
     playerIdCounter: 3
-    actionIdCounter: 4
+    actionIdCounter: 5
     actionCategoryIdCounter: 2
     inputBehaviorIdCounter: 1
     mapCategoryIdCounter: 2
@@ -452,6 +472,7 @@ GameObject:
   - component: {fileID: 622336821}
   - component: {fileID: 622336820}
   - component: {fileID: 622336824}
+  - component: {fileID: 622336825}
   m_Layer: 13
   m_Name: Steak
   m_TagString: Untagged
@@ -517,7 +538,7 @@ Transform:
   m_GameObject: {fileID: 622336819}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.29, y: -0.315, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -534,6 +555,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_transform: {fileID: 622336823}
+  m_rigidbody: {fileID: 622336825}
+--- !u!54 &622336825
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 622336819}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &752825230
 GameObject:
   m_ObjectHideFlags: 0
@@ -1193,6 +1230,7 @@ GameObject:
   - component: {fileID: 1852640934}
   - component: {fileID: 1852640931}
   - component: {fileID: 1852640936}
+  - component: {fileID: 1852640937}
   - component: {fileID: 1852640928}
   - component: {fileID: 1852640930}
   - component: {fileID: 1852640933}
@@ -1312,7 +1350,6 @@ MonoBehaviour:
   _serializedBlackboard: '{"_variables":{"cannibal":{"_value":1,"_name":"cannibal","_id":"4d46f1cc-f307-4258-b2ea-5cb1e0f461aa","$type":"NodeCanvas.Framework.Variable`1[[Cannibal,
     Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"bushCollider":{"_value":2,"_name":"bushCollider","_id":"8ff76c52-119e-4dc6-aacd-6a49b6459f18","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Collider,
     UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"objectCollider":{"_value":3,"_name":"objectCollider","_id":"4fb74e6f-52fc-4ec1-93c7-f094d33732b9","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Collider,
-    UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"objectAtProximity":{"_name":"objectAtProximity","_id":"e4c95149-18eb-4c00-a22e-38afdd901dd8","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
     UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
   _objectReferences:
   - {fileID: 0}
@@ -1352,6 +1389,7 @@ MonoBehaviour:
   m_rewiredInput: {fileID: 1852640935}
   m_cannibalMovement: {fileID: 1852640931}
   m_cannibalSkill: {fileID: 1852640936}
+  m_cannibalAppearence: {fileID: 1852640937}
 --- !u!114 &1852640935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1378,6 +1416,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_call: {fileID: 1993042664}
   cannibalObjectParent: {fileID: 1432836146}
+--- !u!114 &1852640937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1852640927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f2312e590e859a4ca68f45fb049f249, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_cannibal: {fileID: 1852640934}
+  m_appearenceTransform: {fileID: 2109885544}
 --- !u!1 &1993042662
 GameObject:
   m_ObjectHideFlags: 0

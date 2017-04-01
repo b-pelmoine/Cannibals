@@ -20,14 +20,20 @@ public class Cannibal_Skill : MonoBehaviour {
     {
         if (m_cannibalObject)
         {
-            CannibalObject.Exchange(m_cannibalObject, cannibalObject);
+            m_cannibalObject.Exchange(cannibalObject);
         }
         else
         {
-            cannibalObject.Transform.SetParent(cannibalObjectParent);
+            cannibalObject.BeTaken(cannibalObjectParent);
         }
 
         m_cannibalObject = cannibalObject;
+    }
+
+    public void LooseCannibalObject()
+    {
+        m_cannibalObject.Transform.SetParent(null);
+        m_cannibalObject = null;
     }
 
 }

@@ -14,6 +14,8 @@ public class Cannibal : MonoBehaviour {
 
     public Cannibal_Skill m_cannibalSkill;
 
+    public Cannibal_Appearence m_cannibalAppearence;
+
     /// <summary>
     /// Knock out the cannibal.
     /// </summary>
@@ -26,4 +28,10 @@ public class Cannibal : MonoBehaviour {
     /// <returns>false if the cannibal can't be resuscitate for the moment</returns>
     public bool Resuscitate() { return ((Cannibal_State)m_stateMachine.behaviour.currentState).Resuscitate(); }
 
+
+    /// <summary>
+    /// The cannibal will loose his object
+    /// </summary>
+    /// <returns>false if the cannibal has no object or don't want to loose it</returns>
+    public bool LooseCannibalObject() { return ((Cannibal_State)m_stateMachine.behaviour.currentState).LooseCannibalObject(); }
 }
