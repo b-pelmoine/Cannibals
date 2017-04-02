@@ -7,6 +7,14 @@ public abstract class Cannibal_State : ActionState {
 
     public BBParameter<Cannibal> cannibal;
 
+    protected Cannibal m_cannibal;
+
+    protected override void OnInit()
+    {
+        base.OnInit();
+        m_cannibal = cannibal.value;
+    }
+
 
     /// <summary>
     /// Knock out the cannibal.

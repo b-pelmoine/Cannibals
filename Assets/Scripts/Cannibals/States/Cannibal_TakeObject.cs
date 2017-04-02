@@ -11,7 +11,7 @@ public class Cannibal_TakeObject : Cannibal_State
     protected override void OnEnter()
     {
         base.OnEnter();
-        cannibal.value.m_cannibalSkill.TakeCannibalObject(cannibalObject.value.GetComponent<CannibalObject>());
+        m_cannibal.m_cannibalSkill.TakeCannibalObject(m_cannibal.GetComponent<CannibalObject>());
     }
 
 }

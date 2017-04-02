@@ -3,7 +3,7 @@
     protected override void OnEnter()
     {
         base.OnEnter();
-        cannibal.value.m_cannibalSkill.m_call.Use();
+        m_cannibal.m_cannibalSkill.m_call.Use();
     }
 
 }
