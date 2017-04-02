@@ -556,6 +556,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_transform: {fileID: 622336823}
   m_rigidbody: {fileID: 622336825}
+  dropDirection: {x: 0, y: 1, z: 0}
 --- !u!54 &622336825
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1428,7 +1429,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_cannibal: {fileID: 1852640934}
-  m_appearenceTransform: {fileID: 2109885544}
+  rotationTime: 0.1
+  m_appearenceTransform: {fileID: 619552988}
 --- !u!1 &1993042662
 GameObject:
   m_ObjectHideFlags: 0
