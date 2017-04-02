@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class Cannibal_LaunchObject : Cannibal_State {
 
-    public Vector3 force;
+    public float force = 5;
 
     protected override void OnEnter()
     {
         base.OnEnter();
-        Vector3 realForce = cannibal.value.m_cannibalAppearence.m_appearenceTransform.forward;
-        realForce += force;
-        ((IDropable)cannibal.value.m_cannibalSkill.m_cannibalObject).Throw(realForce);
+        ((IDropable)cannibal.value.m_cannibalSkill.m_cannibalObject).Throw(force, cannibal.value.m_cannibalAppearence.m_appearenceTransform.forward);
         LooseCannibalObject();
     }
 

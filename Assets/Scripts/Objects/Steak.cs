@@ -7,10 +7,13 @@ public class Steak : CannibalObject, IDropable {
     [SerializeField]
     Rigidbody m_rigidbody;
 
-    public void Throw(Vector3 force)
+    [SerializeField]
+    Vector3 dropDirection = new Vector3(0, 1, 0);
+        
+    public void Throw(float force , Vector3 normalizedDirection)
     {
         m_rigidbody.isKinematic = false;
-        m_rigidbody.AddForce(force, ForceMode.Impulse);
+        m_rigidbody.AddForce(force*(normalizedDirection+ dropDirection).normalized, ForceMode.Impulse);
     }
 
     public override void BeTaken(Transform newParent)

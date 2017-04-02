@@ -6,7 +6,7 @@ using UnityEngine;
 public interface IDropable
 {
 
-    void Throw(Vector3 force);
+    void Throw(float force, Vector3 normalizedDirection);
 
 }
 
