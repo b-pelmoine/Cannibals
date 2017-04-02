@@ -20,7 +20,9 @@ public class Cannibal_Appearence : MonoBehaviour {
         float newAngle = Mathf.SmoothDampAngle(baseAngle * Mathf.Deg2Rad, 0, ref rotationVelocity, rotationTime) * Mathf.Rad2Deg;
         float deltaAngle = newAngle - baseAngle;
 
-        if (Vector3.Cross(direction, m_appearenceTransform.forward).y < 0)
+        Vector3 cross = Vector3.Cross(direction, m_appearenceTransform.forward);
+
+        if (Vector3.Dot(cross, m_appearenceTransform.up) < 0)
             deltaAngle *= -1; 
 
         m_appearenceTransform.Rotate(Vector3.up, deltaAngle);
