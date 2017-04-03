@@ -18,7 +18,7 @@ public class LineOfSight : MonoBehaviour {
             camera = gameObject.AddComponent<Camera>();
         camera.enabled = false;
         if (texture == null)
-            texture = new RenderTexture(256, 256, 24);
+            texture = new RenderTexture(256, 256, 16, RenderTextureFormat.ARGB32);
         camera.targetTexture = texture;
         if(tex2D==null)
             tex2D = new Texture2D(texture.width, texture.height, TextureFormat.ARGB32, false);
