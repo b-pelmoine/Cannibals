@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Camera))]
+
 public class LineOfSight : MonoBehaviour {
     new Camera camera;
     public Shader shader;
@@ -13,7 +13,9 @@ public class LineOfSight : MonoBehaviour {
     static List<int> detect_rate;
 
 	void Awake () {
-        camera = GetComponent<Camera>();
+        camera = GetComponentInChildren<Camera>();
+        if (camera == null)
+            camera = gameObject.AddComponent<Camera>();
         camera.enabled = false;
         texture = camera.targetTexture;
         if(tex2D==null)
