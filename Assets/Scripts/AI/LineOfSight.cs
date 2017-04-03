@@ -6,7 +6,7 @@ using UnityEngine;
 public class LineOfSight : MonoBehaviour {
     new Camera camera;
     public Shader shader;
-    RenderTexture texture;
+    public static RenderTexture texture;
     static Texture2D tex2D;
     static List<GameObject> detected_objects;
     public List<GameObject> sighted;
@@ -17,7 +17,9 @@ public class LineOfSight : MonoBehaviour {
         if (camera == null)
             camera = gameObject.AddComponent<Camera>();
         camera.enabled = false;
-        texture = camera.targetTexture;
+        if (texture == null)
+            texture = new RenderTexture(256, 256, 24);
+        camera.targetTexture = texture;
         if(tex2D==null)
             tex2D = new Texture2D(texture.width, texture.height, TextureFormat.ARGB32, false);
         camera.SetReplacementShader(shader, "RenderType");
