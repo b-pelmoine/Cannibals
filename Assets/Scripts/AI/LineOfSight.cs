@@ -12,18 +12,12 @@ public class LineOfSight : MonoBehaviour {
     public List<GameObject> sighted;
     static List<int> detect_rate;
 
-	void Awake () {
-        camera = GetComponentInChildren<Camera>();
-        if (camera == null)
-            camera = gameObject.AddComponent<Camera>();
-        camera.enabled = false;
+    void Awake()
+    {
         if (texture == null)
-            texture = new RenderTexture(256, 256, 16, RenderTextureFormat.ARGB32);
-        camera.targetTexture = texture;
-        if(tex2D==null)
+            texture = new RenderTexture(128, 128, 32, RenderTextureFormat.ARGB32);
+        if (tex2D == null)
             tex2D = new Texture2D(texture.width, texture.height, TextureFormat.ARGB32, false);
-        camera.SetReplacementShader(shader, "RenderType");
-        sighted = new List<GameObject>();
         if (detected_objects == null)
         {
             detected_objects = new List<GameObject>();
@@ -31,11 +25,25 @@ public class LineOfSight : MonoBehaviour {
         }
     }
 
+	void Start () {
+        camera = GetComponentInChildren<Camera>();
+        if (camera == null)
+            camera = gameObject.AddComponent<Camera>();
+        camera.enabled = false;
+        camera.targetTexture = texture;
+        
+        camera.SetReplacementShader(shader, "RenderType");
+        sighted = new List<GameObject>();
+        
+        LineOfSightManager.Register(this);
+    }
+
     public static void Register(GameObject obj, int detect=30)
     {
         detected_objects.Add(obj);
         detect_rate.Add(detect);
-        obj.GetComponent<Renderer>().material.SetColor("LoSColor", new Color(detected_objects.Count,0,0));
+        obj.GetComponent<Renderer>().material.SetColor("_LoSColor", new Color(detected_objects.Count/255f,0,0));
+        Debug.Log(obj.GetComponent<Renderer>().material.GetColor("_LoSColor"));
     }
 
     public bool Analyse()
