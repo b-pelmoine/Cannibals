@@ -11,6 +11,7 @@ public class LineOfSight : MonoBehaviour {
     static List<GameObject> detected_objects;
     public List<GameObject> sighted;
     static List<int> detect_rate;
+    bool updated = false;
 
     void Awake()
     {
@@ -68,11 +69,25 @@ public class LineOfSight : MonoBehaviour {
             }
         }
         RenderTexture.active = null;
+        updated = true;
         return sighted.Count != 0;
     }
 
     public void Rendering()
     {
         camera.Render();
+    }
+
+    public bool Updated
+    {
+        get
+        {
+            if (updated)
+            {
+                updated = false;
+                return true;
+            }
+            return false;
+        }
     }
 }

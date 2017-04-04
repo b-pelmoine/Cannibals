@@ -33,7 +33,7 @@ public class LineOfSightManager : MonoBehaviour {
         {
             walkable.drawTreesAndFoliage = false;
             agents_sight[turn].Rendering();
-            //walkable.drawTreesAndFoliage = true;
+            walkable.drawTreesAndFoliage = true;
             yield return new WaitForSeconds(1 / (framerate*agents_sight.Count));
             agents_sight[turn].Analyse();
             turn = (turn + 1) % agents_sight.Count;
