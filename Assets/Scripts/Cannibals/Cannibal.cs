@@ -34,4 +34,11 @@ public class Cannibal : MonoBehaviour {
     /// </summary>
     /// <returns>false if the cannibal has no object or don't want to loose it</returns>
     public bool LooseCannibalObject() { return ((Cannibal_State)m_stateMachine.behaviour.currentState).LooseCannibalObject(); }
+
+
+    /// <summary>
+    /// Kill the cannibal
+    /// </summary>
+    /// <returns>false if the cannibal can't be kill in the current state</returns>
+    public bool Kill() { return ((Cannibal_State)m_stateMachine.behaviour.currentState).Kill(); }
 }

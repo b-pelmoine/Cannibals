@@ -32,4 +32,11 @@ public abstract class Cannibal_State : ActionState {
     /// Loose the CannibalObject
     /// </summary>
     public virtual bool LooseCannibalObject() {cannibal.value.m_cannibalSkill.LooseCannibalObject(); return true; }
+
+
+    /// <summary>
+    /// Kill the cannibal
+    /// </summary>
+    /// <returns>false if the cannibal can't be kill in the current state</returns>
+    public virtual bool Kill() { this.FSM.SendEvent("Death"); return true; }
 }
