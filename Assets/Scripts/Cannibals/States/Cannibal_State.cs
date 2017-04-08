@@ -37,6 +37,12 @@ public abstract class Cannibal_State : ActionState {
     /// <summary>
     /// Kill the cannibal
     /// </summary>
-    /// <returns>false if the cannibal can't be kill in the current state</returns>
+    /// <returns>false if the cannibal can't be killed in the current state</returns>
     public virtual bool Kill() { this.FSM.SendEvent("Death"); return true; }
+
+    /// <summary>
+    /// Revive the Cannibal
+    /// </summary>
+    /// <returns>false if the cannibal can't be revived in the current state</returns>
+    public virtual bool Revive() { this.FSM.SendEvent("Revive"); return true; }
 }

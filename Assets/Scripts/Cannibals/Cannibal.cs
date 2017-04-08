@@ -39,6 +39,13 @@ public class Cannibal : MonoBehaviour {
     /// <summary>
     /// Kill the cannibal
     /// </summary>
-    /// <returns>false if the cannibal can't be kill in the current state</returns>
+    /// <returns>false if the cannibal can't be killed in the current state</returns>
     public bool Kill() { return ((Cannibal_State)m_stateMachine.behaviour.currentState).Kill(); }
+
+
+    /// <summary>
+    /// Revive the cannibal
+    /// </summary>
+    /// <returns>false if the cannibal can't be revived in the current state</returns>
+    public bool Revive() { return ((Cannibal_State)m_stateMachine.behaviour.currentState).Revive(); }
 }
