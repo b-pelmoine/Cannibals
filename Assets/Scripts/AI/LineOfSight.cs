@@ -43,8 +43,10 @@ public class LineOfSight : MonoBehaviour {
     {
         detected_objects.Add(obj);
         detect_rate.Add(detect);
-        obj.GetComponent<Renderer>().material.SetColor("_LoSColor", new Color(detected_objects.Count/255f,0,0));
-        Debug.Log(obj.GetComponent<Renderer>().material.GetColor("_LoSColor"));
+        List<Renderer> renderers = new List<Renderer>();
+        obj.GetComponentsInChildren<Renderer>(renderers);
+        foreach (Renderer rend in renderers)
+            rend.material.SetColor("_LoSColor", new Color(detected_objects.Count / 255f, 0, 0));
     }
 
     public bool Analyse()

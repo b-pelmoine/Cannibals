@@ -12,7 +12,6 @@ public class OcclusionShader : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(OcclusionShaderManager.Instance().objects[0]);
         mat.SetFloat("_Distance", OcclusionShaderManager.Instance().Width);
         mat.SetVectorArray("_Objects", OcclusionShaderManager.Instance().objects);
         mat.SetInt("_ObjectsLength", OcclusionShaderManager.Instance().objects.Count);
