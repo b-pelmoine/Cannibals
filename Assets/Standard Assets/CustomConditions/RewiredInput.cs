@@ -8,14 +8,14 @@ public class RewiredInput : MonoBehaviour {
 
     [Space(20)]
     public string playerInputID = "Cannibal";
-    public byte id = 0;
+    public byte number = 0;
 
 
     public Player m_playerInput { get; private set;}
 
     void Awake()
     {
-        m_playerInput = ReInput.players.GetPlayer(playerInputID + id);
+        m_playerInput = ReInput.players.GetPlayer(playerInputID + number);
     }
 
 }
