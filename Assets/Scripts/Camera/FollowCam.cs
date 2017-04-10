@@ -53,10 +53,15 @@ public class FollowCam : MonoBehaviour {
     private float distanceRemaining;
 
     float distanceBetweenPlayers;
-
+    
     // elements / characters / whatever that the camera must show to the players
     private List<GameObject> leadingElements;
     public float catchElementsRadius = 40f;
+
+    void Awake()
+    {
+        goToPosition = transform.position;
+    }
 
     public bool arePlayersTooFarAway(out float distance)
     {
