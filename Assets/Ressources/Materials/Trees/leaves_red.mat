@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: leaves_red
-  m_Shader: {fileID: 10606, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 10601, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _EMISSION _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   m_LightmapFlags: 2
   m_CustomRenderQueue: -1
@@ -40,15 +40,27 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
+        name: _DetailTex
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
         name: _EmissionMap
       second:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
+        name: _GlossMap
+      second:
+        m_Texture: {fileID: 2800000, guid: 55b7ccd003a0f8a408363e9812aacbdc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
         name: _MainTex
       second:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 32e86426ce2ceea4da6654f8f5409c64, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -69,13 +81,34 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - first:
+        name: _ShadowOffset
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _TranslucencyMap
+      second:
+        m_Texture: {fileID: 2800000, guid: 55b7ccd003a0f8a408363e9812aacbdc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
+    - first:
+        name: _AO
+      second: 2.4
+    - first:
+        name: _BaseLight
+      second: 0.35
     - first:
         name: _BumpScale
       second: 1
     - first:
+        name: _Cull
+      second: 2
+    - first:
         name: _Cutoff
-      second: 0.5
+      second: 0.44
     - first:
         name: _DetailNormalMapScale
       second: 1
@@ -98,6 +131,9 @@ Material:
         name: _Mode
       second: 0
     - first:
+        name: _Occlusion
+      second: 7.5
+    - first:
         name: _OcclusionStrength
       second: 1
     - first:
@@ -105,7 +141,10 @@ Material:
       second: 0.02
     - first:
         name: _ShadowStrength
-      second: 1
+      second: 0.172
+    - first:
+        name: _Shininess
+      second: 0.078125
     - first:
         name: _SmoothnessTextureChannel
       second: 1
@@ -120,9 +159,12 @@ Material:
       second: 1
     - first:
         name: _TranslucencyViewDependency
-      second: 0.7
+      second: 0.786
     - first:
         name: _UVSec
+      second: 0
+    - first:
+        name: _WindQuality
       second: 0
     - first:
         name: _ZWrite
@@ -130,10 +172,13 @@ Material:
     m_Colors:
     - first:
         name: _Color
-      second: {r: 0.875, g: 0.53786767, b: 0.032169096, a: 1}
+      second: {r: 1, g: 1, b: 1, a: 1}
     - first:
         name: _EmissionColor
       second: {r: 0.2587326, g: 0.33088237, b: 0.12164793, a: 1}
+    - first:
+        name: _HueVariation
+      second: {r: 1, g: 0.5, b: 0, a: 0.1}
     - first:
         name: _TranslucencyColor
       second: {r: 0.85, g: 0.674, b: 0.41, a: 1}
