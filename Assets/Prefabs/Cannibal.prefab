@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 114215143224513318}
   m_Layer: 12
   m_Name: Cannibal
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -361,9 +361,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4862562871971514}
   - component: {fileID: 54834919276491144}
+  - component: {fileID: 114948318535230978}
   m_Layer: 12
   m_Name: NotStatic
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1250,7 +1251,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1419312899644530}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2.59, y: 0, z: 2.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4964696464900024}
@@ -1695,6 +1696,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_characterControllerExt: {fileID: 114629617129819988}
   m_maxRunSpeed: 5
+--- !u!114 &114948318535230978
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1419312899644530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1123ed074b6511147b6704ba35126297, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detect_value: 30
 --- !u!137 &137653553171678228
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

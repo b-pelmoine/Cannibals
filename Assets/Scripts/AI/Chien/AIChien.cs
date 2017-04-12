@@ -16,8 +16,8 @@ public class AIChien : MonoBehaviour {
     {
         Viande, Buisson, Animal
     }
-    public btargetType barkingTargetType;
-    public GameObject barkingTarget = null;
+    public btargetType targetType;
+    public GameObject target = null;
     public bool sawSomething = false;
 	// Use this for initialization
 	void Start () {
@@ -34,7 +34,7 @@ public class AIChien : MonoBehaviour {
             targetPosition = patrouille[currentWaypoint];
             arrived = true;
         }
-        if (los!=null && barkingTarget==null && los.Updated)
+        if (los!=null && !sawSomething && los.Updated)
         {
             AnalyseSight();
         }
@@ -46,15 +46,15 @@ public class AIChien : MonoBehaviour {
         {
             if (los.sighted[i].CompareTag("Viande"))
             {
-                barkingTarget = los.sighted[i];
-                barkingTargetType = btargetType.Viande;
+                target = los.sighted[i];
+                targetType = btargetType.Viande;
                 sawSomething = true;
             }
-            else if ((barkingTarget == null || (barkingTargetType==btargetType.Animal && (transform.position- barkingTarget.transform.position).sqrMagnitude>(transform.position-los.sighted[i].transform.position).sqrMagnitude))
+            else if ((target == null || (targetType==btargetType.Animal && (transform.position- target.transform.position).sqrMagnitude>(transform.position-los.sighted[i].transform.position).sqrMagnitude))
                 && los.sighted[i].CompareTag("Animal"))
             {
-                barkingTarget = los.sighted[i];
-                barkingTargetType = btargetType.Animal;
+                target = los.sighted[i];
+                targetType = btargetType.Animal;
                 sawSomething = true;
             }
         }
