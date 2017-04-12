@@ -65,6 +65,22 @@ public class Waypoint : MonoBehaviour {
         }
     }
 
+    public int getNearest(Vector3 position)
+    {
+        int nearest = -1;
+        for(int i = 0; i < points.Count; i++)
+        {
+            if (nearest == -1 || (position - this[i]).sqrMagnitude < (position - this[nearest]).sqrMagnitude)
+                nearest = i;
+        }
+        return nearest;
+    }
+
+    public int getNext(int current)
+    {
+        return points[current][0];
+    }
+
     public Vector3 this[int key]
     {
         get

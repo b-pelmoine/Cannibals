@@ -10,15 +10,11 @@ public class Cannibal : MonoBehaviour {
     public RewiredInput m_rewiredInput;
 
     [Space(20)]
-    [SerializeField]
-    Cannibal_Movement m_cannibalMovement;
+    public Cannibal_Movement m_cannibalMovement;
 
-    public Cannibal_Movement CannibalMovement
-    {
-        get { return m_cannibalMovement; }
-    }
+    public Cannibal_Skill m_cannibalSkill;
 
-    public Call m_call;
+    public Cannibal_Appearence m_cannibalAppearence;
 
     /// <summary>
     /// Knock out the cannibal.
@@ -33,5 +29,23 @@ public class Cannibal : MonoBehaviour {
     public bool Resuscitate() { return ((Cannibal_State)m_stateMachine.behaviour.currentState).Resuscitate(); }
 
 
+    /// <summary>
+    /// The cannibal will loose his object
+    /// </summary>
+    /// <returns>false if the cannibal has no object or don't want to loose it</returns>
+    public bool LooseCannibalObject() { return ((Cannibal_State)m_stateMachine.behaviour.currentState).LooseCannibalObject(); }
 
+
+    /// <summary>
+    /// Kill the cannibal
+    /// </summary>
+    /// <returns>false if the cannibal can't be killed in the current state</returns>
+    public bool Kill() { return ((Cannibal_State)m_stateMachine.behaviour.currentState).Kill(); }
+
+
+    /// <summary>
+    /// Revive the cannibal
+    /// </summary>
+    /// <returns>false if the cannibal can't be revived in the current state</returns>
+    public bool Revive() { return ((Cannibal_State)m_stateMachine.behaviour.currentState).Revive(); }
 }
