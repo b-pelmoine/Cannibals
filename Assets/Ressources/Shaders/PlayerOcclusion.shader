@@ -1,4 +1,4 @@
-﻿Shader "Custom/PlayerOcclusion" {
+﻿Shader "Custom/PlayerOcclusion_bark" {
 	Properties {
 		_Color ("Color", Color) = (1,1,1,1)
 		_MainTex ("Albedo (RGB)", 2D) = "white" {}
@@ -6,7 +6,7 @@
 		_Metallic("Metallic", Range(0,1)) = 0.0
 	}
 	SubShader {
-		Tags{ "Queue" = "Transparent" "RenderType" = "Transparent" }
+		Tags{ "Queue" = "Transparent" "RenderType" = "Transparent" "OptimizedShader" = "OPTIMIZED_SHADER_NAME"}
 		LOD 200
 		
 		CGPROGRAM
