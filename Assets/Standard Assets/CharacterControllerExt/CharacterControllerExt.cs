@@ -1289,7 +1289,7 @@ namespace EquilibreGames
 
                 for(int i=0; i < collisionLength; i++)
                 {
-                    if (collisionsResult3D[i].enabled)
+                    if (!collisionsResult3D[i].isTrigger)
                     {
                         CharacterControllerExt c = collisionsResult3D[i].gameObject.GetComponentInParent<CharacterControllerExt>();
                         if (c && c != this)
