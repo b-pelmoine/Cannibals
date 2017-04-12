@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{D1C7715C-8472-4B77-B603-950C3928E700}" SchemaVersion="75">
 	<Events>
-		<WorkUnit Name="Default Work Unit" ID="{D1C7715C-8472-4B77-B603-950C3928E700}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{D1C7715C-8472-4B77-B603-950C3928E700}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="ambiance_forest" ID="{A35D8603-CD06-4193-81C1-67936688A7C8}">
+					<ChildrenList>
+						<Action Name="Play" ID="{C7CD6E81-A5D1-4974-BA4A-4261FCEF1484}" ShortID="721343991" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{66DC7D33-0237-416A-BD23-E2D6CBB4A4AF}" Global="false">
+									<ObjectRef Name="Faune" ID="{E59D695A-FF69-4642-9003-B1EBE17E3D9C}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Play" ID="{BE3B1D94-F172-46C3-BA08-50CEBE492A59}" ShortID="583241818" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{105FCE3B-9AFB-49F6-BCAE-A044E7BF749E}" Global="false">
+									<ObjectRef Name="Loop Forest Tone 1" ID="{E899EABB-4633-49E8-BE31-66871824B0DA}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Play" ID="{3EC071F0-7622-486A-84F1-A70570E25ACC}" ShortID="631574687" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{80594BC3-3D2B-47C3-9DD3-814ECEA08A72}" Global="false">
+									<ObjectRef Name="Loop Forest Tone 2" ID="{B2E6A4B5-69C0-4CD9-AF3B-0D9CB650E00E}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
 	</Events>
 </WwiseDocument>
