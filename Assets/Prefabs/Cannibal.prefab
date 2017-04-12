@@ -1113,7 +1113,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1067895843713848}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.98, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4862562871971514}
@@ -1592,7 +1592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 1
-  force: {x: 0, y: -9, z: 0}
+  force: {x: 0, y: -30, z: 0}
 --- !u!114 &114629617129819988
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1634,7 +1634,12 @@ MonoBehaviour:
   toleranceConst: 0.01
   pushBackResolution: 5
   circleConfigurationIndex: 0
-  repulsedLayer:
+  characterPushbackLayermask:
+    serializedVersion: 2
+    m_Bits: 4096
+  characterPushback: 0
+  elasticForce: 0.1
+  objectPushbackLayerMask:
     serializedVersion: 2
     m_Bits: 0
   repulsionFactor: 3

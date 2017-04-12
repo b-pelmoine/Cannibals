@@ -10,6 +10,7 @@ namespace EquilibreGames
     public class CharacterControllerExt : MonoBehaviour
     {
         public enum MODE { _2D, _3D }
+        public enum CHARACTER_PUSHBACK { ELASTIC }
 
         [System.Serializable]
         public class ColliderInfo
@@ -129,9 +130,14 @@ namespace EquilibreGames
         [Space(20)][Tooltip("The current configuration of your circle used")]
         public int circleConfigurationIndex = 0;
 
+        [Space(10)]
+        public LayerMask characterPushbackLayermask;
+        [Tooltip("Will define how characterController will pushback together")]
+        public CHARACTER_PUSHBACK characterPushback;
+        public float elasticForce = 0.5f;
 
-        [Space(5)][Tooltip("Object in this layer will be repulsed by the characterController2D")]
-        public LayerMask repulsedLayer;
+        [Space(10)][Tooltip("Object in this layer will be repulsed by the characterController2D")]
+        public LayerMask objectPushbackLayerMask;
         [Tooltip(" >1 mean that your character eject objects.  < 0 is not coherent but why not ?")]
         public float repulsionFactor = 3f;
 
@@ -244,6 +250,7 @@ namespace EquilibreGames
             }
             else
             {
+                CheckCharacterControllerExtCollision3D();
                 HandleCollision3D(0, pushBackResolution);
                 ProbeGround3D();
                 isGrounded = CheckGround3D(characterControllerColliders[circleConfigurationIndex].colliders[feetIndex].radius + toleranceConst, out groundNormal);
@@ -294,7 +301,7 @@ namespace EquilibreGames
         {
             //Check for repulsed object.
             //CARE IT'S NOT FULLY PHYSICS COHERENT (AN OBJECT DON'T ADD FORCE ONLY WITH ITS VELOCITY)
-            if (repulsedLayer != default(LayerMask))
+            if (objectPushbackLayerMask != default(LayerMask))
             {
                 foreach (ColliderInfo colInfo in characterControllerColliders[circleConfigurationIndex].colliders)
                 {
@@ -1271,6 +1278,44 @@ namespace EquilibreGames
             float distanceFromCenter = Vector3.Distance(p, feetCollider.position);
 
             return distanceFromCenter <= distanceRatio * feetCollider.radius;
+        }
+
+
+        void CheckCharacterControllerExtCollision3D()
+        {
+            foreach (ColliderInfo colInfo in characterControllerColliders[circleConfigurationIndex].colliders)
+            {
+                int collisionLength = Physics.OverlapSphereNonAlloc(colInfo.position, colInfo.radius, collisionsResult3D, characterPushbackLayermask);
+
+                for(int i=0; i < collisionLength; i++)
+                {
+                    if (collisionsResult3D[i].enabled)
+                    {
+                        CharacterControllerExt c = collisionsResult3D[i].gameObject.GetComponentInParent<CharacterControllerExt>();
+                        if (c && c != this)
+                        {
+                            PushBackCharacterController3D(c);
+                        }
+                    }
+                }
+            }
+
+        }
+
+
+        private void PushBackCharacterController3D(CharacterControllerExt otherCharacterController)
+        {
+            switch(characterPushback)
+            {
+                case CHARACTER_PUSHBACK.ELASTIC:
+
+                    Vector3 normal = (this.characterTransform.position - otherCharacterController.characterTransform.position);
+
+                    otherCharacterController.velocity -= elasticForce * normal.normalized / normal.sqrMagnitude;
+                    this.velocity += elasticForce * normal.normalized / normal.sqrMagnitude;
+
+                    break;
+            }
         }
 
 #if UNITY_EDITOR || EQUILIBRE_GAMES_DEBUG
