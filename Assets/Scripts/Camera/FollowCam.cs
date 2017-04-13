@@ -13,14 +13,12 @@ public class FollowCam : MonoBehaviour {
     }
 
     public Transform playerOne;
+    public Vector3 pOnePos;
     public Transform playerTwo;
+    public Vector3 pTwoPos;
 
     //flag to know if the camera can unzoom to see all players
     private bool cameraCanSeePlayers;
-
-    [SerializeField]
-    [Tooltip("Debug only (false in release)")]
-    private bool forceUpdate = false;
 
     private Vector3 barycenter, prevBarycenter;
     private CameraState state;
@@ -35,6 +33,9 @@ public class FollowCam : MonoBehaviour {
     [Range(.5f, 4)]
     [Tooltip("change the point of view angle")]
     public float verticalityFactor;
+
+    [Range(0f, 10f)]
+    public float openViewFactor;
 
     [Range(.5f, 1f)]
     public float stickFactor;
@@ -93,42 +94,42 @@ public class FollowCam : MonoBehaviour {
     }
 
 	void FixedUpdate () {
-        if(playerOne.hasChanged || playerTwo.hasChanged || forceUpdate)
+        pOnePos = playerOne.position + Vector3.Normalize(playerOne.position - playerTwo.position) * openViewFactor;
+        pTwoPos = playerTwo.position + Vector3.Normalize(playerTwo.position - playerOne.position) * openViewFactor;
+
+        prevBarycenter = barycenter;
+        barycenter = getBarycenter();
+        barycenter = Vector3.Lerp(prevBarycenter, barycenter, Time.deltaTime* dragFactor);
+
+        Vector3 playersBarycenter = Vector3.Lerp(playerOne.position, playerTwo.position, .5f);
+        float distanceplayersBarycenter = Vector3.Distance(barycenter, playersBarycenter);
+        distanceBetweenPlayers = Vector3.Distance(pOnePos, pTwoPos);
+        float distanceBetweenCamPlayersBarycenter = Vector3.Distance(playersBarycenter, transform.position);
+        float distance = distanceBetweenPlayers - distanceBetweenCamPlayersBarycenter + (distanceplayersBarycenter);
+
+        cameraCanSeePlayers = (distanceBetweenPlayers >= farPlan+closePlan) ? false : true;
+
+        if (state == CameraState.IDLE && barycenter != prevBarycenter)
         {
-            prevBarycenter = barycenter;
-            barycenter = getBarycenter();
-            barycenter = Vector3.Lerp(prevBarycenter, barycenter, Time.deltaTime* dragFactor);
-
-            Vector3 playersBarycenter = Vector3.Lerp(playerOne.position, playerTwo.position, .5f);
-            float distanceplayersBarycenter = Vector3.Distance(barycenter, playersBarycenter);
-            distanceBetweenPlayers = Vector3.Distance(playerOne.position, playerTwo.position);
-            float distanceBetweenCamPlayersBarycenter = Vector3.Distance(playersBarycenter, transform.position);
-            float distance = distanceBetweenPlayers - distanceBetweenCamPlayersBarycenter + (distanceplayersBarycenter);
-
-            cameraCanSeePlayers = (distanceBetweenPlayers >= farPlan+closePlan) ? false : true;
-
-            if (state == CameraState.IDLE && barycenter != prevBarycenter)
-            {
-                state = (distance > 0) ? CameraState.MOVE_UP : CameraState.MOVE_DOWN;
-                moveCamera(distance);
-            }
-            else
-            {
-                state = CameraState.IDLE;
-                if (transform.position != goToPosition)
-                    moveCamera(distanceRemaining);
-            }
-
-            float verticalVariation = transform.position.y - barycenter.y;
-            float Yoffset = (verticalVariation < closePlan) ? barycenter.y + closePlan : transform.position.y;
-            Yoffset = (verticalVariation > farPlan) ? barycenter.y + farPlan : Yoffset;
-            cameraZOffset = -Yoffset;
-            cameraZOffset = Mathf.Round(cameraZOffset * 100f) / (100f*verticalityFactor);
-            transform.position = new Vector3(barycenter.x + cameraXOffset, Yoffset, barycenter.z + cameraZOffset + distanceplayersBarycenter/5);
-            transform.LookAt(barycenter);
-
-            prevDistance = distance;
+            state = (distance > 0) ? CameraState.MOVE_UP : CameraState.MOVE_DOWN;
+            moveCamera(distance);
         }
+        else
+        {
+            state = CameraState.IDLE;
+            if (transform.position != goToPosition)
+                moveCamera(distanceRemaining);
+        }
+
+        float verticalVariation = transform.position.y - barycenter.y;
+        float Yoffset = (verticalVariation < closePlan) ? barycenter.y + closePlan : transform.position.y;
+        Yoffset = (verticalVariation > farPlan) ? barycenter.y + farPlan : Yoffset;
+        cameraZOffset = -Yoffset;
+        cameraZOffset = Mathf.Round(cameraZOffset * 100f) / (100f*verticalityFactor);
+        transform.position = new Vector3(barycenter.x + cameraXOffset, Yoffset, barycenter.z + cameraZOffset + distanceplayersBarycenter/5);
+        transform.LookAt(barycenter);
+
+        prevDistance = distance;
     }
 
     void OnDrawGizmos()
@@ -141,6 +142,9 @@ public class FollowCam : MonoBehaviour {
         Gizmos.DrawLine(barycenter, playerTwo.position);
         Gizmos.color = Color.grey - new Color(0, 0, 0, .5f);
         Gizmos.DrawWireSphere(barycenter, catchElementsRadius);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(playerOne.position, pOnePos);
+        Gizmos.DrawLine(playerTwo.position, pTwoPos);
     }
 
     void moveCamera(float distance)
