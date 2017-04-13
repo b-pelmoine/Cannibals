@@ -14,11 +14,6 @@ public class LineOfSightManager : MonoBehaviour {
         agents_sight = new List<LineOfSight>();
         StartCoroutine(Detect());
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public static void Register(LineOfSight agent)
     {

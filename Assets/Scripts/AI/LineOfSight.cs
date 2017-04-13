@@ -8,9 +8,9 @@ public class LineOfSight : MonoBehaviour {
     public Shader shader;
     public static RenderTexture texture;
     static Texture2D tex2D;
-    static List<GameObject> detected_objects;
+    static List<GameObject> detected_objects = new List<GameObject>();
     public List<GameObject> sighted;
-    static List<int> detect_rate;
+    static List<int> detect_rate= new List<int>();
     bool updated = false;
 
     void Awake()
@@ -19,11 +19,6 @@ public class LineOfSight : MonoBehaviour {
             texture = new RenderTexture(128, 128, 32, RenderTextureFormat.ARGB32);
         if (tex2D == null)
             tex2D = new Texture2D(texture.width, texture.height, TextureFormat.ARGB32, false);
-        if (detected_objects == null)
-        {
-            detected_objects = new List<GameObject>();
-            detect_rate = new List<int>();
-        }
     }
 
 	void Start () {
