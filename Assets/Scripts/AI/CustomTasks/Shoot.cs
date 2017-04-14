@@ -10,10 +10,8 @@ public class Shoot : ActionTask {
 
     protected override void OnExecute()
     {
-        target.value.GetComponent<GraphOwner>().SendEvent("Death");
-        return;
         Vector3 position = agent.transform.position;
-        Vector3 direction = agent.transform.rotation*Vector3.forward;
+        Vector3 direction = agent.transform.forward;
         RaycastHit hit;
         if(Physics.Raycast(position,direction, out hit, distance.value, mask.value))
         {
