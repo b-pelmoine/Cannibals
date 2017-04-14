@@ -23,10 +23,11 @@ public class OcclusionShaderManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-
         objects.Clear();
         foreach (Transform trans in objs)
             objects.Add(trans.position);
-
+        Shader.SetGlobalFloat("_Distance", Width);
+        Shader.SetGlobalVectorArray("_Objects", objects);
+        Shader.SetGlobalInt("_ObjectsLength", objects.Count);
     }
 }
