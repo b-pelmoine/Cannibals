@@ -12,6 +12,8 @@ public class BasicCall : CannibalObject, ICall {
     [SerializeField]
     AudioSource m_audioSource;
 
+    [SerializeField]
+    Collider m_collider;
 
 #if UNITY_EDITOR
     public bool debug = true;
@@ -31,6 +33,18 @@ public class BasicCall : CannibalObject, ICall {
             timer = Time.time + 5f;
         }
 #endif
+    }
+
+    public override void BeTaken(Transform newParent)
+    {
+        base.BeTaken(newParent);
+        m_collider.enabled = false;
+    }
+
+    public override void Exchange(CannibalObject with)
+    {
+        base.Exchange(with);
+        m_collider.enabled = true;
     }
 
 #if UNITY_EDITOR
