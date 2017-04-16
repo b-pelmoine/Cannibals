@@ -187,6 +187,13 @@ namespace EquilibreGames
             get { return groundNormal; }
         }
 
+        private Vector3 groundPoint;
+        public Vector3 GroundPoint
+        {
+            get { return groundNormal; }
+        }
+
+
         private bool[] contactDebugguer;
 
         private GroundHit primaryGround;
@@ -201,13 +208,22 @@ namespace EquilibreGames
         private Collider2D[] collisionsResult2D;
         private Collider[] collisionsResult3D;
 
+
+        //CLAMP
+        [Space(10)]
+        public bool clamping = true;
+        public Transform currentlyClampedTo { get; set; }
+        private Vector3 lastGroundPosition;
+
 #if UNITY_EDITOR || EQUILIBRE_GAMES_DEBUG
         public bool debugguer = true;
 #endif
 
+        public Transform currentGroundTransform;
 
         void Awake()
         {
+            currentlyClampedTo = null;
             collisionsResult2D = new Collider2D[maxCollisionPerFrame];
             collisionsResult3D = new Collider[maxCollisionPerFrame];
 
@@ -246,17 +262,36 @@ namespace EquilibreGames
 
                 HandleCollision2D(0, pushBackResolution);
                 ProbeGround2D();
-                isGrounded = CheckGround2D(characterControllerColliders[circleConfigurationIndex].colliders[feetIndex].radius + toleranceConst, out groundNormal);
+                isGrounded = CheckGround2D(characterControllerColliders[circleConfigurationIndex].colliders[feetIndex].radius + toleranceConst, out groundNormal, out groundPoint);
             }
             else
             {
+                // Check if we are clamped to an object implicity or explicity
+                bool isClamping = clamping || currentlyClampedTo != null;
+                Transform clampedTo = currentlyClampedTo != null ? currentlyClampedTo : currentGroundTransform;
+
+                //CLAMPING MOVING PLATfORM
+                // if (clampToMovingGround && isClamping && clampedTo != null && clampedTo.position - lastGroundPosition != Vector3.zero)
+                //   transform.position += clampedTo.position - lastGroundPosition;
+
                 CheckCharacterControllerExtCollision3D();
                 HandleCollision3D(0, pushBackResolution);
                 ProbeGround3D();
-                isGrounded = CheckGround3D(characterControllerColliders[circleConfigurationIndex].colliders[feetIndex].radius + toleranceConst, out groundNormal);
+
+                if (clamping && primaryGround != null)
+                    ClampToGround3D();
+
+                if (isClamping && clampedTo)
+                    lastGroundPosition = clampedTo.position;
+
+                isGrounded = CheckGround3D(characterControllerColliders[circleConfigurationIndex].colliders[feetIndex].radius + toleranceConst, out groundNormal, out groundPoint);
             }
 
             acceleration = Vector3.zero;
+
+            if (useGeneralPlatformerVelocityRule && isGrounded && gravity)
+                gravity.isActive = false;
+
         }
 
         void OnDisable()
@@ -277,6 +312,14 @@ namespace EquilibreGames
             characterTransform.position += velocity*time + 0.5f* acceleration * time * time;
         }
 
+        /// <summary>
+        /// Clamp the characterController to the current finded Ground
+        /// </summary>
+        void ClampToGround3D()
+        {
+            float d = primaryGround.distance - characterControllerColliders[circleConfigurationIndex].colliders[feetIndex].radius;
+            characterTransform.position -= characterTransform.up * d;
+        }
 
         /// <summary>
         /// Get the velocity the next time characterControler will update.
@@ -696,6 +739,9 @@ namespace EquilibreGames
                 if (collisionIngorance != null && collisionIngorance.Ignore(this.gameObject, feetCollider.name))
                     return;
 
+
+                currentGroundTransform = hit.transform;
+
                 // By reducing the initial SphereCast's radius by Tolerance, our casted sphere no longer fits with
                 // our controller's shape. Reconstruct the sphere cast with the proper radius
                 SimulateCircleCast(hit.normal, out hit);
@@ -829,6 +875,7 @@ namespace EquilibreGames
                 if (ignoreIndex != null && ignoreIndex.Ignore(this.gameObject, feetCollider.name))
                     return;
 
+                currentGroundTransform = hit.transform;
 
                 RaycastHit2D sphereCastHit;
 
@@ -882,6 +929,8 @@ namespace EquilibreGames
                 CollisionIgnorance collisionIgnorance = hit.collider.gameObject.GetComponent<CollisionIgnorance>();
                 if (collisionIgnorance != null && collisionIgnorance.Ignore(this.gameObject, feetCollider.name))
                     return;
+
+                currentGroundTransform = hit.transform;
 
                 // By reducing the initial SphereCast's radius by Tolerance, our casted sphere no longer fits with
                 // our controller's shape. Reconstruct the sphere cast with the proper radius
@@ -1001,6 +1050,9 @@ namespace EquilibreGames
                 if (ignoreIndex != null && ignoreIndex.Ignore(this.gameObject, feetCollider.name))
                     return;
 
+
+                currentGroundTransform = hit.transform;
+
                 RaycastHit sphereCastHit;
 
                 if (SimulateSphereCast(hit.normal, out sphereCastHit))
@@ -1114,9 +1166,10 @@ namespace EquilibreGames
         /// <param name="distance"></param>
         /// <param name="groundNormal"></param>
         /// <returns></returns>
-        public bool CheckGround2D(float distance, out Vector3 groundNormal)
+        public bool CheckGround2D(float distance, out Vector3 groundNormal, out Vector3 groundPoint)
         {
             groundNormal = Vector2.zero;
+            groundPoint = Vector3.zero;
 
             if (primaryGround == null || primaryGround.distance > distance)
             {
@@ -1148,6 +1201,7 @@ namespace EquilibreGames
                     //Debug.Log("steadyGround : " + (!OnSteadyGround(nearGround.normal, nearGround.point)));
 
                     groundNormal = nearGround.normal;
+                    groundPoint = nearGround.point;
                     return true;
                 }
                 // Check if we are on a step or stair
@@ -1164,10 +1218,12 @@ namespace EquilibreGames
             if (farGround != null)
             {
                 groundNormal = farGround.normal;
+                groundPoint = farGround.point;
             }
             else
             {
                 groundNormal = primaryGround.normal;
+                groundNormal = primaryGround.point;
             }
 
             return true;
@@ -1175,9 +1231,10 @@ namespace EquilibreGames
         #endregion
 
 
-        public bool CheckGround3D(float distance, out Vector3 groundNormal)
+        public bool CheckGround3D(float distance, out Vector3 groundNormal, out Vector3 groundPoint)
         {
             groundNormal = Vector3.zero;
+            groundPoint = Vector3.zero;
 
             if (primaryGround == null || primaryGround.distance > distance)
             {
@@ -1190,6 +1247,7 @@ namespace EquilibreGames
                 if (flushGround != null && Vector3.Angle(flushGround.normal, characterTransform.up) < maxGroundAngle && flushGround.distance < distance)
                 {
                     groundNormal = flushGround.normal;
+                    groundPoint = flushGround.point;
                     return true;
                 }
 
@@ -1203,6 +1261,7 @@ namespace EquilibreGames
                 if (nearGround != null && nearGround.distance < distance && Vector3.Angle(nearGround.normal, characterTransform.up) < maxGroundAngle && !OnSteadyGround3D(nearGround.normal, nearGround.point))
                 {
                     groundNormal = nearGround.normal;
+                    groundPoint = nearGround.point;
                     return true;
                 }
 
@@ -1210,6 +1269,7 @@ namespace EquilibreGames
                 if (stepGround != null && stepGround.distance < distance && Vector3.Angle(stepGround.normal, characterTransform.up) < maxGroundAngle)
                 {
                     groundNormal = stepGround.normal;
+                    groundPoint = stepGround.point;
                     return true;
                 }
 
@@ -1220,10 +1280,12 @@ namespace EquilibreGames
             if (farGround != null)
             {
                 groundNormal = farGround.normal;
+                groundPoint = farGround.point;
             }
             else
             {
                 groundNormal = primaryGround.normal;
+                groundPoint = primaryGround.point;
             }
 
             return true;
