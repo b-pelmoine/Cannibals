@@ -24,8 +24,12 @@ public class Cannibal_Movement : MonoBehaviour {
     /// <param name="input">input x/z between 0 and 1 </param>
     public void GroundMove(Vector2 input)
     {
-        m_characterControllerExt.velocity.x = m_maxRunSpeed*input.x;
-        m_characterControllerExt.velocity.z = m_maxRunSpeed*input.y;
+        Vector3 input3D = new Vector3(input.x, 0, input.y);
+        input3D = ExtendedMath.ProjectVectorOnPlane(m_characterControllerExt.GroundNormal, input3D);
+        input3D.Normalize();
+
+        m_characterControllerExt.velocity.x = m_maxRunSpeed* input3D.x;
+        m_characterControllerExt.velocity.z = m_maxRunSpeed* input3D.z;
 
         if(m_characterControllerExt.velocity.magnitude > m_maxRunSpeed)
         {

@@ -1108,7 +1108,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1067895843713848}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.7, y: 0, z: 0}
+  m_LocalPosition: {x: -4.95, y: 0.19, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4862562871971514}
@@ -1246,7 +1246,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1419312899644530}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.59, y: 0, z: 2.78}
+  m_LocalPosition: {x: 0, y: -0.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4964696464900024}
@@ -1529,16 +1529,16 @@ MonoBehaviour:
   characterControllerColliders:
   - colliders:
     - radius: 0.4
-      transform: {fileID: 4403151525215038}
-      offset: {x: 0.36, y: 0}
+      transform: {fileID: 4964696464900024}
+      offset: {x: 0, y: -0.38}
       name: Feet
     - radius: 0.4
-      transform: {fileID: 4403151525215038}
-      offset: {x: -0.14, y: 0}
+      transform: {fileID: 4964696464900024}
+      offset: {x: 0, y: 0.21}
       name: Body
     - radius: 0.2
-      transform: {fileID: 4403151525215038}
-      offset: {x: -0.76, y: 0}
+      transform: {fileID: 4964696464900024}
+      offset: {x: 0, y: 0.88}
       name: 
   feetIndex: 0
   ignoredColliders2D: []
@@ -1569,7 +1569,9 @@ MonoBehaviour:
   maxCollisionPerFrame: 20
   acceleration: {x: 0, y: 0, z: 0}
   velocity: {x: 0, y: 0, z: 0}
+  clamping: 1
   debugguer: 1
+  currentGroundTransform: {fileID: 0}
 --- !u!114 &114753656786614946
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1620,7 +1622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_characterControllerExt: {fileID: 114629617129819988}
-  m_maxRunSpeed: 5
+  m_maxRunSpeed: 10
 --- !u!114 &114948318535230978
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1751,8 +1753,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: -0.0000019073486, y: 0.0000009536743, z: 0}
-    m_Extent: {x: 5.0000024, y: 0.0000005384735, z: 5}
+    m_Center: {x: 0, y: 0.00000059604645, z: 0}
+    m_Extent: {x: 5.0000024, y: 0.0000005384735, z: 4.9999995}
   m_DirtyAABB: 0
 --- !u!137 &137653553171678228
 SkinnedMeshRenderer:
