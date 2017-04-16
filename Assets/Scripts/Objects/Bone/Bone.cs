@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Steak : CannibalObject, IDropable {
+public class Bone : CannibalObject, IDropable {
 
     [SerializeField]
     Rigidbody m_rigidbody;

@@ -5,8 +5,6 @@ using UnityEngine;
 public class Cannibal_Skill : MonoBehaviour {
 
 
-    public Call m_call;
-
     public CannibalObject m_cannibalObject { get; private set; }
 
     [SerializeField]

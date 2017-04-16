@@ -7,7 +7,7 @@ using UnityEditor;
 /// <summary>
 /// Classe pour l'appeau
 /// </summary>
-public class Call : MonoBehaviour {
+public class BasicCall : CannibalObject, ICall {
 
     [SerializeField]
     AudioSource m_audioSource;
