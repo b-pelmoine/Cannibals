@@ -35,15 +35,16 @@ public class BasicCall : CannibalObject, ICall {
 #endif
     }
 
-    public override void BeTaken(Transform newParent)
+    public override void Take(Transform newParent)
     {
-        base.BeTaken(newParent);
+        base.Take(newParent);
         m_collider.enabled = false;
     }
 
-    public override void Exchange(CannibalObject with)
+
+    public override void Release()
     {
-        base.Exchange(with);
+        base.Release();
         m_collider.enabled = true;
     }
 

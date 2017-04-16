@@ -19,13 +19,12 @@ public class Cannibal_Skill : MonoBehaviour {
         if (m_cannibalObject)
         {
             m_cannibalObject.Exchange(cannibalObject);
-        }
-        else
-        {
-            cannibalObject.BeTaken(cannibalObjectParent);
+            m_cannibalObject.Release();
         }
 
-        m_cannibalObject = cannibalObject;
+
+       cannibalObject.Take(cannibalObjectParent);
+       m_cannibalObject = cannibalObject;
     }
 
     public void LooseCannibalObject()
