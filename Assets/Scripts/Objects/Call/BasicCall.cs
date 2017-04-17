@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -9,6 +10,8 @@ using UnityEditor;
 /// </summary>
 public class BasicCall : CannibalObject, ICall {
 
+    public static event Action<BasicCall> BasicCallUsed;
+
     [SerializeField]
     AudioSource m_audioSource;
 
@@ -17,8 +20,6 @@ public class BasicCall : CannibalObject, ICall {
 
 #if UNITY_EDITOR
     public bool debug = true;
-    bool used = false;
-    float timer = 0;
 #endif
 
 
@@ -26,11 +27,13 @@ public class BasicCall : CannibalObject, ICall {
     {
         m_audioSource.Play();
 
+        if (BasicCallUsed != null)
+            BasicCallUsed(this);
+
 #if UNITY_EDITOR
-        if(debug)
+        if (debug)
         {
-            used = true;
-            timer = Time.time + 5f;
+            Debug.Log("Appeau");
         }
 #endif
     }
@@ -47,18 +50,5 @@ public class BasicCall : CannibalObject, ICall {
         base.Release();
         m_collider.enabled = true;
     }
-
-#if UNITY_EDITOR
-    void OnGUI()
-    {
-        if (used)
-        {
-            Handles.Label(this.transform.position + new Vector3(0, 1, 0), "APPEAU");
-           
-            if(Time.time > timer)
-                 used = false;
-        }
-    }
-#endif
 
 }

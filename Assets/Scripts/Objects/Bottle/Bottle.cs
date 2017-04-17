@@ -1,8 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class Bone : CannibalObject, IDropable {
+public class Bottle : CannibalObject, IShakable {
+
+    public static event Action<Bottle> BottleShaked;
 
     [SerializeField]
     Rigidbody m_rigidbody;
@@ -10,14 +13,10 @@ public class Bone : CannibalObject, IDropable {
     [SerializeField]
     Collider m_collider;
 
-    [SerializeField]
-    Vector3 dropDirection = new Vector3(0, 1, 0);
-   
-    public void Throw(float force , Vector3 normalizedDirection)
+    public void Shake()
     {
-        m_rigidbody.isKinematic = false;
-        m_collider.enabled = true;
-        // m_rigidbody.AddForce(force*(normalizedDirection+ dropDirection).normalized, ForceMode.Impulse);
+        if (BottleShaked != null)
+            BottleShaked(this);
     }
 
     public override void Take(Transform newParent)
