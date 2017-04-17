@@ -6250,29 +6250,30 @@
 										</RandomSequenceContainer>
 									</ChildrenList>
 								</RandomSequenceContainer>
-								<RandomSequenceContainer Name="Loop Forest Tone 1" ID="{E899EABB-4633-49E8-BE31-66871824B0DA}" ShortID="961204042">
+								<RandomSequenceContainer Name="Loop forest tone" ID="{8325D55D-90B7-4D5E-B6E8-AE1F53F60669}" ShortID="555968419">
 									<PropertyList>
+										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
-										<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="5"/>
+										<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="4"/>
 										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 										<Property Name="RandomOrSequence" Type="int16" Value="0"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
 										</Reference>
 										<Reference Name="OutputBus">
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="Amb, Field, Birds, Wind,-NORM_02-03" ID="{7061A00C-5A35-49BF-BC63-F07384F0FF2B}" ShortID="865248381" Type="SoundFX">
+										<Sound Name="Amb, tone, quiet birds" ID="{7061A00C-5A35-49BF-BC63-F07384F0FF2B}" ShortID="865248381" Type="SoundFX">
 											<PropertyList>
 												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
-													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
 												</Reference>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
@@ -6290,32 +6291,33 @@
 										</Sound>
 									</ChildrenList>
 									<Playlist>
-										<ItemRef Name="Amb, Field, Birds, Wind,-NORM_02-03" ID="{7061A00C-5A35-49BF-BC63-F07384F0FF2B}"/>
+										<ItemRef Name="Amb, tone, quiet birds" ID="{7061A00C-5A35-49BF-BC63-F07384F0FF2B}"/>
 									</Playlist>
 								</RandomSequenceContainer>
-								<RandomSequenceContainer Name="Loop Forest Tone 2" ID="{B2E6A4B5-69C0-4CD9-AF3B-0D9CB650E00E}" ShortID="439910365">
+								<RandomSequenceContainer Name="Loop forest birds" ID="{6269A903-DAA8-408C-821C-BC0DED45E95D}" ShortID="10424399">
 									<PropertyList>
+										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
-										<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="5"/>
+										<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="4"/>
 										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 										<Property Name="RandomOrSequence" Type="int16" Value="0"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
 										</Reference>
 										<Reference Name="OutputBus">
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="24 - Sky lark - Feldlerch-NORM_05-01" ID="{33E15918-6471-4FBD-87F9-99CC00FE2C45}" ShortID="415366771" Type="SoundFX">
+										<Sound Name="Amb birds" ID="{33E15918-6471-4FBD-87F9-99CC00FE2C45}" ShortID="415366771" Type="SoundFX">
 											<PropertyList>
 												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
-													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
 												</Reference>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
@@ -6333,7 +6335,7 @@
 										</Sound>
 									</ChildrenList>
 									<Playlist>
-										<ItemRef Name="24 - Sky lark - Feldlerch-NORM_05-01" ID="{33E15918-6471-4FBD-87F9-99CC00FE2C45}"/>
+										<ItemRef Name="Amb birds" ID="{33E15918-6471-4FBD-87F9-99CC00FE2C45}"/>
 									</Playlist>
 								</RandomSequenceContainer>
 							</ChildrenList>
@@ -6368,7 +6370,7 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<Sound Name="AT-08 53 Ducks, Quack - D-NORM_26-60_R" ID="{AC81E15F-0FE0-433A-95A6-3D14A598F5F7}" ShortID="184224933" Type="SoundFX">
+												<Sound Name="Duck_multiple_2" ID="{AC81E15F-0FE0-433A-95A6-3D14A598F5F7}" ShortID="184224933" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -6387,7 +6389,7 @@
 														<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_26-60_R" ID="{58C1D5C2-2304-46CA-BCFF-A51F57E518CE}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 53 Ducks, Quack - D-NORM_31-72_R" ID="{D9843557-BDA1-49AE-AE5D-1217ECB3A795}" ShortID="171349107" Type="SoundFX">
+												<Sound Name="Duck_49" ID="{D9843557-BDA1-49AE-AE5D-1217ECB3A795}" ShortID="171349107" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -6406,7 +6408,7 @@
 														<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_31-72_R" ID="{AC1F2C89-E687-4ECF-8B74-E318B63DB78A}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 53 Ducks, Quack - D-NORM_29-68_R" ID="{0BDFF996-FB12-4C27-B5DF-D2E6541C547E}" ShortID="551967015" Type="SoundFX">
+												<Sound Name="Duck_47" ID="{0BDFF996-FB12-4C27-B5DF-D2E6541C547E}" ShortID="551967015" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -6425,7 +6427,7 @@
 														<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_29-68_R" ID="{D020DA3D-DC16-4980-A05A-A872047C6E78}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 53 Ducks, Quack - D-NORM_30-70_R" ID="{FFA33CB8-4D91-439A-8425-36BE1E0B8F06}" ShortID="39396725" Type="SoundFX">
+												<Sound Name="Duck_48" ID="{FFA33CB8-4D91-439A-8425-36BE1E0B8F06}" ShortID="39396725" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -6444,7 +6446,7 @@
 														<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_30-70_R" ID="{4039C1DD-71FB-47E3-BFBE-C7966FDB8485}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 53 Ducks, Quack - D-NORM_32-74_R" ID="{7F69F846-E35B-40D9-9A79-8ADC58DE41B2}" ShortID="553606276" Type="SoundFX">
+												<Sound Name="Duck_multiple_3" ID="{7F69F846-E35B-40D9-9A79-8ADC58DE41B2}" ShortID="553606276" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -6463,7 +6465,7 @@
 														<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_32-74_R" ID="{2D5FCA4F-9DF9-4BE2-99C6-64EED2BD27FC}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 53 Ducks, Quack - D-NORM_27-64_R" ID="{D9E61F74-A49C-4DF9-9F4E-3116CF1F2304}" ShortID="1014316423" Type="SoundFX">
+												<Sound Name="Duck_45" ID="{D9E61F74-A49C-4DF9-9F4E-3116CF1F2304}" ShortID="1014316423" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -6482,7 +6484,7 @@
 														<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_27-64_R" ID="{9F95AB5C-7B19-4111-8E02-82CA110F17E9}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 53 Ducks, Quack - D-NORM_28-66_R" ID="{443E1756-3205-4B83-9703-AE58498B71F9}" ShortID="949823989" Type="SoundFX">
+												<Sound Name="Duck_46" ID="{443E1756-3205-4B83-9703-AE58498B71F9}" ShortID="949823989" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -6501,7 +6503,7 @@
 														<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_28-66_R" ID="{C0BEC41A-3953-4121-A834-A5E5B85AD485}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 53 Ducks, Quack - D-NORM_22-52_R" ID="{204B0C5E-DD1D-4170-85AB-58E04443C678}" ShortID="907650883" Type="SoundFX">
+												<Sound Name="Duck_41" ID="{204B0C5E-DD1D-4170-85AB-58E04443C678}" ShortID="907650883" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -6520,7 +6522,7 @@
 														<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_22-52_R" ID="{B46E2ECF-1A57-43B2-9568-2820EF888F07}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 53 Ducks, Quack - D-NORM_24-56_R" ID="{A85E3254-3E6B-4423-8C68-BC6F7CA3EEAD}" ShortID="491211738" Type="SoundFX">
+												<Sound Name="Duck_43" ID="{A85E3254-3E6B-4423-8C68-BC6F7CA3EEAD}" ShortID="491211738" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -6539,7 +6541,7 @@
 														<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_24-56_R" ID="{B2BAB680-B8B3-47E2-AF66-F84530E0AD1F}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 53 Ducks, Quack - D-NORM_20-48_R" ID="{DCEDC76E-33AA-436D-8CDD-3A720AE48CD4}" ShortID="425144816" Type="SoundFX">
+												<Sound Name="Duck_39" ID="{DCEDC76E-33AA-436D-8CDD-3A720AE48CD4}" ShortID="425144816" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -6558,7 +6560,7 @@
 														<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_20-48_R" ID="{FD61EA26-739D-454B-B2FA-24E240DBAFB7}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 53 Ducks, Quack - D-NORM_23-54_R" ID="{22A4C98C-0B4C-418D-99BC-09B593D40412}" ShortID="684282044" Type="SoundFX">
+												<Sound Name="Duck_42" ID="{22A4C98C-0B4C-418D-99BC-09B593D40412}" ShortID="684282044" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -6577,7 +6579,7 @@
 														<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_23-54_R" ID="{C256DBAA-428B-43ED-A4CE-310F685C0124}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 53 Ducks, Quack - D-NORM_21-50_R" ID="{FE08287C-3663-404B-8BDA-C21EF8159E6F}" ShortID="140814562" Type="SoundFX">
+												<Sound Name="Duck_40" ID="{FE08287C-3663-404B-8BDA-C21EF8159E6F}" ShortID="140814562" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -6596,7 +6598,7 @@
 														<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_21-50_R" ID="{A2540343-BB19-4DF4-9884-5A81F98F9EC0}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 53 Ducks, Quack - D-NORM_25-58_R" ID="{9FDE0538-E7AA-48D6-BBE2-E2094D0E94D2}" ShortID="909674828" Type="SoundFX">
+												<Sound Name="Duck_44" ID="{9FDE0538-E7AA-48D6-BBE2-E2094D0E94D2}" ShortID="909674828" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -6615,7 +6617,7 @@
 														<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_25-58_R" ID="{EA6D49EE-ADDA-4B1D-B0E6-26CEF89ECDAE}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 53 Ducks, Quack - D-NORM_19-46_R" ID="{A3ED600C-52D8-4CE4-94BA-1DBD7ECBFE7A}" ShortID="945124141" Type="SoundFX">
+												<Sound Name="Duck_38" ID="{A3ED600C-52D8-4CE4-94BA-1DBD7ECBFE7A}" ShortID="945124141" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -6634,7 +6636,7 @@
 														<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_19-46_R" ID="{B92B1731-5C40-4E71-9281-63104250C5EC}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 53 Ducks, Quack - D-NORM_11-24_R" ID="{3068421D-C8CF-4CB1-947A-43A04D3B316B}" ShortID="440518651" Type="SoundFX">
+												<Sound Name="Duck_31" ID="{3068421D-C8CF-4CB1-947A-43A04D3B316B}" ShortID="440518651" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -6653,7 +6655,7 @@
 														<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_11-24_R" ID="{F5F732E9-A98B-4AC7-90ED-0F4FCA87E980}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 53 Ducks, Quack - D-NORM_07-16_R" ID="{A78D58D0-ED00-45F0-9A33-AB930FA528AE}" ShortID="302108673" Type="SoundFX">
+												<Sound Name="Duck_27" ID="{A78D58D0-ED00-45F0-9A33-AB930FA528AE}" ShortID="302108673" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -6672,7 +6674,7 @@
 														<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_07-16_R" ID="{BCDB287E-EDD1-464A-B25E-527C6F969614}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 53 Ducks, Quack - D-NORM_18-44_R" ID="{D1BFB383-E319-4CCD-A448-460E1D64163B}" ShortID="87061664" Type="SoundFX">
+												<Sound Name="Duck_37" ID="{D1BFB383-E319-4CCD-A448-460E1D64163B}" ShortID="87061664" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -6691,7 +6693,7 @@
 														<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_18-44_R" ID="{CC996D41-7CA1-4F6D-83A6-6AF649962A11}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 53 Ducks, Quack - D-NORM_06-14_R" ID="{59C7B4B5-B9A8-45BA-9DDF-EEADD72AFF27}" ShortID="75094449" Type="SoundFX">
+												<Sound Name="Duck_26" ID="{59C7B4B5-B9A8-45BA-9DDF-EEADD72AFF27}" ShortID="75094449" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -6710,7 +6712,7 @@
 														<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_06-14_R" ID="{296D0C79-35CC-4709-A67C-A4297D72A730}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 53 Ducks, Quack - D-NORM_14-32_R" ID="{6FCAB5CF-DC1C-488F-93D5-808DB03DB33B}" ShortID="427663944" Type="SoundFX">
+												<Sound Name="Duck_multiple_1" ID="{6FCAB5CF-DC1C-488F-93D5-808DB03DB33B}" ShortID="427663944" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -6729,7 +6731,7 @@
 														<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_14-32_R" ID="{86700ED6-16F6-4E48-9419-E2EB0881CF2F}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 53 Ducks, Quack - D-NORM_16-38_R" ID="{DE6C8952-13B1-4EDD-B7A6-FE66DF9BD59E}" ShortID="884381113" Type="SoundFX">
+												<Sound Name="Duck_35" ID="{DE6C8952-13B1-4EDD-B7A6-FE66DF9BD59E}" ShortID="884381113" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -6748,7 +6750,7 @@
 														<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_16-38_R" ID="{C2C8FCC1-2CBB-4851-BAAF-AF68F95C65A1}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 53 Ducks, Quack - D-NORM_05-12_R" ID="{A1642A14-5C6B-4AF6-9A2D-9606CFA04C8B}" ShortID="245516440" Type="SoundFX">
+												<Sound Name="Duck_25" ID="{A1642A14-5C6B-4AF6-9A2D-9606CFA04C8B}" ShortID="245516440" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -6767,7 +6769,7 @@
 														<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_05-12_R" ID="{90FE3670-01D9-49D4-AB0E-3B1BF2DD8D97}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 53 Ducks, Quack - D-NORM_12-26_R" ID="{D9B8B5EE-14DC-4180-849F-DAB8854F0719}" ShortID="200669150" Type="SoundFX">
+												<Sound Name="Duck_32" ID="{D9B8B5EE-14DC-4180-849F-DAB8854F0719}" ShortID="200669150" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -6786,7 +6788,7 @@
 														<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_12-26_R" ID="{F24DA10B-1731-469B-9EE2-78CB125D44A6}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 53 Ducks, Quack - D-NORM_15-34_R" ID="{CA4B51A2-566F-4201-B25D-13CD76ED0A7C}" ShortID="14736797" Type="SoundFX">
+												<Sound Name="Duck_34" ID="{CA4B51A2-566F-4201-B25D-13CD76ED0A7C}" ShortID="14736797" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -6805,7 +6807,7 @@
 														<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_15-34_R" ID="{E2025C37-0270-4634-9EB4-FECF981C5285}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 53 Ducks, Quack - D-NORM_10-22_R" ID="{156913FF-AA90-4544-89EA-FA0FB9A616C0}" ShortID="766747857" Type="SoundFX">
+												<Sound Name="Duck_30" ID="{156913FF-AA90-4544-89EA-FA0FB9A616C0}" ShortID="766747857" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -6824,7 +6826,7 @@
 														<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_10-22_R" ID="{14368B8B-13B4-4B58-9D89-A6A7C49B79C5}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 53 Ducks, Quack - D-NORM_13-30_R" ID="{C03DAC67-4FF2-4F05-BA40-6F514C11282C}" ShortID="529085587" Type="SoundFX">
+												<Sound Name="Duck_33" ID="{C03DAC67-4FF2-4F05-BA40-6F514C11282C}" ShortID="529085587" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -6843,7 +6845,7 @@
 														<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_13-30_R" ID="{751D1CB5-E58F-4A18-B90C-5F4C62EB5384}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 53 Ducks, Quack - D-NORM_08-18_R" ID="{8D5397F7-6785-426D-86A6-715C6DBD8B78}" ShortID="846759773" Type="SoundFX">
+												<Sound Name="Duck_28" ID="{8D5397F7-6785-426D-86A6-715C6DBD8B78}" ShortID="846759773" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -6862,7 +6864,7 @@
 														<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_08-18_R" ID="{0DFAC8CF-6DB6-4415-99B8-06D9670D103B}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 53 Ducks, Quack - D-NORM_09-20_R" ID="{75E11839-5727-45AB-927C-84E4A865D52D}" ShortID="391601211" Type="SoundFX">
+												<Sound Name="Duck_29" ID="{75E11839-5727-45AB-927C-84E4A865D52D}" ShortID="391601211" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -6881,7 +6883,7 @@
 														<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_09-20_R" ID="{55A45FC6-ADB9-480B-8677-20930A2CC259}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 53 Ducks, Quack - D-NORM_17-40_R" ID="{97AD3E82-8527-429D-A721-3E52E9034D06}" ShortID="155386425" Type="SoundFX">
+												<Sound Name="Duck_36" ID="{97AD3E82-8527-429D-A721-3E52E9034D06}" ShortID="155386425" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -6900,7 +6902,7 @@
 														<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_17-40_R" ID="{A421CBE3-204B-42FF-95DA-C33766F99B22}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 52 Ducks, Quack - D-NORM_11-26_R" ID="{2D5A09FD-2D5E-47D9-B27E-2DD9076DF6CE}" ShortID="138420657" Type="SoundFX">
+												<Sound Name="Duck_11" ID="{2D5A09FD-2D5E-47D9-B27E-2DD9076DF6CE}" ShortID="138420657" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -6919,7 +6921,7 @@
 														<ActiveSource Name="AT-08 52 Ducks, Quack - D-NORM_11-26_R" ID="{9EBE1EC5-7718-439D-9C8F-16B37FFC4461}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 52 Ducks, Quack - D-NORM_12-28_R" ID="{C37F2099-D48B-4915-929E-2106002D420A}" ShortID="486937416" Type="SoundFX">
+												<Sound Name="Duck_12" ID="{C37F2099-D48B-4915-929E-2106002D420A}" ShortID="486937416" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -6938,7 +6940,7 @@
 														<ActiveSource Name="AT-08 52 Ducks, Quack - D-NORM_12-28_R" ID="{C311B170-249B-49A7-B0F0-30D60DE84653}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 52 Ducks, Quack - D-NORM_13-30_R" ID="{680A8416-9648-42F3-BA24-E15604CAB290}" ShortID="594494723" Type="SoundFX">
+												<Sound Name="Duck_13" ID="{680A8416-9648-42F3-BA24-E15604CAB290}" ShortID="594494723" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -6957,7 +6959,7 @@
 														<ActiveSource Name="AT-08 52 Ducks, Quack - D-NORM_13-30_R" ID="{49B11CCB-2A93-4002-A037-A0BC06010A3B}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 52 Ducks, Quack - D-NORM_16-36_R" ID="{46144A44-F9DB-4C24-9D2A-FDFF04E304EC}" ShortID="73216894" Type="SoundFX">
+												<Sound Name="Duck_16" ID="{46144A44-F9DB-4C24-9D2A-FDFF04E304EC}" ShortID="73216894" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -6976,7 +6978,7 @@
 														<ActiveSource Name="AT-08 52 Ducks, Quack - D-NORM_16-36_R" ID="{2EC1575A-87D2-4291-A191-98BB7B62B95F}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 52 Ducks, Quack - D-NORM_19-44_R" ID="{C019D143-E71D-463B-82F8-C97BD888A938}" ShortID="359942524" Type="SoundFX">
+												<Sound Name="Duck_19" ID="{C019D143-E71D-463B-82F8-C97BD888A938}" ShortID="359942524" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -6995,7 +6997,7 @@
 														<ActiveSource Name="AT-08 52 Ducks, Quack - D-NORM_19-44_R" ID="{53917F09-F5BA-4EAE-93D9-5B679062AF88}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 53 Ducks, Quack - D-NORM_01-04_R" ID="{D5B5D44B-AC70-4B69-9C59-6345118C9C23}" ShortID="234214167" Type="SoundFX">
+												<Sound Name="Duck_21" ID="{D5B5D44B-AC70-4B69-9C59-6345118C9C23}" ShortID="234214167" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7014,7 +7016,7 @@
 														<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_01-04_R" ID="{7550373D-75FC-467E-8725-105F1143EC3C}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 52 Ducks, Quack - D-NORM_18-42_R" ID="{22490C8C-DCF8-49B3-A470-BB5E5BC3C8F3}" ShortID="45601130" Type="SoundFX">
+												<Sound Name="Duck_18" ID="{22490C8C-DCF8-49B3-A470-BB5E5BC3C8F3}" ShortID="45601130" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7033,7 +7035,7 @@
 														<ActiveSource Name="AT-08 52 Ducks, Quack - D-NORM_18-42_R" ID="{3E4FF4B5-6BFB-49E5-A13F-D0E0A842CFB6}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 52 Ducks, Quack - D-NORM_17-38_R" ID="{C5286E9E-78CA-4779-9018-658BF9D8F63A}" ShortID="787824900" Type="SoundFX">
+												<Sound Name="Duck_17" ID="{C5286E9E-78CA-4779-9018-658BF9D8F63A}" ShortID="787824900" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7052,7 +7054,7 @@
 														<ActiveSource Name="AT-08 52 Ducks, Quack - D-NORM_17-38_R" ID="{7D621E9C-98E0-4E79-980A-B7CC31AB88C9}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 53 Ducks, Quack - D-NORM_02-06_R" ID="{D525ABAD-9038-4903-991D-45A48D968CF6}" ShortID="908747896" Type="SoundFX">
+												<Sound Name="Duck_22" ID="{D525ABAD-9038-4903-991D-45A48D968CF6}" ShortID="908747896" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7071,7 +7073,7 @@
 														<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_02-06_R" ID="{24892134-4863-4367-A8BF-1A8A4A5F2246}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 52 Ducks, Quack - D-NORM_14-32_R" ID="{7A729329-8BF4-4E4C-8C3C-F523E3E342F0}" ShortID="20870566" Type="SoundFX">
+												<Sound Name="Duck_14" ID="{7A729329-8BF4-4E4C-8C3C-F523E3E342F0}" ShortID="20870566" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7090,7 +7092,7 @@
 														<ActiveSource Name="AT-08 52 Ducks, Quack - D-NORM_14-32_R" ID="{45E0CB29-3F4A-40C6-8927-6FE31A1DD3E3}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 53 Ducks, Quack - D-NORM_03-08_R" ID="{96CBA72F-F8FF-41D5-8BDC-32212D44895A}" ShortID="19688717" Type="SoundFX">
+												<Sound Name="Duck_23" ID="{96CBA72F-F8FF-41D5-8BDC-32212D44895A}" ShortID="19688717" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7109,7 +7111,7 @@
 														<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_03-08_R" ID="{5B2E920A-5D49-443C-98FF-9367540E99C5}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 52 Ducks, Quack - D-NORM_20-46_R" ID="{B0A2CB32-62C8-4EDF-8605-D9C20713D2D9}" ShortID="688767534" Type="SoundFX">
+												<Sound Name="Duck_20" ID="{B0A2CB32-62C8-4EDF-8605-D9C20713D2D9}" ShortID="688767534" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7128,7 +7130,7 @@
 														<ActiveSource Name="AT-08 52 Ducks, Quack - D-NORM_20-46_R" ID="{A1ADFB2D-81DF-4963-9971-2EACC1424FD6}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 53 Ducks, Quack - D-NORM_04-10_R" ID="{17DB2E54-1ED9-4D99-8FF9-9C5E046D891F}" ShortID="874158363" Type="SoundFX">
+												<Sound Name="Duck_24" ID="{17DB2E54-1ED9-4D99-8FF9-9C5E046D891F}" ShortID="874158363" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7147,7 +7149,7 @@
 														<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_04-10_R" ID="{7332F313-29D3-4FF3-B581-3EC13224810F}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 52 Ducks, Quack - D-NORM_15-34_R" ID="{EAFB52F4-BA84-4B93-BFDE-3C131D37547F}" ShortID="544437922" Type="SoundFX">
+												<Sound Name="Duck_15" ID="{EAFB52F4-BA84-4B93-BFDE-3C131D37547F}" ShortID="544437922" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7166,7 +7168,7 @@
 														<ActiveSource Name="AT-08 52 Ducks, Quack - D-NORM_15-34_R" ID="{AABBD15D-05B5-4083-A67F-653FD9BE799B}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 52 Ducks, Quack - D-NORM_04-10_R" ID="{99CBEC73-C0C8-4AA5-B462-B2FA4AA353E8}" ShortID="900961805" Type="SoundFX">
+												<Sound Name="Duck_4" ID="{99CBEC73-C0C8-4AA5-B462-B2FA4AA353E8}" ShortID="900961805" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7185,7 +7187,7 @@
 														<ActiveSource Name="AT-08 52 Ducks, Quack - D-NORM_04-10_R" ID="{6BD1D3C4-F7E8-455F-A7C4-B07BF160FE3E}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 52 Ducks, Quack - D-NORM_05-12_R" ID="{14DF930F-C918-4AFD-9E3B-B1407A5301CD}" ShortID="709013207" Type="SoundFX">
+												<Sound Name="Duck_5" ID="{14DF930F-C918-4AFD-9E3B-B1407A5301CD}" ShortID="709013207" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7204,7 +7206,7 @@
 														<ActiveSource Name="AT-08 52 Ducks, Quack - D-NORM_05-12_R" ID="{29D66EE2-1B60-4873-AE60-B34242365654}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 52 Ducks, Quack - D-NORM_06-16_R" ID="{C6B7AAE9-0723-4ADB-8495-EC6CD687CF93}" ShortID="901960289" Type="SoundFX">
+												<Sound Name="Duck_6" ID="{C6B7AAE9-0723-4ADB-8495-EC6CD687CF93}" ShortID="901960289" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7223,7 +7225,7 @@
 														<ActiveSource Name="AT-08 52 Ducks, Quack - D-NORM_06-16_R" ID="{70AA9E54-FF8E-413A-BD12-FD947924C22D}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 52 Ducks, Quack - D-NORM_08-20_R" ID="{A6C9E24F-71A8-4D9C-B41E-1C2614331EA8}" ShortID="207966676" Type="SoundFX">
+												<Sound Name="Duck_8" ID="{A6C9E24F-71A8-4D9C-B41E-1C2614331EA8}" ShortID="207966676" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7242,7 +7244,7 @@
 														<ActiveSource Name="AT-08 52 Ducks, Quack - D-NORM_08-20_R" ID="{36D1D752-E13C-4661-97EF-4C334DF426F8}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 52 Ducks, Quack - D-NORM_10-24_R" ID="{BA4909D1-EB83-4ED2-B39A-1463E02FDF4B}" ShortID="486903300" Type="SoundFX">
+												<Sound Name="Duck_10" ID="{BA4909D1-EB83-4ED2-B39A-1463E02FDF4B}" ShortID="486903300" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7261,7 +7263,7 @@
 														<ActiveSource Name="AT-08 52 Ducks, Quack - D-NORM_10-24_R" ID="{63B61B73-63D3-4D7E-8A6F-4C4159A5FA24}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 52 Ducks, Quack - D-NORM_02-06_R" ID="{EA656E63-FBA5-49EC-8F9D-E2B4F726DE61}" ShortID="533921728" Type="SoundFX">
+												<Sound Name="Duck_2" ID="{EA656E63-FBA5-49EC-8F9D-E2B4F726DE61}" ShortID="533921728" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7280,7 +7282,7 @@
 														<ActiveSource Name="AT-08 52 Ducks, Quack - D-NORM_02-06_R" ID="{DA28EF2D-7D9D-452B-8B5B-6343D724F5C8}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 52 Ducks, Quack - D-NORM_09-22_R" ID="{4E9BFD95-6619-417C-BE20-F82C2D684D12}" ShortID="448684967" Type="SoundFX">
+												<Sound Name="Duck_9" ID="{4E9BFD95-6619-417C-BE20-F82C2D684D12}" ShortID="448684967" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7299,7 +7301,7 @@
 														<ActiveSource Name="AT-08 52 Ducks, Quack - D-NORM_09-22_R" ID="{4B75CB40-2706-4EC4-B6CC-38377921827F}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 52 Ducks, Quack - D-NORM_07-18_R" ID="{A8328431-7B75-463B-B7D2-0B135CD69238}" ShortID="933879164" Type="SoundFX">
+												<Sound Name="Duck_7" ID="{A8328431-7B75-463B-B7D2-0B135CD69238}" ShortID="933879164" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7318,7 +7320,7 @@
 														<ActiveSource Name="AT-08 52 Ducks, Quack - D-NORM_07-18_R" ID="{15A8485F-C82C-4537-B74F-7B54555AC156}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 52 Ducks, Quack - D-NORM_03-49_R" ID="{F8186FF5-F6CC-4560-A0E0-D12F7E3505B8}" ShortID="631877331" Type="SoundFX">
+												<Sound Name="Duck_3" ID="{F8186FF5-F6CC-4560-A0E0-D12F7E3505B8}" ShortID="631877331" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7337,7 +7339,7 @@
 														<ActiveSource Name="AT-08 52 Ducks, Quack - D-NORM_03-49_R" ID="{66637326-5182-4180-896D-A4BD058F8107}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
-												<Sound Name="AT-08 52 Ducks, Quack - D-NORM_01-04_R" ID="{0CEA353F-30C4-4155-B933-0D2250B513F8}" ShortID="457036451" Type="SoundFX">
+												<Sound Name="Duck_1" ID="{0CEA353F-30C4-4155-B933-0D2250B513F8}" ShortID="457036451" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7384,7 +7386,7 @@
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
-														<Sound Name="MFX5_01" ID="{BD0C2BFD-01BE-42A7-ADAE-1AD00FC48965}" ShortID="122336280" Type="SoundFX">
+														<Sound Name="Edible_frog_17" ID="{BD0C2BFD-01BE-42A7-ADAE-1AD00FC48965}" ShortID="122336280" Type="SoundFX">
 															<PropertyList>
 																<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 															</PropertyList>
@@ -7406,7 +7408,7 @@
 																<ActiveSource Name="MFX5_01" ID="{1DC191F5-D5E3-43A2-99AA-CEA65BFDE368}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
-														<Sound Name="06 Grenouille verte (Edib-NORM_14-30_L" ID="{7A48D2B3-EA25-4134-A902-84AC2EDADFE3}" ShortID="353638141" Type="SoundFX">
+														<Sound Name="Edible_frog_10" ID="{7A48D2B3-EA25-4134-A902-84AC2EDADFE3}" ShortID="353638141" Type="SoundFX">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7425,7 +7427,7 @@
 																<ActiveSource Name="06 Grenouille verte (Edib-NORM_14-30_L" ID="{3628B011-42A5-42F0-9D6E-83170C5E04D7}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
-														<Sound Name="06 Grenouille verte (Edib-NORM_05-14_L" ID="{BE5C4A36-85ED-4C32-891F-10AD4444E1B9}" ShortID="539159754" Type="SoundFX">
+														<Sound Name="Edible_frog_5" ID="{BE5C4A36-85ED-4C32-891F-10AD4444E1B9}" ShortID="539159754" Type="SoundFX">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7444,7 +7446,7 @@
 																<ActiveSource Name="06 Grenouille verte (Edib-NORM_05-14_L" ID="{00B0E76C-DAF3-4C7E-A95A-6779FD577B94}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
-														<Sound Name="06 Grenouille verte (Edib-NORM_11-52_L" ID="{F4EF1A4B-F9F4-4E55-93AB-937814162C91}" ShortID="681073787" Type="SoundFX">
+														<Sound Name="Edible_frog_9" ID="{F4EF1A4B-F9F4-4E55-93AB-937814162C91}" ShortID="681073787" Type="SoundFX">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7463,7 +7465,7 @@
 																<ActiveSource Name="06 Grenouille verte (Edib-NORM_11-52_L" ID="{CB5A834D-3145-4838-B22E-524B3A406D43}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
-														<Sound Name="06 Grenouille verte (Edib-NORM_22-46_L" ID="{D4388FA0-A618-4F31-B95D-84D68BD25EAA}" ShortID="827656757" Type="SoundFX">
+														<Sound Name="Edible_frog_14" ID="{D4388FA0-A618-4F31-B95D-84D68BD25EAA}" ShortID="827656757" Type="SoundFX">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7482,7 +7484,7 @@
 																<ActiveSource Name="06 Grenouille verte (Edib-NORM_22-46_L" ID="{78A75809-64DC-481C-9245-9C5C70B041D0}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
-														<Sound Name="06 Grenouille verte (Edib-NORM_07-18_L" ID="{4401ACA5-4DEB-4BCE-96F6-BD20E260BF5D}" ShortID="506894114" Type="SoundFX">
+														<Sound Name="Edible_frog_7" ID="{4401ACA5-4DEB-4BCE-96F6-BD20E260BF5D}" ShortID="506894114" Type="SoundFX">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7501,7 +7503,7 @@
 																<ActiveSource Name="06 Grenouille verte (Edib-NORM_07-18_L" ID="{0929AF65-6CF8-4F67-A47D-25E2697F6C60}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
-														<Sound Name="06 Grenouille verte (Edib-NORM_26-51_L" ID="{336562B2-0AEE-4AFC-B347-0439E342195D}" ShortID="1012570925" Type="SoundFX">
+														<Sound Name="Edible_frog_16" ID="{336562B2-0AEE-4AFC-B347-0439E342195D}" ShortID="1012570925" Type="SoundFX">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7520,7 +7522,7 @@
 																<ActiveSource Name="06 Grenouille verte (Edib-NORM_26-51_L" ID="{D9C59CA7-A758-42BC-9AA4-685F78ADC10D}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
-														<Sound Name="06 Grenouille verte (Edib-NORM_25-50_L" ID="{B4BCFBBE-178E-4922-9ACC-AF5C7A90984D}" ShortID="232323609" Type="SoundFX">
+														<Sound Name="Edible_frog_15" ID="{B4BCFBBE-178E-4922-9ACC-AF5C7A90984D}" ShortID="232323609" Type="SoundFX">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7539,7 +7541,7 @@
 																<ActiveSource Name="06 Grenouille verte (Edib-NORM_25-50_L" ID="{DF99A994-651C-4DCC-974F-81C24A88ACB7}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
-														<Sound Name="06 Grenouille verte (Edib-NORM_06-16_L" ID="{41C075D0-FF5D-4F38-9CB6-E82486D136A3}" ShortID="83188115" Type="SoundFX">
+														<Sound Name="Edible_frog_6" ID="{41C075D0-FF5D-4F38-9CB6-E82486D136A3}" ShortID="83188115" Type="SoundFX">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7558,7 +7560,7 @@
 																<ActiveSource Name="06 Grenouille verte (Edib-NORM_06-16_L" ID="{649FE469-C3F1-46D9-8AA6-F9B13D95EC69}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
-														<Sound Name="06 Grenouille verte (Edib-NORM_18-38_L" ID="{61F20791-A0A2-467A-BB12-6EB4C018C2C2}" ShortID="145961059" Type="SoundFX">
+														<Sound Name="Edible_frog_11" ID="{61F20791-A0A2-467A-BB12-6EB4C018C2C2}" ShortID="145961059" Type="SoundFX">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7577,7 +7579,7 @@
 																<ActiveSource Name="06 Grenouille verte (Edib-NORM_18-38_L" ID="{57601D57-4238-4BDF-869F-CFE619BC2D53}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
-														<Sound Name="06 Grenouille verte (Edib-NORM_20-42_L" ID="{17C86419-8E84-486B-9182-7A39C0660593}" ShortID="337956068" Type="SoundFX">
+														<Sound Name="Edible_frog_13" ID="{17C86419-8E84-486B-9182-7A39C0660593}" ShortID="337956068" Type="SoundFX">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7596,7 +7598,7 @@
 																<ActiveSource Name="06 Grenouille verte (Edib-NORM_20-42_L" ID="{02556B65-49CB-4456-A934-CF14AFE2278B}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
-														<Sound Name="06 Grenouille verte (Edib-NORM_08-20_L" ID="{E55146AD-B2FA-4632-A935-17724284AC5E}" ShortID="395574760" Type="SoundFX">
+														<Sound Name="Edible_frog_8" ID="{E55146AD-B2FA-4632-A935-17724284AC5E}" ShortID="395574760" Type="SoundFX">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7615,7 +7617,7 @@
 																<ActiveSource Name="06 Grenouille verte (Edib-NORM_08-20_L" ID="{0315247B-CB8E-4E65-9201-A966AA5CED2A}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
-														<Sound Name="06 Grenouille verte (Edib-NORM_19-40_L" ID="{1B2FD986-786C-4636-BCFC-EB54718727F7}" ShortID="175142318" Type="SoundFX">
+														<Sound Name="Edible_frog_12" ID="{1B2FD986-786C-4636-BCFC-EB54718727F7}" ShortID="175142318" Type="SoundFX">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7634,7 +7636,7 @@
 																<ActiveSource Name="06 Grenouille verte (Edib-NORM_19-40_L" ID="{9AE49E64-62F2-4BB4-81FC-3CDF6E191CBE}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
-														<Sound Name="MFX5_02" ID="{F899F5DD-6181-4452-8700-631D535F539D}" ShortID="126312734" Type="SoundFX">
+														<Sound Name="Edible_frog_18" ID="{F899F5DD-6181-4452-8700-631D535F539D}" ShortID="126312734" Type="SoundFX">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7653,7 +7655,7 @@
 																<ActiveSource Name="MFX5_02" ID="{0FF1BF9C-E5C6-49BA-930E-80FD4AEABA8C}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
-														<Sound Name="MFX5_03" ID="{266C9FF0-3E53-4A67-A88F-0E71E4DF954C}" ShortID="955215503" Type="SoundFX">
+														<Sound Name="Edible_frog_19" ID="{266C9FF0-3E53-4A67-A88F-0E71E4DF954C}" ShortID="955215503" Type="SoundFX">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7672,7 +7674,7 @@
 																<ActiveSource Name="MFX5_03" ID="{88C8789F-6224-47FC-A315-2961AFD11736}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
-														<Sound Name="MFX5_04" ID="{67DB7897-82A3-4892-8F8D-D23B7BC03A4E}" ShortID="974432660" Type="SoundFX">
+														<Sound Name="Edible_frog_20" ID="{67DB7897-82A3-4892-8F8D-D23B7BC03A4E}" ShortID="974432660" Type="SoundFX">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7691,7 +7693,7 @@
 																<ActiveSource Name="MFX5_04" ID="{CDF53895-D13E-4CCB-84A2-C25FB8AD0435}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
-														<Sound Name="06 Grenouille verte (Edib-NORM_01-04_L" ID="{5C21D903-19DD-4CF7-A240-FEEC81DBC489}" ShortID="1029470102" Type="SoundFX">
+														<Sound Name="Edible_frog_1" ID="{5C21D903-19DD-4CF7-A240-FEEC81DBC489}" ShortID="1029470102" Type="SoundFX">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7710,7 +7712,7 @@
 																<ActiveSource Name="06 Grenouille verte (Edib-NORM_01-04_L" ID="{4B74D702-2B9D-45C8-8309-59C3B7373BC3}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
-														<Sound Name="06 Grenouille verte (Edib-NORM_04-10_L" ID="{CEC194C5-E15F-46A9-9C9B-27380E6F9696}" ShortID="551741811" Type="SoundFX">
+														<Sound Name="Edible_frog_4" ID="{CEC194C5-E15F-46A9-9C9B-27380E6F9696}" ShortID="551741811" Type="SoundFX">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7729,7 +7731,7 @@
 																<ActiveSource Name="06 Grenouille verte (Edib-NORM_04-10_L" ID="{7F369038-3C47-4138-A1E0-2131485080B0}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
-														<Sound Name="06 Grenouille verte (Edib-NORM_02-06_L" ID="{3BDFAAA0-B4D9-44FE-ABB2-FA7B5EE74053}" ShortID="125552678" Type="SoundFX">
+														<Sound Name="Edible_frog_2" ID="{3BDFAAA0-B4D9-44FE-ABB2-FA7B5EE74053}" ShortID="125552678" Type="SoundFX">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7748,7 +7750,7 @@
 																<ActiveSource Name="06 Grenouille verte (Edib-NORM_02-06_L" ID="{B35E26D1-7B2F-46D7-87E4-6AF77E06CF98}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
-														<Sound Name="06 Grenouille verte (Edib-NORM_03-08_L" ID="{6F313F79-7EFD-40CC-BC64-C0B899B8C896}" ShortID="920390139" Type="SoundFX">
+														<Sound Name="Edible_frog_3" ID="{6F313F79-7EFD-40CC-BC64-C0B899B8C896}" ShortID="920390139" Type="SoundFX">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7782,7 +7784,7 @@
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
-														<Sound Name="AT-06 06 Frog(Tree), Quac-NORM_01-05_L" ID="{38FCB096-D1DB-462D-A327-943E96F00487}" ShortID="147916779" Type="SoundFX">
+														<Sound Name="Tree_frog_1" ID="{38FCB096-D1DB-462D-A327-943E96F00487}" ShortID="147916779" Type="SoundFX">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7801,7 +7803,7 @@
 																<ActiveSource Name="AT-06 06 Frog(Tree), Quac-NORM_01-05_L" ID="{3B40015D-79D4-4692-96CC-3615114C1F26}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
-														<Sound Name="AT-06 06 Frog(Tree), Quac-NORM_02-06_L" ID="{4E036AF2-E303-4E1C-8D4A-28E37DE74DED}" ShortID="11699230" Type="SoundFX">
+														<Sound Name="Tree_frog_2" ID="{4E036AF2-E303-4E1C-8D4A-28E37DE74DED}" ShortID="11699230" Type="SoundFX">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7820,7 +7822,7 @@
 																<ActiveSource Name="AT-06 06 Frog(Tree), Quac-NORM_02-06_L" ID="{65555752-8B32-48C4-806C-31771444A28F}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
-														<Sound Name="AT-06 06 Frog(Tree), Quac-NORM_03-08_L" ID="{2AC2508C-7BE1-42E6-B6BD-2A0827C63788}" ShortID="960406485" Type="SoundFX">
+														<Sound Name="Tree_frog_3" ID="{2AC2508C-7BE1-42E6-B6BD-2A0827C63788}" ShortID="960406485" Type="SoundFX">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7839,7 +7841,7 @@
 																<ActiveSource Name="AT-06 06 Frog(Tree), Quac-NORM_03-08_L" ID="{7D054B67-80B1-43AD-9237-8DDC2512D898}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
-														<Sound Name="AT-06 06 Frog(Tree), Quac-NORM_04-10_L" ID="{8501BC94-BAAE-417B-B95E-B4B4BC901110}" ShortID="524696320" Type="SoundFX">
+														<Sound Name="Tree_frog_4" ID="{8501BC94-BAAE-417B-B95E-B4B4BC901110}" ShortID="524696320" Type="SoundFX">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7878,7 +7880,7 @@
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
-														<Sound Name="AT-06 16 Frog(California)-NORM_02-04_L" ID="{BD2A782E-DDF2-4818-85C4-BBEC8E0725A7}" ShortID="581640675" Type="SoundFX">
+														<Sound Name="California_frog_2" ID="{BD2A782E-DDF2-4818-85C4-BBEC8E0725A7}" ShortID="581640675" Type="SoundFX">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7897,7 +7899,7 @@
 																<ActiveSource Name="AT-06 16 Frog(California)-NORM_02-04_L" ID="{D815A5C7-2214-46F9-AA67-815779F0EE4A}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
-														<Sound Name="AT-06 16 Frog(California)-NORM_01-05_L" ID="{EF35CA21-8C11-47AC-A0C5-32571D18464B}" ShortID="661511260" Type="SoundFX">
+														<Sound Name="California_frog_1" ID="{EF35CA21-8C11-47AC-A0C5-32571D18464B}" ShortID="661511260" Type="SoundFX">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7916,7 +7918,7 @@
 																<ActiveSource Name="AT-06 16 Frog(California)-NORM_01-05_L" ID="{C22D1BA0-3AE8-46C7-897E-FDEDBE57AFCF}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
-														<Sound Name="AT-06 17 Frog(California)-NORM_01-02_L" ID="{BB456743-5684-4EBC-8A90-527E3346B18A}" ShortID="507375083" Type="SoundFX">
+														<Sound Name="California_frog_3" ID="{BB456743-5684-4EBC-8A90-527E3346B18A}" ShortID="507375083" Type="SoundFX">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7935,7 +7937,7 @@
 																<ActiveSource Name="AT-06 17 Frog(California)-NORM_01-02_L" ID="{16D2397F-0544-4E92-AD1C-E502CF422CC9}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
-														<Sound Name="AT-06 17 Frog(California)-NORM_02-04_L" ID="{444F880E-F3C9-489F-8B9E-8DB627A0B30A}" ShortID="246863389" Type="SoundFX">
+														<Sound Name="California_frog_4" ID="{444F880E-F3C9-489F-8B9E-8DB627A0B30A}" ShortID="246863389" Type="SoundFX">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7954,7 +7956,7 @@
 																<ActiveSource Name="AT-06 17 Frog(California)-NORM_02-04_L" ID="{FA0B065D-9049-43C0-87AD-3D9ABBBF57EE}" Platform="Linked"/>
 															</ActiveSourceList>
 														</Sound>
-														<Sound Name="AT-06 17 Frog(California)-NORM_03-06_L" ID="{28934585-B6A8-4F8F-9F00-68B74A336626}" ShortID="222376753" Type="SoundFX">
+														<Sound Name="California_frog_5" ID="{28934585-B6A8-4F8F-9F00-68B74A336626}" ShortID="222376753" Type="SoundFX">
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -7979,7 +7981,14 @@
 										</RandomSequenceContainer>
 									</ChildrenList>
 								</RandomSequenceContainer>
-								<Sound Name="Close river, water lappin-NORM_01-03" ID="{94C786DE-4A49-4BAE-A1B0-49FD981FA91D}" ShortID="495915106" Type="SoundFX">
+								<RandomSequenceContainer Name="Loop river" ID="{83CE6832-5AB5-4683-9CF1-182B0FE34789}" ShortID="469915938">
+									<PropertyList>
+										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+										<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+										<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="4"/>
+										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+										<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
@@ -7989,53 +7998,121 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Close river, water lappin-NORM_01-03" ID="{B12B1D5F-98F0-411A-BF24-06566D4F91BB}" ShortID="545845107">
-											<Language>SFX</Language>
-											<AudioFile>Close river, water lappin-NORM_01-03.wav</AudioFile>
-										</AudioFileSource>
+										<Sound Name="River_stream" ID="{94C786DE-4A49-4BAE-A1B0-49FD981FA91D}" ShortID="495915106" Type="SoundFX">
+											<PropertyList>
+												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Close river, water lappin-NORM_01-03" ID="{B12B1D5F-98F0-411A-BF24-06566D4F91BB}" ShortID="545845107">
+													<Language>SFX</Language>
+													<AudioFile>Close river, water lappin-NORM_01-03.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Close river, water lappin-NORM_01-03" ID="{B12B1D5F-98F0-411A-BF24-06566D4F91BB}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
 									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Close river, water lappin-NORM_01-03" ID="{B12B1D5F-98F0-411A-BF24-06566D4F91BB}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="PE-49 40 Water, Stream -NORM_01-02" ID="{79BA4083-8E83-44D7-9D3F-BE15A8DB2BDA}" ShortID="709441309" Type="SoundFX">
+									<Playlist>
+										<ItemRef Name="River_stream" ID="{94C786DE-4A49-4BAE-A1B0-49FD981FA91D}"/>
+									</Playlist>
+								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="Loop river on lake" ID="{C5F91A81-DD85-4077-BF2B-D51D15A680AA}" ShortID="1036029102">
+									<PropertyList>
+										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+										<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+										<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="4"/>
+										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+										<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
-											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
 										</Reference>
 										<Reference Name="OutputBus">
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="PE-49 40 Water, Stream -NORM_01-02" ID="{53E993EB-86B2-4B65-9A36-A61EFBCB9C7A}" ShortID="197150017">
-											<Language>SFX</Language>
-											<AudioFile>PE-49 40 Water, Stream -NORM_01-02.wav</AudioFile>
-										</AudioFileSource>
+										<Sound Name="River_on_lake" ID="{79BA4083-8E83-44D7-9D3F-BE15A8DB2BDA}" ShortID="709441309" Type="SoundFX">
+											<PropertyList>
+												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="PE-49 40 Water, Stream -NORM_01-02" ID="{53E993EB-86B2-4B65-9A36-A61EFBCB9C7A}" ShortID="197150017">
+													<Language>SFX</Language>
+													<AudioFile>PE-49 40 Water, Stream -NORM_01-02.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="PE-49 40 Water, Stream -NORM_01-02" ID="{53E993EB-86B2-4B65-9A36-A61EFBCB9C7A}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
 									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="PE-49 40 Water, Stream -NORM_01-02" ID="{53E993EB-86B2-4B65-9A36-A61EFBCB9C7A}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="WTR WaterLappingOnR 6035-NORM_01-02" ID="{FD52E5C7-44A9-49E2-AA17-9F23C41A526B}" ShortID="477694309" Type="SoundFX">
+									<Playlist>
+										<ItemRef Name="River_on_lake" ID="{79BA4083-8E83-44D7-9D3F-BE15A8DB2BDA}"/>
+									</Playlist>
+								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="Loop water on rocks (lake)" ID="{2F59986A-2C9B-4E40-A360-5DFB1C88E674}" ShortID="1036362402">
+									<PropertyList>
+										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+										<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+										<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="4"/>
+										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+										<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
-											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
 										</Reference>
 										<Reference Name="OutputBus">
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="WTR WaterLappingOnR 6035-NORM_01-02" ID="{6CF9D8B5-FD47-4CF2-9F62-5ED0BEA9E2F0}" ShortID="872939">
-											<Language>SFX</Language>
-											<AudioFile>WTR WaterLappingOnR 6035-NORM_01-02.wav</AudioFile>
-										</AudioFileSource>
+										<Sound Name="Water_on_rocks" ID="{FD52E5C7-44A9-49E2-AA17-9F23C41A526B}" ShortID="477694309" Type="SoundFX">
+											<PropertyList>
+												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="WTR WaterLappingOnR 6035-NORM_01-02" ID="{6CF9D8B5-FD47-4CF2-9F62-5ED0BEA9E2F0}" ShortID="872939">
+													<Language>SFX</Language>
+													<AudioFile>WTR WaterLappingOnR 6035-NORM_01-02.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="WTR WaterLappingOnR 6035-NORM_01-02" ID="{6CF9D8B5-FD47-4CF2-9F62-5ED0BEA9E2F0}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
 									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="WTR WaterLappingOnR 6035-NORM_01-02" ID="{6CF9D8B5-FD47-4CF2-9F62-5ED0BEA9E2F0}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
+									<Playlist>
+										<ItemRef Name="Water_on_rocks" ID="{FD52E5C7-44A9-49E2-AA17-9F23C41A526B}"/>
+									</Playlist>
+								</RandomSequenceContainer>
 							</ChildrenList>
 						</ActorMixer>
 					</ChildrenList>
