@@ -60,6 +60,24 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="ambiance_return" ID="{05B96834-1ACC-49F7-A6D6-B649573EDC85}">
+					<ChildrenList>
+						<Action Name="Play" ID="{19C87CE3-E180-4D23-AB50-550A36D14CC3}" ShortID="227503889" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{7F27C6BA-0032-4059-8753-B87FB6981571}" Global="false">
+									<ObjectRef Name="Seagulls_calls" ID="{A7019378-412C-405A-8CF5-ACE0037FD347}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Play" ID="{8DFF02DA-873F-4C87-992D-E41418503AB0}" ShortID="246428967" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{2DEC94B3-BF4E-4B25-A693-03F90A986759}" Global="false">
+									<ObjectRef Name="Faune" ID="{3424D9E7-8D36-42C2-8C7D-C63E11AE6FBA}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
