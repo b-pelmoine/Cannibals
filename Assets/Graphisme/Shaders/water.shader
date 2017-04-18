@@ -6,7 +6,7 @@ Properties {
     _Cube ("Reflection Cubemap", Cube) = "_Skybox" { TexGen CubeReflect }
     _BumpMap ("Normalmap", 2D) = "bump" {}
     _PhaseMultiplier ("Phase Modifier", Range(0.01,10)) = 1
-    _WaveHeigth ("Wave height", Range(0.01,1)) = 0.2
+    _WaveHeigth ("Wave height", Range(0.001,1)) = 0.2
 }
  
 SubShader {
@@ -37,23 +37,23 @@ struct Input {
  
 void vert (inout appdata_full v) {
     float phase = _Time * 20.0 * _PhaseMultiplier;
-    v.vertex.y = 0.10+ sin(phase + (v.vertex.x + (v.vertex.z * 0.2)) * 0.5) * _WaveHeigth;
-    v.vertex.y += sin(0.2*phase + (v.vertex.x + (v.vertex.z * 0.5)) * 0.6) * _WaveHeigth;
+    v.vertex.y += 0.1 + sin(phase + (v.vertex.x + (v.vertex.z * 0.2)) * 0.5) * _WaveHeigth;
+    v.vertex.y += sin(0.6*phase + (v.vertex.x + (v.vertex.z * 0.5)) * 0.6) * _WaveHeigth;
     v.vertex.y += sin(0.4*phase + (v.vertex.x + (v.vertex.z * 0.7)) * 0.4) * _WaveHeigth;
 }
  
 void surf (Input IN, inout SurfaceOutput o) {
-    fixed4 tex = tex2D(_MainTex, IN.uv_MainTex + 0.1*sin(_Time+0.5));
+    fixed4 tex = tex2D(_MainTex, IN.uv_MainTex + 0.1*sin(_Time+0.5) + IN.uv_MainTex);
     fixed4 c = tex * _Color;
     o.Albedo = c.rgb;
    
-    o.Normal = 0.5*UnpackNormal(tex2D(_BumpMap, IN.uv_BumpMap+ 0.1*sin(_Time+0.5)));
+    o.Normal = 0.75*UnpackNormal(tex2D(_BumpMap, IN.uv_BumpMap+ 0.1*sin(_Time+0.5)));
    
     float3 worldRefl = WorldReflectionVector (IN, o.Normal);
     fixed4 reflcol = texCUBE (_Cube, worldRefl);
 //  reflcol *= 1.0;
     o.Emission = reflcol.rgb * _ReflectColor.rgb;
-    o.Alpha = reflcol.a * 0.9;
+    o.Alpha = reflcol.a * 0.5;
 //  o.Alpha = 0.8;
 }
 ENDCG
