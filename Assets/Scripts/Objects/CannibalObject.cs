@@ -24,6 +24,8 @@ public abstract class CannibalObject : MonoBehaviour {
     public virtual void Take(Transform newParent)
     {
         m_transform.SetParent(newParent);
+        m_transform.localPosition = Vector3.zero;
+        m_transform.rotation = Quaternion.identity;
     }
 
     /// <summary>
