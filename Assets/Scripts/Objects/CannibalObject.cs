@@ -4,8 +4,13 @@ using UnityEngine;
 
 public abstract class CannibalObject : MonoBehaviour {
 
+    public CannibalObjectInfo m_info;
+
     [SerializeField]
     Transform m_transform;
+
+    [SerializeField]
+    IconDisplayer m_objectIconDisplayer;
 
     public Transform Transform
     {
@@ -47,6 +52,11 @@ public abstract class CannibalObject : MonoBehaviour {
         Quaternion memoryRotation = m_transform.rotation;
         m_transform.rotation = with.m_transform.rotation;
         with.m_transform.rotation = memoryRotation;
+    }
+
+    public void ShowIcon()
+    {
+        m_objectIconDisplayer.Show(m_info.icon);
     }
 
 }
