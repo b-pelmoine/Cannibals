@@ -23,7 +23,7 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<RandomSequenceContainer Name="Faune" ID="{E59D695A-FF69-4642-9003-B1EBE17E3D9C}" ShortID="966825742">
+								<RandomSequenceContainer Name="Fauna" ID="{E59D695A-FF69-4642-9003-B1EBE17E3D9C}" ShortID="966825742">
 									<PropertyList>
 										<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
 										<Property Name="InitialDelay" Type="Real64">
@@ -6350,7 +6350,7 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<RandomSequenceContainer Name="Faune" ID="{E8BAFBBF-4408-4192-9E4D-737F25C8376D}" ShortID="314030584">
+								<RandomSequenceContainer Name="Fauna" ID="{E8BAFBBF-4408-4192-9E4D-737F25C8376D}" ShortID="314030584">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
@@ -8125,7 +8125,7 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<RandomSequenceContainer Name="Faune" ID="{3424D9E7-8D36-42C2-8C7D-C63E11AE6FBA}" ShortID="8493960">
+								<RandomSequenceContainer Name="Fauna" ID="{3424D9E7-8D36-42C2-8C7D-C63E11AE6FBA}" ShortID="8493960">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
@@ -9308,6 +9308,522 @@
 								</Sound>
 							</ChildrenList>
 						</ActorMixer>
+					</ChildrenList>
+				</ActorMixer>
+				<ActorMixer Name="Characters" ID="{A5FFF535-BCC1-404A-B33E-8A422438B871}" ShortID="504682874">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<ActorMixer Name="Cannibals" ID="{B259D5D7-BCED-4EF7-9A5E-6A9D9D186382}" ShortID="369742219">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<SwitchContainer Name="Steps" ID="{5C5D5154-2D97-4C57-8229-FC34AA6D0448}" ShortID="90836342">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<RandomSequenceContainer Name="Grass run" ID="{87ACDAC6-A743-4EB8-9AD4-E44C204A945C}" ShortID="122438799">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Gravel run" ID="{08750D64-BB50-4729-B9A2-F1BD59290B44}" ShortID="1057886458">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Wood run" ID="{E1F59816-6114-43E7-95B4-C47D35FFC15A}" ShortID="92834160">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Grass walk" ID="{76CC55B0-846D-41F1-9043-36C511F82ABC}" ShortID="900291926">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Gravel walk" ID="{C3F26AF6-1C05-4486-8816-513551F3A2FE}" ShortID="188827306">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Wood walk" ID="{F0B71108-9FDE-4BC7-870C-80B9268DE1BA}" ShortID="201856969">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+										</RandomSequenceContainer>
+									</ChildrenList>
+									<GroupingInfo>
+										<GroupRef Name="Steps" ID="{E59B9C2B-E14E-4841-985F-0CE4AAE17B9F}"/>
+										<DefaultSwitchRef Name="" ID="{00000000-0000-0000-0000-000000000000}"/>
+										<GroupingBehaviorList>
+											<GroupingBehavior>
+												<ItemRef Name="Wood walk" ID="{F0B71108-9FDE-4BC7-870C-80B9268DE1BA}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Wood run" ID="{E1F59816-6114-43E7-95B4-C47D35FFC15A}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Gravel run" ID="{08750D64-BB50-4729-B9A2-F1BD59290B44}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Grass walk" ID="{76CC55B0-846D-41F1-9043-36C511F82ABC}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Grass run" ID="{87ACDAC6-A743-4EB8-9AD4-E44C204A945C}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Gravel walk" ID="{C3F26AF6-1C05-4486-8816-513551F3A2FE}"/>
+											</GroupingBehavior>
+										</GroupingBehaviorList>
+										<GroupingList>
+											<Grouping>
+												<SwitchRef Name="Gravel" ID="{F391142F-4F8A-49D5-84BC-5605072A7CEC}"/>
+												<ItemList>
+													<ItemRef Name="Gravel run" ID="{08750D64-BB50-4729-B9A2-F1BD59290B44}"/>
+													<ItemRef Name="Gravel walk" ID="{C3F26AF6-1C05-4486-8816-513551F3A2FE}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="Grass" ID="{A4BFD645-2711-467D-8057-3F9DE85F67B2}"/>
+												<ItemList>
+													<ItemRef Name="Grass run" ID="{87ACDAC6-A743-4EB8-9AD4-E44C204A945C}"/>
+													<ItemRef Name="Grass walk" ID="{76CC55B0-846D-41F1-9043-36C511F82ABC}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="Wood" ID="{C3623FCC-9DC4-40BF-B559-2A2E6BF32A29}"/>
+												<ItemList>
+													<ItemRef Name="Wood run" ID="{E1F59816-6114-43E7-95B4-C47D35FFC15A}"/>
+													<ItemRef Name="Wood walk" ID="{F0B71108-9FDE-4BC7-870C-80B9268DE1BA}"/>
+												</ItemList>
+											</Grouping>
+										</GroupingList>
+									</GroupingInfo>
+								</SwitchContainer>
+							</ChildrenList>
+						</ActorMixer>
+						<ActorMixer Name="Hunter" ID="{A781C459-0CBD-4F91-BB2D-181BBD06E58F}" ShortID="579854216">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<SwitchContainer Name="Steps" ID="{392C6F42-A330-44DC-8424-047A166BB079}" ShortID="464288867">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<RandomSequenceContainer Name="Grass" ID="{04381E96-ACF0-4B9E-B0D5-1E8F40D42796}" ShortID="988044497">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Gravel" ID="{58F2801C-3E39-4220-91C6-89A70F7BC60C}" ShortID="483918684">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+										</RandomSequenceContainer>
+									</ChildrenList>
+									<GroupingInfo>
+										<GroupRef Name="Steps" ID="{E59B9C2B-E14E-4841-985F-0CE4AAE17B9F}"/>
+										<DefaultSwitchRef Name="" ID="{00000000-0000-0000-0000-000000000000}"/>
+										<GroupingBehaviorList>
+											<GroupingBehavior>
+												<ItemRef Name="Gravel" ID="{58F2801C-3E39-4220-91C6-89A70F7BC60C}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Grass" ID="{04381E96-ACF0-4B9E-B0D5-1E8F40D42796}"/>
+											</GroupingBehavior>
+										</GroupingBehaviorList>
+										<GroupingList>
+											<Grouping>
+												<SwitchRef Name="Gravel" ID="{F391142F-4F8A-49D5-84BC-5605072A7CEC}"/>
+												<ItemList>
+													<ItemRef Name="Gravel" ID="{58F2801C-3E39-4220-91C6-89A70F7BC60C}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="Grass" ID="{A4BFD645-2711-467D-8057-3F9DE85F67B2}"/>
+												<ItemList>
+													<ItemRef Name="Grass" ID="{04381E96-ACF0-4B9E-B0D5-1E8F40D42796}"/>
+												</ItemList>
+											</Grouping>
+										</GroupingList>
+									</GroupingInfo>
+								</SwitchContainer>
+							</ChildrenList>
+						</ActorMixer>
+						<ActorMixer Name="Dog" ID="{D7460FB2-8C83-4F0C-A18C-7EEF5338E651}" ShortID="790679977">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<SwitchContainer Name="Steps" ID="{4511B0EF-B423-4C62-B7BE-C2C535ADA539}" ShortID="132645409">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<RandomSequenceContainer Name="Gravel" ID="{526A6F8C-C5E9-4ACF-B6F4-35120B8E77F9}" ShortID="390872664">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Grass" ID="{ADA63FD0-DCAA-45FF-8328-1E6C55023E42}" ShortID="125951549">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+										</RandomSequenceContainer>
+									</ChildrenList>
+									<GroupingInfo>
+										<GroupRef Name="Steps" ID="{E59B9C2B-E14E-4841-985F-0CE4AAE17B9F}"/>
+										<DefaultSwitchRef Name="" ID="{00000000-0000-0000-0000-000000000000}"/>
+										<GroupingBehaviorList>
+											<GroupingBehavior>
+												<ItemRef Name="Gravel" ID="{526A6F8C-C5E9-4ACF-B6F4-35120B8E77F9}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Grass" ID="{ADA63FD0-DCAA-45FF-8328-1E6C55023E42}"/>
+											</GroupingBehavior>
+										</GroupingBehaviorList>
+										<GroupingList>
+											<Grouping>
+												<SwitchRef Name="Gravel" ID="{F391142F-4F8A-49D5-84BC-5605072A7CEC}"/>
+												<ItemList>
+													<ItemRef Name="Gravel" ID="{526A6F8C-C5E9-4ACF-B6F4-35120B8E77F9}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="Grass" ID="{A4BFD645-2711-467D-8057-3F9DE85F67B2}"/>
+												<ItemList>
+													<ItemRef Name="Grass" ID="{ADA63FD0-DCAA-45FF-8328-1E6C55023E42}"/>
+												</ItemList>
+											</Grouping>
+										</GroupingList>
+									</GroupingInfo>
+								</SwitchContainer>
+							</ChildrenList>
+						</ActorMixer>
+						<ActorMixer Name="Granny" ID="{8C09EAEB-E6F7-412B-91B6-1E8641910AAB}" ShortID="269037537">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<SwitchContainer Name="Steps" ID="{12664412-CA0D-4F3C-8BCB-2C9EDBDBDCBA}" ShortID="240654127">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<RandomSequenceContainer Name="Gravel" ID="{4CC66A7F-4DB1-4DC2-92F6-38D820F74A7B}" ShortID="572401253">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Wood" ID="{741623E0-212F-4A45-B290-E08837962E88}" ShortID="881327437">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Grass" ID="{F24CBB44-9DFD-433E-AA3A-5202F60FCDD6}" ShortID="186219168">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+										</RandomSequenceContainer>
+									</ChildrenList>
+									<GroupingInfo>
+										<GroupRef Name="Steps" ID="{E59B9C2B-E14E-4841-985F-0CE4AAE17B9F}"/>
+										<DefaultSwitchRef Name="" ID="{00000000-0000-0000-0000-000000000000}"/>
+										<GroupingBehaviorList>
+											<GroupingBehavior>
+												<ItemRef Name="Grass" ID="{F24CBB44-9DFD-433E-AA3A-5202F60FCDD6}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Gravel" ID="{4CC66A7F-4DB1-4DC2-92F6-38D820F74A7B}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Wood" ID="{741623E0-212F-4A45-B290-E08837962E88}"/>
+											</GroupingBehavior>
+										</GroupingBehaviorList>
+										<GroupingList>
+											<Grouping>
+												<SwitchRef Name="Gravel" ID="{F391142F-4F8A-49D5-84BC-5605072A7CEC}"/>
+												<ItemList>
+													<ItemRef Name="Gravel" ID="{4CC66A7F-4DB1-4DC2-92F6-38D820F74A7B}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="Grass" ID="{A4BFD645-2711-467D-8057-3F9DE85F67B2}"/>
+												<ItemList>
+													<ItemRef Name="Grass" ID="{F24CBB44-9DFD-433E-AA3A-5202F60FCDD6}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="Wood" ID="{C3623FCC-9DC4-40BF-B559-2A2E6BF32A29}"/>
+												<ItemList>
+													<ItemRef Name="Wood" ID="{741623E0-212F-4A45-B290-E08837962E88}"/>
+												</ItemList>
+											</Grouping>
+										</GroupingList>
+									</GroupingInfo>
+								</SwitchContainer>
+							</ChildrenList>
+						</ActorMixer>
+						<ActorMixer Name="Scout" ID="{A16A719E-7603-4B41-B73E-348504957932}" ShortID="281411327">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<SwitchContainer Name="Steps" ID="{3641D4E3-3647-4E6D-9762-B5D33AA32E5F}" ShortID="902775587">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<RandomSequenceContainer Name="Grass" ID="{6D30B119-5975-4A20-A351-6CA0A5FFC827}" ShortID="973602623">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+										</RandomSequenceContainer>
+									</ChildrenList>
+									<GroupingInfo>
+										<GroupRef Name="" ID="{00000000-0000-0000-0000-000000000000}"/>
+										<DefaultSwitchRef Name="" ID="{00000000-0000-0000-0000-000000000000}"/>
+										<GroupingBehaviorList>
+											<GroupingBehavior>
+												<ItemRef Name="Grass" ID="{6D30B119-5975-4A20-A351-6CA0A5FFC827}"/>
+											</GroupingBehavior>
+										</GroupingBehaviorList>
+									</GroupingInfo>
+								</SwitchContainer>
+							</ChildrenList>
+						</ActorMixer>
+						<ActorMixer Name="Jogger" ID="{2B6134F0-17C5-4818-BA1F-DA5BDDB6D74E}" ShortID="334428159">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<SwitchContainer Name="Steps" ID="{E7E6F2AF-64F4-4994-B4B5-FEE349A061DD}" ShortID="411714306">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<RandomSequenceContainer Name="Gravel" ID="{47FC7902-5893-4AEA-88CB-FF4A7FD4FCCA}" ShortID="133850821">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+										</RandomSequenceContainer>
+									</ChildrenList>
+									<GroupingInfo>
+										<GroupRef Name="Steps" ID="{E59B9C2B-E14E-4841-985F-0CE4AAE17B9F}"/>
+										<DefaultSwitchRef Name="" ID="{00000000-0000-0000-0000-000000000000}"/>
+										<GroupingBehaviorList>
+											<GroupingBehavior>
+												<ItemRef Name="Gravel" ID="{47FC7902-5893-4AEA-88CB-FF4A7FD4FCCA}"/>
+											</GroupingBehavior>
+										</GroupingBehaviorList>
+										<GroupingList>
+											<Grouping>
+												<SwitchRef Name="Gravel" ID="{F391142F-4F8A-49D5-84BC-5605072A7CEC}"/>
+												<ItemList>
+													<ItemRef Name="Gravel" ID="{47FC7902-5893-4AEA-88CB-FF4A7FD4FCCA}"/>
+												</ItemList>
+											</Grouping>
+										</GroupingList>
+									</GroupingInfo>
+								</SwitchContainer>
+							</ChildrenList>
+						</ActorMixer>
+					</ChildrenList>
+				</ActorMixer>
+				<ActorMixer Name="Village" ID="{CD5D5F96-8D4E-4E33-96FF-4A5E7196BCAD}" ShortID="649674899">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="Fire" ID="{3116519F-11D2-45ED-809E-1536E871D442}" ShortID="765751192" Type="SoundFX">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Feu + chaudron" ID="{DEE08B1C-C6EE-4EF3-BFC0-F4B264B6D487}" ShortID="617081912">
+									<Language>SFX</Language>
+									<AudioFile>Feu + chaudron.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Feu + chaudron" ID="{DEE08B1C-C6EE-4EF3-BFC0-F4B264B6D487}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Plouf" ID="{86EFA2A6-A9A4-4C26-8B4B-8BE14230D3B7}" ShortID="152584956" Type="SoundFX">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Plouf" ID="{4CD7EC27-F911-434B-BF3C-F15F9490F2FC}" ShortID="613314311">
+									<Language>SFX</Language>
+									<AudioFile>Plouf.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Plouf" ID="{4CD7EC27-F911-434B-BF3C-F15F9490F2FC}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</ActorMixer>
 			</ChildrenList>

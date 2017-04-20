@@ -8,7 +8,7 @@
 						<Action Name="Play" ID="{C7CD6E81-A5D1-4974-BA4A-4261FCEF1484}" ShortID="721343991" Type="Play" Scope="One" Global="false">
 							<ElementList>
 								<Element ID="{66DC7D33-0237-416A-BD23-E2D6CBB4A4AF}" Global="false">
-									<ObjectRef Name="Faune" ID="{E59D695A-FF69-4642-9003-B1EBE17E3D9C}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+									<ObjectRef Name="Fauna" ID="{E59D695A-FF69-4642-9003-B1EBE17E3D9C}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
 								</Element>
 							</ElementList>
 						</Action>
@@ -33,7 +33,7 @@
 						<Action Name="Play" ID="{C7C87488-9FB1-4089-9C09-25D99015BE9B}" ShortID="737405321" Type="Play" Scope="One" Global="false">
 							<ElementList>
 								<Element ID="{6A0E29F4-8846-4F75-9614-3676B5517981}" Global="false">
-									<ObjectRef Name="Faune" ID="{E8BAFBBF-4408-4192-9E4D-737F25C8376D}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+									<ObjectRef Name="Fauna" ID="{E8BAFBBF-4408-4192-9E4D-737F25C8376D}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
 								</Element>
 							</ElementList>
 						</Action>
@@ -72,7 +72,112 @@
 						<Action Name="Play" ID="{8DFF02DA-873F-4C87-992D-E41418503AB0}" ShortID="246428967" Type="Play" Scope="One" Global="false">
 							<ElementList>
 								<Element ID="{2DEC94B3-BF4E-4B25-A693-03F90A986759}" Global="false">
-									<ObjectRef Name="Faune" ID="{3424D9E7-8D36-42C2-8C7D-C63E11AE6FBA}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+									<ObjectRef Name="Fauna" ID="{3424D9E7-8D36-42C2-8C7D-C63E11AE6FBA}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="cannibals_run" ID="{45F2229A-814A-4C08-8EC4-BFEEF9213880}">
+					<ChildrenList>
+						<Action Name="Play" ID="{AFA65F03-C82F-4B63-9D64-7B0FA2E5A206}" ShortID="776273959" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{FF9127E3-5125-4C99-805B-F07B1C2204B4}" Global="false">
+									<ObjectRef Name="Grass run" ID="{87ACDAC6-A743-4EB8-9AD4-E44C204A945C}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Play" ID="{50477276-1A67-46DF-8A38-A3E9967A71DA}" ShortID="764117939" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{84508820-B324-4A1C-8AB5-C5304D49A2AF}" Global="false">
+									<ObjectRef Name="Gravel run" ID="{08750D64-BB50-4729-B9A2-F1BD59290B44}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Play" ID="{8758BD62-6AD1-4258-A3CA-CAAF38F9BC16}" ShortID="1022447536" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{D31BE958-EE70-4AC9-A899-900358BCD874}" Global="false">
+									<ObjectRef Name="Wood run" ID="{E1F59816-6114-43E7-95B4-C47D35FFC15A}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="cannibals_walk" ID="{EAF58586-BEB2-4FBF-963A-837C888143EE}">
+					<ChildrenList>
+						<Action Name="Play" ID="{A3B104F2-DE5A-434C-8BE1-3285CF17CF63}" ShortID="625672835" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{F1BC4E3D-927E-4FCB-9654-97102956D661}" Global="false">
+									<ObjectRef Name="Grass walk" ID="{76CC55B0-846D-41F1-9043-36C511F82ABC}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Play" ID="{DF85E457-A30B-4AD0-ACD3-16C687C59BEB}" ShortID="805229778" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{70212356-FDB8-403E-AF14-4C731C47020E}" Global="false">
+									<ObjectRef Name="Gravel walk" ID="{C3F26AF6-1C05-4486-8816-513551F3A2FE}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Play" ID="{2B7332A8-A49E-4F43-94DA-E255E1180877}" ShortID="675306236" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{ED8DFBED-0A40-436B-A74B-7DA64DFE4582}" Global="false">
+									<ObjectRef Name="Wood run" ID="{E1F59816-6114-43E7-95B4-C47D35FFC15A}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="hunter_walk" ID="{82A48515-2E0D-4929-94A0-B59679A9B500}">
+					<ChildrenList>
+						<Action Name="Play" ID="{71D811D9-6D80-4689-B3A3-797AC1067F70}" ShortID="865951043" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{170FF1C1-FD4A-42D5-82FC-2D78215F4FCE}" Global="false">
+									<ObjectRef Name="Steps" ID="{392C6F42-A330-44DC-8424-047A166BB079}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="dog_walk" ID="{C5D027E6-EA11-4BF7-B410-9D26DBAB443E}">
+					<ChildrenList>
+						<Action Name="Play" ID="{940FE798-13E7-4E06-B0E8-7D376CAD7A2A}" ShortID="493059247" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{88117778-78FE-4373-9265-5107E79CF6AD}" Global="false">
+									<ObjectRef Name="Steps" ID="{4511B0EF-B423-4C62-B7BE-C2C535ADA539}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="granny_walk" ID="{3990EA49-E405-4EBF-A034-E269B9FC71C3}">
+					<ChildrenList>
+						<Action Name="Play" ID="{5DF02732-0AA5-4B89-8D04-C8C94313C4D5}" ShortID="772000123" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{75B20F12-DE60-4CD3-BFC0-A0BA0140C728}" Global="false">
+									<ObjectRef Name="Steps" ID="{12664412-CA0D-4F3C-8BCB-2C9EDBDBDCBA}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="jogger_walk" ID="{F2B27C83-E1AF-4752-8FA2-D5FFC5A21870}">
+					<ChildrenList>
+						<Action Name="Play" ID="{A6C48C03-29D6-4ACD-A43E-17F6CD9126AC}" ShortID="888797614" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{2BA1CA52-342F-43AE-A9C1-705B875C19EB}" Global="false">
+									<ObjectRef Name="Steps" ID="{E7E6F2AF-64F4-4994-B4B5-FEE349A061DD}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="scout_walk" ID="{B24635E5-F97D-4239-BDC7-8941AAD4F27A}">
+					<ChildrenList>
+						<Action Name="Play" ID="{3F93A735-C985-40B0-A70D-F87B296DD42B}" ShortID="143374575" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{EE6BA445-AD6B-446C-B35E-624D26AC9C76}" Global="false">
+									<ObjectRef Name="Steps" ID="{3641D4E3-3647-4E6D-9762-B5D33AA32E5F}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
 								</Element>
 							</ElementList>
 						</Action>
