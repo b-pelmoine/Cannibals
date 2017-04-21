@@ -8,21 +8,304 @@
 						<Action Name="Play" ID="{C7CD6E81-A5D1-4974-BA4A-4261FCEF1484}" ShortID="721343991" Type="Play" Scope="One" Global="false">
 							<ElementList>
 								<Element ID="{66DC7D33-0237-416A-BD23-E2D6CBB4A4AF}" Global="false">
-									<ObjectRef Name="Faune" ID="{E59D695A-FF69-4642-9003-B1EBE17E3D9C}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+									<ObjectRef Name="Fauna" ID="{E59D695A-FF69-4642-9003-B1EBE17E3D9C}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
 								</Element>
 							</ElementList>
 						</Action>
-						<Action Name="Play" ID="{BE3B1D94-F172-46C3-BA08-50CEBE492A59}" ShortID="583241818" Type="Play" Scope="One" Global="false">
+						<Action Name="Play" ID="{420A3D1A-9EDC-4FD2-9244-75957FBA2609}" ShortID="253698367" Type="Play" Scope="One" Global="false">
 							<ElementList>
-								<Element ID="{105FCE3B-9AFB-49F6-BCAE-A044E7BF749E}" Global="false">
-									<ObjectRef Name="Loop Forest Tone 1" ID="{E899EABB-4633-49E8-BE31-66871824B0DA}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								<Element ID="{D903AD99-F87C-4F8E-AAA0-97962DFBED32}" Global="false">
+									<ObjectRef Name="Amb birds" ID="{33E15918-6471-4FBD-87F9-99CC00FE2C45}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
 								</Element>
 							</ElementList>
 						</Action>
-						<Action Name="Play" ID="{3EC071F0-7622-486A-84F1-A70570E25ACC}" ShortID="631574687" Type="Play" Scope="One" Global="false">
+						<Action Name="Play" ID="{EB659A3E-60B2-4B79-8D7F-6C4596C7D5F1}" ShortID="876236384" Type="Play" Scope="One" Global="false">
 							<ElementList>
-								<Element ID="{80594BC3-3D2B-47C3-9DD3-814ECEA08A72}" Global="false">
-									<ObjectRef Name="Loop Forest Tone 2" ID="{B2E6A4B5-69C0-4CD9-AF3B-0D9CB650E00E}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								<Element ID="{FA154E7F-3B08-49A0-ADE8-3F118F661DAC}" Global="false">
+									<ObjectRef Name="Amb, tone, quiet birds" ID="{7061A00C-5A35-49BF-BC63-F07384F0FF2B}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="ambiance_lake_and_water" ID="{E101765C-2CF9-4BD1-8F45-691D4EC18096}">
+					<ChildrenList>
+						<Action Name="Play" ID="{C7C87488-9FB1-4089-9C09-25D99015BE9B}" ShortID="737405321" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{6A0E29F4-8846-4F75-9614-3676B5517981}" Global="false">
+									<ObjectRef Name="Fauna" ID="{E8BAFBBF-4408-4192-9E4D-737F25C8376D}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Play" ID="{0093D91F-ABE2-4CE6-B7D6-C610673FE7B7}" ShortID="245867276" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{0006B482-32B9-47F2-94C8-E0DA1A3988EC}" Global="false">
+									<ObjectRef Name="Loop water on rocks (lake)" ID="{2F59986A-2C9B-4E40-A360-5DFB1C88E674}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Play" ID="{2E867784-141C-41E3-AF73-9D34311FCEE3}" ShortID="1072699173" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{88D02CAE-500B-47A1-852F-08F4023E776C}" Global="false">
+									<ObjectRef Name="Loop river on lake" ID="{C5F91A81-DD85-4077-BF2B-D51D15A680AA}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Play" ID="{D41D1418-58B0-4985-A54D-1F3C6FAB94BD}" ShortID="821410642" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{8CDCD72D-62BC-4B1D-9C72-D9C8528D5AB2}" Global="false">
+									<ObjectRef Name="Loop river" ID="{83CE6832-5AB5-4683-9CF1-182B0FE34789}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="ambiance_return" ID="{05B96834-1ACC-49F7-A6D6-B649573EDC85}">
+					<ChildrenList>
+						<Action Name="Play" ID="{19C87CE3-E180-4D23-AB50-550A36D14CC3}" ShortID="227503889" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{7F27C6BA-0032-4059-8753-B87FB6981571}" Global="false">
+									<ObjectRef Name="Seagulls_calls" ID="{A7019378-412C-405A-8CF5-ACE0037FD347}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Play" ID="{8DFF02DA-873F-4C87-992D-E41418503AB0}" ShortID="246428967" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{2DEC94B3-BF4E-4B25-A693-03F90A986759}" Global="false">
+									<ObjectRef Name="Fauna" ID="{3424D9E7-8D36-42C2-8C7D-C63E11AE6FBA}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="cannibals_run" ID="{45F2229A-814A-4C08-8EC4-BFEEF9213880}">
+					<ChildrenList>
+						<Action Name="Play" ID="{AFA65F03-C82F-4B63-9D64-7B0FA2E5A206}" ShortID="776273959" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{FF9127E3-5125-4C99-805B-F07B1C2204B4}" Global="false">
+									<ObjectRef Name="Grass run" ID="{87ACDAC6-A743-4EB8-9AD4-E44C204A945C}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Play" ID="{50477276-1A67-46DF-8A38-A3E9967A71DA}" ShortID="764117939" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{84508820-B324-4A1C-8AB5-C5304D49A2AF}" Global="false">
+									<ObjectRef Name="Gravel run" ID="{08750D64-BB50-4729-B9A2-F1BD59290B44}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Play" ID="{8758BD62-6AD1-4258-A3CA-CAAF38F9BC16}" ShortID="1022447536" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{D31BE958-EE70-4AC9-A899-900358BCD874}" Global="false">
+									<ObjectRef Name="Wood run" ID="{E1F59816-6114-43E7-95B4-C47D35FFC15A}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="cannibals_walk" ID="{EAF58586-BEB2-4FBF-963A-837C888143EE}">
+					<ChildrenList>
+						<Action Name="Play" ID="{A3B104F2-DE5A-434C-8BE1-3285CF17CF63}" ShortID="625672835" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{F1BC4E3D-927E-4FCB-9654-97102956D661}" Global="false">
+									<ObjectRef Name="Grass walk" ID="{76CC55B0-846D-41F1-9043-36C511F82ABC}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Play" ID="{DF85E457-A30B-4AD0-ACD3-16C687C59BEB}" ShortID="805229778" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{70212356-FDB8-403E-AF14-4C731C47020E}" Global="false">
+									<ObjectRef Name="Gravel walk" ID="{C3F26AF6-1C05-4486-8816-513551F3A2FE}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Play" ID="{2B7332A8-A49E-4F43-94DA-E255E1180877}" ShortID="675306236" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{ED8DFBED-0A40-436B-A74B-7DA64DFE4582}" Global="false">
+									<ObjectRef Name="Wood run" ID="{E1F59816-6114-43E7-95B4-C47D35FFC15A}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="hunter_steps" ID="{82A48515-2E0D-4929-94A0-B59679A9B500}">
+					<ChildrenList>
+						<Action Name="Play" ID="{71D811D9-6D80-4689-B3A3-797AC1067F70}" ShortID="865951043" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{170FF1C1-FD4A-42D5-82FC-2D78215F4FCE}" Global="false">
+									<ObjectRef Name="Steps" ID="{392C6F42-A330-44DC-8424-047A166BB079}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="dog_steps" ID="{C5D027E6-EA11-4BF7-B410-9D26DBAB443E}">
+					<ChildrenList>
+						<Action Name="Play" ID="{940FE798-13E7-4E06-B0E8-7D376CAD7A2A}" ShortID="493059247" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{88117778-78FE-4373-9265-5107E79CF6AD}" Global="false">
+									<ObjectRef Name="Steps" ID="{4511B0EF-B423-4C62-B7BE-C2C535ADA539}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="granny_steps" ID="{3990EA49-E405-4EBF-A034-E269B9FC71C3}">
+					<ChildrenList>
+						<Action Name="Play" ID="{5DF02732-0AA5-4B89-8D04-C8C94313C4D5}" ShortID="772000123" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{75B20F12-DE60-4CD3-BFC0-A0BA0140C728}" Global="false">
+									<ObjectRef Name="Steps" ID="{12664412-CA0D-4F3C-8BCB-2C9EDBDBDCBA}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="jogger_steps" ID="{F2B27C83-E1AF-4752-8FA2-D5FFC5A21870}">
+					<ChildrenList>
+						<Action Name="Play" ID="{A6C48C03-29D6-4ACD-A43E-17F6CD9126AC}" ShortID="888797614" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{2BA1CA52-342F-43AE-A9C1-705B875C19EB}" Global="false">
+									<ObjectRef Name="Steps" ID="{E7E6F2AF-64F4-4994-B4B5-FEE349A061DD}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="scout_steps" ID="{B24635E5-F97D-4239-BDC7-8941AAD4F27A}">
+					<ChildrenList>
+						<Action Name="Play" ID="{3F93A735-C985-40B0-A70D-F87B296DD42B}" ShortID="143374575" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{EE6BA445-AD6B-446C-B35E-624D26AC9C76}" Global="false">
+									<ObjectRef Name="Steps" ID="{3641D4E3-3647-4E6D-9762-B5D33AA32E5F}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="dog_idle" ID="{CAF5387B-E113-42E8-B0A7-943753C363D0}">
+					<ChildrenList>
+						<Action Name="Play" ID="{1F826322-0753-4532-95BD-189F68BE1515}" ShortID="1443166" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{4F4BAF1C-AB87-4591-BFEC-D0D9BB9235EE}" Global="false">
+									<ObjectRef Name="Idle" ID="{C64321C3-9F9D-4AE4-92F6-35DF3ED86682}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Break" ID="{C6A41FE9-E537-4426-9F45-9ADC9374B848}" ShortID="1044093605" Type="Break" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{4BD141DB-7C9A-4FCF-AA45-AA3C202FEB88}" Global="false">
+									<ObjectRef Name="Sniff" ID="{816A61D1-8693-4318-A88E-0CA57A5BB2EA}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Break" ID="{1F9F8C9D-8D3A-4DC4-8287-7310FD741E1F}" ShortID="121806935" Type="Break" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{44DBE726-E6EE-4199-8468-ADE869312E46}" Global="false">
+									<ObjectRef Name="Bark" ID="{050C9568-5617-45CF-87B6-BA3EEDA0EAE9}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Break" ID="{FAD83584-677B-48E7-B870-990FB7C224D8}" ShortID="77845443" Type="Break" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{0709C458-25ED-4E4D-BA75-15DD45A39C0F}" Global="false">
+									<ObjectRef Name="Dog_eat" ID="{730163B7-6DC7-42F1-A563-6E4C7FEFE06C}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="dog_sniff" ID="{230A9FAA-55AF-4C20-8EAE-36FFB5C70A81}">
+					<ChildrenList>
+						<Action Name="Play" ID="{826709DD-E298-4A0A-92E5-ED7C4B73EEF1}" ShortID="256998425" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{2D1FFC91-3DD2-4303-A27A-F32C1E4FE9FF}" Global="false">
+									<ObjectRef Name="Sniff" ID="{816A61D1-8693-4318-A88E-0CA57A5BB2EA}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Break" ID="{06743BE3-7E8F-457D-9F43-8CF202D0BAD3}" ShortID="654409680" Type="Break" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{DFB55ABA-5059-4035-A618-251EC17AB038}" Global="false">
+									<ObjectRef Name="Idle" ID="{C64321C3-9F9D-4AE4-92F6-35DF3ED86682}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Break" ID="{7A8803AE-3542-4BC2-A7BC-2866895CFAB0}" ShortID="651177935" Type="Break" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{B6B7B2E8-26B7-4ABB-B418-F89091C8C978}" Global="false">
+									<ObjectRef Name="Dog_eat" ID="{730163B7-6DC7-42F1-A563-6E4C7FEFE06C}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Break" ID="{593A6691-0C22-4E90-A33F-D3335BC36E54}" ShortID="837059789" Type="Break" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{80D1ACC8-B8C7-4091-A2D7-D30BA865FE7C}" Global="false">
+									<ObjectRef Name="Bark" ID="{050C9568-5617-45CF-87B6-BA3EEDA0EAE9}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="dog_eat" ID="{3752280D-7E9A-4981-A196-443F8FC66835}">
+					<ChildrenList>
+						<Action Name="Play" ID="{081F582E-2B70-4D09-AEE9-F8492B168F80}" ShortID="53529282" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{C51A8509-91C7-45C1-B6AB-D8079284EE7E}" Global="false">
+									<ObjectRef Name="Dog_eat" ID="{730163B7-6DC7-42F1-A563-6E4C7FEFE06C}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Break" ID="{4E460013-09DC-4CEC-B723-54700D2A5368}" ShortID="20384279" Type="Break" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{9B599ED9-E0F5-4AAC-846C-8257F9BAB1F3}" Global="false">
+									<ObjectRef Name="Idle" ID="{C64321C3-9F9D-4AE4-92F6-35DF3ED86682}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Break" ID="{FCFC4A87-3CF5-4A22-ABBE-0780BE35BF26}" ShortID="459541011" Type="Break" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{EF213A99-EFA1-49AE-B485-6CEC8410A7BF}" Global="false">
+									<ObjectRef Name="Sniff" ID="{816A61D1-8693-4318-A88E-0CA57A5BB2EA}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Break" ID="{BFAB063E-4D13-435C-914C-B3BC030ECF5F}" ShortID="382044552" Type="Break" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{DB15DFDC-6885-4097-8F61-ECA2DD6BCC7C}" Global="false">
+									<ObjectRef Name="Bark" ID="{050C9568-5617-45CF-87B6-BA3EEDA0EAE9}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="dog_bark" ID="{1E937F2E-C0D9-4FE2-88EF-6686DF9DC72D}">
+					<ChildrenList>
+						<Action Name="Play" ID="{648FC7F3-7220-482A-94D5-4FCA46F71AAD}" ShortID="959284082" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{7A737646-0F7F-478C-8542-5DA11638410F}" Global="false">
+									<ObjectRef Name="Bark" ID="{050C9568-5617-45CF-87B6-BA3EEDA0EAE9}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Break" ID="{0845AE6D-54AF-4372-B544-8FB24AEC203D}" ShortID="823412514" Type="Break" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{6F0178DF-677B-44C4-85EA-9A0E9BB5C55B}" Global="false">
+									<ObjectRef Name="Idle" ID="{C64321C3-9F9D-4AE4-92F6-35DF3ED86682}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Break" ID="{8B4A046D-D8D4-43CA-A74D-2232E6855875}" ShortID="472555136" Type="Break" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{29320693-C638-432F-92B9-1051F8968CE2}" Global="false">
+									<ObjectRef Name="Sniff" ID="{816A61D1-8693-4318-A88E-0CA57A5BB2EA}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Break" ID="{7281E2A5-2A1B-4AF6-9D8B-76AA87ABF737}" ShortID="1061781247" Type="Break" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{7E381904-BAF7-4C90-B3FD-C11651103233}" Global="false">
+									<ObjectRef Name="Dog_eat" ID="{730163B7-6DC7-42F1-A563-6E4C7FEFE06C}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
 								</Element>
 							</ElementList>
 						</Action>

@@ -1,9 +1,9 @@
 ﻿public class Cannibal_Call : Cannibal_State {
 
-    protected override void OnEnter()
+    protected override void OnUpdate()
     {
-        base.OnEnter();
-        m_cannibal.m_cannibalSkill.m_call.Use();
+        base.OnUpdate();
+        ((ICall)m_cannibal.m_cannibalSkill.m_cannibalObject).Use();
     }
 
 }

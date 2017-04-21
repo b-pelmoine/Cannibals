@@ -19,13 +19,14 @@ namespace NodeCanvas.Tasks.Conditions{
 		public BBParameter<GameObject> saveGameObjectAs;
 
 		private bool stay;
+        private Collider collider;
 
 		protected override string info{
 			get {return checkType.ToString() + ( specifiedTagOnly? (" '" + objectTag + "' tag") : "" );}
 		}
 
 		protected override bool OnCheck(){
-			if (checkType == TriggerTypes.TriggerStay)
+			if (checkType == TriggerTypes.TriggerStay && collider && collider.enabled)
 				return stay;
 			return false;
 		}
@@ -34,7 +35,9 @@ namespace NodeCanvas.Tasks.Conditions{
 			if ( (((1<<other.gameObject.layer) & layerMask) != 0) && (!specifiedTagOnly || other.gameObject.tag == objectTag))
             {
 				stay = true;
-				if (checkType == TriggerTypes.TriggerEnter || checkType == TriggerTypes.TriggerStay){
+                collider = other;
+
+                if (checkType == TriggerTypes.TriggerEnter || checkType == TriggerTypes.TriggerStay){
 					saveGameObjectAs.value = other.gameObject;
 					YieldReturn(true);
 				}
@@ -45,7 +48,8 @@ namespace NodeCanvas.Tasks.Conditions{
 			if ((((1 << other.gameObject.layer) & layerMask) != 0) && (!specifiedTagOnly || other.gameObject.tag == objectTag))
             {
 				stay = false;
-				if (checkType == TriggerTypes.TriggerExit){
+                collider = null;
+                if (checkType == TriggerTypes.TriggerExit){
 					saveGameObjectAs.value = other.gameObject;				
 					YieldReturn(true);
 				}

@@ -5,8 +5,6 @@ using UnityEngine;
 public class Cannibal_Skill : MonoBehaviour {
 
 
-    public Call m_call;
-
     public CannibalObject m_cannibalObject { get; private set; }
 
     [SerializeField]
@@ -21,13 +19,12 @@ public class Cannibal_Skill : MonoBehaviour {
         if (m_cannibalObject)
         {
             m_cannibalObject.Exchange(cannibalObject);
-        }
-        else
-        {
-            cannibalObject.BeTaken(cannibalObjectParent);
+            m_cannibalObject.Release();
         }
 
-        m_cannibalObject = cannibalObject;
+
+       cannibalObject.Take(cannibalObjectParent);
+       m_cannibalObject = cannibalObject;
     }
 
     public void LooseCannibalObject()

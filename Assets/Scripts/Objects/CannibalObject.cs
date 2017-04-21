@@ -4,8 +4,13 @@ using UnityEngine;
 
 public abstract class CannibalObject : MonoBehaviour {
 
+    public CannibalObjectInfo m_info;
+
     [SerializeField]
     Transform m_transform;
+
+    [SerializeField]
+    IconDisplayer m_objectIconDisplayer;
 
     public Transform Transform
     {
@@ -16,13 +21,23 @@ public abstract class CannibalObject : MonoBehaviour {
     /// The object is taken by the newParent
     /// </summary>
     /// <param name="newParent"></param>
-    public virtual void BeTaken(Transform newParent)
+    public virtual void Take(Transform newParent)
     {
         m_transform.SetParent(newParent);
+        m_transform.localPosition = Vector3.zero;
+        m_transform.rotation = Quaternion.identity;
     }
 
     /// <summary>
-    /// Exchange the CannibalObject c with the seconde CannibalObject
+    /// Release the object on the ground
+    /// </summary>
+    public virtual void Release()
+    {
+
+    }
+
+    /// <summary>
+    /// Exchange the CannibalObject c with the second CannibalObject
     /// </summary>
     /// <param name="c1"></param>
     /// <param name="with"></param>
@@ -39,6 +54,11 @@ public abstract class CannibalObject : MonoBehaviour {
         Quaternion memoryRotation = m_transform.rotation;
         m_transform.rotation = with.m_transform.rotation;
         with.m_transform.rotation = memoryRotation;
+    }
+
+    public void ShowIcon()
+    {
+        m_objectIconDisplayer.Show(m_info.icon);
     }
 
 }
