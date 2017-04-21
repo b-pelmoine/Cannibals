@@ -85,7 +85,6 @@ GameObject:
   - component: {fileID: 20988710446942376}
   - component: {fileID: 114870004617759452}
   - component: {fileID: 114752137035533340}
-  - component: {fileID: 114060891872960166}
   m_Layer: 9
   m_Name: Chasseur
   m_TagString: Untagged
@@ -100,7 +99,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1443385088526980}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.09503, y: 0, z: 11.9026}
+  m_LocalPosition: {x: 1.9803104, y: 1, z: 2.5285873}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4789305613664332}
@@ -327,17 +326,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 10
---- !u!114 &114060891872960166
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1956400642573850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 175d0f0b3d2fe2f4880997037a24be06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114100969251736066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -368,13 +356,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - position: {x: 12.956564, y: -1, z: -2.5057726}
+  - position: {x: 13.544384, y: 0, z: -1.1103687}
     links: 01000000
-  - position: {x: 2.1128273, y: 0.00000023841858, z: 11.4889145}
+  - position: {x: 1.586443, y: 0, z: 11.222771}
     links: 02000000
-  - position: {x: 8.751968, y: 0, z: 21.37909}
+  - position: {x: 8.499046, y: 0, z: 21.362602}
     links: 03000000
-  - position: {x: 18.134655, y: -1, z: 12.515426}
+  - position: {x: 18.231304, y: 0, z: 13.064484}
     links: 00000000
   current: 0
   currentDestination: {x: 0, y: 0, z: 0}
