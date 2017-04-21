@@ -133,26 +133,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 89946ea3af3baae40b2dae0058b86611, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &214661218
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
-  m_Name: Cannibal (1)
-  m_EditorClassIdentifier: 
-  _serializedGraph: '{"version":2.6,"type":"NodeCanvas.StateMachines.FSM","name":"FSM","translation":{"x":-4880.0,"y":-5146.0},"nodes":[{"_nestedFSM":{"_value":1},"_position":{"x":5358.0,"y":5195.0},"_name":"Visible","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"2"},{"_nestedFSM":{"_value":2},"_position":{"x":5219.0,"y":5382.0},"_name":"Hidden","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"4"},{"_nestedFSM":{"_value":3},"_position":{"x":5546.0,"y":5336.0},"_name":"Dead","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"6"},{"_nestedFSM":{"_value":4},"_position":{"x":5659.0,"y":5073.0},"_name":"Revive","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"8"}],"connections":[{"_condition":{"layerMask":{"value":2048},"saveGameObjectAs":{"_name":""},"overrideAgent":{"_name":"bushCollider","_targetVariableID":"8ff76c52-119e-4dc6-aacd-6a49b6459f18"},"$type":"NodeCanvas.Tasks.Conditions.CheckTrigger"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"eventName":{"_value":"Death"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"checkType":"TriggerExit","layerMask":{"value":2048},"saveGameObjectAs":{"_name":""},"overrideAgent":{"_name":"bushCollider","_targetVariableID":"8ff76c52-119e-4dc6-aacd-6a49b6459f18"},"$type":"NodeCanvas.Tasks.Conditions.CheckTrigger"},"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"eventName":{"_value":"Death"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"eventName":{"_value":"Revive"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"checkType":"TriggerStay","layerMask":{"value":2048},"saveGameObjectAs":{"_name":""},"_invert":true,"overrideAgent":{"_name":"bushCollider","_targetVariableID":"8ff76c52-119e-4dc6-aacd-6a49b6459f18"},"$type":"NodeCanvas.Tasks.Conditions.CheckTrigger"},"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"checkType":"TriggerStay","layerMask":{"value":2048},"saveGameObjectAs":{"_name":""},"overrideAgent":{"_name":"bushCollider","_targetVariableID":"8ff76c52-119e-4dc6-aacd-6a49b6459f18"},"$type":"NodeCanvas.Tasks.Conditions.CheckTrigger"},"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"primeNode":{"$ref":"2"},"localBlackboard":{"_name":"Local
-    Blackboard","_variables":{}}}'
-  _objectReferences:
-  - {fileID: 0}
-  - {fileID: 11400000, guid: 81676165a60dcb64fb6e9ba210710385, type: 2}
-  - {fileID: 11400000, guid: 92f091e0e537f7540afc866e6622e73a, type: 2}
-  - {fileID: 11400000, guid: 034dc5fcfba36394badce3d340515ce3, type: 2}
-  - {fileID: 11400000, guid: f78d757db0da41348a28cf25f5c037e1, type: 2}
-  _deserializationFailed: 0
 --- !u!1 &517272764
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,26 +375,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 1.63}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &827156785
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
-  m_Name: Cannibal
-  m_EditorClassIdentifier: 
-  _serializedGraph: '{"version":2.6,"type":"NodeCanvas.StateMachines.FSM","name":"FSM","translation":{"x":-5022.0,"y":-4913.0},"nodes":[{"_nestedFSM":{"_value":1},"_position":{"x":5358.0,"y":5195.0},"_name":"Visible","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"2"},{"_nestedFSM":{"_value":2},"_position":{"x":5219.0,"y":5382.0},"_name":"Hidden","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"4"},{"_nestedFSM":{"_value":3},"_position":{"x":5546.0,"y":5336.0},"_name":"Dead","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"6"},{"_nestedFSM":{"_value":4},"_position":{"x":5659.0,"y":5073.0},"_name":"Revive","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"8"}],"connections":[{"_condition":{"layerMask":{"value":2048},"saveGameObjectAs":{"_name":""},"overrideAgent":{"_name":"bushCollider","_targetVariableID":"8ff76c52-119e-4dc6-aacd-6a49b6459f18"},"$type":"NodeCanvas.Tasks.Conditions.CheckTrigger"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"eventName":{"_value":"Death"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"checkType":"TriggerExit","layerMask":{"value":2048},"saveGameObjectAs":{"_name":""},"overrideAgent":{"_name":"bushCollider","_targetVariableID":"8ff76c52-119e-4dc6-aacd-6a49b6459f18"},"$type":"NodeCanvas.Tasks.Conditions.CheckTrigger"},"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"eventName":{"_value":"Death"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"eventName":{"_value":"Revive"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"checkType":"TriggerStay","layerMask":{"value":2048},"saveGameObjectAs":{"_name":""},"_invert":true,"overrideAgent":{"_name":"bushCollider","_targetVariableID":"8ff76c52-119e-4dc6-aacd-6a49b6459f18"},"$type":"NodeCanvas.Tasks.Conditions.CheckTrigger"},"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"checkType":"TriggerStay","layerMask":{"value":2048},"saveGameObjectAs":{"_name":""},"overrideAgent":{"_name":"bushCollider","_targetVariableID":"8ff76c52-119e-4dc6-aacd-6a49b6459f18"},"$type":"NodeCanvas.Tasks.Conditions.CheckTrigger"},"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"primeNode":{"$ref":"2"},"localBlackboard":{"_name":"Local
-    Blackboard","_variables":{}}}'
-  _objectReferences:
-  - {fileID: 0}
-  - {fileID: 11400000, guid: 81676165a60dcb64fb6e9ba210710385, type: 2}
-  - {fileID: 11400000, guid: 92f091e0e537f7540afc866e6622e73a, type: 2}
-  - {fileID: 11400000, guid: 034dc5fcfba36394badce3d340515ce3, type: 2}
-  - {fileID: 11400000, guid: f78d757db0da41348a28cf25f5c037e1, type: 2}
-  _deserializationFailed: 0
 --- !u!1 &941079446
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,7 +589,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 810a8059e702ab549bf5df5a839f08b6, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1237087724
+--- !u!114 &1124151927
 MonoBehaviour:
   m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 0}
@@ -638,9 +598,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
-  m_Name: Cannibal (1)
+  m_Name: Cannibal
   m_EditorClassIdentifier: 
-  _serializedGraph: '{"version":2.6,"type":"NodeCanvas.StateMachines.FSM","name":"FSM","translation":{"x":-4880.0,"y":-5146.0},"nodes":[{"_nestedFSM":{"_value":1},"_position":{"x":5358.0,"y":5195.0},"_name":"Visible","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"2"},{"_nestedFSM":{"_value":2},"_position":{"x":5219.0,"y":5382.0},"_name":"Hidden","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"4"},{"_nestedFSM":{"_value":3},"_position":{"x":5546.0,"y":5336.0},"_name":"Dead","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"6"},{"_nestedFSM":{"_value":4},"_position":{"x":5659.0,"y":5073.0},"_name":"Revive","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"8"}],"connections":[{"_condition":{"layerMask":{"value":2048},"saveGameObjectAs":{"_name":""},"overrideAgent":{"_name":"bushCollider","_targetVariableID":"8ff76c52-119e-4dc6-aacd-6a49b6459f18"},"$type":"NodeCanvas.Tasks.Conditions.CheckTrigger"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"eventName":{"_value":"Death"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"checkType":"TriggerExit","layerMask":{"value":2048},"saveGameObjectAs":{"_name":""},"overrideAgent":{"_name":"bushCollider","_targetVariableID":"8ff76c52-119e-4dc6-aacd-6a49b6459f18"},"$type":"NodeCanvas.Tasks.Conditions.CheckTrigger"},"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"eventName":{"_value":"Death"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"eventName":{"_value":"Revive"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"checkType":"TriggerStay","layerMask":{"value":2048},"saveGameObjectAs":{"_name":""},"_invert":true,"overrideAgent":{"_name":"bushCollider","_targetVariableID":"8ff76c52-119e-4dc6-aacd-6a49b6459f18"},"$type":"NodeCanvas.Tasks.Conditions.CheckTrigger"},"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"checkType":"TriggerStay","layerMask":{"value":2048},"saveGameObjectAs":{"_name":""},"overrideAgent":{"_name":"bushCollider","_targetVariableID":"8ff76c52-119e-4dc6-aacd-6a49b6459f18"},"$type":"NodeCanvas.Tasks.Conditions.CheckTrigger"},"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"primeNode":{"$ref":"2"},"localBlackboard":{"_name":"Local
+  _serializedGraph: '{"version":2.6,"type":"NodeCanvas.StateMachines.FSM","name":"FSM","translation":{"x":-4849.0,"y":-4990.0},"nodes":[{"_nestedFSM":{"_value":1},"_position":{"x":5358.0,"y":5195.0},"_name":"Visible","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"2"},{"_nestedFSM":{"_value":2},"_position":{"x":5219.0,"y":5382.0},"_name":"Hidden","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"4"},{"_nestedFSM":{"_value":3},"_position":{"x":5546.0,"y":5336.0},"_name":"Dead","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"6"},{"_nestedFSM":{"_value":4},"_position":{"x":5659.0,"y":5073.0},"_name":"Revive","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"8"}],"connections":[{"_condition":{"layerMask":{"value":2048},"saveGameObjectAs":{"_name":""},"overrideAgent":{"_name":"bushCollider","_targetVariableID":"8ff76c52-119e-4dc6-aacd-6a49b6459f18"},"$type":"NodeCanvas.Tasks.Conditions.CheckTrigger"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"eventName":{"_value":"Death"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"checkType":"TriggerExit","layerMask":{"value":2048},"saveGameObjectAs":{"_name":""},"overrideAgent":{"_name":"bushCollider","_targetVariableID":"8ff76c52-119e-4dc6-aacd-6a49b6459f18"},"$type":"NodeCanvas.Tasks.Conditions.CheckTrigger"},"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"eventName":{"_value":"Death"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"eventName":{"_value":"Revive"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"checkType":"TriggerStay","layerMask":{"value":2048},"saveGameObjectAs":{"_name":""},"_invert":true,"overrideAgent":{"_name":"bushCollider","_targetVariableID":"8ff76c52-119e-4dc6-aacd-6a49b6459f18"},"$type":"NodeCanvas.Tasks.Conditions.CheckTrigger"},"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"checkType":"TriggerStay","layerMask":{"value":2048},"saveGameObjectAs":{"_name":""},"overrideAgent":{"_name":"bushCollider","_targetVariableID":"8ff76c52-119e-4dc6-aacd-6a49b6459f18"},"$type":"NodeCanvas.Tasks.Conditions.CheckTrigger"},"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"primeNode":{"$ref":"2"},"localBlackboard":{"_name":"Local
     Blackboard","_variables":{}}}'
   _objectReferences:
   - {fileID: 0}
@@ -656,11 +616,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114753656786614946, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: boundGraphObjectReferences.Array.size
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 4627913784702358, guid: 6d5c73a2de9863c49bd4ddcc77af1888, type: 2}
       propertyPath: m_LocalPosition.x
       value: -4.95
@@ -697,19 +652,7 @@ Prefab:
         type: 2}
       propertyPath: _graph
       value: 
-      objectReference: {fileID: 827156785}
-    - target: {fileID: 114753656786614946, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: boundGraphSerialization
-      value: '{"version":2.6,"type":"NodeCanvas.StateMachines.FSM","name":"FSM","translation":{"x":-5022.0,"y":-4913.0},"nodes":[{"_nestedFSM":{"_value":1},"_position":{"x":5358.0,"y":5195.0},"_name":"Visible","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"2"},{"_nestedFSM":{"_value":2},"_position":{"x":5219.0,"y":5382.0},"_name":"Hidden","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"4"},{"_nestedFSM":{"_value":3},"_position":{"x":5546.0,"y":5336.0},"_name":"Dead","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"6"},{"_nestedFSM":{"_value":4},"_position":{"x":5659.0,"y":5073.0},"_name":"Revive","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"8"}],"connections":[{"_condition":{"layerMask":{"value":2048},"saveGameObjectAs":{"_name":""},"overrideAgent":{"_name":"bushCollider","_targetVariableID":"8ff76c52-119e-4dc6-aacd-6a49b6459f18"},"$type":"NodeCanvas.Tasks.Conditions.CheckTrigger"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"eventName":{"_value":"Death"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"checkType":"TriggerExit","layerMask":{"value":2048},"saveGameObjectAs":{"_name":""},"overrideAgent":{"_name":"bushCollider","_targetVariableID":"8ff76c52-119e-4dc6-aacd-6a49b6459f18"},"$type":"NodeCanvas.Tasks.Conditions.CheckTrigger"},"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"eventName":{"_value":"Death"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"eventName":{"_value":"Revive"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"checkType":"TriggerStay","layerMask":{"value":2048},"saveGameObjectAs":{"_name":""},"_invert":true,"overrideAgent":{"_name":"bushCollider","_targetVariableID":"8ff76c52-119e-4dc6-aacd-6a49b6459f18"},"$type":"NodeCanvas.Tasks.Conditions.CheckTrigger"},"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"checkType":"TriggerStay","layerMask":{"value":2048},"saveGameObjectAs":{"_name":""},"overrideAgent":{"_name":"bushCollider","_targetVariableID":"8ff76c52-119e-4dc6-aacd-6a49b6459f18"},"$type":"NodeCanvas.Tasks.Conditions.CheckTrigger"},"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"primeNode":{"$ref":"2"},"localBlackboard":{"_name":"Local
-        Blackboard","_variables":{}}}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114753656786614946, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: boundGraphObjectReferences.Array.data[5]
-      value: 
-      objectReference: {fileID: 11400000, guid: a695fb5d1ed2bb84bba357660da77d6a,
-        type: 2}
+      objectReference: {fileID: 1124151927}
     - target: {fileID: 114279542657548412, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
         type: 2}
       propertyPath: _serializedBlackboard
@@ -718,8 +661,9 @@ Prefab:
         UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"objectCollider":{"_value":3,"_name":"objectCollider","_id":"4fb74e6f-52fc-4ec1-93c7-f094d33732b9","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Collider,
         UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"colliderKeeper":{"_value":4,"_name":"colliderKeeper","_id":"1a805b2b-7ac7-41fb-8641-d2ec534cd445","$type":"NodeCanvas.Framework.Variable`1[[ColliderKeeper,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"animator":{"_value":5,"_name":"animator","_id":"612fe8fc-9046-4dea-ba21-a32c732e43ec","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Animator,
-        UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"iAIDetected":{"_name":"iAIDetected","_id":"fda9d139-8e01-44c2-b3bb-54c5e55ffed9","$type":"NodeCanvas.Framework.Variable`1[[iAI,
-        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
+        UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"lastKillable":{"_name":"lastKillable","_id":"42a7e6f6-50ff-4f2e-9f9a-38529b3779fe","$type":"NodeCanvas.Framework.Variable`1[[iKillable,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"lastGameObjectDetected":{"_name":"lastGameObjectDetected","_id":"49d4404a-c1a1-4443-9e77-bde010eaa4e0","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
+        UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d5c73a2de9863c49bd4ddcc77af1888, type: 2}
@@ -1076,7 +1020,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1741013819}
   m_LocalRotation: {x: 0.19654512, y: 0, z: 0, w: 0.9804948}
-  m_LocalPosition: {x: 0, y: 6.04, z: -5.88}
+  m_LocalPosition: {x: 0, y: 6.04, z: -9.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1236,7 +1180,7 @@ Prefab:
         type: 2}
       propertyPath: _graph
       value: 
-      objectReference: {fileID: 214661218}
+      objectReference: {fileID: 2002239513}
     - target: {fileID: 1067895843713848, guid: 6d5c73a2de9863c49bd4ddcc77af1888, type: 2}
       propertyPath: m_Name
       value: Cannibal (1)
@@ -1291,6 +1235,26 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 32632e23be3a1034da9e66457f738de6, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &2002239513
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
+  m_Name: Cannibal (1)
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"version":2.6,"type":"NodeCanvas.StateMachines.FSM","name":"FSM","translation":{"x":-4849.0,"y":-4990.0},"nodes":[{"_nestedFSM":{"_value":1},"_position":{"x":5358.0,"y":5195.0},"_name":"Visible","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"2"},{"_nestedFSM":{"_value":2},"_position":{"x":5219.0,"y":5382.0},"_name":"Hidden","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"4"},{"_nestedFSM":{"_value":3},"_position":{"x":5546.0,"y":5336.0},"_name":"Dead","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"6"},{"_nestedFSM":{"_value":4},"_position":{"x":5659.0,"y":5073.0},"_name":"Revive","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"8"}],"connections":[{"_condition":{"layerMask":{"value":2048},"saveGameObjectAs":{"_name":""},"overrideAgent":{"_name":"bushCollider","_targetVariableID":"8ff76c52-119e-4dc6-aacd-6a49b6459f18"},"$type":"NodeCanvas.Tasks.Conditions.CheckTrigger"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"eventName":{"_value":"Death"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"checkType":"TriggerExit","layerMask":{"value":2048},"saveGameObjectAs":{"_name":""},"overrideAgent":{"_name":"bushCollider","_targetVariableID":"8ff76c52-119e-4dc6-aacd-6a49b6459f18"},"$type":"NodeCanvas.Tasks.Conditions.CheckTrigger"},"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"eventName":{"_value":"Death"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"eventName":{"_value":"Revive"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"checkType":"TriggerStay","layerMask":{"value":2048},"saveGameObjectAs":{"_name":""},"_invert":true,"overrideAgent":{"_name":"bushCollider","_targetVariableID":"8ff76c52-119e-4dc6-aacd-6a49b6459f18"},"$type":"NodeCanvas.Tasks.Conditions.CheckTrigger"},"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"checkType":"TriggerStay","layerMask":{"value":2048},"saveGameObjectAs":{"_name":""},"overrideAgent":{"_name":"bushCollider","_targetVariableID":"8ff76c52-119e-4dc6-aacd-6a49b6459f18"},"$type":"NodeCanvas.Tasks.Conditions.CheckTrigger"},"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"primeNode":{"$ref":"2"},"localBlackboard":{"_name":"Local
+    Blackboard","_variables":{}}}'
+  _objectReferences:
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 81676165a60dcb64fb6e9ba210710385, type: 2}
+  - {fileID: 11400000, guid: 92f091e0e537f7540afc866e6622e73a, type: 2}
+  - {fileID: 11400000, guid: 034dc5fcfba36394badce3d340515ce3, type: 2}
+  - {fileID: 11400000, guid: f78d757db0da41348a28cf25f5c037e1, type: 2}
+  _deserializationFailed: 0
 --- !u!1 &2136818983
 GameObject:
   m_ObjectHideFlags: 0

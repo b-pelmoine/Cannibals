@@ -4,9 +4,9 @@ using UnityEngine;
 using NodeCanvas.Tasks.Conditions;
 using NodeCanvas.Framework;
 
-public class CheckAITrigger : CheckTrigger
+public class CheckKillableTrigger : CheckTrigger
 {
-    public BBParameter<iAI> savedAI;
+    public BBParameter<iKillable> killable;
 
     protected override bool OnCheck()
     {
@@ -14,12 +14,12 @@ public class CheckAITrigger : CheckTrigger
 
         if (check && saveGameObjectAs.value)
         {
-            iAI ai = saveGameObjectAs.value.GetComponentInParent<iAI>();
+            iKillable k = saveGameObjectAs.value.GetComponentInParent<iKillable>();
 
-            if (ai != null && ai.IsVulnerable())
+            if (k != null && k.IsVulnerable())
             {
-                savedAI.value = ai;
-                ai.ShowKnifeIcon();
+                killable.value = k;
+                k.ShowKnifeIcon();
                 return true;
             }
             else

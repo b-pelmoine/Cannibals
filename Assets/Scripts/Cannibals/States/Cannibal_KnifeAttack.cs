@@ -5,11 +5,11 @@ using NodeCanvas.Framework;
 
 public class Cannibal_KnifeAttack : Cannibal_State
 {
-    public BBParameter<iAI> aiDetected;
+    public BBParameter<iKillable> killable;
 
 
     protected override void OnEnter()
     {
-        aiDetected.value.Kill();
+        killable.value.Kill();
     }
 }

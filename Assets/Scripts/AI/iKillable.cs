@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface iAI {
+public interface iKillable {
 
     bool IsVulnerable();
     void Kill();

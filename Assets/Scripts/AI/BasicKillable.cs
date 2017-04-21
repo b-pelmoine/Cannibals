@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicAI : MonoBehaviour, iAI {
+public class BasicKillable : MonoBehaviour, iKillable {
 
     [SerializeField]
     IconDisplayer m_iconDisplayer;
