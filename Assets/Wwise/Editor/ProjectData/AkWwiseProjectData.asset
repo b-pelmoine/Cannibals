@@ -16,8 +16,8 @@ MonoBehaviour:
   - PhysicalPath: Events\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{D1C7715C-8472-4B77-B603-950C3928E700}'
-    m_lastTimePsrt1: 1049097973
-    m_lastTimePart2: -1999337820
+    m_lastTimePsrt1: -515301071
+    m_lastTimePart2: -1999337302
     List:
     - Name: ambiance_forest
       Path: Default Work Unit\ambiance_forest
@@ -49,6 +49,116 @@ MonoBehaviour:
       ID: 502009170
       Guid: 3468b905cc1af749a6d6b649573edc85
       maxAttenuation: 0
+    - Name: cannibals_run
+      Path: Default Work Unit\cannibals_run
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: cannibals_run
+        ObjectType: 3
+      ID: 1231991728
+      Guid: 9a22f2454a81084c8ec4bfeef9213880
+      maxAttenuation: 0
+    - Name: cannibals_walk
+      Path: Default Work Unit\cannibals_walk
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: cannibals_walk
+        ObjectType: 3
+      ID: 733770278
+      Guid: 8685f5eab2bebf4f963a837c888143ee
+      maxAttenuation: 0
+    - Name: dog_bark
+      Path: Default Work Unit\dog_bark
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: dog_bark
+        ObjectType: 3
+      ID: -1806566474
+      Guid: 2e7f931ed9c0e24f88ef6686df9dc72d
+      maxAttenuation: 0
+    - Name: dog_eat
+      Path: Default Work Unit\dog_eat
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: dog_eat
+        ObjectType: 3
+      ID: -1069755098
+      Guid: 0d2852379a7e8149a196443f8fc66835
+      maxAttenuation: 0
+    - Name: dog_idle
+      Path: Default Work Unit\dog_idle
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: dog_idle
+        ObjectType: 3
+      ID: -1604202578
+      Guid: 7b38f5ca13e1e842b0a7943753c363d0
+      maxAttenuation: 0
+    - Name: dog_sniff
+      Path: Default Work Unit\dog_sniff
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: dog_sniff
+        ObjectType: 3
+      ID: 127297048
+      Guid: aa9f0a23af55204c8eae36ffb5c70a81
+      maxAttenuation: 0
+    - Name: dog_steps
+      Path: Default Work Unit\dog_steps
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: dog_steps
+        ObjectType: 3
+      ID: 238146153
+      Guid: e627d0c511eaf74bb4109d26dbab443e
+      maxAttenuation: 0
+    - Name: granny_steps
+      Path: Default Work Unit\granny_steps
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: granny_steps
+        ObjectType: 3
+      ID: 930472744
+      Guid: 49ea903905e4bf4ea034e269b9fc71c3
+      maxAttenuation: 0
+    - Name: hunter_steps
+      Path: Default Work Unit\hunter_steps
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: hunter_steps
+        ObjectType: 3
+      ID: 259806903
+      Guid: 1585a4820d2e294994a0b59679a9b500
+      maxAttenuation: 0
+    - Name: jogger_steps
+      Path: Default Work Unit\jogger_steps
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: jogger_steps
+        ObjectType: 3
+      ID: 1436452155
+      Guid: 837cb2f2afe152478fa2d5ffc5a21870
+      maxAttenuation: 0
+    - Name: scout_steps
+      Path: Default Work Unit\scout_steps
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: scout_steps
+        ObjectType: 3
+      ID: -834577263
+      Guid: e53546b27df93942bdc78941aad4f27a
+      maxAttenuation: 0
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
     ParentPhysicalPath: 
@@ -67,9 +177,34 @@ MonoBehaviour:
   - PhysicalPath: Switches\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{917B1601-1674-4C93-86DA-5657B5030971}'
-    m_lastTimePsrt1: -1042170778
-    m_lastTimePart2: -1999342273
-    List: []
+    m_lastTimePsrt1: -428781295
+    m_lastTimePart2: -1999337302
+    List:
+    - Name: Steps
+      Path: Default Work Unit\Steps
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Steps
+        ObjectType: 11
+      ID: 1718617278
+      Guid: 2b9c9be54ee14148985f0ce4aae17b9f
+      values:
+      - Grass
+      - Gravel
+      - Wood
+      ValueIcons:
+      - ElementName: Grass
+        ObjectType: 10
+      - ElementName: Gravel
+        ObjectType: 10
+      - ElementName: Wood
+        ObjectType: 10
+      valueIDs: d92e3dfd907348828a58ab7a
+      ValueGuids:
+      - bytes: 45d6bfa411277d4680573f9de85f67b2
+      - bytes: 2f1491f38a4fd54984bc5605072a7cec
+      - bytes: cc3f62c3c49dbf40b5592a2e6bf32a29
   BankWwu:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     ParentPhysicalPath: 
