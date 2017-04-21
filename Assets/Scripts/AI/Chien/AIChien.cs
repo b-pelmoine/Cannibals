@@ -6,7 +6,8 @@ using UnityEngine;
 public class AIChien : MonoBehaviour {
 
     IBlackboard blackboard;
-    public Waypoint patrouille;
+    public GameObject patrouille;
+    Waypoint _waypoint;
     public Vector3 targetPosition;
     int currentWaypoint;
     public float waypointDistance;
@@ -21,8 +22,9 @@ public class AIChien : MonoBehaviour {
     public bool sawSomething = false;
 	// Use this for initialization
 	void Start () {
-        currentWaypoint = patrouille.getNearest(transform.position);
-        targetPosition = patrouille[currentWaypoint];
+        _waypoint = patrouille.GetComponent<Waypoint>();
+        currentWaypoint = _waypoint.getNearest(transform.position);
+        targetPosition = _waypoint[currentWaypoint];
         los = GetComponent<LineOfSight>();
 	}
 	
@@ -30,14 +32,14 @@ public class AIChien : MonoBehaviour {
 	void Update () {
         if ((transform.position - targetPosition).sqrMagnitude < waypointDistance)
         {
-            currentWaypoint = patrouille.getNext(currentWaypoint);
-            targetPosition = patrouille[currentWaypoint];
+            currentWaypoint = _waypoint.getNext(currentWaypoint);
+            targetPosition = _waypoint[currentWaypoint];
             arrived = true;
         }
-        if (los!=null && !sawSomething && los.Updated)
+        /*if (los!=null && !sawSomething && los.Updated)
         {
             AnalyseSight();
-        }
+        }*/
 	}
 
     void AnalyseSight()
