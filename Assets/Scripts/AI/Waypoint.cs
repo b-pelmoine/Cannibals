@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteInEditMode]
+
 public class Waypoint : MonoBehaviour {
 
     [System.Serializable]
@@ -30,15 +30,12 @@ public class Waypoint : MonoBehaviour {
         }
     }
     public List<Wpoint> points = new List<Wpoint>();
+    public int current = 0;
+    public Vector3 currentDestination;
 
     // Use this for initialization
     void Start() {
-
-    }
-
-    // Update is called once per frame
-    void Update() {
-
+        currentDestination = this[current];
     }
 
     public void Add(Vector3 point)
@@ -76,9 +73,20 @@ public class Waypoint : MonoBehaviour {
         return nearest;
     }
 
-    public int getNext(int current)
+    public Vector3 getCurrentDestination()
     {
-        return points[current][0];
+        return this[current];
+    }
+
+    public void nextWaypoint()
+    {
+        current = points[current][0];
+        currentDestination = this[current];
+    }
+
+    public int getNext(int id)
+    {
+        return points[id][0];
     }
 
     public Vector3 this[int key]
