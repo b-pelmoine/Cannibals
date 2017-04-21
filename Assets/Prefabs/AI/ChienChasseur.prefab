@@ -1,0 +1,602 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1443385088526980}
+  m_IsPrefabParent: 1
+--- !u!1 &1415936377944212
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4648088341165800}
+  - component: {fileID: 114229858348271770}
+  m_Layer: 0
+  m_Name: PatrouilleChien
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1443385088526980
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4639346846556424}
+  m_Layer: 0
+  m_Name: ChienChasseur
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1625361917524594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4646097594048466}
+  - component: {fileID: 33819510763444720}
+  - component: {fileID: 136087379642080698}
+  - component: {fileID: 23853074171126380}
+  - component: {fileID: 195887906606128878}
+  - component: {fileID: 114349979152653790}
+  - component: {fileID: 114841893557450776}
+  - component: {fileID: 114451038991911948}
+  - component: {fileID: 114401005301078306}
+  - component: {fileID: 114100969251736066}
+  - component: {fileID: 20005256151866566}
+  m_Layer: 9
+  m_Name: dog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1956400642573850
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4789305613664332}
+  - component: {fileID: 33069671720882328}
+  - component: {fileID: 136702245807089118}
+  - component: {fileID: 23833571668475802}
+  - component: {fileID: 195770953131808570}
+  - component: {fileID: 114045784058545518}
+  - component: {fileID: 114399380956084918}
+  - component: {fileID: 114031463157427890}
+  - component: {fileID: 20988710446942376}
+  - component: {fileID: 114870004617759452}
+  - component: {fileID: 114752137035533340}
+  - component: {fileID: 114060891872960166}
+  m_Layer: 9
+  m_Name: Chasseur
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4639346846556424
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1443385088526980}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.09503, y: 0, z: 11.9026}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4789305613664332}
+  - {fileID: 4646097594048466}
+  - {fileID: 4648088341165800}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4646097594048466
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1625361917524594}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.1121502, y: 0, z: -5.5193787}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_Children: []
+  m_Father: {fileID: 4639346846556424}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4648088341165800
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1415936377944212}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -15.786901, y: 0, z: -2.5933638}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4639346846556424}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4789305613664332
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1956400642573850}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.646658, y: 0, z: -7.0039425}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4639346846556424}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &20005256151866566
+Camera:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1625361917524594}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 10
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+  m_StereoMirrorMode: 0
+--- !u!20 &20988710446942376
+Camera:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1956400642573850}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.57
+  far clip plane: 6.74
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967245
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+  m_StereoMirrorMode: 0
+--- !u!23 &23833571668475802
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1956400642573850}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: ac4a4a059266386489597c949cbaa110, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!23 &23853074171126380
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1625361917524594}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: ac4a4a059266386489597c949cbaa110, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!33 &33069671720882328
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1956400642573850}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!33 &33819510763444720
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1625361917524594}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114031463157427890
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1956400642573850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a7dbb6bbdf4ffb46ab7dd87ba8191e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boundGraphSerialization: '{"version":2.6,"type":"NodeCanvas.StateMachines.FSM","name":"FSM","translation":{"x":-2682.0,"y":-3386.0},"zoomFactor":0.7500097,"nodes":[{"_actionList":{"executionMode":"ActionsRunInParallel","actions":[{"target":{"_name":"Dog","_targetVariableID":"66d365d4-85c5-4483-98e8-b1d85954ec56"},"speed":{"_value":3.0},"keepDistance":5.0,"$type":"NodeCanvas.Tasks.Actions.MoveToGameObject"}]},"_repeatStateActions":true,"_position":{"x":4710.251,"y":5091.442},"_name":"Walking
+    towards dog","$type":"NodeCanvas.StateMachines.ActionState","$id":"2"},{"_actionList":{"executionMode":"ActionsRunInParallel","actions":[{"waitTime":{"_value":10.0},"$type":"NodeCanvas.Tasks.Actions.Wait"}]},"_position":{"x":4402.177,"y":5274.399},"_name":"Waiting
+    for dog","$type":"NodeCanvas.StateMachines.ActionState","$id":"8"},{"_onEnterList":{"executionMode":"ActionsRunInParallel","actions":[]},"_onUpdateList":{"executionMode":"ActionsRunInParallel","actions":[]},"_onExitList":{"actions":[]},"foldEnter":true,"foldExit":true,"_position":{"x":4488.793,"y":5492.088},"$type":"NodeCanvas.StateMachines.SuperActionState","$id":"13"},{"_actionList":{"actions":[{"target":{"_name":"shootTarget","_targetVariableID":"18a3ef72-4580-40d6-b459-c60a8f873834"},"speed":{"_value":10.0},"angleDifference":{"_value":5.0},"repeat":true,"$type":"NodeCanvas.Tasks.Actions.RotateTowards"},{"waitTime":{"_value":1.0},"$type":"NodeCanvas.Tasks.Actions.Wait"},{"target":{"_name":"shootTarget","_targetVariableID":"18a3ef72-4580-40d6-b459-c60a8f873834"},"distance":{"_value":20.0},"maxAngle":{"_value":10.0},"$type":"Kill"}]},"_position":{"x":5290.025,"y":5020.634},"_name":"TirReflexe","$type":"NodeCanvas.StateMachines.ActionState","$id":"20"},{"_nodeColor":{"r":0.7019608,"g":1.0,"b":0.4980392,"a":1.0},"_position":{"x":4610.606,"y":4473.275},"$type":"NodeCanvas.StateMachines.AnyState","$id":"33"},{"_actionList":{"executionMode":"ActionsRunInParallel","actions":[{"waitTime":{"_value":10.0},"$type":"NodeCanvas.Tasks.Actions.Wait"}]},"_position":{"x":4402.943,"y":4653.273},"_name":"KO","$type":"NodeCanvas.StateMachines.ActionState","$id":"34"},{"_nodeColor":{"r":0.7019608,"g":1.0,"b":0.4980392,"a":1.0},"_position":{"x":5342.598,"y":4441.275},"$type":"NodeCanvas.StateMachines.AnyState","$id":"39"},{"_actionList":{"executionMode":"ActionsRunInParallel","actions":[]},"_position":{"x":5226.933,"y":4609.273},"_name":"Dead","$type":"NodeCanvas.StateMachines.ActionState","$id":"40"},{"_nodeColor":{"r":0.7019608,"g":1.0,"b":0.4980392,"a":1.0},"_position":{"x":3822.617,"y":4945.269},"$type":"NodeCanvas.StateMachines.AnyState","$id":"43"},{"_actionList":{"actions":[{"target":{"_name":"shootTarget","_targetVariableID":"18a3ef72-4580-40d6-b459-c60a8f873834"},"speed":{"_value":2.0},"angle":{"_value":5.0},"$type":"RotateTowardsFixed"},{"mask":{"_value":{"value":16183}},"distance":{"_value":30.0},"target":{"_name":"shootTarget","_targetVariableID":"18a3ef72-4580-40d6-b459-c60a8f873834"},"$type":"Shoot"}]},"_repeatStateActions":true,"_position":{"x":4080.28,"y":5019.935},"$type":"NodeCanvas.StateMachines.ActionState","$id":"44"},{"_actionList":{"actions":[{"target":{"_name":"shootTarget","_targetVariableID":"18a3ef72-4580-40d6-b459-c60a8f873834"},"speed":{"_value":3.0},"$type":"NodeCanvas.Tasks.Actions.MoveToGameObject"},{"waitTime":{"_value":10.0},"$type":"NodeCanvas.Tasks.Actions.Wait"}]},"_position":{"x":3949.615,"y":5211.934},"$type":"NodeCanvas.StateMachines.ActionState","$id":"55"}],"connections":[{"_condition":{"conditions":[{"checkTarget":{"_name":"Dog","_targetVariableID":"66d365d4-85c5-4483-98e8-b1d85954ec56"},"checkType":"GreaterOrEqualTo","distance":{"_value":10.0,"_name":"dogDistanceMax","_targetVariableID":"e5f48cb9-0e5a-494f-b318-06c76b35828d"},"$type":"NodeCanvas.Tasks.Conditions.CheckDistanceToGameObject"},{"targetList":{"_name":"sighted","_targetVariableID":"918f1f53-ec4a-4562-924c-c94f70c63147"},"checkElement":{"_name":"Dog","_targetVariableID":"66d365d4-85c5-4483-98e8-b1d85954ec56"},"_invert":true,"$type":"NodeCanvas.Tasks.Conditions.ListContainsElement`1[[UnityEngine.GameObject,
+    UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},{"valueA":{"_name":"Aboiement","_targetVariableID":"0dc98ffd-8997-4036-be9e-e965e960cc91"},"valueB":{},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"}],"$type":"NodeCanvas.Framework.ConditionList"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"eventName":{"_value":"Noise"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"20"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"checkMode":"AnyTrueSuffice","conditions":[{"checkTarget":{"_name":"Dog","_targetVariableID":"66d365d4-85c5-4483-98e8-b1d85954ec56"},"distance":{"_value":10.0,"_name":"dogDistanceMax","_targetVariableID":"e5f48cb9-0e5a-494f-b318-06c76b35828d"},"$type":"NodeCanvas.Tasks.Conditions.CheckDistanceToGameObject"},{"targetList":{"_name":"sighted","_targetVariableID":"918f1f53-ec4a-4562-924c-c94f70c63147"},"checkElement":{"_name":"Dog","_targetVariableID":"66d365d4-85c5-4483-98e8-b1d85954ec56"},"$type":"NodeCanvas.Tasks.Conditions.ListContainsElement`1[[UnityEngine.GameObject,
+    UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},{"valueA":{"_name":"Aboiement","_targetVariableID":"0dc98ffd-8997-4036-be9e-e965e960cc91"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"}],"$type":"NodeCanvas.Framework.ConditionList"},"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"13"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"valueA":{"_name":"Aboiement","_targetVariableID":"0dc98ffd-8997-4036-be9e-e965e960cc91"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},"_sourceNode":{"$ref":"13"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"20"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"eventName":{"_value":"Death"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"33"},"_targetNode":{"$ref":"34"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"34"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"eventName":{"_value":"Kill"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"39"},"_targetNode":{"$ref":"40"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"conditions":[{"sighted":{"_value":[],"_name":"sighted","_targetVariableID":"918f1f53-ec4a-4562-924c-c94f70c63147"},"target":{"_name":"shootTarget","_targetVariableID":"18a3ef72-4580-40d6-b459-c60a8f873834"},"tag":{"_value":"Player"},"$type":"CheckSight"},{"valueA":{"_name":"Alerte","_targetVariableID":"bce2bd41-6e5a-4bc0-915a-3f5c06fc6a95"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"}],"$type":"NodeCanvas.Framework.ConditionList"},"_sourceNode":{"$ref":"43"},"_targetNode":{"$ref":"44"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"target":{"_name":"shootTarget","_targetVariableID":"18a3ef72-4580-40d6-b459-c60a8f873834"},"state":{"_value":"KO"},"$type":"CheckState"},"_sourceNode":{"$ref":"44"},"_targetNode":{"$ref":"55"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"sighted":{"_value":[],"_name":"sighted","_targetVariableID":"918f1f53-ec4a-4562-924c-c94f70c63147"},"target":{},"tag":{"_value":"Player"},"_invert":true,"$type":"CheckSight"},"_sourceNode":{"$ref":"44"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"55"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"primeNode":{"$ref":"2"},"canvasGroups":[{"name":"Normal","rect":{"xMin":4352.277,"yMin":5005.269,"xMax":4914.937,"yMax":5694.592}},{"name":"KO","rect":{"xMin":4304.277,"yMin":4398.61,"xMax":4870.937,"yMax":4761.272}},{"name":"Dead","rect":{"xMin":5052.268,"yMin":4402.61,"xMax":5572.261,"yMax":4738.605}},{"name":"Alerte","rect":{"xMin":3625.62,"yMin":4863.937,"xMax":4205.612,"yMax":5325.264}}],"localBlackboard":{"_name":"Local
+    Blackboard","_variables":{}}}'
+  boundGraphObjectReferences: []
+  enableAction: 0
+  disableAction: 0
+  versionUpdateProxyGraph: {fileID: 0}
+  _graph: {fileID: 114445266336008992}
+  _blackboard: {fileID: 114399380956084918}
+--- !u!114 &114045784058545518
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1956400642573850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5eecee96e773084f98f52889b0b9866, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 10
+--- !u!114 &114060891872960166
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1956400642573850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 175d0f0b3d2fe2f4880997037a24be06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114100969251736066
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1625361917524594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e29596b8319658b4d957d4c26cc72cb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrouille: {fileID: 114229858348271770}
+  targetPosition: {x: 0, y: 0, z: 0}
+  waypointDistance: 0.5
+  arrived: 0
+  targetType: 0
+  target: {fileID: 0}
+  sawSomething: 0
+--- !u!114 &114229858348271770
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1415936377944212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44f2733414846644faf112b9ec99add0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points:
+  - position: {x: 12.956564, y: -1, z: -2.5057726}
+    links: 01000000
+  - position: {x: 2.1128273, y: 0.00000023841858, z: 11.4889145}
+    links: 02000000
+  - position: {x: 8.751968, y: 0, z: 21.37909}
+    links: 03000000
+  - position: {x: 18.134655, y: -1, z: 12.515426}
+    links: 00000000
+  current: 0
+  currentDestination: {x: 0, y: 0, z: 0}
+--- !u!114 &114249799008050458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
+  m_Name: dog(SubAsset)
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"version":2.6,"type":"NodeCanvas.StateMachines.FSM","name":"FSM","translation":{"x":-4315.0,"y":-3857.0},"zoomFactor":0.8050152,"nodes":[{"_actionList":{"executionMode":"ActionsRunInParallel","actions":[{"targetPosition":{"_name":"targetPosition","_targetVariableID":"5da9ac5a-fc64-4718-8c2c-5e5f64a7252b"},"speed":{"_value":3.0},"$type":"NodeCanvas.Tasks.Actions.MoveToPosition"}]},"_repeatStateActions":true,"_position":{"x":6082.225,"y":5302.112},"_name":"Patrouille","$type":"NodeCanvas.StateMachines.ActionState","$id":"2"},{"_actionList":{"actions":[{"waitTime":{"_value":2.4},"$type":"NodeCanvas.Tasks.Actions.Wait"},{"boolVariable":{"_name":"arrived","_targetVariableID":"0fd085d2-4b99-44b0-a6b1-1709245bd5d6"},"setTo":"False","$type":"NodeCanvas.Tasks.Actions.SetBoolean"}]},"_position":{"x":6282.464,"y":5429.799},"_name":"Attends","$type":"NodeCanvas.StateMachines.ActionState","$id":"8"},{"_actionList":{"executionMode":"ActionsRunInParallel","actions":[{"target":{"_name":"Hunter","_targetVariableID":"576d50ea-e083-4b6e-b15f-264dbf1f9dac"},"speed":{"_value":3.0,"_name":"dogRunSpeed","_targetVariableID":"535cc249-d3cb-4289-b138-37ba3da0a071"},"keepDistance":4.0,"$type":"NodeCanvas.Tasks.Actions.MoveToGameObject"}]},"_position":{"x":6405.005,"y":4831.237},"$type":"NodeCanvas.StateMachines.ActionState","$id":"15"},{"_actionList":{"executionMode":"ActionsRunInParallel","actions":[{"waitTime":{"_value":1.0},"$type":"NodeCanvas.Tasks.Actions.Wait"}]},"_position":{"x":6311.0,"y":4974.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"21"},{"_actionList":{"actions":[{"target":{"_name":"target","_targetVariableID":"e21446da-3282-43e4-9adf-4a988c2044cf"},"speed":{"_value":3.0,"_name":"dogBaseSpeed","_targetVariableID":"9d0a7aa7-91ed-4aae-931f-059fcc49d7e7"},"keepDistance":1.5,"$type":"NodeCanvas.Tasks.Actions.MoveToGameObject"},{"log":{"_value":"Killing"},"secondsToRun":0.3,"$type":"NodeCanvas.Tasks.Actions.DebugLogText"},{"target":{"_name":"target","_targetVariableID":"e21446da-3282-43e4-9adf-4a988c2044cf"},"speed":{"_value":2.0},"angle":{"_value":5.0},"$type":"RotateTowardsFixed"},{"target":{"_name":"target","_targetVariableID":"e21446da-3282-43e4-9adf-4a988c2044cf"},"distance":{"_value":2.0},"maxAngle":{"_value":60.0},"$type":"Kill"}]},"_position":{"x":6065.273,"y":4863.308},"$type":"NodeCanvas.StateMachines.ActionState","$id":"26"},{"_actionList":{"executionMode":"ActionsRunInParallel","actions":[{"target":{"_name":"target","_targetVariableID":"e21446da-3282-43e4-9adf-4a988c2044cf"},"speed":{"_value":3.0},"$type":"NodeCanvas.Tasks.Actions.MoveToGameObject"}]},"_position":{"x":4964.24,"y":5313.044},"$type":"NodeCanvas.StateMachines.ActionState","$id":"42"},{"_actionList":{"actions":[{"waitTime":{"_value":6.0},"$type":"NodeCanvas.Tasks.Actions.Wait"},{"boolVariable":{"_name":"sawSomething","_targetVariableID":"6b81dc16-0522-4823-b51f-bb380c17abb5"},"setTo":"False","$type":"NodeCanvas.Tasks.Actions.SetBoolean"}]},"_position":{"x":5037.426,"y":5562.549},"_name":"MangeViande","$type":"NodeCanvas.StateMachines.ActionState","$id":"48"},{"_actionList":{"actions":[{"target":{"_name":"Hunter","_targetVariableID":"576d50ea-e083-4b6e-b15f-264dbf1f9dac"},"speed":{"_value":3.0,"_name":"dogBaseSpeed","_targetVariableID":"9d0a7aa7-91ed-4aae-931f-059fcc49d7e7"},"keepDistance":5.0,"$type":"NodeCanvas.Tasks.Actions.MoveToGameObject"}]},"_position":{"x":5726.625,"y":5439.546},"_name":"Going
+    back to hunter","$type":"NodeCanvas.StateMachines.ActionState","$id":"55"},{"_actionList":{"actions":[{"targetVariableName":{"_value":"Aboiement"},"newValue":{"_type":"System.Boolean","_value":{"$content":true,"$type":"System.Boolean"}},"overrideAgent":{"_name":"Hunter","_targetVariableID":"576d50ea-e083-4b6e-b15f-264dbf1f9dac"},"$type":"NodeCanvas.Tasks.Actions.SetOtherBlackboardVariable"},{"waitTime":{"_value":3.0},"$type":"NodeCanvas.Tasks.Actions.Wait"},{"boolVariable":{"_name":"sawSomething","_targetVariableID":"6b81dc16-0522-4823-b51f-bb380c17abb5"},"setTo":"False","$type":"NodeCanvas.Tasks.Actions.SetBoolean"},{"targetVariableName":{"_value":"Aboiement"},"newValue":{"_type":"System.Boolean","_value":{"$content":false,"$type":"System.Boolean"}},"overrideAgent":{"_name":"Hunter","_targetVariableID":"576d50ea-e083-4b6e-b15f-264dbf1f9dac"},"$type":"NodeCanvas.Tasks.Actions.SetOtherBlackboardVariable"}]},"_position":{"x":5322.441,"y":5487.996},"_name":"Aboie","$type":"NodeCanvas.StateMachines.ActionState","$id":"61"}],"connections":[{"_condition":{"valueA":{"_name":"arrived","_targetVariableID":"0fd085d2-4b99-44b0-a6b1-1709245bd5d6"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"valueA":{"_name":"sawSomething","_targetVariableID":"6b81dc16-0522-4823-b51f-bb380c17abb5"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"42"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"target":{"_name":"Hunter","_targetVariableID":"576d50ea-e083-4b6e-b15f-264dbf1f9dac"},"state":{"_value":"KO"},"$type":"CheckState"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"15"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"valueA":{"_name":"arrived","_targetVariableID":"0fd085d2-4b99-44b0-a6b1-1709245bd5d6"},"valueB":{},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"target":{"_name":"Hunter","_targetVariableID":"576d50ea-e083-4b6e-b15f-264dbf1f9dac"},"state":{"_value":"KO"},"$type":"CheckState"},"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"15"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"15"},"_targetNode":{"$ref":"21"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"target":{"_name":"Hunter","_targetVariableID":"576d50ea-e083-4b6e-b15f-264dbf1f9dac"},"state":{"_value":"KO"},"_invert":true,"$type":"CheckState"},"_sourceNode":{"$ref":"21"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"sighted":{"_value":[],"_name":"sighted","_targetVariableID":"89c04805-638d-46da-9c90-94b84bb5e979"},"target":{"_name":"target","_targetVariableID":"e21446da-3282-43e4-9adf-4a988c2044cf"},"tag":{"_value":"Player"},"$type":"CheckSight"},"_sourceNode":{"$ref":"21"},"_targetNode":{"$ref":"26"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"26"},"_targetNode":{"$ref":"21"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"valueA":{"_type":"System.Enum","_name":"targetType","_targetVariableID":"73d448f3-61b8-4ec4-9ae2-bed335585af3"},"valueB":{"_type":"AIChien+btargetType","_value":{"$content":"Viande","$type":"AIChien+btargetType"}},"$type":"NodeCanvas.Tasks.Conditions.CheckEnum"},"_sourceNode":{"$ref":"42"},"_targetNode":{"$ref":"48"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"valueA":{"_type":"System.Enum","_name":"targetType","_targetVariableID":"73d448f3-61b8-4ec4-9ae2-bed335585af3"},"valueB":{"_type":"AIChien+btargetType","_value":{"$content":"Buisson","$type":"AIChien+btargetType"}},"$type":"NodeCanvas.Tasks.Conditions.CheckEnum"},"_sourceNode":{"$ref":"42"},"_targetNode":{"$ref":"61"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"48"},"_targetNode":{"$ref":"55"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"55"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"61"},"_targetNode":{"$ref":"55"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"primeNode":{"$ref":"2"},"canvasGroups":[{"name":"Normal","rect":{"xMin":6030.136,"yMin":5228.188,"xMax":6496.797,"yMax":5526.851}},{"name":"Distrait","rect":{"xMin":4943.986,"yMin":5148.404,"xMax":5872.704,"yMax":5730.705}},{"name":"Defendre","rect":{"xMin":6040.0,"yMin":4786.0,"xMax":6578.0,"yMax":5129.0}}],"localBlackboard":{"_name":"Local
+    Blackboard","_variables":{}}}'
+  _objectReferences: []
+  _deserializationFailed: 0
+--- !u!114 &114349979152653790
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1625361917524594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5eecee96e773084f98f52889b0b9866, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 1
+--- !u!114 &114399380956084918
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1956400642573850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98a6db0b653f764eac834f85857a9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _serializedBlackboard: '{"_variables":{"Dog":{"_value":1,"_name":"Dog","_id":"66d365d4-85c5-4483-98e8-b1d85954ec56","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
+    UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"Alive":{"_value":true,"_name":"Alive","_id":"8672d57a-a0e8-4b38-8c05-2d4932a6ba16","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"dogDistanceMax":{"_value":25.0,"_name":"dogDistanceMax","_id":"e5f48cb9-0e5a-494f-b318-06c76b35828d","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"dogStopDistance":{"_value":3.0,"_name":"dogStopDistance","_id":"1b3da8dc-cd57-4164-85f6-03eaf2aaf44d","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"sighted":{"_value":[],"_propertyPath":"LineOfSight.sighted","_name":"sighted","_id":"918f1f53-ec4a-4562-924c-c94f70c63147","$type":"NodeCanvas.Framework.Variable`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject,
+    UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib,
+    Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"framerate
+    (render call per s)":{"_value":0.5,"_name":"framerate (render call per s)","_id":"baf90128-79de-4fb1-bef2-6c9d84c8b452","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"shootTarget":{"_name":"shootTarget","_id":"18a3ef72-4580-40d6-b459-c60a8f873834","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
+    UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"Aboiement":{"_name":"Aboiement","_id":"0dc98ffd-8997-4036-be9e-e965e960cc91","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"Alerte":{"_name":"Alerte","_id":"bce2bd41-6e5a-4bc0-915a-3f5c06fc6a95","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
+  _objectReferences:
+  - {fileID: 0}
+  - {fileID: 1625361917524594}
+--- !u!114 &114401005301078306
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1625361917524594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2bd8390b1eecd54cbad6ca7f3b9da7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shader: {fileID: 4800000, guid: 89fcdb3a42dec6e449c20a1473b202af, type: 3}
+  sighted: []
+--- !u!114 &114445266336008992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
+  m_Name: Chasseur(SubAsset)
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"version":2.6,"type":"NodeCanvas.StateMachines.FSM","name":"FSM","translation":{"x":-2682.0,"y":-3386.0},"zoomFactor":0.7500097,"nodes":[{"_actionList":{"executionMode":"ActionsRunInParallel","actions":[{"target":{"_name":"Dog","_targetVariableID":"66d365d4-85c5-4483-98e8-b1d85954ec56"},"speed":{"_value":3.0},"keepDistance":5.0,"$type":"NodeCanvas.Tasks.Actions.MoveToGameObject"}]},"_repeatStateActions":true,"_position":{"x":4710.251,"y":5091.442},"_name":"Walking
+    towards dog","$type":"NodeCanvas.StateMachines.ActionState","$id":"2"},{"_actionList":{"executionMode":"ActionsRunInParallel","actions":[{"waitTime":{"_value":10.0},"$type":"NodeCanvas.Tasks.Actions.Wait"}]},"_position":{"x":4402.177,"y":5274.399},"_name":"Waiting
+    for dog","$type":"NodeCanvas.StateMachines.ActionState","$id":"8"},{"_onEnterList":{"executionMode":"ActionsRunInParallel","actions":[]},"_onUpdateList":{"executionMode":"ActionsRunInParallel","actions":[]},"_onExitList":{"actions":[]},"foldEnter":true,"foldExit":true,"_position":{"x":4488.793,"y":5492.088},"$type":"NodeCanvas.StateMachines.SuperActionState","$id":"13"},{"_actionList":{"actions":[{"target":{"_name":"shootTarget","_targetVariableID":"18a3ef72-4580-40d6-b459-c60a8f873834"},"speed":{"_value":10.0},"angleDifference":{"_value":5.0},"repeat":true,"$type":"NodeCanvas.Tasks.Actions.RotateTowards"},{"waitTime":{"_value":1.0},"$type":"NodeCanvas.Tasks.Actions.Wait"},{"target":{"_name":"shootTarget","_targetVariableID":"18a3ef72-4580-40d6-b459-c60a8f873834"},"distance":{"_value":20.0},"maxAngle":{"_value":10.0},"$type":"Kill"}]},"_position":{"x":5290.025,"y":5020.634},"_name":"TirReflexe","$type":"NodeCanvas.StateMachines.ActionState","$id":"20"},{"_nodeColor":{"r":0.7019608,"g":1.0,"b":0.4980392,"a":1.0},"_position":{"x":4610.606,"y":4473.275},"$type":"NodeCanvas.StateMachines.AnyState","$id":"33"},{"_actionList":{"executionMode":"ActionsRunInParallel","actions":[{"waitTime":{"_value":10.0},"$type":"NodeCanvas.Tasks.Actions.Wait"}]},"_position":{"x":4402.943,"y":4653.273},"_name":"KO","$type":"NodeCanvas.StateMachines.ActionState","$id":"34"},{"_nodeColor":{"r":0.7019608,"g":1.0,"b":0.4980392,"a":1.0},"_position":{"x":5342.598,"y":4441.275},"$type":"NodeCanvas.StateMachines.AnyState","$id":"39"},{"_actionList":{"executionMode":"ActionsRunInParallel","actions":[]},"_position":{"x":5226.933,"y":4609.273},"_name":"Dead","$type":"NodeCanvas.StateMachines.ActionState","$id":"40"},{"_nodeColor":{"r":0.7019608,"g":1.0,"b":0.4980392,"a":1.0},"_position":{"x":3822.617,"y":4945.269},"$type":"NodeCanvas.StateMachines.AnyState","$id":"43"},{"_actionList":{"actions":[{"target":{"_name":"shootTarget","_targetVariableID":"18a3ef72-4580-40d6-b459-c60a8f873834"},"speed":{"_value":2.0},"angle":{"_value":5.0},"$type":"RotateTowardsFixed"},{"mask":{"_value":{"value":16183}},"distance":{"_value":30.0},"target":{"_name":"shootTarget","_targetVariableID":"18a3ef72-4580-40d6-b459-c60a8f873834"},"$type":"Shoot"}]},"_repeatStateActions":true,"_position":{"x":4080.28,"y":5019.935},"$type":"NodeCanvas.StateMachines.ActionState","$id":"44"},{"_actionList":{"actions":[{"target":{"_name":"shootTarget","_targetVariableID":"18a3ef72-4580-40d6-b459-c60a8f873834"},"speed":{"_value":3.0},"$type":"NodeCanvas.Tasks.Actions.MoveToGameObject"},{"waitTime":{"_value":10.0},"$type":"NodeCanvas.Tasks.Actions.Wait"}]},"_position":{"x":3949.615,"y":5211.934},"$type":"NodeCanvas.StateMachines.ActionState","$id":"55"}],"connections":[{"_condition":{"conditions":[{"checkTarget":{"_name":"Dog","_targetVariableID":"66d365d4-85c5-4483-98e8-b1d85954ec56"},"checkType":"GreaterOrEqualTo","distance":{"_value":10.0,"_name":"dogDistanceMax","_targetVariableID":"e5f48cb9-0e5a-494f-b318-06c76b35828d"},"$type":"NodeCanvas.Tasks.Conditions.CheckDistanceToGameObject"},{"targetList":{"_name":"sighted","_targetVariableID":"918f1f53-ec4a-4562-924c-c94f70c63147"},"checkElement":{"_name":"Dog","_targetVariableID":"66d365d4-85c5-4483-98e8-b1d85954ec56"},"_invert":true,"$type":"NodeCanvas.Tasks.Conditions.ListContainsElement`1[[UnityEngine.GameObject,
+    UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},{"valueA":{"_name":"Aboiement","_targetVariableID":"0dc98ffd-8997-4036-be9e-e965e960cc91"},"valueB":{},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"}],"$type":"NodeCanvas.Framework.ConditionList"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"eventName":{"_value":"Noise"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"20"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"checkMode":"AnyTrueSuffice","conditions":[{"checkTarget":{"_name":"Dog","_targetVariableID":"66d365d4-85c5-4483-98e8-b1d85954ec56"},"distance":{"_value":10.0,"_name":"dogDistanceMax","_targetVariableID":"e5f48cb9-0e5a-494f-b318-06c76b35828d"},"$type":"NodeCanvas.Tasks.Conditions.CheckDistanceToGameObject"},{"targetList":{"_name":"sighted","_targetVariableID":"918f1f53-ec4a-4562-924c-c94f70c63147"},"checkElement":{"_name":"Dog","_targetVariableID":"66d365d4-85c5-4483-98e8-b1d85954ec56"},"$type":"NodeCanvas.Tasks.Conditions.ListContainsElement`1[[UnityEngine.GameObject,
+    UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},{"valueA":{"_name":"Aboiement","_targetVariableID":"0dc98ffd-8997-4036-be9e-e965e960cc91"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"}],"$type":"NodeCanvas.Framework.ConditionList"},"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"13"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"valueA":{"_name":"Aboiement","_targetVariableID":"0dc98ffd-8997-4036-be9e-e965e960cc91"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},"_sourceNode":{"$ref":"13"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"20"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"eventName":{"_value":"Death"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"33"},"_targetNode":{"$ref":"34"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"34"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"eventName":{"_value":"Kill"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"39"},"_targetNode":{"$ref":"40"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"conditions":[{"sighted":{"_value":[],"_name":"sighted","_targetVariableID":"918f1f53-ec4a-4562-924c-c94f70c63147"},"target":{"_name":"shootTarget","_targetVariableID":"18a3ef72-4580-40d6-b459-c60a8f873834"},"tag":{"_value":"Player"},"$type":"CheckSight"},{"valueA":{"_name":"Alerte","_targetVariableID":"bce2bd41-6e5a-4bc0-915a-3f5c06fc6a95"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"}],"$type":"NodeCanvas.Framework.ConditionList"},"_sourceNode":{"$ref":"43"},"_targetNode":{"$ref":"44"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"target":{"_name":"shootTarget","_targetVariableID":"18a3ef72-4580-40d6-b459-c60a8f873834"},"state":{"_value":"KO"},"$type":"CheckState"},"_sourceNode":{"$ref":"44"},"_targetNode":{"$ref":"55"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"sighted":{"_value":[],"_name":"sighted","_targetVariableID":"918f1f53-ec4a-4562-924c-c94f70c63147"},"target":{},"tag":{"_value":"Player"},"_invert":true,"$type":"CheckSight"},"_sourceNode":{"$ref":"44"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"55"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"primeNode":{"$ref":"2"},"canvasGroups":[{"name":"Normal","rect":{"xMin":4352.277,"yMin":5005.269,"xMax":4914.937,"yMax":5694.592}},{"name":"KO","rect":{"xMin":4304.277,"yMin":4398.61,"xMax":4870.937,"yMax":4761.272}},{"name":"Dead","rect":{"xMin":5052.268,"yMin":4402.61,"xMax":5572.261,"yMax":4738.605}},{"name":"Alerte","rect":{"xMin":3625.62,"yMin":4863.937,"xMax":4205.612,"yMax":5325.264}}],"localBlackboard":{"_name":"Local
+    Blackboard","_variables":{}}}'
+  _objectReferences: []
+  _deserializationFailed: 0
+--- !u!114 &114451038991911948
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1625361917524594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a7dbb6bbdf4ffb46ab7dd87ba8191e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boundGraphSerialization: '{"version":2.6,"type":"NodeCanvas.StateMachines.FSM","name":"FSM","translation":{"x":-4315.0,"y":-3857.0},"zoomFactor":0.8050152,"nodes":[{"_actionList":{"executionMode":"ActionsRunInParallel","actions":[{"targetPosition":{"_name":"targetPosition","_targetVariableID":"5da9ac5a-fc64-4718-8c2c-5e5f64a7252b"},"speed":{"_value":3.0},"$type":"NodeCanvas.Tasks.Actions.MoveToPosition"}]},"_repeatStateActions":true,"_position":{"x":6082.225,"y":5302.112},"_name":"Patrouille","$type":"NodeCanvas.StateMachines.ActionState","$id":"2"},{"_actionList":{"actions":[{"waitTime":{"_value":2.4},"$type":"NodeCanvas.Tasks.Actions.Wait"},{"boolVariable":{"_name":"arrived","_targetVariableID":"0fd085d2-4b99-44b0-a6b1-1709245bd5d6"},"setTo":"False","$type":"NodeCanvas.Tasks.Actions.SetBoolean"}]},"_position":{"x":6282.464,"y":5429.799},"_name":"Attends","$type":"NodeCanvas.StateMachines.ActionState","$id":"8"},{"_actionList":{"executionMode":"ActionsRunInParallel","actions":[{"target":{"_name":"Hunter","_targetVariableID":"576d50ea-e083-4b6e-b15f-264dbf1f9dac"},"speed":{"_value":3.0,"_name":"dogRunSpeed","_targetVariableID":"535cc249-d3cb-4289-b138-37ba3da0a071"},"keepDistance":4.0,"$type":"NodeCanvas.Tasks.Actions.MoveToGameObject"}]},"_position":{"x":6405.005,"y":4831.237},"$type":"NodeCanvas.StateMachines.ActionState","$id":"15"},{"_actionList":{"executionMode":"ActionsRunInParallel","actions":[{"waitTime":{"_value":1.0},"$type":"NodeCanvas.Tasks.Actions.Wait"}]},"_position":{"x":6311.0,"y":4974.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"21"},{"_actionList":{"actions":[{"target":{"_name":"target","_targetVariableID":"e21446da-3282-43e4-9adf-4a988c2044cf"},"speed":{"_value":3.0,"_name":"dogBaseSpeed","_targetVariableID":"9d0a7aa7-91ed-4aae-931f-059fcc49d7e7"},"keepDistance":1.5,"$type":"NodeCanvas.Tasks.Actions.MoveToGameObject"},{"log":{"_value":"Killing"},"secondsToRun":0.3,"$type":"NodeCanvas.Tasks.Actions.DebugLogText"},{"target":{"_name":"target","_targetVariableID":"e21446da-3282-43e4-9adf-4a988c2044cf"},"speed":{"_value":2.0},"angle":{"_value":5.0},"$type":"RotateTowardsFixed"},{"target":{"_name":"target","_targetVariableID":"e21446da-3282-43e4-9adf-4a988c2044cf"},"distance":{"_value":2.0},"maxAngle":{"_value":60.0},"$type":"Kill"}]},"_position":{"x":6065.273,"y":4863.308},"$type":"NodeCanvas.StateMachines.ActionState","$id":"26"},{"_actionList":{"executionMode":"ActionsRunInParallel","actions":[{"target":{"_name":"target","_targetVariableID":"e21446da-3282-43e4-9adf-4a988c2044cf"},"speed":{"_value":3.0},"$type":"NodeCanvas.Tasks.Actions.MoveToGameObject"}]},"_position":{"x":4964.24,"y":5313.044},"$type":"NodeCanvas.StateMachines.ActionState","$id":"42"},{"_actionList":{"actions":[{"waitTime":{"_value":6.0},"$type":"NodeCanvas.Tasks.Actions.Wait"},{"boolVariable":{"_name":"sawSomething","_targetVariableID":"6b81dc16-0522-4823-b51f-bb380c17abb5"},"setTo":"False","$type":"NodeCanvas.Tasks.Actions.SetBoolean"}]},"_position":{"x":5037.426,"y":5562.549},"_name":"MangeViande","$type":"NodeCanvas.StateMachines.ActionState","$id":"48"},{"_actionList":{"actions":[{"target":{"_name":"Hunter","_targetVariableID":"576d50ea-e083-4b6e-b15f-264dbf1f9dac"},"speed":{"_value":3.0,"_name":"dogBaseSpeed","_targetVariableID":"9d0a7aa7-91ed-4aae-931f-059fcc49d7e7"},"keepDistance":5.0,"$type":"NodeCanvas.Tasks.Actions.MoveToGameObject"}]},"_position":{"x":5726.625,"y":5439.546},"_name":"Going
+    back to hunter","$type":"NodeCanvas.StateMachines.ActionState","$id":"55"},{"_actionList":{"actions":[{"targetVariableName":{"_value":"Aboiement"},"newValue":{"_type":"System.Boolean","_value":{"$content":true,"$type":"System.Boolean"}},"overrideAgent":{"_name":"Hunter","_targetVariableID":"576d50ea-e083-4b6e-b15f-264dbf1f9dac"},"$type":"NodeCanvas.Tasks.Actions.SetOtherBlackboardVariable"},{"waitTime":{"_value":3.0},"$type":"NodeCanvas.Tasks.Actions.Wait"},{"boolVariable":{"_name":"sawSomething","_targetVariableID":"6b81dc16-0522-4823-b51f-bb380c17abb5"},"setTo":"False","$type":"NodeCanvas.Tasks.Actions.SetBoolean"},{"targetVariableName":{"_value":"Aboiement"},"newValue":{"_type":"System.Boolean","_value":{"$content":false,"$type":"System.Boolean"}},"overrideAgent":{"_name":"Hunter","_targetVariableID":"576d50ea-e083-4b6e-b15f-264dbf1f9dac"},"$type":"NodeCanvas.Tasks.Actions.SetOtherBlackboardVariable"}]},"_position":{"x":5322.441,"y":5487.996},"_name":"Aboie","$type":"NodeCanvas.StateMachines.ActionState","$id":"61"}],"connections":[{"_condition":{"valueA":{"_name":"arrived","_targetVariableID":"0fd085d2-4b99-44b0-a6b1-1709245bd5d6"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"valueA":{"_name":"sawSomething","_targetVariableID":"6b81dc16-0522-4823-b51f-bb380c17abb5"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"42"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"target":{"_name":"Hunter","_targetVariableID":"576d50ea-e083-4b6e-b15f-264dbf1f9dac"},"state":{"_value":"KO"},"$type":"CheckState"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"15"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"valueA":{"_name":"arrived","_targetVariableID":"0fd085d2-4b99-44b0-a6b1-1709245bd5d6"},"valueB":{},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"target":{"_name":"Hunter","_targetVariableID":"576d50ea-e083-4b6e-b15f-264dbf1f9dac"},"state":{"_value":"KO"},"$type":"CheckState"},"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"15"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"15"},"_targetNode":{"$ref":"21"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"target":{"_name":"Hunter","_targetVariableID":"576d50ea-e083-4b6e-b15f-264dbf1f9dac"},"state":{"_value":"KO"},"_invert":true,"$type":"CheckState"},"_sourceNode":{"$ref":"21"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"sighted":{"_value":[],"_name":"sighted","_targetVariableID":"89c04805-638d-46da-9c90-94b84bb5e979"},"target":{"_name":"target","_targetVariableID":"e21446da-3282-43e4-9adf-4a988c2044cf"},"tag":{"_value":"Player"},"$type":"CheckSight"},"_sourceNode":{"$ref":"21"},"_targetNode":{"$ref":"26"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"26"},"_targetNode":{"$ref":"21"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"valueA":{"_type":"System.Enum","_name":"targetType","_targetVariableID":"73d448f3-61b8-4ec4-9ae2-bed335585af3"},"valueB":{"_type":"AIChien+btargetType","_value":{"$content":"Viande","$type":"AIChien+btargetType"}},"$type":"NodeCanvas.Tasks.Conditions.CheckEnum"},"_sourceNode":{"$ref":"42"},"_targetNode":{"$ref":"48"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"valueA":{"_type":"System.Enum","_name":"targetType","_targetVariableID":"73d448f3-61b8-4ec4-9ae2-bed335585af3"},"valueB":{"_type":"AIChien+btargetType","_value":{"$content":"Buisson","$type":"AIChien+btargetType"}},"$type":"NodeCanvas.Tasks.Conditions.CheckEnum"},"_sourceNode":{"$ref":"42"},"_targetNode":{"$ref":"61"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"48"},"_targetNode":{"$ref":"55"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"55"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"61"},"_targetNode":{"$ref":"55"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"primeNode":{"$ref":"2"},"canvasGroups":[{"name":"Normal","rect":{"xMin":6030.136,"yMin":5228.188,"xMax":6496.797,"yMax":5526.851}},{"name":"Distrait","rect":{"xMin":4943.986,"yMin":5148.404,"xMax":5872.704,"yMax":5730.705}},{"name":"Defendre","rect":{"xMin":6040.0,"yMin":4786.0,"xMax":6578.0,"yMax":5129.0}}],"localBlackboard":{"_name":"Local
+    Blackboard","_variables":{}}}'
+  boundGraphObjectReferences: []
+  enableAction: 0
+  disableAction: 0
+  versionUpdateProxyGraph: {fileID: 0}
+  _graph: {fileID: 114249799008050458}
+  _blackboard: {fileID: 114841893557450776}
+--- !u!114 &114752137035533340
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1956400642573850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1123ed074b6511147b6704ba35126297, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detect_value: 30
+--- !u!114 &114841893557450776
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1625361917524594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98a6db0b653f764eac834f85857a9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _serializedBlackboard: '{"_variables":{"Hunter":{"_value":1,"_name":"Hunter","_id":"576d50ea-e083-4b6e-b15f-264dbf1f9dac","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
+    UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"dogBaseSpeed":{"_value":5.0,"_name":"dogBaseSpeed","_id":"9d0a7aa7-91ed-4aae-931f-059fcc49d7e7","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"dogRunSpeed":{"_value":8.0,"_name":"dogRunSpeed","_id":"535cc249-d3cb-4289-b138-37ba3da0a071","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"sighted":{"_propertyPath":"LineOfSight.sighted","_name":"sighted","_id":"89c04805-638d-46da-9c90-94b84bb5e979","$type":"NodeCanvas.Framework.Variable`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject,
+    UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib,
+    Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"targetPosition":{"_propertyPath":"AIChien.targetPosition","_name":"targetPosition","_id":"5da9ac5a-fc64-4718-8c2c-5e5f64a7252b","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector3,
+    UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"arrived":{"_propertyPath":"AIChien.arrived","_name":"arrived","_id":"0fd085d2-4b99-44b0-a6b1-1709245bd5d6","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"targetType":{"_propertyPath":"AIChien.targetType","_name":"targetType","_id":"73d448f3-61b8-4ec4-9ae2-bed335585af3","$type":"NodeCanvas.Framework.Variable`1[[AIChien+btargetType,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"target":{"_propertyPath":"AIChien.target","_name":"target","_id":"e21446da-3282-43e4-9adf-4a988c2044cf","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
+    UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"sawSomething":{"_propertyPath":"AIChien.sawSomething","_name":"sawSomething","_id":"6b81dc16-0522-4823-b51f-bb380c17abb5","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
+  _objectReferences:
+  - {fileID: 0}
+  - {fileID: 1956400642573850}
+--- !u!114 &114870004617759452
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1956400642573850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2bd8390b1eecd54cbad6ca7f3b9da7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shader: {fileID: 4800000, guid: 89fcdb3a42dec6e449c20a1473b202af, type: 3}
+  sighted: []
+--- !u!136 &136087379642080698
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1625361917524594}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &136702245807089118
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1956400642573850}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!195 &195770953131808570
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1956400642573850}
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!195 &195887906606128878
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1625361917524594}
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Speed: 5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
