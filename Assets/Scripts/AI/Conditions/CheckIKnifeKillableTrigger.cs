@@ -4,19 +4,21 @@ using UnityEngine;
 using NodeCanvas.Tasks.Conditions;
 using NodeCanvas.Framework;
 
-public class CheckCannibalObjectTrigger : CheckTriggerExt<CannibalObject> {
-
-
-
+public class CheckIKnifeKillableTrigger : CheckTriggerExt<IKnifeKillable>
+{
     protected override bool OnCheck()
     {
         bool check = base.OnCheck();
 
         if (check)
         {
-            foreach (CannibalObject c in savedList.value)
+            foreach (IKnifeKillable k in savedList.value)
             {
-                c.ShowIcon();
+                if (k != null && k.IsKnifeVulnerable())
+                {
+                    k.ShowKnifeIcon();
+                    return true;
+                }
             }
         }
 

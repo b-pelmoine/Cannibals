@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface iKillable {
+public interface IKnifeKillable {
 
-    bool IsVulnerable();
-    void Kill();
+    bool IsKnifeVulnerable();
+    void KnifeKill();
     void ShowKnifeIcon();
 }

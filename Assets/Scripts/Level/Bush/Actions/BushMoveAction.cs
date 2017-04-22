@@ -3,22 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using NodeCanvas.Framework;
 
-public class BushMoveAction : ActionTask<ColliderKeeper> {
+public class BushMoveAction : ActionTask {
 
+    public BBParameter<List<Bush>> bushes;
 
     protected override void OnUpdate()
     {
-        if(agent.gameObjects != null)
+        foreach(Bush b in bushes.value)
         {
-            foreach(GameObject g in agent.gameObjects)
-            {
-                Bush b = g.GetComponent<Bush>();
-
-                if(b)
-                {
-                    b.Move();
-                }
-            }
+            b.Move();
         }
 
         EndAction();

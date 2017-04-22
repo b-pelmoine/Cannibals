@@ -5,11 +5,11 @@ using NodeCanvas.Framework;
 
 public class Cannibal_KnifeAttack : Cannibal_State
 {
-    public BBParameter<iKillable> killable;
+    public BBParameter<List<IKnifeKillable>> iKillables;
 
 
     protected override void OnEnter()
     {
-        killable.value.Kill();
+        iKillables.value[0].KnifeKill();
     }
 }

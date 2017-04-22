@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicKillable : MonoBehaviour, iKillable {
+public class BasicKillable : MonoBehaviour, IKnifeKillable {
 
     [SerializeField]
     IconDisplayer m_iconDisplayer;
@@ -10,12 +10,12 @@ public class BasicKillable : MonoBehaviour, iKillable {
     [SerializeField]
     Sprite knifeSprite;
 
-    public bool IsVulnerable()
+    public bool IsKnifeVulnerable()
     {
         return true;
     }
 
-    public void Kill()
+    public void KnifeKill()
     {
 
     }
