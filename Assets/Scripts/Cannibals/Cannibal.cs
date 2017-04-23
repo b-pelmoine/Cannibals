@@ -20,32 +20,46 @@ public class Cannibal : MonoBehaviour {
     /// Knock out the cannibal.
     /// </summary>
     /// <returns>false if the cannibal can't be knock out for the moment</returns>
-    public bool KnockOut() { return ((Cannibal_State)m_stateMachine.behaviour.currentState).KnockOut(); }
+    public bool KnockOut() { return CurrentState().KnockOut(); }
 
     /// <summary>
     /// Resuscitate the cannibal
     /// </summary>
     /// <returns>false if the cannibal can't be resuscitate for the moment</returns>
-    public bool Resuscitate() { return ((Cannibal_State)m_stateMachine.behaviour.currentState).Resuscitate(); }
+    public bool Resurrect() { return CurrentState().Resurrect(); }
 
 
     /// <summary>
     /// The cannibal will loose his object
     /// </summary>
     /// <returns>false if the cannibal has no object or don't want to loose it</returns>
-    public bool LooseCannibalObject() { return ((Cannibal_State)m_stateMachine.behaviour.currentState).LooseCannibalObject(); }
+    public bool LooseCannibalObject() { return CurrentState().LooseCannibalObject(); }
 
 
     /// <summary>
     /// Kill the cannibal
     /// </summary>
     /// <returns>false if the cannibal can't be killed in the current state</returns>
-    public bool Kill() { return ((Cannibal_State)m_stateMachine.behaviour.currentState).Kill(); }
+    public bool Kill() {
+        return CurrentState().Kill(); }
 
 
     /// <summary>
     /// Revive the cannibal
     /// </summary>
     /// <returns>false if the cannibal can't be revived in the current state</returns>
-    public bool Revive() { return ((Cannibal_State)m_stateMachine.behaviour.currentState).Revive(); }
+    public bool Revive() { return CurrentState().Revive(); }
+
+
+    Cannibal_State CurrentState()
+    {
+        FSMState currentSate = m_stateMachine.behaviour.currentState;
+
+        while (currentSate is NestedFSMState)
+        {
+            currentSate = ((NestedFSMState)currentSate).nestedFSM.currentState;
+        }
+
+        return (Cannibal_State)currentSate;
+    }
 }

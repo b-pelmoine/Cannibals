@@ -142,7 +142,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 139224728}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 5.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 207292473}
@@ -164,9 +164,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b45ef13b0dd11304488d12640161c500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transform: {fileID: 0}
-  treesRepresentation: []
+  transform: {fileID: 139224729}
+  treesRepresentation:
+  - {fileID: 207292472}
+  - {fileID: 448550021}
+  - {fileID: 98308727}
+  - {fileID: 708170951}
+  - {fileID: 235085396}
   range: 10
+  treeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  forestAmbianceEvent: ambiance_forest
+  debug: 1
 --- !u!1 &198671486
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,7 +187,7 @@ GameObject:
   - component: {fileID: 198671489}
   - component: {fileID: 198671488}
   - component: {fileID: 198671487}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -588,7 +598,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1835434572}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 46.11471, y: -17.5142, z: 159.75984}
+  m_LocalPosition: {x: 42.1, y: 0, z: 150.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 139224729}

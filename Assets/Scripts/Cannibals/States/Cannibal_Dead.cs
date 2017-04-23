@@ -15,4 +15,10 @@ public class Cannibal_Dead : Cannibal_State {
         return false;
     }
 
+    public override bool Resurrect()
+    {
+        FSM.SendEvent("Resurrect");
+        return true;
+    }
+
 }
