@@ -10,7 +10,7 @@ using UnityEditor;
 /// </summary>
 public class BasicCall : CannibalObject, ICall {
 
-    public static event Action<BasicCall> BasicCallUsed;
+    public static event Action<BasicCall> OnBasicCallUsed;
 
     [SerializeField]
     AudioSource m_audioSource;
@@ -27,8 +27,8 @@ public class BasicCall : CannibalObject, ICall {
     {
         m_audioSource.Play();
 
-        if (BasicCallUsed != null)
-            BasicCallUsed(this);
+        if (OnBasicCallUsed != null)
+            OnBasicCallUsed(this);
 
 #if UNITY_EDITOR
         if (debug)
