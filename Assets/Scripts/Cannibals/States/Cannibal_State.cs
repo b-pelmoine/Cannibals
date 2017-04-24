@@ -26,7 +26,7 @@ public abstract class Cannibal_State : ActionState {
     /// Resuscitate the cannibal
     /// </summary>
     /// <returns>false if the cannibal can't be resuscitate for the moment</returns>
-    public virtual bool Resuscitate() { return false; }
+    public virtual bool Resurrect() { return false; }
 
     /// <summary>
     /// Loose the CannibalObject

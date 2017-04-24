@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 193193912864735128}
   - component: {fileID: 33756509182648758}
   - component: {fileID: 23626690137066138}
+  - component: {fileID: 136329479473790414}
   m_Layer: 0
   m_Name: Tree_Bouleau
   m_TagString: Untagged
@@ -2633,6 +2634,19 @@ MonoBehaviour:
   optimizedSolidMaterial: {fileID: 21472017078284644}
   optimizedCutoutMaterial: {fileID: 21192265640459890}
   isInPreviewMode: 0
+--- !u!136 &136329479473790414
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1014413007725772}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.73
+  m_Height: 8.216934
+  m_Direction: 1
+  m_Center: {x: -0, y: 4.108467, z: -0.115309775}
 --- !u!193 &193193912864735128
 Tree:
   m_ObjectHideFlags: 1

@@ -5,7 +5,7 @@ using System;
 
 public class Bottle : CannibalObject, IShakable {
 
-    public static event Action<Bottle> BottleShaked;
+    public static event Action<Bottle> OnBottleShaked;
 
     [SerializeField]
     Rigidbody m_rigidbody;
@@ -15,8 +15,8 @@ public class Bottle : CannibalObject, IShakable {
 
     public void Shake()
     {
-        if (BottleShaked != null)
-            BottleShaked(this);
+        if (OnBottleShaked != null)
+            OnBottleShaked(this);
     }
 
     public override void Take(Transform newParent)
