@@ -330,7 +330,7 @@ namespace EquilibreGames
         void ClampToGround3D()
         {
             float d = primaryGround.distance - characterControllerColliders[circleConfigurationIndex].colliders[feetIndex].radius - toleranceConst;
-            characterTransform.position -= characterTransform.up * d;
+            characterTransform.position -= primaryGround.normal * d;
         }
 
         /// <summary>
