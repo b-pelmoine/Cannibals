@@ -17,7 +17,7 @@ namespace EquilibreGames
         {
             public float radius;
             [SerializeField]
-            private Transform transform;
+            public Transform transform;
             [SerializeField]
             private Vector2 offset;
             public string name;
@@ -153,6 +153,17 @@ namespace EquilibreGames
         [SerializeField][Range(0,200)] [Tooltip("The length of the array for collisions. If more collisions are detected, it will be ignored")]
         int maxCollisionPerFrame = 20;
 
+
+        //CLAMP
+        [Space(10)]
+        [Tooltip("If you want that your character to stay on ground")]
+        public bool clamping = true;
+        public Transform currentlyClampedTo { get; set; }
+
+       // [Tooltip("If you want that your character smooth fall when he is near an edge")]
+       // public bool smoothEdgeFall = true;
+
+        [Space(10)]
         /// <summary>
         /// This is the acceleration of the controller, this value is reset each FixedUpdate;
         /// </summary>
@@ -209,10 +220,6 @@ namespace EquilibreGames
         private Collider[] collisionsResult3D;
 
 
-        //CLAMP
-        [Space(10)]
-        public bool clamping = true;
-        public Transform currentlyClampedTo { get; set; }
         private Vector3 lastGroundPosition;
 
 #if UNITY_EDITOR || EQUILIBRE_GAMES_DEBUG
@@ -274,11 +281,16 @@ namespace EquilibreGames
                 // if (clampToMovingGround && isClamping && clampedTo != null && clampedTo.position - lastGroundPosition != Vector3.zero)
                 //   transform.position += clampedTo.position - lastGroundPosition;
 
+                Vector3 initialPosition = transform.position;
+
                 CheckCharacterControllerExtCollision3D();
                 HandleCollision3D(0, pushBackResolution);
+
+                SlopeLimit3D(initialPosition);
+
                 ProbeGround3D();
 
-                if (clamping && primaryGround != null)
+                if (isClamping && primaryGround != null)
                     ClampToGround3D();
 
                 if (isClamping && clampedTo)
@@ -317,8 +329,52 @@ namespace EquilibreGames
         /// </summary>
         void ClampToGround3D()
         {
-            float d = primaryGround.distance - characterControllerColliders[circleConfigurationIndex].colliders[feetIndex].radius;
+            float d = primaryGround.distance - characterControllerColliders[circleConfigurationIndex].colliders[feetIndex].radius - toleranceConst;
             characterTransform.position -= characterTransform.up * d;
+        }
+
+        /// <summary>
+        /// Prevents the player from walking up slopes of a larger angle than the object's SlopeLimit.
+        /// </summary>
+        /// <returns>True if the controller attemped to ascend a too steep slope and had their movement limited</returns>
+        bool SlopeLimit3D(Vector3 initialPosition)
+        {
+            Vector3 n = groundNormal;
+            float a = Vector3.Angle(n, characterTransform.up);
+
+            if (a > maxGroundAngle)
+            {
+                Vector3 absoluteMoveDirection = ExtendedMath.ProjectVectorOnPlane(n, transform.position - initialPosition);
+
+                // Retrieve a vector pointing down the slope
+                Vector3 r = Vector3.Cross(n, -characterTransform.up);
+                Vector3 v = Vector3.Cross(r, n);
+
+                float angle = Vector3.Angle(absoluteMoveDirection, v);
+
+                if (angle <= 90.0f)
+                    return false;
+
+                // Calculate where to place the controller on the slope, or at the bottom, based on the desired movement distance
+                Vector3 resolvedPosition = ExtendedMath.ProjectPointOnLine(initialPosition, r, transform.position);
+                Vector3 direction = ExtendedMath.ProjectVectorOnPlane(n, resolvedPosition - transform.position);
+
+                //RaycastHit hit;
+
+                // Check if our path to our resolved position is blocked by any colliders
+             //   if (Physics.CapsuleCast(SpherePosition(feet), SpherePosition(head), radius, direction.normalized, out hit, direction.magnitude, Walkable, triggerInteraction))
+               // {
+                 //   transform.position += v.normalized * hit.distance;
+                //}
+                //else
+                //{
+                    transform.position += direction;
+                //}
+
+                return true;
+            }
+
+            return false;
         }
 
         /// <summary>
@@ -652,12 +708,10 @@ namespace EquilibreGames
 
 
                             //Change the characterTransform position to be on the collider shape.
-                            characterTransform.position = colInfo.position + direction;
+                            characterTransform.position += direction;
 
                             //Because the transform for colInfo is not necessary the character transform, substract the localPosition of this one;
-                            characterTransform.position = 2 * characterTransform.position - colInfo.position;
-                            characterTransform.position = new Vector3(characterTransform.position.x, characterTransform.position.y, positionMemory.z);
-
+                            characterTransform.position += characterTransform.position - colInfo.transform.position;
 
                             if (useGeneralPlatformerVelocityRule /*&& oneWayPlatform == null*/)
                             {
@@ -1211,7 +1265,7 @@ namespace EquilibreGames
                      return true;
                  }*/
 
-                return false;
+                 return false;
             }
 
 
@@ -1429,16 +1483,15 @@ namespace EquilibreGames
                 DebugDraw.DrawVector(farGround.point, farGround.normal, 2.0f, 1.0f, Color.red, 0, false);
             }
 
-            /*
-            if (flush && flushGround != null)
+            if (flushGround != null)
             {
                 DebugDraw.DrawVector(flushGround.point, flushGround.normal, 2.0f, 1.0f, Color.cyan, 0, false);
             }
 
-            if (step && stepGround != null)
+            if (stepGround != null)
             {
                 DebugDraw.DrawVector(stepGround.point, stepGround.normal, 2.0f, 1.0f, Color.green, 0, false);
-            }*/
+            }
         }
 
 #endif
