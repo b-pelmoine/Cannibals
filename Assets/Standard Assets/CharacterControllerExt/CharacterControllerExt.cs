@@ -658,12 +658,13 @@ namespace EquilibreGames
                             contactPoint = ExtendedMath.ClosestPointOnSurface((TerrainCollider)col, colInfo.position, colInfo.radius);
                         else if (col is MeshCollider)
                             contactPoint = ExtendedMath.ClosestPointOnSurface((MeshCollider)col, colInfo.position, colInfo.radius);
-
+                        else if (col is CapsuleCollider)
+                            contactPoint = ExtendedMath.ClosestPointOnSurface((CapsuleCollider)col, colInfo.position);
 
 
 
 #if UNITY_EDITOR || EQUILIBRE_GAMES_DEBUG
-                        if (debugguer)
+                            if (debugguer)
                             DebugDraw.DrawMarker(contactPoint, 2.0f, Color.red, 0f, false);
 #endif
                         //Calcul the normal direction
