@@ -8,6 +8,7 @@ public class Waypoint : MonoBehaviour {
     [System.Serializable]
     public class Wpoint
     {
+        public string tag;
         public Vector3 position;
         public List<int> links;
 

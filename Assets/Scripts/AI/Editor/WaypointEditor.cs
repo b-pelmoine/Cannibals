@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 
 [CustomEditor(typeof(Waypoint))]
 //[CanEditMultipleObjects]
@@ -8,6 +9,9 @@ public class WaypointEditor : Editor {
 
     public SerializedProperty waypoint;
     public SerializedProperty links;
+
+    bool _showPoints;
+    
 
     int selectedPoint = -1;
 
@@ -17,10 +21,14 @@ public class WaypointEditor : Editor {
 	void OnEnable()
     {
         waypoint = serializedObject.FindProperty("points");
+        
     }
 
     public override void OnInspectorGUI()
     {
+        List<bool> _showPointInfo = new List<bool>();
+        for (int i = 0; i < (target as Waypoint).points.Count; i++)
+            _showPointInfo.Add(false);
         serializedObject.Update();
         var t = (target as Waypoint);
         if(selectedPoint>=0 && selectedPoint < t.points.Count)
@@ -29,7 +37,7 @@ public class WaypointEditor : Editor {
             if (newPosition != t.points[selectedPoint].position)
             {
                 t.points[selectedPoint].position = newPosition;
-                Repaint();
+                changed = true;
             }
             EditorGUILayout.Space();
             for(int i = 0; i < t.points[selectedPoint].links.Count; i++)
@@ -37,7 +45,63 @@ public class WaypointEditor : Editor {
                 t.points[selectedPoint].links[i] = EditorGUILayout.IntField(t.points[selectedPoint].links[i]);
             }
         }
+        _showPoints = EditorGUILayout.Foldout(_showPoints, "Points list");
+        if (_showPoints)
+        {
+
+            for (int i = 0; i < t.points.Count; i++)
+            {
+                EditorGUILayout.BeginHorizontal();
+                GUILayout.Space(7);
+                _showPointInfo[i] = EditorGUI.Foldout(EditorGUILayout.GetControlRect(GUILayout.MaxWidth(0)),_showPointInfo[i], GUIContent.none);
+                string name = EditorGUILayout.TextField(t.points[i].tag);
+                if (t.points[i].tag != null && !name.Equals(t.points[i].tag, System.StringComparison.Ordinal))
+                {
+                    t.points[i].tag = name;
+                    changed = true;
+                }
+                if (GUILayout.Button("Erase"))
+                {
+                    t.points.RemoveAt(i);
+                    _showPointInfo.RemoveAt(i);
+                    changed = true;
+                    i--;
+                    EditorGUILayout.EndHorizontal();
+                    continue;
+                }
+                EditorGUILayout.EndHorizontal();
+                EditorGUILayout.BeginHorizontal();
+                GUILayout.Space(5);
+                EditorGUILayout.BeginVertical();
+                
+                if (_showPointInfo[i])
+                {
+                    Vector3 newPosition = EditorGUILayout.Vector3Field("Position", t.points[i].position);
+                    if (newPosition != t.points[i].position)
+                    {
+                        t.points[i].position = newPosition;
+                        changed = true;
+                    }
+                }
+                EditorGUILayout.EndVertical();
+                EditorGUILayout.EndHorizontal();
+            }
+        }
+        if (GUILayout.Button("Clear"))
+        {
+            t.points.Clear();
+            _showPointInfo.Clear();
+            changed = true;
+        }
+        
         serializedObject.ApplyModifiedProperties();
+        if (changed)
+        {
+            SceneView.RepaintAll();
+            PrefabUtility.RecordPrefabInstancePropertyModifications(t);
+            EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+            changed = false;
+        }
     }
 
     public void OnSceneGUI()
@@ -52,6 +116,7 @@ public class WaypointEditor : Editor {
             EditorGUI.BeginChangeCheck();
             Handles.color = Color.blue;
             lastControlID = GUIUtility.hotControl;
+            Handles.Label(t.points[i].position, t.points[i].tag);
             Handles.FreeMoveHandle(t.points[i].position, Quaternion.identity, .5f, new Vector3(.5f, .5f, .5f), Handles.SphereCap);
             Handles.color = Color.white;
             if (GUIUtility.hotControl != lastControlID)
@@ -70,7 +135,7 @@ public class WaypointEditor : Editor {
         switch (Event.current.type)
         {
             case EventType.mouseDown:
-                if (Event.current.button == 0)
+                if (Event.current.button == 0 && Event.current.alt==false)
                 {
                     GUIUtility.hotControl = controlID;
                     Ray worldRay = HandleUtility.GUIPointToWorldRay(Event.current.mousePosition);
@@ -79,6 +144,9 @@ public class WaypointEditor : Editor {
                     {
                         changed = true;
                         t.Add(hitInfo.point);
+                        t.points[t.points.Count - 1].tag = "" + t.points.Count;
+                        if (t.points.Count > 0)
+                            t.AddLink(t.points.Count - 2, t.points.Count - 1);
                     }
                     HandleUtility.Repaint();
                     GUIUtility.hotControl = 0;
@@ -149,6 +217,8 @@ public class WaypointEditor : Editor {
         }
         if (changed)
         {
+            PrefabUtility.RecordPrefabInstancePropertyModifications(t);
+            EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
             Undo.RegisterCompleteObjectUndo(target, "Waypoint Changed");
             changed = false;
         }
