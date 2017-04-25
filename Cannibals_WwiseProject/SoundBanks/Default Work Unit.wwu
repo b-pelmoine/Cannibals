@@ -4,7 +4,9 @@
 		<WorkUnit Name="Default Work Unit" ID="{902913CC-3DAC-4E18-8F28-CECD81473CA7}" PersistMode="Standalone">
 			<ChildrenList>
 				<SoundBank Name="SDB_Cannibals" ID="{57E2201B-02A6-4775-8337-6EFC6286CAEB}">
-					<ObjectInclusionList/>
+					<ObjectInclusionList>
+						<ObjectRef Name="Default Work Unit" ID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}" Filter="7" Origin="Manual"/>
+					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
 				</SoundBank>

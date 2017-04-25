@@ -3,7 +3,7 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{D1C7715C-8472-4B77-B603-950C3928E700}" PersistMode="Standalone">
 			<ChildrenList>
-				<Event Name="ambiance_forest" ID="{A35D8603-CD06-4193-81C1-67936688A7C8}">
+				<Event Name="ambiance_forest_fauna" ID="{A35D8603-CD06-4193-81C1-67936688A7C8}">
 					<ChildrenList>
 						<Action Name="Play" ID="{C7CD6E81-A5D1-4974-BA4A-4261FCEF1484}" ShortID="721343991" Type="Play" Scope="One" Global="false">
 							<ElementList>
@@ -16,13 +16,6 @@
 				</Event>
 				<Event Name="ambiance_lake_and_water" ID="{E101765C-2CF9-4BD1-8F45-691D4EC18096}">
 					<ChildrenList>
-						<Action Name="Play" ID="{C7C87488-9FB1-4089-9C09-25D99015BE9B}" ShortID="737405321" Type="Play" Scope="One" Global="false">
-							<ElementList>
-								<Element ID="{6A0E29F4-8846-4F75-9614-3676B5517981}" Global="false">
-									<ObjectRef Name="Fauna" ID="{E8BAFBBF-4408-4192-9E4D-737F25C8376D}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
-								</Element>
-							</ElementList>
-						</Action>
 						<Action Name="Play" ID="{0093D91F-ABE2-4CE6-B7D6-C610673FE7B7}" ShortID="245867276" Type="Play" Scope="One" Global="false">
 							<ElementList>
 								<Element ID="{0006B482-32B9-47F2-94C8-E0DA1A3988EC}" Global="false">
@@ -310,6 +303,24 @@
 							<ElementList>
 								<Element ID="{2C52680B-843D-42D0-9C05-3E4072D493B8}" Global="false">
 									<ObjectRef Name="Loop forest tone" ID="{8325D55D-90B7-4D5E-B6E8-AE1F53F60669}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="ambiance_lake_fauna" ID="{E01EA589-5F7D-40EA-8C0B-415631B34CC3}">
+					<ChildrenList>
+						<Action Name="Play" ID="{180A0AAB-65E4-414F-90BA-2B3A480023C7}" ShortID="978727660" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{272259A1-9CB9-4E49-B80B-3D672759787B}" Global="false">
+									<ObjectRef Name="Ducks" ID="{7F1B24E6-8ADE-4023-BC8E-414DECE5BBDB}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Play" ID="{4396C3D2-98DC-44C9-8143-9558F2FCC46A}" ShortID="51615023" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{F72AE497-EB2A-4C6A-9F64-B0A7107C60A5}" Global="false">
+									<ObjectRef Name="Frogs" ID="{FB041A0E-0635-4ED5-B2F6-EAF48C0079E4}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
 								</Element>
 							</ElementList>
 						</Action>
