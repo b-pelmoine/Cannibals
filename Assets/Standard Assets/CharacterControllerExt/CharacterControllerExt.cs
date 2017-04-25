@@ -84,6 +84,7 @@ namespace EquilibreGames
         public struct CharacterController2DColliders
         {
            public ColliderInfo[] colliders;
+           public Collider[] physicsColliders;
         }
 
         public MODE mode = MODE._2D;
@@ -221,6 +222,7 @@ namespace EquilibreGames
 
 
         private Vector3 lastGroundPosition;
+        private Transform collidersTransform;
 
 #if UNITY_EDITOR || EQUILIBRE_GAMES_DEBUG
         public bool debugguer = true;
@@ -244,11 +246,26 @@ namespace EquilibreGames
              contactDebugguer = new bool[max];
 
 #if UNITY_EDITOR || EQUILIBRE_GAMES_DEBUG  
-            if (debugguer && characterControllerColliders.Length == 0)
+            if (debugguer && (characterControllerColliders.Length == 0 || characterControllerColliders[0].colliders.Length == 0))
             {
                 Debug.LogWarning("No circle collider found");
             }
 #endif
+
+            collidersTransform = new GameObject("CharacterControllerColliders").transform;
+            collidersTransform.SetParent(this.transform);
+
+            for (int i =0; i < characterControllerColliders.Length; i++)
+            {
+                characterControllerColliders[i].physicsColliders = new Collider[characterControllerColliders[i].colliders.Length];
+
+                for (int j = 0; j < characterControllerColliders[i].colliders.Length; j++)
+                {
+                    characterControllerColliders[i].physicsColliders[j] = collidersTransform.gameObject.AddComponent<SphereCollider>();
+                    ((SphereCollider)characterControllerColliders[i].physicsColliders[j]).radius = characterControllerColliders[i].colliders[j].radius;
+                    characterControllerColliders[i].physicsColliders[j].enabled = false;
+                }
+            }
         }
 
         void FixedUpdate()
@@ -290,7 +307,7 @@ namespace EquilibreGames
 
                 ProbeGround3D();
 
-                if (isClamping && primaryGround != null)
+                if (isClamping)
                     ClampToGround3D();
 
                 if (isClamping && clampedTo)
@@ -329,8 +346,22 @@ namespace EquilibreGames
         /// </summary>
         void ClampToGround3D()
         {
-            float d = primaryGround.distance - characterControllerColliders[circleConfigurationIndex].colliders[feetIndex].radius - toleranceConst;
-            characterTransform.position -= primaryGround.normal * d;
+            GroundHit clampGround = null;
+
+            if (primaryGround != null)
+                clampGround = primaryGround;
+            else if (stepGround != null)
+                clampGround = stepGround;
+            else if (flushGround != null)
+                clampGround = flushGround;
+            else
+                clampGround = farGround;
+
+            if (clampGround != null)
+            {
+                float d = clampGround.distance - characterControllerColliders[circleConfigurationIndex].colliders[feetIndex].radius - toleranceConst;
+                characterTransform.position -= clampGround.normal * d;
+            }
         }
 
         /// <summary>
@@ -620,13 +651,16 @@ namespace EquilibreGames
             bool contact = false;
             Vector3 positionMemory = characterTransform.position;
 
-            foreach (ColliderInfo colInfo in characterControllerColliders[circleConfigurationIndex].colliders)
+            for (int i = 0; i < characterControllerColliders[circleConfigurationIndex].colliders.Length; i++)
             {
+                ColliderInfo colInfo = characterControllerColliders[circleConfigurationIndex].colliders[i];
+                SphereCollider physicsCollider = (SphereCollider)characterControllerColliders[circleConfigurationIndex].physicsColliders[i];
+
                 int collisionLength = Physics.OverlapSphereNonAlloc(colInfo.position, colInfo.radius, collisionsResult3D, collisionLayer);
 
-                for (int i = 0; i < collisionLength; i++)
+                for (int j = 0; j < collisionLength; j++)
                 {
-                    Collider col = collisionsResult3D[i];
+                    Collider col = collisionsResult3D[j];
 
                     //Don't collide with trigger
                     if (col.isTrigger || ignoredColliders3D.Contains(col))
@@ -645,12 +679,12 @@ namespace EquilibreGames
                     if (collisionIngorance != null && collisionIngorance.Ignore(this.gameObject, colInfo.name))
                         continue;
 
-                    if (/*oneWayPlatform == null ||*/ (colInfo == characterControllerColliders[circleConfigurationIndex].colliders[feetIndex]))
-                    {
-                        //Find the closest point on the collider2D shape
-                        Vector3 contactPoint = default(Vector3);
+                    // if (/*oneWayPlatform == null ||*/ (colInfo == characterControllerColliders[circleConfigurationIndex].colliders[feetIndex]))
+                    // {
+                    //Find the closest point on the collider2D shape
+                    // Vector3 contactPoint = default(Vector3);
 
-                        if (col is BoxCollider)
+                    /*    if (col is BoxCollider)
                             contactPoint = ExtendedMath.ClosestPointOnSurface((BoxCollider)col, colInfo.position);
                         else if (col is SphereCollider)
                             contactPoint = ExtendedMath.ClosestPointOnSurface((SphereCollider)col, colInfo.position);
@@ -667,64 +701,77 @@ namespace EquilibreGames
                         else if (col is MeshCollider)
                             contactPoint = ExtendedMath.ClosestPointOnSurface((MeshCollider)col, colInfo.position, colInfo.radius);
                         else if (col is CapsuleCollider)
-                            contactPoint = ExtendedMath.ClosestPointOnSurface((CapsuleCollider)col, colInfo.position);
+                            contactPoint = ExtendedMath.ClosestPointOnSurface((CapsuleCollider)col, colInfo.position);*/
 
+                    Vector3 direction;
+                    float distance;
+                    Vector3 contactPoint;
 
+                    physicsCollider.enabled = true;
+                    if (!Physics.ComputePenetration(physicsCollider, colInfo.position, colInfo.transform.rotation, col, col.transform.position, col.transform.rotation, out direction, out distance))
+                    {
+                        physicsCollider.enabled = false;
+                        continue;
+                    }
+
+                    physicsCollider.enabled = false;
+
+                    contactPoint = colInfo.position - direction * distance;
 
 #if UNITY_EDITOR || EQUILIBRE_GAMES_DEBUG
-                            if (debugguer)
-                            DebugDraw.DrawMarker(contactPoint, 2.0f, Color.red, 0f, false);
+                    if (debugguer)
+                      DebugDraw.DrawMarker(contactPoint, 2.0f, Color.red, 0f, false);
 #endif
-                        //Calcul the normal direction
-                        Vector3 direction = contactPoint - colInfo.position;
+                    //Calcul the normal direction
+                    // Vector3 direction = contactPoint - colInfo.position;
 
 
-                        if (direction != Vector3.zero)
+                    /*  if (direction != Vector3.zero)
+                      {
+
+                          //Check if our circle collider center is inside the collider
+                          //toleranceConst is used to avoid edge problem
+                          bool facingNormal = Physics.SphereCast(new Ray(colInfo.position, direction.normalized), toleranceConst, direction.magnitude + toleranceConst, collisionLayer);
+
+
+                          // Orient and scale our vector based on which side of the normal we are situated
+                          if (facingNormal)
+                          {
+                              if (Vector3.Distance(colInfo.position, contactPoint) < colInfo.radius)
+                              {
+                                  direction = direction.normalized * (colInfo.radius - direction.magnitude) * -1;
+                              }
+                              else
+                              {
+                                  // A previously resolved collision has had a side effect that moved us outside this collider
+                                  continue;
+                              }
+                          }
+                          else
+                          {
+                              direction = direction.normalized * (colInfo.radius + direction.magnitude);
+                          } */
+
+
+                    /*
+                        if (oneWayPlatform != null && (oneWayPlatform.CanPassThrought(-direction)))
                         {
-
-                            //Check if our circle collider center is inside the collider
-                            //toleranceConst is used to avoid edge problem
-                            bool facingNormal = Physics.SphereCast(new Ray(colInfo.position, direction.normalized), toleranceConst, direction.magnitude + toleranceConst, collisionLayer);
-
-
-                            // Orient and scale our vector based on which side of the normal we are situated
-                            if (facingNormal)
-                            {
-                                if (Vector3.Distance(colInfo.position, contactPoint) < colInfo.radius)
-                                {
-                                    direction = direction.normalized * (colInfo.radius - direction.magnitude) * -1;
-                                }
-                                else
-                                {
-                                    // A previously resolved collision has had a side effect that moved us outside this collider
-                                    continue;
-                                }
-                            }
-                            else
-                            {
-                                direction = direction.normalized * (colInfo.radius + direction.magnitude);
-                            }
-
-
-/*
-                            if (oneWayPlatform != null && (oneWayPlatform.CanPassThrought(-direction)))
-                            {
-                                continue;
-                            } */
-                            //We are now sure we collide with it, so call the custom delegate
-                            if (OnHit != null && !OnHit(colInfo, col.gameObject, contactPoint))
+                            continue;
+                        } */
+                          //We are now sure we collide with it, so call the custom delegate
+                         if (OnHit != null && !OnHit(colInfo, col.gameObject, contactPoint))
                                 continue;
 
 
                             //Change the characterTransform position to be on the collider shape.
-                            characterTransform.position += direction;
+                            characterTransform.position += direction*distance;
 
                             //Because the transform for colInfo is not necessary the character transform, substract the localPosition of this one;
-                            characterTransform.position += characterTransform.position - colInfo.transform.position;
+                           // characterTransform.position += characterTransform.position - colInfo.transform.position;
 
                             if (useGeneralPlatformerVelocityRule /*&& oneWayPlatform == null*/)
                             {
-                                Vector2 normal = (colInfo.position - contactPoint).normalized;
+                                Vector2 normal = direction;
                                 float angle = Vector2.Angle(Vector2.up, normal);
 
                                 float dot = Vector2.Dot(velocity.normalized, normal);
@@ -747,8 +794,8 @@ namespace EquilibreGames
 #endif
 
                             contact = true;
-                        }
-                    }
+                        //}
+                   // }
                 }
             }
 #if UNITY_EDITOR || EQUILIBRE_GAMES_DEBUG
