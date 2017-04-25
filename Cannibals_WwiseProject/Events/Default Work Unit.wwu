@@ -326,6 +326,50 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="cannibals_objects" ID="{02E51979-1638-4188-B910-4DE03C63B68E}">
+					<ChildrenList>
+						<Action Name="Play" ID="{B9C4C638-AF46-4694-841D-E2691DD8BEA2}" ShortID="613554722" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{383C90F7-7EA4-4EC9-8E0E-F08F1865A285}" Global="false">
+									<ObjectRef Name="Objects" ID="{69E91878-52E5-4B7E-8795-3C4ADA2FA79A}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="hunter_objects" ID="{8435F4C1-4DBF-4BCF-BE35-65C50F860925}">
+					<ChildrenList>
+						<Action Name="Play" ID="{CC6EB24E-4396-47BE-A153-F8F9D8A845FE}" ShortID="145033702" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{67A418E6-3C79-49A8-A427-85E828EC0F50}" Global="false">
+									<ObjectRef Name="Objects" ID="{BA9DD2C5-6CE3-4BDD-9D9B-BE62FDD0FC74}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="granny_objects" ID="{57DF6280-250E-4785-ADFD-CC72D2DEFB6C}">
+					<ChildrenList>
+						<Action Name="Play" ID="{6BDAE95F-CB24-4115-9ED6-EADE4DC1CF10}" ShortID="694901748" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{460953CD-6A54-4832-A5F0-547A0C797EE7}" Global="false">
+									<ObjectRef Name="Objects" ID="{572C630A-0CB1-4A61-B289-3397A91BB0F0}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="scout_objects" ID="{A0CE80EE-456A-4F8D-B718-500E941E3491}">
+					<ChildrenList>
+						<Action Name="Play" ID="{6CEE41AC-EAE9-4D8E-83B3-BC2E1184925D}" ShortID="98240888" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{AB5C03D9-CB1D-4493-86F6-45785F77A182}" Global="false">
+									<ObjectRef Name="Objects" ID="{9661DB19-2943-466E-A3BF-CA645A66C9D2}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
