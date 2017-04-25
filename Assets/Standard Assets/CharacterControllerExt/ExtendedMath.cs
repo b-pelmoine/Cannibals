@@ -390,6 +390,26 @@ public static Vector2 ProjectVectorOnLine(Vector2 lineDir, Vector2 vector)
         }
 
 
+        /// <summary>
+        /// Return the projected point on a line. The projected point is the point on line that minimise the distance between him and the point parameter
+        /// </summary>
+        /// <param name="lineDir"></param>
+        /// <param name="linePoint"></param>
+        /// <param name="point"></param>
+        /// <returns></returns>
+        public static Vector3 ProjectPointOnLine(Vector3 lineVec, Vector3 linePoint, Vector3 point)
+        {
+            //get vector from point on line to point in space
+            Vector3 linePointToPoint = point - linePoint;
+
+            float t = Vector3.Dot(linePointToPoint, lineVec);
+
+            return linePoint + lineVec * t;
+        }
+
+
+
+
         //Get the shortest distance between a point and a line. The output is signed so it holds information
         public static float DistancePointToLine(Vector2 lineDir, Vector2 linePoint, Vector2 point)
         {

@@ -1617,7 +1617,7 @@ Transform:
   - {fileID: 4591706433735572}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 114.504005, z: 0}
 --- !u!4 &4663312936109996
 Transform:
   m_ObjectHideFlags: 1
@@ -2051,11 +2051,11 @@ MonoBehaviour:
   ignoredColliders3D: []
   collisionLayer:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 1025
   walkableLayer:
     serializedVersion: 2
     m_Bits: 1024
-  maxGroundAngle: 20
+  maxGroundAngle: 45
   maxCeilingAngle: 10
   toleranceConst: 0.01
   pushBackResolution: 5
@@ -2069,8 +2069,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   repulsionFactor: 3
-  useGeneralPlatformerVelocityRule: 1
-  slowFactor: 5
+  useGeneralPlatformerVelocityRule: 0
+  slowFactor: 1
   gravity: {fileID: 114582109173767800}
   maxCollisionPerFrame: 20
   clamping: 1

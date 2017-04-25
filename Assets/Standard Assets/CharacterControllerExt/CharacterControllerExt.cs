@@ -145,7 +145,8 @@ namespace EquilibreGames
         [Space(10)]
         [Tooltip("Generals rules :\n1- When your character collide with surface < maxAngle : velocity.y is decrease\n2- When your character collide with surface > maxAngle : velocity.x is decrease")]
         public bool useGeneralPlatformerVelocityRule = true;
-        [Tooltip("1- If you want to increase the slow-down minimise this value\n2- Bouncy character can be create with slowFactor <1\n3- Value >1 are less coherent")]
+        [Tooltip("1- If you want to increase the slow-down minimise this value\n2- Bouncy character can be create with slowFactor <1\n3- Value >1 are less coherent and can provoque bug")]
+        [Range(-1,1)]
         public float slowFactor = 1;
 
         [Space(20)][Tooltip("Use this instead of SetVelocity (better resolution)")]
@@ -202,7 +203,7 @@ namespace EquilibreGames
         private Vector3 groundPoint;
         public Vector3 GroundPoint
         {
-            get { return groundNormal; }
+            get { return groundPoint; }
         }
 
 
@@ -270,6 +271,7 @@ namespace EquilibreGames
 
         void FixedUpdate()
         {
+            Vector3 initialPosition = characterTransform.position;
             UpdatePosition(Time.fixedDeltaTime);
 
             if (characterControllerColliders.Length <= circleConfigurationIndex)
@@ -298,12 +300,15 @@ namespace EquilibreGames
                 // if (clampToMovingGround && isClamping && clampedTo != null && clampedTo.position - lastGroundPosition != Vector3.zero)
                 //   transform.position += clampedTo.position - lastGroundPosition;
 
-                Vector3 initialPosition = transform.position;
 
                 CheckCharacterControllerExtCollision3D();
                 HandleCollision3D(0, pushBackResolution);
 
-                SlopeLimit3D(initialPosition);
+                ProbeGround3D();
+
+                //Check ground for slopeLimit
+               if(isGrounded = CheckGround3D(characterControllerColliders[circleConfigurationIndex].colliders[feetIndex].radius + toleranceConst, out groundNormal, out groundPoint))
+                     SlopeLimit3D(initialPosition);
 
                 ProbeGround3D();
 
@@ -313,7 +318,9 @@ namespace EquilibreGames
                 if (isClamping && clampedTo)
                     lastGroundPosition = clampedTo.position;
 
-                isGrounded = CheckGround3D(characterControllerColliders[circleConfigurationIndex].colliders[feetIndex].radius + toleranceConst, out groundNormal, out groundPoint);
+                //If we were not ground, a doubt persist because of clamp and slopLimit, so check it again.
+                if(!isGrounded)
+                    isGrounded = CheckGround3D(characterControllerColliders[circleConfigurationIndex].colliders[feetIndex].radius + toleranceConst, out groundNormal, out groundPoint);
             }
 
             acceleration = Vector3.zero;
@@ -338,7 +345,16 @@ namespace EquilibreGames
                 acceleration += gravity.GetValue();
 
             velocity += acceleration * time;
+            Vector3 lastPosition = characterTransform.position;
             characterTransform.position += velocity*time + 0.5f* acceleration * time * time;
+
+            if (Vector3.Distance(lastPosition, characterTransform.position) > 500)
+            {
+                Debug.Log("Problem");
+                Debug.Log(velocity);
+                Debug.Log(acceleration);
+            }
+
         }
 
         /// <summary>
@@ -357,7 +373,7 @@ namespace EquilibreGames
             else
                 clampGround = farGround;
 
-            if (clampGround != null)
+            if (clampGround != null && Vector3.Angle(-characterTransform.up, -clampGround.normal) <= maxGroundAngle)
             {
                 float d = clampGround.distance - characterControllerColliders[circleConfigurationIndex].colliders[feetIndex].radius - toleranceConst;
                 characterTransform.position -= clampGround.normal * d;
@@ -375,7 +391,7 @@ namespace EquilibreGames
 
             if (a > maxGroundAngle)
             {
-                Vector3 absoluteMoveDirection = ExtendedMath.ProjectVectorOnPlane(n, transform.position - initialPosition);
+                Vector3 absoluteMoveDirection = ExtendedMath.ProjectVectorOnPlane(n, characterTransform.position - initialPosition);
 
                 // Retrieve a vector pointing down the slope
                 Vector3 r = Vector3.Cross(n, -characterTransform.up);
@@ -386,9 +402,10 @@ namespace EquilibreGames
                 if (angle <= 90.0f)
                     return false;
 
+
                 // Calculate where to place the controller on the slope, or at the bottom, based on the desired movement distance
-                Vector3 resolvedPosition = ExtendedMath.ProjectPointOnLine(initialPosition, r, transform.position);
-                Vector3 direction = ExtendedMath.ProjectVectorOnPlane(n, resolvedPosition - transform.position);
+                Vector3 resolvedPosition = ExtendedMath.ProjectPointOnLine(r, initialPosition, characterTransform.position);
+                Vector3 direction = ExtendedMath.ProjectVectorOnPlane(n, resolvedPosition - characterTransform.position);
 
                 //RaycastHit hit;
 
@@ -399,7 +416,7 @@ namespace EquilibreGames
                 //}
                 //else
                 //{
-                    transform.position += direction;
+                    CharacterTransform.position += direction;
                 //}
 
                 return true;
@@ -784,7 +801,9 @@ namespace EquilibreGames
                                 else if (angle < maxGroundAngle)
                                     velocity.y = (-slowFactor * dot) * velocity.y;
                                 else
+                                {
                                     velocity.x = (-slowFactor * dot) * velocity.x;
+                                }
                             }
 
 
@@ -878,7 +897,7 @@ namespace EquilibreGames
 
                 // If we are standing on a perfectly flat surface, we cannot be either on an edge,
                 // On a slope or stepping off a ledge
-                if (Vector2.Distance(ExtendedMath.ProjectPointOnLine(feetCollider.right, feetCollider.position, hit.point), feetCollider.position) < toleranceConst)
+                if (Vector2.Distance(ExtendedMath.ProjectPointOnLine((Vector2)feetCollider.right, (Vector2)feetCollider.position, hit.point), feetCollider.position) < toleranceConst)
                 {
                     return;
                 }
@@ -1346,10 +1365,16 @@ namespace EquilibreGames
             groundNormal = Vector3.zero;
             groundPoint = Vector3.zero;
 
-            if (primaryGround == null || primaryGround.distance > distance)
+            if (primaryGround == null)
             {
                 return false;
             }
+
+            groundNormal = primaryGround.normal;
+            groundPoint = primaryGround.point;
+
+            if (primaryGround.distance > distance)
+                return false;
 
             // Check if we are flush against a wall
             if (farGround != null && Vector3.Angle(farGround.normal, characterTransform.up) > maxGroundAngle)
@@ -1420,7 +1445,7 @@ namespace EquilibreGames
 
             float distanceRatio = Mathf.Lerp(groundingMinPercentFromcenter, groundingMaxPercentFromCenter, angleRatio);
 
-            Vector2 p = ExtendedMath.ProjectPointOnLine(feetCollider.up, feetCollider.position, point);
+            Vector2 p = ExtendedMath.ProjectPointOnLine((Vector2)feetCollider.up, (Vector2)feetCollider.position, point);
 
             float distanceFromCenter = Vector2.Distance(p, feetCollider.position);
 
