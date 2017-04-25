@@ -655,7 +655,15 @@ namespace EquilibreGames
                         else if (col is SphereCollider)
                             contactPoint = ExtendedMath.ClosestPointOnSurface((SphereCollider)col, colInfo.position);
                         else if (col is TerrainCollider)
+                        {
                             contactPoint = ExtendedMath.ClosestPointOnSurface((TerrainCollider)col, colInfo.position, colInfo.radius);
+
+                            //HotFix
+                            if ((contactPoint - colInfo.position).magnitude > (velocity * Time.fixedDeltaTime).magnitude)
+                            {
+                                return;
+                            }
+                        }
                         else if (col is MeshCollider)
                             contactPoint = ExtendedMath.ClosestPointOnSurface((MeshCollider)col, colInfo.position, colInfo.radius);
                         else if (col is CapsuleCollider)
