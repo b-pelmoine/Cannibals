@@ -497,7 +497,7 @@ namespace EquilibreGames
                         Vector2 direction = contactPoint - (Vector2)colInfo.position;
 
 
-                        if (!direction.Equals(Vector2.zero))
+                        if (direction != Vector2.zero)
                         {
 
                             //Check if our circle collider center is inside the collider
@@ -679,7 +679,7 @@ namespace EquilibreGames
                         Vector3 direction = contactPoint - colInfo.position;
 
 
-                        if (!direction.Equals(Vector3.zero))
+                        if (direction != Vector3.zero)
                         {
 
                             //Check if our circle collider center is inside the collider

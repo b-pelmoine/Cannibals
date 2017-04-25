@@ -26,4 +26,11 @@ public static class DebugDraw
         Debug.DrawRay(position, direction * raySize, color, 0, false);
         DebugDraw.DrawMarker(position + direction * raySize, markerSize, color, 0, false);
     }
+
+    public static void DrawTriangle(Vector3 a, Vector3 b, Vector3 c, Color color)
+    {
+        Debug.DrawLine(a, b, color);
+        Debug.DrawLine(b, c, color);
+        Debug.DrawLine(c, a, color);
+    }
 }
