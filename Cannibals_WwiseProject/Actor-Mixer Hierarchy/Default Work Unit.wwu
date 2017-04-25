@@ -15795,6 +15795,1488 @@
 										</GroupingList>
 									</GroupingInfo>
 								</SwitchContainer>
+								<Folder Name="Idle" ID="{6BC0816A-FB61-43F3-BA5D-18F49E19F5F4}" ShortID="907316873">
+									<ChildrenList>
+										<SwitchContainer Name="Going and Coming 1" ID="{4AEF531C-84B7-4803-B719-12744FAB9167}" ShortID="778139385">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<RandomSequenceContainer Name="Idle Going" ID="{50094142-FD87-470D-BF59-7D756C3D6060}" ShortID="995113566">
+													<PropertyList>
+														<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+														<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
+														<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64">
+															<ModifierList>
+																<ModifierInfo>
+																	<Modifier Name="" ID="{B6131185-676D-49A2-9423-C773F70E89B8}">
+																		<PropertyList>
+																			<Property Name="Enabled" Type="bool" Value="True"/>
+																			<Property Name="Max" Type="Real64" Value="3"/>
+																		</PropertyList>
+																	</Modifier>
+																</ModifierInfo>
+															</ModifierList>
+														</Property>
+														<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+														<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="32"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<Sound Name="Idle_1_1" ID="{175DA8F5-7B7A-4422-B514-86E985E705FF}" ShortID="426439239" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_01-05" ID="{C1DDBAB0-F920-4D91-B435-D7C0EA1E75B9}" ShortID="715849533">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_01-05.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_01-05" ID="{C1DDBAB0-F920-4D91-B435-D7C0EA1E75B9}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_2" ID="{852A6FDB-726C-41B0-AE89-CD686BB3AA41}" ShortID="143344740" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_02-07" ID="{6C0189BA-0D4C-4EAC-8436-5D47BB8E9C18}" ShortID="395611287">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_02-07.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_02-07" ID="{6C0189BA-0D4C-4EAC-8436-5D47BB8E9C18}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_3" ID="{E8A374BB-E8B0-46CE-9FE4-D39A238D0974}" ShortID="1037086108" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_03-09" ID="{C76322B7-3AAB-48B6-AE5E-8CC815F5F9A4}" ShortID="539999363">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_03-09.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_03-09" ID="{C76322B7-3AAB-48B6-AE5E-8CC815F5F9A4}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_4" ID="{E1492049-95D8-47FA-9CFC-F0F8001C1CE1}" ShortID="620556965" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_04-11" ID="{009E9C03-8237-4012-BE61-01AA0B0EAF0E}" ShortID="805083500">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_04-11.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_04-11" ID="{009E9C03-8237-4012-BE61-01AA0B0EAF0E}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_5" ID="{C45CDA80-2FA0-416A-AB62-034A83A638DE}" ShortID="714160372" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_05-13" ID="{F5400EA7-05D5-493A-9F2C-C84D9C9C996F}" ShortID="55480667">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_05-13.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_05-13" ID="{F5400EA7-05D5-493A-9F2C-C84D9C9C996F}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_6" ID="{1E733041-9765-4A3D-80C2-3A5FDD5B0A52}" ShortID="243386153" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_06-15" ID="{416FDB19-0267-444B-A7E2-0740A6996E80}" ShortID="739315601">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_06-15.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_06-15" ID="{416FDB19-0267-444B-A7E2-0740A6996E80}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_7" ID="{A3E8E180-D186-46BA-811C-F50A855751E5}" ShortID="955995415" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_07-17" ID="{2AAE85C2-7334-4D07-A82D-A42A4A9312A9}" ShortID="231341304">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_07-17.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_07-17" ID="{2AAE85C2-7334-4D07-A82D-A42A4A9312A9}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_8" ID="{D95D7D54-A39B-4A9A-9D91-536555A67AF3}" ShortID="793797682" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_08-21" ID="{E45BE397-EA69-4573-ABE6-6C0AC38E16E3}" ShortID="767954743">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_08-21.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_08-21" ID="{E45BE397-EA69-4573-ABE6-6C0AC38E16E3}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_9" ID="{03F6F659-FC68-45E7-9676-ABDBC707B95F}" ShortID="384535524" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_09-23" ID="{E12B9BE2-6B40-4514-B1E4-F1E37BB9AF77}" ShortID="269380033">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_09-23.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_09-23" ID="{E12B9BE2-6B40-4514-B1E4-F1E37BB9AF77}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_10" ID="{D3558107-81F0-47CB-8D60-4CD0A7F904AA}" ShortID="226342377" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_10-26" ID="{858AA120-ACFC-40DC-B0DF-B0732B50D4BF}" ShortID="571757697">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_10-26.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_10-26" ID="{858AA120-ACFC-40DC-B0DF-B0732B50D4BF}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_11" ID="{4DB86DE2-7234-4C5F-800D-C74684F0F383}" ShortID="552192575" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_11-27" ID="{02A94258-40BD-4289-AFD8-C2B1376C41F6}" ShortID="60083669">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_11-27.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_11-27" ID="{02A94258-40BD-4289-AFD8-C2B1376C41F6}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_12" ID="{710FD34B-34C7-492C-B9BB-08ABF7102AC0}" ShortID="311538891" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_12-29" ID="{29415794-8240-40E8-8BCB-B8BC16006CE3}" ShortID="921987038">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_12-29.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_12-29" ID="{29415794-8240-40E8-8BCB-B8BC16006CE3}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_13" ID="{32BA3118-DF27-4B0F-AF49-E4A3A2FE4A92}" ShortID="1032058389" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_13-31" ID="{6FB9FEBB-38D2-426E-B276-892438F26B77}" ShortID="30883901">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_13-31.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_13-31" ID="{6FB9FEBB-38D2-426E-B276-892438F26B77}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_14" ID="{0917A831-51CB-4522-81E5-34752BFA8BD7}" ShortID="754137967" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_14-33" ID="{F97E7429-7AE2-4E42-924B-E6A9AD1F1CA6}" ShortID="424159808">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_14-33.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_14-33" ID="{F97E7429-7AE2-4E42-924B-E6A9AD1F1CA6}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_15" ID="{91140BF8-D612-4622-8D1F-91E5C4177561}" ShortID="127636469" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_15-35" ID="{9DC1251D-3AB3-43D8-9240-71747112C7A2}" ShortID="533612822">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_15-35.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_15-35" ID="{9DC1251D-3AB3-43D8-9240-71747112C7A2}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_16" ID="{6CBEA6A5-4F39-45E6-B8AF-44EDAE4423FD}" ShortID="942061953" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_16-37" ID="{E19E57B0-810A-4C94-8395-A18745CDADCC}" ShortID="199001092">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_16-37.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_16-37" ID="{E19E57B0-810A-4C94-8395-A18745CDADCC}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_17" ID="{913E0159-EB06-46BE-A972-C5C6E5F41C23}" ShortID="145262643" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_17-39" ID="{28407187-862A-4CDF-B579-31862B585C06}" ShortID="261572303">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_17-39.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_17-39" ID="{28407187-862A-4CDF-B579-31862B585C06}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_18" ID="{75AF9EF0-A28E-47EB-8596-C948BCAD0C27}" ShortID="811689468" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_18-41" ID="{00FFA94B-2730-4224-AAA9-0DF4E9EA67EE}" ShortID="201341186">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_18-41.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_18-41" ID="{00FFA94B-2730-4224-AAA9-0DF4E9EA67EE}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_19" ID="{F86202D4-3A02-47BF-AB2F-8CAA1F87E4DB}" ShortID="435556431" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_19-43" ID="{279035B8-4209-412D-A267-D637AE21FE2C}" ShortID="880906343">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_19-43.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_19-43" ID="{279035B8-4209-412D-A267-D637AE21FE2C}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_20" ID="{8D7C1281-B220-405F-A006-97AEFA500EE5}" ShortID="354688621" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_20-45" ID="{4189AD65-4A33-4D89-8720-20E62C84D783}" ShortID="928224769">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_20-45.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_20-45" ID="{4189AD65-4A33-4D89-8720-20E62C84D783}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_21" ID="{C2F1ED39-9473-46E7-AD2B-188BC19FFE4B}" ShortID="912738789" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_21-47" ID="{E625694F-6324-4EA8-8DA3-E65F39A08E20}" ShortID="33833043">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_21-47.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_21-47" ID="{E625694F-6324-4EA8-8DA3-E65F39A08E20}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_22" ID="{48937ADC-C36E-4FE1-8DDB-CFDCF5CEF701}" ShortID="245535796" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_22-49" ID="{3EED734E-504B-4DCC-9EE7-9EB9CE288E5E}" ShortID="510324255">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_22-49.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_22-49" ID="{3EED734E-504B-4DCC-9EE7-9EB9CE288E5E}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_23" ID="{4664527E-48BE-45AC-9CF5-552DB2BBD535}" ShortID="7268516" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_23-51" ID="{3B3CBE65-1968-4135-ABF4-2B1BFD998D2B}" ShortID="1045619244">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_23-51.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_23-51" ID="{3B3CBE65-1968-4135-ABF4-2B1BFD998D2B}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_24" ID="{C69DB591-2E9C-4029-AD8F-B87860B48207}" ShortID="518834109" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_24-53" ID="{5B3C2741-78DD-4578-B3B5-397EC46A7DDD}" ShortID="212658496">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_24-53.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_24-53" ID="{5B3C2741-78DD-4578-B3B5-397EC46A7DDD}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_25" ID="{0193A656-04EC-4C07-AF37-91C7C962A425}" ShortID="820111427" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_25-55" ID="{A2F58AA4-9DA8-4D06-96E5-1FC284950E2A}" ShortID="444953264">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_25-55.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_25-55" ID="{A2F58AA4-9DA8-4D06-96E5-1FC284950E2A}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_26" ID="{ECE283E7-BE7B-4E78-B98B-4950CE1ABA07}" ShortID="909742733" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_26-57" ID="{B6A3853E-CC3F-43EB-AF79-EC0E2532ED4A}" ShortID="964085354">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_26-57.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_26-57" ID="{B6A3853E-CC3F-43EB-AF79-EC0E2532ED4A}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_27" ID="{B5076B47-E304-4838-B4E6-345D5F9003FB}" ShortID="390920446" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_27-59" ID="{228A310A-3C27-4B77-A704-42107B76F61C}" ShortID="871601168">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_27-59.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_27-59" ID="{228A310A-3C27-4B77-A704-42107B76F61C}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_28" ID="{B928AAE2-4156-4642-9F5E-3E04E418C1A6}" ShortID="400843159" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_28-61" ID="{3BC10EAF-EDCA-4A0A-AEA3-DCAA6EB278D9}" ShortID="425592194">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_28-61.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_28-61" ID="{3BC10EAF-EDCA-4A0A-AEA3-DCAA6EB278D9}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_29" ID="{73A2CF00-29A6-4930-9EDA-68D307209F01}" ShortID="459445487" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_29-63" ID="{3DC3157F-C8EB-460E-B8D6-F5022B8A78A9}" ShortID="19721068">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_29-63.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_29-63" ID="{3DC3157F-C8EB-460E-B8D6-F5022B8A78A9}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_30" ID="{C85683B6-4B71-4E78-9368-36B2AA174168}" ShortID="609389411" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_30-65" ID="{608FA5AD-4C72-410B-AA7A-906192DCC426}" ShortID="981961450">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_30-65.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_30-65" ID="{608FA5AD-4C72-410B-AA7A-906192DCC426}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_31" ID="{806CC518-582D-4A7B-A58F-7B485FE881E2}" ShortID="173428897" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_31-67" ID="{CE8192DB-AB23-4B2C-8D7F-BC94A7A983D1}" ShortID="791479855">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_31-67.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_31-67" ID="{CE8192DB-AB23-4B2C-8D7F-BC94A7A983D1}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_32" ID="{4D521797-0F0B-4BE3-8446-4D5954DD369F}" ShortID="1018028464" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_32-69" ID="{9F2A58C2-1BD5-4F5F-880F-6E9DA9A97BB4}" ShortID="266109474">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_32-69.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_32-69" ID="{9F2A58C2-1BD5-4F5F-880F-6E9DA9A97BB4}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_33" ID="{AF8EA181-1949-472D-84AB-7C4ADE65D3FF}" ShortID="225097598" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_33-71" ID="{24BDDE8D-31D5-42CB-BC6A-CE87F8194603}" ShortID="160209838">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_33-71.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_33-71" ID="{24BDDE8D-31D5-42CB-BC6A-CE87F8194603}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+													</ChildrenList>
+												</RandomSequenceContainer>
+												<RandomSequenceContainer Name="Idle Coming" ID="{D5142A2C-C6DE-4B61-BC54-97E15FA9F4E2}" ShortID="98355716">
+													<PropertyList>
+														<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+														<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
+														<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64">
+															<ModifierList>
+																<ModifierInfo>
+																	<Modifier Name="" ID="{274C414B-BC97-45C1-9FD2-86ADE1C89F85}">
+																		<PropertyList>
+																			<Property Name="Enabled" Type="bool" Value="True"/>
+																			<Property Name="Max" Type="Real64" Value="3"/>
+																		</PropertyList>
+																	</Modifier>
+																</ModifierInfo>
+															</ModifierList>
+														</Property>
+														<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+														<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="9"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<Sound Name="Idle_1_1" ID="{30AFB844-4A2A-41FC-B1CC-027AEDC923A6}" ShortID="107099663" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 2-NORM_01-07" ID="{BEE846C4-E76F-4FE0-9EE8-1F705B29D7FC}" ShortID="660961542">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 2-NORM_01-07.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 2-NORM_01-07" ID="{BEE846C4-E76F-4FE0-9EE8-1F705B29D7FC}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_2" ID="{4DAEB1CA-9414-40AC-9248-ACF52C2BA555}" ShortID="490546988" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 2-NORM_09-08" ID="{E709A86E-861F-4922-9E90-44EF9D0022DD}" ShortID="638936140">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 2-NORM_09-08.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 2-NORM_09-08" ID="{E709A86E-861F-4922-9E90-44EF9D0022DD}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_3" ID="{69173808-0B40-43D2-B831-6F233C7191C6}" ShortID="680857985" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 2-NORM_10-10" ID="{76E8C089-6719-4D3E-A609-E48B9A641DF8}" ShortID="779523114">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 2-NORM_10-10.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 2-NORM_10-10" ID="{76E8C089-6719-4D3E-A609-E48B9A641DF8}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_4" ID="{39720ADE-E100-4E7B-89BA-C892BD95603A}" ShortID="1018488787" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 2-NORM_11-12" ID="{A167A3A8-24C2-4B8A-BF79-163B75974613}" ShortID="643858512">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 2-NORM_11-12.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 2-NORM_11-12" ID="{A167A3A8-24C2-4B8A-BF79-163B75974613}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_5" ID="{E5A3F95B-FDF4-4B84-A225-12694B86ECC9}" ShortID="929276610" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 2-NORM_12-14" ID="{521C7C89-EDA0-4648-8354-B494974C9C3E}" ShortID="828008557">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 2-NORM_12-14.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 2-NORM_12-14" ID="{521C7C89-EDA0-4648-8354-B494974C9C3E}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_6" ID="{8B128997-E664-4AFB-8499-FE6BC7B1438A}" ShortID="196624485" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 2-NORM_13-16" ID="{E181BE99-2C76-4FC2-8459-CC10BC7CC9E4}" ShortID="257444607">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 2-NORM_13-16.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 2-NORM_13-16" ID="{E181BE99-2C76-4FC2-8459-CC10BC7CC9E4}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_7" ID="{BFECF5B9-2DBE-4AA0-A7EE-F61CD2E648F6}" ShortID="459830977" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 2-NORM_14-18" ID="{5626050A-0F99-40B5-9210-5D8F523936AF}" ShortID="880391048">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 2-NORM_14-18.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 2-NORM_14-18" ID="{5626050A-0F99-40B5-9210-5D8F523936AF}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_8" ID="{140A761A-CDE4-4302-B48A-C512F7B3275A}" ShortID="196336626" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 2-NORM_15-20" ID="{95038C57-2E67-4ABB-B681-81BD6AA9ECB0}" ShortID="994098221">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 2-NORM_15-20.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 2-NORM_15-20" ID="{95038C57-2E67-4ABB-B681-81BD6AA9ECB0}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_9" ID="{5A94AC21-3180-4ED1-9D5A-7F869F74F91F}" ShortID="71462519" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 2-NORM_16-22" ID="{B7F9B171-6D5E-4B44-9378-DBC2F9B48A9D}" ShortID="549404011">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 2-NORM_16-22.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 2-NORM_16-22" ID="{B7F9B171-6D5E-4B44-9378-DBC2F9B48A9D}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_1_10" ID="{AFD985F0-B391-4487-B3F0-2A239FA7FC91}" ShortID="867526405" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 2-NORM_17-24" ID="{7F914FD0-53CB-45E3-AF4B-DE8F5336C122}" ShortID="1039994450">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 2-NORM_17-24.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 2-NORM_17-24" ID="{7F914FD0-53CB-45E3-AF4B-DE8F5336C122}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+													</ChildrenList>
+												</RandomSequenceContainer>
+											</ChildrenList>
+											<GroupingInfo>
+												<GroupRef Name="" ID="{00000000-0000-0000-0000-000000000000}"/>
+												<DefaultSwitchRef Name="" ID="{00000000-0000-0000-0000-000000000000}"/>
+												<GroupingBehaviorList>
+													<GroupingBehavior>
+														<ItemRef Name="Idle Coming" ID="{D5142A2C-C6DE-4B61-BC54-97E15FA9F4E2}"/>
+													</GroupingBehavior>
+													<GroupingBehavior>
+														<ItemRef Name="Idle Going" ID="{50094142-FD87-470D-BF59-7D756C3D6060}"/>
+													</GroupingBehavior>
+												</GroupingBehaviorList>
+											</GroupingInfo>
+										</SwitchContainer>
+										<SwitchContainer Name="Going and Coming 2" ID="{6078CA25-A3B9-4843-9777-6026C69CB350}" ShortID="152969630">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<RandomSequenceContainer Name="Idle Coming" ID="{1FBBF20C-C3CC-4336-B7BA-D17F12E828CD}" ShortID="614104264">
+													<PropertyList>
+														<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+														<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64">
+															<ModifierList>
+																<ModifierInfo>
+																	<Modifier Name="" ID="{1481D0C6-DBD3-4878-8D31-1243455C12B3}">
+																		<PropertyList>
+																			<Property Name="Enabled" Type="bool" Value="True"/>
+																			<Property Name="Max" Type="Real64" Value="3"/>
+																		</PropertyList>
+																	</Modifier>
+																</ModifierInfo>
+															</ModifierList>
+														</Property>
+														<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+														<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="6"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<Sound Name="Idle_2_1" ID="{C5D322B6-14D7-43D1-9FEC-9D38F9598536}" ShortID="231988219" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 2-NORM_02-05" ID="{2DBCDA82-0063-4148-A2F7-DB38E95DE3DB}" ShortID="778020140">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 2-NORM_02-05.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 2-NORM_02-05" ID="{2DBCDA82-0063-4148-A2F7-DB38E95DE3DB}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_2_2" ID="{C3897280-62CE-4286-B518-425F84A04194}" ShortID="299248765" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 2-NORM_03-07" ID="{69FDFAF8-FBC5-4714-BE79-677A304139A6}" ShortID="910956160">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 2-NORM_03-07.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 2-NORM_03-07" ID="{69FDFAF8-FBC5-4714-BE79-677A304139A6}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_2_3" ID="{9DFDA47D-DE75-4B77-9F3C-2AE06D834953}" ShortID="773142869" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 2-NORM_04-09" ID="{3D11DACC-02F3-44A7-BA9C-B55940038B91}" ShortID="247850391">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 2-NORM_04-09.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 2-NORM_04-09" ID="{3D11DACC-02F3-44A7-BA9C-B55940038B91}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_2_4" ID="{D9D290A0-2A8C-42E5-A23E-71BF2D9C0459}" ShortID="472562784" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 2-NORM_05-11" ID="{72BD2560-D839-42EF-9364-EC900F3983AE}" ShortID="867905881">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 2-NORM_05-11.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 2-NORM_05-11" ID="{72BD2560-D839-42EF-9364-EC900F3983AE}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_2_5" ID="{94187E86-64A2-4FBE-9CFA-182893E53CE6}" ShortID="906271719" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 2-NORM_06-15" ID="{E1F73868-66BB-406E-9CA7-FB90CF744B7D}" ShortID="410516861">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 2-NORM_06-15.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 2-NORM_06-15" ID="{E1F73868-66BB-406E-9CA7-FB90CF744B7D}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_2_6" ID="{723B85F5-BC95-49D5-B5AF-07E57279DA8E}" ShortID="133887695" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 2-NORM_07-17" ID="{258EDDC2-ABC8-441F-AD80-31ADAC41EB42}" ShortID="183443289">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 2-NORM_07-17.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 2-NORM_07-17" ID="{258EDDC2-ABC8-441F-AD80-31ADAC41EB42}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_2_7" ID="{B2266E5A-0431-4F59-A7F7-4495A43E9C5E}" ShortID="126100400" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 2-NORM_08-19" ID="{2E26D5DF-B406-4C40-ADE4-66EEC6678D53}" ShortID="880844523">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 2-NORM_08-19.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 2-NORM_08-19" ID="{2E26D5DF-B406-4C40-ADE4-66EEC6678D53}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+													</ChildrenList>
+												</RandomSequenceContainer>
+												<RandomSequenceContainer Name="Idle Going" ID="{B51B40EC-5C1A-46B2-BB1F-9B6C0A9E4824}" ShortID="95559213">
+													<PropertyList>
+														<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+														<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
+														<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64">
+															<ModifierList>
+																<ModifierInfo>
+																	<Modifier Name="" ID="{33B01F52-34C6-4D56-878D-AE6BFEEF32DC}">
+																		<PropertyList>
+																			<Property Name="Enabled" Type="bool" Value="True"/>
+																			<Property Name="Max" Type="Real64" Value="3"/>
+																		</PropertyList>
+																	</Modifier>
+																</ModifierInfo>
+															</ModifierList>
+														</Property>
+														<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+														<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="18"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<Sound Name="Idle_2_1" ID="{22208A7E-70BE-4536-8799-E3A068B73F9E}" ShortID="1018202959" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_34-04" ID="{8202E5D1-EA6F-46D3-ACF0-43CCD9BB791A}" ShortID="26965340">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_34-04.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_34-04" ID="{8202E5D1-EA6F-46D3-ACF0-43CCD9BB791A}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_2_2" ID="{A4AE275E-EC2A-4075-A55B-C618300D7E46}" ShortID="194185348" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_35-06" ID="{DCCBB097-1AEA-4B85-B766-CA9D81EA7746}" ShortID="1028936472">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_35-06.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_35-06" ID="{DCCBB097-1AEA-4B85-B766-CA9D81EA7746}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_2_3" ID="{752624DC-0E2F-43AC-B5BF-E8AC7A9B70CE}" ShortID="490646415" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_36-08" ID="{923C2C55-578F-4351-85B7-AED7997BA2C7}" ShortID="521320190">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_36-08.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_36-08" ID="{923C2C55-578F-4351-85B7-AED7997BA2C7}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_2_5" ID="{1E8E1772-9E7E-4424-A87C-058D0F3AA44D}" ShortID="221552148" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_38-12" ID="{BD0E4A12-0D14-4058-8ACD-9E6E734AA4C0}" ShortID="672720731">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_38-12.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_38-12" ID="{BD0E4A12-0D14-4058-8ACD-9E6E734AA4C0}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_2_6" ID="{DF586841-0AF7-4833-9289-ECCCBA042549}" ShortID="529648093" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_39-14" ID="{0AB8423F-3724-4B8A-811B-79B8AD8E5A59}" ShortID="1003760704">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_39-14.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_39-14" ID="{0AB8423F-3724-4B8A-811B-79B8AD8E5A59}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_2_7" ID="{2FC965A5-BD75-4E3D-9A5D-865914976F5D}" ShortID="994272234" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_40-16" ID="{4A0A9793-7B69-4D2D-97AB-A0E9AA52F8A7}" ShortID="85483484">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_40-16.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_40-16" ID="{4A0A9793-7B69-4D2D-97AB-A0E9AA52F8A7}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_2_8" ID="{97253A38-DF88-4A0F-B6FD-5A1E579CE802}" ShortID="313210119" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_41-18" ID="{8C64CCB8-1A0D-410F-983F-900C0655D5E0}" ShortID="593299961">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_41-18.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_41-18" ID="{8C64CCB8-1A0D-410F-983F-900C0655D5E0}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_2_4" ID="{DA95735F-3E44-469A-BF2A-1475BE255E76}" ShortID="974417486" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_37-10" ID="{582E878B-6C5A-4CCE-A3FE-A68710BE71D4}" ShortID="1053330838">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_37-10.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_37-10" ID="{582E878B-6C5A-4CCE-A3FE-A68710BE71D4}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_2_9" ID="{DDAD0E79-66C3-485D-8F39-5172BE3F7E80}" ShortID="825417162" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_42-20" ID="{B6A6BE71-96D3-42BD-8CAC-C1D814051114}" ShortID="322004912">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_42-20.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_42-20" ID="{B6A6BE71-96D3-42BD-8CAC-C1D814051114}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_2_16" ID="{465F3658-E1B6-4228-86C3-976F6FF45E28}" ShortID="485753226" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_49-34" ID="{F7C0060B-6999-4C50-BDC3-F0E32941651C}" ShortID="1031125950">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_49-34.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_49-34" ID="{F7C0060B-6999-4C50-BDC3-F0E32941651C}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_2_13" ID="{8A226C00-413E-44FD-BE0E-4E71C9AA0711}" ShortID="22370554" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_46-28" ID="{490F7B1E-5130-47D7-8B84-6A0E56C7F760}" ShortID="31063721">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_46-28.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_46-28" ID="{490F7B1E-5130-47D7-8B84-6A0E56C7F760}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_2_15" ID="{0D4A5BBB-9DEB-43BF-A17C-1EDF45674276}" ShortID="1030560363" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_48-33" ID="{2BAB8D74-0B09-47C7-8EED-095852FED0BD}" ShortID="1018357997">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_48-33.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_48-33" ID="{2BAB8D74-0B09-47C7-8EED-095852FED0BD}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_2_11" ID="{BA6B8EAD-438D-4555-B107-E60968BD34F6}" ShortID="499080485" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_44-24" ID="{EC1D5703-6D71-4C45-81EA-BB07EE6D3449}" ShortID="652373795">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_44-24.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_44-24" ID="{EC1D5703-6D71-4C45-81EA-BB07EE6D3449}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_2_12" ID="{A8207329-BBD8-4861-BAFA-AD7F44640B46}" ShortID="983611270" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_45-26" ID="{0FC0688D-F40F-47C3-81D3-FCFC4E641506}" ShortID="70218229">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_45-26.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_45-26" ID="{0FC0688D-F40F-47C3-81D3-FCFC4E641506}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_2_18" ID="{26346BB6-0BF8-4318-86BF-AF86C41D75B8}" ShortID="838278851" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_51-40" ID="{3CE9A32B-E8A9-421F-A6E8-0B24F2F26CDF}" ShortID="559732682">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_51-40.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_51-40" ID="{3CE9A32B-E8A9-421F-A6E8-0B24F2F26CDF}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_2_17" ID="{DCC1B2DD-C721-476A-9DC8-9089E7BEB86D}" ShortID="134596743" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_50-38" ID="{7F3D7880-F855-4FA7-9E18-5C028167FFF8}" ShortID="196402473">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_50-38.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_50-38" ID="{7F3D7880-F855-4FA7-9E18-5C028167FFF8}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_2_19" ID="{AD5D816E-AB8E-4514-9E2B-6EF9E72FDF90}" ShortID="118542995" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_52-41" ID="{09D18850-B388-4DA2-9166-C071888617C0}" ShortID="932978141">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_52-41.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_52-41" ID="{09D18850-B388-4DA2-9166-C071888617C0}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_2_10" ID="{A618CCD9-D0E8-4BDA-8479-EAA3ADA5D3C0}" ShortID="720452487" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_43-22" ID="{3BFC9E9A-8AD7-4CB8-AD5E-355DF24F02CA}" ShortID="967146479">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_43-22.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_43-22" ID="{3BFC9E9A-8AD7-4CB8-AD5E-355DF24F02CA}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Idle_2_14" ID="{28D29C77-741C-48A1-947D-A5408840F205}" ShortID="564323239" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Idle 1-NORM_47-30" ID="{7F10393C-AB72-4731-93DC-D25320021477}" ShortID="268248428">
+																	<Language>SFX</Language>
+																	<AudioFile>Idle 1-NORM_47-30.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Idle 1-NORM_47-30" ID="{7F10393C-AB72-4731-93DC-D25320021477}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+													</ChildrenList>
+												</RandomSequenceContainer>
+											</ChildrenList>
+											<GroupingInfo>
+												<GroupRef Name="" ID="{00000000-0000-0000-0000-000000000000}"/>
+												<DefaultSwitchRef Name="" ID="{00000000-0000-0000-0000-000000000000}"/>
+												<GroupingBehaviorList>
+													<GroupingBehavior>
+														<ItemRef Name="Idle Coming" ID="{1FBBF20C-C3CC-4336-B7BA-D17F12E828CD}"/>
+													</GroupingBehavior>
+													<GroupingBehavior>
+														<ItemRef Name="Idle Going" ID="{B51B40EC-5C1A-46B2-BB1F-9B6C0A9E4824}"/>
+													</GroupingBehavior>
+												</GroupingBehaviorList>
+											</GroupingInfo>
+										</SwitchContainer>
+									</ChildrenList>
+								</Folder>
 							</ChildrenList>
 						</ActorMixer>
 						<ActorMixer Name="Hunter" ID="{A781C459-0CBD-4F91-BB2D-181BBD06E58F}" ShortID="579854216">

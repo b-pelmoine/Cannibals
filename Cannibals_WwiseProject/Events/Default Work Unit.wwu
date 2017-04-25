@@ -370,6 +370,28 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="cannibals_coming_going_1" ID="{6B140090-38F2-46FF-A046-E7184E33CFC7}">
+					<ChildrenList>
+						<Action Name="Play" ID="{31C8E142-19D9-413D-A2D2-BCAE37B14443}" ShortID="587558623" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{0B593128-DBBD-4BFB-807E-E551EECDC135}" Global="false">
+									<ObjectRef Name="Going and Coming 1" ID="{4AEF531C-84B7-4803-B719-12744FAB9167}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="cannibals_coming_going_2" ID="{94FE002C-595C-43AE-966B-F9A6E5FE7B9E}">
+					<ChildrenList>
+						<Action Name="Play" ID="{E533FA83-3476-49DC-843E-17B9E80EDAF6}" ShortID="13652589" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{9A7C1BA9-C923-4DF0-9CFC-E98A76849296}" Global="false">
+									<ObjectRef Name="Going and Coming 2" ID="{6078CA25-A3B9-4843-9777-6026C69CB350}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
