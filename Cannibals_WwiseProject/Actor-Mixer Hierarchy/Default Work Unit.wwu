@@ -17277,6 +17277,135 @@
 										</SwitchContainer>
 									</ChildrenList>
 								</Folder>
+								<RandomSequenceContainer Name="KO" ID="{6CE92CD3-1866-4D70-98E3-20903D52CDAC}" ShortID="218818414">
+									<PropertyList>
+										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="KO_1" ID="{6E90786C-7ED1-44D4-A259-B4DE3E73E848}" ShortID="228425450" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="KO-C3AS_07-22" ID="{F2D9D0AF-65B0-4183-B224-D3FE0B1C62DD}" ShortID="940176480">
+													<Language>SFX</Language>
+													<AudioFile>KO-C3AS_07-22.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="KO-C3AS_07-22" ID="{F2D9D0AF-65B0-4183-B224-D3FE0B1C62DD}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="KO_2" ID="{DBAEDE7E-25E2-422B-A985-AF24E76F5862}" ShortID="350186474" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="KO-C3AS_08-11" ID="{29AA05E9-EE90-4384-9B72-C301E481AE2E}" ShortID="890192814">
+													<Language>SFX</Language>
+													<AudioFile>KO-C3AS_08-11.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="KO-C3AS_08-11" ID="{29AA05E9-EE90-4384-9B72-C301E481AE2E}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="KO_3" ID="{AB8EF6AF-9936-4BDD-939D-AA71F5C1BBC6}" ShortID="175650645" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="KO-C3AS_09-07" ID="{C98B0976-84B0-4AFF-9C95-883BDB7C6436}" ShortID="845519913">
+													<Language>SFX</Language>
+													<AudioFile>KO-C3AS_09-07.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="KO-C3AS_09-07" ID="{C98B0976-84B0-4AFF-9C95-883BDB7C6436}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="KO_4" ID="{C7FA172E-A3E5-4C6B-85DE-4DD0BE0DD21D}" ShortID="708147163" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="KO-C3AS_10-20" ID="{45044EC1-BE61-408C-875F-95A2A6B52F15}" ShortID="521853464">
+													<Language>SFX</Language>
+													<AudioFile>KO-C3AS_10-20.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="KO-C3AS_10-20" ID="{45044EC1-BE61-408C-875F-95A2A6B52F15}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="KO_5" ID="{09040D1C-16D3-4ADB-BFB6-CD4BCF7F2866}" ShortID="328143424" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="KO-C3AS_11-15" ID="{48C4E751-AE93-44FB-8D6D-CDEA5EE07C6E}" ShortID="500000654">
+													<Language>SFX</Language>
+													<AudioFile>KO-C3AS_11-15.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="KO-C3AS_11-15" ID="{48C4E751-AE93-44FB-8D6D-CDEA5EE07C6E}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="KO_6" ID="{06014909-2B64-4547-815F-84B8859E6F74}" ShortID="432605288" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="KO-C3AS_12-17" ID="{4E6EE479-0A72-4696-9C21-2E0541471EA9}" ShortID="806070136">
+													<Language>SFX</Language>
+													<AudioFile>KO-C3AS_12-17.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="KO-C3AS_12-17" ID="{4E6EE479-0A72-4696-9C21-2E0541471EA9}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
 							</ChildrenList>
 						</ActorMixer>
 						<ActorMixer Name="Hunter" ID="{A781C459-0CBD-4F91-BB2D-181BBD06E58F}" ShortID="579854216">
