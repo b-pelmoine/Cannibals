@@ -17277,6 +17277,135 @@
 										</SwitchContainer>
 									</ChildrenList>
 								</Folder>
+								<RandomSequenceContainer Name="KO" ID="{6CE92CD3-1866-4D70-98E3-20903D52CDAC}" ShortID="218818414">
+									<PropertyList>
+										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="KO_1" ID="{6E90786C-7ED1-44D4-A259-B4DE3E73E848}" ShortID="228425450" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="KO-C3AS_07-22" ID="{F2D9D0AF-65B0-4183-B224-D3FE0B1C62DD}" ShortID="940176480">
+													<Language>SFX</Language>
+													<AudioFile>KO-C3AS_07-22.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="KO-C3AS_07-22" ID="{F2D9D0AF-65B0-4183-B224-D3FE0B1C62DD}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="KO_2" ID="{DBAEDE7E-25E2-422B-A985-AF24E76F5862}" ShortID="350186474" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="KO-C3AS_08-11" ID="{29AA05E9-EE90-4384-9B72-C301E481AE2E}" ShortID="890192814">
+													<Language>SFX</Language>
+													<AudioFile>KO-C3AS_08-11.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="KO-C3AS_08-11" ID="{29AA05E9-EE90-4384-9B72-C301E481AE2E}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="KO_3" ID="{AB8EF6AF-9936-4BDD-939D-AA71F5C1BBC6}" ShortID="175650645" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="KO-C3AS_09-07" ID="{C98B0976-84B0-4AFF-9C95-883BDB7C6436}" ShortID="845519913">
+													<Language>SFX</Language>
+													<AudioFile>KO-C3AS_09-07.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="KO-C3AS_09-07" ID="{C98B0976-84B0-4AFF-9C95-883BDB7C6436}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="KO_4" ID="{C7FA172E-A3E5-4C6B-85DE-4DD0BE0DD21D}" ShortID="708147163" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="KO-C3AS_10-20" ID="{45044EC1-BE61-408C-875F-95A2A6B52F15}" ShortID="521853464">
+													<Language>SFX</Language>
+													<AudioFile>KO-C3AS_10-20.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="KO-C3AS_10-20" ID="{45044EC1-BE61-408C-875F-95A2A6B52F15}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="KO_5" ID="{09040D1C-16D3-4ADB-BFB6-CD4BCF7F2866}" ShortID="328143424" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="KO-C3AS_11-15" ID="{48C4E751-AE93-44FB-8D6D-CDEA5EE07C6E}" ShortID="500000654">
+													<Language>SFX</Language>
+													<AudioFile>KO-C3AS_11-15.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="KO-C3AS_11-15" ID="{48C4E751-AE93-44FB-8D6D-CDEA5EE07C6E}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="KO_6" ID="{06014909-2B64-4547-815F-84B8859E6F74}" ShortID="432605288" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="KO-C3AS_12-17" ID="{4E6EE479-0A72-4696-9C21-2E0541471EA9}" ShortID="806070136">
+													<Language>SFX</Language>
+													<AudioFile>KO-C3AS_12-17.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="KO-C3AS_12-17" ID="{4E6EE479-0A72-4696-9C21-2E0541471EA9}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
 							</ChildrenList>
 						</ActorMixer>
 						<ActorMixer Name="Hunter" ID="{A781C459-0CBD-4F91-BB2D-181BBD06E58F}" ShortID="579854216">
@@ -20836,6 +20965,226 @@
 										</GroupingList>
 									</GroupingInfo>
 								</SwitchContainer>
+								<RandomSequenceContainer Name="Idle" ID="{95AA0BE4-5D82-45A8-B9C7-C6CDDF8DCC57}" ShortID="1004831246">
+									<PropertyList>
+										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="Idle_1" ID="{F3ECB630-20B3-4377-A497-135C3A994D5B}" ShortID="363592358" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Mamie idle-NORM_01-09" ID="{02D62FF2-1F6B-4E4E-A73F-DE476434F335}" ShortID="627282005">
+													<Language>SFX</Language>
+													<AudioFile>Mamie idle-NORM_01-09.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Mamie idle-NORM_01-09" ID="{02D62FF2-1F6B-4E4E-A73F-DE476434F335}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Idle_2" ID="{015F31B4-FAF7-4F3A-8A30-D68AF3145B4A}" ShortID="407501039" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Mamie idle-NORM_02-13" ID="{C2F756E5-736A-4FBE-8F46-B24FEF6B2628}" ShortID="981257941">
+													<Language>SFX</Language>
+													<AudioFile>Mamie idle-NORM_02-13.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Mamie idle-NORM_02-13" ID="{C2F756E5-736A-4FBE-8F46-B24FEF6B2628}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Idle_3" ID="{37B755FF-7BC5-4F78-A9F0-F9367C09B347}" ShortID="33544724" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Mamie idle-NORM_03-15" ID="{1823DDC0-67DA-40DE-AD79-5C63259C98CE}" ShortID="337103780">
+													<Language>SFX</Language>
+													<AudioFile>Mamie idle-NORM_03-15.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Mamie idle-NORM_03-15" ID="{1823DDC0-67DA-40DE-AD79-5C63259C98CE}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Idle_4" ID="{A5958561-186C-476C-A37F-DA3716AC1A18}" ShortID="666497578" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Mamie idle-NORM_04-31" ID="{8B26EB53-6BC4-468A-8CFC-52B53BE12242}" ShortID="365038654">
+													<Language>SFX</Language>
+													<AudioFile>Mamie idle-NORM_04-31.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Mamie idle-NORM_04-31" ID="{8B26EB53-6BC4-468A-8CFC-52B53BE12242}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Idle_5" ID="{9E061218-5D7D-48F5-8C14-EE75E293C266}" ShortID="421405592" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Mamie idle-NORM_05-21" ID="{3AD7A023-64E8-4CFF-970E-730B8769D1E4}" ShortID="665023850">
+													<Language>SFX</Language>
+													<AudioFile>Mamie idle-NORM_05-21.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Mamie idle-NORM_05-21" ID="{3AD7A023-64E8-4CFF-970E-730B8769D1E4}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Idle_6" ID="{B1972ED1-7D97-4C71-AF72-8B0239D6A1DD}" ShortID="603691075" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Mamie idle-NORM_06-25" ID="{0470AC1C-F34D-4851-884D-E8A3525FD199}" ShortID="241292143">
+													<Language>SFX</Language>
+													<AudioFile>Mamie idle-NORM_06-25.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Mamie idle-NORM_06-25" ID="{0470AC1C-F34D-4851-884D-E8A3525FD199}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="Death" ID="{B6ED86B4-7C13-4537-A577-BC1C37DF37BA}" ShortID="598149170">
+									<PropertyList>
+										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="3"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="Death_1" ID="{F02AB503-DB5A-42A3-843E-076F998900F8}" ShortID="700582887" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Mamie Mort-NORM_01-14" ID="{991469EA-505B-4EF4-B273-5AD60309A48C}" ShortID="500241076">
+													<Language>SFX</Language>
+													<AudioFile>Mamie Mort-NORM_01-14.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Mamie Mort-NORM_01-14" ID="{991469EA-505B-4EF4-B273-5AD60309A48C}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Death_2" ID="{ED410621-791C-4F20-97A8-04829C45D646}" ShortID="112164023" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Mamie Mort-NORM_02-05" ID="{7B960F9E-CF4A-466C-A215-19BFC1A39A64}" ShortID="176863275">
+													<Language>SFX</Language>
+													<AudioFile>Mamie Mort-NORM_02-05.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Mamie Mort-NORM_02-05" ID="{7B960F9E-CF4A-466C-A215-19BFC1A39A64}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Death_3" ID="{72DE22F3-76D8-47FF-99C1-69D2CCE04CA4}" ShortID="266226737" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Mamie Mort-NORM_03-08" ID="{FBA79F32-40EF-4468-B188-2A07EF0A4CF9}" ShortID="992623107">
+													<Language>SFX</Language>
+													<AudioFile>Mamie Mort-NORM_03-08.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Mamie Mort-NORM_03-08" ID="{FBA79F32-40EF-4468-B188-2A07EF0A4CF9}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Death_4" ID="{A034973A-2B93-4EF3-9D65-4B750C05BE09}" ShortID="754964560" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Mamie Mort-NORM_04-11" ID="{1EC36F46-05D2-42FD-A56E-923E833A0C41}" ShortID="735078530">
+													<Language>SFX</Language>
+													<AudioFile>Mamie Mort-NORM_04-11.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Mamie Mort-NORM_04-11" ID="{1EC36F46-05D2-42FD-A56E-923E833A0C41}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
 							</ChildrenList>
 						</ActorMixer>
 						<ActorMixer Name="Scout" ID="{A16A719E-7603-4B41-B73E-348504957932}" ShortID="281411327">
