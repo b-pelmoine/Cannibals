@@ -38,7 +38,7 @@ public void goInit(GameObject child_in, GameObject skel_root_in) {
 	lr_bg = transform.Find("Line_BG").gameObject.AddComponent<LineRenderer>();
 	lr_bg.material = new Material(Shader.Find("Sprites/Default"));
 	lr_bg.useWorldSpace = true;
-	lr_bg.numPositions = 2;
+	lr_bg.positionCount = 2;
 	lr_bg.startWidth = .3f;
 	lr_bg.endWidth = .13f;
 	lr_bg.sortingOrder = 990;
@@ -49,7 +49,7 @@ public void goInit(GameObject child_in, GameObject skel_root_in) {
 	lr_fg = transform.Find("Line_FG").gameObject.AddComponent<LineRenderer>();
 	lr_fg.material = new Material(Shader.Find("Sprites/Default"));
 	lr_fg.useWorldSpace = true;
-	lr_fg.numPositions = 2;
+	lr_fg.positionCount = 2;
 	lr_fg.startWidth = .2f;
 	lr_fg.endWidth = .03f;
 	lr_fg.sortingOrder = 991;

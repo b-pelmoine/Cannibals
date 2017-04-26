@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 Shader "Nature/Terrain/Specular" {
 	Properties {
 		_SpecColor ("Specular Color", Color) = (0.5, 0.5, 0.5, 1)
@@ -74,7 +76,7 @@ Shader "Nature/Terrain/Specular" {
 		{
 		    UNITY_INITIALIZE_OUTPUT(Input, data);
 		    data.tc_Control = TRANSFORM_TEX(v.texcoord, _Control);  // Need to manually transform uv here, as we choose not to use 'uv' prefix for this texcoord.
-		    float4 pos = mul (UNITY_MATRIX_MVP, v.vertex);
+		    float4 pos = UnityObjectToClipPos (v.vertex);
 		    UNITY_TRANSFER_FOG(data, pos);
 
 		#ifdef _TERRAIN_NORMAL_MAP
