@@ -403,6 +403,28 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="granny_death" ID="{D2E8ED5C-76C6-4146-969E-E3B1AE031DD9}">
+					<ChildrenList>
+						<Action Name="Play" ID="{5DBED8B6-B9E5-44CA-AD46-3B138BB4543C}" ShortID="535923148" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{FD3A06A2-55B9-4809-9C22-D499439CB967}" Global="false">
+									<ObjectRef Name="Death" ID="{B6ED86B4-7C13-4537-A577-BC1C37DF37BA}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="granny_idle" ID="{9FBBF313-6234-47F7-9529-681E4A011B90}">
+					<ChildrenList>
+						<Action Name="Play" ID="{3DEB241C-1D24-4726-9DF3-EC89907B2868}" ShortID="872282784" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{13213796-0818-4FB3-8C7F-CD898A9437D2}" Global="false">
+									<ObjectRef Name="Idle" ID="{95AA0BE4-5D82-45A8-B9C7-C6CDDF8DCC57}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
