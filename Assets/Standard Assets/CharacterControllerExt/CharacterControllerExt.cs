@@ -306,9 +306,9 @@ namespace EquilibreGames
 
                 ProbeGround3D();
 
+                bool nearSlope = false;
                 //Check ground for slopeLimit
-               if(isGrounded = CheckGround3D(characterControllerColliders[circleConfigurationIndex].colliders[feetIndex].radius + toleranceConst, out groundNormal, out groundPoint))
-                     SlopeLimit3D(initialPosition);
+                nearSlope = SlopeLimit3D(initialPosition);
 
                 ProbeGround3D();
 
@@ -318,9 +318,11 @@ namespace EquilibreGames
                 if (isClamping && clampedTo)
                     lastGroundPosition = clampedTo.position;
 
-                //If we were not ground, a doubt persist because of clamp and slopLimit, so check it again.
-                if(!isGrounded)
-                    isGrounded = CheckGround3D(characterControllerColliders[circleConfigurationIndex].colliders[feetIndex].radius + toleranceConst, out groundNormal, out groundPoint);
+                ProbeGround3D();
+
+                //Slope are always detected and do not count has ground.
+
+                isGrounded = CheckGround3D(characterControllerColliders[circleConfigurationIndex].colliders[feetIndex].radius + toleranceConst, out groundNormal, out groundPoint);
             }
 
             acceleration = Vector3.zero;
@@ -345,16 +347,7 @@ namespace EquilibreGames
                 acceleration += gravity.GetValue();
 
             velocity += acceleration * time;
-            Vector3 lastPosition = characterTransform.position;
             characterTransform.position += velocity*time + 0.5f* acceleration * time * time;
-
-            if (Vector3.Distance(lastPosition, characterTransform.position) > 500)
-            {
-                Debug.Log("Problem");
-                Debug.Log(velocity);
-                Debug.Log(acceleration);
-            }
-
         }
 
         /// <summary>
@@ -373,10 +366,10 @@ namespace EquilibreGames
             else
                 clampGround = farGround;
 
-            if (clampGround != null && Vector3.Angle(-characterTransform.up, -clampGround.normal) <= maxGroundAngle)
+            if (clampGround != null/* && Vector3.Angle(-characterTransform.up, -clampGround.normal) <= maxGroundAngle*/)
             {
-                float d = clampGround.distance - characterControllerColliders[circleConfigurationIndex].colliders[feetIndex].radius - toleranceConst;
-                characterTransform.position -= clampGround.normal * d;
+                float d = clampGround.distance - characterControllerColliders[circleConfigurationIndex].colliders[feetIndex].radius;
+                characterTransform.position -= characterTransform.up * d;
             }
         }
 
@@ -410,13 +403,14 @@ namespace EquilibreGames
                 //RaycastHit hit;
 
                 // Check if our path to our resolved position is blocked by any colliders
-             //   if (Physics.CapsuleCast(SpherePosition(feet), SpherePosition(head), radius, direction.normalized, out hit, direction.magnitude, Walkable, triggerInteraction))
-               // {
-                 //   transform.position += v.normalized * hit.distance;
+                //   if (Physics.CapsuleCast(SpherePosition(feet), SpherePosition(head), radius, direction.normalized, out hit, direction.magnitude, Walkable, triggerInteraction))
+                // {
+                //   transform.position += v.normalized * hit.distance;
                 //}
                 //else
                 //{
-                    CharacterTransform.position += direction;
+                characterTransform.position += direction;
+
                 //}
 
                 return true;
@@ -698,27 +692,7 @@ namespace EquilibreGames
 
                     // if (/*oneWayPlatform == null ||*/ (colInfo == characterControllerColliders[circleConfigurationIndex].colliders[feetIndex]))
                     // {
-                    //Find the closest point on the collider2D shape
-                    // Vector3 contactPoint = default(Vector3);
-
-                    /*    if (col is BoxCollider)
-                            contactPoint = ExtendedMath.ClosestPointOnSurface((BoxCollider)col, colInfo.position);
-                        else if (col is SphereCollider)
-                            contactPoint = ExtendedMath.ClosestPointOnSurface((SphereCollider)col, colInfo.position);
-                        else if (col is TerrainCollider)
-                        {
-                            contactPoint = ExtendedMath.ClosestPointOnSurface((TerrainCollider)col, colInfo.position, colInfo.radius);
-
-                            //HotFix
-                            if ((contactPoint - colInfo.position).magnitude > (velocity * Time.fixedDeltaTime).magnitude)
-                            {
-                                return;
-                            }
-                        }
-                        else if (col is MeshCollider)
-                            contactPoint = ExtendedMath.ClosestPointOnSurface((MeshCollider)col, colInfo.position, colInfo.radius);
-                        else if (col is CapsuleCollider)
-                            contactPoint = ExtendedMath.ClosestPointOnSurface((CapsuleCollider)col, colInfo.position);*/
+                 
 
                     Vector3 direction;
                     float distance;
@@ -733,7 +707,7 @@ namespace EquilibreGames
 
                     physicsCollider.enabled = false;
 
-                    contactPoint = colInfo.position - direction * distance;
+                    contactPoint = colInfo.position - direction * colInfo.radius;
 
 #if UNITY_EDITOR || EQUILIBRE_GAMES_DEBUG
                     if (debugguer)
@@ -742,36 +716,7 @@ namespace EquilibreGames
                     //Calcul the normal direction
                     // Vector3 direction = contactPoint - colInfo.position;
 
-
-                    /*  if (direction != Vector3.zero)
-                      {
-
-                          //Check if our circle collider center is inside the collider
-                          //toleranceConst is used to avoid edge problem
-                          bool facingNormal = Physics.SphereCast(new Ray(colInfo.position, direction.normalized), toleranceConst, direction.magnitude + toleranceConst, collisionLayer);
-
-
-                          // Orient and scale our vector based on which side of the normal we are situated
-                          if (facingNormal)
-                          {
-                              if (Vector3.Distance(colInfo.position, contactPoint) < colInfo.radius)
-                              {
-                                  direction = direction.normalized * (colInfo.radius - direction.magnitude) * -1;
-                              }
-                              else
-                              {
-                                  // A previously resolved collision has had a side effect that moved us outside this collider
-                                  continue;
-                              }
-                          }
-                          else
-                          {
-                              direction = direction.normalized * (colInfo.radius + direction.magnitude);
-                          } */
-
-
-                    /*
-                        if (oneWayPlatform != null && (oneWayPlatform.CanPassThrought(-direction)))
+                       /* if (oneWayPlatform != null && (oneWayPlatform.CanPassThrought(-direction)))
                         {
                             continue;
                         } */
@@ -805,7 +750,7 @@ namespace EquilibreGames
                                     velocity.x = (-slowFactor * dot) * velocity.x;
                                 }
                             }
-
+                        //}
 
 #if UNITY_EDITOR || EQUILIBRE_GAMES_DEBUG
                             if (debugguer)
@@ -813,8 +758,6 @@ namespace EquilibreGames
 #endif
 
                             contact = true;
-                        //}
-                   // }
                 }
             }
 #if UNITY_EDITOR || EQUILIBRE_GAMES_DEBUG
