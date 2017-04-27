@@ -431,6 +431,18 @@ public static Vector2 ProjectVectorOnLine(Vector2 lineDir, Vector2 vector)
             return vector.normalized * size;
         }
 
+        /// <summary>
+        /// create a vector of direction "vector" with length "size"
+        /// </summary>
+        /// <param name="vector"></param>
+        /// <param name="size"></param>
+        /// <returns></returns>
+        public static Vector3 SetVectorLength(Vector3 vector, float size)
+        {
+            //normalize the vector
+            return vector.normalized * size;
+        }
+
         public static bool PointIsOnSegment(Vector2 firstPoint,Vector2 secondPoint, Vector2 pointToTest)
         {
             Vector2 dir1 = pointToTest - firstPoint;
