@@ -52,64 +52,40 @@ Material:
   m_Shader: {fileID: 10605, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
+  disabledShaderPasses: []
   m_SavedProperties:
-    serializedVersion: 2
+    serializedVersion: 3
     m_TexEnvs:
-    - first:
-        name: _BumpSpecMap
-      second:
+    - _BumpSpecMap:
         m_Texture: {fileID: 2800000, guid: 385fa366475c3f9489abbeece94afbe8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - first:
-        name: _MainTex
-      second:
+    - _MainTex:
         m_Texture: {fileID: 2800000, guid: 43aefe773d60ff646848e89c071bbcf5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - first:
-        name: _ShadowTex
-      second:
+    - _ShadowTex:
         m_Texture: {fileID: 2800000, guid: 8d2195949f2ba594d847ba3e62c08cdc, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - first:
-        name: _TranslucencyMap
-      second:
+    - _TranslucencyMap:
         m_Texture: {fileID: 2800000, guid: 7ac135a67494ad7418960da4ba6a4f3b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - first:
-        name: _Cutoff
-      second: 0
-    - first:
-        name: _ShadowOffsetScale
-      second: 1
-    - first:
-        name: _ShadowStrength
-      second: 0.426
-    - first:
-        name: _SquashAmount
-      second: 1
-    - first:
-        name: _TranslucencyViewDependency
-      second: 0.8
+    - _Cutoff: 0
+    - _ShadowOffsetScale: 1
+    - _ShadowStrength: 0.426
+    - _SquashAmount: 1
+    - _TranslucencyViewDependency: 0.8
     m_Colors:
-    - first:
-        name: _Color
-      second: {r: 1, g: 1, b: 1, a: 1}
-    - first:
-        name: _TranslucencyColor
-      second: {r: 0.062283736, g: 0.2647059, b: 0.06367974, a: 1}
-    - first:
-        name: _TreeInstanceColor
-      second: {r: 1, g: 1, b: 1, a: 1}
-    - first:
-        name: _TreeInstanceScale
-      second: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _TranslucencyColor: {r: 0.062283736, g: 0.2647059, b: 0.06367974, a: 1}
+    - _TreeInstanceColor: {r: 1, g: 1, b: 1, a: 1}
+    - _TreeInstanceScale: {r: 1, g: 1, b: 1, a: 1}
 --- !u!21 &21686872673585788
 Material:
   serializedVersion: 6
@@ -120,46 +96,32 @@ Material:
   m_Shader: {fileID: 10604, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
+  disabledShaderPasses: []
   m_SavedProperties:
-    serializedVersion: 2
+    serializedVersion: 3
     m_TexEnvs:
-    - first:
-        name: _BumpSpecMap
-      second:
+    - _BumpSpecMap:
         m_Texture: {fileID: 2800000, guid: 385fa366475c3f9489abbeece94afbe8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - first:
-        name: _MainTex
-      second:
+    - _MainTex:
         m_Texture: {fileID: 2800000, guid: 43aefe773d60ff646848e89c071bbcf5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - first:
-        name: _TranslucencyMap
-      second:
+    - _TranslucencyMap:
         m_Texture: {fileID: 2800000, guid: 7ac135a67494ad7418960da4ba6a4f3b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - first:
-        name: _SquashAmount
-      second: 1
+    - _SquashAmount: 1
     m_Colors:
-    - first:
-        name: _Color
-      second: {r: 1, g: 1, b: 1, a: 1}
-    - first:
-        name: _SpecColor
-      second: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    - first:
-        name: _TreeInstanceColor
-      second: {r: 1, g: 1, b: 1, a: 1}
-    - first:
-        name: _TreeInstanceScale
-      second: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _TreeInstanceColor: {r: 1, g: 1, b: 1, a: 1}
+    - _TreeInstanceScale: {r: 1, g: 1, b: 1, a: 1}
 --- !u!23 &23873167858313892
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -191,6 +153,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &33610752757427756
 MeshFilter:
