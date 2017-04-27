@@ -49,8 +49,7 @@ public class OffscreenIndicator : MonoBehaviour {
         showTarget = state;
     }
 
-    void Update () {
-        /*
+    void Update () {/*
         if(showAIAgents)
         {
             //loop through AI_Agents
@@ -88,7 +87,6 @@ public class OffscreenIndicator : MonoBehaviour {
                     }
                 }
             }
-        }
-        */
+        }*/
     }
 }
