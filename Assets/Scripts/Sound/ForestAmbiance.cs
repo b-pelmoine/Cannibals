@@ -7,27 +7,44 @@ public class ForestAmbiance : MonoBehaviour {
     [SerializeField]
     new Transform transform;
 
-    [SerializeField]
-    GameObject[] treesRepresentation;
+   /* [SerializeField]
+    ForestAmbianceSound[] treesRepresentation;
 
     [SerializeField]
     float range = 10f;
 
     [SerializeField]
-    LayerMask treeLayerMask;
+    LayerMask treeLayerMask; */
 
     [SerializeField]
     string forestAmbianceEvent = "ambiance_forest";
 
-    List<GameObject> availablesTreesRepresentation = new List<GameObject>();
+    public Terrain terrain;
 
-    Collider[] nearTreeColliders;
+ /*   List<ForestAmbianceSound> availablesTreesRepresentation = new List<ForestAmbianceSound>();
+
+    Collider[] nearTreeColliders; */
 
 #if UNITY_EDITOR
-    public bool debug = true;
+   // public bool debug = true;
 #endif
 
-    void Awake()
+
+    void Start()
+    {
+        TerrainData terrainData = terrain.terrainData;
+
+        for(int i=0; i < terrainData.treeInstances.Length; i++)
+        {
+            GameObject go = new GameObject("AkPostForestAmbiance");
+            go.transform.SetParent(transform);
+            go.transform.position = terrainData.treeInstances[0].position;
+            AkSoundEngine.PostEvent(forestAmbianceEvent, go);
+        }
+    }
+
+
+  /*  void Awake()
     {
            nearTreeColliders = new Collider[treesRepresentation.Length];
 
@@ -43,7 +60,7 @@ public class ForestAmbiance : MonoBehaviour {
 
         for (int i = 0; i < cpt && availablesTreesRepresentation.Count > 0 ; i++)
         {
-            GameObject go = availablesTreesRepresentation[0];
+            GameObject go = availablesTreesRepresentation[0].gameObject;
             AkSoundEngine.PostEvent(forestAmbianceEvent, go, (uint)AkCallbackType.AK_EndOfEvent, UnregisterTree, null);
             availablesTreesRepresentation.RemoveAt(0);
         }
@@ -56,18 +73,21 @@ public class ForestAmbiance : MonoBehaviour {
         {
             AkCallbackManager.AkEventCallbackInfo info = (AkCallbackManager.AkEventCallbackInfo)in_info;
 
+
+            Debug.Log("tamère");
+           // info.
         }
 
-    }
+    } */
 
 
 #if UNITY_EDITOR
-        void OnDrawGizmos()
+ /*       void OnDrawGizmos()
     {
         if (debug)
         {
              Gizmos.DrawWireSphere(transform.position, range);
         }
-    }
+    } */
 #endif
 }
