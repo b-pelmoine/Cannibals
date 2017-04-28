@@ -42,9 +42,9 @@ public class OffscreenIndicator : MonoBehaviour {
     public bool pulse_Targets = false;
     private List<IndicatorData> TargetOnScreenPositions;
 
-    public bool showAIAgents;
-    public bool showTarget; // automatique ? offscreen = enabled
-    public bool showPlayers;
+    private bool showAIAgents;
+    private bool showTarget; // automatique ? offscreen = enabled
+    private bool showPlayers;
 
     Vector3 screenPos = Vector3.zero;
 
@@ -108,6 +108,7 @@ public class OffscreenIndicator : MonoBehaviour {
         if(showTarget)
         {
             pSpeed = (pulse_Targets) ? pulseSpeed : 0;
+            //checke if alive then display
             addIndicatorForGameObjects(TargetOnScreenPositions, Targets, TargetsSizeMultiplier, false, pSpeed);
         }
         if(showPlayers)
