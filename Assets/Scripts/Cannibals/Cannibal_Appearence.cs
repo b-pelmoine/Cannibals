@@ -12,6 +12,12 @@ public class Cannibal_Appearence : MonoBehaviour {
 
     public Transform m_appearenceTransform;
 
+    [SerializeField]
+    IconDisplayer iconDisplayer;
+
+    [SerializeField]
+    Sprite resurrectIcon;
+
     float rotationVelocity;
     public void Orientate(Vector3 direction)
     {
@@ -26,5 +32,10 @@ public class Cannibal_Appearence : MonoBehaviour {
             deltaAngle *= -1; 
 
         m_appearenceTransform.Rotate(Vector3.up, deltaAngle);
+    }
+
+    public void ShowResurrectIcon()
+    {
+        iconDisplayer.Show(resurrectIcon);
     }
 }

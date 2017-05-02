@@ -74,7 +74,7 @@ public class OffscreenIndicator : MonoBehaviour {
 
     void OnGUI()
     {
-        if(showAIAgents)
+        if (showAIAgents)
         {
             foreach (IndicatorData data in AIOnScreenPositions)
             {
@@ -118,8 +118,7 @@ public class OffscreenIndicator : MonoBehaviour {
             foreach(GameObject player in Players)
             {
                 //check if dead
-                if(player.GetComponent<Cannibal>().IsDead())
-                    deadPlayers.Add(player);
+                deadPlayers.Add(player);
             }
 
             addIndicatorForGameObjects(PlayersOnScreenPositions, deadPlayers.ToArray(), PlayersSizeMultiplier , true, pSpeed);

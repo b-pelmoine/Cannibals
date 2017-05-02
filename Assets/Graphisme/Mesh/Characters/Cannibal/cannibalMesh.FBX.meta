@@ -122,7 +122,7 @@ ModelImporter:
     400112: spine01
     400114: spine02
     4300000: ' cannibal'
-    7400000: Take 001
+    7400000: Use
     7400002: IdleToRun
     7400004: Run
     7400006: RunToIdle
@@ -137,6 +137,7 @@ ModelImporter:
     7400024: Whistle
     7400026: KO
     7400028: Resurrect
+    7400030: UseToIdle
     9500000: //RootNode
     13700000: ' cannibal'
   materials:
@@ -149,6 +150,8 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -2127,7 +2130,7 @@ ModelImporter:
       name: Resurrect
       takeName: Take 001
       firstFrame: 548
-      lastFrame: 548
+      lastFrame: 579
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -2270,6 +2273,174 @@ ModelImporter:
         weight: 1
       - path: spine00/spine01/spine02/Right arm00/Right arm01/Right arm02/Right arm03/Right
           hand/Right arm-nub/Object/Object-nub
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Use
+      takeName: Take 001
+      firstFrame: 181
+      lastFrame: 210
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: ' cannibal'
+        weight: 1
+      - path: spine00
+        weight: 1
+      - path: spine00/Left leg00
+        weight: 1
+      - path: spine00/Left leg00/Left leg01
+        weight: 1
+      - path: spine00/Left leg00/Left leg01/Left leg02
+        weight: 1
+      - path: spine00/Left leg00/Left leg01/Left leg02/Left leg03
+        weight: 1
+      - path: spine00/Left leg00/Left leg01/Left leg02/Left leg03/Left foot
+        weight: 1
+      - path: spine00/Right leg00
+        weight: 1
+      - path: spine00/Right leg00/Right leg01
+        weight: 1
+      - path: spine00/Right leg00/Right leg01/Right leg02
+        weight: 1
+      - path: spine00/Right leg00/Right leg01/Right leg02/Right leg03
+        weight: 1
+      - path: spine00/Right leg00/Right leg01/Right leg02/Right leg03/Right foot
+        weight: 1
+      - path: spine00/spine01
+        weight: 1
+      - path: spine00/spine01/spine02
+        weight: 1
+      - path: spine00/spine01/spine02/Left arm00
+        weight: 1
+      - path: spine00/spine01/spine02/Left arm00/Left arm01
+        weight: 1
+      - path: spine00/spine01/spine02/Left arm00/Left arm01/Left arm02
+        weight: 1
+      - path: spine00/spine01/spine02/Left arm00/Left arm01/Left arm02/Left arm03
+        weight: 1
+      - path: spine00/spine01/spine02/Left arm00/Left arm01/Left arm02/Left arm03/Left
+          hand
+        weight: 1
+      - path: spine00/spine01/spine02/neck
+        weight: 1
+      - path: spine00/spine01/spine02/neck/head
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00/Right arm01
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00/Right arm01/Right arm02
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00/Right arm01/Right arm02/Right arm03
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00/Right arm01/Right arm02/Right arm03/Right
+          hand
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: UseToIdle
+      takeName: Take 001
+      firstFrame: 211
+      lastFrame: 220
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: ' cannibal'
+        weight: 1
+      - path: spine00
+        weight: 1
+      - path: spine00/Left leg00
+        weight: 1
+      - path: spine00/Left leg00/Left leg01
+        weight: 1
+      - path: spine00/Left leg00/Left leg01/Left leg02
+        weight: 1
+      - path: spine00/Left leg00/Left leg01/Left leg02/Left leg03
+        weight: 1
+      - path: spine00/Left leg00/Left leg01/Left leg02/Left leg03/Left foot
+        weight: 1
+      - path: spine00/Right leg00
+        weight: 1
+      - path: spine00/Right leg00/Right leg01
+        weight: 1
+      - path: spine00/Right leg00/Right leg01/Right leg02
+        weight: 1
+      - path: spine00/Right leg00/Right leg01/Right leg02/Right leg03
+        weight: 1
+      - path: spine00/Right leg00/Right leg01/Right leg02/Right leg03/Right foot
+        weight: 1
+      - path: spine00/spine01
+        weight: 1
+      - path: spine00/spine01/spine02
+        weight: 1
+      - path: spine00/spine01/spine02/Left arm00
+        weight: 1
+      - path: spine00/spine01/spine02/Left arm00/Left arm01
+        weight: 1
+      - path: spine00/spine01/spine02/Left arm00/Left arm01/Left arm02
+        weight: 1
+      - path: spine00/spine01/spine02/Left arm00/Left arm01/Left arm02/Left arm03
+        weight: 1
+      - path: spine00/spine01/spine02/Left arm00/Left arm01/Left arm02/Left arm03/Left
+          hand
+        weight: 1
+      - path: spine00/spine01/spine02/neck
+        weight: 1
+      - path: spine00/spine01/spine02/neck/head
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00/Right arm01
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00/Right arm01/Right arm02
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00/Right arm01/Right arm02/Right arm03
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00/Right arm01/Right arm02/Right arm03/Right
+          hand
         weight: 1
       maskType: 3
       maskSource: {instanceID: 0}
