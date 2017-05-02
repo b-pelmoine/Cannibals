@@ -31,7 +31,7 @@ public class Waypoint : MonoBehaviour {
         }
     }
     public List<Wpoint> points = new List<Wpoint>();
-    private int current = 0;
+    public int current = 0;
     public Vector3 currentDestination;
 
     // Use this for initialization
@@ -76,11 +76,6 @@ public class Waypoint : MonoBehaviour {
 
     public Vector3 getCurrentDestination()
     {
-        if(points.Count <= 0)
-        {
-            Debug.LogError("No waypoint placed");
-            return new Vector3();
-        }
         return this[current];
     }
 
@@ -93,11 +88,6 @@ public class Waypoint : MonoBehaviour {
     public int getNext(int id)
     {
         return points[id][0];
-    }
-
-    public void Next()
-    {
-        current = (current + 1) % points.Count;
     }
 
     public Vector3 this[int key]

@@ -5,26 +5,18 @@ using UnityEngine.AI;
 
 public class AIAgentManager : MonoBehaviour {
 
-    static private List<AI.AIAgent> agents;
-    static private List<GameObject> agentsObject;
+    public List<GameObject> agents;
 
 	void Awake () {
-        agents = new List<AI.AIAgent>();
-        agentsObject = new List<GameObject>();
+        //agents = new List<GameObject>();
     }
 
-    static public void registerAIAgent(AI.AIAgent go)
+    public void registerAIAgent(GameObject go)
     {
         agents.Add(go);
-        agentsObject.Add(go.gameObject);
     }
 
-    static public List<GameObject> getActiveAgents()
-    {
-        return agentsObject;
-    }
-
-    static public List<AI.AIAgent> getActiveAIAgents()
+    public List<GameObject> getActiveAgents()
     {
         return agents;
     }
