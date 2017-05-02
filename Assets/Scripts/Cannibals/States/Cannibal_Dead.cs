@@ -21,4 +21,9 @@ public class Cannibal_Dead : Cannibal_State {
         return true;
     }
 
+    public override bool IsDead()
+    {
+        return true;
+    }
+
 }

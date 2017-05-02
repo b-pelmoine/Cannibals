@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 using NodeCanvas.StateMachines;
+using System.Collections.Generic;
 
 public class Cannibal : MonoBehaviour {
+
+    public static List<Cannibal> cannibals = new List<Cannibal>();
 
     [SerializeField]
     FSMOwner m_stateMachine;
@@ -15,6 +18,31 @@ public class Cannibal : MonoBehaviour {
     public Cannibal_Skill m_cannibalSkill;
 
     public Cannibal_Appearence m_cannibalAppearence;
+
+
+    void Awake()
+    {
+        cannibals.Add(this);
+    }
+
+    void OnDestroy()
+    {
+        cannibals.Remove(this);
+    }
+
+    public static Vector3 BarycentricCannibalPosition()
+    {
+        Vector3 position = Vector3.zero;
+
+        foreach(Cannibal c in cannibals)
+        {
+            position += c.m_cannibalMovement.CharacterControllerEx.CharacterTransform.position;
+        }
+
+        position /= cannibals.Count;
+
+        return position;
+    }
 
     /// <summary>
     /// Knock out the cannibal.
@@ -49,6 +77,11 @@ public class Cannibal : MonoBehaviour {
     /// </summary>
     /// <returns>false if the cannibal can't be revived in the current state</returns>
     public bool Revive() { return CurrentState().Revive(); }
+
+    public bool IsDead()
+    {
+        return CurrentState().IsDead();
+    }
 
 
     Cannibal_State CurrentState()
