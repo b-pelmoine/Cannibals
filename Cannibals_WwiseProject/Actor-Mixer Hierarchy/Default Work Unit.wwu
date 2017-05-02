@@ -9351,6 +9351,23 @@
 							</ChildrenList>
 						</ActorMixer>
 					</ChildrenList>
+					<StateInfo>
+						<StateGroupList>
+							<StateGroupInfo>
+								<StateGroupRef Name="HunterEars" ID="{5734CFA7-1D01-4C36-AC30-091216E931A3}"/>
+							</StateGroupInfo>
+						</StateGroupList>
+						<CustomStateList>
+							<CustomState>
+								<StateRef Name="Active" ID="{68E92B5D-0148-4950-83F6-076A0952FE8D}"/>
+								<State Name="Custom State" ID="{98DA7C83-365C-4BBE-A830-A95F8B885D21}" ShortID="439384049">
+									<PropertyList>
+										<Property Name="Lowpass" Type="int16" Value="48"/>
+									</PropertyList>
+								</State>
+							</CustomState>
+						</CustomStateList>
+					</StateInfo>
 				</ActorMixer>
 				<ActorMixer Name="Characters" ID="{A5FFF535-BCC1-404A-B33E-8A422438B871}" ShortID="504682874">
 					<ReferenceList>
@@ -23326,6 +23343,33 @@
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
+					<StateInfo>
+						<StateGroupList>
+							<StateGroupInfo>
+								<StateGroupRef Name="HunterEars" ID="{5734CFA7-1D01-4C36-AC30-091216E931A3}"/>
+							</StateGroupInfo>
+						</StateGroupList>
+						<CustomStateList>
+							<CustomState>
+								<StateRef Name="Active" ID="{68E92B5D-0148-4950-83F6-076A0952FE8D}"/>
+								<State Name="Custom State" ID="{A7A65EA0-CA11-4037-A497-2C29BC81E7FF}" ShortID="1025348006">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64" Value="-96"/>
+									</PropertyList>
+								</State>
+							</CustomState>
+						</CustomStateList>
+					</StateInfo>
+				</ActorMixer>
+				<ActorMixer Name="UI" ID="{5D0637B1-C680-46F9-A11B-85563733BF70}" ShortID="96359755">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+						</Reference>
+					</ReferenceList>
 				</ActorMixer>
 			</ChildrenList>
 		</WorkUnit>
