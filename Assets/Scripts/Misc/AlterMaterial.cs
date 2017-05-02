@@ -8,7 +8,7 @@ public class AlterMaterial : MonoBehaviour {
 	private List<Vector4> agents = new List<Vector4>();
     public List<GameObject> agentGO= new List<GameObject>();
 
-    public bool effectActive = true;
+    public bool effectActive = false;
 	
 	// Update is called once per frame
 	void Update () {
@@ -32,6 +32,5 @@ public class AlterMaterial : MonoBehaviour {
             mp.SetFloat("_AgentAmount", 0);
             terrain.SetSplatMaterialPropertyBlock(mp);
         }
-    }
     }
 }
