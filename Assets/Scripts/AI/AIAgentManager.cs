@@ -5,10 +5,10 @@ using UnityEngine.AI;
 
 public class AIAgentManager : MonoBehaviour {
 
-    private List<GameObject> agents;
+    public List<GameObject> agents;
 
 	void Awake () {
-        agents = new List<GameObject>();
+        //agents = new List<GameObject>();
     }
 
     public void registerAIAgent(GameObject go)

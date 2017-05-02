@@ -9,6 +9,8 @@ public class Cannibal_Skill : MonoBehaviour {
 
     [SerializeField]
     Transform cannibalObjectParent;
+    [SerializeField]
+    UIManager UIManager;
 
     /// <summary>
     /// Take an cannibal object or exchange if the cannibal has already an object
@@ -31,6 +33,11 @@ public class Cannibal_Skill : MonoBehaviour {
     {
         m_cannibalObject.Transform.SetParent(null);
         m_cannibalObject = null;
+    }
+
+    public void TriggerHuntSense(string playerID, bool state)
+    {
+        UIManager.triggerHuntSense(playerID, state);
     }
 
 }
