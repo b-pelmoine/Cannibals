@@ -6,11 +6,8 @@ public class Cannibal_HunterEar : Cannibal_State {
 
     protected override void OnEnter()
     {
-        m_cannibal.m_cannibalSkill.TriggerHuntSense(m_cannibal.gameObject.GetComponent<RewiredInput>().playerInputID, true);
+        //Mettre Le code de l'ouïe ici
     }
 
-    protected override void OnExit()
-    {
-        m_cannibal.m_cannibalSkill.TriggerHuntSense(m_cannibal.gameObject.GetComponent<RewiredInput>().playerInputID, false);
-    }
+
 }

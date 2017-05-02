@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{C3F972CA-666D-4457-A830-349CA8267638}" SchemaVersion="75">
 	<States>
-		<WorkUnit Name="Default Work Unit" ID="{C3F972CA-666D-4457-A830-349CA8267638}" PersistMode="Standalone">
-			<ChildrenList>
-				<StateGroup Name="HunterEars" ID="{5734CFA7-1D01-4C36-AC30-091216E931A3}">
-					<ChildrenList>
-						<State Name="None" ID="{FC007B0B-2813-4297-8F28-CD2AD59A1AAA}"/>
-						<State Name="Active" ID="{68E92B5D-0148-4950-83F6-076A0952FE8D}"/>
-						<State Name="Disabled" ID="{FBD76EA6-8C26-4638-A256-ABDCE59372CE}"/>
-					</ChildrenList>
-					<TransitionList>
-						<Transition>
-							<StartState Name="Disabled" ID="{FBD76EA6-8C26-4638-A256-ABDCE59372CE}"/>
-							<EndState Name="Active" ID="{68E92B5D-0148-4950-83F6-076A0952FE8D}"/>
-							<Time>2</Time>
-							<IsShared>true</IsShared>
-						</Transition>
-					</TransitionList>
-				</StateGroup>
-			</ChildrenList>
-		</WorkUnit>
+		<WorkUnit Name="Default Work Unit" ID="{C3F972CA-666D-4457-A830-349CA8267638}" PersistMode="Standalone"/>
 	</States>
 </WwiseDocument>
