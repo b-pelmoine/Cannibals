@@ -21,6 +21,9 @@ public class CheckTriggerExt<T> : ConditionTask<Collider>
     private bool stay;
     List<Collider> colliders = new List<Collider>();
 
+    List<T> stayList = new List<T>();
+    List<Collider> stayCollider = new List<Collider>();
+
     protected override string info
     {
         get { return checkType.ToString() + (specifiedTagOnly ? (" '" + objectTag + "' tag") : ""); }
@@ -30,6 +33,15 @@ public class CheckTriggerExt<T> : ConditionTask<Collider>
     {
         if (checkType == TriggerTypes.TriggerStay)
         {
+            colliders.Clear();
+            savedList.value.Clear();
+
+            foreach (Collider c in stayCollider)
+                colliders.Add(c);
+
+            foreach (T t in stayList)
+                savedList.value.Add(t);
+
             for (int i = colliders.Count - 1; i >= 0; i--)
             {
                 if (!colliders[i].enabled)
@@ -58,6 +70,9 @@ public class CheckTriggerExt<T> : ConditionTask<Collider>
                 {
                     savedList.value.Add(script);
                     colliders.Add(other);
+
+                    stayList.Add(script);
+                    stayCollider.Add(other);
                 }
 
                 if (checkType == TriggerTypes.TriggerEnter || checkType == TriggerTypes.TriggerStay)
@@ -80,6 +95,9 @@ public class CheckTriggerExt<T> : ConditionTask<Collider>
             {
                 colliders.Remove(other);
                 savedList.value.Remove(script);
+
+                stayList.Remove(script);
+                stayCollider.Remove(other);
 
                 if (checkType == TriggerTypes.TriggerExit)
                 {
