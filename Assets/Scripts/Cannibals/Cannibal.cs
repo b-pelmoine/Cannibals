@@ -72,11 +72,7 @@ public class Cannibal : MonoBehaviour {
         return CurrentState().Kill(); }
 
 
-    /// <summary>
-    /// Revive the cannibal
-    /// </summary>
-    /// <returns>false if the cannibal can't be revived in the current state</returns>
-    public bool Revive() { return CurrentState().Revive(); }
+
 
     public bool IsDead()
     {
