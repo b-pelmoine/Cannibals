@@ -117,7 +117,7 @@ public class WaypointEditor : Editor {
             Handles.color = Color.blue;
             lastControlID = GUIUtility.hotControl;
             Handles.Label(t.points[i].position, t.points[i].tag);
-            Handles.FreeMoveHandle(t.points[i].position, Quaternion.identity, .5f, new Vector3(.5f, .5f, .5f), Handles.SphereCap);
+            Handles.FreeMoveHandle(t.points[i].position, Quaternion.identity, .5f, new Vector3(.5f, .5f, .5f), Handles.SphereHandleCap);
             Handles.color = Color.white;
             if (GUIUtility.hotControl != lastControlID)
             {
@@ -193,20 +193,8 @@ public class WaypointEditor : Editor {
                 for(int i=0; i < t.points.Count;i++) 
                 {
                     var wpoint = t.points[i];
-                    for(int j= 0;j < wpoint.links.Count;j++)
-                    {
-                        var p = wpoint.links[j];
-                        Handles.color = Color.red;
-                        Vector3 v = t.points[p].position - wpoint.position;
-                        Vector3 arrow_position = wpoint.position + v*0.6f;
-                        Vector3 v2 = Quaternion.Euler(0, 15, 0)*(-v.normalized/2);
-                        Vector3 v3 = Quaternion.Euler(0, -15, 0) * (-v.normalized/2);
-                        Handles.DrawLine(wpoint.position, t.points[p].position);
-                        Handles.color = Color.magenta;
-                        Handles.DrawLine(arrow_position, arrow_position+v2);
-                        Handles.DrawLine(arrow_position, arrow_position+v3);
-                        Handles.color = Color.white;
-                    }
+                    var wnext = t.points[(i + 1) % t.points.Count];
+                    drawArrow(wpoint.position, wnext.position);
                 }
                 if (drag)
                     Handles.DrawLine(t.points[startPoint].position, castRay());
@@ -244,5 +232,19 @@ public class WaypointEditor : Editor {
                 result = i;
         }
         return result;
+    }
+
+    private void drawArrow(Vector3 origin, Vector3 destination)
+    {
+        Handles.color = Color.red;
+        Vector3 v = destination - origin;
+        Vector3 arrow_position = origin + v * 0.6f;
+        Vector3 v2 = Quaternion.Euler(0, 15, 0) * (-v.normalized / 2);
+        Vector3 v3 = Quaternion.Euler(0, -15, 0) * (-v.normalized / 2);
+        Handles.DrawLine(origin, destination);
+        Handles.color = Color.magenta;
+        Handles.DrawLine(arrow_position, arrow_position + v2);
+        Handles.DrawLine(arrow_position, arrow_position + v3);
+        Handles.color = Color.white;
     }
 }
