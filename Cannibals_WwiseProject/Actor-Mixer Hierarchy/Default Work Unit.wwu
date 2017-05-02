@@ -15727,6 +15727,78 @@
 												</Sound>
 											</ChildrenList>
 										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Granny" ID="{6BABF4AF-A2D8-4D1B-8BDC-DF1133780615}" ShortID="152633789">
+											<PropertyList>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="Granny_1" ID="{86E8D9D6-31A1-4BE3-A363-795872C1B313}" ShortID="438154377" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="REC M1_189" ID="{DCF9ECF7-FEF0-4BD0-914E-A68A752EA1B0}" ShortID="359378396">
+															<Language>SFX</Language>
+															<AudioFile>REC M1_189.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="REC M1_189" ID="{DCF9ECF7-FEF0-4BD0-914E-A68A752EA1B0}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Granny_2" ID="{032E0331-A792-4D3F-A4F5-9290464F1983}" ShortID="1072335612" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="REC M1_190" ID="{761CD756-E767-4CB4-89E4-744AFA6E75A6}" ShortID="709071608">
+															<Language>SFX</Language>
+															<AudioFile>REC M1_190.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="REC M1_190" ID="{761CD756-E767-4CB4-89E4-744AFA6E75A6}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Granny_3" ID="{29D8BC94-41D8-4B1E-A1B3-998189D623B5}" ShortID="835259755" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="REC M1_191" ID="{9B2ED332-0AC9-4F5D-8FE2-F6F1FB7AAD8E}" ShortID="440330387">
+															<Language>SFX</Language>
+															<AudioFile>REC M1_191.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="REC M1_191" ID="{9B2ED332-0AC9-4F5D-8FE2-F6F1FB7AAD8E}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
 									</ChildrenList>
 									<GroupingInfo>
 										<GroupRef Name="Objects" ID="{C486FDA2-5308-40FA-B88A-A5EC8EAFA195}"/>
@@ -15749,6 +15821,9 @@
 											</GroupingBehavior>
 											<GroupingBehavior>
 												<ItemRef Name="Cookie" ID="{D90B3765-7751-47FB-9703-73EB58C3F233}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Granny" ID="{6BABF4AF-A2D8-4D1B-8BDC-DF1133780615}"/>
 											</GroupingBehavior>
 											<GroupingBehavior>
 												<ItemRef Name="Bone" ID="{128449E9-4EBA-4D64-91C5-58D0C9DA7123}"/>
@@ -15792,6 +15867,12 @@
 												<SwitchRef Name="Mushrooms" ID="{10F544AE-B417-475C-B27F-3251CFCD6D18}"/>
 												<ItemList>
 													<ItemRef Name="Shrooms" ID="{893A1434-7816-4069-9D5B-D9AD84FD4EF3}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="Granny" ID="{3BF5A6C7-3344-46A7-864A-D88357D27EBE}"/>
+												<ItemList>
+													<ItemRef Name="Granny" ID="{6BABF4AF-A2D8-4D1B-8BDC-DF1133780615}"/>
 												</ItemList>
 											</Grouping>
 											<Grouping>
