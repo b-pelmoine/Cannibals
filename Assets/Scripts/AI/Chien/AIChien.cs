@@ -6,11 +6,6 @@ using UnityEngine;
 public class AIChien : MonoBehaviour {
 
     IBlackboard blackboard;
-    public GameObject patrouille;
-    Waypoint _waypoint;
-    public Vector3 targetPosition;
-    int currentWaypoint;
-    public float waypointDistance;
     public bool arrived=false;
     LineOfSight los;
     public enum btargetType
@@ -22,42 +17,36 @@ public class AIChien : MonoBehaviour {
     public bool sawSomething = false;
 	// Use this for initialization
 	void Start () {
-        _waypoint = patrouille.GetComponent<Waypoint>();
-        currentWaypoint = _waypoint.getNearest(transform.position);
-        targetPosition = _waypoint[currentWaypoint];
         los = GetComponent<LineOfSight>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if ((transform.position - targetPosition).sqrMagnitude < waypointDistance)
-        {
-            currentWaypoint = _waypoint.getNext(currentWaypoint);
-            targetPosition = _waypoint[currentWaypoint];
-            arrived = true;
-        }
-        /*if (los!=null && !sawSomething && los.Updated)
+        if (los!=null && !sawSomething && los.Updated)
         {
             AnalyseSight();
-        }*/
+        }
 	}
 
     void AnalyseSight()
     {
         for(int i = 0; i < los.sighted.Count; i++)
         {
-            if (los.sighted[i].CompareTag("Viande"))
+            if (los.sighted[i].GetComponent<Bone>() != null)
             {
                 target = los.sighted[i];
                 targetType = btargetType.Viande;
                 sawSomething = true;
             }
-            else if ((target == null || (targetType==btargetType.Animal && (transform.position- target.transform.position).sqrMagnitude>(transform.position-los.sighted[i].transform.position).sqrMagnitude))
-                && los.sighted[i].CompareTag("Animal"))
+            else
             {
-                target = los.sighted[i];
-                targetType = btargetType.Animal;
-                sawSomething = true;
+                Bush buisson = los.sighted[i].GetComponent<Bush>();
+                if(buisson != null && buisson.IsMoving())
+                {
+                    target = los.sighted[i];
+                    targetType = btargetType.Buisson;
+                    sawSomething = true;
+                }
             }
         }
     }

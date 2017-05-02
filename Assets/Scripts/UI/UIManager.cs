@@ -6,7 +6,7 @@ public class UIManager : MonoBehaviour {
 
     public OffscreenIndicator indicator;
     public AlterMaterial huntSenseTerrain;
-    public AIAgentManager IAmanager;
+
 
     private bool huntSensActive;
     private float elapsedTime;
@@ -17,7 +17,7 @@ public class UIManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        huntSenseTerrain.agentGO = IAmanager.getActiveAgents();
+        huntSenseTerrain.agentGO = AIAgentManager.getActiveAgents();
     }
 	
 	// Update is called once per frame
@@ -49,7 +49,7 @@ public class UIManager : MonoBehaviour {
                 Shader.SetGlobalFloat("_Intensity", HuntSenseFinalIntensity);
             }
             //update the array of AIAgents removing the ones that are dead
-            indicator.AIAgents = IAmanager.getActiveAgents().ToArray();
+            indicator.AIAgents = AIAgentManager.getActiveAgents().ToArray();
         }
         else
         {

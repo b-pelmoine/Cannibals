@@ -16,7 +16,19 @@ public class Shoot : ActionTask {
         if(Physics.Raycast(position,direction, out hit, distance.value, mask.value))
         {
             Debug.Log(hit.collider.gameObject);
-            hit.collider.gameObject.GetComponentInParent<GraphOwner>().SendEvent("Death");
+            AI.AIAgent agent = hit.collider.gameObject.GetComponent<AI.AIAgent>();
+            if (agent != null)
+            {
+                agent.Kill();
+            }
+            else
+            {
+                Cannibal cannibal = hit.collider.gameObject.GetComponentInParent<Cannibal>();
+                if (cannibal != null)
+                {
+                    cannibal.Kill();
+                }
+            }
         }
         EndAction();
     }
