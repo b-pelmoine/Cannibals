@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIManager : MonoBehaviour {
+public class UIManager : MonoBehaviour
+{
 
     public OffscreenIndicator indicator;
     public AlterMaterial huntSenseTerrain;
@@ -19,26 +20,28 @@ public class UIManager : MonoBehaviour {
 
     private Dictionary<string, bool> cannibalsHuntSenseState;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         huntSenseTerrain.agentGO = IAmanager.getActiveAgents();
         huntSenseTerrain.effectArea = 0;
         elapsedTime = 50f;
         cannibalsHuntSenseState = new Dictionary<string, bool>();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         //update UI for hunt sense
         UpdateHuntSense();
-	}
+    }
 
     public void triggerHuntSense(string cannibalID, bool state)
     {
         cannibalsHuntSenseState[cannibalID] = state;
         huntSensActive = false;
         //check if there is at least one cannibal using the huntersense
-        foreach(bool state_t in cannibalsHuntSenseState.Values)
+        foreach (bool state_t in cannibalsHuntSenseState.Values)
         {
             huntSensActive = huntSensActive || state_t;
         }
@@ -63,15 +66,15 @@ public class UIManager : MonoBehaviour {
             }
             //update the array of AIAgents removing the ones that are dead
             GameObject[] activeAgents = IAmanager.getActiveAgents().ToArray();
-            foreach(GameObject agent in activeAgents)
+            foreach (GameObject agent in activeAgents)
             {
                 agent.GetComponent<Renderer>().material.SetFloat("_Intensity", effectIntensity);
             }
-            huntSenseTerrain.effectArea = agentSpreadAreaMax * effectIntensity * 1/HuntSenseFinalIntensity;
+            huntSenseTerrain.effectArea = agentSpreadAreaMax * effectIntensity * 1 / HuntSenseFinalIntensity;
             //if the list have changed
-            if(activeAgents.Length != indicator.AIAgents.Length)
+            if (activeAgents.Length != indicator.AIAgents.Length)
                 indicator.AIAgents = activeAgents;
-                
+
         }
         else
         {
