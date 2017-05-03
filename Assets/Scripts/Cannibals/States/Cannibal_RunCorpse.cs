@@ -8,6 +8,9 @@ public class Cannibal_RunCorpse : Cannibal_State {
     {
         base.OnUpdate();
 
+        if (m_cannibal.m_cannibalSkill.m_corpse.cannibals.Count <= 1)
+            return;
+
         Vector2 globalInput = Vector3.zero;
 
         foreach (Cannibal c in m_cannibal.m_cannibalSkill.m_corpse.cannibals)

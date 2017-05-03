@@ -19,10 +19,18 @@ public class CheckTriggerExt<T> : ConditionTask<Collider>
     public BBParameter<List<T>> savedList;
 
     private bool stay;
-    List<Collider> colliders = new List<Collider>();
+   // List<Collider> colliders = new List<Collider>();
 
-    List<T> stayList = new List<T>();
-    List<Collider> stayCollider = new List<Collider>();
+    class Info
+    {
+        public T script;
+        public List<Collider> colliders = new List<Collider>();
+    }
+
+    List<Info> infos = new List<Info>();
+
+    //List<T> stayList = new List<T>();
+    //List<Collider> stayCollider = new List<Collider>();
 
     protected override string info
     {
@@ -33,21 +41,34 @@ public class CheckTriggerExt<T> : ConditionTask<Collider>
     {
         if (checkType == TriggerTypes.TriggerStay)
         {
-            colliders.Clear();
+         //   colliders.Clear();
             savedList.value.Clear();
 
-            foreach (Collider c in stayCollider)
-                colliders.Add(c);
-
-            foreach (T t in stayList)
-                savedList.value.Add(t);
-
-            for (int i = colliders.Count - 1; i >= 0; i--)
+            foreach(Info i in infos)
             {
-                if (!colliders[i].enabled)
+                savedList.value.Add(i.script);
+            }
+
+            // foreach (Collider c in stayCollider)
+            //   colliders.Add(c);
+
+            // foreach (T t in stayList)
+            //   savedList.value.Add(t);
+
+            for (int i = infos.Count -1 ; i >= 0; i--)
+            {
+                for (int j = infos[i].colliders.Count - 1; j >= 0; j--)
                 {
-                    colliders.RemoveAt(i);
-                    savedList.value.RemoveAt(i);
+                    if (!infos[i].colliders[j].enabled)
+                    {
+                        infos[i].colliders.RemoveAt(j);
+
+                        if (infos[i].colliders.Count == 0)
+                        {
+                            savedList.value.Remove(infos[i].script);
+                            infos.RemoveAt(i);
+                        }
+                    }
                 }
             }
 
@@ -66,11 +87,23 @@ public class CheckTriggerExt<T> : ConditionTask<Collider>
 
             if (script != null)
             {
-                if(!savedList.value.Exists(x => { return x.Equals(script); }))
+                Info info = infos.Find(x => { return x.script.Equals(script); });
+
+                if (info != null)
+                    info.colliders.Add(other);
+                else
+                {
+                    info = new Info();
+                    info.script = script;
+                    info.colliders.Add(other);
+                    infos.Add(info);
+                }
+
+               /* if(!savedList.value.Exists(x => { return x.Equals(script); }))
                 {
                     stayList.Add(script);
                     stayCollider.Add(other);
-                }
+                }*/
 
                 if (checkType == TriggerTypes.TriggerEnter || checkType == TriggerTypes.TriggerStay)
                 {
@@ -90,8 +123,14 @@ public class CheckTriggerExt<T> : ConditionTask<Collider>
 
             if (script != null)
             {
-                stayList.Remove(script);
-                stayCollider.Remove(other);
+                Info info = infos.Find(x => { return x.script.Equals(script); });
+
+                if (info != null)
+                {
+                    info.colliders.Remove(other);
+                    if (info.colliders.Count == 0)
+                        infos.Remove(info);
+                }
 
                 if (checkType == TriggerTypes.TriggerExit)
                 {

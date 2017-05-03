@@ -26,16 +26,7 @@ public class Cannibal_Skill : MonoBehaviour {
     {
         if (m_corpse != null)
         {
-            if(m_corpse.cannibals.Count == 1)
-            {
-                m_corpse.m_transform.position = corpseTransform.position - corpseTakenCollider.center;
-            }
-        else if (m_cannibal.m_rewiredInput.number == 0)
-            {
-                m_corpse.m_transform.position = corpseTransform.position - corpseTakenCollider.center;
-            }
-            else
-                m_corpse.m_transform.position = corpseTransform.position - corpseTakenCollider.center;
+          m_corpse.m_transform.position = corpseTransform.position - corpseTakenCollider.center;
         }
 
     }

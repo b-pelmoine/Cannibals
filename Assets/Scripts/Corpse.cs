@@ -27,9 +27,17 @@ public class Corpse : MonoBehaviour {
 
         //MAL FAIT A REFAIRE NIVEAU CONCEPTION
         if (cannibals.Count == 1)
+        {
             cannibal.m_cannibalSkill.corpseTakenCollider = normalCollider;
+            m_rigidbody.isKinematic = true;
+            m_rigidbody.velocity = Vector3.zero;
+            m_rigidbody.angularVelocity = Vector3.zero;
 
-        if (cannibals.Count > 1)
+            normalCollider.enabled = false;
+            rightCollider.enabled = true;
+            leftCollider.enabled = true;
+        }
+        else if (cannibals.Count > 1)
         {
             cannibal.m_cannibalSkill.corpseTakenCollider = NearCollider(cannibal.m_cannibalAppearence.m_appearenceTransform.position);
 
@@ -41,16 +49,7 @@ public class Corpse : MonoBehaviour {
                 cannibals[0].m_cannibalSkill.corpseTakenCollider = rightCollider;
 
             cannibals[0].m_cannibalMovement.CharacterControllerEx.CharacterTransform.position = cannibals[0].m_cannibalSkill.corpseTakenCollider.center + cannibals[0].m_cannibalSkill.corpseTakenCollider.transform.position;
-        }
-        else
-        {
-            m_rigidbody.isKinematic = true;
-            m_rigidbody.velocity = Vector3.zero;
-            m_rigidbody.angularVelocity = Vector3.zero;
-
-            normalCollider.enabled = false;
-            rightCollider.enabled = true;
-            leftCollider.enabled = true;
+            cannibal.m_cannibalMovement.CharacterControllerEx.CharacterTransform.position = cannibal.m_cannibalSkill.corpseTakenCollider.center + cannibal.m_cannibalSkill.corpseTakenCollider.transform.position;
         }
     }
 
@@ -77,13 +76,13 @@ public class Corpse : MonoBehaviour {
         BoxCollider b = null;
         float minDistance = float.MaxValue;
 
-        if ((rightCollider.center + m_transform.position).magnitude < minDistance)
+        if ((rightCollider.transform.position + rightCollider.center - m_transform.position).magnitude < minDistance)
         {
             minDistance = (rightCollider.center + m_transform.position).magnitude;
             b = rightCollider;
         }
         
-        if ((leftCollider.center + m_transform.position).magnitude < minDistance)
+        if ((leftCollider.transform.position + leftCollider.center - m_transform.position).magnitude < minDistance)
             b = leftCollider;
 
         return b;
