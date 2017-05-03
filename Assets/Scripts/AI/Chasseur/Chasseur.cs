@@ -41,6 +41,7 @@ namespace AI
             {
                 foreach(GameObject obj in los.sighted)
                 {
+                    Cannibal cannibal = obj.GetComponentInParent<Cannibal>();
                     if (alerte && shootingTarget==null && obj.CompareTag("Player"))
                     {
                         shootingTarget = obj;
