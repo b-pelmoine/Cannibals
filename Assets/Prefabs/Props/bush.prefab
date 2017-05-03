@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114459082842510232}
   - component: {fileID: 114855613064038926}
   - component: {fileID: 114459478096066694}
+  - component: {fileID: 114714346304613038}
   m_Layer: 0
   m_Name: bush
   m_TagString: Untagged
@@ -97,8 +98,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1292751834278326}
   m_LocalRotation: {x: -0, y: -0.44281, z: -0, w: 0.8966155}
-  m_LocalPosition: {x: -60.278748, y: 2.418911, z: 279.79446}
-  m_LocalScale: {x: 1.5812502, y: 1.58125, z: 1.5812502}
+  m_LocalPosition: {x: 162.68, y: 3.09, z: 116.11}
+  m_LocalScale: {x: 1.5812507, y: 1.58125, z: 1.5812507}
   m_Children:
   - {fileID: 4333216079689744}
   - {fileID: 4696579009163220}
@@ -193,8 +194,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0717818, y: 1.1131345, z: 1.8277144}
-  m_Center: {x: 0.03589083, y: 0.056567814, z: -0.078792036}
+  m_Size: {x: 1.0717818, y: 0.79536676, z: 1.6855083}
+  m_Center: {x: 0.035890833, y: 0.21545093, z: -0.0076891016}
 --- !u!114 &114459082842510232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -228,6 +229,19 @@ MonoBehaviour:
   versionUpdateProxyGraph: {fileID: 0}
   _graph: {fileID: 11400000, guid: 4086f0581fb31ad499c0eae98cec6645, type: 2}
   _blackboard: {fileID: 0}
+--- !u!114 &114714346304613038
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1292751834278326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1123ed074b6511147b6704ba35126297, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detect_value: 30
+  mesh: {fileID: 23990358293445420}
 --- !u!114 &114855613064038926
 MonoBehaviour:
   m_ObjectHideFlags: 1

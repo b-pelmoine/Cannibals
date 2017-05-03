@@ -6,8 +6,6 @@ public class DemoForet : MonoBehaviour {
 
     [SerializeField]
     Cannibal[] cannibals;
-    [SerializeField]
-    Transform[] startPositions;
 
     Dictionary<string, bool> cannibalsInTheEnd;
     [Space]
@@ -17,10 +15,10 @@ public class DemoForet : MonoBehaviour {
 
 	void Start () {
         targetReachedTheExit = false;
+        cannibalsInTheEnd = new Dictionary<string, bool>();
         //init both cannibals
-        for(int i=0; i<2; ++i)
+        for (int i=0; i<2; ++i)
         {
-            cannibals[i].gameObject.transform.position = startPositions[i].position;
             cannibalsInTheEnd[cannibals[i].GetComponent<RewiredInput>().playerInputID] = false;
         }
     }
@@ -36,9 +34,11 @@ public class DemoForet : MonoBehaviour {
         }
         else
         {
-            //gameOver
+            Debug.Log("so bad");
         }
-	}
+        //magic button
+        if (Input.GetKeyDown(KeyCode.R)) UnityEngine.SceneManagement.SceneManager.LoadScene("Integration");
+    }
 
     bool BothCannibalsAreDead()
     {

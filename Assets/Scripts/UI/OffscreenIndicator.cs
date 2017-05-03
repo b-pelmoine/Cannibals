@@ -21,6 +21,7 @@ public class OffscreenIndicator : MonoBehaviour {
     public Texture tex_AI;
     public Texture tex_Target;
     public Texture tex_Player;
+    public Texture tex_Village;
 
     public Camera mCamera;
     private Vector3 center; // center of the screen
@@ -42,6 +43,9 @@ public class OffscreenIndicator : MonoBehaviour {
     public bool pulse_Targets = false;
     private List<IndicatorData> TargetOnScreenPositions;
 
+    public GameObject[] endPosition;
+    private List<IndicatorData> endPositions;
+
     private bool showAIAgents;
     private bool showTarget; // automatique ? offscreen = enabled
     private bool showPlayers;
@@ -56,7 +60,11 @@ public class OffscreenIndicator : MonoBehaviour {
         AIOnScreenPositions = new List<IndicatorData>();
         TargetOnScreenPositions = new List<IndicatorData>();
         PlayersOnScreenPositions = new List<IndicatorData>();
-	}
+        endPositions = new List<IndicatorData>();
+
+        showTarget = true;
+
+    }
 
     public void triggerAgentIndicator(bool state)
     {
@@ -95,6 +103,11 @@ public class OffscreenIndicator : MonoBehaviour {
                 GUI.DrawTexture(data._pos, tex_Player, ScaleMode.ScaleToFit);
             }
         }
+        //proto uiui
+        foreach (IndicatorData data in endPositions)
+        {
+            GUI.DrawTexture(data._pos, tex_Village, ScaleMode.ScaleToFit);
+        }
     }
 
     void Update () {
@@ -117,13 +130,14 @@ public class OffscreenIndicator : MonoBehaviour {
             List<GameObject> deadPlayers = new List<GameObject>();
             foreach(GameObject player in Players)
             {
-                //check if dead
                 if(player.GetComponent<Cannibal>().IsDead())
                     deadPlayers.Add(player);
             }
 
             addIndicatorForGameObjects(PlayersOnScreenPositions, deadPlayers.ToArray(), PlayersSizeMultiplier , true, pSpeed);
         }
+
+        addIndicatorForGameObjects(endPositions, endPosition, 2);
     }
 
     //add IndicatorData for the given GameObjects into the list
