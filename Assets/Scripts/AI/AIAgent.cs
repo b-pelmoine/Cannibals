@@ -16,7 +16,7 @@ namespace AI
 
         void Start()
         {
-            //AIAgentManager.registerAIAgent(this.gameObject);
+            AIAgentManager.registerAIAgent(this.gameObject);
         }
 
         public AIState State{
