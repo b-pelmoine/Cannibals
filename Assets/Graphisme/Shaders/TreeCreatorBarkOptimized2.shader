@@ -71,7 +71,7 @@ void surf (Input IN, inout SurfaceOutput o) {
 		if (isInFront(camToObj,camToFrag))
 			continue;
 		float3 nearest = ClosestPointOnLine(camToFrag, camToObj);
-		float val = (magnitude(camToFrag - nearest) / _Distance) - 0.5;
+		float val = (magnitude(camToFrag - nearest) / _Distance);
 		if (val<outalpha)
 			outalpha = val;
 	}
