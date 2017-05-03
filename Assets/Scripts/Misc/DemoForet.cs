@@ -31,7 +31,7 @@ public class DemoForet : MonoBehaviour {
         {
             if(targetReachedTheExit)
             {
-                //win
+                Debug.Log("gg wp");
             }
         }
         else
