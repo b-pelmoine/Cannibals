@@ -27,6 +27,14 @@ public class Shoot : ActionTask {
                 {
                     cannibal.Kill();
                 }
+                else
+                {
+                    Bush bush = hit.collider.gameObject.GetComponent<Bush>();
+                    if (bush != null)
+                    {
+                        bush.KillACannibal();
+                    }
+                }
             }
         }
         EndAction();

@@ -5,13 +5,13 @@ using UnityEngine.AI;
 
 public class AIAgentManager : MonoBehaviour {
 
-    public List<GameObject> agents;
+    static public List<GameObject> agents;
 
 	void Awake () {
-        //agents = new List<GameObject>();
+        agents = new List<GameObject>();
     }
 
-    public void registerAIAgent(GameObject go)
+    static public void registerAIAgent(GameObject go)
     {
         agents.Add(go);
     }
