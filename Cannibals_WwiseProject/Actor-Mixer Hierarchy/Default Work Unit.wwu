@@ -8,6 +8,9 @@
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
 						</Reference>
+						<Reference Name="Effect0" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
+							<ObjectRef Name="ForestAuterlitz_BetweenTrees" ID="{28BCB6C3-676B-4CA5-8683-D6CEA80A18F2}" WorkUnitID="{C0E78DAA-768A-438F-8F7B-3701395185C3}"/>
+						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
 						</Reference>
@@ -31,35 +34,43 @@
 										<Property Name="BelowThresholdBehavior" Type="int16" Value="2"/>
 										<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
 										<Property Name="InitialDelay" Type="Real64">
+											<ValueList>
+												<Value>4</Value>
+											</ValueList>
 											<ModifierList>
 												<ModifierInfo>
 													<Modifier Name="" ID="{A59C4AA8-8873-42BC-830C-ED40AD8845F6}">
 														<PropertyList>
-															<Property Name="Max" Type="Real64" Value="3"/>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="10"/>
 														</PropertyList>
 													</Modifier>
 												</ModifierInfo>
 											</ModifierList>
 										</Property>
 										<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+										<Property Name="MakeUpGain" Type="Real64">
+											<ValueList>
+												<Value>-15</Value>
+											</ValueList>
+										</Property>
 										<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
 										<Property Name="MaxSoundPerInstance" Type="int16">
 											<ValueList>
 												<Value>5</Value>
 											</ValueList>
 										</Property>
-										<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="OverrideVirtualVoice" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
-										<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64">
+										<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="5">
 											<ModifierList>
 												<ModifierInfo>
 													<Modifier Name="" ID="{CFFED1F0-2B29-46A7-BAF3-9B4AEFAE029C}">
 														<PropertyList>
 															<Property Name="Enabled" Type="bool" Value="True"/>
-															<Property Name="Max" Type="Real64" Value="5"/>
+															<Property Name="Max" Type="Real64" Value="15"/>
 														</PropertyList>
 													</Modifier>
 												</ModifierInfo>
@@ -1806,6 +1817,11 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Woodpecker" ID="{DE4F7C06-757A-4021-88AB-1C16C56136D8}" ShortID="104881613">
 											<PropertyList>
+												<Property Name="MakeUpGain" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
 												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="10"/>
 											</PropertyList>
 											<ReferenceList>
@@ -2429,6 +2445,11 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Squirrel" ID="{4FA7C2A5-D60D-4900-9316-69824FA7A6B5}" ShortID="104854200">
 											<PropertyList>
+												<Property Name="MakeUpGain" Type="Real64">
+													<ValueList>
+														<Value>-12</Value>
+													</ValueList>
+												</Property>
 												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="10"/>
 											</PropertyList>
 											<ReferenceList>
@@ -5548,6 +5569,13 @@
 													</ActiveSourceList>
 												</Sound>
 												<Sound Name="Flapping_bird_1" ID="{CECDE76C-BC72-459D-BABF-689FB1F66743}" ShortID="273233061" Type="SoundFX">
+													<PropertyList>
+														<Property Name="MakeUpGain" Type="Real64">
+															<ValueList>
+																<Value>-8</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -5567,6 +5595,13 @@
 													</ActiveSourceList>
 												</Sound>
 												<Sound Name="Flapping_bird_3" ID="{B838CE0F-1137-4505-B0C7-66C2B755FEE8}" ShortID="116194808" Type="SoundFX">
+													<PropertyList>
+														<Property Name="MakeUpGain" Type="Real64">
+															<ValueList>
+																<Value>-6</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -5586,6 +5621,13 @@
 													</ActiveSourceList>
 												</Sound>
 												<Sound Name="Flapping_bird_2" ID="{0F28B35F-8E6C-41C2-868B-359E081D2855}" ShortID="620946263" Type="SoundFX">
+													<PropertyList>
+														<Property Name="MakeUpGain" Type="Real64">
+															<ValueList>
+																<Value>-6</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -6278,7 +6320,15 @@
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="Loop forest tone" ID="{8325D55D-90B7-4D5E-B6E8-AE1F53F60669}" ShortID="555968419">
 									<PropertyList>
+										<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
+										<Property Name="MakeUpGain" Type="Real64">
+											<ValueList>
+												<Value>-20</Value>
+											</ValueList>
+										</Property>
+										<Property Name="OverrideEffect" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+										<Property Name="PlayMechanismResetPlaylistEachPlay" Type="bool" Value="False"/>
 										<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="4"/>
 										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
@@ -6293,36 +6343,40 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="Amb, tone, quiet birds" ID="{7061A00C-5A35-49BF-BC63-F07384F0FF2B}" ShortID="865248381" Type="SoundFX">
-											<PropertyList>
-												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-											</PropertyList>
+										<Sound Name="Amb, tone, quiet birds" ID="{0274266B-4961-4AD2-BC2F-0D037FB84D7A}" ShortID="825828226" Type="SoundFX">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+												</Reference>
+												<Reference Name="Effect0" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
+													<ObjectRef Name="ForestAuterlitz_BetweenTrees" ID="{28BCB6C3-676B-4CA5-8683-D6CEA80A18F2}" WorkUnitID="{C0E78DAA-768A-438F-8F7B-3701395185C3}"/>
 												</Reference>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="Amb, Field, Birds, Wind,-NORM_02-03" ID="{15646762-7EF7-44CE-B0BB-E803C8FECCDD}" ShortID="740443611">
+												<AudioFileSource Name="Amb, Field, Birds, Wind,-NORM_02-03" ID="{761F5272-9AB3-4C19-B191-086A6CE903AC}" ShortID="738637387">
 													<Language>SFX</Language>
 													<AudioFile>Amb, Field, Birds, Wind,-NORM_02-03.wav</AudioFile>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="Amb, Field, Birds, Wind,-NORM_02-03" ID="{15646762-7EF7-44CE-B0BB-E803C8FECCDD}" Platform="Linked"/>
+												<ActiveSource Name="Amb, Field, Birds, Wind,-NORM_02-03" ID="{761F5272-9AB3-4C19-B191-086A6CE903AC}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>
-									<Playlist>
-										<ItemRef Name="Amb, tone, quiet birds" ID="{7061A00C-5A35-49BF-BC63-F07384F0FF2B}"/>
-									</Playlist>
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="Loop forest birds" ID="{6269A903-DAA8-408C-821C-BC0DED45E95D}" ShortID="10424399">
 									<PropertyList>
+										<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
+										<Property Name="MakeUpGain" Type="Real64">
+											<ValueList>
+												<Value>-40</Value>
+											</ValueList>
+										</Property>
 										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+										<Property Name="PlayMechanismResetPlaylistEachPlay" Type="bool" Value="False"/>
 										<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="4"/>
 										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
@@ -6337,10 +6391,7 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="Amb birds" ID="{33E15918-6471-4FBD-87F9-99CC00FE2C45}" ShortID="415366771" Type="SoundFX">
-											<PropertyList>
-												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-											</PropertyList>
+										<Sound Name="Amb birds" ID="{16DD9D15-2522-4356-A140-5573838B83C0}" ShortID="65188525" Type="SoundFX">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -6350,19 +6401,16 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="24 - Sky lark - Feldlerch-NORM_05-01" ID="{12470D9F-D8FA-4EFF-83B5-1788D8BF2645}" ShortID="921407480">
+												<AudioFileSource Name="24 - Sky lark - Feldlerch-NORM_05-01" ID="{73E39DD5-F751-408E-911B-344623BBC005}" ShortID="250293860">
 													<Language>SFX</Language>
 													<AudioFile>24 - Sky lark - Feldlerch-NORM_05-01.wav</AudioFile>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="24 - Sky lark - Feldlerch-NORM_05-01" ID="{12470D9F-D8FA-4EFF-83B5-1788D8BF2645}" Platform="Linked"/>
+												<ActiveSource Name="24 - Sky lark - Feldlerch-NORM_05-01" ID="{73E39DD5-F751-408E-911B-344623BBC005}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>
-									<Playlist>
-										<ItemRef Name="Amb birds" ID="{33E15918-6471-4FBD-87F9-99CC00FE2C45}"/>
-									</Playlist>
 								</RandomSequenceContainer>
 							</ChildrenList>
 						</ActorMixer>
@@ -9373,6 +9421,9 @@
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+						</Reference>
+						<Reference Name="Effect0" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
+							<ObjectRef Name="ForestAuterlitz_BetweenTrees" ID="{28BCB6C3-676B-4CA5-8683-D6CEA80A18F2}" WorkUnitID="{C0E78DAA-768A-438F-8F7B-3701395185C3}"/>
 						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>

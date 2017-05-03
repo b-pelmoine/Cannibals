@@ -4,6 +4,9 @@
 		<WorkUnit Name="Default Work Unit" ID="{D49E8AC8-F75C-42C2-9D03-ECF68261003A}" PersistMode="Standalone">
 			<ChildrenList>
 				<Attenuation Name="Oiseaux" ID="{AD677CE6-1CAC-4F8E-919A-E8E41B105DF2}" ShortID="803479764">
+					<PropertyList>
+						<Property Name="RadiusMax" Type="Real64" Value="10"/>
+					</PropertyList>
 					<CurveUsageInfoList>
 						<VolumeDryUsage>
 							<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
@@ -16,20 +19,17 @@
 											<XPos>0</XPos>
 											<YPos>0</YPos>
 											<Flags>5</Flags>
+											<SegmentShape>Log2</SegmentShape>
 										</Point>
 										<Point>
-											<XPos>54.30379</XPos>
-											<YPos>-18.37768</YPos>
+											<XPos>4.56961</XPos>
+											<YPos>-11.29836</YPos>
 											<Flags>0</Flags>
+											<SegmentShape>Log2</SegmentShape>
 										</Point>
 										<Point>
-											<XPos>99.999</XPos>
-											<YPos>-200</YPos>
-											<Flags>0</Flags>
-										</Point>
-										<Point>
-											<XPos>100</XPos>
-											<YPos>-200</YPos>
+											<XPos>10</XPos>
+											<YPos>-20.98437</YPos>
 											<Flags>37</Flags>
 										</Point>
 									</PointList>

@@ -16,8 +16,8 @@ MonoBehaviour:
   - PhysicalPath: Events\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{D1C7715C-8472-4B77-B603-950C3928E700}'
-    m_lastTimePsrt1: 783906158
-    m_lastTimePart2: -1999336098
+    m_lastTimePsrt1: 139633864
+    m_lastTimePart2: -1999334984
     List:
     - Name: ambiance_forest_fauna
       Path: Default Work Unit\ambiance_forest_fauna
@@ -28,7 +28,7 @@ MonoBehaviour:
         ObjectType: 3
       ID: -386384871
       Guid: 03865da306cd934181c167936688a7c8
-      maxAttenuation: 0
+      maxAttenuation: 10
     - Name: ambiance_lake_and_water
       Path: Default Work Unit\ambiance_lake_and_water
       PathAndIcons:
@@ -67,7 +67,7 @@ MonoBehaviour:
       - ElementName: ambiance_tone
         ObjectType: 3
       ID: 584547376
-      Guid: 2e6f31717be66444aea5f16332cba6d0
+      Guid: ebf821fbd6224e46be9ba698633ce48a
       maxAttenuation: 0
     - Name: cannibals_coming_going_1
       Path: Default Work Unit\cannibals_coming_going_1
@@ -273,22 +273,47 @@ MonoBehaviour:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{068960D6-A717-493E-B90F-BE62835606C7}'
-    m_lastTimePsrt1: 1164287588
-    m_lastTimePart2: -1999343281
+    m_lastTimePsrt1: -1865280325
+    m_lastTimePart2: -1999334999
     List: []
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{C3F972CA-666D-4457-A830-349CA8267638}'
-    m_lastTimePsrt1: 1282436615
-    m_lastTimePart2: -1999343281
-    List: []
+    m_lastTimePsrt1: -1599757484
+    m_lastTimePart2: -1999335001
+    List:
+    - Name: HunterEars
+      Path: Default Work Unit\HunterEars
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: HunterEars
+        ObjectType: 9
+      ID: -1256875976
+      Guid: a7cf3457011d364cac30091216e931a3
+      values:
+      - Active
+      - Disabled
+      - None
+      ValueIcons:
+      - ElementName: Active
+        ObjectType: 8
+      - ElementName: Disabled
+        ObjectType: 8
+      - ElementName: None
+        ObjectType: 8
+      valueIDs: 7b2077035538a0c1db3ba32c
+      ValueGuids:
+      - bytes: 5d2be9684801504983f6076a0952fe8d
+      - bytes: a66ed7fb268c3846a256abdce59372ce
+      - bytes: 0b7b00fc132897428f28cd2ad59a1aaa
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{917B1601-1674-4C93-86DA-5657B5030971}'
-    m_lastTimePsrt1: 1578521057
-    m_lastTimePart2: -1999336423
+    m_lastTimePsrt1: -1599717317
+    m_lastTimePart2: -1999335001
     List:
     - Name: Going_and_coming
       Path: Default Work Unit\Going_and_coming
@@ -326,6 +351,7 @@ MonoBehaviour:
       - Can
       - Cookies
       - Duck
+      - Granny
       - Mushrooms
       - Plastic_duck
       - Rope
@@ -340,19 +366,22 @@ MonoBehaviour:
         ObjectType: 10
       - ElementName: Duck
         ObjectType: 10
+      - ElementName: Granny
+        ObjectType: 10
       - ElementName: Mushrooms
         ObjectType: 10
       - ElementName: Plastic_duck
         ObjectType: 10
       - ElementName: Rope
         ObjectType: 10
-      valueIDs: c75dfe6731b564e5a1a3973a821af99c66fefc9b828e691e312c7a6ead79d08c
+      valueIDs: c75dfe6731b564e5a1a3973a821af99c66fefc9bdc6d5d6d828e691e312c7a6ead79d08c
       ValueGuids:
       - bytes: 2b4369ed77ad2048aac3a9de72198ca5
       - bytes: f7b7a8af532b3e4d9e985701923b61e2
       - bytes: 4b3a84c5ea2c5a4da199a3b682153656
       - bytes: 48b050026060084c88ecf05272fbed37
       - bytes: 6694fd9c440f574ca8758e93d39b4c04
+      - bytes: c7a6f53b4433a746864ad88357d27ebe
       - bytes: ae44f51017b45c47b27f3251cfcd6d18
       - bytes: f21bc2aadbb31b4abe736f1cbbc07d07
       - bytes: 3c0e62f83e7a414bb8582b8568edcf89
@@ -397,14 +426,17 @@ MonoBehaviour:
         ObjectType: 7
       ID: 1455440938
       Guid: 1b20e257a602754783376efc6286caeb
-  ExpandedItems: []
+  ExpandedItems:
+  - /Cannibals_WwiseProject
+  - /Cannibals_WwiseProject/Events
+  - /Cannibals_WwiseProject/Events/Default Work Unit
   m_lastPopulateTimePsrt1: 0
   m_lastPopulateTimePart2: 0
   autoPopulateEnabled: 1
   basePath: Audio\GeneratedSoundBanks
   language: English(US)
-  defaultPoolSize: 4096
-  lowerPoolSize: 2048
-  streamingPoolSize: 1024
+  defaultPoolSize: 8192
+  lowerPoolSize: 16384
+  streamingPoolSize: 8192
   preparePoolSize: 0
   memoryCutoffThreshold: 0.95

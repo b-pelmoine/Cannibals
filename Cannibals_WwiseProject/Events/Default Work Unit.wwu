@@ -290,24 +290,6 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="ambiance_tone" ID="{71316F2E-E67B-4464-AEA5-F16332CBA6D0}">
-					<ChildrenList>
-						<Action Name="Play" ID="{7031DA8E-3B6C-4673-9C0F-212466C6C9F2}" ShortID="310731862" Type="Play" Scope="One" Global="false">
-							<ElementList>
-								<Element ID="{9E5C7408-E9CB-445E-8670-E88992FFFB6F}" Global="false">
-									<ObjectRef Name="Loop forest birds" ID="{6269A903-DAA8-408C-821C-BC0DED45E95D}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
-								</Element>
-							</ElementList>
-						</Action>
-						<Action Name="Play" ID="{78AD573B-A419-43BE-AC7A-8896AE2A1A81}" ShortID="878597064" Type="Play" Scope="One" Global="false">
-							<ElementList>
-								<Element ID="{2C52680B-843D-42D0-9C05-3E4072D493B8}" Global="false">
-									<ObjectRef Name="Loop forest tone" ID="{8325D55D-90B7-4D5E-B6E8-AE1F53F60669}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
-								</Element>
-							</ElementList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Event Name="ambiance_lake_fauna" ID="{E01EA589-5F7D-40EA-8C0B-415631B34CC3}">
 					<ChildrenList>
 						<Action Name="Play" ID="{180A0AAB-65E4-414F-90BA-2B3A480023C7}" ShortID="978727660" Type="Play" Scope="One" Global="false">
@@ -420,6 +402,24 @@
 							<ElementList>
 								<Element ID="{13213796-0818-4FB3-8C7F-CD898A9437D2}" Global="false">
 									<ObjectRef Name="Idle" ID="{95AA0BE4-5D82-45A8-B9C7-C6CDDF8DCC57}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="ambiance_tone" ID="{FB21F8EB-22D6-464E-BE9B-A698633CE48A}">
+					<ChildrenList>
+						<Action Name="Play" ID="{69CEEE49-A284-448E-81BC-DC4BD27EEA88}" ShortID="199539863" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{84D6A179-AF6B-49BF-B4D3-204282C5749D}" Global="false">
+									<ObjectRef Name="Loop forest birds" ID="{6269A903-DAA8-408C-821C-BC0DED45E95D}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Play" ID="{E8FABFBA-1CBB-4D49-9C9C-C666B4B38FE2}" ShortID="1036183767" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{A5E4ADB1-8A68-40F5-A2D7-BFC540B092A8}" Global="false">
+									<ObjectRef Name="Loop forest tone" ID="{8325D55D-90B7-4D5E-B6E8-AE1F53F60669}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
 								</Element>
 							</ElementList>
 						</Action>
