@@ -553,6 +553,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1515479988852726
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4461324009508458}
+  m_Layer: 12
+  m_Name: CorpseParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1521317007226900
 GameObject:
   m_ObjectHideFlags: 1
@@ -1408,6 +1423,19 @@ Transform:
   m_Father: {fileID: 4070672457990026}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4461324009508458
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1515479988852726}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.799, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4862562871971514}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4464909554898296
 Transform:
   m_ObjectHideFlags: 1
@@ -1769,6 +1797,7 @@ Transform:
   - {fileID: 4607302841101214}
   - {fileID: 4032406690156546}
   - {fileID: 4492891532676730}
+  - {fileID: 4461324009508458}
   m_Father: {fileID: 4627913784702358}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1923,8 +1952,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4704175, y: 1.6396856, z: 0.4395368}
-  m_Center: {x: 0, y: 0.14383292, z: 0.37}
+  m_Size: {x: 0.4704175, y: 2.8160043, z: 0.4395368}
+  m_Center: {x: 0, y: 0.7319925, z: 0.37}
 --- !u!65 &65311292302855688
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -2049,8 +2078,7 @@ MonoBehaviour:
     Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib,
     Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"corpses":{"_value":[],"_name":"corpses","_id":"fbe21068-1b02-4aab-82c4-5ed2e8bf31b9","$type":"NodeCanvas.Framework.Variable`1[[System.Collections.Generic.List`1[[Corpse,
     Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib,
-    Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"corpseTaken":{"_name":"corpseTaken","_id":"dc78e2fc-d35f-4423-bcfe-6f78c2cbc395","$type":"NodeCanvas.Framework.Variable`1[[Corpse,
-    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
+    Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences:
   - {fileID: 0}
   - {fileID: 114493353351655670}
@@ -2081,7 +2109,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806a3db5a6f12e44dbbc4bb58d103836, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_cannibal: {fileID: 114493353351655670}
   cannibalObjectParent: {fileID: 4430317694471516}
+  corpseTransform: {fileID: 4461324009508458}
+  UIManager: {fileID: 0}
+  corpseTakenCollider: {fileID: 0}
 --- !u!114 &114493353351655670
 MonoBehaviour:
   m_ObjectHideFlags: 1

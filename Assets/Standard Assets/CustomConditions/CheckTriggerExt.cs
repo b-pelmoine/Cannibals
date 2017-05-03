@@ -68,9 +68,6 @@ public class CheckTriggerExt<T> : ConditionTask<Collider>
             {
                 if(!savedList.value.Exists(x => { return x.Equals(script); }))
                 {
-                    savedList.value.Add(script);
-                    colliders.Add(other);
-
                     stayList.Add(script);
                     stayCollider.Add(other);
                 }
@@ -93,9 +90,6 @@ public class CheckTriggerExt<T> : ConditionTask<Collider>
 
             if (script != null)
             {
-                colliders.Remove(other);
-                savedList.value.Remove(script);
-
                 stayList.Remove(script);
                 stayCollider.Remove(other);
 
