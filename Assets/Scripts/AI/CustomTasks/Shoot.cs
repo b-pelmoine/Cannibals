@@ -6,7 +6,6 @@ using UnityEngine;
 public class Shoot : ActionTask {
     public BBParameter<LayerMask> mask;
     public BBParameter<float> distance;
-    public BBParameter<GameObject> target;
 
     protected override void OnExecute()
     {
