@@ -21,6 +21,7 @@ public class LineOfSightManager : MonoBehaviour {
         Debug.Log("LineOfSightManager:"+ agent + "registered");
     }
 
+
     public IEnumerator Detect()
     {
         while (agents_sight.Count == 0)
