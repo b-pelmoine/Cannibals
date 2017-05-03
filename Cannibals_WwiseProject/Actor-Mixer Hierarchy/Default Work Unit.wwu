@@ -8,8 +8,8 @@
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
 						</Reference>
-						<Reference Name="Effect0" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
-							<ObjectRef Name="ForestAuterlitz_BetweenTrees" ID="{28BCB6C3-676B-4CA5-8683-D6CEA80A18F2}" WorkUnitID="{C0E78DAA-768A-438F-8F7B-3701395185C3}"/>
+						<Reference Name="Effect0" CompanyID="4095" PluginID="65535" PluginType="15">
+							<ObjectRef Name="ForestAuterlitz_DenseFar" ID="{0F74A865-50E7-4277-956F-A54FFB0E301C}" WorkUnitID="{C0E78DAA-768A-438F-8F7B-3701395185C3}"/>
 						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
@@ -18,6 +18,11 @@
 					<ChildrenList>
 						<ActorMixer Name="Amb Forest" ID="{4DBA9C02-99F2-4E74-9FFE-0EC16ABB6BF4}" ShortID="935235556">
 							<PropertyList>
+								<Property Name="MakeUpGain" Type="Real64">
+									<ValueList>
+										<Value>6</Value>
+									</ValueList>
+								</Property>
 								<Property Name="OverLimitBehavior" Type="int16" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
@@ -6320,7 +6325,6 @@
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="Loop forest tone" ID="{8325D55D-90B7-4D5E-B6E8-AE1F53F60669}" ShortID="555968419">
 									<PropertyList>
-										<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
 										<Property Name="MakeUpGain" Type="Real64">
 											<ValueList>
 												<Value>-20</Value>
@@ -6343,33 +6347,32 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="Amb, tone, quiet birds" ID="{0274266B-4961-4AD2-BC2F-0D037FB84D7A}" ShortID="825828226" Type="SoundFX">
+										<Sound Name="Amb tone" ID="{DA9FE918-7493-470A-8EA9-3D6D49BAB8FC}" ShortID="872787685" Type="SoundFX">
 											<ReferenceList>
 												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
-												</Reference>
-												<Reference Name="Effect0" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
-													<ObjectRef Name="ForestAuterlitz_BetweenTrees" ID="{28BCB6C3-676B-4CA5-8683-D6CEA80A18F2}" WorkUnitID="{C0E78DAA-768A-438F-8F7B-3701395185C3}"/>
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
 												</Reference>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="Amb, Field, Birds, Wind,-NORM_02-03" ID="{761F5272-9AB3-4C19-B191-086A6CE903AC}" ShortID="738637387">
+												<AudioFileSource Name="Amb, Field, Birds, Wind,-NORM_02-03" ID="{866AF7C9-0030-4F47-8731-65ED04950B28}" ShortID="835903690">
 													<Language>SFX</Language>
 													<AudioFile>Amb, Field, Birds, Wind,-NORM_02-03.wav</AudioFile>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="Amb, Field, Birds, Wind,-NORM_02-03" ID="{761F5272-9AB3-4C19-B191-086A6CE903AC}" Platform="Linked"/>
+												<ActiveSource Name="Amb, Field, Birds, Wind,-NORM_02-03" ID="{866AF7C9-0030-4F47-8731-65ED04950B28}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>
+									<Playlist>
+										<ItemRef Name="Amb tone" ID="{DA9FE918-7493-470A-8EA9-3D6D49BAB8FC}"/>
+									</Playlist>
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="Loop forest birds" ID="{6269A903-DAA8-408C-821C-BC0DED45E95D}" ShortID="10424399">
 									<PropertyList>
-										<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
 										<Property Name="MakeUpGain" Type="Real64">
 											<ValueList>
 												<Value>-40</Value>
@@ -6391,26 +6394,29 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="Amb birds" ID="{16DD9D15-2522-4356-A140-5573838B83C0}" ShortID="65188525" Type="SoundFX">
+										<Sound Name="Amb birds" ID="{425D3B3A-BF20-4050-AFBC-5CE77BF8F525}" ShortID="984783743" Type="SoundFX">
 											<ReferenceList>
 												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
 												</Reference>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="24 - Sky lark - Feldlerch-NORM_05-01" ID="{73E39DD5-F751-408E-911B-344623BBC005}" ShortID="250293860">
+												<AudioFileSource Name="24 - Sky lark - Feldlerch-NORM_05-01" ID="{8ABB9383-DF74-4452-A3C9-7B2A5A7667DD}" ShortID="857493091">
 													<Language>SFX</Language>
 													<AudioFile>24 - Sky lark - Feldlerch-NORM_05-01.wav</AudioFile>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="24 - Sky lark - Feldlerch-NORM_05-01" ID="{73E39DD5-F751-408E-911B-344623BBC005}" Platform="Linked"/>
+												<ActiveSource Name="24 - Sky lark - Feldlerch-NORM_05-01" ID="{8ABB9383-DF74-4452-A3C9-7B2A5A7667DD}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>
+									<Playlist>
+										<ItemRef Name="Amb birds" ID="{425D3B3A-BF20-4050-AFBC-5CE77BF8F525}"/>
+									</Playlist>
 								</RandomSequenceContainer>
 							</ChildrenList>
 						</ActorMixer>
@@ -6426,6 +6432,11 @@
 							<ChildrenList>
 								<RandomSequenceContainer Name="Loop river" ID="{83CE6832-5AB5-4683-9CF1-182B0FE34789}" ShortID="469915938">
 									<PropertyList>
+										<Property Name="MakeUpGain" Type="Real64">
+											<ValueList>
+												<Value>-20</Value>
+											</ValueList>
+										</Property>
 										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="4"/>
@@ -6435,6 +6446,9 @@
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+										</Reference>
+										<Reference Name="Effect0" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
+											<ObjectRef Name="ForestAuterlitz_DenseFar" ID="{0F74A865-50E7-4277-956F-A54FFB0E301C}" WorkUnitID="{C0E78DAA-768A-438F-8F7B-3701395185C3}"/>
 										</Reference>
 										<Reference Name="OutputBus">
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
@@ -6470,6 +6484,11 @@
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="Loop river on lake" ID="{C5F91A81-DD85-4077-BF2B-D51D15A680AA}" ShortID="1036029102">
 									<PropertyList>
+										<Property Name="MakeUpGain" Type="Real64">
+											<ValueList>
+												<Value>-20</Value>
+											</ValueList>
+										</Property>
 										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="4"/>
@@ -6479,6 +6498,9 @@
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+										</Reference>
+										<Reference Name="Effect0" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
+											<ObjectRef Name="ForestAuterlitz_DenseFar" ID="{0F74A865-50E7-4277-956F-A54FFB0E301C}" WorkUnitID="{C0E78DAA-768A-438F-8F7B-3701395185C3}"/>
 										</Reference>
 										<Reference Name="OutputBus">
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
@@ -6510,50 +6532,6 @@
 									</ChildrenList>
 									<Playlist>
 										<ItemRef Name="River_on_lake" ID="{79BA4083-8E83-44D7-9D3F-BE15A8DB2BDA}"/>
-									</Playlist>
-								</RandomSequenceContainer>
-								<RandomSequenceContainer Name="Loop water on rocks (lake)" ID="{2F59986A-2C9B-4E40-A360-5DFB1C88E674}" ShortID="1036362402">
-									<PropertyList>
-										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
-										<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
-										<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="4"/>
-										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
-										<Property Name="RandomOrSequence" Type="int16" Value="0"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<Sound Name="Water_on_rocks" ID="{FD52E5C7-44A9-49E2-AA17-9F23C41A526B}" ShortID="477694309" Type="SoundFX">
-											<PropertyList>
-												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="WTR WaterLappingOnR 6035-NORM_01-02" ID="{6CF9D8B5-FD47-4CF2-9F62-5ED0BEA9E2F0}" ShortID="872939">
-													<Language>SFX</Language>
-													<AudioFile>WTR WaterLappingOnR 6035-NORM_01-02.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="WTR WaterLappingOnR 6035-NORM_01-02" ID="{6CF9D8B5-FD47-4CF2-9F62-5ED0BEA9E2F0}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-									</ChildrenList>
-									<Playlist>
-										<ItemRef Name="Water_on_rocks" ID="{FD52E5C7-44A9-49E2-AA17-9F23C41A526B}"/>
 									</Playlist>
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="Ducks" ID="{7F1B24E6-8ADE-4023-BC8E-414DECE5BBDB}" ShortID="666235602">
@@ -7567,37 +7545,33 @@
 										</Sound>
 									</ChildrenList>
 								</RandomSequenceContainer>
-								<RandomSequenceContainer Name="Frogs" ID="{FB041A0E-0635-4ED5-B2F6-EAF48C0079E4}" ShortID="651189529">
+								<ActorMixer Name="River" ID="{C3BBF26A-CA57-4F7C-8058-2073FD8D90A3}" ShortID="1029778710">
 									<PropertyList>
-										<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
-										<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
-										<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64">
-											<ModifierList>
-												<ModifierInfo>
-													<Modifier Name="" ID="{AB1EE8E0-9F35-4984-816B-0A3E93CDA9B7}">
-														<PropertyList>
-															<Property Name="Enabled" Type="bool" Value="True"/>
-															<Property Name="Max" Type="Real64" Value="5"/>
-														</PropertyList>
-													</Modifier>
-												</ModifierInfo>
-											</ModifierList>
-										</Property>
-										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="PositioningType" Type="int16" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="River_Amb" ID="{6D9E988C-E505-49AC-B3C5-EF82C3006DE8}" WorkUnitID="{D49E8AC8-F75C-42C2-9D03-ECF68261003A}"/>
+										</Reference>
 										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
 										</Reference>
 										<Reference Name="OutputBus">
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<RandomSequenceContainer Name="Edible frog" ID="{593EE014-A631-4A15-A1AD-80A48AA99EFD}" ShortID="535590291">
+										<RandomSequenceContainer Name="Loop water on rocks (lake)" ID="{2F59986A-2C9B-4E40-A360-5DFB1C88E674}" ShortID="1036362402">
 											<PropertyList>
+												<Property Name="MakeUpGain" Type="Real64">
+													<ValueList>
+														<Value>-20</Value>
+													</ValueList>
+												</Property>
 												<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 												<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="4"/>
 												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
 											</PropertyList>
@@ -7605,12 +7579,15 @@
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
 												</Reference>
+												<Reference Name="Effect0" CompanyID="4095" PluginID="65535" PluginType="15">
+													<ObjectRef Name="ForestAuterlitz_DenseFar" ID="{0F74A865-50E7-4277-956F-A54FFB0E301C}" WorkUnitID="{C0E78DAA-768A-438F-8F7B-3701395185C3}"/>
+												</Reference>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<Sound Name="Edible_frog_17" ID="{BD0C2BFD-01BE-42A7-ADAE-1AD00FC48965}" ShortID="122336280" Type="SoundFX">
+												<Sound Name="Water_on_rocks" ID="{FD52E5C7-44A9-49E2-AA17-9F23C41A526B}" ShortID="477694309" Type="SoundFX">
 													<PropertyList>
 														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 													</PropertyList>
@@ -7623,488 +7600,62 @@
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
-														<AudioFileSource Name="MFX5_01" ID="{1DC191F5-D5E3-43A2-99AA-CEA65BFDE368}" ShortID="231692371">
+														<AudioFileSource Name="WTR WaterLappingOnR 6035-NORM_01-02" ID="{6CF9D8B5-FD47-4CF2-9F62-5ED0BEA9E2F0}" ShortID="872939">
 															<Language>SFX</Language>
-															<AudioFile>Grenouilles\MFX5_01.wav</AudioFile>
+															<AudioFile>WTR WaterLappingOnR 6035-NORM_01-02.wav</AudioFile>
 														</AudioFileSource>
 													</ChildrenList>
 													<ActiveSourceList>
-														<ActiveSource Name="MFX5_01" ID="{1DC191F5-D5E3-43A2-99AA-CEA65BFDE368}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="Edible_frog_10" ID="{7A48D2B3-EA25-4134-A902-84AC2EDADFE3}" ShortID="353638141" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="06 Grenouille verte (Edib-NORM_14-30_L" ID="{3628B011-42A5-42F0-9D6E-83170C5E04D7}" ShortID="971525168">
-															<Language>SFX</Language>
-															<AudioFile>Grenouilles\06 Grenouille verte (Edib-NORM_14-30.L.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="06 Grenouille verte (Edib-NORM_14-30_L" ID="{3628B011-42A5-42F0-9D6E-83170C5E04D7}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="Edible_frog_5" ID="{BE5C4A36-85ED-4C32-891F-10AD4444E1B9}" ShortID="539159754" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="06 Grenouille verte (Edib-NORM_05-14_L" ID="{00B0E76C-DAF3-4C7E-A95A-6779FD577B94}" ShortID="53498004">
-															<Language>SFX</Language>
-															<AudioFile>Grenouilles\06 Grenouille verte (Edib-NORM_05-14.L.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="06 Grenouille verte (Edib-NORM_05-14_L" ID="{00B0E76C-DAF3-4C7E-A95A-6779FD577B94}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="Edible_frog_9" ID="{F4EF1A4B-F9F4-4E55-93AB-937814162C91}" ShortID="681073787" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="06 Grenouille verte (Edib-NORM_11-52_L" ID="{CB5A834D-3145-4838-B22E-524B3A406D43}" ShortID="692876790">
-															<Language>SFX</Language>
-															<AudioFile>Grenouilles\06 Grenouille verte (Edib-NORM_11-52.L.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="06 Grenouille verte (Edib-NORM_11-52_L" ID="{CB5A834D-3145-4838-B22E-524B3A406D43}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="Edible_frog_14" ID="{D4388FA0-A618-4F31-B95D-84D68BD25EAA}" ShortID="827656757" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="06 Grenouille verte (Edib-NORM_22-46_L" ID="{78A75809-64DC-481C-9245-9C5C70B041D0}" ShortID="848787283">
-															<Language>SFX</Language>
-															<AudioFile>Grenouilles\06 Grenouille verte (Edib-NORM_22-46.L.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="06 Grenouille verte (Edib-NORM_22-46_L" ID="{78A75809-64DC-481C-9245-9C5C70B041D0}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="Edible_frog_7" ID="{4401ACA5-4DEB-4BCE-96F6-BD20E260BF5D}" ShortID="506894114" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="06 Grenouille verte (Edib-NORM_07-18_L" ID="{0929AF65-6CF8-4F67-A47D-25E2697F6C60}" ShortID="655620871">
-															<Language>SFX</Language>
-															<AudioFile>Grenouilles\06 Grenouille verte (Edib-NORM_07-18.L.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="06 Grenouille verte (Edib-NORM_07-18_L" ID="{0929AF65-6CF8-4F67-A47D-25E2697F6C60}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="Edible_frog_16" ID="{336562B2-0AEE-4AFC-B347-0439E342195D}" ShortID="1012570925" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="06 Grenouille verte (Edib-NORM_26-51_L" ID="{D9C59CA7-A758-42BC-9AA4-685F78ADC10D}" ShortID="77488016">
-															<Language>SFX</Language>
-															<AudioFile>Grenouilles\06 Grenouille verte (Edib-NORM_26-51.L.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="06 Grenouille verte (Edib-NORM_26-51_L" ID="{D9C59CA7-A758-42BC-9AA4-685F78ADC10D}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="Edible_frog_15" ID="{B4BCFBBE-178E-4922-9ACC-AF5C7A90984D}" ShortID="232323609" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="06 Grenouille verte (Edib-NORM_25-50_L" ID="{DF99A994-651C-4DCC-974F-81C24A88ACB7}" ShortID="1000845792">
-															<Language>SFX</Language>
-															<AudioFile>Grenouilles\06 Grenouille verte (Edib-NORM_25-50.L.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="06 Grenouille verte (Edib-NORM_25-50_L" ID="{DF99A994-651C-4DCC-974F-81C24A88ACB7}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="Edible_frog_6" ID="{41C075D0-FF5D-4F38-9CB6-E82486D136A3}" ShortID="83188115" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="06 Grenouille verte (Edib-NORM_06-16_L" ID="{649FE469-C3F1-46D9-8AA6-F9B13D95EC69}" ShortID="1064431605">
-															<Language>SFX</Language>
-															<AudioFile>Grenouilles\06 Grenouille verte (Edib-NORM_06-16.L.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="06 Grenouille verte (Edib-NORM_06-16_L" ID="{649FE469-C3F1-46D9-8AA6-F9B13D95EC69}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="Edible_frog_11" ID="{61F20791-A0A2-467A-BB12-6EB4C018C2C2}" ShortID="145961059" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="06 Grenouille verte (Edib-NORM_18-38_L" ID="{57601D57-4238-4BDF-869F-CFE619BC2D53}" ShortID="1024695645">
-															<Language>SFX</Language>
-															<AudioFile>Grenouilles\06 Grenouille verte (Edib-NORM_18-38.L.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="06 Grenouille verte (Edib-NORM_18-38_L" ID="{57601D57-4238-4BDF-869F-CFE619BC2D53}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="Edible_frog_13" ID="{17C86419-8E84-486B-9182-7A39C0660593}" ShortID="337956068" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="06 Grenouille verte (Edib-NORM_20-42_L" ID="{02556B65-49CB-4456-A934-CF14AFE2278B}" ShortID="483833399">
-															<Language>SFX</Language>
-															<AudioFile>Grenouilles\06 Grenouille verte (Edib-NORM_20-42.L.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="06 Grenouille verte (Edib-NORM_20-42_L" ID="{02556B65-49CB-4456-A934-CF14AFE2278B}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="Edible_frog_8" ID="{E55146AD-B2FA-4632-A935-17724284AC5E}" ShortID="395574760" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="06 Grenouille verte (Edib-NORM_08-20_L" ID="{0315247B-CB8E-4E65-9201-A966AA5CED2A}" ShortID="205162332">
-															<Language>SFX</Language>
-															<AudioFile>Grenouilles\06 Grenouille verte (Edib-NORM_08-20.L.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="06 Grenouille verte (Edib-NORM_08-20_L" ID="{0315247B-CB8E-4E65-9201-A966AA5CED2A}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="Edible_frog_12" ID="{1B2FD986-786C-4636-BCFC-EB54718727F7}" ShortID="175142318" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="06 Grenouille verte (Edib-NORM_19-40_L" ID="{9AE49E64-62F2-4BB4-81FC-3CDF6E191CBE}" ShortID="554965268">
-															<Language>SFX</Language>
-															<AudioFile>Grenouilles\06 Grenouille verte (Edib-NORM_19-40.L.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="06 Grenouille verte (Edib-NORM_19-40_L" ID="{9AE49E64-62F2-4BB4-81FC-3CDF6E191CBE}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="Edible_frog_18" ID="{F899F5DD-6181-4452-8700-631D535F539D}" ShortID="126312734" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="MFX5_02" ID="{0FF1BF9C-E5C6-49BA-930E-80FD4AEABA8C}" ShortID="364841074">
-															<Language>SFX</Language>
-															<AudioFile>Grenouilles\MFX5_02.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="MFX5_02" ID="{0FF1BF9C-E5C6-49BA-930E-80FD4AEABA8C}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="Edible_frog_19" ID="{266C9FF0-3E53-4A67-A88F-0E71E4DF954C}" ShortID="955215503" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="MFX5_03" ID="{88C8789F-6224-47FC-A315-2961AFD11736}" ShortID="866566266">
-															<Language>SFX</Language>
-															<AudioFile>Grenouilles\MFX5_03.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="MFX5_03" ID="{88C8789F-6224-47FC-A315-2961AFD11736}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="Edible_frog_20" ID="{67DB7897-82A3-4892-8F8D-D23B7BC03A4E}" ShortID="974432660" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="MFX5_04" ID="{CDF53895-D13E-4CCB-84A2-C25FB8AD0435}" ShortID="991102585">
-															<Language>SFX</Language>
-															<AudioFile>Grenouilles\MFX5_04.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="MFX5_04" ID="{CDF53895-D13E-4CCB-84A2-C25FB8AD0435}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="Edible_frog_1" ID="{5C21D903-19DD-4CF7-A240-FEEC81DBC489}" ShortID="1029470102" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="06 Grenouille verte (Edib-NORM_01-04_L" ID="{4B74D702-2B9D-45C8-8309-59C3B7373BC3}" ShortID="779118683">
-															<Language>SFX</Language>
-															<AudioFile>Grenouilles\06 Grenouille verte (Edib-NORM_01-04.L.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="06 Grenouille verte (Edib-NORM_01-04_L" ID="{4B74D702-2B9D-45C8-8309-59C3B7373BC3}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="Edible_frog_4" ID="{CEC194C5-E15F-46A9-9C9B-27380E6F9696}" ShortID="551741811" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="06 Grenouille verte (Edib-NORM_04-10_L" ID="{7F369038-3C47-4138-A1E0-2131485080B0}" ShortID="427577566">
-															<Language>SFX</Language>
-															<AudioFile>Grenouilles\06 Grenouille verte (Edib-NORM_04-10.L.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="06 Grenouille verte (Edib-NORM_04-10_L" ID="{7F369038-3C47-4138-A1E0-2131485080B0}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="Edible_frog_2" ID="{3BDFAAA0-B4D9-44FE-ABB2-FA7B5EE74053}" ShortID="125552678" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="06 Grenouille verte (Edib-NORM_02-06_L" ID="{B35E26D1-7B2F-46D7-87E4-6AF77E06CF98}" ShortID="935429112">
-															<Language>SFX</Language>
-															<AudioFile>Grenouilles\06 Grenouille verte (Edib-NORM_02-06.L.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="06 Grenouille verte (Edib-NORM_02-06_L" ID="{B35E26D1-7B2F-46D7-87E4-6AF77E06CF98}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="Edible_frog_3" ID="{6F313F79-7EFD-40CC-BC64-C0B899B8C896}" ShortID="920390139" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="06 Grenouille verte (Edib-NORM_03-08_L" ID="{4AFA1893-8720-4871-A813-71E43D5C2E49}" ShortID="358444565">
-															<Language>SFX</Language>
-															<AudioFile>Grenouilles\06 Grenouille verte (Edib-NORM_03-08.L.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="06 Grenouille verte (Edib-NORM_03-08_L" ID="{4AFA1893-8720-4871-A813-71E43D5C2E49}" Platform="Linked"/>
+														<ActiveSource Name="WTR WaterLappingOnR 6035-NORM_01-02" ID="{6CF9D8B5-FD47-4CF2-9F62-5ED0BEA9E2F0}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
 											</ChildrenList>
+											<Playlist>
+												<ItemRef Name="Water_on_rocks" ID="{FD52E5C7-44A9-49E2-AA17-9F23C41A526B}"/>
+											</Playlist>
 										</RandomSequenceContainer>
-										<RandomSequenceContainer Name="Tree frog" ID="{D0EFF925-EDC9-4887-BC86-CE99A4AE3408}" ShortID="506951218">
+										<RandomSequenceContainer Name="Frogs" ID="{FB041A0E-0635-4ED5-B2F6-EAF48C0079E4}" ShortID="651189529">
 											<PropertyList>
-												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<Sound Name="Tree_frog_1" ID="{38FCB096-D1DB-462D-A327-943E96F00487}" ShortID="147916779" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="AT-06 06 Frog(Tree), Quac-NORM_01-05_L" ID="{3B40015D-79D4-4692-96CC-3615114C1F26}" ShortID="454078053">
-															<Language>SFX</Language>
-															<AudioFile>Grenouilles\AT-06 06 Frog(Tree), Quac-NORM_01-05.L.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="AT-06 06 Frog(Tree), Quac-NORM_01-05_L" ID="{3B40015D-79D4-4692-96CC-3615114C1F26}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="Tree_frog_2" ID="{4E036AF2-E303-4E1C-8D4A-28E37DE74DED}" ShortID="11699230" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="AT-06 06 Frog(Tree), Quac-NORM_02-06_L" ID="{65555752-8B32-48C4-806C-31771444A28F}" ShortID="644148086">
-															<Language>SFX</Language>
-															<AudioFile>Grenouilles\AT-06 06 Frog(Tree), Quac-NORM_02-06.L.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="AT-06 06 Frog(Tree), Quac-NORM_02-06_L" ID="{65555752-8B32-48C4-806C-31771444A28F}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="Tree_frog_3" ID="{2AC2508C-7BE1-42E6-B6BD-2A0827C63788}" ShortID="960406485" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="AT-06 06 Frog(Tree), Quac-NORM_03-08_L" ID="{7D054B67-80B1-43AD-9237-8DDC2512D898}" ShortID="352344275">
-															<Language>SFX</Language>
-															<AudioFile>Grenouilles\AT-06 06 Frog(Tree), Quac-NORM_03-08.L.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="AT-06 06 Frog(Tree), Quac-NORM_03-08_L" ID="{7D054B67-80B1-43AD-9237-8DDC2512D898}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="Tree_frog_4" ID="{8501BC94-BAAE-417B-B95E-B4B4BC901110}" ShortID="524696320" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="AT-06 06 Frog(Tree), Quac-NORM_04-10_L" ID="{9055AD11-09B3-4156-97A6-2F4EBCB6B722}" ShortID="362091947">
-															<Language>SFX</Language>
-															<AudioFile>Grenouilles\AT-06 06 Frog(Tree), Quac-NORM_04-10.L.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="AT-06 06 Frog(Tree), Quac-NORM_04-10_L" ID="{9055AD11-09B3-4156-97A6-2F4EBCB6B722}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-											</ChildrenList>
-										</RandomSequenceContainer>
-										<RandomSequenceContainer Name="California frog" ID="{577FCC8E-3B55-4FB1-ACE1-59773106A5AA}" ShortID="758616644">
-											<PropertyList>
-												<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
-												<Property Name="PlayMechanismResetPlaylistEachPlay" Type="bool" Value="False"/>
+												<Property Name="MakeUpGain" Type="Real64">
+													<ValueList>
+														<Value>-25</Value>
+													</ValueList>
+												</Property>
 												<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
-												<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="2"/>
+												<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
+												<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{AB1EE8E0-9F35-4984-816B-0A3E93CDA9B7}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="5"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
 												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
-												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+												</Reference>
+												<Reference Name="Effect0" CompanyID="4095" PluginID="65535" PluginType="15">
+													<ObjectRef Name="ForestAuterlitz_DenseFar" ID="{0F74A865-50E7-4277-956F-A54FFB0E301C}" WorkUnitID="{C0E78DAA-768A-438F-8F7B-3701395185C3}"/>
 												</Reference>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<Sound Name="California_frog_2" ID="{BD2A782E-DDF2-4818-85C4-BBEC8E0725A7}" ShortID="581640675" Type="SoundFX">
+												<RandomSequenceContainer Name="Edible frog" ID="{593EE014-A631-4A15-A1AD-80A48AA99EFD}" ShortID="535590291">
+													<PropertyList>
+														<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+														<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+														<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+														<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="3"/>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -8114,16 +7665,395 @@
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
-														<AudioFileSource Name="AT-06 16 Frog(California)-NORM_02-04_L" ID="{D815A5C7-2214-46F9-AA67-815779F0EE4A}" ShortID="542068539">
-															<Language>SFX</Language>
-															<AudioFile>Grenouilles\AT-06 16 Frog(California)-NORM_02-04.L.wav</AudioFile>
-														</AudioFileSource>
+														<Sound Name="Edible_frog_17" ID="{BD0C2BFD-01BE-42A7-ADAE-1AD00FC48965}" ShortID="122336280" Type="SoundFX">
+															<PropertyList>
+																<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+															</PropertyList>
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="MFX5_01" ID="{1DC191F5-D5E3-43A2-99AA-CEA65BFDE368}" ShortID="231692371">
+																	<Language>SFX</Language>
+																	<AudioFile>Grenouilles\MFX5_01.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="MFX5_01" ID="{1DC191F5-D5E3-43A2-99AA-CEA65BFDE368}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Edible_frog_10" ID="{7A48D2B3-EA25-4134-A902-84AC2EDADFE3}" ShortID="353638141" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="06 Grenouille verte (Edib-NORM_14-30_L" ID="{3628B011-42A5-42F0-9D6E-83170C5E04D7}" ShortID="971525168">
+																	<Language>SFX</Language>
+																	<AudioFile>Grenouilles\06 Grenouille verte (Edib-NORM_14-30.L.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="06 Grenouille verte (Edib-NORM_14-30_L" ID="{3628B011-42A5-42F0-9D6E-83170C5E04D7}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Edible_frog_5" ID="{BE5C4A36-85ED-4C32-891F-10AD4444E1B9}" ShortID="539159754" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="06 Grenouille verte (Edib-NORM_05-14_L" ID="{00B0E76C-DAF3-4C7E-A95A-6779FD577B94}" ShortID="53498004">
+																	<Language>SFX</Language>
+																	<AudioFile>Grenouilles\06 Grenouille verte (Edib-NORM_05-14.L.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="06 Grenouille verte (Edib-NORM_05-14_L" ID="{00B0E76C-DAF3-4C7E-A95A-6779FD577B94}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Edible_frog_9" ID="{F4EF1A4B-F9F4-4E55-93AB-937814162C91}" ShortID="681073787" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="06 Grenouille verte (Edib-NORM_11-52_L" ID="{CB5A834D-3145-4838-B22E-524B3A406D43}" ShortID="692876790">
+																	<Language>SFX</Language>
+																	<AudioFile>Grenouilles\06 Grenouille verte (Edib-NORM_11-52.L.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="06 Grenouille verte (Edib-NORM_11-52_L" ID="{CB5A834D-3145-4838-B22E-524B3A406D43}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Edible_frog_14" ID="{D4388FA0-A618-4F31-B95D-84D68BD25EAA}" ShortID="827656757" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="06 Grenouille verte (Edib-NORM_22-46_L" ID="{78A75809-64DC-481C-9245-9C5C70B041D0}" ShortID="848787283">
+																	<Language>SFX</Language>
+																	<AudioFile>Grenouilles\06 Grenouille verte (Edib-NORM_22-46.L.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="06 Grenouille verte (Edib-NORM_22-46_L" ID="{78A75809-64DC-481C-9245-9C5C70B041D0}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Edible_frog_7" ID="{4401ACA5-4DEB-4BCE-96F6-BD20E260BF5D}" ShortID="506894114" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="06 Grenouille verte (Edib-NORM_07-18_L" ID="{0929AF65-6CF8-4F67-A47D-25E2697F6C60}" ShortID="655620871">
+																	<Language>SFX</Language>
+																	<AudioFile>Grenouilles\06 Grenouille verte (Edib-NORM_07-18.L.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="06 Grenouille verte (Edib-NORM_07-18_L" ID="{0929AF65-6CF8-4F67-A47D-25E2697F6C60}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Edible_frog_16" ID="{336562B2-0AEE-4AFC-B347-0439E342195D}" ShortID="1012570925" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="06 Grenouille verte (Edib-NORM_26-51_L" ID="{D9C59CA7-A758-42BC-9AA4-685F78ADC10D}" ShortID="77488016">
+																	<Language>SFX</Language>
+																	<AudioFile>Grenouilles\06 Grenouille verte (Edib-NORM_26-51.L.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="06 Grenouille verte (Edib-NORM_26-51_L" ID="{D9C59CA7-A758-42BC-9AA4-685F78ADC10D}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Edible_frog_15" ID="{B4BCFBBE-178E-4922-9ACC-AF5C7A90984D}" ShortID="232323609" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="06 Grenouille verte (Edib-NORM_25-50_L" ID="{DF99A994-651C-4DCC-974F-81C24A88ACB7}" ShortID="1000845792">
+																	<Language>SFX</Language>
+																	<AudioFile>Grenouilles\06 Grenouille verte (Edib-NORM_25-50.L.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="06 Grenouille verte (Edib-NORM_25-50_L" ID="{DF99A994-651C-4DCC-974F-81C24A88ACB7}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Edible_frog_6" ID="{41C075D0-FF5D-4F38-9CB6-E82486D136A3}" ShortID="83188115" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="06 Grenouille verte (Edib-NORM_06-16_L" ID="{649FE469-C3F1-46D9-8AA6-F9B13D95EC69}" ShortID="1064431605">
+																	<Language>SFX</Language>
+																	<AudioFile>Grenouilles\06 Grenouille verte (Edib-NORM_06-16.L.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="06 Grenouille verte (Edib-NORM_06-16_L" ID="{649FE469-C3F1-46D9-8AA6-F9B13D95EC69}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Edible_frog_11" ID="{61F20791-A0A2-467A-BB12-6EB4C018C2C2}" ShortID="145961059" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="06 Grenouille verte (Edib-NORM_18-38_L" ID="{57601D57-4238-4BDF-869F-CFE619BC2D53}" ShortID="1024695645">
+																	<Language>SFX</Language>
+																	<AudioFile>Grenouilles\06 Grenouille verte (Edib-NORM_18-38.L.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="06 Grenouille verte (Edib-NORM_18-38_L" ID="{57601D57-4238-4BDF-869F-CFE619BC2D53}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Edible_frog_13" ID="{17C86419-8E84-486B-9182-7A39C0660593}" ShortID="337956068" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="06 Grenouille verte (Edib-NORM_20-42_L" ID="{02556B65-49CB-4456-A934-CF14AFE2278B}" ShortID="483833399">
+																	<Language>SFX</Language>
+																	<AudioFile>Grenouilles\06 Grenouille verte (Edib-NORM_20-42.L.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="06 Grenouille verte (Edib-NORM_20-42_L" ID="{02556B65-49CB-4456-A934-CF14AFE2278B}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Edible_frog_8" ID="{E55146AD-B2FA-4632-A935-17724284AC5E}" ShortID="395574760" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="06 Grenouille verte (Edib-NORM_08-20_L" ID="{0315247B-CB8E-4E65-9201-A966AA5CED2A}" ShortID="205162332">
+																	<Language>SFX</Language>
+																	<AudioFile>Grenouilles\06 Grenouille verte (Edib-NORM_08-20.L.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="06 Grenouille verte (Edib-NORM_08-20_L" ID="{0315247B-CB8E-4E65-9201-A966AA5CED2A}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Edible_frog_12" ID="{1B2FD986-786C-4636-BCFC-EB54718727F7}" ShortID="175142318" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="06 Grenouille verte (Edib-NORM_19-40_L" ID="{9AE49E64-62F2-4BB4-81FC-3CDF6E191CBE}" ShortID="554965268">
+																	<Language>SFX</Language>
+																	<AudioFile>Grenouilles\06 Grenouille verte (Edib-NORM_19-40.L.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="06 Grenouille verte (Edib-NORM_19-40_L" ID="{9AE49E64-62F2-4BB4-81FC-3CDF6E191CBE}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Edible_frog_18" ID="{F899F5DD-6181-4452-8700-631D535F539D}" ShortID="126312734" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="MFX5_02" ID="{0FF1BF9C-E5C6-49BA-930E-80FD4AEABA8C}" ShortID="364841074">
+																	<Language>SFX</Language>
+																	<AudioFile>Grenouilles\MFX5_02.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="MFX5_02" ID="{0FF1BF9C-E5C6-49BA-930E-80FD4AEABA8C}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Edible_frog_19" ID="{266C9FF0-3E53-4A67-A88F-0E71E4DF954C}" ShortID="955215503" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="MFX5_03" ID="{88C8789F-6224-47FC-A315-2961AFD11736}" ShortID="866566266">
+																	<Language>SFX</Language>
+																	<AudioFile>Grenouilles\MFX5_03.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="MFX5_03" ID="{88C8789F-6224-47FC-A315-2961AFD11736}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Edible_frog_20" ID="{67DB7897-82A3-4892-8F8D-D23B7BC03A4E}" ShortID="974432660" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="MFX5_04" ID="{CDF53895-D13E-4CCB-84A2-C25FB8AD0435}" ShortID="991102585">
+																	<Language>SFX</Language>
+																	<AudioFile>Grenouilles\MFX5_04.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="MFX5_04" ID="{CDF53895-D13E-4CCB-84A2-C25FB8AD0435}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Edible_frog_1" ID="{5C21D903-19DD-4CF7-A240-FEEC81DBC489}" ShortID="1029470102" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="06 Grenouille verte (Edib-NORM_01-04_L" ID="{4B74D702-2B9D-45C8-8309-59C3B7373BC3}" ShortID="779118683">
+																	<Language>SFX</Language>
+																	<AudioFile>Grenouilles\06 Grenouille verte (Edib-NORM_01-04.L.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="06 Grenouille verte (Edib-NORM_01-04_L" ID="{4B74D702-2B9D-45C8-8309-59C3B7373BC3}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Edible_frog_4" ID="{CEC194C5-E15F-46A9-9C9B-27380E6F9696}" ShortID="551741811" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="06 Grenouille verte (Edib-NORM_04-10_L" ID="{7F369038-3C47-4138-A1E0-2131485080B0}" ShortID="427577566">
+																	<Language>SFX</Language>
+																	<AudioFile>Grenouilles\06 Grenouille verte (Edib-NORM_04-10.L.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="06 Grenouille verte (Edib-NORM_04-10_L" ID="{7F369038-3C47-4138-A1E0-2131485080B0}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Edible_frog_2" ID="{3BDFAAA0-B4D9-44FE-ABB2-FA7B5EE74053}" ShortID="125552678" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="06 Grenouille verte (Edib-NORM_02-06_L" ID="{B35E26D1-7B2F-46D7-87E4-6AF77E06CF98}" ShortID="935429112">
+																	<Language>SFX</Language>
+																	<AudioFile>Grenouilles\06 Grenouille verte (Edib-NORM_02-06.L.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="06 Grenouille verte (Edib-NORM_02-06_L" ID="{B35E26D1-7B2F-46D7-87E4-6AF77E06CF98}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Edible_frog_3" ID="{6F313F79-7EFD-40CC-BC64-C0B899B8C896}" ShortID="920390139" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="06 Grenouille verte (Edib-NORM_03-08_L" ID="{4AFA1893-8720-4871-A813-71E43D5C2E49}" ShortID="358444565">
+																	<Language>SFX</Language>
+																	<AudioFile>Grenouilles\06 Grenouille verte (Edib-NORM_03-08.L.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="06 Grenouille verte (Edib-NORM_03-08_L" ID="{4AFA1893-8720-4871-A813-71E43D5C2E49}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
 													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="AT-06 16 Frog(California)-NORM_02-04_L" ID="{D815A5C7-2214-46F9-AA67-815779F0EE4A}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="California_frog_1" ID="{EF35CA21-8C11-47AC-A0C5-32571D18464B}" ShortID="661511260" Type="SoundFX">
+												</RandomSequenceContainer>
+												<RandomSequenceContainer Name="Tree frog" ID="{D0EFF925-EDC9-4887-BC86-CE99A4AE3408}" ShortID="506951218">
+													<PropertyList>
+														<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -8133,16 +8063,93 @@
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
-														<AudioFileSource Name="AT-06 16 Frog(California)-NORM_01-05_L" ID="{C22D1BA0-3AE8-46C7-897E-FDEDBE57AFCF}" ShortID="731219029">
-															<Language>SFX</Language>
-															<AudioFile>Grenouilles\AT-06 16 Frog(California)-NORM_01-05.L.wav</AudioFile>
-														</AudioFileSource>
+														<Sound Name="Tree_frog_1" ID="{38FCB096-D1DB-462D-A327-943E96F00487}" ShortID="147916779" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="AT-06 06 Frog(Tree), Quac-NORM_01-05_L" ID="{3B40015D-79D4-4692-96CC-3615114C1F26}" ShortID="454078053">
+																	<Language>SFX</Language>
+																	<AudioFile>Grenouilles\AT-06 06 Frog(Tree), Quac-NORM_01-05.L.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="AT-06 06 Frog(Tree), Quac-NORM_01-05_L" ID="{3B40015D-79D4-4692-96CC-3615114C1F26}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Tree_frog_2" ID="{4E036AF2-E303-4E1C-8D4A-28E37DE74DED}" ShortID="11699230" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="AT-06 06 Frog(Tree), Quac-NORM_02-06_L" ID="{65555752-8B32-48C4-806C-31771444A28F}" ShortID="644148086">
+																	<Language>SFX</Language>
+																	<AudioFile>Grenouilles\AT-06 06 Frog(Tree), Quac-NORM_02-06.L.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="AT-06 06 Frog(Tree), Quac-NORM_02-06_L" ID="{65555752-8B32-48C4-806C-31771444A28F}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Tree_frog_3" ID="{2AC2508C-7BE1-42E6-B6BD-2A0827C63788}" ShortID="960406485" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="AT-06 06 Frog(Tree), Quac-NORM_03-08_L" ID="{7D054B67-80B1-43AD-9237-8DDC2512D898}" ShortID="352344275">
+																	<Language>SFX</Language>
+																	<AudioFile>Grenouilles\AT-06 06 Frog(Tree), Quac-NORM_03-08.L.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="AT-06 06 Frog(Tree), Quac-NORM_03-08_L" ID="{7D054B67-80B1-43AD-9237-8DDC2512D898}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Tree_frog_4" ID="{8501BC94-BAAE-417B-B95E-B4B4BC901110}" ShortID="524696320" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="AT-06 06 Frog(Tree), Quac-NORM_04-10_L" ID="{9055AD11-09B3-4156-97A6-2F4EBCB6B722}" ShortID="362091947">
+																	<Language>SFX</Language>
+																	<AudioFile>Grenouilles\AT-06 06 Frog(Tree), Quac-NORM_04-10.L.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="AT-06 06 Frog(Tree), Quac-NORM_04-10_L" ID="{9055AD11-09B3-4156-97A6-2F4EBCB6B722}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
 													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="AT-06 16 Frog(California)-NORM_01-05_L" ID="{C22D1BA0-3AE8-46C7-897E-FDEDBE57AFCF}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="California_frog_3" ID="{BB456743-5684-4EBC-8A90-527E3346B18A}" ShortID="507375083" Type="SoundFX">
+												</RandomSequenceContainer>
+												<RandomSequenceContainer Name="California frog" ID="{577FCC8E-3B55-4FB1-ACE1-59773106A5AA}" ShortID="758616644">
+													<PropertyList>
+														<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+														<Property Name="PlayMechanismResetPlaylistEachPlay" Type="bool" Value="False"/>
+														<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+														<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="2"/>
+														<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+														<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="4"/>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
@@ -8152,57 +8159,107 @@
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
-														<AudioFileSource Name="AT-06 17 Frog(California)-NORM_01-02_L" ID="{16D2397F-0544-4E92-AD1C-E502CF422CC9}" ShortID="144871503">
-															<Language>SFX</Language>
-															<AudioFile>Grenouilles\AT-06 17 Frog(California)-NORM_01-02.L.wav</AudioFile>
-														</AudioFileSource>
+														<Sound Name="California_frog_2" ID="{BD2A782E-DDF2-4818-85C4-BBEC8E0725A7}" ShortID="581640675" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="AT-06 16 Frog(California)-NORM_02-04_L" ID="{D815A5C7-2214-46F9-AA67-815779F0EE4A}" ShortID="542068539">
+																	<Language>SFX</Language>
+																	<AudioFile>Grenouilles\AT-06 16 Frog(California)-NORM_02-04.L.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="AT-06 16 Frog(California)-NORM_02-04_L" ID="{D815A5C7-2214-46F9-AA67-815779F0EE4A}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="California_frog_1" ID="{EF35CA21-8C11-47AC-A0C5-32571D18464B}" ShortID="661511260" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="AT-06 16 Frog(California)-NORM_01-05_L" ID="{C22D1BA0-3AE8-46C7-897E-FDEDBE57AFCF}" ShortID="731219029">
+																	<Language>SFX</Language>
+																	<AudioFile>Grenouilles\AT-06 16 Frog(California)-NORM_01-05.L.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="AT-06 16 Frog(California)-NORM_01-05_L" ID="{C22D1BA0-3AE8-46C7-897E-FDEDBE57AFCF}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="California_frog_3" ID="{BB456743-5684-4EBC-8A90-527E3346B18A}" ShortID="507375083" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="AT-06 17 Frog(California)-NORM_01-02_L" ID="{16D2397F-0544-4E92-AD1C-E502CF422CC9}" ShortID="144871503">
+																	<Language>SFX</Language>
+																	<AudioFile>Grenouilles\AT-06 17 Frog(California)-NORM_01-02.L.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="AT-06 17 Frog(California)-NORM_01-02_L" ID="{16D2397F-0544-4E92-AD1C-E502CF422CC9}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="California_frog_4" ID="{444F880E-F3C9-489F-8B9E-8DB627A0B30A}" ShortID="246863389" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="AT-06 17 Frog(California)-NORM_02-04_L" ID="{FA0B065D-9049-43C0-87AD-3D9ABBBF57EE}" ShortID="93710330">
+																	<Language>SFX</Language>
+																	<AudioFile>Grenouilles\AT-06 17 Frog(California)-NORM_02-04.L.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="AT-06 17 Frog(California)-NORM_02-04_L" ID="{FA0B065D-9049-43C0-87AD-3D9ABBBF57EE}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="California_frog_5" ID="{28934585-B6A8-4F8F-9F00-68B74A336626}" ShortID="222376753" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="AT-06 17 Frog(California)-NORM_03-06_L" ID="{CC444AF8-3709-4E59-A046-BAC9FC262C1A}" ShortID="519348656">
+																	<Language>SFX</Language>
+																	<AudioFile>Grenouilles\AT-06 17 Frog(California)-NORM_03-06.L.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="AT-06 17 Frog(California)-NORM_03-06_L" ID="{CC444AF8-3709-4E59-A046-BAC9FC262C1A}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
 													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="AT-06 17 Frog(California)-NORM_01-02_L" ID="{16D2397F-0544-4E92-AD1C-E502CF422CC9}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="California_frog_4" ID="{444F880E-F3C9-489F-8B9E-8DB627A0B30A}" ShortID="246863389" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="AT-06 17 Frog(California)-NORM_02-04_L" ID="{FA0B065D-9049-43C0-87AD-3D9ABBBF57EE}" ShortID="93710330">
-															<Language>SFX</Language>
-															<AudioFile>Grenouilles\AT-06 17 Frog(California)-NORM_02-04.L.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="AT-06 17 Frog(California)-NORM_02-04_L" ID="{FA0B065D-9049-43C0-87AD-3D9ABBBF57EE}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="California_frog_5" ID="{28934585-B6A8-4F8F-9F00-68B74A336626}" ShortID="222376753" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="AT-06 17 Frog(California)-NORM_03-06_L" ID="{CC444AF8-3709-4E59-A046-BAC9FC262C1A}" ShortID="519348656">
-															<Language>SFX</Language>
-															<AudioFile>Grenouilles\AT-06 17 Frog(California)-NORM_03-06.L.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="AT-06 17 Frog(California)-NORM_03-06_L" ID="{CC444AF8-3709-4E59-A046-BAC9FC262C1A}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
+												</RandomSequenceContainer>
 											</ChildrenList>
 										</RandomSequenceContainer>
 									</ChildrenList>
-								</RandomSequenceContainer>
+								</ActorMixer>
 							</ChildrenList>
 						</ActorMixer>
 						<ActorMixer Name="Amb retour" ID="{B87C2433-FA63-44C3-9B79-E4CC1E83F203}" ShortID="889462281">
