@@ -1008,26 +1008,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 1.63}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &877439887
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
-  m_Name: Cannibal
-  m_EditorClassIdentifier: 
-  _serializedGraph: '{"version":2.6,"type":"NodeCanvas.StateMachines.FSM","name":"FSM","translation":{"x":-2336.805,"y":-2631.661},"zoomFactor":0.557591,"nodes":[{"_nestedFSM":{"_value":1},"_position":{"x":5227.38,"y":5229.775},"_name":"Alive","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"2"},{"_nestedFSM":{"_value":2},"_position":{"x":5546.0,"y":5336.0},"_name":"Dead","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"4"},{"_nestedFSM":{"_value":3},"_position":{"x":5659.0,"y":5073.0},"_name":"Resurrect","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"6"}],"connections":[{"_condition":{"eventName":{"_value":"Death"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"eventName":{"_value":"Resurrect"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"primeNode":{"$ref":"2"},"canvasGroups":[{"name":"New
-    Canvas Group","rect":{"xMin":4938.937,"yMin":6310.585,"xMax":5792.259,"yMax":6722.58}}],"localBlackboard":{"_name":"Local
-    Blackboard","_variables":{}}}'
-  _objectReferences:
-  - {fileID: 0}
-  - {fileID: 11400000, guid: 81676165a60dcb64fb6e9ba210710385, type: 2}
-  - {fileID: 11400000, guid: 034dc5fcfba36394badce3d340515ce3, type: 2}
-  - {fileID: 11400000, guid: f78d757db0da41348a28cf25f5c037e1, type: 2}
-  _deserializationFailed: 0
 --- !u!1 &941079446
 GameObject:
   m_ObjectHideFlags: 0
@@ -1357,7 +1337,7 @@ Prefab:
         type: 2}
       propertyPath: _graph
       value: 
-      objectReference: {fileID: 877439887}
+      objectReference: {fileID: 1658566805}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d5c73a2de9863c49bd4ddcc77af1888, type: 2}
   m_IsPrefabParent: 0
@@ -1391,9 +1371,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basePath: Audio\GeneratedSoundBanks
   language: English(US)
-  defaultPoolSize: 4096
-  lowerPoolSize: 2048
-  streamingPoolSize: 1024
+  defaultPoolSize: 8192
+  lowerPoolSize: 16384
+  streamingPoolSize: 8192
   preparePoolSize: 0
   memoryCutoffThreshold: 0.95
   engineLogging: 1
@@ -1492,26 +1472,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1383572823}
   m_Script: {fileID: 11500000, guid: face67f966240c64fbda8b57f3680309, type: 3}
---- !u!114 &1596340161
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
-  m_Name: Cannibal (1)
-  m_EditorClassIdentifier: 
-  _serializedGraph: '{"version":2.6,"type":"NodeCanvas.StateMachines.FSM","name":"FSM","translation":{"x":-2336.805,"y":-2631.661},"zoomFactor":0.557591,"nodes":[{"_nestedFSM":{"_value":1},"_position":{"x":5227.38,"y":5229.775},"_name":"Alive","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"2"},{"_nestedFSM":{"_value":2},"_position":{"x":5546.0,"y":5336.0},"_name":"Dead","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"4"},{"_nestedFSM":{"_value":3},"_position":{"x":5659.0,"y":5073.0},"_name":"Resurrect","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"6"}],"connections":[{"_condition":{"eventName":{"_value":"Death"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"eventName":{"_value":"Resurrect"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"primeNode":{"$ref":"2"},"canvasGroups":[{"name":"New
-    Canvas Group","rect":{"xMin":4938.937,"yMin":6310.585,"xMax":5792.259,"yMax":6722.58}}],"localBlackboard":{"_name":"Local
-    Blackboard","_variables":{}}}'
-  _objectReferences:
-  - {fileID: 0}
-  - {fileID: 11400000, guid: 81676165a60dcb64fb6e9ba210710385, type: 2}
-  - {fileID: 11400000, guid: 034dc5fcfba36394badce3d340515ce3, type: 2}
-  - {fileID: 11400000, guid: f78d757db0da41348a28cf25f5c037e1, type: 2}
-  _deserializationFailed: 0
 --- !u!1 &1597989598
 GameObject:
   m_ObjectHideFlags: 0
@@ -1594,6 +1554,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -27}
+--- !u!114 &1658566805
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
+  m_Name: Cannibal
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"version":2.6,"type":"NodeCanvas.StateMachines.FSM","name":"FSM","translation":{"x":-2336.805,"y":-2631.661},"zoomFactor":0.557591,"nodes":[{"_nestedFSM":{"_value":1},"_position":{"x":5227.38,"y":5229.775},"_name":"Alive","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"2"},{"_nestedFSM":{"_value":2},"_position":{"x":5546.0,"y":5336.0},"_name":"Dead","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"4"},{"_nestedFSM":{"_value":3},"_position":{"x":5659.0,"y":5073.0},"_name":"Resurrect","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"6"}],"connections":[{"_condition":{"eventName":{"_value":"Death"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"eventName":{"_value":"Resurrect"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"primeNode":{"$ref":"2"},"canvasGroups":[{"name":"New
+    Canvas Group","rect":{"xMin":4938.937,"yMin":6310.585,"xMax":5792.259,"yMax":6722.58}}],"localBlackboard":{"_name":"Local
+    Blackboard","_variables":{}}}'
+  _objectReferences:
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 81676165a60dcb64fb6e9ba210710385, type: 2}
+  - {fileID: 11400000, guid: 034dc5fcfba36394badce3d340515ce3, type: 2}
+  - {fileID: 11400000, guid: f78d757db0da41348a28cf25f5c037e1, type: 2}
+  _deserializationFailed: 0
 --- !u!1001 &1673463881
 Prefab:
   m_ObjectHideFlags: 0
@@ -1924,6 +1904,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 22.67, y: 0, z: 0}
+--- !u!114 &1782711208
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
+  m_Name: Cannibal (1)
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"version":2.6,"type":"NodeCanvas.StateMachines.FSM","name":"FSM","translation":{"x":-2336.805,"y":-2631.661},"zoomFactor":0.557591,"nodes":[{"_nestedFSM":{"_value":1},"_position":{"x":5227.38,"y":5229.775},"_name":"Alive","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"2"},{"_nestedFSM":{"_value":2},"_position":{"x":5546.0,"y":5336.0},"_name":"Dead","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"4"},{"_nestedFSM":{"_value":3},"_position":{"x":5659.0,"y":5073.0},"_name":"Resurrect","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"6"}],"connections":[{"_condition":{"eventName":{"_value":"Death"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"eventName":{"_value":"Resurrect"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"primeNode":{"$ref":"2"},"canvasGroups":[{"name":"New
+    Canvas Group","rect":{"xMin":4938.937,"yMin":6310.585,"xMax":5792.259,"yMax":6722.58}}],"localBlackboard":{"_name":"Local
+    Blackboard","_variables":{}}}'
+  _objectReferences:
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 81676165a60dcb64fb6e9ba210710385, type: 2}
+  - {fileID: 11400000, guid: 034dc5fcfba36394badce3d340515ce3, type: 2}
+  - {fileID: 11400000, guid: f78d757db0da41348a28cf25f5c037e1, type: 2}
+  _deserializationFailed: 0
 --- !u!1001 &1807819719
 Prefab:
   m_ObjectHideFlags: 0
@@ -2195,7 +2195,7 @@ Prefab:
         type: 2}
       propertyPath: _graph
       value: 
-      objectReference: {fileID: 1596340161}
+      objectReference: {fileID: 1782711208}
     - target: {fileID: 1067895843713848, guid: 6d5c73a2de9863c49bd4ddcc77af1888, type: 2}
       propertyPath: m_Name
       value: Cannibal (1)
