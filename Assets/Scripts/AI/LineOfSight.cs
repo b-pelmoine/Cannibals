@@ -12,6 +12,7 @@ public class LineOfSight : MonoBehaviour {
     public List<GameObject> sighted;
     static List<int> detect_rate= new List<int>();
     bool updated = false;
+    
 
     void Awake()
     {
@@ -42,8 +43,19 @@ public class LineOfSight : MonoBehaviour {
         detect_rate.Add(detect);
         List<Renderer> renderers = new List<Renderer>();
         obj.GetComponentsInChildren<Renderer>(renderers);
+        if (renderers.Count <= 0)
+            Debug.LogError("LineOfSight.cs: No renderers found on " + obj);
         foreach (Renderer rend in renderers)
-            rend.material.SetColor("_LoSColor", new Color(detected_objects.Count / 255f, 0, 0));
+            foreach(Material mat in rend.materials)
+                mat.SetColor("_LoSColor", new Color(detected_objects.Count / 255f, 0, 0));
+    }
+
+    public static void Register(GameObject obj, MeshRenderer mesh, int detect = 30)
+    {
+        detected_objects.Add(obj);
+        detect_rate.Add(detect);
+        foreach (Material mat in mesh.materials)
+            mat.SetColor("_LoSColor", new Color(detected_objects.Count / 255f, 0, 0));
     }
 
     public bool Analyse()
