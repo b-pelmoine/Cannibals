@@ -7669,6 +7669,7 @@
 													</ModifierList>
 												</Property>
 												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
 												<Property Name="UseMaxSoundPerInstance" Type="bool">
 													<ValueList>
 														<Value>True</Value>
@@ -8090,7 +8091,7 @@
 												</RandomSequenceContainer>
 												<RandomSequenceContainer Name="Tree frog" ID="{D0EFF925-EDC9-4887-BC86-CE99A4AE3408}" ShortID="506951218">
 													<PropertyList>
-														<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+														<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="3"/>
 													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
