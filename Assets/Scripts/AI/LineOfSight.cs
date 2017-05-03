@@ -15,6 +15,8 @@ public class LineOfSight : MonoBehaviour {
 
     void Awake()
     {
+        detected_objects = new List<GameObject>();
+        detect_rate = new List<int>();
         if (texture == null)
             texture = new RenderTexture(128, 128, 32, RenderTextureFormat.ARGB32);
         if (tex2D == null)

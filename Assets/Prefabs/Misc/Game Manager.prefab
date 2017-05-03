@@ -4043,6 +4043,8 @@ MonoBehaviour:
   m_cannibal: {fileID: 114330111390591992}
   rotationTime: 0.1
   m_appearenceTransform: {fileID: 4596818673098904}
+  iconDisplayer: {fileID: 0}
+  resurrectIcon: {fileID: 0}
 --- !u!114 &114083588343152754
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5816,8 +5818,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806a3db5a6f12e44dbbc4bb58d103836, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_cannibal: {fileID: 0}
   cannibalObjectParent: {fileID: 4025002872619384}
+  corpseTransform: {fileID: 0}
   UIManager: {fileID: 0}
+  corpseTakenCollider: {fileID: 0}
 --- !u!114 &114468201585478818
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5829,8 +5834,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806a3db5a6f12e44dbbc4bb58d103836, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_cannibal: {fileID: 0}
   cannibalObjectParent: {fileID: 4027741930625394}
+  corpseTransform: {fileID: 0}
   UIManager: {fileID: 0}
+  corpseTakenCollider: {fileID: 0}
 --- !u!114 &114474024980155104
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5882,6 +5890,8 @@ MonoBehaviour:
   m_cannibal: {fileID: 114737918421381104}
   rotationTime: 0.1
   m_appearenceTransform: {fileID: 4012415441236958}
+  iconDisplayer: {fileID: 0}
+  resurrectIcon: {fileID: 0}
 --- !u!114 &114605754990606894
 MonoBehaviour:
   m_ObjectHideFlags: 1
