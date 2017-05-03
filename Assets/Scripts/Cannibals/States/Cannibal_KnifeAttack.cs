@@ -10,6 +10,7 @@ public class Cannibal_KnifeAttack : Cannibal_State
 
     protected override void OnEnter()
     {
+        base.OnEnter();
         iKillables.value[0].KnifeKill();
     }
 }

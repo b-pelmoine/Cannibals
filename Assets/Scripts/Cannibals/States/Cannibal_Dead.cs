@@ -8,11 +8,10 @@ public class Cannibal_Dead : Cannibal_State {
     protected override void OnEnter()
     {
         base.OnEnter();
-
-        if(m_cannibal.m_cannibalSkill.m_corpse != null)
+        if (m_cannibal.m_cannibalSkill.m_corpse != null)
         {
             m_cannibal.m_cannibalSkill.ReleaseCorpse();
-        }
+        } 
     }
 
     /// <summary>

@@ -15,6 +15,12 @@ public abstract class Cannibal_State : ActionState {
         m_cannibal = cannibal.value;
     }
 
+    protected override void OnEnter()
+    {
+        base.OnEnter();
+        m_cannibal = cannibal.value;
+    }
+
 
     /// <summary>
     /// Knock out the cannibal.

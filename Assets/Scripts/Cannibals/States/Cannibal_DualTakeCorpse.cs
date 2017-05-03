@@ -10,6 +10,7 @@ public class Cannibal_DualTakeCorpse : Cannibal_State {
 
     protected override void OnEnter()
     {
+        base.OnEnter();
         m_cannibal.m_cannibalSkill.TakeCorpse(corpses.value[0]);
     }
 }
