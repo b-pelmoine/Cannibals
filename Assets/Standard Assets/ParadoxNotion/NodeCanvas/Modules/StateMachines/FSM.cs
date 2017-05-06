@@ -29,9 +29,10 @@ namespace NodeCanvas.StateMachines{
 
 		public FSMState currentState{get; private set;}
 		public FSMState previousState{get; private set;}
+        public FSMState nextState { get; private set; }
 
-		///The current state name. Null if none
-		public string currentStateName{
+        ///The current state name. Null if none
+        public string currentStateName{
 			get {return currentState != null? currentState.name : null; }
 		}
 
@@ -39,6 +40,10 @@ namespace NodeCanvas.StateMachines{
 		public string previousStateName{
 			get	{return previousState != null? previousState.name : null; }
 		}
+
+        public string nextStateName{
+            get { return nextState != null ? nextState.name : null; }
+        }
 
 		public override System.Type baseNodeType{ get {return typeof(FSMState);} }
 		public override bool requiresAgent{	get {return true;} }
@@ -157,7 +162,9 @@ namespace NodeCanvas.StateMachines{
 				return false;
 			}
 
-			if (currentState != null){	
+            nextState = newState;
+
+            if (currentState != null){	
 
 				if (CallbackExit != null){
 					CallbackExit(currentState);
@@ -175,8 +182,9 @@ namespace NodeCanvas.StateMachines{
 
 			previousState = currentState;
 			currentState = newState;
+            nextState = null;
 
-			if (CallbackEnter != null){
+            if (CallbackEnter != null){
 				CallbackEnter(currentState);
 			}
 
