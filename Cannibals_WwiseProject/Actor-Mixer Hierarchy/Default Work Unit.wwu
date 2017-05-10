@@ -26086,6 +26086,122 @@
 										</GroupingList>
 									</GroupingInfo>
 								</SwitchContainer>
+								<RandomSequenceContainer Name="Rifle" ID="{4E4BF932-B094-4499-8716-CCCD9EB91142}" ShortID="493308903">
+									<PropertyList>
+										<Property Name="MakeUpGain" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+										<Property Name="OverrideEffect" Type="bool" Value="True"/>
+										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="4"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="Rifle_1" ID="{FAED7705-AEB0-4FAD-B61E-0DF4C0A44C8A}" ShortID="575996185" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="MFX4_01" ID="{C6C1E0FA-9CDC-4DF2-AE7C-A99478B3F7F4}" ShortID="717627362">
+													<Language>SFX</Language>
+													<AudioFile>MFX4_01.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="MFX4_01" ID="{C6C1E0FA-9CDC-4DF2-AE7C-A99478B3F7F4}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Rifle_2" ID="{33000130-914B-48B5-B7F1-567472EA6D29}" ShortID="985947496" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="MFX4_02" ID="{FD77528A-71C9-45D2-842B-A000A8083B90}" ShortID="160793342">
+													<Language>SFX</Language>
+													<AudioFile>MFX4_02.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="MFX4_02" ID="{FD77528A-71C9-45D2-842B-A000A8083B90}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Rifle_3" ID="{CC1F948E-E490-4343-968A-47191F706563}" ShortID="807927643" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="MFX4_03" ID="{CDAB6B4F-07B8-43BE-9541-E919DD8AE0E0}" ShortID="1005389519">
+													<Language>SFX</Language>
+													<AudioFile>MFX4_03.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="MFX4_03" ID="{CDAB6B4F-07B8-43BE-9541-E919DD8AE0E0}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Rifle_4" ID="{4B3DC880-6614-4D27-B9A1-19D4960F32BB}" ShortID="1042009613" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="MFX4_04" ID="{0375AF03-E24E-43B6-8759-8ED02287AA56}" ShortID="210691891">
+													<Language>SFX</Language>
+													<AudioFile>MFX4_04.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="MFX4_04" ID="{0375AF03-E24E-43B6-8759-8ED02287AA56}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Rifle_5" ID="{9512D53D-894B-418D-B3FB-5B0F92B98519}" ShortID="506571685" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="MFX4_05" ID="{7B23D6FA-277A-4ED9-8E83-B5EF39E4A9C8}" ShortID="981112345">
+													<Language>SFX</Language>
+													<AudioFile>MFX4_05.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="MFX4_05" ID="{7B23D6FA-277A-4ED9-8E83-B5EF39E4A9C8}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
 							</ChildrenList>
 						</ActorMixer>
 						<ActorMixer Name="Dog" ID="{D7460FB2-8C83-4F0C-A18C-7EEF5338E651}" ShortID="790679977">
