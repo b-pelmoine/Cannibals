@@ -76,7 +76,8 @@ public class ScanTerrain : MonoBehaviour
                     foreach (int id in RegisteredUIDs) { if (id == sUID) exit = true; }
                     if (!exit)
                     {
-                        indicator.AddAgentIndicator(s, AIType.UNKNOWN);
+                        if(s.GetComponent<AI.AIAgent>())
+                            indicator.AddAgentIndicator(s, s.GetComponent<AI.AIAgent>().type);
                         RegisteredUIDs.Add(sUID);
                     }
                 }
