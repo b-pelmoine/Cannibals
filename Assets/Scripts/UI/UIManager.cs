@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-
+    [Header("Hunt Sense")]
     public OffscreenIndicator indicator;
     public ScanTerrain scanner;
-
+    
     public bool huntSensActive = false;
     private float elapsedTime;
     [Range(0.2f, 3f)]
     public float transitionDuration;
     [Range(0.1f, 1f)]
     public float HuntSenseFinalIntensity;
-
+    [Space(30)]
     private Dictionary<string, bool> cannibalsHuntSenseState;
 
     // Use this for initialization

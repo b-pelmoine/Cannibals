@@ -13,7 +13,8 @@ public class AIAgentManager : MonoBehaviour {
 
     static public void registerAIAgent(GameObject go)
     {
-        agents.Add(go);
+        if(go.GetComponent<AI.AIAgent>())
+            agents.Add(go);
     }
 
     static public List<GameObject> getActiveAgents()
