@@ -11,6 +11,7 @@ namespace AI
         public LayerMask shootingMask = 0;
         public float detectTime = 3;
         public float lostTargetTime = 3;
+        public float defendTime = 5;
         public Animator animator;
 
         int anim_speedId = Animator.StringToHash("Speed");
@@ -98,6 +99,7 @@ namespace AI
                     {
                         agent.ResetPath();
                         tasks.Pop();
+                        tasks.Push(new Task((int)ChasseurTask.Shoot, CurrentTask.target));
                     }
                     break;
 
@@ -157,7 +159,11 @@ namespace AI
 
                 //Attends à coté du cadavre du cannibal
                 case (int)ChasseurTask.Defend:
-
+                    if (CurrentTask.elapsed > defendTime)
+                    {
+                        agent.ResetPath();
+                        tasks.Pop();
+                    }
                     break;
             }
 
