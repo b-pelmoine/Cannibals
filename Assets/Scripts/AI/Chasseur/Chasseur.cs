@@ -8,23 +8,29 @@ namespace AI
     public class Chasseur : AIAgent {
         public float waypointDistance = 2;
         public float shootingRange = 1;
+        public LayerMask shootingMask = 0;
         public float detectTime = 3;
+        public float lostTargetTime = 3;
         public Animator animator;
+
         int anim_speedId = Animator.StringToHash("Speed");
+        int anim_shoot = Animator.StringToHash("Shoot");
 
         private LineOfSight los;
         
 
         public bool alerte = false;
 
-        Waypoint patrouille;
+        public Waypoint patrouille;
 
         enum ChasseurTask
         {
             Normal,
             Chase,
             Defend,
-            Look
+            Look,
+            LostTarget,
+            Shoot
         }
 
 	    // Use this for initialization
@@ -33,7 +39,6 @@ namespace AI
             type = AIType.Hunter;
             Bottle.OnBottleShaked += OnBottleShaked;
             los = GetComponent<LineOfSight>();
-            patrouille = GetComponent<Waypoint>();
             tasks.Push(new Task((int)ChasseurTask.Normal));
 	    }
 	
@@ -51,14 +56,24 @@ namespace AI
 
             if (los.Updated)
             {
+                //Analyse de la vue du chasseur
                 foreach(GameObject obj in los.sighted)
                 {
                     Cannibal cannibal = obj.GetComponentInParent<Cannibal>();
-                    if (cannibal!=null && CurrentTask.id==(int)ChasseurTask.Normal)
+                    if (cannibal != null)
                     {
-                        agent.ResetPath();
-                        Debug.Log("Target in sight");
-                        tasks.Push(new Task((int)ChasseurTask.Look, obj));
+                        if (CurrentTask.id == (int)ChasseurTask.Normal)
+                        {
+                            agent.ResetPath();
+                            Debug.Log("Target in sight");
+                            tasks.Push(new Task((int)ChasseurTask.Look, obj));
+                        }
+                        else if(CurrentTask.id == (int)ChasseurTask.LostTarget && obj != CurrentTask.target) //Change de cible
+                        {
+                            agent.ResetPath();
+                            tasks.Pop();
+                            CurrentTask.target = obj;
+                        }
                     }
                 }
             }
@@ -66,7 +81,7 @@ namespace AI
             switch (CurrentTask.id)
             {
                 case (int)ChasseurTask.Normal:
-                    //Follow waypoints
+                //Follow waypoints
                     if (patrouille != null)
                     {
                         if(CurrentTask.elapsed > 4 && MoveTo(patrouille.getCurrentDestination(), 5))
@@ -77,10 +92,10 @@ namespace AI
                     }
                     break;
 
+                //Poursuis le joueur repéré
                 case (int)ChasseurTask.Chase:
                     if((CurrentTask.target.transform.position - transform.position).sqrMagnitude >= Mathf.Pow((los.camera.farClipPlane), 2) || MoveTo(CurrentTask.target.transform.position, shootingRange))
                     {
-                        
                         agent.ResetPath();
                         tasks.Pop();
                     }
@@ -110,12 +125,90 @@ namespace AI
                     }
                     break;
 
+                //Le chasseur a perdu sa cible de vue
+                case (int)ChasseurTask.LostTarget:
+                    //Si il la voit à nouveau, retourne dans Chase
+                    if (los.sighted.Contains(CurrentTask.target))
+                    {
+                        tasks.Pop();
+                    }
+                    else
+                    {
+                        //Après un certain temps, retourne à l'état précédent le chase
+                        if (CurrentTask.elapsed > lostTargetTime)
+                        {
+                            tasks.Pop();
+                            tasks.Pop();
+                        }
+                        else //Sinon se déplace vers l'objet
+                        {
+                            MoveTo(CurrentTask.target.transform.position, shootingRange);
+                        }
+                    }
+                    break;
+
+                case (int)ChasseurTask.Shoot:
+                    if (CurrentTask.count == 0)
+                    {
+                        animator.Play(anim_shoot);
+                        CurrentTask.count++;
+                    }
+                    break;
+
                 case (int)ChasseurTask.Defend:
 
                     break;
             }
 
 	    }
+
+        public void Shoot()
+        {
+            Vector3 position = agent.transform.position;
+            Vector3 direction = agent.transform.forward;
+            RaycastHit hit;
+            if (Physics.Raycast(position, direction, out hit, shootingRange, shootingMask))
+            {
+                Debug.Log(hit.collider.gameObject);
+                AI.AIAgent agent = hit.collider.gameObject.GetComponent<AI.AIAgent>();
+                if (agent != null)
+                {
+                    agent.Kill();
+                }
+                else
+                {
+                    Cannibal cannibal = hit.collider.gameObject.GetComponentInParent<Cannibal>();
+                    if (cannibal != null)
+                    {
+                        cannibal.Kill();
+                    }
+                    else
+                    {
+                        Bush bush = hit.collider.gameObject.GetComponent<Bush>();
+                        if (bush != null)
+                        {
+                            bush.KillACannibal();
+                        }
+                    }
+                }
+            }
+        }
+
+        public void EndShoot()
+        {
+            if(CurrentTask.id == (int)ChasseurTask.Shoot)
+            {
+                tasks.Pop();
+                Cannibal cannibal = CurrentTask.target.GetComponentInParent<Cannibal>();
+                if (cannibal != null)
+                {
+                    if (cannibal.IsDead())
+                    {
+                        tasks.Push(new Task())
+                    }
+                }
+            }
+        }
 
         void OnBottleShaked(Bottle bot)
         {
