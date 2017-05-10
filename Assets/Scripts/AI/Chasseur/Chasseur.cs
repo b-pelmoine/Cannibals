@@ -155,6 +155,7 @@ namespace AI
                     }
                     break;
 
+                //Attends à coté du cadavre du cannibal
                 case (int)ChasseurTask.Defend:
 
                     break;
@@ -170,7 +171,7 @@ namespace AI
             if (Physics.Raycast(position, direction, out hit, shootingRange, shootingMask))
             {
                 Debug.Log(hit.collider.gameObject);
-                AI.AIAgent agent = hit.collider.gameObject.GetComponent<AI.AIAgent>();
+                AIAgent agent = hit.collider.gameObject.GetComponent<AIAgent>();
                 if (agent != null)
                 {
                     agent.Kill();
@@ -204,7 +205,11 @@ namespace AI
                 {
                     if (cannibal.IsDead())
                     {
-                        tasks.Push(new Task())
+                        tasks.Push(new Task((int)ChasseurTask.Defend, CurrentTask.target));
+                    }
+                    else
+                    {
+                        tasks.Push(new Task((int)ChasseurTask.Chase, CurrentTask.target));
                     }
                 }
             }
