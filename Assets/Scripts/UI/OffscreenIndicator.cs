@@ -97,6 +97,11 @@ public class OffscreenIndicator : MonoBehaviour {
         AIAgents.Add(new RawGO(go, type));
     }
 
+    public void ResetAgentIndicators()
+    {
+        AIAgents.Clear();
+    }
+
     public void triggerAgentIndicator(bool state)
     {
         showAIAgents = state;

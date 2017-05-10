@@ -9,8 +9,13 @@ public class ScanTerrain : MonoBehaviour
     public Material EffectMaterial;
     public float ScanDistance;
 
+    private float speed;
+    [Range(5f, 20f)]
+    public float OnePlayerSpeed;
+    [Range(20f, 50f)]
+    public float TwoPlayersSpeed;
+
     private Camera _camera;
-    private FollowCam camMover;
     public OffscreenIndicator indicator;
 
     private List<int> RegisteredUIDs;
@@ -19,11 +24,42 @@ public class ScanTerrain : MonoBehaviour
     bool _scanning;
     GameObject[] _scannables;
 
+    int CurrentActiveUsers;
+
     void Start()
     {
+        CurrentActiveUsers = 0;
+        RegisteredUIDs = new List<int>();
         _scannables = AIAgentManager.getActiveAgents().ToArray();
-        camMover = gameObject.GetComponent<FollowCam>();
-        _scanning = true; ScanDistance = 0;
+    }
+
+    public void StartScan(Vector3 src)
+    {
+        _scannables = AIAgentManager.getActiveAgents().ToArray();
+        RegisteredUIDs.Clear();
+        _scanning = true;
+        ScanDistance = 0;
+        ScannerOrigin.position = src;
+        speed = OnePlayerSpeed;
+    }
+
+    public void UpdateScan(int activeUsers)
+    {
+        CurrentActiveUsers = activeUsers;
+        switch(activeUsers)
+        {
+            case 1: speed = OnePlayerSpeed; break;
+            case 2: speed = TwoPlayersSpeed; break;
+            default: stopScan();break;
+        }
+            
+    }
+
+    void stopScan()
+    {
+        _scanning = false;
+        ScanDistance = 0;
+        indicator.ResetAgentIndicators();
     }
 
     void Update()
@@ -40,19 +76,12 @@ public class ScanTerrain : MonoBehaviour
                     foreach (int id in RegisteredUIDs) { if (id == sUID) exit = true; }
                     if (!exit)
                     {
-                        indicator.AddAgentIndicator(s, s.GetComponent<AI.AIAgent>().type);
+                        indicator.AddAgentIndicator(s, AIType.UNKNOWN);
                         RegisteredUIDs.Add(sUID);
                     }
                 }
                     
             }
-        }
-
-        if (ScanDistance > 80)
-        {
-                _scanning = true;
-                ScanDistance = 0;
-                ScannerOrigin.position = camMover.getPlayersBarycenter();
         }
     }
     // End Demo Code
