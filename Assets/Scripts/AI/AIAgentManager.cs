@@ -16,7 +16,7 @@ public class AIAgentManager : MonoBehaviour {
         agents.Add(go);
     }
 
-    public List<GameObject> getActiveAgents()
+    static public List<GameObject> getActiveAgents()
     {
         return agents;
     }

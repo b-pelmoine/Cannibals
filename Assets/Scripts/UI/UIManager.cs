@@ -6,8 +6,7 @@ public class UIManager : MonoBehaviour
 {
 
     public OffscreenIndicator indicator;
-    public AlterMaterial huntSenseTerrain;
-    public AIAgentManager IAmanager;
+    public ScanTerrain scanner;
 
     public bool huntSensActive = false;
     private float elapsedTime;
@@ -15,16 +14,12 @@ public class UIManager : MonoBehaviour
     public float transitionDuration;
     [Range(0.1f, 1f)]
     public float HuntSenseFinalIntensity;
-    [Range(2f, 5f)]
-    public float agentSpreadAreaMax;
 
     private Dictionary<string, bool> cannibalsHuntSenseState;
 
     // Use this for initialization
     void Start()
     {
-        huntSenseTerrain.agentGO = IAmanager.getActiveAgents();
-        huntSenseTerrain.effectArea = 0;
         elapsedTime = 50f;
         cannibalsHuntSenseState = new Dictionary<string, bool>();
     }
@@ -64,17 +59,7 @@ public class UIManager : MonoBehaviour
             {
                 effectIntensity = HuntSenseFinalIntensity;
             }
-            //update the array of AIAgents removing the ones that are dead
-            GameObject[] activeAgents = IAmanager.getActiveAgents().ToArray();
-            foreach (GameObject agent in activeAgents)
-            {
-                agent.GetComponent<Renderer>().material.SetFloat("_Intensity", effectIntensity);
-            }
-            huntSenseTerrain.effectArea = agentSpreadAreaMax * effectIntensity * 1 / HuntSenseFinalIntensity;
-            //if the list have changed
-            if (activeAgents.Length != indicator.AIAgents.Length)
-                indicator.AIAgents = activeAgents;
-
+            Shader.SetGlobalFloat("_HuntSenseIntensity", effectIntensity);
         }
         else
         {
@@ -83,12 +68,7 @@ public class UIManager : MonoBehaviour
                 float effectIntensity = ((transitionDuration - elapsedTime) / transitionDuration) * HuntSenseFinalIntensity;
                 elapsedTime += Time.deltaTime;
                 if (elapsedTime > transitionDuration) elapsedTime = transitionDuration;
-                GameObject[] activeAgents = IAmanager.getActiveAgents().ToArray();
-                foreach (GameObject agent in activeAgents)
-                {
-                    agent.GetComponent<Renderer>().material.SetFloat("_Intensity", effectIntensity);
-                }
-                huntSenseTerrain.effectArea = agentSpreadAreaMax * effectIntensity * 1 / HuntSenseFinalIntensity;
+                Shader.SetGlobalFloat("_HuntSenseIntensity", effectIntensity);
             }
         }
     }
