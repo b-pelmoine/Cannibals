@@ -40,9 +40,16 @@ public class OffscreenIndicator : MonoBehaviour {
     [Range(0.5f, 50.0f)]
     public float pulseSpeed;
 
-    public Texture tex_AI;
-    public Texture tex_Target;
-    public Texture tex_Player;
+    [Header("Textures")]
+    public Texture tex_default;
+    public Texture tex_AI_Hunter;
+    public Texture tex_AI_Dog;
+    public Texture tex_AI_Scout;
+    public Texture tex_AI_Runner;
+    public Texture tex_Target_Alive;
+    public Texture tex_Target_Dead;
+    public Texture tex_Player_One;
+    public Texture tex_Player_Two;
     public Texture tex_Village;
 
     public Camera mCamera;
@@ -116,33 +123,51 @@ public class OffscreenIndicator : MonoBehaviour {
         showPlayers = state;
     }
 
+    //return the appropriate texture according to AIType
+    Texture getTextureFromType(AIType type)
+    {
+        switch(type)
+        {
+            case AIType.Hunter: return tex_AI_Hunter;
+            case AIType.Dog: return tex_AI_Dog;
+            case AIType.Scout: return tex_AI_Scout;
+            case AIType.Runner: return tex_AI_Runner;
+            case AIType.PlayerOne: return tex_Player_One;
+            case AIType.PlayerTwo: return tex_Player_Two;
+            case AIType.Target_Alive: return tex_Target_Alive;
+            case AIType.Target_Dead: return tex_Target_Dead;
+            case AIType.EndPoint: return tex_Village;
+            default:    return tex_default;
+        }
+    }
+
     void OnGUI()
     {
         if(showAIAgents)
         {
             foreach (IndicatorData data in AIOnScreenPositions)
             {
-                GUI.DrawTexture(data._pos, tex_AI, ScaleMode.ScaleToFit);
+                GUI.DrawTexture(data._pos, getTextureFromType(data._type), ScaleMode.ScaleToFit);
             }
         }
         if(showTarget)
         {
             foreach (IndicatorData data in TargetOnScreenPositions)
             {
-                GUI.DrawTexture(data._pos, tex_Target, ScaleMode.ScaleToFit);
+                GUI.DrawTexture(data._pos, getTextureFromType(data._type), ScaleMode.ScaleToFit);
             }
         }
         if(showPlayers)
         {
             foreach (IndicatorData data in PlayersOnScreenPositions)
             {
-                GUI.DrawTexture(data._pos, tex_Player, ScaleMode.ScaleToFit);
+                GUI.DrawTexture(data._pos, getTextureFromType(data._type), ScaleMode.ScaleToFit);
             }
         }
         //proto uiui
         foreach (IndicatorData data in endPositions)
         {
-            GUI.DrawTexture(data._pos, tex_Village, ScaleMode.ScaleToFit);
+            GUI.DrawTexture(data._pos, getTextureFromType(data._type), ScaleMode.ScaleToFit);
         }
     }
 
