@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 public class LineOfSight : MonoBehaviour {
-    new Camera camera;
+    public new Camera camera;
     public Shader shader;
     public static RenderTexture texture;
     static Texture2D tex2D;
@@ -12,6 +12,7 @@ public class LineOfSight : MonoBehaviour {
     public List<GameObject> sighted;
     static List<int> detect_rate= new List<int>();
     bool updated = false;
+    public bool active = true;
     
 
     void Awake()
@@ -60,6 +61,14 @@ public class LineOfSight : MonoBehaviour {
 
     public bool Analyse()
     {
+        if (active) AnalyseSight();
+        else AnalyseSimple();
+        updated = true;
+        return sighted.Count != 0;
+    }
+
+    public void AnalyseSight()
+    {
         RenderTexture.active = texture;
         tex2D.ReadPixels(new Rect(0, 0, texture.width, texture.height), 0, 0, false);
         Color[] pixels = tex2D.GetPixels();
@@ -68,11 +77,11 @@ public class LineOfSight : MonoBehaviour {
         for (int i = 0; i < pixels.Length; i++)
         {
             red = (int)(pixels[i].r * 255) - 1;
-            if ( red >= 0 && red < detected_objects.Count)
+            if (red >= 0 && red < detected_objects.Count)
                 pixnum[red]++;
         }
         sighted.Clear();
-        for(int i = 0; i < detected_objects.Count;i++)
+        for (int i = 0; i < detected_objects.Count; i++)
         {
             if (pixnum[i] > detect_rate[i])
             {
@@ -80,13 +89,24 @@ public class LineOfSight : MonoBehaviour {
             }
         }
         RenderTexture.active = null;
-        updated = true;
-        return sighted.Count != 0;
+    }
+
+    public void AnalyseSimple()
+    {
+        Collider[] cols = Physics.OverlapSphere(transform.position, camera.nearClipPlane + camera.farClipPlane);
+        foreach(Collider c in cols)
+        {
+            if (detected_objects.Contains(c.gameObject))
+            {
+                sighted.Add(c.gameObject);
+            }
+        }
     }
 
     public void Rendering()
     {
-        camera.Render();
+        if(active)
+            camera.Render();
     }
 
     public bool Updated

@@ -8,6 +8,8 @@ public class LineOfSightManager : MonoBehaviour {
     public float framerate = 30.0f;
     static private List<LineOfSight> agents_sight;
     int turn = 0;
+    public List<GameObject> players;
+    public float render_distance = 30;
 
     // Use this for initialization
     void Awake () {
@@ -28,6 +30,15 @@ public class LineOfSightManager : MonoBehaviour {
             yield return new WaitForSeconds(1/framerate);
         while (true)
         {
+            agents_sight[turn].active = true;
+            foreach(GameObject p in players)
+            {
+                if ((agents_sight[turn].transform.position - p.transform.position).sqrMagnitude > render_distance * render_distance)
+                {
+                    agents_sight[turn].active = false;
+                    break;
+                }
+            }
             walkable.drawTreesAndFoliage = false;
             agents_sight[turn].Rendering();
             walkable.drawTreesAndFoliage = true;

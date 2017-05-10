@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AIChien : MonoBehaviour {
+public class AIChien : AI.AIAgent {
 
     IBlackboard blackboard;
     public bool arrived=false;
@@ -17,18 +17,31 @@ public class AIChien : MonoBehaviour {
     public GameObject target = null;
     public bool sawSomething = false;
 
+    enum DogTask
+    {
+        WanderInFront,
+        ChaseAndBark,
+        Eat
+    }
+
     public Animator animator;
-    NavMeshAgent agent;
     int anim_speedId = Animator.StringToHash("Speed");
 
+    //Sound
+    AkGameObj sound;
+
     // Use this for initialization
-    void Start () {
-        agent = GetComponent<NavMeshAgent>();
+    new void Start () {
+        base.Start();
+        type = AIType.Dog;
         los = GetComponent<LineOfSight>();
-	}
+        sound = GetComponent<AkGameObj>();
+        AkSoundEngine.PostEvent("dog_idle", gameObject);
+    }
 	
 	// Update is called once per frame
-	void Update () {
+	new void Update () {
+        base.Update();
         if (animator != null && agent != null)
         {
             animator.SetFloat(anim_speedId, agent.velocity.magnitude);
@@ -37,7 +50,10 @@ public class AIChien : MonoBehaviour {
         {
             AnalyseSight();
         }
+        //if(target!=null)
+          //  MoveTo(target.transform.position, 5);
 	}
+
 
     void AnalyseSight()
     {
@@ -48,6 +64,7 @@ public class AIChien : MonoBehaviour {
                 target = los.sighted[i];
                 targetType = btargetType.Viande;
                 sawSomething = true;
+                
             }
             else
             {

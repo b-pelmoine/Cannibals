@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [System.Serializable]
-public enum IAType{
+public enum AIType{
     UNKNOWN, //default
     Target_Alive,
     Target_Dead,
@@ -19,18 +19,18 @@ public enum IAType{
 
 public struct IndicatorData
 {
-    public IndicatorData(Rect pos,float angle, IAType type) { _pos = pos; _angle = angle; _type = type; }
+    public IndicatorData(Rect pos,float angle, AIType type) { _pos = pos; _angle = angle; _type = type; }
     public Rect _pos;
     public float _angle;
-    public IAType _type;
+    public AIType _type;
 }
 
 [System.Serializable]
 public struct RawGO
 {
-    public RawGO(GameObject go_t, IAType type_t) { go = go_t; type = type_t; }
+    public RawGO(GameObject go_t, AIType type_t) { go = go_t; type = type_t; }
     public GameObject go;
-    public IAType type;
+    public AIType type;
 }
 
 public class OffscreenIndicator : MonoBehaviour {
@@ -90,7 +90,7 @@ public class OffscreenIndicator : MonoBehaviour {
     }
 
     //test if not already registered
-    public void AddAgentIndicator(GameObject go, IAType type)
+    public void AddAgentIndicator(GameObject go, AIType type)
     {
         int instanceID = go.GetInstanceID();
         foreach (RawGO RawgameObject in AIAgents){if (instanceID == RawgameObject.go.GetInstanceID()) return;}
