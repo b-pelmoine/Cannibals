@@ -6,7 +6,6 @@ Shader "Custom/Outline" {
 		_OutlineColor ("Outline Color", Color) = (0,0,0,1)
 		_Outline ("Outline width", Range (1, 3)) = .05
 		_MainTex ("Base (RGB)", 2D) = "white" { }
-		_HuntSenseIntensity ("Intensity effect", Range(0, 1.0)) = 0
 	}
  
 CGINCLUDE
