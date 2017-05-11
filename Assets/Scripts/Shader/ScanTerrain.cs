@@ -22,6 +22,7 @@ public class ScanTerrain : MonoBehaviour
 
     // Demo Code
     bool _scanning;
+    float elapsed = 0f;
     GameObject[] _scannables;
 
     void Start()
@@ -53,7 +54,7 @@ public class ScanTerrain : MonoBehaviour
     void stopScan()
     {
         _scanning = false;
-        ScanDistance = 0;
+        elapsed = 0;
     }
 
     void Update()
@@ -77,6 +78,14 @@ public class ScanTerrain : MonoBehaviour
                 }
                     
             }
+        }
+        else
+        {
+            elapsed += Time.deltaTime;
+            if (3f - elapsed > 0)
+                ScanDistance += Time.deltaTime * OnePlayerSpeed/2;
+            else
+                ScanDistance = 0;
         }
     }
     // End Demo Code
