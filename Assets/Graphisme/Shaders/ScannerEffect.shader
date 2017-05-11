@@ -74,6 +74,7 @@ Shader "Hidden/ScannerEffect"
 			float4 _TrailColor;
 			float4 _HBarColor;
 
+
 			float4 horizBars(float2 p)
 			{
 				return 1 - saturate(round(abs(frac(p.y * 100) * 2)));
