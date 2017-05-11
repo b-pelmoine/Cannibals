@@ -75,6 +75,7 @@ Shader "Hidden/ScannerEffect"
 			float4 _HBarColor;
 			uniform float _HuntSenseIntensity;
 
+
 			float4 horizBars(float2 p)
 			{
 				return 1 - saturate(round(abs(frac(p.y * 100) * 2)));

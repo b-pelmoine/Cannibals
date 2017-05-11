@@ -1,0 +1,81 @@
+﻿Revert "Merge branch 'master' of https://github.com/teroratsu/Cannibals"
+
+This reverts commit 208760add214a0206117fb176faa88d6a48e2c20, reversing
+changes made to f183e602ae3c02423b305f2c1b7224ee4bb712d2.
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is behind 'origin/master' by 1 commit, and can be fast-forwarded.
+#   (use "git pull" to update your local branch)
+#
+# Changes to be committed:
+#	modified:   Assets/Graphisme/Anims/chasseur.FBX
+#	modified:   Assets/Graphisme/Materials/other Textures/hunter_texture.jpg
+#	deleted:    Assets/Graphisme/Materials/other Textures/shotgun.jpg
+#	modified:   Assets/Graphisme/Shaders/ScannerEffect.shader
+#	modified:   Assets/Graphisme/Shaders/render/HuntSenseEffect.mat
+#	modified:   Assets/Prefabs/AI/ChienChasseur.prefab
+#	modified:   Assets/Prefabs/Cannibal.prefab
+#	modified:   Assets/Resources/Cannibal/CannibalDeadFSM.asset
+#	modified:   Assets/Scenes/Integration.unity
+#	renamed:    Assets/Ressources/2D Textures.meta -> Assets/Scenes/NansTest.meta
+#	new file:   Assets/Scenes/NansTest/NavMesh.asset
+#	new file:   Assets/Scenes/NansTest/NavMesh.asset.meta
+#	modified:   Assets/Scripts/AI/AIAgent.cs
+#	modified:   Assets/Scripts/AI/Chasseur/Chasseur.cs
+#	modified:   Assets/Scripts/AI/Chien/AIChien.cs
+#	modified:   Assets/Scripts/AI/LineOfSight.cs
+#	modified:   Assets/Scripts/Cannibals/Cannibal.cs
+#	modified:   Assets/Scripts/Cannibals/Cannibal_Skill.cs
+#	modified:   Assets/Scripts/Cannibals/States/Cannibal_Call.cs
+#	modified:   Assets/Scripts/Cannibals/States/Cannibal_Dead.cs
+#	modified:   Assets/Scripts/Cannibals/States/Cannibal_DualTakeCorpse.cs
+#	modified:   Assets/Scripts/Cannibals/States/Cannibal_HunterEar.cs
+#	modified:   Assets/Scripts/Cannibals/States/Cannibal_Idle.cs
+#	modified:   Assets/Scripts/Cannibals/States/Cannibal_KnifeAttack.cs
+#	modified:   Assets/Scripts/Cannibals/States/Cannibal_LaunchObject.cs
+#	modified:   Assets/Scripts/Cannibals/States/Cannibal_ReleaseCorpse.cs
+#	modified:   Assets/Scripts/Cannibals/States/Cannibal_Resurrect.cs
+#	modified:   Assets/Scripts/Cannibals/States/Cannibal_ResurrectOtherCannibal.cs
+#	modified:   Assets/Scripts/Cannibals/States/Cannibal_Run.cs
+#	modified:   Assets/Scripts/Cannibals/States/Cannibal_RunCorpse.cs
+#	modified:   Assets/Scripts/Cannibals/States/Cannibal_Shake.cs
+#	modified:   Assets/Scripts/Cannibals/States/Cannibal_SoloTakeCorpse.cs
+#	modified:   Assets/Scripts/Cannibals/States/Cannibal_State.cs
+#	modified:   Assets/Scripts/Cannibals/States/Cannibal_TakeObject.cs
+#	modified:   Assets/Scripts/Shader/ScanTerrain.cs
+#	modified:   Assets/Scripts/UI/OffscreenIndicator.cs
+#	modified:   Assets/Scripts/UI/UIManager.cs
+#	modified:   Assets/Standard Assets/CustomConditions/CheckTriggerExt.cs
+#	renamed:    Assets/Scripts/Editor.meta -> Assets/Standard Assets/CustomState 1.meta
+#	renamed:    Assets/Tree_Sapin 3_Textures.meta -> Assets/Standard Assets/CustomState.meta
+#	renamed:    Assets/Ressources/Camera anim.meta -> Assets/StreamingAssets/Audio.meta
+#	modified:   Assets/Wwise/Editor/ProjectData/AkWwiseProjectData.asset
+#	deleted:    Cannibals_WwiseProject/.cache/Windows/SFX/Audio 1_20_50DB02DB.wem
+#	deleted:    Cannibals_WwiseProject/.cache/Windows/SFX/Audio 1_21_50DB02DB.wem
+#	deleted:    Cannibals_WwiseProject/.cache/Windows/SFX/Audio 1_22_50DB02DB.wem
+#	deleted:    Cannibals_WwiseProject/.cache/Windows/SFX/REC M1_183_50DB02DB.wem
+#	deleted:    Cannibals_WwiseProject/.cache/Windows/SFX/REC M1_184_50DB02DB.wem
+#	deleted:    Cannibals_WwiseProject/.cache/Windows/SFX/REC M1_185_50DB02DB.wem
+#	deleted:    Cannibals_WwiseProject/.cache/Windows/SFX/REC M1_186_50DB02DB.wem
+#	deleted:    Cannibals_WwiseProject/.cache/Windows/SFX/REC M1_187_50DB02DB.wem
+#	deleted:    Cannibals_WwiseProject/.cache/Windows/SFX/REC M1_188_50DB02DB.wem
+#	deleted:    Cannibals_WwiseProject/.cache/Windows/SFX/REC M2_101_50DB02DB.wem
+#	deleted:    Cannibals_WwiseProject/.cache/Windows/SFX/REC M2_102_50DB02DB.wem
+#	deleted:    Cannibals_WwiseProject/.cache/Windows/SFX/REC M2_103_50DB02DB.wem
+#	deleted:    Cannibals_WwiseProject/.cache/Windows/SFX/REC M2_104_50DB02DB.wem
+#	deleted:    Cannibals_WwiseProject/.cache/Windows/SFX/REC M2_94_50DB02DB.wem
+#	deleted:    Cannibals_WwiseProject/.cache/Windows/SFX/REC M2_95_50DB02DB.wem
+#	deleted:    Cannibals_WwiseProject/.cache/Windows/SFX/REC M2_96_50DB02DB.wem
+#	deleted:    Cannibals_WwiseProject/.cache/Windows/SFX/REC M2_97_50DB02DB.wem
+#	deleted:    Cannibals_WwiseProject/.cache/Windows/SFX/REC M2_98_50DB02DB.wem
+#	deleted:    Cannibals_WwiseProject/.cache/Windows/SFX/REC M2_99_50DB02DB.wem
+#	modified:   Cannibals_WwiseProject/.cache/Windows/SFX/SBStat/{57E2201B-02A6-4775-8337-6EFC6286CAEB}.stat
+#	modified:   Cannibals_WwiseProject/.cache/Windows/SFX/Wwise.dat
+#	new file:   Cannibals_WwiseProject/Cannibals_WwiseProject.Tero.wsettings
+#	modified:   Cannibals_WwiseProject/Cannibals_WwiseProject.Thomas.loubat.validationcache
+#	modified:   Cannibals_WwiseProject/IncrementalSoundBankData.xml
+#	modified:   ProjectSettings/ProjectVersion.txt
+#
+
