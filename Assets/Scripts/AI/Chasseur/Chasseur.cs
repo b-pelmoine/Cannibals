@@ -206,6 +206,7 @@ namespace AI
                         Bush bush = hit.collider.gameObject.GetComponent<Bush>();
                         if (bush != null)
                         {
+                            Debug.Log("Killing cannibals in bush:" + bush);
                             bush.KillACannibal();
                         }
                     }
