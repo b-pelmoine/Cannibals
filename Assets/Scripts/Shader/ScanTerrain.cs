@@ -54,7 +54,6 @@ public class ScanTerrain : MonoBehaviour
     {
         _scanning = false;
         ScanDistance = 0;
-        indicator.ResetAgentIndicators();
     }
 
     void Update()

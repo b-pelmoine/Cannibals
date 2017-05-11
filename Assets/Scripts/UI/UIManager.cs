@@ -12,6 +12,8 @@ public class UIManager : MonoBehaviour
     private float elapsedTime;
     [Range(0.2f, 3f)]
     public float transitionDuration;
+    [Range(0.5f, 5f)]
+    public float DecaytransitionDuration;
     [Range(0.1f, 1f)]
     public float HuntSenseFinalIntensity;
     [Space(30)]
@@ -22,6 +24,7 @@ public class UIManager : MonoBehaviour
     {
         elapsedTime = 50f;
         cannibalsHuntSenseState = new Dictionary<string, bool>();
+        Shader.SetGlobalFloat("_HuntSenseIntensity", 0f);
     }
 
     // Update is called once per frame
@@ -46,9 +49,10 @@ public class UIManager : MonoBehaviour
                 ++activeCount;
             }
         }
-        elapsedTime = 0;
         if(huntSensActive && huntSense_t != huntSensActive)
         {
+            if (elapsedTime > DecaytransitionDuration) elapsedTime = DecaytransitionDuration;
+            elapsedTime = (elapsedTime < DecaytransitionDuration) ? elapsedTime * (transitionDuration / DecaytransitionDuration) : 0;
             indicator.triggerAgentIndicator(huntSensActive);
             RewiredInput[] inputs = GameObject.FindObjectsOfType<RewiredInput>();
             Vector3 pos = Vector3.zero;
@@ -58,6 +62,10 @@ public class UIManager : MonoBehaviour
         else
         {
             indicator.triggerAgentIndicator(huntSensActive);
+        }
+        if(!huntSensActive)
+        {
+            elapsedTime = (elapsedTime >= transitionDuration) ? 0 : DecaytransitionDuration - (elapsedTime * (DecaytransitionDuration / transitionDuration));
         }
         //casually update scanner data
         scanner.UpdateScan(activeCount);
@@ -82,11 +90,11 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            if (elapsedTime < transitionDuration)
+            if (elapsedTime < DecaytransitionDuration)
             {
-                float effectIntensity = ((transitionDuration - elapsedTime) / transitionDuration) * HuntSenseFinalIntensity;
+                float effectIntensity = ((DecaytransitionDuration - elapsedTime) / DecaytransitionDuration) * HuntSenseFinalIntensity;
                 elapsedTime += Time.deltaTime;
-                if (elapsedTime > transitionDuration) elapsedTime = transitionDuration;
+                if (elapsedTime > DecaytransitionDuration) elapsedTime = DecaytransitionDuration;
                 Shader.SetGlobalFloat("_HuntSenseIntensity", effectIntensity);
             }
         }
