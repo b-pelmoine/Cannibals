@@ -17,6 +17,7 @@ public class Bush : MonoBehaviour {
     void Awake()
     {
         m_cannibalInBush = new List<Cannibal>();
+        m_statemachine = GetComponent<FSMOwner>();
     }
 
     /// <summary>
