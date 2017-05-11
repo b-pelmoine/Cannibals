@@ -85,7 +85,7 @@ public class OffscreenIndicator : MonoBehaviour {
     private float elapsedLastPop = 0f;
     private int lastAIID = 0;
     [Range(0.2f,5f)]
-    public float transitionDuration = 0f;
+    public float transitionOut = 0f;
     [Range(0.2f, 5f)]
     public float transitionIn = 0f;
     private List<RawGO> oldAgents;
@@ -128,7 +128,7 @@ public class OffscreenIndicator : MonoBehaviour {
     {
         if(!state)
         {
-            if(elapsedTime > transitionDuration)
+            if(elapsedTime > transitionOut)
                 elapsedTime = 0;
             foreach (RawGO go in AIAgents) oldAgents.Add(go);
             AIAgents.Clear();
@@ -161,9 +161,9 @@ public class OffscreenIndicator : MonoBehaviour {
             {
                 GUI.DrawTexture(data._pos, getTextureFromType(data._type), ScaleMode.ScaleToFit);
             }
-            if (elapsedTime < transitionDuration)
+            if (elapsedTime < transitionOut)
             {
-                GUI.color = Color.white*(transitionDuration - elapsedTime);
+                GUI.color = Color.white*(transitionOut - elapsedTime);
                 foreach (IndicatorData data in OldTargetOnScreenPositions)
                 {
                     GUI.DrawTexture(data._pos, getTextureFromType(data._type), ScaleMode.ScaleToFit);
