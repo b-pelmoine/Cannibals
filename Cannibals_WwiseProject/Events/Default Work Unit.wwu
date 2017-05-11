@@ -447,6 +447,28 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="granny_hit" ID="{AC0E0837-311E-47A7-A911-0BC18AA744BF}">
+					<ChildrenList>
+						<Action Name="Play" ID="{BBCC9F34-D9D4-40A5-B9A9-D26483F96DF2}" ShortID="695365237" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{D09E4428-8936-449F-BE99-E812262DAE20}" Global="false">
+									<ObjectRef Name="Hit" ID="{B75C2E67-6FD0-4A91-8894-3F3CC28E1DD6}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="granny_whoosh_hit" ID="{2BC7CF66-0B1B-4BCB-AE88-E3910ABA688E}">
+					<ChildrenList>
+						<Action Name="Play" ID="{10ED5370-0906-4449-9D31-6C50DEC698F1}" ShortID="6766924" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{5F43CC09-CFB1-4548-878C-9F46193833ED}" Global="false">
+									<ObjectRef Name="Whoosh Hit" ID="{F8C28B5B-A19B-4100-ABAB-048673A43C3A}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
