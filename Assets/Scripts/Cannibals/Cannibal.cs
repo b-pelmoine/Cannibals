@@ -44,24 +44,12 @@ public class Cannibal : MonoBehaviour {
         return position;
     }
 
-    /// <summary>
-    /// Knock out the cannibal.
-    /// </summary>
-    /// <returns>false if the cannibal can't be knock out for the moment</returns>
-    public bool KnockOut() { return CurrentState().KnockOut(); }
 
     /// <summary>
     /// Resuscitate the cannibal
     /// </summary>
     /// <returns>false if the cannibal can't be resuscitate for the moment</returns>
     public bool Resurrect() { return CurrentState().Resurrect(); }
-
-
-    /// <summary>
-    /// The cannibal will loose his object
-    /// </summary>
-    /// <returns>false if the cannibal has no object or don't want to loose it</returns>
-    public bool LooseCannibalObject() { return CurrentState().LooseCannibalObject(); }
 
 
     /// <summary>
@@ -73,14 +61,13 @@ public class Cannibal : MonoBehaviour {
 
 
 
-
     public bool IsDead()
     {
         return CurrentState().IsDead();
     }
 
 
-    Cannibal_State CurrentState()
+    ICannibal_State CurrentState()
     {
         FSMState currentSate = m_stateMachine.behaviour.currentState;
 
@@ -89,6 +76,6 @@ public class Cannibal : MonoBehaviour {
             currentSate = ((NestedFSMState)currentSate).nestedFSM.currentState;
         }
 
-        return (Cannibal_State)currentSate;
+        return (ICannibal_State)currentSate;
     }
 }

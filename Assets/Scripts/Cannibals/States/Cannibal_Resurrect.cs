@@ -1,18 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using NodeCanvas.StateMachines;
+using ParadoxNotion.Design;
 
-public class Cannibal_Resurrect : Cannibal_State {
-
+[Category("Cannibal")]
+public class Cannibal_Resurrect : ActionState, ICannibal_State {
 
     /// <summary>
-    /// Nothing to do if we try to kill a cannibal that resurrect
+    /// Resuscitate the cannibal
+    /// </summary>
+    /// <returns>false if the cannibal can't be resuscitate for the moment</returns>
+    public bool Resurrect() { return false; }
+
+    /// <summary>
+    /// Kill the cannibal
+    /// </summary>
+    /// <returns>false if the cannibal can't be killed in the current state</returns>
+    public bool Kill() { return false; }
+
+    /// <summary>
+    /// Return if in the currentState the cannibal is considered dead
     /// </summary>
     /// <returns></returns>
-    public override bool Kill()
-    {
-        return false;
-    }
-
+    public bool IsDead() { return false; }
 
 }

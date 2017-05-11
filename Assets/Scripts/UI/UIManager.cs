@@ -19,6 +19,12 @@ public class UIManager : MonoBehaviour
     [Space(30)]
     private Dictionary<string, bool> cannibalsHuntSenseState;
 
+    void Awake()
+    {
+        Cannibal_Skill.OnStartUseHunterSense += StartTriggerHuntSense;
+        Cannibal_Skill.OnStopUseHunterSense += StopTriggerSense;
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -33,6 +39,25 @@ public class UIManager : MonoBehaviour
         //update UI for hunt sense
         UpdateHuntSense();
     }
+
+    void OnDestroy()
+    {
+        Cannibal_Skill.OnStartUseHunterSense -= StartTriggerHuntSense;
+        Cannibal_Skill.OnStopUseHunterSense -= StopTriggerSense;
+    }
+
+    void StartTriggerHuntSense(Cannibal c)
+    {
+         RewiredInput input_t = c.gameObject.GetComponent<RewiredInput>();
+         triggerHuntSense(input_t.playerInputID + input_t.number, true);
+    }
+
+    void StopTriggerSense(Cannibal c)
+    {
+        RewiredInput input_t = c.gameObject.GetComponent<RewiredInput>();
+        triggerHuntSense(input_t.playerInputID + input_t.number, false);
+    }
+
 
     public void triggerHuntSense(string cannibalID, bool state)
     {
