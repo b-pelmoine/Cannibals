@@ -98,9 +98,8 @@ namespace AI
                     if((CurrentTask.target.transform.position - transform.position).sqrMagnitude >= Mathf.Pow((los.camera.farClipPlane), 2) || MoveTo(CurrentTask.target.transform.position, shootingRange))
                     {
                         agent.ResetPath();
-                        GameObject target = CurrentTask.target;
                         tasks.Pop();
-                        tasks.Push(new Task((int)ChasseurTask.Shoot, target));
+                        tasks.Push(new Task((int)ChasseurTask.Shoot, CurrentTask.target));
                     }
                     break;
 
@@ -160,7 +159,6 @@ namespace AI
 
                 //Attends à coté du cadavre du cannibal
                 case (int)ChasseurTask.Defend:
-                    WanderAround(CurrentTask.target.transform.position, 5);
                     if (CurrentTask.elapsed > defendTime)
                     {
                         agent.ResetPath();
@@ -173,7 +171,6 @@ namespace AI
 
         public void Shoot()
         {
-            AkSoundEngine.PostEvent("hunter_rifle", gameObject);
             Vector3 position = agent.transform.position;
             Vector3 direction = agent.transform.forward;
             RaycastHit hit;
@@ -208,18 +205,17 @@ namespace AI
         {
             if(CurrentTask.id == (int)ChasseurTask.Shoot)
             {
-                Cannibal cannibal = CurrentTask.target.GetComponentInParent<Cannibal>();
-                GameObject target = CurrentTask.target;
                 tasks.Pop();
+                Cannibal cannibal = CurrentTask.target.GetComponentInParent<Cannibal>();
                 if (cannibal != null)
                 {
                     if (cannibal.IsDead())
                     {
-                        tasks.Push(new Task((int)ChasseurTask.Defend, target));
+                        tasks.Push(new Task((int)ChasseurTask.Defend, CurrentTask.target));
                     }
                     else
                     {
-                        tasks.Push(new Task((int)ChasseurTask.Chase, target));
+                        tasks.Push(new Task((int)ChasseurTask.Chase, CurrentTask.target));
                     }
                 }
             }

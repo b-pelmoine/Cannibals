@@ -1,12 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 public class Cannibal_Skill : MonoBehaviour {
 
-    public static Action<Cannibal> OnStartUseHunterSense;
-    public static Action<Cannibal> OnStopUseHunterSense;
 
     public CannibalObject m_cannibalObject { get; private set; }
     public Corpse m_corpse { get; private set; }
@@ -19,6 +16,9 @@ public class Cannibal_Skill : MonoBehaviour {
 
     [SerializeField]
     Transform corpseTransform;
+
+    [SerializeField]
+    UIManager UIManager;
 
     public BoxCollider corpseTakenCollider;
 
@@ -65,4 +65,10 @@ public class Cannibal_Skill : MonoBehaviour {
         corpse.BeTaken(this.m_cannibal);
         m_corpse = corpse;
     }
+
+    public void TriggerHuntSense(string playerID, bool state)
+    {
+        UIManager.triggerHuntSense(playerID, state);
+    }
+
 }

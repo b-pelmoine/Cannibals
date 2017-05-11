@@ -26,12 +26,9 @@ public class LineOfSight : MonoBehaviour {
     }
 
 	void Start () {
+        camera = GetComponentInChildren<Camera>();
         if (camera == null)
-        {
-            camera = GetComponentInChildren<Camera>();
-            if (camera == null)
-                camera = gameObject.AddComponent<Camera>();
-        }
+            camera = gameObject.AddComponent<Camera>();
         camera.enabled = false;
         camera.targetTexture = texture;
         
@@ -96,7 +93,6 @@ public class LineOfSight : MonoBehaviour {
 
     public void AnalyseSimple()
     {
-        sighted.Clear();
         Collider[] cols = Physics.OverlapSphere(transform.position, camera.nearClipPlane + camera.farClipPlane);
         foreach(Collider c in cols)
         {

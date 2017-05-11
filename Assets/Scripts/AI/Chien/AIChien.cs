@@ -27,12 +27,15 @@ public class AIChien : AI.AIAgent {
     public Animator animator;
     int anim_speedId = Animator.StringToHash("Speed");
 
+    //Sound
+    AkGameObj sound;
 
     // Use this for initialization
     new void Start () {
         base.Start();
         type = AIType.Dog;
         los = GetComponent<LineOfSight>();
+        sound = GetComponent<AkGameObj>();
         AkSoundEngine.PostEvent("dog_idle", gameObject);
     }
 	

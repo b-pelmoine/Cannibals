@@ -28,7 +28,7 @@ public struct IndicatorData
 [System.Serializable]
 public struct RawGO
 {
-    public RawGO(GameObject go_t, AIType type_t) { go = go_t; type = type_t;}
+    public RawGO(GameObject go_t, AIType type_t) { go = go_t; type = type_t; }
     public GameObject go;
     public AIType type;
 }
@@ -71,7 +71,6 @@ public class OffscreenIndicator : MonoBehaviour {
     public float TargetsSizeMultiplier = 1.0f;
     public bool pulse_Targets = false;
     private List<IndicatorData> TargetOnScreenPositions;
-    private List<IndicatorData> OldTargetOnScreenPositions;
 
     public RawGO[] endPosition;
     private List<IndicatorData> endPositions;
@@ -79,16 +78,6 @@ public class OffscreenIndicator : MonoBehaviour {
     private bool showAIAgents;
     private bool showTarget; // automatique ? offscreen = enabled
     private bool showPlayers;
-
-    [Header("Params :")]
-    private float elapsedTime = 0f;
-    private float elapsedLastPop = 0f;
-    private int lastAIID = 0;
-    [Range(0.2f,5f)]
-    public float transitionOut = 0f;
-    [Range(0.2f, 5f)]
-    public float transitionIn = 0f;
-    private List<RawGO> oldAgents;
 
     Vector3 screenPos = Vector3.zero;
 
@@ -98,41 +87,40 @@ public class OffscreenIndicator : MonoBehaviour {
         center = new Vector3(Screen.width, Screen.height, 0)/2;
 
         AIAgents = new List<RawGO>();
-        oldAgents = new List<RawGO>();
         
         AIOnScreenPositions = new List<IndicatorData>();
         TargetOnScreenPositions = new List<IndicatorData>();
-        OldTargetOnScreenPositions = new List<IndicatorData>();
         PlayersOnScreenPositions = new List<IndicatorData>();
         endPositions = new List<IndicatorData>();
 
         showTarget = true;
-        showAIAgents = true;
-        //showPlayers = true;
     }
 
     //test if not already registered
     public void AddAgentIndicator(GameObject go, AIType type)
     {
         int instanceID = go.GetInstanceID();
-        //don't add if already in the list
         foreach (RawGO RawgameObject in AIAgents){if (instanceID == RawgameObject.go.GetInstanceID()) return;}
-        //remove newly discovered from old list
-        foreach (RawGO RawgameObject in oldAgents) { if (instanceID == RawgameObject.go.GetInstanceID()) { oldAgents.Remove(RawgameObject); break; } }
         AIAgents.Add(new RawGO(go, type));
-        lastAIID = AIAgents[AIAgents.Count - 1].go.GetInstanceID();
-        elapsedLastPop = 0f;
+    }
+
+    public void ResetAgentIndicators()
+    {
+        AIAgents.Clear();
     }
 
     public void triggerAgentIndicator(bool state)
     {
-        if(!state)
-        {
-            if(elapsedTime > transitionOut)
-                elapsedTime = 0;
-            foreach (RawGO go in AIAgents) oldAgents.Add(go);
-            AIAgents.Clear();
-        }
+        showAIAgents = state;
+    }
+    public void triggerTargetIndicator(bool state)
+    {
+        showTarget = state;
+    }
+
+    public void triggerPlayersIndicator(bool state)
+    {
+        showPlayers = state;
     }
 
     //return the appropriate texture according to AIType
@@ -161,23 +149,9 @@ public class OffscreenIndicator : MonoBehaviour {
             {
                 GUI.DrawTexture(data._pos, getTextureFromType(data._type), ScaleMode.ScaleToFit);
             }
-            if (elapsedTime < transitionOut)
-            {
-                GUI.color = Color.white*(transitionOut - elapsedTime);
-                foreach (IndicatorData data in OldTargetOnScreenPositions)
-                {
-                    GUI.DrawTexture(data._pos, getTextureFromType(data._type), ScaleMode.ScaleToFit);
-                }
-            }
-            else
-            {
-                oldAgents.Clear();
-            }
         }
-        GUI.color = Color.white;
-        if (showTarget)
+        if(showTarget)
         {
-            
             foreach (IndicatorData data in TargetOnScreenPositions)
             {
                 GUI.DrawTexture(data._pos, getTextureFromType(data._type), ScaleMode.ScaleToFit);
@@ -198,22 +172,18 @@ public class OffscreenIndicator : MonoBehaviour {
     }
 
     void Update () {
-        elapsedTime += Time.deltaTime;
         bounds = center * distanceFromScreenBounds;
         float pSpeed;
         if (showAIAgents)
         {
-            elapsedLastPop += Time.deltaTime;
             pSpeed = (pulse_AIAgents) ? pulseSpeed : 0;
             addIndicatorForGameObjects(AIOnScreenPositions, AIAgents.ToArray(), AIAgentsSizeMultiplier, false, pSpeed);
-            addIndicatorForGameObjects(OldTargetOnScreenPositions, oldAgents.ToArray(), AIAgentsSizeMultiplier, false, pSpeed);
         }
         if(showTarget)
         {
             pSpeed = (pulse_Targets) ? pulseSpeed : 0;
             //checke if alive then display
             addIndicatorForGameObjects(TargetOnScreenPositions, Targets, TargetsSizeMultiplier, false, pSpeed);
-            
         }
         if(showPlayers)
         {
@@ -290,17 +260,8 @@ public class OffscreenIndicator : MonoBehaviour {
 
                 float distFromPlayers = Vector3.Distance(playersCenter, go.go.transform.position);
 
-                float alterDimensionPop = 1f;
-                //pop offset change the value (5) to increase the pop factor
-                if (lastAIID == go.go.GetInstanceID() && elapsedLastPop < transitionIn)
-                    alterDimensionPop = 1 + (4 * (transitionIn - elapsedLastPop));
-
                 Vector2 dimensions = new Vector2(Screen.width / 20, Screen.height / 20) 
-                    * Mathf.Clamp(20 / distFromPlayers, 0.5f, 5) 
-                    * (sizeMultiplier + 0.1f * (Mathf.Sin(pulseSpeed*Time.time)))
-                    * alterDimensionPop;
-                
-
+                    * Mathf.Clamp(20 / distFromPlayers, 0.5f, 5) * (sizeMultiplier + 0.1f * (Mathf.Sin(pulseSpeed*Time.time)));
                 Vector2 position = new Vector2(screenPos.x, screenPos.y) - dimensions / 2;
 
                 list.Add(new IndicatorData(

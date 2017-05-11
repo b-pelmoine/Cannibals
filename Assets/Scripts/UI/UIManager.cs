@@ -12,25 +12,16 @@ public class UIManager : MonoBehaviour
     private float elapsedTime;
     [Range(0.2f, 3f)]
     public float transitionDuration;
-    [Range(0.5f, 5f)]
-    public float DecaytransitionDuration;
     [Range(0.1f, 1f)]
     public float HuntSenseFinalIntensity;
     [Space(30)]
     private Dictionary<string, bool> cannibalsHuntSenseState;
-
-    void Awake()
-    {
-        Cannibal_Skill.OnStartUseHunterSense += StartTriggerHuntSense;
-        Cannibal_Skill.OnStopUseHunterSense += StopTriggerSense;
-    }
 
     // Use this for initialization
     void Start()
     {
         elapsedTime = 50f;
         cannibalsHuntSenseState = new Dictionary<string, bool>();
-        Shader.SetGlobalFloat("_HuntSenseIntensity", 0f);
     }
 
     // Update is called once per frame
@@ -39,25 +30,6 @@ public class UIManager : MonoBehaviour
         //update UI for hunt sense
         UpdateHuntSense();
     }
-
-    void OnDestroy()
-    {
-        Cannibal_Skill.OnStartUseHunterSense -= StartTriggerHuntSense;
-        Cannibal_Skill.OnStopUseHunterSense -= StopTriggerSense;
-    }
-
-    void StartTriggerHuntSense(Cannibal c)
-    {
-         RewiredInput input_t = c.gameObject.GetComponent<RewiredInput>();
-         triggerHuntSense(input_t.playerInputID + input_t.number, true);
-    }
-
-    void StopTriggerSense(Cannibal c)
-    {
-        RewiredInput input_t = c.gameObject.GetComponent<RewiredInput>();
-        triggerHuntSense(input_t.playerInputID + input_t.number, false);
-    }
-
 
     public void triggerHuntSense(string cannibalID, bool state)
     {
@@ -74,10 +46,9 @@ public class UIManager : MonoBehaviour
                 ++activeCount;
             }
         }
+        elapsedTime = 0;
         if(huntSensActive && huntSense_t != huntSensActive)
         {
-            if (elapsedTime > DecaytransitionDuration) elapsedTime = DecaytransitionDuration;
-            elapsedTime = (elapsedTime < DecaytransitionDuration) ? elapsedTime * (transitionDuration / DecaytransitionDuration) : 0;
             indicator.triggerAgentIndicator(huntSensActive);
             RewiredInput[] inputs = GameObject.FindObjectsOfType<RewiredInput>();
             Vector3 pos = Vector3.zero;
@@ -87,10 +58,6 @@ public class UIManager : MonoBehaviour
         else
         {
             indicator.triggerAgentIndicator(huntSensActive);
-        }
-        if(!huntSensActive)
-        {
-            elapsedTime = (elapsedTime >= transitionDuration) ? 0 : DecaytransitionDuration - (elapsedTime * (DecaytransitionDuration / transitionDuration));
         }
         //casually update scanner data
         scanner.UpdateScan(activeCount);
@@ -115,11 +82,11 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            if (elapsedTime < DecaytransitionDuration)
+            if (elapsedTime < transitionDuration)
             {
-                float effectIntensity = ((DecaytransitionDuration - elapsedTime) / DecaytransitionDuration) * HuntSenseFinalIntensity;
+                float effectIntensity = ((transitionDuration - elapsedTime) / transitionDuration) * HuntSenseFinalIntensity;
                 elapsedTime += Time.deltaTime;
-                if (elapsedTime > DecaytransitionDuration) elapsedTime = DecaytransitionDuration;
+                if (elapsedTime > transitionDuration) elapsedTime = transitionDuration;
                 Shader.SetGlobalFloat("_HuntSenseIntensity", effectIntensity);
             }
         }

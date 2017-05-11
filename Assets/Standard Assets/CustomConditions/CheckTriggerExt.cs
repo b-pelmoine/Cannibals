@@ -7,14 +7,8 @@ using System.Collections.Generic;
 
 [Category("System Events")]
 [EventReceiver("OnTriggerEnter", "OnTriggerExit")]
-public class CheckTriggerExt<T> : ConditionTask<Collider> where T : class
+public class CheckTriggerExt<T> : ConditionTask<Collider> 
 {
-    class Info
-    {
-        public T script;
-        public List<Collider> colliders = new List<Collider>();
-    }
-
     public TriggerTypes checkType = TriggerTypes.TriggerEnter;
     public LayerMask layerMask;
 
@@ -25,8 +19,18 @@ public class CheckTriggerExt<T> : ConditionTask<Collider> where T : class
     public BBParameter<List<T>> savedList;
 
     private bool stay;
+   // List<Collider> colliders = new List<Collider>();
+
+    class Info
+    {
+        public T script;
+        public List<Collider> colliders = new List<Collider>();
+    }
 
     List<Info> infos = new List<Info>();
+
+    //List<T> stayList = new List<T>();
+    //List<Collider> stayCollider = new List<Collider>();
 
     protected override string info
     {
@@ -37,12 +41,19 @@ public class CheckTriggerExt<T> : ConditionTask<Collider> where T : class
     {
         if (checkType == TriggerTypes.TriggerStay)
         {
+         //   colliders.Clear();
             savedList.value.Clear();
 
             foreach(Info i in infos)
             {
                 savedList.value.Add(i.script);
             }
+
+            // foreach (Collider c in stayCollider)
+            //   colliders.Add(c);
+
+            // foreach (T t in stayList)
+            //   savedList.value.Add(t);
 
             for (int i = infos.Count -1 ; i >= 0; i--)
             {
@@ -76,7 +87,7 @@ public class CheckTriggerExt<T> : ConditionTask<Collider> where T : class
 
             if (script != null)
             {
-                Info info = infos.Find(x => { return x.script == script; });
+                Info info = infos.Find(x => { return x.script.Equals(script); });
 
                 if (info != null)
                     info.colliders.Add(other);
@@ -87,6 +98,12 @@ public class CheckTriggerExt<T> : ConditionTask<Collider> where T : class
                     info.colliders.Add(other);
                     infos.Add(info);
                 }
+
+               /* if(!savedList.value.Exists(x => { return x.Equals(script); }))
+                {
+                    stayList.Add(script);
+                    stayCollider.Add(other);
+                }*/
 
                 if (checkType == TriggerTypes.TriggerEnter || checkType == TriggerTypes.TriggerStay)
                 {
