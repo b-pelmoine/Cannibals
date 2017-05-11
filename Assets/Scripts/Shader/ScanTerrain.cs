@@ -24,11 +24,8 @@ public class ScanTerrain : MonoBehaviour
     bool _scanning;
     GameObject[] _scannables;
 
-    int CurrentActiveUsers;
-
     void Start()
     {
-        CurrentActiveUsers = 0;
         RegisteredUIDs = new List<int>();
         _scannables = AIAgentManager.getActiveAgents().ToArray();
     }
@@ -45,14 +42,12 @@ public class ScanTerrain : MonoBehaviour
 
     public void UpdateScan(int activeUsers)
     {
-        CurrentActiveUsers = activeUsers;
         switch(activeUsers)
         {
             case 1: speed = OnePlayerSpeed; break;
             case 2: speed = TwoPlayersSpeed; break;
             default: stopScan();break;
         }
-            
     }
 
     void stopScan()
@@ -66,7 +61,7 @@ public class ScanTerrain : MonoBehaviour
     {
         if (_scanning)
         {
-            ScanDistance += Time.deltaTime * 25;
+            ScanDistance += Time.deltaTime * speed;
             foreach (GameObject s in _scannables)
             {
                 if (Vector3.Distance(ScannerOrigin.position, s.transform.position) <= ScanDistance)

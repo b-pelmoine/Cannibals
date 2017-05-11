@@ -33,6 +33,7 @@ public class UIManager : MonoBehaviour
 
     public void triggerHuntSense(string cannibalID, bool state)
     {
+        bool huntSense_t = huntSensActive;
         cannibalsHuntSenseState[cannibalID] = state;
         huntSensActive = false;
         //check if there is at least one cannibal using the huntersense
@@ -46,13 +47,17 @@ public class UIManager : MonoBehaviour
             }
         }
         elapsedTime = 0;
-        indicator.triggerAgentIndicator(huntSensActive);
-        if(huntSensActive)
+        if(huntSensActive && huntSense_t != huntSensActive)
         {
+            indicator.triggerAgentIndicator(huntSensActive);
             RewiredInput[] inputs = GameObject.FindObjectsOfType<RewiredInput>();
             Vector3 pos = Vector3.zero;
-            foreach (RewiredInput input in inputs) if (input.playerInputID == cannibalID) pos = input.transform.position;
+            foreach (RewiredInput input in inputs) if (input.playerInputID + input.number == cannibalID) pos = input.transform.Find("NotStatic").transform.position;
             scanner.StartScan(pos);
+        }
+        else
+        {
+            indicator.triggerAgentIndicator(huntSensActive);
         }
         //casually update scanner data
         scanner.UpdateScan(activeCount);

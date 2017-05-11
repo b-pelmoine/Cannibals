@@ -7,12 +7,14 @@ public class Cannibal_HunterEar : Cannibal_State {
     protected override void OnEnter()
     {
         base.OnEnter();
-        m_cannibal.m_cannibalSkill.TriggerHuntSense(m_cannibal.gameObject.GetComponent<RewiredInput>().playerInputID, true);
+        RewiredInput input_t = m_cannibal.gameObject.GetComponent<RewiredInput>();
+        m_cannibal.m_cannibalSkill.TriggerHuntSense(input_t.playerInputID + input_t.number, true);
     }
 
     protected override void OnExit()
     {
         base.OnExit();
-        m_cannibal.m_cannibalSkill.TriggerHuntSense(m_cannibal.gameObject.GetComponent<RewiredInput>().playerInputID, false);
+        RewiredInput input_t = m_cannibal.gameObject.GetComponent<RewiredInput>();
+        m_cannibal.m_cannibalSkill.TriggerHuntSense(input_t.playerInputID + input_t.number, false);
     }
 }

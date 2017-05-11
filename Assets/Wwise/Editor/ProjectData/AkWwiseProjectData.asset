@@ -16,8 +16,8 @@ MonoBehaviour:
   - PhysicalPath: Events\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{D1C7715C-8472-4B77-B603-950C3928E700}'
-    m_lastTimePsrt1: -382128726
-    m_lastTimePart2: -1999334639
+    m_lastTimePsrt1: 167249886
+    m_lastTimePart2: -1999333305
     List:
     - Name: ambiance_forest_fauna
       Path: Default Work Unit\ambiance_forest_fauna
@@ -28,7 +28,7 @@ MonoBehaviour:
         ObjectType: 3
       ID: -386384871
       Guid: 03865da306cd934181c167936688a7c8
-      maxAttenuation: 10
+      maxAttenuation: 0
     - Name: ambiance_return
       Path: Default Work Unit\ambiance_return
       PathAndIcons:
@@ -228,6 +228,16 @@ MonoBehaviour:
         ObjectType: 3
       ID: 1882578982
       Guid: c1f43584bf4dcf4bbe3565c50f860925
+      maxAttenuation: 0
+    - Name: hunter_rifle
+      Path: Default Work Unit\hunter_rifle
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: hunter_rifle
+        ObjectType: 3
+      ID: -420389872
+      Guid: 5f564869dec3244d84cd370ed228ec3a
       maxAttenuation: 0
     - Name: hunter_steps
       Path: Default Work Unit\hunter_steps
@@ -436,7 +446,7 @@ MonoBehaviour:
   basePath: Audio\GeneratedSoundBanks
   language: English(US)
   defaultPoolSize: 8192
-  lowerPoolSize: 32768
+  lowerPoolSize: 65536
   streamingPoolSize: 8192
   preparePoolSize: 0
   memoryCutoffThreshold: 0.95
