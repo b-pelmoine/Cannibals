@@ -14,7 +14,6 @@ namespace AI
             DEAD
         }
         private AIState state = AIState.NORMAL;
-        static UnityEngine.Random rand = new UnityEngine.Random();
 
         public AIType type = AIType.UNKNOWN;
 
@@ -33,13 +32,14 @@ namespace AI
         }
         
         protected Stack<Task> tasks = new Stack<Task>();
-        protected NavMeshAgent agent;
+        public NavMeshAgent agent;
         Vector3? lastRequest;
 
         protected void Start()
         {
             AIAgentManager.registerAIAgent(this.gameObject);
-            agent = GetComponent<NavMeshAgent>();
+            if(agent==null)
+                agent = GetComponent<NavMeshAgent>();
             if (agent == null)
             {
                 Debug.LogError(this + ":No navmesh agent in the object.");
