@@ -74,7 +74,8 @@ namespace AI
             {
                 if (!agent.SetDestination(target))
                 {
-                    return true;
+                    lastRequest = null;
+                    return false;
                 }
             }
             if ((target - transform.position).sqrMagnitude < stopRadius * stopRadius)

@@ -100,7 +100,7 @@ public class LineOfSight : MonoBehaviour {
         Collider[] cols = Physics.OverlapSphere(transform.position, camera.nearClipPlane + camera.farClipPlane);
         foreach(Collider c in cols)
         {
-            if (detected_objects.Contains(c.gameObject))
+            if (detected_objects.Contains(c.gameObject) && Mathf.Abs(Vector3.Angle(transform.forward, c.transform.position-transform.position))<45)
             {
                 sighted.Add(c.gameObject);
             }

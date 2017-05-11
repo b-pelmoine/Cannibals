@@ -54,6 +54,7 @@ namespace AI
             {
                 Debug.Log("Chasseur.cs: animator ou navmeshagent non présent");
             }
+           
 
             if (los.Updated)
             {
@@ -66,7 +67,6 @@ namespace AI
                         if (CurrentTask.id == (int)ChasseurTask.Normal)
                         {
                             agent.ResetPath();
-                            Debug.Log("Target in sight");
                             tasks.Push(new Task((int)ChasseurTask.Look, obj));
                         }
                         else if(CurrentTask.id == (int)ChasseurTask.LostTarget && obj != CurrentTask.target) //Change de cible
@@ -95,12 +95,17 @@ namespace AI
 
                 //Poursuis le joueur repéré
                 case (int)ChasseurTask.Chase:
-                    if((CurrentTask.target.transform.position - transform.position).sqrMagnitude >= Mathf.Pow((los.camera.farClipPlane), 2) || MoveTo(CurrentTask.target.transform.position, shootingRange))
+                    if(MoveTo(CurrentTask.target.transform.position, shootingRange))
                     {
                         agent.ResetPath();
                         GameObject target = CurrentTask.target;
                         tasks.Pop();
                         tasks.Push(new Task((int)ChasseurTask.Shoot, target));
+                    }
+                    else if((CurrentTask.target.transform.position - transform.position).sqrMagnitude >= Mathf.Pow((los.camera.farClipPlane), 2))
+                    {
+                        agent.ResetPath();
+                        tasks.Push(new Task((int)ChasseurTask.LostTarget, CurrentTask.target));
                     }
                     break;
 
@@ -113,7 +118,6 @@ namespace AI
                        if((CurrentTask.target.transform.position-transform.position).sqrMagnitude < Mathf.Pow((CurrentTask.elapsed/detectTime)*(los.camera.farClipPlane),2)){
                             GameObject target = CurrentTask.target;
                             tasks.Pop();
-                            Debug.Log("Chasing");
                             tasks.Push(new Task((int)ChasseurTask.Chase, target));
                        }
                     }
@@ -155,6 +159,11 @@ namespace AI
                     {
                         animator.Play(anim_shoot);
                         CurrentTask.count++;
+                    }
+                    agent.transform.LookAt(CurrentTask.target.transform.position);
+                    if (CurrentTask.elapsed > 7)
+                    {
+                        tasks.Pop();
                     }
                     break;
 
@@ -222,6 +231,7 @@ namespace AI
                         tasks.Push(new Task((int)ChasseurTask.Chase, target));
                     }
                 }
+                Debug.Log("EndShoot:" + CurrentTask.id);
             }
         }
 
