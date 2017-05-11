@@ -1,37 +1,29 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using NodeCanvas.StateMachines;
+using NodeCanvas.Framework;
+using ParadoxNotion.Design;
 
-public class Cannibal_Dead : Cannibal_State {
+[Category("Cannibal")]
+public class Cannibal_Dead :ActionState, ICannibal_State {
 
-
-    protected override void OnEnter()
-    {
-        base.OnEnter();
-        if (m_cannibal.m_cannibalSkill.m_corpse != null)
-        {
-            m_cannibal.m_cannibalSkill.ReleaseCorpse();
-        } 
-    }
+    public BBParameter<Cannibal> m_cannibal;
 
     /// <summary>
-    /// Nothing to do if we try to kill a cannibal that is already dead
+    /// Resuscitate the cannibal
+    /// </summary>
+    /// <returns>false if the cannibal can't be resuscitate for the moment</returns>
+    public bool Resurrect() { FSM.SendEvent("Resurrect");  return true; }
+
+
+    /// <summary>
+    /// Kill the cannibal
+    /// </summary>
+    /// <returns>false if the cannibal can't be killed in the current state</returns>
+    public bool Kill() { return false; }
+
+    /// <summary>
+    /// Return if in the currentState the cannibal is considered dead
     /// </summary>
     /// <returns></returns>
-    public override bool Kill()
-    {
-        return false;
-    }
-
-    public override bool Resurrect()
-    {
-        FSM.SendEvent("Resurrect");
-        return true;
-    }
-
-    public override bool IsDead()
-    {
-        return true;
-    }
+    public bool IsDead() { return true; }
 
 }

@@ -73,6 +73,7 @@ Shader "Hidden/ScannerEffect"
 			float4 _MidColor;
 			float4 _TrailColor;
 			float4 _HBarColor;
+			uniform float _HuntSenseIntensity;
 
 
 			float4 horizBars(float2 p)
@@ -105,7 +106,7 @@ Shader "Hidden/ScannerEffect"
 					scannerCol *= diff;
 				}
 
-				return col + scannerCol;
+				return col + scannerCol*_HuntSenseIntensity;
 			}
 			ENDCG
 		}
