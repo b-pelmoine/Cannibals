@@ -23277,6 +23277,13 @@
 								<Folder Name="Idle" ID="{6BC0816A-FB61-43F3-BA5D-18F49E19F5F4}" ShortID="907316873">
 									<ChildrenList>
 										<SwitchContainer Name="Going and Coming 1" ID="{4AEF531C-84B7-4803-B719-12744FAB9167}" ShortID="778139385">
+											<PropertyList>
+												<Property Name="MakeUpGain" Type="Real64">
+													<ValueList>
+														<Value>-12</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
@@ -23302,7 +23309,6 @@
 																</ModifierInfo>
 															</ModifierList>
 														</Property>
-														<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 														<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="32"/>
 													</PropertyList>
 													<ReferenceList>
@@ -23959,7 +23965,6 @@
 																</ModifierInfo>
 															</ModifierList>
 														</Property>
-														<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 														<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="9"/>
 													</PropertyList>
 													<ReferenceList>
@@ -24165,7 +24170,7 @@
 												</RandomSequenceContainer>
 											</ChildrenList>
 											<GroupingInfo>
-												<GroupRef Name="" ID="{00000000-0000-0000-0000-000000000000}"/>
+												<GroupRef Name="Going_and_coming" ID="{4EE0FF81-A0F5-4EB2-8349-207E9B407E96}"/>
 												<DefaultSwitchRef Name="" ID="{00000000-0000-0000-0000-000000000000}"/>
 												<GroupingBehaviorList>
 													<GroupingBehavior>
@@ -24175,9 +24180,30 @@
 														<ItemRef Name="Idle Going" ID="{50094142-FD87-470D-BF59-7D756C3D6060}"/>
 													</GroupingBehavior>
 												</GroupingBehaviorList>
+												<GroupingList>
+													<Grouping>
+														<SwitchRef Name="Coming" ID="{B6315B50-3C3F-4F07-B66D-5C91A3D90AF5}"/>
+														<ItemList>
+															<ItemRef Name="Idle Coming" ID="{D5142A2C-C6DE-4B61-BC54-97E15FA9F4E2}"/>
+														</ItemList>
+													</Grouping>
+													<Grouping>
+														<SwitchRef Name="Going" ID="{778119EF-0A3C-45CA-A8CF-0924D408559D}"/>
+														<ItemList>
+															<ItemRef Name="Idle Going" ID="{50094142-FD87-470D-BF59-7D756C3D6060}"/>
+														</ItemList>
+													</Grouping>
+												</GroupingList>
 											</GroupingInfo>
 										</SwitchContainer>
 										<SwitchContainer Name="Going and Coming 2" ID="{6078CA25-A3B9-4843-9777-6026C69CB350}" ShortID="152969630">
+											<PropertyList>
+												<Property Name="MakeUpGain" Type="Real64">
+													<ValueList>
+														<Value>-12</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
@@ -24202,7 +24228,6 @@
 																</ModifierInfo>
 															</ModifierList>
 														</Property>
-														<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 														<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="6"/>
 													</PropertyList>
 													<ReferenceList>
@@ -24365,7 +24390,6 @@
 																</ModifierInfo>
 															</ModifierList>
 														</Property>
-														<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 														<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="18"/>
 													</PropertyList>
 													<ReferenceList>
@@ -24742,7 +24766,7 @@
 												</RandomSequenceContainer>
 											</ChildrenList>
 											<GroupingInfo>
-												<GroupRef Name="" ID="{00000000-0000-0000-0000-000000000000}"/>
+												<GroupRef Name="Going_and_coming" ID="{4EE0FF81-A0F5-4EB2-8349-207E9B407E96}"/>
 												<DefaultSwitchRef Name="" ID="{00000000-0000-0000-0000-000000000000}"/>
 												<GroupingBehaviorList>
 													<GroupingBehavior>
@@ -24752,6 +24776,20 @@
 														<ItemRef Name="Idle Going" ID="{B51B40EC-5C1A-46B2-BB1F-9B6C0A9E4824}"/>
 													</GroupingBehavior>
 												</GroupingBehaviorList>
+												<GroupingList>
+													<Grouping>
+														<SwitchRef Name="Coming" ID="{B6315B50-3C3F-4F07-B66D-5C91A3D90AF5}"/>
+														<ItemList>
+															<ItemRef Name="Idle Coming" ID="{1FBBF20C-C3CC-4336-B7BA-D17F12E828CD}"/>
+														</ItemList>
+													</Grouping>
+													<Grouping>
+														<SwitchRef Name="Going" ID="{778119EF-0A3C-45CA-A8CF-0924D408559D}"/>
+														<ItemList>
+															<ItemRef Name="Idle Going" ID="{B51B40EC-5C1A-46B2-BB1F-9B6C0A9E4824}"/>
+														</ItemList>
+													</Grouping>
+												</GroupingList>
 											</GroupingInfo>
 										</SwitchContainer>
 									</ChildrenList>
@@ -24881,6 +24919,216 @@
 											</ChildrenList>
 											<ActiveSourceList>
 												<ActiveSource Name="KO-C3AS_12-17" ID="{4E6EE479-0A72-4696-9C21-2E0541471EA9}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="Stab" ID="{295083FF-F58C-4E99-B18A-226379ACC393}" ShortID="1067124898">
+									<PropertyList>
+										<Property Name="MakeUpGain" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="4"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="Stab_1" ID="{964EF134-F484-4B27-8182-E725046C47A4}" ShortID="971339597" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="REC M2_94" ID="{C41470DA-11F0-474A-9C2F-C17734C8F518}" ShortID="412220393">
+													<Language>SFX</Language>
+													<AudioFile>REC M2_94.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="REC M2_94" ID="{C41470DA-11F0-474A-9C2F-C17734C8F518}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Stab_2" ID="{E4C127DA-569C-41D6-B43A-44013209858B}" ShortID="266586387" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="REC M2_95" ID="{87BC687F-1EB8-4B42-90DA-08F27B2511E2}" ShortID="363071563">
+													<Language>SFX</Language>
+													<AudioFile>REC M2_95.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="REC M2_95" ID="{87BC687F-1EB8-4B42-90DA-08F27B2511E2}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Stab_3" ID="{076A33BD-9BE2-4203-A824-B17F500D0D55}" ShortID="97993495" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="REC M2_96" ID="{FEA56EAD-B0D9-4BE7-AFF1-E83E30F1FAC2}" ShortID="24905495">
+													<Language>SFX</Language>
+													<AudioFile>REC M2_96.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="REC M2_96" ID="{FEA56EAD-B0D9-4BE7-AFF1-E83E30F1FAC2}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Stab_4" ID="{1FF7894B-69E1-4578-9BEA-DA181008E987}" ShortID="853941938" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="REC M2_97" ID="{4D552DF9-F2F6-44FF-9070-163CB3B5A79E}" ShortID="495798593">
+													<Language>SFX</Language>
+													<AudioFile>REC M2_97.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="REC M2_97" ID="{4D552DF9-F2F6-44FF-9070-163CB3B5A79E}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Stab_5" ID="{801FD1D6-518F-42A0-8862-6226EB223F80}" ShortID="859310940" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="REC M2_98" ID="{53875440-1CFB-4C5C-A8BB-FAFBEE273DF3}" ShortID="1051589866">
+													<Language>SFX</Language>
+													<AudioFile>REC M2_98.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="REC M2_98" ID="{53875440-1CFB-4C5C-A8BB-FAFBEE273DF3}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Stab_6" ID="{44FB3D53-1181-4074-8FC0-E47B812F33A1}" ShortID="106368737" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="REC M2_99" ID="{014FC697-D9D6-4FD9-A5F4-5BB397FD8A04}" ShortID="671614996">
+													<Language>SFX</Language>
+													<AudioFile>REC M2_99.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="REC M2_99" ID="{014FC697-D9D6-4FD9-A5F4-5BB397FD8A04}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Stab_7" ID="{07C80C7A-5EFC-4F18-9373-9DC9FF19FC28}" ShortID="17489732" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="REC M2_101" ID="{8085C3F9-7312-4F70-A441-5419907F8D05}" ShortID="371990252">
+													<Language>SFX</Language>
+													<AudioFile>REC M2_101.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="REC M2_101" ID="{8085C3F9-7312-4F70-A441-5419907F8D05}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Stab_8" ID="{59659EEA-2D14-4F87-B1C5-D63CBB891FAE}" ShortID="381059903" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="REC M2_102" ID="{A589DE8E-A691-4EF5-840D-5F74B1BD7155}" ShortID="63986965">
+													<Language>SFX</Language>
+													<AudioFile>REC M2_102.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="REC M2_102" ID="{A589DE8E-A691-4EF5-840D-5F74B1BD7155}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Stab_9" ID="{CC951F9F-A05F-4438-967B-C750E4F500E4}" ShortID="458272297" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="REC M2_103" ID="{FE8441EF-7AE6-42F5-90B6-E7622E9A2B66}" ShortID="638395677">
+													<Language>SFX</Language>
+													<AudioFile>REC M2_103.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="REC M2_103" ID="{FE8441EF-7AE6-42F5-90B6-E7622E9A2B66}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Stab_10" ID="{0276C9F3-B6B9-4709-A97C-EF4FEDD574C7}" ShortID="844130041" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="REC M2_104" ID="{8BDD7959-605B-4BFE-9F3A-F240F685736C}" ShortID="924772606">
+													<Language>SFX</Language>
+													<AudioFile>REC M2_104.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="REC M2_104" ID="{8BDD7959-605B-4BFE-9F3A-F240F685736C}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>
