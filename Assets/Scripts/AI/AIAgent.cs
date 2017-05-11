@@ -14,6 +14,7 @@ namespace AI
             DEAD
         }
         private AIState state = AIState.NORMAL;
+        static UnityEngine.Random rand = new UnityEngine.Random();
 
         public AIType type = AIType.UNKNOWN;
 
@@ -66,6 +67,7 @@ namespace AI
             }
         }
 
+        //Se déplace vers target
         protected bool MoveTo(Vector3 target, float stopRadius)
         {
             if(lastRequest==null || lastRequest != target)
@@ -83,6 +85,23 @@ namespace AI
             }
             else
                 return false;
+        }
+
+        protected void WanderAround(Vector3 target, float wanderRadius)
+        {
+            if (lastRequest == null)
+            {
+                Vector3 position = target + new Vector3(UnityEngine.Random.Range(-wanderRadius, wanderRadius), 0, UnityEngine.Random.Range(-wanderRadius, wanderRadius));
+                if (agent.SetDestination(position))
+                {
+                    lastRequest = position;
+                }
+            }
+            if(!agent.pathPending && lastRequest.HasValue && agent.stoppingDistance >= (lastRequest.Value - transform.position).magnitude)
+            {
+                agent.ResetPath();
+                lastRequest = null;
+            }
         }
 
         public virtual bool isVulnerable()

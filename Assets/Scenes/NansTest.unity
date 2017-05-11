@@ -111,7 +111,7 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 23800000, guid: b76cc35c7b75dd740887b7d5aad7b0d3, type: 2}
---- !u!114 &105726270
+--- !u!114 &11486795
 MonoBehaviour:
   m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 0}
@@ -362,25 +362,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a877f07b69f6fa4297325d0f0841b81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &672193978
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
-  m_Name: Cannibal
-  m_EditorClassIdentifier: 
-  _serializedGraph: '{"version":2.6,"type":"NodeCanvas.StateMachines.FSM","name":"FSM","translation":{"x":-4473.0,"y":-4390.0},"zoomFactor":0.9018818,"nodes":[{"_nestedFSM":{"_value":1},"_position":{"x":5227.38,"y":5229.775},"_name":"Alive","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"2"},{"_nestedFSM":{"_value":2},"_position":{"x":5546.0,"y":5336.0},"_name":"Dead","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"4"},{"_nestedFSM":{"_value":3},"_position":{"x":5659.0,"y":5074.109},"_name":"Resurrect","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"6"}],"connections":[{"_condition":{"eventName":{"_value":"Death"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"eventName":{"_value":"Resurrect"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"primeNode":{"$ref":"2"},"canvasGroups":[],"localBlackboard":{"_name":"Local
-    Blackboard","_variables":{}}}'
-  _objectReferences:
-  - {fileID: 0}
-  - {fileID: 11400000, guid: 81676165a60dcb64fb6e9ba210710385, type: 2}
-  - {fileID: 11400000, guid: 034dc5fcfba36394badce3d340515ce3, type: 2}
-  - {fileID: 11400000, guid: f78d757db0da41348a28cf25f5c037e1, type: 2}
-  _deserializationFailed: 0
 --- !u!1 &713904146
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,7 +524,7 @@ Prefab:
         type: 2}
       propertyPath: _graph
       value: 
-      objectReference: {fileID: 1690388601}
+      objectReference: {fileID: 1381975334}
     - target: {fileID: 1419312899644530, guid: 6d5c73a2de9863c49bd4ddcc77af1888, type: 2}
       propertyPath: m_TagString
       value: Player
@@ -792,26 +773,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114487379224278986, guid: 49868935a2faa864e8893e7d3cf1855c,
-        type: 2}
-      propertyPath: points.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114487379224278986, guid: 49868935a2faa864e8893e7d3cf1855c,
-        type: 2}
-      propertyPath: points.Array.data[0].links.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114487379224278986, guid: 49868935a2faa864e8893e7d3cf1855c,
-        type: 2}
-      propertyPath: points.Array.data[1].links.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114487379224278986, guid: 49868935a2faa864e8893e7d3cf1855c,
-        type: 2}
-      propertyPath: points.Array.data[2].links.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4639346846556424, guid: 49868935a2faa864e8893e7d3cf1855c, type: 2}
       propertyPath: m_LocalPosition.x
       value: 1.9803104
@@ -848,76 +809,29 @@ Prefab:
         type: 2}
       propertyPath: _graph
       value: 
-      objectReference: {fileID: 105726270}
-    - target: {fileID: 114716603653605242, guid: 49868935a2faa864e8893e7d3cf1855c,
-        type: 2}
-      propertyPath: patrouille
-      value: 
-      objectReference: {fileID: 1324742270}
-    - target: {fileID: 1415936377944212, guid: 49868935a2faa864e8893e7d3cf1855c, type: 2}
-      propertyPath: m_Name
-      value: Patrouille
-      objectReference: {fileID: 0}
-    - target: {fileID: 114487379224278986, guid: 49868935a2faa864e8893e7d3cf1855c,
-        type: 2}
-      propertyPath: points.Array.data[0].position.x
-      value: -0.9780903
-      objectReference: {fileID: 0}
-    - target: {fileID: 114487379224278986, guid: 49868935a2faa864e8893e7d3cf1855c,
-        type: 2}
-      propertyPath: points.Array.data[0].position.z
-      value: -7.037819
-      objectReference: {fileID: 0}
-    - target: {fileID: 114487379224278986, guid: 49868935a2faa864e8893e7d3cf1855c,
-        type: 2}
-      propertyPath: points.Array.data[1].position.x
-      value: -2.091835
-      objectReference: {fileID: 0}
-    - target: {fileID: 114487379224278986, guid: 49868935a2faa864e8893e7d3cf1855c,
-        type: 2}
-      propertyPath: points.Array.data[1].position.z
-      value: 8.90921
-      objectReference: {fileID: 0}
-    - target: {fileID: 114487379224278986, guid: 49868935a2faa864e8893e7d3cf1855c,
-        type: 2}
-      propertyPath: points.Array.data[2].position.x
-      value: 14.699333
-      objectReference: {fileID: 0}
-    - target: {fileID: 114487379224278986, guid: 49868935a2faa864e8893e7d3cf1855c,
-        type: 2}
-      propertyPath: points.Array.data[2].position.z
-      value: 5.180332
-      objectReference: {fileID: 0}
-    - target: {fileID: 114487379224278986, guid: 49868935a2faa864e8893e7d3cf1855c,
-        type: 2}
-      propertyPath: points.Array.data[3].position.x
-      value: 6.740391
-      objectReference: {fileID: 0}
-    - target: {fileID: 114487379224278986, guid: 49868935a2faa864e8893e7d3cf1855c,
-        type: 2}
-      propertyPath: points.Array.data[3].position.z
-      value: -10.160038
-      objectReference: {fileID: 0}
-    - target: {fileID: 114716603653605242, guid: 49868935a2faa864e8893e7d3cf1855c,
-        type: 2}
-      propertyPath: type
-      value: 5
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114886067062193552, guid: 49868935a2faa864e8893e7d3cf1855c, type: 2}
-    - {fileID: 114870004617759452, guid: 49868935a2faa864e8893e7d3cf1855c, type: 2}
-    - {fileID: 114716603653605242, guid: 49868935a2faa864e8893e7d3cf1855c, type: 2}
-    - {fileID: 195770953131808570, guid: 49868935a2faa864e8893e7d3cf1855c, type: 2}
-    - {fileID: 23833571668475802, guid: 49868935a2faa864e8893e7d3cf1855c, type: 2}
-    - {fileID: 114752137035533340, guid: 49868935a2faa864e8893e7d3cf1855c, type: 2}
+      objectReference: {fileID: 11486795}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 49868935a2faa864e8893e7d3cf1855c, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1324742270 stripped
+--- !u!114 &1381975334
 MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114487379224278986, guid: 49868935a2faa864e8893e7d3cf1855c,
-    type: 2}
-  m_PrefabInternal: {fileID: 1303919956}
-  m_Script: {fileID: 11500000, guid: 44f2733414846644faf112b9ec99add0, type: 3}
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
+  m_Name: Cannibal
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"version":2.6,"type":"NodeCanvas.StateMachines.FSM","name":"FSM","translation":{"x":-4473.0,"y":-4390.0},"zoomFactor":0.9018818,"nodes":[{"_nestedFSM":{"_value":1},"_position":{"x":5227.38,"y":5229.775},"_name":"Alive","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"2"},{"_nestedFSM":{"_value":2},"_position":{"x":5546.0,"y":5336.0},"_name":"Dead","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"4"},{"_nestedFSM":{"_value":3},"_position":{"x":5659.0,"y":5074.109},"_name":"Resurrect","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"6"}],"connections":[{"_condition":{"eventName":{"_value":"Death"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"eventName":{"_value":"Resurrect"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"primeNode":{"$ref":"2"},"canvasGroups":[],"localBlackboard":{"_name":"Local
+    Blackboard","_variables":{}}}'
+  _objectReferences:
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 81676165a60dcb64fb6e9ba210710385, type: 2}
+  - {fileID: 11400000, guid: 034dc5fcfba36394badce3d340515ce3, type: 2}
+  - {fileID: 11400000, guid: f78d757db0da41348a28cf25f5c037e1, type: 2}
+  _deserializationFailed: 0
 --- !u!1 &1462527396
 GameObject:
   m_ObjectHideFlags: 0
@@ -974,6 +888,25 @@ MonoBehaviour:
   framerate: 21.2
   players: []
   render_distance: 30
+--- !u!114 &1514927869
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
+  m_Name: Cannibal
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"version":2.6,"type":"NodeCanvas.StateMachines.FSM","name":"FSM","translation":{"x":-4473.0,"y":-4390.0},"zoomFactor":0.9018818,"nodes":[{"_nestedFSM":{"_value":1},"_position":{"x":5227.38,"y":5229.775},"_name":"Alive","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"2"},{"_nestedFSM":{"_value":2},"_position":{"x":5546.0,"y":5336.0},"_name":"Dead","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"4"},{"_nestedFSM":{"_value":3},"_position":{"x":5659.0,"y":5074.109},"_name":"Resurrect","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"6"}],"connections":[{"_condition":{"eventName":{"_value":"Death"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"eventName":{"_value":"Resurrect"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"primeNode":{"$ref":"2"},"canvasGroups":[],"localBlackboard":{"_name":"Local
+    Blackboard","_variables":{}}}'
+  _objectReferences:
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 81676165a60dcb64fb6e9ba210710385, type: 2}
+  - {fileID: 11400000, guid: 034dc5fcfba36394badce3d340515ce3, type: 2}
+  - {fileID: 11400000, guid: f78d757db0da41348a28cf25f5c037e1, type: 2}
+  _deserializationFailed: 0
 --- !u!4 &1593238520 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4862562871971514, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
@@ -1127,25 +1060,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1690388601
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
-  m_Name: Cannibal
-  m_EditorClassIdentifier: 
-  _serializedGraph: '{"version":2.6,"type":"NodeCanvas.StateMachines.FSM","name":"FSM","translation":{"x":-4473.0,"y":-4390.0},"zoomFactor":0.9018818,"nodes":[{"_nestedFSM":{"_value":1},"_position":{"x":5227.38,"y":5229.775},"_name":"Alive","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"2"},{"_nestedFSM":{"_value":2},"_position":{"x":5546.0,"y":5336.0},"_name":"Dead","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"4"},{"_nestedFSM":{"_value":3},"_position":{"x":5659.0,"y":5074.109},"_name":"Resurrect","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"6"}],"connections":[{"_condition":{"eventName":{"_value":"Death"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"eventName":{"_value":"Resurrect"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"primeNode":{"$ref":"2"},"canvasGroups":[],"localBlackboard":{"_name":"Local
-    Blackboard","_variables":{}}}'
-  _objectReferences:
-  - {fileID: 0}
-  - {fileID: 11400000, guid: 81676165a60dcb64fb6e9ba210710385, type: 2}
-  - {fileID: 11400000, guid: 034dc5fcfba36394badce3d340515ce3, type: 2}
-  - {fileID: 11400000, guid: f78d757db0da41348a28cf25f5c037e1, type: 2}
-  _deserializationFailed: 0
 --- !u!4 &1839545508 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4862562871971514, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
@@ -1194,7 +1108,7 @@ Prefab:
         type: 2}
       propertyPath: _graph
       value: 
-      objectReference: {fileID: 672193978}
+      objectReference: {fileID: 1514927869}
     - target: {fileID: 4862562871971514, guid: 6d5c73a2de9863c49bd4ddcc77af1888, type: 2}
       propertyPath: m_LocalPosition.x
       value: 8.34
@@ -1601,84 +1515,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a877f07b69f6fa4297325d0f0841b81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &2140183000 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1640431504037550, guid: 49868935a2faa864e8893e7d3cf1855c,
-    type: 2}
-  m_PrefabInternal: {fileID: 1303919956}
---- !u!95 &2140183001 stripped
-Animator:
-  m_PrefabParentObject: {fileID: 95985014088886306, guid: 49868935a2faa864e8893e7d3cf1855c,
-    type: 2}
-  m_PrefabInternal: {fileID: 1303919956}
---- !u!114 &2140183002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2140183000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1123ed074b6511147b6704ba35126297, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  detect_value: 30
-  mesh: {fileID: 0}
---- !u!195 &2140183003
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2140183000}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!114 &2140183004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2140183000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e88dec34b24da8947b195b24eff17e5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 5
-  waypointDistance: 2
-  shootingRange: 1
-  shootingMask:
-    serializedVersion: 2
-    m_Bits: 0
-  detectTime: 3
-  lostTargetTime: 3
-  animator: {fileID: 2140183001}
-  alerte: 1
-  patrouille: {fileID: 1324742270}
---- !u!114 &2140183005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2140183000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2bd8390b1eecd54cbad6ca7f3b9da7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camera: {fileID: 0}
-  shader: {fileID: 4800000, guid: 89fcdb3a42dec6e449c20a1473b202af, type: 3}
-  sighted: []
-  active: 1

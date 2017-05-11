@@ -11,6 +11,7 @@ namespace AI
         public LayerMask shootingMask = 0;
         public float detectTime = 3;
         public float lostTargetTime = 3;
+        public float defendTime = 5;
         public Animator animator;
 
         int anim_speedId = Animator.StringToHash("Speed");
@@ -98,6 +99,7 @@ namespace AI
                     {
                         agent.ResetPath();
                         tasks.Pop();
+                        tasks.Push(new Task((int)ChasseurTask.Shoot, CurrentTask.target));
                     }
                     break;
 
@@ -155,8 +157,13 @@ namespace AI
                     }
                     break;
 
+                //Attends à coté du cadavre du cannibal
                 case (int)ChasseurTask.Defend:
-
+                    if (CurrentTask.elapsed > defendTime)
+                    {
+                        agent.ResetPath();
+                        tasks.Pop();
+                    }
                     break;
             }
 
@@ -170,7 +177,7 @@ namespace AI
             if (Physics.Raycast(position, direction, out hit, shootingRange, shootingMask))
             {
                 Debug.Log(hit.collider.gameObject);
-                AI.AIAgent agent = hit.collider.gameObject.GetComponent<AI.AIAgent>();
+                AIAgent agent = hit.collider.gameObject.GetComponent<AIAgent>();
                 if (agent != null)
                 {
                     agent.Kill();
@@ -204,7 +211,11 @@ namespace AI
                 {
                     if (cannibal.IsDead())
                     {
-                        tasks.Push(new Task())
+                        tasks.Push(new Task((int)ChasseurTask.Defend, CurrentTask.target));
+                    }
+                    else
+                    {
+                        tasks.Push(new Task((int)ChasseurTask.Chase, CurrentTask.target));
                     }
                 }
             }
