@@ -491,6 +491,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="stop_sense_layers" ID="{51727F06-8919-4FB9-A2D7-5BDB394A6BD8}">
+					<ChildrenList>
+						<Action Name="Break" ID="{BDBC4733-6B5C-415E-8503-E61E9C967FED}" ShortID="537853583" Type="Break" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{FEA153EE-57E7-4526-8782-C55C5BE45F18}" Global="false">
+									<ObjectRef Name="Hunter sense" ID="{9219B621-0E23-4FD3-8EAC-23B15E4F2DCD}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
