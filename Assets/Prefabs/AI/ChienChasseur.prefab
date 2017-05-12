@@ -1132,7 +1132,6 @@ GameObject:
   - component: {fileID: 114349979152653790}
   - component: {fileID: 114401005301078306}
   - component: {fileID: 114100969251736066}
-  - component: {fileID: 20005256151866566}
   m_Layer: 9
   m_Name: dog
   m_TagString: Untagged
@@ -2429,7 +2428,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1640431504037550}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.12, z: 0}
+  m_LocalPosition: {x: 1.8, y: -0.12, z: -1.46}
   m_LocalScale: {x: 0.024, y: 0.024, z: 0.024}
   m_Children:
   - {fileID: 4755462586970374}
@@ -3466,42 +3465,6 @@ Transform:
   m_Father: {fileID: 4298445921940950}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &20005256151866566
-Camera:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1625361917524594}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 10
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 0
-  m_AllowMSAA: 1
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
-  m_StereoMirrorMode: 0
 --- !u!20 &20081656874567364
 Camera:
   m_ObjectHideFlags: 1
@@ -3684,6 +3647,8 @@ MonoBehaviour:
   agent: {fileID: 0}
   hunter: {fileID: 114623528271031004}
   animator: {fileID: 95013067063403470}
+  eatingTime: 3
+  stopTime: 3
 --- !u!114 &114249799008050458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3738,6 +3703,8 @@ MonoBehaviour:
   shader: {fileID: 4800000, guid: 89fcdb3a42dec6e449c20a1473b202af, type: 3}
   sighted: []
   active: 1
+  type: 2
+  radius: 7
 --- !u!114 &114445266336008992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3846,6 +3813,8 @@ MonoBehaviour:
   shader: {fileID: 4800000, guid: 89fcdb3a42dec6e449c20a1473b202af, type: 3}
   sighted: []
   active: 1
+  type: 0
+  radius: 1.56
 --- !u!124 &124255705078031344
 Behaviour:
   m_ObjectHideFlags: 1
@@ -3863,9 +3832,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.59, z: 0}
 --- !u!136 &136777742865275278
 CapsuleCollider:
   m_ObjectHideFlags: 1

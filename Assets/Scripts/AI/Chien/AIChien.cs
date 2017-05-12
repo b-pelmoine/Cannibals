@@ -27,6 +27,10 @@ namespace AI
         public Animator animator;
         int anim_speedId = Animator.StringToHash("Speed");
 
+        public float eatingTime = 3;
+        public float stopTime = 3;
+
+
 
         // Use this for initialization
         new void Start () {
@@ -49,11 +53,62 @@ namespace AI
                 AnalyseSight();
             }
 
+            Vector3 distance;
 
             switch (CurrentTask.id)
             {
                 case (int)DogTask.WanderInFront:
-                    WanderAround(hunter.transform.position + hunter.transform.forward * 5, 3);
+                    if (CurrentTask.count == 0)
+                    {
+                        if (WanderAround(hunter.transform.position + hunter.transform.forward * 0, 3))
+                        {
+                            CurrentTask.elapsed = 0;
+                            CurrentTask.count++;
+                        }
+                    }
+                    else
+                    {
+                        if (CurrentTask.elapsed > stopTime)
+                            CurrentTask.count = 0;
+                    }
+                    break;
+
+                case (int)DogTask.ChaseAndBark:
+                    if(MoveTo(CurrentTask.target.transform.position, 3))
+                    {
+                        if (CurrentTask.count == 0)
+                        {
+                            Vector3 targetLookAt = CurrentTask.target.transform.position;
+                            targetLookAt.y = agent.transform.position.y;
+                            agent.transform.LookAt(targetLookAt);
+                            animator.Play("Bark");
+                            hunter.Call(CurrentTask.target);
+                            
+                            //AkSoundEngine.PostEvent("dog_sniff", gameObject);
+                            CurrentTask.count++;
+                        }
+                    }
+                    else
+                    {
+                        CurrentTask.count = 0;
+                    }
+                    distance = CurrentTask.target.transform.position - transform.position;
+                    distance.y = 0;
+                    if (distance.sqrMagnitude > Mathf.Pow(los.radius, 2) || CurrentTask.elapsed>10)
+                        tasks.Pop();
+                    break;
+
+                case (int)DogTask.Eat:
+                    if(CurrentTask.count==0 && MoveTo(CurrentTask.target.transform.position, 3))
+                    {
+                        animator.Play("Eat");
+                        CurrentTask.count = 1;
+                        CurrentTask.elapsed = 0;
+                    }
+                    else if (CurrentTask.count == 1 && CurrentTask.elapsed>eatingTime)
+                    {
+                        tasks.Pop();
+                    }
                     break;
             }
 
@@ -62,20 +117,26 @@ namespace AI
 
         void AnalyseSight()
         {
-            for(int i = 0; i < los.sighted.Count; i++)
+            foreach(GameObject obj in los.sighted)
             {
-                if (los.sighted[i].GetComponent<Bone>() != null)
+                if(CurrentTask.id == (int)DogTask.WanderInFront && obj.CompareTag("Player"))
+                {
+                    tasks.Push(new Task((int)DogTask.ChaseAndBark, obj));
+                }
+                else if (obj.GetComponent<Bone>() != null)
                 {
                     //target = los.sighted[i];
                     //targetType = btargetType.Viande;
                     //sawSomething = true;
+                    tasks.Push(new Task((int)DogTask.Eat, obj));
                 
                 }
                 else
                 {
-                    Bush buisson = los.sighted[i].GetComponent<Bush>();
+                    Bush buisson = obj.GetComponent<Bush>();
                     if(buisson != null && buisson.IsMoving())
                     {
+                        tasks.Push(new Task((int)DogTask.ChaseAndBark, obj));
                         //target = los.sighted[i];
                         //targetType = btargetType.Buisson;
                         //sawSomething = true;

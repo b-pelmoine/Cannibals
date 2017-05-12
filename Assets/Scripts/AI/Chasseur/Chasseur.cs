@@ -78,6 +78,9 @@ namespace AI
                     }
                 }
             }
+
+            Vector3 targetPosition;
+
             //Manage tasks
             switch (CurrentTask.id)
             {
@@ -111,7 +114,9 @@ namespace AI
 
                 //Regarde vers le joueur jusqu'à détection
                 case (int)ChasseurTask.Look:
-                    agent.transform.LookAt(CurrentTask.target.transform);
+                    targetPosition = agent.transform.position;
+                    targetPosition.y = agent.transform.position.y;
+                    agent.transform.LookAt(targetPosition);
                     //Si le joueur est en vue
                     if (los.sighted.Contains(CurrentTask.target)) { 
                         //Si le joueur est détecté -> poursuite
@@ -160,7 +165,9 @@ namespace AI
                         animator.Play(anim_shoot);
                         CurrentTask.count++;
                     }
-                    agent.transform.LookAt(CurrentTask.target.transform.position);
+                    targetPosition = CurrentTask.target.transform.position;
+                    targetPosition.y = agent.transform.position.y;
+                    agent.transform.LookAt(targetPosition);
                     if (CurrentTask.elapsed > 7)
                     {
                         tasks.Pop();
@@ -233,6 +240,17 @@ namespace AI
                     }
                 }
                 Debug.Log("EndShoot:" + CurrentTask.id);
+            }
+        }
+
+        /// <summary>
+        /// The dog calls the hunter
+        /// </summary>
+        public void Call(GameObject target)
+        {
+            if (CurrentTask.id == (int)ChasseurTask.Normal)
+            {
+                tasks.Push(new Task((int)ChasseurTask.Chase, target));
             }
         }
 

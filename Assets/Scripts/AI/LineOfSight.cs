@@ -14,6 +14,14 @@ public class LineOfSight : MonoBehaviour {
     bool updated = false;
     public bool active = true;
     
+    public enum SightType
+    {
+        Camera,
+        SimpleView,
+        AllAround
+    }
+    public SightType type = SightType.Camera;
+    public float radius = 3;
 
     void Awake()
     {
@@ -26,16 +34,18 @@ public class LineOfSight : MonoBehaviour {
     }
 
 	void Start () {
-        if (camera == null)
+        if (camera == null && type == SightType.Camera)
         {
             camera = GetComponentInChildren<Camera>();
             if (camera == null)
                 camera = gameObject.AddComponent<Camera>();
         }
-        camera.enabled = false;
-        camera.targetTexture = texture;
-        
-        camera.SetReplacementShader(shader, "RenderType");
+        if (camera != null)
+        {
+            camera.enabled = false;
+            camera.targetTexture = texture;
+            camera.SetReplacementShader(shader, "RenderType");
+        }
         sighted = new List<GameObject>();
         
         LineOfSightManager.Register(this);
@@ -64,14 +74,17 @@ public class LineOfSight : MonoBehaviour {
 
     public bool Analyse()
     {
-        if (active) AnalyseSight();
-        else AnalyseSimple();
+        sighted.Clear();
+        if (type == SightType.Camera && active) AnalyseSight();
+        else if (type == SightType.Camera) AnalyseSimple();
+        AnalyseAllAround();
         updated = true;
         return sighted.Count != 0;
     }
 
     public void AnalyseSight()
     {
+        if (camera == null) return;
         RenderTexture.active = texture;
         tex2D.ReadPixels(new Rect(0, 0, texture.width, texture.height), 0, 0, false);
         Color[] pixels = tex2D.GetPixels();
@@ -83,7 +96,7 @@ public class LineOfSight : MonoBehaviour {
             if (red >= 0 && red < detected_objects.Count)
                 pixnum[red]++;
         }
-        sighted.Clear();
+        
         for (int i = 0; i < detected_objects.Count; i++)
         {
             if (pixnum[i] > detect_rate[i])
@@ -96,7 +109,6 @@ public class LineOfSight : MonoBehaviour {
 
     public void AnalyseSimple()
     {
-        sighted.Clear();
         Collider[] cols = Physics.OverlapSphere(transform.position, camera.nearClipPlane + camera.farClipPlane);
         foreach(Collider c in cols)
         {
@@ -107,9 +119,21 @@ public class LineOfSight : MonoBehaviour {
         }
     }
 
+    public void AnalyseAllAround()
+    {
+        Collider[] cols = Physics.OverlapSphere(transform.position, radius);
+        foreach(Collider c in cols)
+        {
+            if (detected_objects.Contains(c.gameObject) || c.CompareTag("Player"))
+            {
+                sighted.Add(c.gameObject);
+            }
+        }
+    }
+
     public void Rendering()
     {
-        if(active)
+        if(camera!=null && type==SightType.Camera && active)
             camera.Render();
     }
 
@@ -124,5 +148,11 @@ public class LineOfSight : MonoBehaviour {
             }
             return false;
         }
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.up, radius);
     }
 }

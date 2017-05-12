@@ -78,7 +78,9 @@ namespace AI
                     return false;
                 }
             }
-            if ((target - transform.position).sqrMagnitude < stopRadius * stopRadius)
+            Vector3 distance = (target - transform.position);
+            distance.y = 0;
+            if (distance.sqrMagnitude < stopRadius * stopRadius)
             {
                 agent.ResetPath();
                 lastRequest = null;
@@ -88,7 +90,7 @@ namespace AI
                 return false;
         }
 
-        protected void WanderAround(Vector3 target, float wanderRadius)
+        protected bool WanderAround(Vector3 target, float wanderRadius, float stopRadius=2)
         {
             if (lastRequest == null)
             {
@@ -98,11 +100,16 @@ namespace AI
                     lastRequest = position;
                 }
             }
-            if(!agent.pathPending && lastRequest.HasValue && agent.stoppingDistance >= (lastRequest.Value - transform.position).magnitude)
+            Vector3 distance = (lastRequest.Value - transform.position);
+            distance.y = 0;
+            if (!agent.pathPending && lastRequest.HasValue 
+            && (distance.sqrMagnitude <= Mathf.Pow(agent.stoppingDistance,2)  || distance.magnitude < Mathf.Pow(agent.stoppingDistance, 2)))
             {
                 agent.ResetPath();
                 lastRequest = null;
+                return true;
             }
+            return false;
         }
 
         public virtual bool isVulnerable()
@@ -110,11 +117,17 @@ namespace AI
             return state == AIState.VULNERABLE;
         }
 
+        /// <summary>
+        /// Return true if the agent is dead
+        /// </summary>
         public virtual bool isDead()
         {
             return state == AIState.DEAD;
         }
 
+        /// <summary>
+        /// Kill the agent
+        /// </summary>
         public virtual void Kill()
         {
             throw new NotImplementedException();
