@@ -76,6 +76,7 @@ public class UIManager : MonoBehaviour
         }
         if(huntSensActive && huntSense_t != huntSensActive)
         {
+            AkSoundEngine.SetState("HunterEars", "Active");
             if (elapsedTime > DecaytransitionDuration) elapsedTime = DecaytransitionDuration;
             elapsedTime = (elapsedTime < DecaytransitionDuration) ? elapsedTime * (transitionDuration / DecaytransitionDuration) : 0;
             indicator.triggerAgentIndicator(huntSensActive);
@@ -90,6 +91,7 @@ public class UIManager : MonoBehaviour
         }
         if(!huntSensActive)
         {
+            AkSoundEngine.SetState("HunterEars", "Disabled");
             elapsedTime = (elapsedTime >= transitionDuration) ? 0 : DecaytransitionDuration - (elapsedTime * (DecaytransitionDuration / transitionDuration));
         }
         //casually update scanner data
