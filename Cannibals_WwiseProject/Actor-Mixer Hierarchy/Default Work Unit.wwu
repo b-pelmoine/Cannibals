@@ -26827,6 +26827,527 @@
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
 										</Reference>
 									</ReferenceList>
+									<ChildrenList>
+										<RandomSequenceContainer Name="Bark_1" ID="{FEA9C84E-FAE5-4F38-955D-CB48E144E616}" ShortID="1005297845">
+											<PropertyList>
+												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="Bark_1_1" ID="{49AFC3BC-AED5-4AD9-8CE7-0F97D69B1544}" ShortID="659405877" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="Effect0" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
+															<ObjectRef Name="ForestAuterlitz_BetweenTrees" ID="{28BCB6C3-676B-4CA5-8683-D6CEA80A18F2}" WorkUnitID="{C0E78DAA-768A-438F-8F7B-3701395185C3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="MFX5_05" ID="{87B79D41-5C89-4266-84D0-DD28F9852F0B}" ShortID="28630023">
+															<Language>SFX</Language>
+															<AudioFile>MFX5_05.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="MFX5_05" ID="{87B79D41-5C89-4266-84D0-DD28F9852F0B}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Bark_1_2" ID="{8E660B8B-B5DB-41C8-91A2-EADCD958BF67}" ShortID="69586118" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="Effect0" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
+															<ObjectRef Name="ForestAuterlitz_BetweenTrees" ID="{28BCB6C3-676B-4CA5-8683-D6CEA80A18F2}" WorkUnitID="{C0E78DAA-768A-438F-8F7B-3701395185C3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="MFX5_06" ID="{F67E4028-E550-4726-8FA7-2FCA143B6118}" ShortID="476233354">
+															<Language>SFX</Language>
+															<AudioFile>MFX5_06.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="MFX5_06" ID="{F67E4028-E550-4726-8FA7-2FCA143B6118}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+											<Playlist>
+												<ItemRef Name="Bark_1_1" ID="{49AFC3BC-AED5-4AD9-8CE7-0F97D69B1544}"/>
+												<ItemRef Name="Bark_1_2" ID="{8E660B8B-B5DB-41C8-91A2-EADCD958BF67}"/>
+											</Playlist>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Bark_2" ID="{79672266-B927-4360-8BDC-0EC4D6A574A1}" ShortID="1043759686">
+											<PropertyList>
+												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="Bark_2_2" ID="{C9CB7B2D-55AE-4225-872A-4F3305AF7001}" ShortID="657537933" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="Effect0" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
+															<ObjectRef Name="ForestAuterlitz_BetweenTrees" ID="{28BCB6C3-676B-4CA5-8683-D6CEA80A18F2}" WorkUnitID="{C0E78DAA-768A-438F-8F7B-3701395185C3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="MFX5_08" ID="{D07A333C-BF1B-4339-B0EB-AA9F98D67207}" ShortID="286408526">
+															<Language>SFX</Language>
+															<AudioFile>MFX5_08.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="MFX5_08" ID="{D07A333C-BF1B-4339-B0EB-AA9F98D67207}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Bark_2_1" ID="{A22C27CE-7A59-45F3-8523-6BCC3BFAE2E0}" ShortID="431297092" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="Effect0" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
+															<ObjectRef Name="ForestAuterlitz_BetweenTrees" ID="{28BCB6C3-676B-4CA5-8683-D6CEA80A18F2}" WorkUnitID="{C0E78DAA-768A-438F-8F7B-3701395185C3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="MFX5_07" ID="{59AF3405-F88A-4810-A41A-A77AED7F42B5}" ShortID="410986289">
+															<Language>SFX</Language>
+															<AudioFile>MFX5_07.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="MFX5_07" ID="{59AF3405-F88A-4810-A41A-A77AED7F42B5}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+											<Playlist>
+												<ItemRef Name="Bark_2_1" ID="{A22C27CE-7A59-45F3-8523-6BCC3BFAE2E0}"/>
+												<ItemRef Name="Bark_2_2" ID="{C9CB7B2D-55AE-4225-872A-4F3305AF7001}"/>
+											</Playlist>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Bark_3" ID="{CAED407F-BA34-41A4-88A3-E8B6FF504D8B}" ShortID="705642992">
+											<PropertyList>
+												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="Bark_3_2" ID="{42DF834D-F18A-4B62-B968-1EA5092B62A9}" ShortID="789945112" Type="SoundFX">
+													<PropertyList>
+														<Property Name="InitialDelay" Type="Real64">
+															<ValueList>
+																<Value>1.5</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="Effect0" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
+															<ObjectRef Name="ForestAuterlitz_BetweenTrees" ID="{28BCB6C3-676B-4CA5-8683-D6CEA80A18F2}" WorkUnitID="{C0E78DAA-768A-438F-8F7B-3701395185C3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="MFX5_10" ID="{AFAD84E8-2283-4EFC-8BE8-08E708998831}" ShortID="1029327178">
+															<Language>SFX</Language>
+															<AudioFile>MFX5_10.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="MFX5_10" ID="{AFAD84E8-2283-4EFC-8BE8-08E708998831}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Bark_3_1" ID="{24110E1B-0EC6-4C7E-BA02-F37F4E624008}" ShortID="961056406" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="Effect0" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
+															<ObjectRef Name="ForestAuterlitz_BetweenTrees" ID="{28BCB6C3-676B-4CA5-8683-D6CEA80A18F2}" WorkUnitID="{C0E78DAA-768A-438F-8F7B-3701395185C3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="MFX5_09" ID="{E8D82B6B-3D00-4340-859A-A0472EC847BF}" ShortID="515891656">
+															<Language>SFX</Language>
+															<AudioFile>MFX5_09.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="MFX5_09" ID="{E8D82B6B-3D00-4340-859A-A0472EC847BF}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+											<Playlist>
+												<ItemRef Name="Bark_3_1" ID="{24110E1B-0EC6-4C7E-BA02-F37F4E624008}"/>
+												<ItemRef Name="Bark_3_2" ID="{42DF834D-F18A-4B62-B968-1EA5092B62A9}"/>
+											</Playlist>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Bark_4" ID="{3E30555D-4B09-4159-A21C-8431D7E0BE73}" ShortID="647508221">
+											<PropertyList>
+												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="Bark_4_2" ID="{2D9A5FF7-5D84-4A29-9319-6600F9EC0452}" ShortID="509887330" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="Effect0" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
+															<ObjectRef Name="ForestAuterlitz_BetweenTrees" ID="{28BCB6C3-676B-4CA5-8683-D6CEA80A18F2}" WorkUnitID="{C0E78DAA-768A-438F-8F7B-3701395185C3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="MFX5_12" ID="{EBF1E168-7990-41CD-8A6C-D5CB0E82424E}" ShortID="207085939">
+															<Language>SFX</Language>
+															<AudioFile>MFX5_12.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="MFX5_12" ID="{EBF1E168-7990-41CD-8A6C-D5CB0E82424E}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Bark_4_1" ID="{FCD6979A-D4A3-48D1-AA2C-13D279E76725}" ShortID="200580712" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="Effect0" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
+															<ObjectRef Name="ForestAuterlitz_BetweenTrees" ID="{28BCB6C3-676B-4CA5-8683-D6CEA80A18F2}" WorkUnitID="{C0E78DAA-768A-438F-8F7B-3701395185C3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="MFX5_11" ID="{6E345A10-838C-4EF4-B44B-47495EF07A21}" ShortID="3700552">
+															<Language>SFX</Language>
+															<AudioFile>MFX5_11.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="MFX5_11" ID="{6E345A10-838C-4EF4-B44B-47495EF07A21}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+											<Playlist>
+												<ItemRef Name="Bark_4_1" ID="{FCD6979A-D4A3-48D1-AA2C-13D279E76725}"/>
+												<ItemRef Name="Bark_4_2" ID="{2D9A5FF7-5D84-4A29-9319-6600F9EC0452}"/>
+											</Playlist>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Bark_5" ID="{9498EB44-80A8-44C9-BA77-16F2111027F5}" ShortID="580285439">
+											<PropertyList>
+												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="Bark_5_2" ID="{528F6AA0-E1F5-4AA0-8D6B-7315D8A22000}" ShortID="210271505" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="Effect0" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
+															<ObjectRef Name="ForestAuterlitz_BetweenTrees" ID="{28BCB6C3-676B-4CA5-8683-D6CEA80A18F2}" WorkUnitID="{C0E78DAA-768A-438F-8F7B-3701395185C3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="MFX5_14" ID="{17919C92-5056-4488-BE0D-E917CBD8CFC7}" ShortID="84546948">
+															<Language>SFX</Language>
+															<AudioFile>MFX5_14.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="MFX5_14" ID="{17919C92-5056-4488-BE0D-E917CBD8CFC7}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Bark_5_1" ID="{452D1B81-88FB-43E6-A392-676345CD83C2}" ShortID="628277245" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="Effect0" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
+															<ObjectRef Name="ForestAuterlitz_BetweenTrees" ID="{28BCB6C3-676B-4CA5-8683-D6CEA80A18F2}" WorkUnitID="{C0E78DAA-768A-438F-8F7B-3701395185C3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="MFX5_13" ID="{2181F1CE-D6A7-49A4-BC0D-EF473E200800}" ShortID="770011656">
+															<Language>SFX</Language>
+															<AudioFile>MFX5_13.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="MFX5_13" ID="{2181F1CE-D6A7-49A4-BC0D-EF473E200800}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+											<Playlist>
+												<ItemRef Name="Bark_5_1" ID="{452D1B81-88FB-43E6-A392-676345CD83C2}"/>
+												<ItemRef Name="Bark_5_2" ID="{528F6AA0-E1F5-4AA0-8D6B-7315D8A22000}"/>
+											</Playlist>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Bark_6" ID="{CDF4278C-F175-4520-A22D-9021D7495B4A}" ShortID="358906529">
+											<PropertyList>
+												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="Bark_6_1" ID="{7278291E-3AC0-4836-9451-3B79CA86A689}" ShortID="339349220" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="Effect0" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
+															<ObjectRef Name="ForestAuterlitz_BetweenTrees" ID="{28BCB6C3-676B-4CA5-8683-D6CEA80A18F2}" WorkUnitID="{C0E78DAA-768A-438F-8F7B-3701395185C3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="MFX5_15" ID="{82B087E0-A641-4517-9C9B-BA983327574B}" ShortID="234065099">
+															<Language>SFX</Language>
+															<AudioFile>MFX5_15.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="MFX5_15" ID="{82B087E0-A641-4517-9C9B-BA983327574B}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Bark_6_2" ID="{E660308B-FF18-41E7-B54D-E46B9AF9CC46}" ShortID="119434414" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="Effect0" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
+															<ObjectRef Name="ForestAuterlitz_BetweenTrees" ID="{28BCB6C3-676B-4CA5-8683-D6CEA80A18F2}" WorkUnitID="{C0E78DAA-768A-438F-8F7B-3701395185C3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="MFX5_16" ID="{C42E8E14-81F5-4B1D-9D1F-35C3088ECA39}" ShortID="885826267">
+															<Language>SFX</Language>
+															<AudioFile>MFX5_16.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="MFX5_16" ID="{C42E8E14-81F5-4B1D-9D1F-35C3088ECA39}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+											<Playlist>
+												<ItemRef Name="Bark_6_1" ID="{7278291E-3AC0-4836-9451-3B79CA86A689}"/>
+												<ItemRef Name="Bark_6_2" ID="{E660308B-FF18-41E7-B54D-E46B9AF9CC46}"/>
+											</Playlist>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Bark_7" ID="{37A0E48C-F971-48A1-B743-D36338142E43}" ShortID="62903206">
+											<PropertyList>
+												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="Bark_7_1" ID="{CE46E6F5-A58D-4350-BB10-92D88EEDFACC}" ShortID="913075992" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="Effect0" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
+															<ObjectRef Name="ForestAuterlitz_BetweenTrees" ID="{28BCB6C3-676B-4CA5-8683-D6CEA80A18F2}" WorkUnitID="{C0E78DAA-768A-438F-8F7B-3701395185C3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="MFX5_17" ID="{DE652B89-2AB2-47D1-8FFB-9FAC27D3E3F0}" ShortID="919996647">
+															<Language>SFX</Language>
+															<AudioFile>MFX5_17.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="MFX5_17" ID="{DE652B89-2AB2-47D1-8FFB-9FAC27D3E3F0}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Bark_7_2" ID="{60F5FA8F-A76E-4575-BF75-8CA6FB6D0BAE}" ShortID="269952190" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="Effect0" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
+															<ObjectRef Name="ForestAuterlitz_BetweenTrees" ID="{28BCB6C3-676B-4CA5-8683-D6CEA80A18F2}" WorkUnitID="{C0E78DAA-768A-438F-8F7B-3701395185C3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="MFX5_18" ID="{1B064AF9-528D-44C9-AC2C-822C6A47EC52}" ShortID="904724049">
+															<Language>SFX</Language>
+															<AudioFile>MFX5_18.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="MFX5_18" ID="{1B064AF9-528D-44C9-AC2C-822C6A47EC52}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+											<Playlist>
+												<ItemRef Name="Bark_7_1" ID="{CE46E6F5-A58D-4350-BB10-92D88EEDFACC}"/>
+												<ItemRef Name="Bark_7_2" ID="{60F5FA8F-A76E-4575-BF75-8CA6FB6D0BAE}"/>
+											</Playlist>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Bark_8" ID="{C7E6ABEB-29C6-4C53-A223-7C67C3DC183F}" ShortID="154025176">
+											<PropertyList>
+												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="Bark_8_2" ID="{4461228B-A7CB-47F3-92B0-4F881DE80967}" ShortID="883512683" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="Effect0" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
+															<ObjectRef Name="ForestAuterlitz_BetweenTrees" ID="{28BCB6C3-676B-4CA5-8683-D6CEA80A18F2}" WorkUnitID="{C0E78DAA-768A-438F-8F7B-3701395185C3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="MFX5_20" ID="{7CDF7059-C8ED-41B0-BD46-B2DD516A2349}" ShortID="397652816">
+															<Language>SFX</Language>
+															<AudioFile>MFX5_20.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="MFX5_20" ID="{7CDF7059-C8ED-41B0-BD46-B2DD516A2349}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Bark_8_1" ID="{A4C4EA88-5F5C-47F8-8C8E-12B444EEB6A8}" ShortID="374385720" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="Effect0" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
+															<ObjectRef Name="ForestAuterlitz_BetweenTrees" ID="{28BCB6C3-676B-4CA5-8683-D6CEA80A18F2}" WorkUnitID="{C0E78DAA-768A-438F-8F7B-3701395185C3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="MFX5_19" ID="{62EEC24A-FCD7-472D-961B-AAEC0C57CE44}" ShortID="346653720">
+															<Language>SFX</Language>
+															<AudioFile>MFX5_19.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="MFX5_19" ID="{62EEC24A-FCD7-472D-961B-AAEC0C57CE44}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+											<Playlist>
+												<ItemRef Name="Bark_8_1" ID="{A4C4EA88-5F5C-47F8-8C8E-12B444EEB6A8}"/>
+												<ItemRef Name="Bark_8_2" ID="{4461228B-A7CB-47F3-92B0-4F881DE80967}"/>
+											</Playlist>
+										</RandomSequenceContainer>
+									</ChildrenList>
 								</RandomSequenceContainer>
 							</ChildrenList>
 						</ActorMixer>
@@ -31317,6 +31838,9 @@
 					</ReferenceList>
 					<ChildrenList>
 						<Sound Name="Sens chasseur amb" ID="{BA4A95F3-24BD-48FF-949A-926AB6C6542C}" ShortID="935238114" Type="SoundFX">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
