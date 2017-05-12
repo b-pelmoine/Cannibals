@@ -18,7 +18,18 @@
 					<ChildrenList>
 						<ActorMixer Name="Amb Forest" ID="{4DBA9C02-99F2-4E74-9FFE-0EC16ABB6BF4}" ShortID="935235556">
 							<PropertyList>
+								<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
+								<Property Name="MaxSoundPerInstance" Type="int16">
+									<ValueList>
+										<Value>5</Value>
+									</ValueList>
+								</Property>
 								<Property Name="OverLimitBehavior" Type="int16" Value="1"/>
+								<Property Name="UseMaxSoundPerInstance" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -14911,7 +14922,7 @@
 												<RandomSequenceContainer Name="Edible frog" ID="{593EE014-A631-4A15-A1AD-80A48AA99EFD}" ShortID="535590291">
 													<PropertyList>
 														<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
-														<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+														<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0.1"/>
 														<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 														<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="3"/>
 													</PropertyList>
@@ -16738,8 +16749,8 @@
 						<Reference Name="Conversion">
 							<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
 						</Reference>
-						<Reference Name="Effect0" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
-							<ObjectRef Name="ForestAuterlitz_BetweenTrees" ID="{28BCB6C3-676B-4CA5-8683-D6CEA80A18F2}" WorkUnitID="{C0E78DAA-768A-438F-8F7B-3701395185C3}"/>
+						<Reference Name="Effect0" CompanyID="4095" PluginID="65535" PluginType="15">
+							<ObjectRef Name="ForestAuterlitz_WideOpen" ID="{2239E747-92DD-4A09-81B6-AEAD2528D282}" WorkUnitID="{C0E78DAA-768A-438F-8F7B-3701395185C3}"/>
 						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
@@ -26522,6 +26533,11 @@
 								</SwitchContainer>
 								<RandomSequenceContainer Name="Idle" ID="{C64321C3-9F9D-4AE4-92F6-35DF3ED86682}" ShortID="601774626">
 									<PropertyList>
+										<Property Name="MakeUpGain" Type="Real64">
+											<ValueList>
+												<Value>-12</Value>
+											</ValueList>
+										</Property>
 										<Property Name="Pitch" Type="int32">
 											<ModifierList>
 												<ModifierInfo>
@@ -26666,6 +26682,11 @@
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="Sniff" ID="{816A61D1-8693-4318-A88E-0CA57A5BB2EA}" ShortID="397620886">
 									<PropertyList>
+										<Property Name="MakeUpGain" Type="Real64">
+											<ValueList>
+												<Value>-12</Value>
+											</ValueList>
+										</Property>
 										<Property Name="Pitch" Type="int32">
 											<ModifierList>
 												<ModifierInfo>
