@@ -84,7 +84,7 @@ namespace AI
                             animator.Play("Bark");
                             hunter.Call(CurrentTask.target);
                             
-                            //AkSoundEngine.PostEvent("dog_sniff", gameObject);
+                            AkSoundEngine.PostEvent("dog_bark", gameObject);
                             CurrentTask.count++;
                         }
                         
@@ -102,12 +102,13 @@ namespace AI
                 case (int)DogTask.Eat:
                     if(CurrentTask.count==0 && MoveTo(CurrentTask.target.transform.position, 3))
                     {
-                        animator.Play("Eat");
+                        animator.Play("IdleToEat");
                         CurrentTask.count = 1;
                         CurrentTask.elapsed = 0;
                     }
                     else if (CurrentTask.count == 1 && CurrentTask.elapsed>eatingTime)
                     {
+                        animator.Play("Idle");
                         tasks.Pop();
                     }
                     break;
@@ -120,7 +121,7 @@ namespace AI
         {
             foreach(GameObject obj in los.sighted)
             {
-                if (obj.GetComponent<Bone>() != null)
+                if (CurrentTask.id != (int)DogTask.Eat && obj.GetComponent<Bone>() != null)
                 {
                     //target = los.sighted[i];
                     //targetType = btargetType.Viande;
@@ -130,7 +131,9 @@ namespace AI
                 }
                 else if (CurrentTask.id == (int)DogTask.WanderInFront && obj.CompareTag("Player"))
                 {
-                    tasks.Push(new Task((int)DogTask.ChaseAndBark, obj));
+                    Cannibal can = obj.GetComponentInParent<Cannibal>();
+                    if(can!=null && !can.IsDead())
+                        tasks.Push(new Task((int)DogTask.ChaseAndBark, obj));
                 }
                 else
                 {

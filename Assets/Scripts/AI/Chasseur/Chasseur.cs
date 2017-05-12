@@ -13,6 +13,7 @@ namespace AI
         public float lostTargetTime = 3;
         public float defendTime = 5;
         public Animator animator;
+        public ParticleSystem fireBurst;
 
         int anim_speedId = Animator.StringToHash("Speed");
         int anim_shoot = Animator.StringToHash("Shoot");
@@ -54,7 +55,6 @@ namespace AI
             {
                 Debug.Log("Chasseur.cs: animator ou navmeshagent non présent");
             }
-           
 
             if (los.Updated)
             {
@@ -190,6 +190,7 @@ namespace AI
         public void Shoot()
         {
             AkSoundEngine.PostEvent("hunter_rifle", gameObject);
+            fireBurst.Play();
             Vector3 position = agent.transform.position;
             Vector3 direction = agent.transform.forward;
             RaycastHit hit;

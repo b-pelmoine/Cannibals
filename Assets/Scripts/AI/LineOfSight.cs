@@ -149,10 +149,11 @@ public class LineOfSight : MonoBehaviour {
             return false;
         }
     }
-
+#if UNITY_EDITOR
     void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
         UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.up, radius);
     }
+#endif
 }
