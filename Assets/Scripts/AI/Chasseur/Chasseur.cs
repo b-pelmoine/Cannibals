@@ -62,7 +62,7 @@ namespace AI
                 foreach(GameObject obj in los.sighted)
                 {
                     Cannibal cannibal = obj.GetComponentInParent<Cannibal>();
-                    if (cannibal != null)
+                    if (cannibal != null && !cannibal.IsDead())
                     {
                         if (CurrentTask.id == (int)ChasseurTask.Normal)
                         {

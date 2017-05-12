@@ -120,17 +120,17 @@ namespace AI
         {
             foreach(GameObject obj in los.sighted)
             {
-                if(CurrentTask.id == (int)DogTask.WanderInFront && obj.CompareTag("Player"))
-                {
-                    tasks.Push(new Task((int)DogTask.ChaseAndBark, obj));
-                }
-                else if (obj.GetComponent<Bone>() != null)
+                if (obj.GetComponent<Bone>() != null)
                 {
                     //target = los.sighted[i];
                     //targetType = btargetType.Viande;
                     //sawSomething = true;
                     tasks.Push(new Task((int)DogTask.Eat, obj));
                 
+                }
+                else if (CurrentTask.id == (int)DogTask.WanderInFront && obj.CompareTag("Player"))
+                {
+                    tasks.Push(new Task((int)DogTask.ChaseAndBark, obj));
                 }
                 else
                 {
