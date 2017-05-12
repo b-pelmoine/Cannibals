@@ -43,20 +43,30 @@ public class ScanTerrain : MonoBehaviour
 
     public void UpdateScan(int activeUsers)
     {
-        if(activeUsers != 0 && activeUsers != prev_ActiveUsers)
+        if(prev_ActiveUsers != activeUsers)
         {
-            if (speed == OnePlayerSpeed)
+            if (activeUsers == 1 && prev_ActiveUsers == 0)
+            {
+                Debug.Log("1");
                 AkSoundEngine.PostEvent("sense_layer1", ScannerOrigin.gameObject);
+            }
             else
-                AkSoundEngine.PostEvent("sense_layer2", ScannerOrigin.gameObject);
+            {
+                if ((activeUsers == 2) || (activeUsers == 1 && prev_ActiveUsers == 2))
+                {
+                    Debug.Log("2");
+                    AkSoundEngine.PostEvent("sense_layer2", ScannerOrigin.gameObject);
+                }
+            }   
         }
-        switch(activeUsers)
+        prev_ActiveUsers = activeUsers;
+        switch (activeUsers)
         {
             case 1: speed = OnePlayerSpeed; break;
             case 2: speed = TwoPlayersSpeed; break;
             default: stopScan();break;
         }
-        prev_ActiveUsers = activeUsers;
+        
     }
 
     void stopScan()
