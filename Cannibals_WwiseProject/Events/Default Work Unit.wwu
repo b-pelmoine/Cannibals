@@ -469,6 +469,28 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="sense_layer1" ID="{03DB7140-2396-48AE-9837-31579F789B5B}">
+					<ChildrenList>
+						<Action Name="Play" ID="{84D10121-F914-4BA3-9F31-C46DBADFE114}" ShortID="337359492" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{77F94349-6E0A-4E47-BD64-ACA1C597C617}" Global="false">
+									<ObjectRef Name="Layer 1" ID="{02781905-8647-4877-828F-BCC222DD1D63}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="sense_layer2" ID="{C1F8AE09-1917-4A71-A16E-B26802498D20}">
+					<ChildrenList>
+						<Action Name="Play" ID="{FF99A7D2-F520-4251-A763-24134B67F3A0}" ShortID="849661716" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{762C9CAD-6738-4945-AEA4-ACB286E3FB49}" Global="false">
+									<ObjectRef Name="Layer 2" ID="{6EE697CC-412D-4926-B4EC-93B87AE46F36}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
