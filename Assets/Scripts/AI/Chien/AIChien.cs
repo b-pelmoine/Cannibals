@@ -87,6 +87,7 @@ namespace AI
                             //AkSoundEngine.PostEvent("dog_sniff", gameObject);
                             CurrentTask.count++;
                         }
+                        
                     }
                     else
                     {
