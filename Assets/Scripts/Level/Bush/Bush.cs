@@ -12,6 +12,8 @@ public class Bush : MonoBehaviour {
     [SerializeField]
     LayerMask m_cannibalLayerMask;
 
+
+    //[SerializeField]
     List<Cannibal> m_cannibalInBush;
 
     void Awake()
@@ -51,7 +53,23 @@ public class Bush : MonoBehaviour {
     void OnTriggerEnter(Collider c)
     {
         if (((1 << c.gameObject.layer) & m_cannibalLayerMask) != 0)
-            m_cannibalInBush.Add(c.gameObject.GetComponentInParent<Cannibal>());
+        {
+            Cannibal ca = c.gameObject.GetComponentInParent<Cannibal>();
+
+            if (ca /*&& !m_cannibalInBush.Exists(x => { return x == ca; } )*/)
+                m_cannibalInBush.Add(ca);
+        }
+    }
+
+    void OnTriggerExit(Collider c)
+    {
+        if (((1 << c.gameObject.layer) & m_cannibalLayerMask) != 0)
+        {
+            Cannibal ca = c.gameObject.GetComponentInParent<Cannibal>();
+
+            if (ca /*&& !m_cannibalInBush.Exists(x => { return x == ca; } )*/)
+                m_cannibalInBush.Remove(ca);
+        }
     }
 
 }

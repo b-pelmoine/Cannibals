@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114855613064038926}
   - component: {fileID: 114459478096066694}
   - component: {fileID: 114714346304613038}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bush
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 4696579009163220}
   - component: {fileID: 33445305216529820}
   - component: {fileID: 23512808370211254}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sphere005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,8 @@ GameObject:
   - component: {fileID: 4333216079689744}
   - component: {fileID: 33911401512159696}
   - component: {fileID: 23990358293445420}
-  m_Layer: 0
+  - component: {fileID: 95591808244250056}
+  m_Layer: 11
   m_Name: Mesher004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,15 +98,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1292751834278326}
-  m_LocalRotation: {x: -0, y: -0.44281, z: -0, w: 0.8966155}
-  m_LocalPosition: {x: 162.68, y: 3.09, z: 116.11}
-  m_LocalScale: {x: 1.5812507, y: 1.58125, z: 1.5812507}
+  m_LocalRotation: {x: -0, y: -0.8027421, z: -0, w: 0.5963263}
+  m_LocalPosition: {x: -62.05127, y: 3.5156765, z: 279.0937}
+  m_LocalScale: {x: 1.5812504, y: 1.58125, z: 1.5812504}
   m_Children:
   - {fileID: 4333216079689744}
   - {fileID: 4696579009163220}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -52.567, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -106.786, z: 0}
 --- !u!23 &23512808370211254
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -196,6 +197,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0717818, y: 0.79536676, z: 1.6855083}
   m_Center: {x: 0.035890833, y: 0.21545093, z: -0.0076891016}
+--- !u!95 &95591808244250056
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1768847823590666}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ad920df4b12638042941b3fad08b9d5f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114459082842510232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -207,7 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b01c8b2255740c4ba4274df82fe0bc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_statemachine: {fileID: 0}
+  m_statemachine: {fileID: 114459478096066694}
   m_cannibalLayerMask:
     serializedVersion: 2
     m_Bits: 4096
@@ -228,7 +246,7 @@ MonoBehaviour:
   disableAction: 0
   versionUpdateProxyGraph: {fileID: 0}
   _graph: {fileID: 11400000, guid: 4086f0581fb31ad499c0eae98cec6645, type: 2}
-  _blackboard: {fileID: 0}
+  _blackboard: {fileID: 114855613064038926}
 --- !u!114 &114714346304613038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -253,5 +271,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b98a6db0b653f764eac834f85857a9dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _serializedBlackboard: '{"_variables":{}}'
-  _objectReferences: []
+  _serializedBlackboard: '{"_variables":{"mesher":{"_value":1,"_name":"mesher","_id":"bb862b0a-df93-4bf6-97e0-476b6ee2003c","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Animator,
+    UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
+  _objectReferences:
+  - {fileID: 0}
+  - {fileID: 95591808244250056}
