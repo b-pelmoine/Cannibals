@@ -16726,7 +16726,7 @@
 								<StateRef Name="Active" ID="{68E92B5D-0148-4950-83F6-076A0952FE8D}"/>
 								<State Name="Custom State" ID="{98DA7C83-365C-4BBE-A830-A95F8B885D21}" ShortID="439384049">
 									<PropertyList>
-										<Property Name="Lowpass" Type="int16" Value="48"/>
+										<Property Name="Lowpass" Type="int16" Value="66"/>
 									</PropertyList>
 								</State>
 							</CustomState>
@@ -31315,6 +31315,44 @@
 							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
 						</Reference>
 					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="Sens chasseur amb" ID="{BA4A95F3-24BD-48FF-949A-926AB6C6542C}" ShortID="935238114" Type="SoundFX">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="REC M1_194-01" ID="{0005708C-11FE-429D-8261-DD0DDC35FFB9}" ShortID="932436401">
+									<Language>SFX</Language>
+									<AudioFile>REC M1_194-01.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="REC M1_194-01" ID="{0005708C-11FE-429D-8261-DD0DDC35FFB9}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<StateInfo>
+						<StateGroupList>
+							<StateGroupInfo>
+								<StateGroupRef Name="HunterEars" ID="{5734CFA7-1D01-4C36-AC30-091216E931A3}"/>
+							</StateGroupInfo>
+						</StateGroupList>
+						<CustomStateList>
+							<CustomState>
+								<StateRef Name="Disabled" ID="{FBD76EA6-8C26-4638-A256-ABDCE59372CE}"/>
+								<State Name="Custom State" ID="{FFE5CDBB-3250-4213-84E7-81F91E1E6BD1}" ShortID="956410921">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64" Value="-96"/>
+									</PropertyList>
+								</State>
+							</CustomState>
+						</CustomStateList>
+					</StateInfo>
 				</ActorMixer>
 			</ChildrenList>
 		</WorkUnit>
