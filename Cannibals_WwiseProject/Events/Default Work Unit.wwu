@@ -482,10 +482,10 @@
 				</Event>
 				<Event Name="sense_layer2" ID="{C1F8AE09-1917-4A71-A16E-B26802498D20}">
 					<ChildrenList>
-						<Action Name="Play" ID="{FF99A7D2-F520-4251-A763-24134B67F3A0}" ShortID="849661716" Type="Play" Scope="One" Global="false">
+						<Action Name="Play" ID="{7B46700D-F09B-4906-A756-E80B3D38984C}" ShortID="233846030" Type="Play" Scope="One" Global="false">
 							<ElementList>
-								<Element ID="{762C9CAD-6738-4945-AEA4-ACB286E3FB49}" Global="false">
-									<ObjectRef Name="Layer 2" ID="{6EE697CC-412D-4926-B4EC-93B87AE46F36}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								<Element ID="{03F033F6-C32E-4DAD-9ACC-B20A523F6F2E}" Global="false">
+									<ObjectRef Name="Layer 2 Loop" ID="{929A31D6-2E10-49D8-A71F-6D45B6218DA4}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
 								</Element>
 							</ElementList>
 						</Action>
@@ -493,10 +493,41 @@
 				</Event>
 				<Event Name="stop_sense_layers" ID="{51727F06-8919-4FB9-A2D7-5BDB394A6BD8}">
 					<ChildrenList>
-						<Action Name="Break" ID="{BDBC4733-6B5C-415E-8503-E61E9C967FED}" ShortID="537853583" Type="Break" Scope="One" Global="false">
+						<Action Name="Stop" ID="{7BD9B2C9-0AEB-4CFF-9351-E139B1F5FEAF}" ShortID="343667246" Type="Stop" Scope="One" Global="true">
+							<PropertyList>
+								<Property Name="Delay" Type="Real64" Value="1"/>
+							</PropertyList>
 							<ElementList>
-								<Element ID="{FEA153EE-57E7-4526-8782-C55C5BE45F18}" Global="false">
-									<ObjectRef Name="Hunter sense" ID="{9219B621-0E23-4FD3-8EAC-23B15E4F2DCD}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								<Element ID="{9163F329-7BC3-4E6F-BA37-A01D91F16FE7}" Global="true">
+									<ObjectRef Name="Layer 1" ID="{02781905-8647-4877-828F-BCC222DD1D63}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Stop" ID="{DC99DBD9-7827-48E6-8869-7B5F1E832DC1}" ShortID="838787094" Type="Stop" Scope="One" Global="true">
+							<PropertyList>
+								<Property Name="Delay" Type="Real64" Value="1"/>
+							</PropertyList>
+							<ElementList>
+								<Element ID="{2EC18D7C-BB9D-46FC-B013-1E4D7B2958C8}" Global="true">
+									<ObjectRef Name="Layer 2" ID="{6EE697CC-412D-4926-B4EC-93B87AE46F36}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="sense_layer2_end" ID="{E940A3AD-F625-4E47-8EAA-8373794A366B}">
+					<ChildrenList>
+						<Action Name="Stop" ID="{9B758B84-A903-4E12-8EA3-FA562B411315}" ShortID="589611452" Type="Stop" Scope="One" Global="true">
+							<ElementList>
+								<Element ID="{A73C36C9-6F41-45EA-85F5-BC054B81E200}" Global="true">
+									<ObjectRef Name="Layer 2 Loop" ID="{929A31D6-2E10-49D8-A71F-6D45B6218DA4}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Play" ID="{D1CB23A5-917A-4B64-AA9E-AC66F6F121FB}" ShortID="461776201" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{B6A8ACF3-49D6-48E3-9322-938647C1BCB7}" Global="false">
+									<ObjectRef Name="Sens chasseur layer 2 fin" ID="{A9044584-AC88-4AC9-9B3F-DB8F5B27305E}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
 								</Element>
 							</ElementList>
 						</Action>

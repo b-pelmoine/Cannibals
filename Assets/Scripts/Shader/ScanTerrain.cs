@@ -52,10 +52,16 @@ public class ScanTerrain : MonoBehaviour
             }
             else
             {
-                if ((activeUsers == 2) || (activeUsers == 1 && prev_ActiveUsers == 2))
+                if (activeUsers == 2)
                 {
                     Debug.Log("2");
                     AkSoundEngine.PostEvent("sense_layer2", ScannerOrigin.gameObject);
+                }
+                else
+                {
+                    if(activeUsers == 1 && prev_ActiveUsers == 2)
+                        AkSoundEngine.PostEvent("sense_layer2_end", ScannerOrigin.gameObject);
+
                 }
             }   
         }
