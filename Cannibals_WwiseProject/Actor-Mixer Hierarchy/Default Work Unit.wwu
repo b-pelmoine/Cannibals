@@ -14814,7 +14814,7 @@
 												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
 												<Property Name="MakeUpGain" Type="Real64">
 													<ValueList>
-														<Value>-8</Value>
+														<Value>-11</Value>
 													</ValueList>
 												</Property>
 												<Property Name="MaxSoundPerInstance" Type="int16">
@@ -16738,7 +16738,7 @@
 								<StateRef Name="Active" ID="{68E92B5D-0148-4950-83F6-076A0952FE8D}"/>
 								<State Name="Custom State" ID="{98DA7C83-365C-4BBE-A830-A95F8B885D21}" ShortID="439384049">
 									<PropertyList>
-										<Property Name="Lowpass" Type="int16" Value="60"/>
+										<Property Name="Lowpass" Type="int16" Value="66"/>
 									</PropertyList>
 								</State>
 							</CustomState>
@@ -26465,14 +26465,7 @@
 							</ChildrenList>
 						</ActorMixer>
 						<ActorMixer Name="Dog" ID="{D7460FB2-8C83-4F0C-A18C-7EEF5338E651}" ShortID="790679977">
-							<PropertyList>
-								<Property Name="OverridePositioning" Type="bool" Value="True"/>
-								<Property Name="PositioningType" Type="int16" Value="1"/>
-							</PropertyList>
 							<ReferenceList>
-								<Reference Name="Attenuation">
-									<ObjectRef Name="Characters" ID="{1DFA2EC0-1EB7-4E61-A85E-9F048C89F11D}" WorkUnitID="{D49E8AC8-F75C-42C2-9D03-ECF68261003A}"/>
-								</Reference>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
 								</Reference>
@@ -26834,7 +26827,6 @@
 								</Sound>
 								<RandomSequenceContainer Name="Bark" ID="{050C9568-5617-45CF-87B6-BA3EEDA0EAE9}" ShortID="744586618">
 									<PropertyList>
-										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="Pitch" Type="int32">
 											<ModifierList>
 												<ModifierInfo>
@@ -26848,7 +26840,6 @@
 												</ModifierInfo>
 											</ModifierList>
 										</Property>
-										<Property Name="PositioningType" Type="int16" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -31925,11 +31916,6 @@
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="Layer 2" ID="{6EE697CC-412D-4926-B4EC-93B87AE46F36}" ShortID="601222749">
 									<PropertyList>
-										<Property Name="MakeUpGain" Type="Real64">
-											<ValueList>
-												<Value>-9</Value>
-											</ValueList>
-										</Property>
 										<Property Name="RandomOrSequence" Type="int16" Value="0"/>
 									</PropertyList>
 									<ReferenceList>
