@@ -45,6 +45,7 @@ namespace EquilibreGames
             }
         }
 
+
         private class GroundHit
         {
             public Vector3 point { get; private set; }
@@ -104,11 +105,10 @@ namespace EquilibreGames
         [SerializeField][Tooltip("Between all circleColliders, where is the collider for character's feet ?")]
         int feetIndex;
 
-        [SerializeField]
-        List<Collider2D> ignoredColliders2D = new List<Collider2D>();
 
-        [SerializeField]
-        List<Collider> ignoredColliders3D = new List<Collider>();
+        public List<Collider2D> ignoredColliders2D = new List<Collider2D>();
+
+        public List<Collider> ignoredColliders3D = new List<Collider>();
 
         //OLD CODE -- 2016_07_31
         // [SerializeField]
@@ -230,6 +230,7 @@ namespace EquilibreGames
 #endif
 
         public Transform currentGroundTransform;
+        public List<CharacterControllerExt> linkedCharacterControllerExts = new List<CharacterControllerExt>();
 
         void Awake()
         {
@@ -351,6 +352,57 @@ namespace EquilibreGames
         }
 
         /// <summary>
+        /// Link 2 charactersControllerExt or update the link between them
+        /// </summary>
+        /// <param name="c"></param>
+        /// <param name="offset"></param>
+        public void LinkTo(CharacterControllerExt c)
+        {
+            CharacterControllerExt ch = linkedCharacterControllerExts.Find((x) => x == c);
+
+            if (ch == null)
+            {
+                linkedCharacterControllerExts.Add(c);
+                c.linkedCharacterControllerExts.Add(this);
+            }
+        }
+
+        /// <summary>
+        /// Unlink a characterControllerExt
+        /// </summary>
+        /// <param name="c"></param>
+        public void Unlink(CharacterControllerExt c)
+        {
+            CharacterControllerExt other = linkedCharacterControllerExts.Find((x) => x == c);
+
+            if (other != null)
+            {
+                linkedCharacterControllerExts.Remove(other);
+                other.linkedCharacterControllerExts.Remove(this);
+            }
+        }
+
+        void UpdateLinkedCharacterControllerExts(Vector3 delta)
+        {
+            List<CharacterControllerExt> c = new List<CharacterControllerExt>();
+            c.Add(this);
+            RecursiveUpdateLinkedCharacterControllerExts(c, delta);
+        }
+
+        void RecursiveUpdateLinkedCharacterControllerExts(List<CharacterControllerExt> alreadyCheckedCharacterControllers, Vector3 delta)
+        {
+            foreach (CharacterControllerExt c in linkedCharacterControllerExts)
+            {
+                if (!alreadyCheckedCharacterControllers.Contains(c))
+                {
+                    alreadyCheckedCharacterControllers.Add(c);
+                    c.CharacterTransform.position += delta;
+                    c.RecursiveUpdateLinkedCharacterControllerExts(alreadyCheckedCharacterControllers, delta);
+                }
+            }
+        }
+
+        /// <summary>
         /// Clamp the characterController to the current finded Ground
         /// </summary>
         void ClampToGround3D()
@@ -410,7 +462,7 @@ namespace EquilibreGames
                 //else
                 //{
                 characterTransform.position += direction;
-
+                UpdateLinkedCharacterControllerExts(direction);
                 //}
 
                 return true;
@@ -727,11 +779,12 @@ namespace EquilibreGames
 
                             //Change the characterTransform position to be on the collider shape.
                             characterTransform.position += direction*distance;
+                            UpdateLinkedCharacterControllerExts(direction * distance);
 
-                            //Because the transform for colInfo is not necessary the character transform, substract the localPosition of this one;
-                           // characterTransform.position += characterTransform.position - colInfo.transform.position;
+                    //Because the transform for colInfo is not necessary the character transform, substract the localPosition of this one;
+                    // characterTransform.position += characterTransform.position - colInfo.transform.position;
 
-                            if (useGeneralPlatformerVelocityRule /*&& oneWayPlatform == null*/)
+                    if (useGeneralPlatformerVelocityRule /*&& oneWayPlatform == null*/)
                             {
                                 Vector2 normal = direction;
                                 float angle = Vector2.Angle(Vector2.up, normal);

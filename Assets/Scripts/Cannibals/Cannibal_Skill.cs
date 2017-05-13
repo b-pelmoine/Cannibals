@@ -17,19 +17,17 @@ public class Cannibal_Skill : MonoBehaviour {
     [SerializeField]
     Transform cannibalObjectParent;
 
-    [SerializeField]
-    Transform corpseTransform;
-
+    public Joint corpseJoint;
     public BoxCollider corpseTakenCollider;
 
-    void Update()
+   /* void Update()
     {
         if (m_corpse != null)
         {
           m_corpse.m_transform.position = corpseTransform.position - corpseTakenCollider.center;
         }
 
-    }
+    } */
 
     /// <summary>
     /// Take an cannibal object or exchange if the cannibal has already an object
@@ -57,6 +55,10 @@ public class Cannibal_Skill : MonoBehaviour {
     public void ReleaseCorpse()
     {
         m_corpse.BeReleased(this.m_cannibal);
+
+        foreach(Collider c in m_corpse.GetComponentsInChildren<Collider>())
+            m_cannibal.m_cannibalMovement.CharacterControllerEx.ignoredColliders3D.Remove(c);
+
         m_corpse = null;
     }
 
@@ -64,5 +66,7 @@ public class Cannibal_Skill : MonoBehaviour {
     {
         corpse.BeTaken(this.m_cannibal);
         m_corpse = corpse;
+
+        m_cannibal.m_cannibalMovement.CharacterControllerEx.ignoredColliders3D.AddRange(corpse.GetComponentsInChildren<Collider>());
     }
 }

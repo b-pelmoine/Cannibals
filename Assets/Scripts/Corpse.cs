@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EquilibreGames;
 
 public class Corpse : MonoBehaviour {
 
@@ -8,8 +9,10 @@ public class Corpse : MonoBehaviour {
 
     public Transform m_transform;
 
+    public Rigidbody m_rigidbody;
+
     [SerializeField]
-     Rigidbody m_rigidbody;
+    BoxCollider collision;
 
     [SerializeField]
     BoxCollider normalCollider;
@@ -20,22 +23,37 @@ public class Corpse : MonoBehaviour {
     [SerializeField]
     BoxCollider leftCollider;
 
+    [SerializeField]
+    CharacterControllerExt characterControllerExt;
+
+    void Awake()
+    {
+        characterControllerExt.enabled = false;
+    }
 
     public void BeTaken(Cannibal cannibal)
     {
         cannibals.Add(cannibal);
+        characterControllerExt.enabled = true;
+        characterControllerExt.LinkTo(cannibal.m_cannibalMovement.CharacterControllerEx);
 
         //MAL FAIT A REFAIRE NIVEAU CONCEPTION
         if (cannibals.Count == 1)
         {
+            collision.enabled = false;
             cannibal.m_cannibalSkill.corpseTakenCollider = normalCollider;
-            m_rigidbody.isKinematic = true;
+            //m_rigidbody.isKinematic = true;
+            m_rigidbody.useGravity = false;
             m_rigidbody.velocity = Vector3.zero;
             m_rigidbody.angularVelocity = Vector3.zero;
+            m_rigidbody.constraints = RigidbodyConstraints.FreezeRotationX;
 
             normalCollider.enabled = false;
             rightCollider.enabled = true;
             leftCollider.enabled = true;
+
+            cannibal.m_cannibalSkill.corpseJoint.connectedBody = this.m_rigidbody;
+            cannibal.m_cannibalSkill.corpseJoint.connectedAnchor = normalCollider.center;
         }
         else if (cannibals.Count > 1)
         {
@@ -50,24 +68,36 @@ public class Corpse : MonoBehaviour {
 
             cannibals[0].m_cannibalMovement.CharacterControllerEx.CharacterTransform.position = cannibals[0].m_cannibalSkill.corpseTakenCollider.center + cannibals[0].m_cannibalSkill.corpseTakenCollider.transform.position;
             cannibal.m_cannibalMovement.CharacterControllerEx.CharacterTransform.position = cannibal.m_cannibalSkill.corpseTakenCollider.center + cannibal.m_cannibalSkill.corpseTakenCollider.transform.position;
+
+            cannibals[0].m_cannibalSkill.corpseJoint.connectedBody = this.m_rigidbody;
+            cannibals[0].m_cannibalSkill.corpseJoint.connectedAnchor = cannibals[0].m_cannibalSkill.corpseTakenCollider.center;
+
+            cannibal.m_cannibalSkill.corpseJoint.connectedBody = this.m_rigidbody;
+            cannibal.m_cannibalSkill.corpseJoint.connectedAnchor = cannibal.m_cannibalSkill.corpseTakenCollider.center;
         }
     }
 
     public void BeReleased(Cannibal cannibal)
     {
         cannibals.Remove(cannibal);
+        characterControllerExt.Unlink(cannibal.m_cannibalMovement.CharacterControllerEx);
+        cannibal.m_cannibalSkill.corpseJoint.connectedBody = null;
 
-        if(cannibals.Count == 1)
+        if (cannibals.Count == 1)
         {
             cannibals[0].m_cannibalSkill.corpseTakenCollider = normalCollider;
             cannibals[0].m_cannibalMovement.CharacterControllerEx.CharacterTransform.position = cannibals[0].m_cannibalSkill.corpseTakenCollider.center + cannibals[0].m_cannibalSkill.corpseTakenCollider.transform.position;
         }
         else if (cannibals.Count == 0)
         {
-            m_rigidbody.isKinematic = false;
+            collision.enabled = true;
+            // m_rigidbody.isKinematic = false;
+            m_rigidbody.constraints = RigidbodyConstraints.None;
+            m_rigidbody.useGravity = true;
             normalCollider.enabled = true;
             rightCollider.enabled = false;
             leftCollider.enabled = false;
+            characterControllerExt.enabled = false;
         }
     }
 
