@@ -4130,11 +4130,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indicator: {fileID: 0}
-  scanner: {fileID: 0}
+  huntSenseTerrain: {fileID: 0}
+  IAmanager: {fileID: 0}
   huntSensActive: 0
   transitionDuration: 0
-  DecaytransitionDuration: 0
   HuntSenseFinalIntensity: 0
+  agentSpreadAreaMax: 0
 --- !u!114 &114252603782320106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5821,6 +5822,7 @@ MonoBehaviour:
   m_cannibal: {fileID: 0}
   cannibalObjectParent: {fileID: 4025002872619384}
   corpseTransform: {fileID: 0}
+  UIManager: {fileID: 0}
   corpseTakenCollider: {fileID: 0}
 --- !u!114 &114468201585478818
 MonoBehaviour:
@@ -5836,6 +5838,7 @@ MonoBehaviour:
   m_cannibal: {fileID: 0}
   cannibalObjectParent: {fileID: 4027741930625394}
   corpseTransform: {fileID: 0}
+  UIManager: {fileID: 0}
   corpseTakenCollider: {fileID: 0}
 --- !u!114 &114474024980155104
 MonoBehaviour:

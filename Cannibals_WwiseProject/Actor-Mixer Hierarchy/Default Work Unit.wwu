@@ -14814,7 +14814,7 @@
 												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
 												<Property Name="MakeUpGain" Type="Real64">
 													<ValueList>
-														<Value>-11</Value>
+														<Value>-8</Value>
 													</ValueList>
 												</Property>
 												<Property Name="MaxSoundPerInstance" Type="int16">
@@ -16738,7 +16738,7 @@
 								<StateRef Name="Active" ID="{68E92B5D-0148-4950-83F6-076A0952FE8D}"/>
 								<State Name="Custom State" ID="{98DA7C83-365C-4BBE-A830-A95F8B885D21}" ShortID="439384049">
 									<PropertyList>
-										<Property Name="Lowpass" Type="int16" Value="66"/>
+										<Property Name="Lowpass" Type="int16" Value="60"/>
 									</PropertyList>
 								</State>
 							</CustomState>
@@ -16759,6 +16759,10 @@
 					</ReferenceList>
 					<ChildrenList>
 						<ActorMixer Name="Cannibals" ID="{B259D5D7-BCED-4EF7-9A5E-6A9D9D186382}" ShortID="369742219">
+							<PropertyList>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="PositioningType" Type="int16" Value="1"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
@@ -25148,7 +25152,14 @@
 							</ChildrenList>
 						</ActorMixer>
 						<ActorMixer Name="Hunter" ID="{A781C459-0CBD-4F91-BB2D-181BBD06E58F}" ShortID="579854216">
+							<PropertyList>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="PositioningType" Type="int16" Value="1"/>
+							</PropertyList>
 							<ReferenceList>
+								<Reference Name="Attenuation">
+									<ObjectRef Name="Characters" ID="{1DFA2EC0-1EB7-4E61-A85E-9F048C89F11D}" WorkUnitID="{D49E8AC8-F75C-42C2-9D03-ECF68261003A}"/>
+								</Reference>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
 								</Reference>
@@ -26354,6 +26365,8 @@
 											</ValueList>
 										</Property>
 										<Property Name="OverrideEffect" Type="bool" Value="True"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="PositioningType" Type="int16" Value="1"/>
 										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="4"/>
 									</PropertyList>
 									<ReferenceList>
@@ -26465,7 +26478,14 @@
 							</ChildrenList>
 						</ActorMixer>
 						<ActorMixer Name="Dog" ID="{D7460FB2-8C83-4F0C-A18C-7EEF5338E651}" ShortID="790679977">
+							<PropertyList>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="PositioningType" Type="int16" Value="1"/>
+							</PropertyList>
 							<ReferenceList>
+								<Reference Name="Attenuation">
+									<ObjectRef Name="Characters" ID="{1DFA2EC0-1EB7-4E61-A85E-9F048C89F11D}" WorkUnitID="{D49E8AC8-F75C-42C2-9D03-ECF68261003A}"/>
+								</Reference>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
 								</Reference>
@@ -26827,6 +26847,19 @@
 								</Sound>
 								<RandomSequenceContainer Name="Bark" ID="{050C9568-5617-45CF-87B6-BA3EEDA0EAE9}" ShortID="744586618">
 									<PropertyList>
+										<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
+										<Property Name="MakeUpGain" Type="Real64">
+											<ValueList>
+												<Value>-3</Value>
+											</ValueList>
+										</Property>
+										<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
+										<Property Name="MaxSoundPerInstance" Type="int16">
+											<ValueList>
+												<Value>2</Value>
+											</ValueList>
+										</Property>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="Pitch" Type="int32">
 											<ModifierList>
 												<ModifierInfo>
@@ -26839,6 +26872,12 @@
 													</Modifier>
 												</ModifierInfo>
 											</ModifierList>
+										</Property>
+										<Property Name="PositioningType" Type="int16" Value="1"/>
+										<Property Name="UseMaxSoundPerInstance" Type="bool">
+											<ValueList>
+												<Value>True</Value>
+											</ValueList>
 										</Property>
 									</PropertyList>
 									<ReferenceList>
@@ -29788,7 +29827,14 @@
 							</ChildrenList>
 						</ActorMixer>
 						<ActorMixer Name="Scout" ID="{A16A719E-7603-4B41-B73E-348504957932}" ShortID="281411327">
+							<PropertyList>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="PositioningType" Type="int16" Value="1"/>
+							</PropertyList>
 							<ReferenceList>
+								<Reference Name="Attenuation">
+									<ObjectRef Name="Characters" ID="{1DFA2EC0-1EB7-4E61-A85E-9F048C89F11D}" WorkUnitID="{D49E8AC8-F75C-42C2-9D03-ECF68261003A}"/>
+								</Reference>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
 								</Reference>
@@ -30513,7 +30559,14 @@
 							</ChildrenList>
 						</ActorMixer>
 						<ActorMixer Name="Jogger" ID="{2B6134F0-17C5-4818-BA1F-DA5BDDB6D74E}" ShortID="334428159">
+							<PropertyList>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="PositioningType" Type="int16" Value="1"/>
+							</PropertyList>
 							<ReferenceList>
+								<Reference Name="Attenuation">
+									<ObjectRef Name="Characters" ID="{1DFA2EC0-1EB7-4E61-A85E-9F048C89F11D}" WorkUnitID="{D49E8AC8-F75C-42C2-9D03-ECF68261003A}"/>
+								</Reference>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
 								</Reference>
@@ -31916,6 +31969,11 @@
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="Layer 2" ID="{6EE697CC-412D-4926-B4EC-93B87AE46F36}" ShortID="601222749">
 									<PropertyList>
+										<Property Name="MakeUpGain" Type="Real64">
+											<ValueList>
+												<Value>-9</Value>
+											</ValueList>
+										</Property>
 										<Property Name="RandomOrSequence" Type="int16" Value="0"/>
 									</PropertyList>
 									<ReferenceList>

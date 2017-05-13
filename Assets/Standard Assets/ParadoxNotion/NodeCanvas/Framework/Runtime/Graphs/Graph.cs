@@ -818,7 +818,7 @@ namespace NodeCanvas.Framework{
 			for (var i = 0; i < tasks.Count; i++){
 				var task = tasks[i];
 				if (task is ActionList){
-                    resultTasks.AddRange( (task as ActionList).actions.OfType<T>());
+					resultTasks.AddRange( (task as ActionList).actions.OfType<T>());
 				}
 				if (task is ConditionList){
 					resultTasks.AddRange( (task as ConditionList).conditions.OfType<T>());
