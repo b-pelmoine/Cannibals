@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 public class LineOfSight : MonoBehaviour {
-    new Camera camera;
+    public new Camera camera;
     public Shader shader;
     public static RenderTexture texture;
     static Texture2D tex2D;
@@ -12,7 +12,16 @@ public class LineOfSight : MonoBehaviour {
     public List<GameObject> sighted;
     static List<int> detect_rate= new List<int>();
     bool updated = false;
+    public bool active = true;
     
+    public enum SightType
+    {
+        Camera,
+        SimpleView,
+        AllAround
+    }
+    public SightType type = SightType.Camera;
+    public float radius = 3;
 
     void Awake()
     {
@@ -25,13 +34,18 @@ public class LineOfSight : MonoBehaviour {
     }
 
 	void Start () {
-        camera = GetComponentInChildren<Camera>();
-        if (camera == null)
-            camera = gameObject.AddComponent<Camera>();
-        camera.enabled = false;
-        camera.targetTexture = texture;
-        
-        camera.SetReplacementShader(shader, "RenderType");
+        if (camera == null && type == SightType.Camera)
+        {
+            camera = GetComponentInChildren<Camera>();
+            if (camera == null)
+                camera = gameObject.AddComponent<Camera>();
+        }
+        if (camera != null)
+        {
+            camera.enabled = false;
+            camera.targetTexture = texture;
+            camera.SetReplacementShader(shader, "RenderType");
+        }
         sighted = new List<GameObject>();
         
         LineOfSightManager.Register(this);
@@ -60,6 +74,17 @@ public class LineOfSight : MonoBehaviour {
 
     public bool Analyse()
     {
+        sighted.Clear();
+        if (type == SightType.Camera && active) AnalyseSight();
+        else if (type == SightType.Camera) AnalyseSimple();
+        AnalyseAllAround();
+        updated = true;
+        return sighted.Count != 0;
+    }
+
+    public void AnalyseSight()
+    {
+        if (camera == null) return;
         RenderTexture.active = texture;
         tex2D.ReadPixels(new Rect(0, 0, texture.width, texture.height), 0, 0, false);
         Color[] pixels = tex2D.GetPixels();
@@ -68,11 +93,11 @@ public class LineOfSight : MonoBehaviour {
         for (int i = 0; i < pixels.Length; i++)
         {
             red = (int)(pixels[i].r * 255) - 1;
-            if ( red >= 0 && red < detected_objects.Count)
+            if (red >= 0 && red < detected_objects.Count)
                 pixnum[red]++;
         }
-        sighted.Clear();
-        for(int i = 0; i < detected_objects.Count;i++)
+        
+        for (int i = 0; i < detected_objects.Count; i++)
         {
             if (pixnum[i] > detect_rate[i])
             {
@@ -80,13 +105,36 @@ public class LineOfSight : MonoBehaviour {
             }
         }
         RenderTexture.active = null;
-        updated = true;
-        return sighted.Count != 0;
+    }
+
+    public void AnalyseSimple()
+    {
+        Collider[] cols = Physics.OverlapSphere(transform.position, camera.nearClipPlane + camera.farClipPlane);
+        foreach(Collider c in cols)
+        {
+            if (detected_objects.Contains(c.gameObject) && Mathf.Abs(Vector3.Angle(transform.forward, c.transform.position-transform.position))<45)
+            {
+                sighted.Add(c.gameObject);
+            }
+        }
+    }
+
+    public void AnalyseAllAround()
+    {
+        Collider[] cols = Physics.OverlapSphere(transform.position, radius);
+        foreach(Collider c in cols)
+        {
+            if (detected_objects.Contains(c.gameObject) || c.CompareTag("Player"))
+            {
+                sighted.Add(c.gameObject);
+            }
+        }
     }
 
     public void Rendering()
     {
-        camera.Render();
+        if(camera!=null && type==SightType.Camera && active)
+            camera.Render();
     }
 
     public bool Updated
@@ -101,4 +149,11 @@ public class LineOfSight : MonoBehaviour {
             return false;
         }
     }
+#if UNITY_EDITOR
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.up, radius);
+    }
+#endif
 }

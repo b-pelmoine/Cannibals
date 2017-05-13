@@ -4,29 +4,33 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-
+    [Header("Hunt Sense")]
     public OffscreenIndicator indicator;
-    public AlterMaterial huntSenseTerrain;
-    public AIAgentManager IAmanager;
-
+    public ScanTerrain scanner;
+    
     public bool huntSensActive = false;
     private float elapsedTime;
     [Range(0.2f, 3f)]
     public float transitionDuration;
+    [Range(0.5f, 5f)]
+    public float DecaytransitionDuration;
     [Range(0.1f, 1f)]
     public float HuntSenseFinalIntensity;
-    [Range(2f, 5f)]
-    public float agentSpreadAreaMax;
-
+    [Space(30)]
     private Dictionary<string, bool> cannibalsHuntSenseState;
+
+    void Awake()
+    {
+        Cannibal_Skill.OnStartUseHunterSense += StartTriggerHuntSense;
+        Cannibal_Skill.OnStopUseHunterSense += StopTriggerSense;
+    }
 
     // Use this for initialization
     void Start()
     {
-        huntSenseTerrain.agentGO = IAmanager.getActiveAgents();
-        huntSenseTerrain.effectArea = 0;
         elapsedTime = 50f;
         cannibalsHuntSenseState = new Dictionary<string, bool>();
+        Shader.SetGlobalFloat("_HuntSenseIntensity", 0f);
     }
 
     // Update is called once per frame
@@ -36,17 +40,62 @@ public class UIManager : MonoBehaviour
         UpdateHuntSense();
     }
 
+    void OnDestroy()
+    {
+        Cannibal_Skill.OnStartUseHunterSense -= StartTriggerHuntSense;
+        Cannibal_Skill.OnStopUseHunterSense -= StopTriggerSense;
+    }
+
+    void StartTriggerHuntSense(Cannibal c)
+    {
+         RewiredInput input_t = c.gameObject.GetComponent<RewiredInput>();
+         triggerHuntSense(input_t.playerInputID + input_t.number, true);
+    }
+
+    void StopTriggerSense(Cannibal c)
+    {
+        RewiredInput input_t = c.gameObject.GetComponent<RewiredInput>();
+        triggerHuntSense(input_t.playerInputID + input_t.number, false);
+    }
+
+
     public void triggerHuntSense(string cannibalID, bool state)
     {
+        bool huntSense_t = huntSensActive;
         cannibalsHuntSenseState[cannibalID] = state;
         huntSensActive = false;
         //check if there is at least one cannibal using the huntersense
+        int activeCount = 0;
         foreach (bool state_t in cannibalsHuntSenseState.Values)
         {
-            huntSensActive = huntSensActive || state_t;
+            if (state_t == true)
+            {
+                huntSensActive = true;
+                ++activeCount;
+            }
         }
-        elapsedTime = 0;
-        indicator.triggerAgentIndicator(huntSensActive);
+        if(huntSensActive && huntSense_t != huntSensActive)
+        {
+            AkSoundEngine.SetState("HunterEars", "Active");
+            if (elapsedTime > DecaytransitionDuration) elapsedTime = DecaytransitionDuration;
+            elapsedTime = (elapsedTime < DecaytransitionDuration) ? elapsedTime * (transitionDuration / DecaytransitionDuration) : 0;
+            indicator.triggerAgentIndicator(huntSensActive);
+            RewiredInput[] inputs = GameObject.FindObjectsOfType<RewiredInput>();
+            Vector3 pos = Vector3.zero;
+            foreach (RewiredInput input in inputs) if (input.playerInputID + input.number == cannibalID) pos = input.transform.Find("NotStatic").transform.position;
+            scanner.StartScan(pos);
+        }
+        else
+        {
+            indicator.triggerAgentIndicator(huntSensActive);
+        }
+        if(!huntSensActive)
+        {
+            AkSoundEngine.SetState("HunterEars", "Disabled");
+            elapsedTime = (elapsedTime >= transitionDuration) ? 0 : DecaytransitionDuration - (elapsedTime * (DecaytransitionDuration / transitionDuration));
+        }
+        //casually update scanner data
+        scanner.UpdateScan(activeCount);
     }
 
     private void UpdateHuntSense()
@@ -64,31 +113,16 @@ public class UIManager : MonoBehaviour
             {
                 effectIntensity = HuntSenseFinalIntensity;
             }
-            //update the array of AIAgents removing the ones that are dead
-            GameObject[] activeAgents = IAmanager.getActiveAgents().ToArray();
-            foreach (GameObject agent in activeAgents)
-            {
-                agent.GetComponent<Renderer>().material.SetFloat("_Intensity", effectIntensity);
-            }
-            huntSenseTerrain.effectArea = agentSpreadAreaMax * effectIntensity * 1 / HuntSenseFinalIntensity;
-            //if the list have changed
-            if (activeAgents.Length != indicator.AIAgents.Length)
-                indicator.AIAgents = activeAgents;
-
+            Shader.SetGlobalFloat("_HuntSenseIntensity", effectIntensity);
         }
         else
         {
-            if (elapsedTime < transitionDuration)
+            if (elapsedTime < DecaytransitionDuration)
             {
-                float effectIntensity = ((transitionDuration - elapsedTime) / transitionDuration) * HuntSenseFinalIntensity;
+                float effectIntensity = ((DecaytransitionDuration - elapsedTime) / DecaytransitionDuration) * HuntSenseFinalIntensity;
                 elapsedTime += Time.deltaTime;
-                if (elapsedTime > transitionDuration) elapsedTime = transitionDuration;
-                GameObject[] activeAgents = IAmanager.getActiveAgents().ToArray();
-                foreach (GameObject agent in activeAgents)
-                {
-                    agent.GetComponent<Renderer>().material.SetFloat("_Intensity", effectIntensity);
-                }
-                huntSenseTerrain.effectArea = agentSpreadAreaMax * effectIntensity * 1 / HuntSenseFinalIntensity;
+                if (elapsedTime > DecaytransitionDuration) elapsedTime = DecaytransitionDuration;
+                Shader.SetGlobalFloat("_HuntSenseIntensity", effectIntensity);
             }
         }
     }

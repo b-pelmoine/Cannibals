@@ -3,52 +3,92 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Serializable]
+public enum AIType{
+    UNKNOWN, //default
+    Target_Alive,
+    Target_Dead,
+    PlayerOne,
+    PlayerTwo,
+    Hunter,
+    Dog,
+    Scout,
+    Runner,
+    EndPoint
+}
+
 public struct IndicatorData
 {
-    public IndicatorData(Rect pos,float angle) { _pos = pos; _angle = angle; }
+    public IndicatorData(Rect pos,float angle, AIType type) { _pos = pos; _angle = angle; _type = type; }
     public Rect _pos;
     public float _angle;
+    public AIType _type;
+}
+
+[System.Serializable]
+public struct RawGO
+{
+    public RawGO(GameObject go_t, AIType type_t) { go = go_t; type = type_t;}
+    public GameObject go;
+    public AIType type;
 }
 
 public class OffscreenIndicator : MonoBehaviour {
-
     [Range(0.5f, 1.0f)]
     public float distanceFromScreenBounds;
 
     [Range(0.5f, 50.0f)]
     public float pulseSpeed;
 
-    public Texture tex_AI;
-    public Texture tex_Target;
-    public Texture tex_Player;
+    [Header("Textures")]
+    public Texture tex_default;
+    public Texture tex_AI_Hunter;
+    public Texture tex_AI_Dog;
+    public Texture tex_AI_Scout;
+    public Texture tex_AI_Runner;
+    public Texture tex_Target_Alive;
+    public Texture tex_Target_Dead;
+    public Texture tex_Player_One;
+    public Texture tex_Player_Two;
     public Texture tex_Village;
 
     public Camera mCamera;
     private Vector3 center; // center of the screen
     private Vector3 bounds;
 
-    public GameObject[] AIAgents; //public for tests
+    public List<RawGO> AIAgents; //public for tests
     [Range(0.5f, 2f)]
     public float AIAgentsSizeMultiplier = 1.0f;
     public bool pulse_AIAgents = false;
     private List<IndicatorData> AIOnScreenPositions;
-    public GameObject[] Players; // assigned automatically
+    public RawGO[] Players; // assigned automatically
     [Range(0.5f, 2f)]
     public float PlayersSizeMultiplier = 1.0f;
     public bool pulse_Players = false;
     private List<IndicatorData> PlayersOnScreenPositions;
-    public GameObject[] Targets; // assigned at runtime / may vary over time
+    public RawGO[] Targets; // assigned at runtime / may vary over time
     [Range(0.5f, 2f)]
     public float TargetsSizeMultiplier = 1.0f;
     public bool pulse_Targets = false;
     private List<IndicatorData> TargetOnScreenPositions;
+    private List<IndicatorData> OldTargetOnScreenPositions;
 
-    public GameObject[] endPosition;
+    public RawGO[] endPosition;
     private List<IndicatorData> endPositions;
 
     private bool showAIAgents;
     private bool showTarget; // automatique ? offscreen = enabled
     private bool showPlayers;
+
+    [Header("Params :")]
+    private float elapsedTime = 0f;
+    private float elapsedLastPop = 0f;
+    private int lastAIID = 0;
+    [Range(0.2f,5f)]
+    public float transitionOut = 0f;
+    [Range(0.2f, 5f)]
+    public float transitionIn = 0f;
+    private List<RawGO> oldAgents;
 
     Vector3 screenPos = Vector3.zero;
 
@@ -57,27 +97,60 @@ public class OffscreenIndicator : MonoBehaviour {
             mCamera = Camera.main;
         center = new Vector3(Screen.width, Screen.height, 0)/2;
 
+        AIAgents = new List<RawGO>();
+        oldAgents = new List<RawGO>();
+        
         AIOnScreenPositions = new List<IndicatorData>();
         TargetOnScreenPositions = new List<IndicatorData>();
+        OldTargetOnScreenPositions = new List<IndicatorData>();
         PlayersOnScreenPositions = new List<IndicatorData>();
         endPositions = new List<IndicatorData>();
 
         showTarget = true;
+        showAIAgents = true;
+        //showPlayers = true;
+    }
 
+    //test if not already registered
+    public void AddAgentIndicator(GameObject go, AIType type)
+    {
+        int instanceID = go.GetInstanceID();
+        //don't add if already in the list
+        foreach (RawGO RawgameObject in AIAgents){if (instanceID == RawgameObject.go.GetInstanceID()) return;}
+        //remove newly discovered from old list
+        foreach (RawGO RawgameObject in oldAgents) { if (instanceID == RawgameObject.go.GetInstanceID()) { oldAgents.Remove(RawgameObject); break; } }
+        AIAgents.Add(new RawGO(go, type));
+        lastAIID = AIAgents[AIAgents.Count - 1].go.GetInstanceID();
+        elapsedLastPop = 0f;
     }
 
     public void triggerAgentIndicator(bool state)
     {
-        showAIAgents = state;
-    }
-    public void triggerTargetIndicator(bool state)
-    {
-        showTarget = state;
+        if(!state)
+        {
+            if(elapsedTime > transitionOut)
+                elapsedTime = 0;
+            foreach (RawGO go in AIAgents) oldAgents.Add(go);
+            AIAgents.Clear();
+        }
     }
 
-    public void triggerPlayersIndicator(bool state)
+    //return the appropriate texture according to AIType
+    Texture getTextureFromType(AIType type)
     {
-        showPlayers = state;
+        switch(type)
+        {
+            case AIType.Hunter: return tex_AI_Hunter;
+            case AIType.Dog: return tex_AI_Dog;
+            case AIType.Scout: return tex_AI_Scout;
+            case AIType.Runner: return tex_AI_Runner;
+            case AIType.PlayerOne: return tex_Player_One;
+            case AIType.PlayerTwo: return tex_Player_Two;
+            case AIType.Target_Alive: return tex_Target_Alive;
+            case AIType.Target_Dead: return tex_Target_Dead;
+            case AIType.EndPoint: return tex_Village;
+            default:    return tex_default;
+        }
     }
 
     void OnGUI()
@@ -86,51 +159,69 @@ public class OffscreenIndicator : MonoBehaviour {
         {
             foreach (IndicatorData data in AIOnScreenPositions)
             {
-                GUI.DrawTexture(data._pos, tex_AI, ScaleMode.ScaleToFit);
+                GUI.DrawTexture(data._pos, getTextureFromType(data._type), ScaleMode.ScaleToFit);
+            }
+            if (elapsedTime < transitionOut)
+            {
+                GUI.color = Color.white*(transitionOut - elapsedTime);
+                foreach (IndicatorData data in OldTargetOnScreenPositions)
+                {
+                    GUI.DrawTexture(data._pos, getTextureFromType(data._type), ScaleMode.ScaleToFit);
+                }
+            }
+            else
+            {
+                oldAgents.Clear();
             }
         }
-        if(showTarget)
+        GUI.color = Color.white;
+        if (showTarget)
         {
+            
             foreach (IndicatorData data in TargetOnScreenPositions)
             {
-                GUI.DrawTexture(data._pos, tex_Target, ScaleMode.ScaleToFit);
+                GUI.DrawTexture(data._pos, getTextureFromType(data._type), ScaleMode.ScaleToFit);
             }
         }
         if(showPlayers)
         {
             foreach (IndicatorData data in PlayersOnScreenPositions)
             {
-                GUI.DrawTexture(data._pos, tex_Player, ScaleMode.ScaleToFit);
+                GUI.DrawTexture(data._pos, getTextureFromType(data._type), ScaleMode.ScaleToFit);
             }
         }
         //proto uiui
         foreach (IndicatorData data in endPositions)
         {
-            GUI.DrawTexture(data._pos, tex_Village, ScaleMode.ScaleToFit);
+            GUI.DrawTexture(data._pos, getTextureFromType(data._type), ScaleMode.ScaleToFit);
         }
     }
 
     void Update () {
+        elapsedTime += Time.deltaTime;
         bounds = center * distanceFromScreenBounds;
         float pSpeed;
         if (showAIAgents)
         {
+            elapsedLastPop += Time.deltaTime;
             pSpeed = (pulse_AIAgents) ? pulseSpeed : 0;
-            addIndicatorForGameObjects(AIOnScreenPositions, AIAgents, AIAgentsSizeMultiplier, false, pSpeed);
+            addIndicatorForGameObjects(AIOnScreenPositions, AIAgents.ToArray(), AIAgentsSizeMultiplier, false, pSpeed);
+            addIndicatorForGameObjects(OldTargetOnScreenPositions, oldAgents.ToArray(), AIAgentsSizeMultiplier, false, pSpeed);
         }
         if(showTarget)
         {
             pSpeed = (pulse_Targets) ? pulseSpeed : 0;
             //checke if alive then display
             addIndicatorForGameObjects(TargetOnScreenPositions, Targets, TargetsSizeMultiplier, false, pSpeed);
+            
         }
         if(showPlayers)
         {
             pSpeed = (pulse_Players) ? pulseSpeed : 0;
-            List<GameObject> deadPlayers = new List<GameObject>();
-            foreach(GameObject player in Players)
+            List<RawGO> deadPlayers = new List<RawGO>();
+            foreach(RawGO player in Players)
             {
-                if(player.GetComponent<Cannibal>().IsDead())
+                if(player.go.GetComponent<Cannibal>().IsDead())
                     deadPlayers.Add(player);
             }
 
@@ -141,17 +232,17 @@ public class OffscreenIndicator : MonoBehaviour {
     }
 
     //add IndicatorData for the given GameObjects into the list
-    void addIndicatorForGameObjects(List<IndicatorData> list, GameObject[] targets, float sizeMultiplier = 1.0f, bool displayOnScreen = false, float pulseSpeed = 0f)
+    void addIndicatorForGameObjects(List<IndicatorData> list, RawGO[] targets, float sizeMultiplier = 1.0f, bool displayOnScreen = false, float pulseSpeed = 0f)
     {
-        Vector3 playersCenter = Vector3.Lerp(Players[0].transform.position, Players[1].transform.position, .5f);
+        Vector3 playersCenter = Vector3.Lerp(Players[0].go.transform.position, Players[1].go.transform.position, .5f);
         //loop through AI_Agents
         list.Clear();
-        foreach (GameObject go in targets)
+        foreach (RawGO go in targets)
         {
             //jump to the next one if not active + TODO if dead
-            if (!go.activeInHierarchy) continue;
+            if (!go.go.activeInHierarchy) continue;
 
-            screenPos = Camera.main.WorldToScreenPoint(go.transform.position);
+            screenPos = Camera.main.WorldToScreenPoint(go.go.transform.position);
 
             if (screenPos.x > 0f && screenPos.x < Screen.width && screenPos.y > 0 && screenPos.y < Screen.height && screenPos.z > 0)
             {
@@ -162,7 +253,8 @@ public class OffscreenIndicator : MonoBehaviour {
 
                     list.Add(new IndicatorData(
                         new Rect(position, dimensions),
-                        0
+                        0,
+                        go.type
                         ));
                 }
                 // on Screen, outline first
@@ -196,15 +288,25 @@ public class OffscreenIndicator : MonoBehaviour {
                 //undo translation
                 screenPos += center;
 
-                float distFromPlayers = Vector3.Distance(playersCenter, go.transform.position);
+                float distFromPlayers = Vector3.Distance(playersCenter, go.go.transform.position);
+
+                float alterDimensionPop = 1f;
+                //pop offset change the value (5) to increase the pop factor
+                if (lastAIID == go.go.GetInstanceID() && elapsedLastPop < transitionIn)
+                    alterDimensionPop = 1 + (4 * (transitionIn - elapsedLastPop));
 
                 Vector2 dimensions = new Vector2(Screen.width / 20, Screen.height / 20) 
-                    * Mathf.Clamp(20 / distFromPlayers, 0.5f, 5) * (sizeMultiplier + 0.1f * (Mathf.Sin(pulseSpeed*Time.time)));
+                    * Mathf.Clamp(20 / distFromPlayers, 0.5f, 5) 
+                    * (sizeMultiplier + 0.1f * (Mathf.Sin(pulseSpeed*Time.time)))
+                    * alterDimensionPop;
+                
+
                 Vector2 position = new Vector2(screenPos.x, screenPos.y) - dimensions / 2;
 
                 list.Add(new IndicatorData(
                     new Rect(position, dimensions),
-                    angle
+                    angle,
+                    go.type
                     ));
             }
         }

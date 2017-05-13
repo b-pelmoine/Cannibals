@@ -70,6 +70,11 @@ public class FollowCam : MonoBehaviour {
         return distanceBetweenPlayers > farPlan;
     }
 
+    public Vector3 getPlayersBarycenter()
+    {
+        return barycenter;
+    }
+
     Vector3 getBarycenter()
     {
         Vector3 centerOfAttention = Vector3.Lerp(playerOne.position, playerTwo.position, .5f);
@@ -127,7 +132,7 @@ public class FollowCam : MonoBehaviour {
         cameraZOffset = -Yoffset;
         cameraZOffset = Mathf.Round(cameraZOffset * 100f) / (100f*verticalityFactor);
         transform.position = new Vector3(barycenter.x + cameraXOffset, Yoffset, barycenter.z + cameraZOffset + distanceplayersBarycenter/5);
-        transform.LookAt(barycenter);
+        transform.LookAt(barycenter+Vector3.back*verticalVariation/5);
 
         prevDistance = distance;
     }

@@ -16,8 +16,8 @@ MonoBehaviour:
   - PhysicalPath: Events\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{D1C7715C-8472-4B77-B603-950C3928E700}'
-    m_lastTimePsrt1: -382128726
-    m_lastTimePart2: -1999334639
+    m_lastTimePsrt1: 1944873946
+    m_lastTimePart2: -1999333276
     List:
     - Name: ambiance_forest_fauna
       Path: Default Work Unit\ambiance_forest_fauna
@@ -28,7 +28,7 @@ MonoBehaviour:
         ObjectType: 3
       ID: -386384871
       Guid: 03865da306cd934181c167936688a7c8
-      maxAttenuation: 10
+      maxAttenuation: 0
     - Name: ambiance_return
       Path: Default Work Unit\ambiance_return
       PathAndIcons:
@@ -119,6 +119,16 @@ MonoBehaviour:
       ID: 1231991728
       Guid: 9a22f2454a81084c8ec4bfeef9213880
       maxAttenuation: 0
+    - Name: cannibals_stab
+      Path: Default Work Unit\cannibals_stab
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: cannibals_stab
+        ObjectType: 3
+      ID: -1079007927
+      Guid: b219be634bdc414d91b15f36f73b7247
+      maxAttenuation: 0
     - Name: cannibals_walk
       Path: Default Work Unit\cannibals_walk
       PathAndIcons:
@@ -189,6 +199,16 @@ MonoBehaviour:
       ID: 632190739
       Guid: 5cede8d2c6764641969ee3b1ae031dd9
       maxAttenuation: 0
+    - Name: granny_hit
+      Path: Default Work Unit\granny_hit
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: granny_hit
+        ObjectType: 3
+      ID: 2047408610
+      Guid: 37080eac1e31a747a9110bc18aa744bf
+      maxAttenuation: 0
     - Name: granny_idle
       Path: Default Work Unit\granny_idle
       PathAndIcons:
@@ -219,6 +239,16 @@ MonoBehaviour:
       ID: 930472744
       Guid: 49ea903905e4bf4ea034e269b9fc71c3
       maxAttenuation: 0
+    - Name: granny_whoosh_hit
+      Path: Default Work Unit\granny_whoosh_hit
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: granny_whoosh_hit
+        ObjectType: 3
+      ID: 1482070063
+      Guid: 66cfc72b1b0bcb4bae88e3910aba688e
+      maxAttenuation: 0
     - Name: hunter_objects
       Path: Default Work Unit\hunter_objects
       PathAndIcons:
@@ -228,6 +258,16 @@ MonoBehaviour:
         ObjectType: 3
       ID: 1882578982
       Guid: c1f43584bf4dcf4bbe3565c50f860925
+      maxAttenuation: 0
+    - Name: hunter_rifle
+      Path: Default Work Unit\hunter_rifle
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: hunter_rifle
+        ObjectType: 3
+      ID: -420389872
+      Guid: 5f564869dec3244d84cd370ed228ec3a
       maxAttenuation: 0
     - Name: hunter_steps
       Path: Default Work Unit\hunter_steps
@@ -280,8 +320,8 @@ MonoBehaviour:
   - PhysicalPath: States\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{C3F972CA-666D-4457-A830-349CA8267638}'
-    m_lastTimePsrt1: 1420158011
-    m_lastTimePart2: -1999334913
+    m_lastTimePsrt1: -1399731093
+    m_lastTimePart2: -1999333065
     List:
     - Name: HunterEars
       Path: Default Work Unit\HunterEars
@@ -436,7 +476,7 @@ MonoBehaviour:
   basePath: Audio\GeneratedSoundBanks
   language: English(US)
   defaultPoolSize: 8192
-  lowerPoolSize: 32768
+  lowerPoolSize: 65536
   streamingPoolSize: 8192
   preparePoolSize: 0
   memoryCutoffThreshold: 0.95
