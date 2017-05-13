@@ -59,6 +59,7 @@ public class Cannibal_Skill : MonoBehaviour {
         foreach(Collider c in m_corpse.GetComponentsInChildren<Collider>())
             m_cannibal.m_cannibalMovement.CharacterControllerEx.ignoredColliders3D.Remove(c);
 
+
         m_corpse = null;
     }
 
