@@ -20,14 +20,19 @@ public class Cannibal_Skill : MonoBehaviour {
     public Joint corpseJoint;
     public BoxCollider corpseTakenCollider;
 
-   /* void Update()
+    Vector3 correctionVelocity = Vector3.zero;
+    private void Update()
     {
         if (m_corpse != null)
         {
-          m_corpse.m_transform.position = corpseTransform.position - corpseTakenCollider.center;
+            if (Vector3.Distance(corpseJoint.transform.position, m_cannibal.m_cannibalSkill.corpseTakenCollider.transform.position + m_cannibal.m_cannibalSkill.corpseTakenCollider.center) > 0.5)
+            {
+                m_cannibal.m_cannibalMovement.CharacterControllerEx.CharacterTransform.position = Vector3.SmoothDamp(m_cannibal.m_cannibalMovement.CharacterControllerEx.CharacterTransform.position,
+                                                                                                            m_cannibal.m_cannibalSkill.corpseTakenCollider.transform.position + m_cannibal.m_cannibalSkill.corpseTakenCollider.center,
+                                                                                                            ref correctionVelocity, 0.5f);
+            }
         }
-
-    } */
+    }
 
     /// <summary>
     /// Take an cannibal object or exchange if the cannibal has already an object

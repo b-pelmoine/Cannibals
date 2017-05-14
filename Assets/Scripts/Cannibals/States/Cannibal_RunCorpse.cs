@@ -8,12 +8,12 @@ using UnityEngine;
 public class Cannibal_RunCorpse :ActionState, ICannibal_State {
 
     public BBParameter<Cannibal> m_cannibal;
-
+    public float speedRunFactor = 0.5f;
 
     protected override void OnEnter()
     {
         base.OnEnter();
-        m_cannibal.value.m_cannibalMovement.m_currentMaxRunSpeed = m_cannibal.value.m_cannibalMovement.MaxRunSpeed / 2f;
+        m_cannibal.value.m_cannibalMovement.m_currentMaxRunSpeed = m_cannibal.value.m_cannibalMovement.MaxRunSpeed * speedRunFactor;
     }
     protected override void OnExit()
     {
