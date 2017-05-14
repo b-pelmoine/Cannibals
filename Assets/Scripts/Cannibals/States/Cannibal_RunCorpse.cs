@@ -1,6 +1,7 @@
 ﻿using NodeCanvas.Framework;
 using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
+using UnityEditor;
 using UnityEngine;
 
 [Category("Cannibal")]
@@ -8,31 +9,23 @@ public class Cannibal_RunCorpse :ActionState, ICannibal_State {
 
     public BBParameter<Cannibal> m_cannibal;
 
+
+    protected override void OnEnter()
+    {
+        base.OnEnter();
+        m_cannibal.value.m_cannibalMovement.m_currentMaxRunSpeed = m_cannibal.value.m_cannibalMovement.MaxRunSpeed / 2f;
+    }
+    protected override void OnExit()
+    {
+        base.OnExit();
+        m_cannibal.value.m_cannibalMovement.ResetMaxSpeed();
+    }
+
     protected override void OnUpdate()
     {
         base.OnUpdate();
 
-        if (m_cannibal.value.m_cannibalSkill.m_corpse.cannibals.Count <= 1)
-            return;
-
-        Vector2 globalInput = Vector3.zero;
-
-        foreach (Cannibal c in m_cannibal.value.m_cannibalSkill.m_corpse.cannibals)
-        {
-           globalInput = new Vector2(globalInput.x + c.m_rewiredInput.m_playerInput.GetAxis("SideMove"),globalInput.y + +c.m_rewiredInput.m_playerInput.GetAxis("FrontMove"));
-        }
-
-        globalInput /= m_cannibal.value.m_cannibalSkill.m_corpse.cannibals.Count;
-
-        foreach (Cannibal c in m_cannibal.value.m_cannibalSkill.m_corpse.cannibals)
-            c.m_cannibalMovement.GroundMove(globalInput);
-
-        if (m_cannibal.value.m_cannibalMovement.CharacterControllerEx.velocity.magnitude != 0)
-        {
-            Vector3 orientationDirection = m_cannibal.value.m_cannibalMovement.CharacterControllerEx.velocity;
-            orientationDirection.y = 0;
-            m_cannibal.value.m_cannibalAppearence.Orientate(orientationDirection);
-        }
+        m_cannibal.value.m_cannibalMovement.GroundMove(new Vector2(m_cannibal.value.m_rewiredInput.m_playerInput.GetAxis("SideMove"), m_cannibal.value.m_rewiredInput.m_playerInput.GetAxis("FrontMove")).normalized);
     }
 
 

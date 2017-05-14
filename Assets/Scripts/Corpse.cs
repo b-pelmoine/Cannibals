@@ -31,6 +31,20 @@ public class Corpse : MonoBehaviour {
         characterControllerExt.enabled = false;
     }
 
+    void LateUpdate()
+    {
+        if(cannibals.Count >= 2)
+        {
+            CharacterControllerExt c1 = cannibals[0].m_cannibalMovement.CharacterControllerEx;
+            CharacterControllerExt c2 = cannibals[1].m_cannibalMovement.CharacterControllerEx;
+            Vector3 c1VelocityMemory = c1.velocity;
+
+            c1.velocity += ExtendedMath.ProjectVectorOnLine((c1.CharacterTransform.position - c2.CharacterTransform.position).normalized, c2.velocity);
+            c2.velocity += ExtendedMath.ProjectVectorOnLine((c1.CharacterTransform.position - c2.CharacterTransform.position).normalized, c1VelocityMemory);
+        }
+    }
+        
+
     public void BeTaken(Cannibal cannibal)
     {
         cannibals.Add(cannibal);

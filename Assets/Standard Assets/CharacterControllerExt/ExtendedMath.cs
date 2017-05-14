@@ -369,9 +369,15 @@ namespace EquilibreGames
 
 
 
-public static Vector2 ProjectVectorOnLine(Vector2 lineDir, Vector2 vector)
+        public static Vector2 ProjectVectorOnLine(Vector2 lineNormal, Vector2 vector)
         {
-            return -(vector - (Vector2.Dot(vector, lineDir) * lineDir));
+            return -(vector - (Vector2.Dot(vector, lineNormal) * lineNormal));
+        }
+
+
+        public static Vector3 ProjectVectorOnLine(Vector3 lineDir, Vector3 vector)
+        {
+            return (Vector3.Dot(vector, lineDir))*lineDir;
         }
 
 

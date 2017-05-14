@@ -18,6 +18,16 @@ public class Cannibal_Appearence : MonoBehaviour {
     [SerializeField]
     Sprite resurrectIcon;
 
+    void Update()
+    {
+        if (m_cannibal.m_cannibalMovement.CharacterControllerEx.velocity.magnitude != 0)
+        {
+            Vector3 orientationDirection = m_cannibal.m_cannibalMovement.CharacterControllerEx.velocity;
+            orientationDirection.y = 0;
+            Orientate(orientationDirection);
+        }
+    }
+
     float rotationVelocity;
     public void Orientate(Vector3 direction)
     {
