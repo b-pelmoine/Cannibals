@@ -20,17 +20,14 @@ public class Cannibal_Skill : MonoBehaviour {
     public Joint corpseJoint;
     public BoxCollider corpseTakenCollider;
 
-    Vector3 correctionVelocity = Vector3.zero;
-    private void Update()
+    private void LateUpdate()
     {
-        if (m_corpse != null)
+        if (m_corpse != null && Vector3.Distance(corpseJoint.transform.position, m_cannibal.m_cannibalSkill.corpseTakenCollider.transform.position + m_cannibal.m_cannibalSkill.corpseTakenCollider.center) > 2f)
         {
-            if (Vector3.Distance(corpseJoint.transform.position, m_cannibal.m_cannibalSkill.corpseTakenCollider.transform.position + m_cannibal.m_cannibalSkill.corpseTakenCollider.center) > 0.5)
-            {
-                m_cannibal.m_cannibalMovement.CharacterControllerEx.CharacterTransform.position = Vector3.SmoothDamp(m_cannibal.m_cannibalMovement.CharacterControllerEx.CharacterTransform.position,
+                m_cannibal.m_cannibalMovement.CharacterControllerEx.CharacterTransform.position = m_cannibal.m_cannibalMovement.CharacterControllerEx.CharacterTransform.position - (corpseJoint.transform.position -
+                                                                                                  Vector3.Lerp(corpseJoint.transform.position,
                                                                                                             m_cannibal.m_cannibalSkill.corpseTakenCollider.transform.position + m_cannibal.m_cannibalSkill.corpseTakenCollider.center,
-                                                                                                            ref correctionVelocity, 0.5f);
-            }
+                                                                                                             0.1f) );
         }
     }
 
