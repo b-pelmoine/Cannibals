@@ -27,7 +27,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4457022543644000
 Transform:
   m_ObjectHideFlags: 1
@@ -96,7 +96,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1771167252
+  randomSeed: -2031868266
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -378,7 +378,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotation:
       minMaxState: 0
-      scalar: 0
+      scalar: 1.5707963
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -762,7 +762,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   RotationModule:
-    enabled: 0
+    enabled: 1
     x:
       minMaxState: 0
       scalar: 0
@@ -843,7 +843,7 @@ ParticleSystem:
         m_RotationOrder: 4
     curve:
       minMaxState: 0
-      scalar: 0.7853982
+      scalar: -1.5707963
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2992,8 +2992,8 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: ef9c729783019bf4b8a06033e66deb04, type: 2}
+  - {fileID: 2100000, guid: ef9c729783019bf4b8a06033e66deb04, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

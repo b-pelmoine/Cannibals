@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1080377661788816}
   m_LocalRotation: {x: -0.70710576, y: -0, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.709, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -48,7 +48,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1080377661788816}
   serializedVersion: 5
-  lengthInSec: 2
+  lengthInSec: 1.5
   simulationSpeed: 1
   looping: 0
   prewarm: 0
@@ -96,13 +96,13 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1887427612
+  randomSeed: -1301499611
   InitialModule:
     serializedVersion: 3
     enabled: 1
     startLifetime:
       minMaxState: 3
-      scalar: 2
+      scalar: 1.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -120,7 +120,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 2
           time: 0
-          value: 0.75
+          value: 0.6666667
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -616,7 +616,7 @@ ParticleSystem:
       minCount: 60
       maxCount: 60
       cycleCount: 1
-      repeatInterval: 2
+      repeatInterval: 1.5
   SizeModule:
     enabled: 1
     curve:
@@ -627,9 +627,15 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 2
           time: 0
+          value: 0.27093756
+          inSlope: 24.315075
+          outSlope: 24.315075
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 0.03404353
           value: 1
-          inSlope: -2
-          outSlope: -2
+          inSlope: -1.6954541
+          outSlope: -1.6954541
           tangentMode: 0
         - serializedVersion: 2
           time: 1
@@ -828,24 +834,24 @@ ParticleSystem:
       minMaxState: 3
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.74264705, b: 0.74264705, a: 1}
+        key0: {r: 0.66176474, g: 0.9300204, b: 1, a: 1}
         key1: {r: 0.7568628, g: 0.7568628, b: 0.7568628, a: 1}
-        key2: {r: 1, g: 1, b: 1, a: 0}
+        key2: {r: 0.7568628, g: 0.7568628, b: 0.7568628, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
-        ctime1: 41827
-        ctime2: 65535
+        ctime1: 57247
+        ctime2: 42405
         ctime3: 0
         ctime4: 0
         ctime5: 0
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 33539
+        atime1: 28527
         atime2: 65535
         atime3: 65535
         atime4: 65535
@@ -857,8 +863,8 @@ ParticleSystem:
         m_NumAlphaKeys: 3
       minGradient:
         serializedVersion: 2
-        key0: {r: 0.8455882, g: 0.65284383, b: 0.80438083, a: 1}
-        key1: {r: 0.7584286, g: 0.7550272, b: 0.7577014, a: 1}
+        key0: {r: 0.625, g: 0.7827585, b: 1, a: 1}
+        key1: {r: 0.7568628, g: 0.7568628, b: 0.7568628, a: 1}
         key2: {r: 0.7568628, g: 0.7568628, b: 0.7568628, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -866,7 +872,7 @@ ParticleSystem:
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
-        ctime1: 42212
+        ctime1: 56861
         ctime2: 65535
         ctime3: 0
         ctime4: 0
@@ -874,7 +880,7 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 32768
+        atime1: 27949
         atime2: 65535
         atime3: 0
         atime4: 0
@@ -882,7 +888,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_NumColorKeys: 3
+        m_NumColorKeys: 2
         m_NumAlphaKeys: 3
       minColor: {r: 1, g: 1, b: 1, a: 1}
       maxColor: {r: 1, g: 1, b: 1, a: 1}
@@ -2941,7 +2947,7 @@ ParticleSystemRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_RenderMode: 0
-  m_SortMode: 1
+  m_SortMode: 3
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
   m_CameraVelocityScale: 0
