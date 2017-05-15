@@ -35,6 +35,12 @@ namespace AI
         public NavMeshAgent agent;
         Vector3? lastRequest;
 
+        protected LineOfSight los;
+        DetectionData detect;
+        private bool detecting = false;
+
+        public float detectTime = 3;
+
         protected void Start()
         {
             AIAgentManager.registerAIAgent(this.gameObject);
@@ -44,6 +50,8 @@ namespace AI
             {
                 Debug.LogError(this + ":No navmesh agent in the object.");
             }
+            detect.agent = this;
+            los = GetComponent<LineOfSight>();
         }
 
         protected void Update()
@@ -110,6 +118,46 @@ namespace AI
                 return true;
             }
             return false;
+        }
+
+        protected bool Look()
+        {
+            if (!detecting)
+            {
+                AIAgentManager.addDetectData(CurrentTask.target, detect);
+                detecting = true;
+            }
+            Vector3 targetPosition = agent.transform.position;
+            targetPosition.y = agent.transform.position.y;
+            agent.transform.LookAt(targetPosition);
+            //Si le joueur est en vue
+            if (los.sighted.Contains(CurrentTask.target))
+            {
+                //Si le joueur est détecté -> poursuite
+                if ((CurrentTask.target.transform.position - transform.position).sqrMagnitude < Mathf.Pow((CurrentTask.elapsed / detectTime) * (los.camera.farClipPlane), 2))
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                CurrentTask.elapsed -= Time.deltaTime * 2;
+                if (CurrentTask.elapsed < 0)
+                {
+                    ResetDetect(CurrentTask.target);
+                    tasks.Pop();
+                }
+            }
+            return false;
+        }
+
+        protected void ResetDetect(GameObject target)
+        {
+            if (detecting)
+            {
+                AIAgentManager.deleteDetectData(target, detect);
+                detecting = false;
+            }
         }
 
         public virtual bool isVulnerable()

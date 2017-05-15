@@ -9,7 +9,7 @@ namespace AI
         public float waypointDistance = 2;
         public float shootingRange = 1;
         public LayerMask shootingMask = 0;
-        public float detectTime = 3;
+        
         public float lostTargetTime = 3;
         public float defendTime = 5;
         public Animator animator;
@@ -18,7 +18,7 @@ namespace AI
         int anim_speedId = Animator.StringToHash("Speed");
         int anim_shoot = Animator.StringToHash("Shoot");
 
-        private LineOfSight los;
+        
         
 
         public bool alerte = false;
@@ -40,7 +40,7 @@ namespace AI
             base.Start();
             type = AIType.Hunter;
             Bottle.OnBottleShaked += OnBottleShaked;
-            los = GetComponent<LineOfSight>();
+            
             tasks.Push(new Task((int)ChasseurTask.Normal));
 	    }
 	
@@ -114,29 +114,14 @@ namespace AI
 
                 //Regarde vers le joueur jusqu'à détection
                 case (int)ChasseurTask.Look:
-                    targetPosition = agent.transform.position;
-                    targetPosition.y = agent.transform.position.y;
-                    agent.transform.LookAt(targetPosition);
-                    //Si le joueur est en vue
-                    if (los.sighted.Contains(CurrentTask.target)) { 
-                        //Si le joueur est détecté -> poursuite
-                       if((CurrentTask.target.transform.position-transform.position).sqrMagnitude < Mathf.Pow((CurrentTask.elapsed/detectTime)*(los.camera.farClipPlane),2)){
-                            GameObject target = CurrentTask.target;
-                            tasks.Pop();
-                            tasks.Push(new Task((int)ChasseurTask.Chase, target));
-                       }
-                    }
-                    else //Si le joueur n'est plus en vue, on diminue le timer
+                    if (Look())
                     {
-                        CurrentTask.elapsed -= Time.deltaTime*2;
-                        //Si le temps est négatif, on abandonne
-                        if (CurrentTask.elapsed < 0)
-                        {
-                            tasks.Pop();
-                        }
+                        GameObject target = CurrentTask.target;
+                        tasks.Pop();
+                        tasks.Push(new Task((int)ChasseurTask.Chase, target));
                     }
                     break;
-
+                    
                 //Le chasseur a perdu sa cible de vue
                 case (int)ChasseurTask.LostTarget:
                     //Si il la voit à nouveau, retourne dans Chase
@@ -149,6 +134,7 @@ namespace AI
                         //Après un certain temps, retourne à l'état précédent le chase
                         if (CurrentTask.elapsed > lostTargetTime)
                         {
+                            ResetDetect(CurrentTask.target);
                             tasks.Pop();
                             tasks.Pop();
                         }
@@ -233,6 +219,7 @@ namespace AI
                 {
                     if (cannibal.IsDead())
                     {
+                        ResetDetect(target);
                         tasks.Push(new Task((int)ChasseurTask.Defend, target));
                     }
                     else

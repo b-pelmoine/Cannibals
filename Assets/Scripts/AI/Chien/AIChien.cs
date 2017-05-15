@@ -10,7 +10,7 @@ namespace AI
 
         public Chasseur hunter;
         
-        LineOfSight los;
+
         public enum btargetType
         {
             Viande, Buisson, Animal
@@ -21,7 +21,8 @@ namespace AI
         {
             WanderInFront,
             ChaseAndBark,
-            Eat
+            Eat,
+            Look
         }
 
         public Animator animator;
@@ -36,7 +37,6 @@ namespace AI
         new void Start () {
             base.Start();
             type = AIType.Dog;
-            los = GetComponent<LineOfSight>();
             AkSoundEngine.PostEvent("dog_idle", gameObject);
             tasks.Push(new Task((int)DogTask.WanderInFront));
         }
@@ -57,6 +57,14 @@ namespace AI
 
             switch (CurrentTask.id)
             {
+                case (int)DogTask.Look:
+                    if (Look())
+                    {
+                        GameObject target = CurrentTask.target;
+                        tasks.Pop();
+                        tasks.Push(new Task((int)DogTask.ChaseAndBark, target));
+                    }
+                    break;
                 case (int)DogTask.WanderInFront:
                     if (CurrentTask.count == 0)
                     {
@@ -95,8 +103,11 @@ namespace AI
                     }
                     distance = CurrentTask.target.transform.position - transform.position;
                     distance.y = 0;
-                    if (distance.sqrMagnitude > Mathf.Pow(los.radius, 2) || CurrentTask.elapsed>10)
+                    if (distance.sqrMagnitude > Mathf.Pow(los.radius, 2) || CurrentTask.elapsed > 10)
+                    {
+                        ResetDetect(CurrentTask.target);
                         tasks.Pop();
+                    }
                     break;
 
                 case (int)DogTask.Eat:
@@ -133,7 +144,7 @@ namespace AI
                 {
                     Cannibal can = obj.GetComponentInParent<Cannibal>();
                     if(can!=null && !can.IsDead())
-                        tasks.Push(new Task((int)DogTask.ChaseAndBark, obj));
+                        tasks.Push(new Task((int)DogTask.Look, obj));
                 }
                 else
                 {

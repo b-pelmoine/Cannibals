@@ -23,6 +23,7 @@ public class LineOfSight : MonoBehaviour {
     public SightType type = SightType.Camera;
     public float radius = 3;
 
+
     void Awake()
     {
         detected_objects = new List<GameObject>();
