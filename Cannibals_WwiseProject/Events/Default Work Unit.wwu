@@ -544,6 +544,24 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="spotting" ID="{28AF7E62-9881-4745-878F-0A23D12B6D46}">
+					<ChildrenList>
+						<Action Name="Play" ID="{787759DF-2ABF-438F-8B9F-14C5C8F4161B}" ShortID="161485451" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{4AB431A0-8403-4408-AFC3-45E4180C43CB}" Global="false">
+									<ObjectRef Name="Glass loop" ID="{AB5B8815-8970-4DEF-9A3D-06BEE78FE634}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Play" ID="{02B004C5-98A0-4BAA-A325-92F693FCBDA3}" ShortID="631373820" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{BC32E7A9-4012-4115-A54F-7960A05C5374}" Global="false">
+									<ObjectRef Name="Noise loop" ID="{C0708DC9-335B-4528-9FD7-7B48F691BC52}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

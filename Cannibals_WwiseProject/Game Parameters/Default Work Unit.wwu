@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{310A2652-B3EA-4EA2-8156-BCC60ACF3B8D}" SchemaVersion="75">
 	<GameParameters>
-		<WorkUnit Name="Default Work Unit" ID="{310A2652-B3EA-4EA2-8156-BCC60ACF3B8D}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{310A2652-B3EA-4EA2-8156-BCC60ACF3B8D}" PersistMode="Standalone">
+			<ChildrenList>
+				<GameParameter Name="spotted" ID="{51998773-E63C-4082-A0F6-108CB4439A16}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="0.5"/>
+						<Property Name="Max" Type="Real64" Value="1"/>
+					</PropertyList>
+				</GameParameter>
+			</ChildrenList>
+		</WorkUnit>
 	</GameParameters>
 </WwiseDocument>
