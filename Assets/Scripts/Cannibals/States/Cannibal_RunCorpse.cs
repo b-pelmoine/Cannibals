@@ -1,7 +1,6 @@
 ﻿using NodeCanvas.Framework;
 using NodeCanvas.StateMachines;
 using ParadoxNotion.Design;
-using UnityEditor;
 using UnityEngine;
 
 [Category("Cannibal")]

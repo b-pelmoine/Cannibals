@@ -54,7 +54,7 @@ public class CheckTriggerExt<T> : ConditionTask<Collider> where T : class
 
                         if (infos[i].colliders.Count == 0)
                         {
-                            savedList.value.Remove(infos[i].script);
+                            savedList.value.RemoveAt(i);
                             infos.RemoveAt(i);
                         }
                     }
