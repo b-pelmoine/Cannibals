@@ -17,8 +17,8 @@ public class FSMStateCondition : ConditionTask {
     {
         switch(mode)
         {
-            case Mode.PREVIOUS_STATE: return ((FSM)this.ownerSystem).previousStateName.Equals(nameState);
-            case Mode.NEXT_STATE: return ((FSM)this.ownerSystem).nextState.Equals(nameState);
+            case Mode.PREVIOUS_STATE: return ((FSM)this.ownerSystem).previousStateName.Equals(nameState.value);
+            case Mode.NEXT_STATE: return ((FSM)this.ownerSystem).nextState.Equals(nameState.value);
         }
 
         return false;
