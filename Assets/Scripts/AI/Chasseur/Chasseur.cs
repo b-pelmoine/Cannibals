@@ -24,6 +24,7 @@ namespace AI
         public bool alerte = false;
 
         public Waypoint patrouille;
+        public float stunTime = 10;
 
         enum ChasseurTask
         {
@@ -162,11 +163,19 @@ namespace AI
                 case (int)ChasseurTask.Drink:
                     if (MoveTo(CurrentTask.target.transform.position, 2))
                     {
-
+                        CurrentTask.target.gameObject.SetActive(false);
+                        animator.Play("IdleToKo");
+                        tasks.Pop();
+                        tasks.Push(new Task((int)ChasseurTask.Etourdi));
                     }
                     break;
 
                 case (int)ChasseurTask.Etourdi:
+                    if (CurrentTask.elapsed > stunTime)
+                    {
+                        animator.Play("Resurrect");
+                        tasks.Pop();
+                    }
                     break;
             }
 
@@ -241,11 +250,10 @@ namespace AI
 
         void OnBottleShaked(Bottle bot)
         {
-            /*if(Vector3.SqrMagnitude(bot.transform.position-this.transform.position)< range*range && !sawBottle)
+            if (Vector3.SqrMagnitude(bot.transform.position - this.transform.position) < Mathf.Pow(los.getSeeDistance(),2))
             {
-                bottle = bot.transform.position;
-                sawBottle = true;
-            }*/
+                tasks.Push(new Task((int)ChasseurTask.Drink, bot.gameObject));
+            }
         }
 
         void AnalyseSight()

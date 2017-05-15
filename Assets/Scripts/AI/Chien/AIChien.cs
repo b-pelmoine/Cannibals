@@ -119,6 +119,7 @@ namespace AI
                     }
                     else if (CurrentTask.count == 1 && CurrentTask.elapsed>eatingTime)
                     {
+                        CurrentTask.target.gameObject.SetActive(false);
                         animator.Play("Idle");
                         tasks.Pop();
                     }
