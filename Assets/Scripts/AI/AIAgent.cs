@@ -36,7 +36,7 @@ namespace AI
         Vector3? lastRequest;
 
         protected LineOfSight los;
-        DetectionData detect;
+        DetectionData detect = new DetectionData();
         private bool detecting = false;
 
         public float detectTime = 3;
