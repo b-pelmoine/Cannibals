@@ -29,6 +29,14 @@ public class Corpse : MonoBehaviour {
     void Awake()
     {
         characterControllerExt.enabled = false;
+        m_rigidbody.isKinematic = true;
+        StartCoroutine(HackPhysic());
+    }
+
+    IEnumerator HackPhysic()
+    {
+        yield return new WaitForFixedUpdate();
+        m_rigidbody.isKinematic = false;
     }
 
     void LateUpdate()
@@ -104,6 +112,7 @@ public class Corpse : MonoBehaviour {
         {
             cannibals[0].m_cannibalSkill.pointOnCorpse = centerPoint;
             cannibals[0].m_cannibalMovement.CharacterControllerEx.CharacterTransform.position = m_transform.TransformPoint(centerPoint);
+            cannibals[0].m_cannibalSkill.corpseJoint.connectedBody = null;
         }
         else if (cannibals.Count == 0)
         {
