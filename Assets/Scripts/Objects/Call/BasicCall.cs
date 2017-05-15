@@ -38,9 +38,9 @@ public class BasicCall : CannibalObject, ICall {
 #endif
     }
 
-    public override void Take(Transform newParent)
+    public override void Take(Cannibal c, Transform newParent)
     {
-        base.Take(newParent);
+        base.Take(c, newParent);
         m_collider.enabled = false;
     }
 

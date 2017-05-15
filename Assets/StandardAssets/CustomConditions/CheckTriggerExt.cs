@@ -110,7 +110,7 @@ public class CheckTriggerExt<T> : ConditionTask<Collider>
 
                 if (info != null)
                 {
-                    info.colliders.Remove(other);
+                    info.colliders.RemoveAll(x=> { return x == other; });
                     if (info.colliders.Count == 0)
                         infos.Remove(info);
                 } 

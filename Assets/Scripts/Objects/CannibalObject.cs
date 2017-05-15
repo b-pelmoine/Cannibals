@@ -12,6 +12,8 @@ public abstract class CannibalObject : MonoBehaviour {
     [SerializeField]
     IconDisplayer m_objectIconDisplayer;
 
+    public Cannibal linkedCannibal;
+
     public Transform Transform
     {
         get { return m_transform; }
@@ -21,11 +23,13 @@ public abstract class CannibalObject : MonoBehaviour {
     /// The object is taken by the newParent
     /// </summary>
     /// <param name="newParent"></param>
-    public virtual void Take(Transform newParent)
+    public virtual void Take(Cannibal c, Transform newParent)
     {
         m_transform.SetParent(newParent);
         m_transform.localPosition = Vector3.zero;
         m_transform.rotation = Quaternion.identity;
+
+        linkedCannibal = c;
     }
 
     /// <summary>
@@ -33,7 +37,7 @@ public abstract class CannibalObject : MonoBehaviour {
     /// </summary>
     public virtual void Release()
     {
-
+        linkedCannibal = null;
     }
 
     /// <summary>

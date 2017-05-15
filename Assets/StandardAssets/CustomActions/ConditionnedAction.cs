@@ -77,6 +77,9 @@ public class ConditionnedAction : ActionTask
         {
             actionTasks.ExecuteAction(agent, blackboard);
         }
+
+        if (!actionTasks.isRunning)
+            EndAction();
     }
 
     protected override void OnStop()

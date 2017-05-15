@@ -48,8 +48,10 @@ public class Cannibal_Skill : MonoBehaviour {
             m_cannibalObject.Release();
         }
 
+        if (cannibalObject.linkedCannibal != null && cannibalObject.linkedCannibal != this.m_cannibal)
+            cannibalObject.linkedCannibal.m_cannibalSkill.LooseCannibalObject();
 
-       cannibalObject.Take(cannibalObjectParent);
+       cannibalObject.Take(this.m_cannibal, cannibalObjectParent);
        m_cannibalObject = cannibalObject;
     }
 

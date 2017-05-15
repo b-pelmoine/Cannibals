@@ -20,9 +20,9 @@ public class Bone : CannibalObject, IDropable {
         // m_rigidbody.AddForce(force*(normalizedDirection+ dropDirection).normalized, ForceMode.Impulse);
     }
 
-    public override void Take(Transform newParent)
+    public override void Take(Cannibal c, Transform newParent)
     {
-        base.Take(newParent);
+        base.Take(c, newParent);
 
         m_rigidbody.isKinematic = true;
         m_rigidbody.velocity = Vector3.zero;

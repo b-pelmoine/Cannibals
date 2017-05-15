@@ -6,7 +6,7 @@ using NodeCanvas.Framework;
 
 public class CheckCannibalObjectTrigger : CheckTriggerExt<CannibalObject> {
 
-
+    public BBParameter<Cannibal> m_cannibal;
 
     protected override bool OnCheck()
     {
@@ -14,12 +14,15 @@ public class CheckCannibalObjectTrigger : CheckTriggerExt<CannibalObject> {
 
         if (check)
         {
-            foreach (CannibalObject c in savedList.value)
+            for(int i = savedList.value.Count -1; i >=0; i--)
             {
-                c.ShowIcon();
+                if (savedList.value[i].linkedCannibal == m_cannibal.value)
+                    savedList.value.RemoveAt(i);
+                else
+                    savedList.value[i].ShowIcon();
             }
         }
 
-        return check;
+        return savedList.value.Count > 0;
     }
 }

@@ -19,21 +19,19 @@ public class Bottle : CannibalObject, IShakable {
             OnBottleShaked(this);
     }
 
-    public override void Take(Transform newParent)
+    public override void Take(Cannibal c , Transform newParent)
     {
-        base.Take(newParent);
+        base.Take(c, newParent);
 
         m_rigidbody.isKinematic = true;
         m_rigidbody.velocity = Vector3.zero;
         m_rigidbody.angularVelocity = Vector3.zero;
-        m_collider.enabled = false;
     }
 
     public override void Release()
     {
         base.Release();
         m_rigidbody.isKinematic = true;
-        m_collider.enabled = true;
     }
 
 }
