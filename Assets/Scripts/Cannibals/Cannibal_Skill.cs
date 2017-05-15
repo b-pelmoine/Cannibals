@@ -32,7 +32,7 @@ public class Cannibal_Skill : MonoBehaviour {
 
         if(m_corpse != null && m_corpse.cannibals.Count == 1)
         {
-            m_corpse.m_transform.rotation =Quaternion.Slerp(m_corpse.m_transform.rotation, m_cannibal.m_cannibalAppearence.m_appearenceTransform.rotation * Quaternion.Euler(0, 90, 0),0.1f);
+            m_corpse.m_transform.rotation = Quaternion.Slerp(m_corpse.m_transform.rotation, m_cannibal.m_cannibalAppearence.m_appearenceTransform.rotation * Quaternion.Euler(0, 90, 0),0.1f);
         }
     }
 
