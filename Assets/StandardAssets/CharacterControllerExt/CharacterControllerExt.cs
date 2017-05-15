@@ -232,7 +232,7 @@ namespace EquilibreGames
         public Transform currentGroundTransform;
         public List<CharacterControllerExt> linkedCharacterControllerExts = new List<CharacterControllerExt>();
 
-        void Awake()
+        void Start()
         {
             currentlyClampedTo = null;
             collisionsResult2D = new Collider2D[maxCollisionPerFrame];
