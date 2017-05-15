@@ -122,10 +122,4 @@ public class CheckTriggerExt<T> : ConditionTask<Collider>
             }
         }
     }
-
-    protected override void OnDisable()
-    {
-        base.OnDisable();
-        infos.Clear();
-    }
 }

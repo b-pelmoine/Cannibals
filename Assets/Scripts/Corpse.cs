@@ -15,13 +15,13 @@ public class Corpse : MonoBehaviour {
     BoxCollider collision;
 
     [SerializeField]
-    BoxCollider normalCollider;
+    Vector3 centerPoint = Vector3.zero;
 
     [SerializeField]
-    BoxCollider rightCollider;
+    Vector3 rightPoint;
 
     [SerializeField]
-    BoxCollider leftCollider;
+    Vector3 leftPoint;
 
     [SerializeField]
     CharacterControllerExt characterControllerExt;
@@ -50,7 +50,7 @@ public class Corpse : MonoBehaviour {
         }
 
     }
-        
+
 
     public void BeTaken(Cannibal cannibal)
     {
@@ -62,39 +62,35 @@ public class Corpse : MonoBehaviour {
         if (cannibals.Count == 1)
         {
             collision.enabled = false;
-            cannibal.m_cannibalSkill.corpseTakenCollider = normalCollider;
+            cannibal.m_cannibalSkill.pointOnCorpse = centerPoint;
             //m_rigidbody.isKinematic = true;
             m_rigidbody.useGravity = false;
             m_rigidbody.velocity = Vector3.zero;
             m_rigidbody.angularVelocity = Vector3.zero;
             m_rigidbody.constraints = RigidbodyConstraints.FreezeRotationX;
 
-            normalCollider.enabled = false;
-            rightCollider.enabled = true;
-            leftCollider.enabled = true;
-
             cannibal.m_cannibalSkill.corpseJoint.connectedBody = this.m_rigidbody;
-            cannibal.m_cannibalSkill.corpseJoint.connectedAnchor = normalCollider.center;
+            cannibal.m_cannibalSkill.corpseJoint.connectedAnchor = centerPoint;
         }
         else if (cannibals.Count > 1)
         {
-            cannibal.m_cannibalSkill.corpseTakenCollider = NearCollider(cannibal.m_cannibalAppearence.m_appearenceTransform.position);
+            cannibal.m_cannibalSkill.pointOnCorpse = NearPoint(cannibal.m_cannibalAppearence.m_appearenceTransform.position);
 
-            if (cannibal.m_cannibalSkill.corpseTakenCollider == rightCollider)
+            if (cannibal.m_cannibalSkill.pointOnCorpse == rightPoint)
             {
-                cannibals[0].m_cannibalSkill.corpseTakenCollider = leftCollider;
+                cannibals[0].m_cannibalSkill.pointOnCorpse = leftPoint;
             }
             else
-                cannibals[0].m_cannibalSkill.corpseTakenCollider = rightCollider;
+                cannibals[0].m_cannibalSkill.pointOnCorpse = rightPoint;
 
-            cannibals[0].m_cannibalMovement.CharacterControllerEx.CharacterTransform.position = cannibals[0].m_cannibalSkill.corpseTakenCollider.center + cannibals[0].m_cannibalSkill.corpseTakenCollider.transform.position;
-            cannibal.m_cannibalMovement.CharacterControllerEx.CharacterTransform.position = cannibal.m_cannibalSkill.corpseTakenCollider.center + cannibal.m_cannibalSkill.corpseTakenCollider.transform.position;
+            cannibals[0].m_cannibalMovement.CharacterControllerEx.CharacterTransform.position = m_transform.TransformPoint(cannibals[0].m_cannibalSkill.pointOnCorpse);
+            cannibal.m_cannibalMovement.CharacterControllerEx.CharacterTransform.position = m_transform.TransformPoint(cannibal.m_cannibalSkill.pointOnCorpse);
 
             cannibals[0].m_cannibalSkill.corpseJoint.connectedBody = this.m_rigidbody;
-            cannibals[0].m_cannibalSkill.corpseJoint.connectedAnchor = cannibals[0].m_cannibalSkill.corpseTakenCollider.center;
+            cannibals[0].m_cannibalSkill.corpseJoint.connectedAnchor = cannibals[0].m_cannibalSkill.pointOnCorpse;
 
             cannibal.m_cannibalSkill.corpseJoint.connectedBody = this.m_rigidbody;
-            cannibal.m_cannibalSkill.corpseJoint.connectedAnchor = cannibal.m_cannibalSkill.corpseTakenCollider.center;
+            cannibal.m_cannibalSkill.corpseJoint.connectedAnchor = cannibal.m_cannibalSkill.pointOnCorpse;
         }
     }
 
@@ -106,8 +102,8 @@ public class Corpse : MonoBehaviour {
 
         if (cannibals.Count == 1)
         {
-            cannibals[0].m_cannibalSkill.corpseTakenCollider = normalCollider;
-            cannibals[0].m_cannibalMovement.CharacterControllerEx.CharacterTransform.position = cannibals[0].m_cannibalSkill.corpseTakenCollider.center + cannibals[0].m_cannibalSkill.corpseTakenCollider.transform.position;
+            cannibals[0].m_cannibalSkill.pointOnCorpse = centerPoint;
+            cannibals[0].m_cannibalMovement.CharacterControllerEx.CharacterTransform.position = m_transform.TransformPoint(centerPoint);
         }
         else if (cannibals.Count == 0)
         {
@@ -115,27 +111,37 @@ public class Corpse : MonoBehaviour {
             // m_rigidbody.isKinematic = false;
             m_rigidbody.constraints = RigidbodyConstraints.None;
             m_rigidbody.useGravity = true;
-            normalCollider.enabled = true;
-            rightCollider.enabled = false;
-            leftCollider.enabled = false;
             characterControllerExt.enabled = false;
         }
     }
 
-    BoxCollider NearCollider(Vector3 position)
+    Vector3 NearPoint(Vector3 position)
     {
-        BoxCollider b = null;
+        Vector3 b = Vector3.zero;
         float minDistance = float.MaxValue;
 
-        if ((rightCollider.transform.position + rightCollider.center - m_transform.position).magnitude < minDistance)
+        if ((m_transform.TransformPoint(rightPoint) - position).magnitude < minDistance)
         {
-            minDistance = (rightCollider.center + m_transform.position).magnitude;
-            b = rightCollider;
+            minDistance = (m_transform.TransformPoint(rightPoint) - position).magnitude;
+            b = rightPoint;
         }
-        
-        if ((leftCollider.transform.position + leftCollider.center - m_transform.position).magnitude < minDistance)
-            b = leftCollider;
+
+        if ((m_transform.TransformPoint(leftPoint) - position).magnitude < minDistance)
+            b = leftPoint;
 
         return b;
     }
+
+
+#if UNITY_EDITOR || EQUILIBRE_GAMES_DEBUG
+    /// <summary>
+    /// Draw the debug function of Your circle collider character controller
+    /// </summary>
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(m_transform.TransformPoint(rightPoint), 0.1f);
+        Gizmos.DrawWireSphere(m_transform.TransformPoint(leftPoint), 0.1f);
+    }
+#endif
 }

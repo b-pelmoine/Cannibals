@@ -18,15 +18,15 @@ public class Cannibal_Skill : MonoBehaviour {
     Transform cannibalObjectParent;
 
     public Joint corpseJoint;
-    public BoxCollider corpseTakenCollider;
+    public Vector3 pointOnCorpse;
 
     private void LateUpdate()
     {
-        if (m_corpse != null && Vector3.Distance(corpseJoint.transform.position, m_cannibal.m_cannibalSkill.corpseTakenCollider.transform.position + m_cannibal.m_cannibalSkill.corpseTakenCollider.center) > 2f)
+        if (m_corpse != null && Vector3.Distance(corpseJoint.transform.position, m_cannibal.m_cannibalSkill.pointOnCorpse + m_corpse.m_transform.position) > 2f)
         {
                 m_cannibal.m_cannibalMovement.CharacterControllerEx.CharacterTransform.position = m_cannibal.m_cannibalMovement.CharacterControllerEx.CharacterTransform.position - (corpseJoint.transform.position -
                                                                                                   Vector3.Lerp(corpseJoint.transform.position,
-                                                                                                            m_cannibal.m_cannibalSkill.corpseTakenCollider.transform.position + m_cannibal.m_cannibalSkill.corpseTakenCollider.center,
+                                                                                                            m_cannibal.m_cannibalSkill.pointOnCorpse + m_corpse.m_transform.position,
                                                                                                              0.1f) );
         }
     }

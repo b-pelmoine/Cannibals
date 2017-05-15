@@ -52,7 +52,7 @@ public class Bush : MonoBehaviour {
 
     void OnTriggerEnter(Collider c)
     {
-        if (((1 << c.gameObject.layer) & m_cannibalLayerMask) != 0)
+        if (((1 << c.gameObject.layer) & m_cannibalLayerMask) != 0 && c.gameObject.name.Equals("GlobalCollider"))
         {
             Cannibal ca = c.gameObject.GetComponentInParent<Cannibal>();
 
@@ -63,7 +63,7 @@ public class Bush : MonoBehaviour {
 
     void OnTriggerExit(Collider c)
     {
-        if (((1 << c.gameObject.layer) & m_cannibalLayerMask) != 0)
+        if (((1 << c.gameObject.layer) & m_cannibalLayerMask) != 0 && c.gameObject.name.Equals("GlobalCollider"))
         {
             Cannibal ca = c.gameObject.GetComponentInParent<Cannibal>();
 
