@@ -31930,18 +31930,7 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<RandomSequenceContainer Name="Layer 1" ID="{02781905-8647-4877-828F-BCC222DD1D63}" ShortID="877703473">
-									<PropertyList>
-										<Property Name="MakeUpGain" Type="Real64">
-											<ValueList>
-												<Value>-12</Value>
-											</ValueList>
-										</Property>
-										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
-										<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
-										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
-										<Property Name="RandomOrSequence" Type="int16" Value="0"/>
-									</PropertyList>
+								<ActorMixer Name="Rumble" ID="{E5CCF354-6565-4A27-9310-BC4EF05BE6BD}" ShortID="679272567">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
@@ -31951,50 +31940,13 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="Sens chasseur layer 1" ID="{BE765FDF-4F2D-41EB-8548-2BF40E8FBFC7}" ShortID="808189033" Type="SoundFX">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Sens chasseur layer 1" ID="{17AEE111-5877-43BD-A453-B1ABB978AFC5}" ShortID="597796389">
-													<Language>SFX</Language>
-													<AudioFile>Sens chasseur layer 1.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Sens chasseur layer 1" ID="{17AEE111-5877-43BD-A453-B1ABB978AFC5}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-									</ChildrenList>
-									<Playlist>
-										<ItemRef Name="Sens chasseur layer 1" ID="{BE765FDF-4F2D-41EB-8548-2BF40E8FBFC7}"/>
-									</Playlist>
-								</RandomSequenceContainer>
-								<RandomSequenceContainer Name="Layer 2" ID="{6EE697CC-412D-4926-B4EC-93B87AE46F36}" ShortID="601222749">
-									<PropertyList>
-										<Property Name="MakeUpGain" Type="Real64">
-											<ValueList>
-												<Value>-9</Value>
-											</ValueList>
-										</Property>
-										<Property Name="RandomOrSequence" Type="int16" Value="0"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<RandomSequenceContainer Name="Layer 2 Loop" ID="{929A31D6-2E10-49D8-A71F-6D45B6218DA4}" ShortID="309607513">
+										<RandomSequenceContainer Name="Layer 1" ID="{02781905-8647-4877-828F-BCC222DD1D63}" ShortID="877703473">
 											<PropertyList>
+												<Property Name="MakeUpGain" Type="Real64">
+													<ValueList>
+														<Value>-12</Value>
+													</ValueList>
+												</Property>
 												<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 												<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
 												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
@@ -32009,7 +31961,7 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<Sound Name="Sens chasseur layer 2" ID="{59CDA4B9-12F3-4D0E-ABAD-B56B3098D8CD}" ShortID="281379571" Type="SoundFX">
+												<Sound Name="Sens chasseur layer 1" ID="{BE765FDF-4F2D-41EB-8548-2BF40E8FBFC7}" ShortID="808189033" Type="SoundFX">
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
@@ -32019,22 +31971,29 @@
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
-														<AudioFileSource Name="Sens chasseur layer 2" ID="{7BBF4182-E76F-4D21-8D04-3ABA3F74EA67}" ShortID="1048872857">
+														<AudioFileSource Name="Sens chasseur layer 1" ID="{17AEE111-5877-43BD-A453-B1ABB978AFC5}" ShortID="597796389">
 															<Language>SFX</Language>
-															<AudioFile>Sens chasseur layer 2.wav</AudioFile>
+															<AudioFile>Sens chasseur layer 1.wav</AudioFile>
 														</AudioFileSource>
 													</ChildrenList>
 													<ActiveSourceList>
-														<ActiveSource Name="Sens chasseur layer 2" ID="{7BBF4182-E76F-4D21-8D04-3ABA3F74EA67}" Platform="Linked"/>
+														<ActiveSource Name="Sens chasseur layer 1" ID="{17AEE111-5877-43BD-A453-B1ABB978AFC5}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
 											</ChildrenList>
 											<Playlist>
-												<ItemRef Name="Sens chasseur layer 2" ID="{59CDA4B9-12F3-4D0E-ABAD-B56B3098D8CD}"/>
-												<ItemRef Name="Sens chasseur layer 2" ID="{59CDA4B9-12F3-4D0E-ABAD-B56B3098D8CD}"/>
+												<ItemRef Name="Sens chasseur layer 1" ID="{BE765FDF-4F2D-41EB-8548-2BF40E8FBFC7}"/>
 											</Playlist>
 										</RandomSequenceContainer>
-										<Sound Name="Sens chasseur layer 2 fin" ID="{A9044584-AC88-4AC9-9B3F-DB8F5B27305E}" ShortID="277786663" Type="SoundFX">
+										<RandomSequenceContainer Name="Layer 2" ID="{6EE697CC-412D-4926-B4EC-93B87AE46F36}" ShortID="601222749">
+											<PropertyList>
+												<Property Name="MakeUpGain" Type="Real64">
+													<ValueList>
+														<Value>-9</Value>
+													</ValueList>
+												</Property>
+												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
@@ -32044,21 +32003,88 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="Sens chasseur layer 2 fin" ID="{1FC1F81D-B7BF-4713-A06D-9322DC1B65AE}" ShortID="1017658962">
-													<Language>SFX</Language>
-													<AudioFile>Sens chasseur layer 2 fin.wav</AudioFile>
-												</AudioFileSource>
+												<RandomSequenceContainer Name="Layer 2 Loop" ID="{929A31D6-2E10-49D8-A71F-6D45B6218DA4}" ShortID="309607513">
+													<PropertyList>
+														<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+														<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+														<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+														<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<Sound Name="Sens chasseur layer 2" ID="{59CDA4B9-12F3-4D0E-ABAD-B56B3098D8CD}" ShortID="281379571" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Sens chasseur layer 2" ID="{7BBF4182-E76F-4D21-8D04-3ABA3F74EA67}" ShortID="1048872857">
+																	<Language>SFX</Language>
+																	<AudioFile>Sens chasseur layer 2.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Sens chasseur layer 2" ID="{7BBF4182-E76F-4D21-8D04-3ABA3F74EA67}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+													</ChildrenList>
+													<Playlist>
+														<ItemRef Name="Sens chasseur layer 2" ID="{59CDA4B9-12F3-4D0E-ABAD-B56B3098D8CD}"/>
+														<ItemRef Name="Sens chasseur layer 2" ID="{59CDA4B9-12F3-4D0E-ABAD-B56B3098D8CD}"/>
+													</Playlist>
+												</RandomSequenceContainer>
+												<Sound Name="Sens chasseur layer 2 fin" ID="{A9044584-AC88-4AC9-9B3F-DB8F5B27305E}" ShortID="277786663" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Sens chasseur layer 2 fin" ID="{1FC1F81D-B7BF-4713-A06D-9322DC1B65AE}" ShortID="1017658962">
+															<Language>SFX</Language>
+															<AudioFile>Sens chasseur layer 2 fin.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Sens chasseur layer 2 fin" ID="{1FC1F81D-B7BF-4713-A06D-9322DC1B65AE}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
 											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Sens chasseur layer 2 fin" ID="{1FC1F81D-B7BF-4713-A06D-9322DC1B65AE}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
+											<Playlist>
+												<ItemRef Name="Layer 2 Loop" ID="{929A31D6-2E10-49D8-A71F-6D45B6218DA4}"/>
+												<ItemRef Name="Sens chasseur layer 2 fin" ID="{A9044584-AC88-4AC9-9B3F-DB8F5B27305E}"/>
+											</Playlist>
+										</RandomSequenceContainer>
 									</ChildrenList>
-									<Playlist>
-										<ItemRef Name="Layer 2 Loop" ID="{929A31D6-2E10-49D8-A71F-6D45B6218DA4}"/>
-										<ItemRef Name="Sens chasseur layer 2 fin" ID="{A9044584-AC88-4AC9-9B3F-DB8F5B27305E}"/>
-									</Playlist>
-								</RandomSequenceContainer>
+								</ActorMixer>
+								<SwitchContainer Name="Enemies" ID="{FCEE481C-645A-4657-9DBD-C23A69675E9D}" ShortID="78202351">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+										</Reference>
+									</ReferenceList>
+									<GroupingInfo>
+										<GroupRef Name="Characters" ID="{0ED01610-D84F-4CF3-A30D-34ECF51F0800}"/>
+										<DefaultSwitchRef Name="" ID="{00000000-0000-0000-0000-000000000000}"/>
+									</GroupingInfo>
+								</SwitchContainer>
 							</ChildrenList>
 							<StateInfo>
 								<StateGroupList>

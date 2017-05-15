@@ -3,7 +3,7 @@
 	<InteractiveMusic>
 		<WorkUnit Name="Default Work Unit" ID="{8B484C34-D920-4316-BE02-D8D9343F8208}" PersistMode="Standalone">
 			<ChildrenList>
-				<MusicPlaylistContainer Name="New Music Playlist Container" ID="{4E20C662-7FE0-4710-84E4-07796FA3A419}" ShortID="123689017">
+				<MusicPlaylistContainer Name="Village music" ID="{4E20C662-7FE0-4710-84E4-07796FA3A419}" ShortID="123689017">
 					<PropertyList>
 						<Property Name="MakeUpGain" Type="Real64">
 							<ValueList>
@@ -155,6 +155,8 @@
 						<MusicSegment Name="Intro" ID="{E6DAB552-BD31-4729-B68E-A4DE0DC36ADA}" ShortID="768729324">
 							<PropertyList>
 								<Property Name="EndPosition" Type="Real64" Value="68287.625"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="PositioningType" Type="int16" Value="1"/>
 								<Property Name="Tempo" Type="Real64" Value="140"/>
 							</PropertyList>
 							<ReferenceList>
