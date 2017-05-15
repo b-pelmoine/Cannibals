@@ -533,6 +533,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="sense_spotted" ID="{57E9EE8D-1743-45B9-B3B2-9B000FAA9AA2}">
+					<ChildrenList>
+						<Action Name="Play" ID="{CF09ED6B-98BB-45E0-BCE0-05AF151E75CD}" ShortID="1039633953" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{A4E47FE6-035A-4B86-B349-8238CE07125D}" Global="false">
+									<ObjectRef Name="Enemies" ID="{FCEE481C-645A-4657-9DBD-C23A69675E9D}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

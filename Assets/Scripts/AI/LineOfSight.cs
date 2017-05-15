@@ -52,6 +52,18 @@ public class LineOfSight : MonoBehaviour {
         LineOfSightManager.Register(this);
     }
 
+    public float getSeeDistance()
+    {
+        if(type == SightType.Camera)
+        {
+            return camera.farClipPlane;
+        }
+        else
+        {
+            return radius;
+        }
+    }
+
     public static void Register(GameObject obj, int detect=30)
     {
         detected_objects.Add(obj);

@@ -32,7 +32,9 @@ namespace AI
             Defend,
             Look,
             LostTarget,
-            Shoot
+            Shoot,
+            Drink,
+            Etourdi
         }
 
 	    // Use this for initialization
@@ -56,28 +58,15 @@ namespace AI
                 Debug.Log("Chasseur.cs: animator ou navmeshagent non présent");
             }
 
-            if (los.Updated)
+            //Check the navmesh for footsteps
+            /*NavMeshHit hit;
+            if(NavMesh.SamplePosition(transform.position, out hit, 10, ~0))
             {
-                //Analyse de la vue du chasseur
-                foreach(GameObject obj in los.sighted)
-                {
-                    Cannibal cannibal = obj.GetComponentInParent<Cannibal>();
-                    if (cannibal != null && !cannibal.IsDead())
-                    {
-                        if (CurrentTask.id == (int)ChasseurTask.Normal)
-                        {
-                            agent.ResetPath();
-                            tasks.Push(new Task((int)ChasseurTask.Look, obj));
-                        }
-                        else if(CurrentTask.id == (int)ChasseurTask.LostTarget && obj != CurrentTask.target) //Change de cible
-                        {
-                            agent.ResetPath();
-                            tasks.Pop();
-                            CurrentTask.target = obj;
-                        }
-                    }
-                }
-            }
+                Debug.Log("NavMeshHit:" + hit.mask);
+            }*/
+
+
+            AnalyseSight();
 
             Vector3 targetPosition;
 
@@ -169,6 +158,16 @@ namespace AI
                         tasks.Pop();
                     }
                     break;
+
+                case (int)ChasseurTask.Drink:
+                    if (MoveTo(CurrentTask.target.transform.position, 2))
+                    {
+
+                    }
+                    break;
+
+                case (int)ChasseurTask.Etourdi:
+                    break;
             }
 
 	    }
@@ -182,7 +181,6 @@ namespace AI
             RaycastHit hit;
             if (Physics.Raycast(position, direction, out hit, shootingRange, shootingMask))
             {
-                Debug.Log(hit.collider.gameObject);
                 AIAgent agent = hit.collider.gameObject.GetComponent<AIAgent>();
                 if (agent != null)
                 {
@@ -200,7 +198,6 @@ namespace AI
                         Bush bush = hit.collider.gameObject.GetComponent<Bush>();
                         if (bush != null)
                         {
-                            Debug.Log("Killing cannibals in bush:" + bush);
                             bush.KillACannibal();
                         }
                     }
@@ -251,6 +248,31 @@ namespace AI
             }*/
         }
 
+        void AnalyseSight()
+        {
+            if (los.Updated)
+            {
+                //Analyse de la vue du chasseur
+                foreach (GameObject obj in los.sighted)
+                {
+                    Cannibal cannibal = obj.GetComponentInParent<Cannibal>();
+                    if (cannibal != null && !cannibal.IsDead())
+                    {
+                        if (CurrentTask.id == (int)ChasseurTask.Normal)
+                        {
+                            agent.ResetPath();
+                            tasks.Push(new Task((int)ChasseurTask.Look, obj));
+                        }
+                        else if (CurrentTask.id == (int)ChasseurTask.LostTarget && obj != CurrentTask.target) //Change de cible
+                        {
+                            agent.ResetPath();
+                            tasks.Pop();
+                            CurrentTask.target = obj;
+                        }
+                    }
+                }
+            }
+        }
         
     }
 }
