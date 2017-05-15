@@ -134,7 +134,7 @@ namespace AI
             if (los.sighted.Contains(CurrentTask.target))
             {
                 //Si le joueur est détecté -> poursuite
-                if ((CurrentTask.target.transform.position - transform.position).sqrMagnitude < Mathf.Pow((CurrentTask.elapsed / detectTime) * (los.camera.farClipPlane), 2))
+                if ((CurrentTask.target.transform.position - transform.position).sqrMagnitude < Mathf.Pow((CurrentTask.elapsed / detectTime) * (los.getSeeDistance()), 2))
                 {
                     return true;
                 }
