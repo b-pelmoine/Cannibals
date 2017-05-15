@@ -7,9 +7,9 @@ using System.Collections.Generic;
 
 [Category("System Events")]
 [EventReceiver("OnTriggerEnter", "OnTriggerExit")]
-public class CheckTriggerExt<T> : ConditionTask<Collider> where T : class
+public class CheckTriggerExt<T> : ConditionTask<Collider>
 {
-    class Info
+    public class Info
     {
         public T script;
         public List<Collider> colliders = new List<Collider>();
@@ -26,7 +26,7 @@ public class CheckTriggerExt<T> : ConditionTask<Collider> where T : class
 
     private bool stay;
 
-    List<Info> infos = new List<Info>();
+   public List<Info> infos = new List<Info>();
 
     protected override string info
     {
@@ -76,7 +76,7 @@ public class CheckTriggerExt<T> : ConditionTask<Collider> where T : class
 
             if (script != null)
             {
-                Info info = infos.Find(x => { return x.script == script; });
+                Info info = infos.Find(x => { return x.script.Equals(script); });
 
                 if (info != null)
                     info.colliders.Add(other);
@@ -113,7 +113,7 @@ public class CheckTriggerExt<T> : ConditionTask<Collider> where T : class
                     info.colliders.Remove(other);
                     if (info.colliders.Count == 0)
                         infos.Remove(info);
-                }
+                } 
 
                 if (checkType == TriggerTypes.TriggerExit)
                 {
@@ -121,5 +121,11 @@ public class CheckTriggerExt<T> : ConditionTask<Collider> where T : class
                 }
             }
         }
+    }
+
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+        infos.Clear();
     }
 }
