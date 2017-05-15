@@ -2352,7 +2352,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1640431504037550}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.12, z: 0}
+  m_LocalPosition: {x: 0, y: 0.351, z: 0}
   m_LocalScale: {x: 0.024, y: 0.024, z: 0.024}
   m_Children:
   - {fileID: 4755462586970374}
@@ -2747,8 +2747,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1443385088526980}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.9803104, y: 1, z: 2.5285873}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 196.72774, y: 2.581791, z: 152.67326}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4789305613664332}
@@ -2764,7 +2764,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1625361917524594}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.53, y: 1.439, z: -5.494}
+  m_LocalPosition: {x: -4.87, y: 1.37, z: -6.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4211191667675332}
@@ -3069,7 +3069,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1956400642573850}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.235, y: 0.853, z: -7.606}
+  m_LocalPosition: {x: -2.09, y: 0.67, z: -6.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4388013786035306}
@@ -3512,6 +3512,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 6
   agent: {fileID: 0}
+  detectTime: 3
   hunter: {fileID: 114623528271031004}
   animator: {fileID: 95315201735157786}
   eatingTime: 3
@@ -3632,18 +3633,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 5
   agent: {fileID: 195448385931607524}
+  detectTime: 3
   waypointDistance: 2
   shootingRange: 13
   shootingMask:
     serializedVersion: 2
     m_Bits: 3221225417
-  detectTime: 3
   lostTargetTime: 3
   defendTime: 5
   animator: {fileID: 95985014088886306}
   fireBurst: {fileID: 198263179887913350}
   alerte: 1
   patrouille: {fileID: 114487379224278986}
+  stunTime: 10
 --- !u!114 &114739284672219168
 MonoBehaviour:
   m_ObjectHideFlags: 1
