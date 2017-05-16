@@ -115,7 +115,7 @@ public class Corpse : MonoBehaviour {
         {
             cannibals[0].m_cannibalSkill.pointOnCorpse = centerPoint;
             cannibals[0].m_cannibalMovement.CharacterControllerEx.CharacterTransform.position = m_transform.TransformPoint(centerPoint) + cannibalTakeOffset;
-            cannibals[0].m_cannibalSkill.corpseJoint.connectedBody = null;
+            cannibals[0].m_cannibalSkill.corpseJoint.connectedAnchor = centerPoint;
         }
         else if (cannibals.Count == 0)
         {
