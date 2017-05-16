@@ -127,8 +127,8 @@ namespace AI
                 AIAgentManager.addDetectData(CurrentTask.target, detect);
                 detecting = true;
             }
-            detect.detectRate = (CurrentTask.target.transform.position - transform.position).sqrMagnitude
-                / Mathf.Pow((CurrentTask.elapsed / detectTime) * (los.getSeeDistance()), 2);
+            detect.detectRate = Mathf.Clamp(Mathf.Pow((CurrentTask.elapsed / detectTime) * (los.getSeeDistance()), 2)
+                / (CurrentTask.target.transform.position - transform.position).sqrMagnitude, 0, 1);
             Vector3 targetPosition = agent.transform.position;
             targetPosition.y = agent.transform.position.y;
             agent.transform.LookAt(targetPosition);

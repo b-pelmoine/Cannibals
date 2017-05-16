@@ -79,7 +79,10 @@ public class CheckTriggerExt<T> : ConditionTask<Collider>
                 Info info = infos.Find(x => { return x.script.Equals(script); });
 
                 if (info != null)
-                    info.colliders.Add(other);
+                {
+                    if(!info.colliders.Exists(x => { return x == other; }))
+                        info.colliders.Add(other);
+                }
                 else
                 {
                     info = new Info();
