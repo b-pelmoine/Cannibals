@@ -13,11 +13,15 @@ public class DetectionIndicator : MonoBehaviour {
     private List<MeshRenderer> arrowRenderer;
     private int arrowCounter;
 
+    private float prevHighest = 0f;
+
     [Header("Display Settings")]
     [Range(1.7f, 3f)]
     public float height;
     [Range(0.5f, 5f)]
     public float width;
+    [Range(0.5f, 3f)]
+    public float scaleModifier;
     public GameObject ArrowPrefab;
     //color of not offensive AI
     public Color BasicLow;
@@ -27,6 +31,9 @@ public class DetectionIndicator : MonoBehaviour {
     public Color AggressiveHigh;
 
     void Start() {
+        AkSoundEngine.PostEvent("spotting", Camera.main.gameObject);
+        AkSoundEngine.SetRTPCValue("spotting", 0, Camera.main.gameObject);
+
         arrowCounter = 0;
         arrowPool = new List<GameObject>();
         arrowRenderer = new List<MeshRenderer>();
@@ -51,6 +58,7 @@ public class DetectionIndicator : MonoBehaviour {
     {
         arrowCounter = 0;
         //loop through all players
+        float highestDetectionLevel = 0;
         for (int i = 0; i < trackers.Count; i++)
         {
             trackers[i] = AIAgentManager.getDetectData(playerTransforms[i].gameObject);
@@ -58,8 +66,15 @@ public class DetectionIndicator : MonoBehaviour {
             {
                 //update arrow
                 placeArrowFromDataAtPosition(data, playerTransforms[i]);
+                if (data.detectRate > highestDetectionLevel) highestDetectionLevel = data.detectRate;
             }
         }
+        AkSoundEngine.SetRTPCValue("spotting", highestDetectionLevel ,Camera.main.gameObject);
+        if (highestDetectionLevel == 1 && prevHighest !=1)
+        {
+            AkSoundEngine.PostEvent("spotted", Camera.main.gameObject);
+        }
+        prevHighest = highestDetectionLevel;
         //disabled the unused ones
         for (int i = arrowCounter; i < arrowPool.Count; i++)
         {
@@ -75,6 +90,8 @@ public class DetectionIndicator : MonoBehaviour {
         arrow.transform.position = transform.position + Vector3.up * height;
         Vector3 agentPos = data.agent.transform.position;
         agentPos.y = arrow.transform.position.y;
+        arrow.transform.localScale = (data.detectRate == 1) ? Vector3.one *2 : Vector3.one * data.detectRate + Vector3.forward * data.detectRate;
+        arrow.transform.localScale *= scaleModifier;
         arrow.transform.LookAt(agentPos);
         arrow.transform.position += arrow.transform.forward.normalized * width;
         //set its color
@@ -98,7 +115,6 @@ public class DetectionIndicator : MonoBehaviour {
         }
         
         GameObject arrow = arrowPool[arrowCounter];
-        //renderer = arrowRenderer[arrowCounter];
         arrow.transform.parent = parent;
         if(!arrow.activeInHierarchy)
             arrow.SetActive(true);

@@ -62,6 +62,7 @@ public class OffscreenIndicator : MonoBehaviour {
     public bool pulse_AIAgents = false;
     private List<IndicatorData> AIOnScreenPositions;
     public RawGO[] Players; // assigned automatically
+    public Cannibal[] cannibalsRef;
     [Range(0.5f, 2f)]
     public float PlayersSizeMultiplier = 1.0f;
     public bool pulse_Players = false;
@@ -107,6 +108,7 @@ public class OffscreenIndicator : MonoBehaviour {
         endPositions = new List<IndicatorData>();
 
         showTarget = true;
+        showPlayers = true;
         showAIAgents = true;
         //showPlayers = true;
     }
@@ -205,8 +207,8 @@ public class OffscreenIndicator : MonoBehaviour {
         {
             elapsedLastPop += Time.deltaTime;
             pSpeed = (pulse_AIAgents) ? pulseSpeed : 0;
-            addIndicatorForGameObjects(AIOnScreenPositions, AIAgents.ToArray(), AIAgentsSizeMultiplier, false, pSpeed);
-            addIndicatorForGameObjects(OldTargetOnScreenPositions, oldAgents.ToArray(), AIAgentsSizeMultiplier, false, pSpeed);
+            addIndicatorForGameObjects(AIOnScreenPositions, AIAgents.ToArray(), AIAgentsSizeMultiplier, true, pSpeed);
+            addIndicatorForGameObjects(OldTargetOnScreenPositions, oldAgents.ToArray(), AIAgentsSizeMultiplier, true, pSpeed);
         }
         if(showTarget)
         {
@@ -221,10 +223,13 @@ public class OffscreenIndicator : MonoBehaviour {
             List<RawGO> deadPlayers = new List<RawGO>();
             foreach(RawGO player in Players)
             {
-                if(player.go.GetComponent<Cannibal>().IsDead())
-                    deadPlayers.Add(player);
+                Cannibal c;
+                if (player.type == AIType.PlayerOne)
+                    c = cannibalsRef[0];
+                else
+                    c = cannibalsRef[1];
+                if (c.IsDead()) deadPlayers.Add(player);
             }
-
             addIndicatorForGameObjects(PlayersOnScreenPositions, deadPlayers.ToArray(), PlayersSizeMultiplier , true, pSpeed);
         }
 
@@ -248,7 +253,15 @@ public class OffscreenIndicator : MonoBehaviour {
             {
                 if(displayOnScreen)
                 {
-                    Vector2 dimensions = new Vector2(Screen.width / 20, Screen.height / 20) * (sizeMultiplier + 0.1f*(Mathf.Sin(pulseSpeed*Time.time)));
+                    float alterDimensionPop = 1f;
+                    //pop offset change the value (5) to increase the pop factor
+                    if (lastAIID == go.go.GetInstanceID() && elapsedLastPop < transitionIn)
+                        alterDimensionPop = 1 + (4 * (transitionIn - elapsedLastPop));
+
+                    Vector2 dimensions = new Vector2(Screen.width / 40, Screen.height / 40)
+                        * (sizeMultiplier + 0.1f * (Mathf.Sin(pulseSpeed * Time.time)))
+                        * alterDimensionPop;
+                    //Vector2 dimensions = new Vector2(Screen.width / 40, Screen.height / 40) * (sizeMultiplier + 0.1f*(Mathf.Sin(pulseSpeed*Time.time)));
                     Vector2 position = new Vector2(screenPos.x, (Screen.height-screenPos.y)) - dimensions / 2;
 
                     list.Add(new IndicatorData(
@@ -296,7 +309,7 @@ public class OffscreenIndicator : MonoBehaviour {
                     alterDimensionPop = 1 + (4 * (transitionIn - elapsedLastPop));
 
                 Vector2 dimensions = new Vector2(Screen.width / 20, Screen.height / 20) 
-                    * Mathf.Clamp(20 / distFromPlayers, 0.5f, 5) 
+                    * Mathf.Clamp(20 / distFromPlayers, 0.5f, 3) 
                     * (sizeMultiplier + 0.1f * (Mathf.Sin(pulseSpeed*Time.time)))
                     * alterDimensionPop;
                 

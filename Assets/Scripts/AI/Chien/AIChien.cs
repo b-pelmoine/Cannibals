@@ -72,6 +72,7 @@ namespace AI
                         {
                             CurrentTask.elapsed = 0;
                             CurrentTask.count++;
+                            AkSoundEngine.PostEvent("dog_idle", gameObject);
                         }
                     }
                     else
@@ -94,6 +95,10 @@ namespace AI
                             
                             AkSoundEngine.PostEvent("dog_bark", gameObject);
                             CurrentTask.count++;
+                        }
+                        else if(CurrentTask.elapsed>2)
+                        {
+                            tasks.Pop();
                         }
                         
                     }
@@ -139,6 +144,7 @@ namespace AI
                     //target = los.sighted[i];
                     //targetType = btargetType.Viande;
                     //sawSomething = true;
+                    ResetDetect(CurrentTask.target);
                     tasks.Push(new Task((int)DogTask.Eat, obj));
                 
                 }
@@ -151,8 +157,9 @@ namespace AI
                 else
                 {
                     Bush buisson = obj.GetComponent<Bush>();
-                    if(buisson != null && buisson.IsMoving())
+                    if(CurrentTask.id == (int)DogTask.WanderInFront && buisson != null && buisson.IsMoving())
                     {
+                        ResetDetect(CurrentTask.target);
                         tasks.Push(new Task((int)DogTask.ChaseAndBark, obj));
                         //target = los.sighted[i];
                         //targetType = btargetType.Buisson;
