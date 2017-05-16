@@ -62,6 +62,7 @@ public class OffscreenIndicator : MonoBehaviour {
     public bool pulse_AIAgents = false;
     private List<IndicatorData> AIOnScreenPositions;
     public RawGO[] Players; // assigned automatically
+    public Cannibal[] cannibalsRef;
     [Range(0.5f, 2f)]
     public float PlayersSizeMultiplier = 1.0f;
     public bool pulse_Players = false;
@@ -222,9 +223,12 @@ public class OffscreenIndicator : MonoBehaviour {
             List<RawGO> deadPlayers = new List<RawGO>();
             foreach(RawGO player in Players)
             {
-                Debug.Log(player.go.name);
-                if(player.go.GetComponent<Cannibal>().IsDead())
-                    deadPlayers.Add(player);
+                Cannibal c;
+                if (player.type == AIType.PlayerOne)
+                    c = cannibalsRef[0];
+                else
+                    c = cannibalsRef[1];
+                if (c.IsDead()) deadPlayers.Add(player);
             }
             addIndicatorForGameObjects(PlayersOnScreenPositions, deadPlayers.ToArray(), PlayersSizeMultiplier , true, pSpeed);
         }
