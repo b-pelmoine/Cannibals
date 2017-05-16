@@ -20,7 +20,6 @@ public class LineOfSightManager : MonoBehaviour {
     public static void Register(LineOfSight agent)
     {
         agents_sight.Add(agent);
-        Debug.Log("LineOfSightManager:"+ agent + "registered");
     }
 
 

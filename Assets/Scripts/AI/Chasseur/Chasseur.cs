@@ -63,7 +63,6 @@ namespace AI
             NavMeshHit hit;
             if(NavMesh.SamplePosition(transform.position, out hit, 10, ~0))
             {
-                Debug.Log("NavMeshHit:" + hit.mask);
                 AkSoundEngine.SetSwitch("Steps", "Grass", gameObject);
             }
 
