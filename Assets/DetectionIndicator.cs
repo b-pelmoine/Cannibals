@@ -98,7 +98,6 @@ public class DetectionIndicator : MonoBehaviour {
         }
         
         GameObject arrow = arrowPool[arrowCounter];
-        //renderer = arrowRenderer[arrowCounter];
         arrow.transform.parent = parent;
         if(!arrow.activeInHierarchy)
             arrow.SetActive(true);
