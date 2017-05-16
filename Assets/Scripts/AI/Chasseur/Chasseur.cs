@@ -63,7 +63,12 @@ namespace AI
             NavMeshHit hit;
             if(NavMesh.SamplePosition(transform.position, out hit, 10, ~0))
             {
-                AkSoundEngine.SetSwitch("Steps", "Grass", gameObject);
+                if((hit.mask & 8) != 0)
+                    AkSoundEngine.SetSwitch("Steps", "Grass", gameObject);
+                if ((hit.mask & 1) != 0)
+                    AkSoundEngine.SetSwitch("Steps", "Gravel", gameObject);
+                if ((hit.mask & 32) != 0)
+                    AkSoundEngine.SetSwitch("Steps", "Wood", gameObject);
             }
 
 
@@ -268,7 +273,7 @@ namespace AI
                     Cannibal cannibal = obj.GetComponentInParent<Cannibal>();
                     if (cannibal != null && !cannibal.IsDead())
                     {
-                        if (CurrentTask.id == (int)ChasseurTask.Normal)
+                        if (CurrentTask.id == (int)ChasseurTask.Normal || CurrentTask.id == (int)ChasseurTask.Defend)
                         {
                             agent.ResetPath();
                             tasks.Push(new Task((int)ChasseurTask.Look, obj));

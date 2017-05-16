@@ -139,6 +139,7 @@ namespace AI
                     //target = los.sighted[i];
                     //targetType = btargetType.Viande;
                     //sawSomething = true;
+                    ResetDetect(CurrentTask.target);
                     tasks.Push(new Task((int)DogTask.Eat, obj));
                 
                 }
@@ -153,6 +154,7 @@ namespace AI
                     Bush buisson = obj.GetComponent<Bush>();
                     if(buisson != null && buisson.IsMoving())
                     {
+                        ResetDetect(CurrentTask.target);
                         tasks.Push(new Task((int)DogTask.ChaseAndBark, obj));
                         //target = los.sighted[i];
                         //targetType = btargetType.Buisson;
