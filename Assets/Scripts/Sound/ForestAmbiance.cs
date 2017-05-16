@@ -121,6 +121,12 @@ public class ForestAmbiance : MonoBehaviour {
 
     void OnTriggerEnter(Collider c)
     {
+        if(!(c is SphereCollider))
+        {
+            Debug.LogWarning("! A Tree has no sphere, or an object is on the Tree layer for no reason !");
+            return;
+        }
+
         if (availablesGO.Count > 0)
         {
             availablesGO[0].transform.position = ((SphereCollider)c).center;
@@ -132,6 +138,10 @@ public class ForestAmbiance : MonoBehaviour {
 
     void OnTriggerExit(Collider c)
     {
+        if (!(c is SphereCollider))
+        { 
+            return;
+        }
 
         for (int i = 0; i < unavailablesGO.Count; i++)
         {
@@ -144,43 +154,6 @@ public class ForestAmbiance : MonoBehaviour {
             }
         }
     } 
-
-   /* void Awake()
-    {
-        TerrainData td = terrain.terrainData;
-
-        for (int i = 0; i < td.treeInstanceCount; i++)
-        {
-            availablesTreesRepresentation.Add(treesRepresentation[i]);
-        }
-    }*/
-
-   /* void Update()
-    {
-        int cpt = Physics.OverlapSphereNonAlloc(transform.position, range, nearTreeColliders, treeLayerMask);
-
-        for (int i = 0; i < cpt && availablesTreesRepresentation.Count > 0 ; i++)
-        {
-            GameObject go = availablesTreesRepresentation[0].gameObject;
-            AkSoundEngine.PostEvent(forestAmbianceEvent, go, (uint)AkCallbackType.AK_EndOfEvent, UnregisterTree, null);
-            availablesTreesRepresentation.RemoveAt(0);
-        }
-
-    }
-
-    void UnregisterTree(object in_cookie, AkCallbackType in_type, object in_info)
-    {
-        if (in_type == AkCallbackType.AK_EndOfEvent)
-        {
-            AkCallbackManager.AkEventCallbackInfo info = (AkCallbackManager.AkEventCallbackInfo)in_info;
-
-
-            Debug.Log("tamère");
-           // info.
-        }
-
-    } */
-
 
 #if UNITY_EDITOR
         void OnDrawGizmos()
