@@ -63,7 +63,6 @@ namespace AI
             NavMeshHit hit;
             if(NavMesh.SamplePosition(transform.position, out hit, 10, ~0))
             {
-                Debug.Log("NavMeshHit:" + hit.mask);
                 AkSoundEngine.SetSwitch("Steps", "Grass", gameObject);
             }
 
@@ -89,6 +88,7 @@ namespace AI
 
                 //Poursuis le joueur repéré
                 case (int)ChasseurTask.Chase:
+                    SetDetect(CurrentTask.target);
                     if(MoveTo(CurrentTask.target.transform.position, shootingRange))
                     {
                         agent.ResetPath();
