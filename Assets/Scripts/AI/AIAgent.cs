@@ -122,11 +122,7 @@ namespace AI
 
         protected bool Look()
         {
-            if (!detecting)
-            {
-                AIAgentManager.addDetectData(CurrentTask.target, detect);
-                detecting = true;
-            }
+            SetDetect(CurrentTask.target);
             detect.detectRate = Mathf.Clamp(Mathf.Pow((CurrentTask.elapsed / detectTime) * (los.getSeeDistance()), 2)
                 / (CurrentTask.target.transform.position - transform.position).sqrMagnitude, 0, 1);
             Vector3 targetPosition = agent.transform.position;
@@ -153,6 +149,14 @@ namespace AI
             return false;
         }
 
+        protected void SetDetect(GameObject target)
+        {
+            if (!detecting)
+            {
+                AIAgentManager.addDetectData(target, detect);
+                detecting = true;
+            }
+        }
         protected void ResetDetect(GameObject target)
         {
             if (detecting)

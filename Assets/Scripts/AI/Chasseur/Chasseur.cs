@@ -88,6 +88,7 @@ namespace AI
 
                 //Poursuis le joueur repéré
                 case (int)ChasseurTask.Chase:
+                    SetDetect(CurrentTask.target);
                     if(MoveTo(CurrentTask.target.transform.position, shootingRange))
                     {
                         agent.ResetPath();
