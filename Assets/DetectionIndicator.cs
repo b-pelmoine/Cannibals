@@ -13,6 +13,8 @@ public class DetectionIndicator : MonoBehaviour {
     private List<MeshRenderer> arrowRenderer;
     private int arrowCounter;
 
+    private float prevHighest = 0f;
+
     [Header("Display Settings")]
     [Range(1.7f, 3f)]
     public float height;
@@ -29,6 +31,9 @@ public class DetectionIndicator : MonoBehaviour {
     public Color AggressiveHigh;
 
     void Start() {
+        AkSoundEngine.PostEvent("spotting", Camera.main.gameObject);
+        AkSoundEngine.SetRTPCValue("spotting", 0, Camera.main.gameObject);
+
         arrowCounter = 0;
         arrowPool = new List<GameObject>();
         arrowRenderer = new List<MeshRenderer>();
@@ -64,6 +69,12 @@ public class DetectionIndicator : MonoBehaviour {
                 if (data.detectRate > highestDetectionLevel) highestDetectionLevel = data.detectRate;
             }
         }
+        AkSoundEngine.SetRTPCValue("spotting", highestDetectionLevel ,Camera.main.gameObject);
+        if (highestDetectionLevel == 1 && prevHighest !=1)
+        {
+            AkSoundEngine.PostEvent("spotted", Camera.main.gameObject);
+        }
+        prevHighest = highestDetectionLevel;
         //disabled the unused ones
         for (int i = arrowCounter; i < arrowPool.Count; i++)
         {
