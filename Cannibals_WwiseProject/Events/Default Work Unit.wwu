@@ -546,17 +546,60 @@
 				</Event>
 				<Event Name="spotting" ID="{28AF7E62-9881-4745-878F-0A23D12B6D46}">
 					<ChildrenList>
-						<Action Name="Play" ID="{787759DF-2ABF-438F-8B9F-14C5C8F4161B}" ShortID="161485451" Type="Play" Scope="One" Global="false">
-							<ElementList>
-								<Element ID="{4AB431A0-8403-4408-AFC3-45E4180C43CB}" Global="false">
-									<ObjectRef Name="Glass loop" ID="{AB5B8815-8970-4DEF-9A3D-06BEE78FE634}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
-								</Element>
-							</ElementList>
-						</Action>
 						<Action Name="Play" ID="{02B004C5-98A0-4BAA-A325-92F693FCBDA3}" ShortID="631373820" Type="Play" Scope="One" Global="false">
 							<ElementList>
 								<Element ID="{BC32E7A9-4012-4115-A54F-7960A05C5374}" Global="false">
 									<ObjectRef Name="Noise loop" ID="{C0708DC9-335B-4528-9FD7-7B48F691BC52}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Play" ID="{DDDFC0D1-D1D2-4490-A031-159BDE9F5F85}" ShortID="699447693" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{0FD8105D-9103-40DC-A054-51B1FF4E9CED}" Global="false">
+									<ObjectRef Name="Hiii loop" ID="{1D499AD8-7057-4CB6-81FE-758A932BFC81}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="spotted" ID="{AFF5502C-B1F1-4C95-AD09-F05262417D0E}">
+					<ChildrenList>
+						<Action Name="Play" ID="{C92D26AC-239A-4B0E-8ED1-52607B2F0DCD}" ShortID="385320875" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{F9F6333C-6B50-43DB-AFF5-87DDDC8F3909}" Global="false">
+									<ObjectRef Name="Hit" ID="{E34B911F-0E86-4D34-A537-47CFE7DE236B}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Play" ID="{E61564BE-C1C4-4429-B34D-4EF306C70650}" ShortID="587059091" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{D1796DDC-F2EC-4B71-B25F-9A4C152FCE18}" Global="false">
+									<ObjectRef Name="hiii end" ID="{41587D90-DB66-41F5-9277-3E62C0161AC4}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Stop" ID="{217A12F4-46AB-4300-92F1-87FDC5C388FC}" ShortID="599502244" Type="Stop" Scope="One" Global="true">
+							<ElementList>
+								<Element ID="{28049DD6-17AE-40A9-BB58-B92694481575}" Global="true">
+									<ObjectRef Name="Hiii loop" ID="{1D499AD8-7057-4CB6-81FE-758A932BFC81}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Stop" ID="{5BD587E9-1E83-49DC-96B6-38ACDF7F1323}" ShortID="883414518" Type="Stop" Scope="One" Global="true">
+							<ElementList>
+								<Element ID="{9198E058-1D3E-4D83-8262-AF85B0F77E47}" Global="true">
+									<ObjectRef Name="Noise loop" ID="{C0708DC9-335B-4528-9FD7-7B48F691BC52}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="bush" ID="{AD45701B-B9B7-4F82-A9ED-3408AF57F1EC}">
+					<ChildrenList>
+						<Action Name="Play" ID="{B8D4ED3F-5063-497E-9625-4954F81DA7F7}" ShortID="310462061" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{277478C5-9E1D-40CA-ABA3-6AB738EC8EB1}" Global="false">
+									<ObjectRef Name="Bush" ID="{CE0B3D0A-7884-451E-B309-042A1913C63C}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
 								</Element>
 							</ElementList>
 						</Action>
