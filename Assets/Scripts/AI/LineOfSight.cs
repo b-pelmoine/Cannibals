@@ -9,6 +9,7 @@ public class LineOfSight : MonoBehaviour {
     public static RenderTexture texture;
     static Texture2D tex2D;
     static List<GameObject> detected_objects = new List<GameObject>();
+    static Dictionary<Collider, GameObject> colliders = new Dictionary<Collider, GameObject>();
     public List<GameObject> sighted;
     static List<int> detect_rate= new List<int>();
     bool updated = false;
@@ -75,6 +76,10 @@ public class LineOfSight : MonoBehaviour {
         foreach (Renderer rend in renderers)
             foreach(Material mat in rend.materials)
                 mat.SetColor("_LoSColor", new Color(detected_objects.Count / 255f, 0, 0));
+        List<Collider> colls = new List<Collider>();
+        obj.GetComponentsInChildren<Collider>(colls);
+        foreach (Collider col in colls)
+            colliders.Add(col, obj);
     }
 
     public static void Register(GameObject obj, MeshRenderer mesh, int detect = 30)
@@ -137,9 +142,9 @@ public class LineOfSight : MonoBehaviour {
         Collider[] cols = Physics.OverlapSphere(transform.position, radius);
         foreach(Collider c in cols)
         {
-            if (detected_objects.Contains(c.gameObject) || c.CompareTag("Player"))
+            if (colliders.ContainsKey(c))
             {
-                sighted.Add(c.gameObject);
+                sighted.Add(colliders[c]);
             }
         }
     }
