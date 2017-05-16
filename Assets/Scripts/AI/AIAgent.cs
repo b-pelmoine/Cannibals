@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 namespace AI
 {
-    public class AIAgent : MonoBehaviour, IKnifeKillable {
+    public class AIAgent : MonoBehaviour {
         public enum AIState
         {
             NORMAL,
@@ -127,6 +127,8 @@ namespace AI
                 AIAgentManager.addDetectData(CurrentTask.target, detect);
                 detecting = true;
             }
+            detect.detectRate = (CurrentTask.target.transform.position - transform.position).sqrMagnitude
+                / Mathf.Pow((CurrentTask.elapsed / detectTime) * (los.getSeeDistance()), 2);
             Vector3 targetPosition = agent.transform.position;
             targetPosition.y = agent.transform.position.y;
             agent.transform.LookAt(targetPosition);
@@ -173,27 +175,9 @@ namespace AI
             return state == AIState.DEAD;
         }
 
-        /// <summary>
-        /// Kill the agent
-        /// </summary>
-        public virtual void Kill()
+        public void Kill()
         {
-            throw new NotImplementedException();
-        }
 
-        public bool IsKnifeVulnerable()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void KnifeKill()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ShowKnifeIcon()
-        {
-            throw new NotImplementedException();
         }
     }
 }
