@@ -128,8 +128,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1292751834278326}
-  m_LocalRotation: {x: -0, y: 0.18498012, z: -0, w: 0.9827423}
-  m_LocalPosition: {x: -1.5223541, y: 0, z: 0.5242996}
+  m_LocalRotation: {x: -0, y: -0.44281, z: -0, w: 0.8966155}
+  m_LocalPosition: {x: 162.68, y: 3.09, z: 116.11}
   m_LocalScale: {x: 1.5812497, y: 1.58125, z: 1.5812497}
   m_Children:
   - {fileID: 4686297927441248}
@@ -260,7 +260,6 @@ MonoBehaviour:
   m_cannibalLayerMask:
     serializedVersion: 2
     m_Bits: 4096
-  m_cannibalInBush: []
 --- !u!114 &114459478096066694
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -305,11 +304,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _serializedBlackboard: '{"_variables":{"mesher":{"_value":1,"_name":"mesher","_id":"bb862b0a-df93-4bf6-97e0-476b6ee2003c","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Animator,
     UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"Leaves":{"_value":2,"_name":"Leaves","_id":"5e07524a-67d7-4025-9f9c-57e23ae3bf15","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.ParticleSystem,
+    UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"self":{"_value":3,"_name":"self","_id":"de8133e8-e7ac-41f7-85ba-3325705faa35","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
     UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
   _objectReferences:
   - {fileID: 0}
   - {fileID: 95591808244250056}
   - {fileID: 198631365212367738}
+  - {fileID: 1292751834278326}
 --- !u!198 &198631365212367738
 ParticleSystem:
   m_ObjectHideFlags: 1
