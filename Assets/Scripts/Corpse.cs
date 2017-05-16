@@ -26,6 +26,9 @@ public class Corpse : MonoBehaviour {
     [SerializeField]
     CharacterControllerExt characterControllerExt;
 
+    [SerializeField]
+    Vector3 cannibalTakeOffset = new Vector3(0, -1.5f, 0);
+
     void Awake()
     {
         characterControllerExt.enabled = false;
@@ -91,8 +94,8 @@ public class Corpse : MonoBehaviour {
             else
                 cannibals[0].m_cannibalSkill.pointOnCorpse = rightPoint;
 
-            cannibals[0].m_cannibalMovement.CharacterControllerEx.CharacterTransform.position = m_transform.TransformPoint(cannibals[0].m_cannibalSkill.pointOnCorpse);
-            cannibal.m_cannibalMovement.CharacterControllerEx.CharacterTransform.position = m_transform.TransformPoint(cannibal.m_cannibalSkill.pointOnCorpse);
+            cannibals[0].m_cannibalMovement.CharacterControllerEx.CharacterTransform.position = m_transform.TransformPoint(cannibals[0].m_cannibalSkill.pointOnCorpse) + cannibalTakeOffset;
+            cannibal.m_cannibalMovement.CharacterControllerEx.CharacterTransform.position = m_transform.TransformPoint(cannibal.m_cannibalSkill.pointOnCorpse) + cannibalTakeOffset;
 
             cannibals[0].m_cannibalSkill.corpseJoint.connectedBody = this.m_rigidbody;
             cannibals[0].m_cannibalSkill.corpseJoint.connectedAnchor = cannibals[0].m_cannibalSkill.pointOnCorpse;
@@ -111,7 +114,7 @@ public class Corpse : MonoBehaviour {
         if (cannibals.Count == 1)
         {
             cannibals[0].m_cannibalSkill.pointOnCorpse = centerPoint;
-            cannibals[0].m_cannibalMovement.CharacterControllerEx.CharacterTransform.position = m_transform.TransformPoint(centerPoint);
+            cannibals[0].m_cannibalMovement.CharacterControllerEx.CharacterTransform.position = m_transform.TransformPoint(centerPoint) + cannibalTakeOffset;
             cannibals[0].m_cannibalSkill.corpseJoint.connectedBody = null;
         }
         else if (cannibals.Count == 0)
