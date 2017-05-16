@@ -114,6 +114,7 @@ namespace AI
                     if(CurrentTask.count==0 && MoveTo(CurrentTask.target.transform.position, 3))
                     {
                         animator.Play("IdleToEat");
+                        AkSoundEngine.PostEvent("dog_eat", gameObject);
                         CurrentTask.count = 1;
                         CurrentTask.elapsed = 0;
                     }

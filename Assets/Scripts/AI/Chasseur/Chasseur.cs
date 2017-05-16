@@ -25,7 +25,7 @@ namespace AI
 
         public Waypoint patrouille;
         public float stunTime = 10;
-
+        
         enum ChasseurTask
         {
             Normal,
@@ -60,11 +60,12 @@ namespace AI
             }
 
             //Check the navmesh for footsteps
-            /*NavMeshHit hit;
+            NavMeshHit hit;
             if(NavMesh.SamplePosition(transform.position, out hit, 10, ~0))
             {
                 Debug.Log("NavMeshHit:" + hit.mask);
-            }*/
+                AkSoundEngine.SetSwitch("Steps", "Grass", gameObject);
+            }
 
 
             AnalyseSight();
@@ -165,6 +166,7 @@ namespace AI
                     {
                         CurrentTask.target.gameObject.SetActive(false);
                         animator.Play("IdleToKo");
+                        AkSoundEngine.PostEvent("hunter_objects", gameObject);
                         tasks.Pop();
                         tasks.Push(new Task((int)ChasseurTask.Etourdi));
                     }
@@ -280,6 +282,11 @@ namespace AI
                     }
                 }
             }
+        }
+
+        void FootSteps()
+        {
+            AkSoundEngine.PostEvent("hunter_steps", gameObject);
         }
         
     }
