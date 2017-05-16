@@ -156,7 +156,7 @@ namespace AI
                 else
                 {
                     Bush buisson = obj.GetComponent<Bush>();
-                    if(buisson != null && buisson.IsMoving())
+                    if(CurrentTask.id == (int)DogTask.WanderInFront && buisson != null && buisson.IsMoving())
                     {
                         ResetDetect(CurrentTask.target);
                         tasks.Push(new Task((int)DogTask.ChaseAndBark, obj));
