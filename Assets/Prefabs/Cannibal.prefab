@@ -228,6 +228,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4070672457990026}
+  - component: {fileID: 54902361184343958}
+  - component: {fileID: 153580924442508768}
   m_Layer: 0
   m_Name: Object
   m_TagString: Untagged
@@ -258,8 +260,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4430317694471516}
-  - component: {fileID: 54702352569806900}
-  - component: {fileID: 153605813145622008}
   m_Layer: 0
   m_Name: Object-nub
   m_TagString: Untagged
@@ -1900,27 +1900,27 @@ Transform:
   m_Father: {fileID: 4558643250429214}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 65.91763, y: -127.434586, z: -42.697083}
---- !u!54 &54702352569806900
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1200775217158242}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!54 &54834919276491144
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1419312899644530}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!54 &54902361184343958
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1187145618831140}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -2099,9 +2099,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_cannibal: {fileID: 114493353351655670}
-  cannibalObjectParent: {fileID: 4430317694471516}
+  cannibalObjectParent: {fileID: 4070672457990026}
   maxDistanceToCorpsePoint: 1.5
-  corpseJoint: {fileID: 153605813145622008}
+  corpseJoint: {fileID: 153580924442508768}
   pointOnCorpse: {x: 0, y: 0, z: 0}
 --- !u!114 &114493353351655670
 MonoBehaviour:
@@ -2369,12 +2369,12 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.089411855, y: -0.007494539, z: 0.04645104}
     m_Extent: {x: 0.8549998, y: 0.41804937, z: 0.18773532}
   m_DirtyAABB: 0
---- !u!153 &153605813145622008
+--- !u!153 &153580924442508768
 ConfigurableJoint:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1200775217158242}
+  m_GameObject: {fileID: 1187145618831140}
   m_ConnectedBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}

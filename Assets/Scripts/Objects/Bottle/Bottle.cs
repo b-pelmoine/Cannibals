@@ -26,12 +26,14 @@ public class Bottle : CannibalObject, IShakable {
         m_rigidbody.isKinematic = true;
         m_rigidbody.velocity = Vector3.zero;
         m_rigidbody.angularVelocity = Vector3.zero;
+        m_collider.isTrigger = true;
     }
 
     public override void Release()
     {
         base.Release();
         m_rigidbody.isKinematic = true;
+        m_collider.isTrigger = false;
     }
 
 }
