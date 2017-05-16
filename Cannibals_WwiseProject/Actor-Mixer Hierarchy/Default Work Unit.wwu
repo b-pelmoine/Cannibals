@@ -32469,13 +32469,13 @@
 									<PropertyList>
 										<Property Name="Pitch" Type="int32">
 											<RTPCList>
-												<RTPC Name="" ID="{E758B050-E299-485E-AAD1-32B951F89D55}" ShortID="666170996">
+												<RTPC Name="" ID="{C069B057-CE00-4F55-AE3D-28FDAE38ACE8}" ShortID="884790293">
 													<ReferenceList>
 														<Reference Name="ControlInput">
 															<ObjectRef Name="spotted" ID="{51998773-E63C-4082-A0F6-108CB4439A16}" WorkUnitID="{310A2652-B3EA-4EA2-8156-BCC60ACF3B8D}"/>
 														</Reference>
 													</ReferenceList>
-													<Curve Name="" ID="{ED9A0233-DB36-4276-A2AE-366445FAD2E5}">
+													<Curve Name="" ID="{5A04EB27-D1FA-4BE8-89F6-34648030A16F}">
 														<PropertyList>
 															<Property Name="Flags" Type="int32" Value="65537"/>
 														</PropertyList>
@@ -32486,7 +32486,7 @@
 																<Flags>5</Flags>
 															</Point>
 															<Point>
-																<XPos>0.499478623566215</XPos>
+																<XPos>0.498435870698644</XPos>
 																<YPos>0</YPos>
 																<Flags>0</Flags>
 															</Point>
@@ -32508,13 +32508,13 @@
 										<Property Name="RandomOrSequence" Type="int16" Value="0"/>
 										<Property Name="Volume" Type="Real64">
 											<RTPCList>
-												<RTPC Name="" ID="{FC0350E7-E289-44B7-9B49-E9CD9E40C36D}" ShortID="863095762">
+												<RTPC Name="" ID="{251B4C0E-7775-4192-9C1A-32AA7088C041}" ShortID="1058841301">
 													<ReferenceList>
 														<Reference Name="ControlInput">
 															<ObjectRef Name="spotted" ID="{51998773-E63C-4082-A0F6-108CB4439A16}" WorkUnitID="{310A2652-B3EA-4EA2-8156-BCC60ACF3B8D}"/>
 														</Reference>
 													</ReferenceList>
-													<Curve Name="" ID="{D1B48505-4BC7-4FD4-BAAC-738418EE22B1}">
+													<Curve Name="" ID="{CD83688B-BE04-4EE0-8468-0E36B7158C61}">
 														<PropertyList>
 															<Property Name="Flags" Type="int32" Value="3"/>
 														</PropertyList>
@@ -32545,6 +32545,69 @@
 									</ReferenceList>
 									<ChildrenList>
 										<Sound Name="hiii" ID="{9AE731EF-D407-4714-B895-368603C6A262}" ShortID="502180438" Type="SoundFX">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<RTPCList>
+														<RTPC Name="" ID="{4B980783-94B9-4998-9D51-4CCEEB8C239B}" ShortID="99975248">
+															<ReferenceList>
+																<Reference Name="ControlInput">
+																	<ObjectRef Name="spotted" ID="{51998773-E63C-4082-A0F6-108CB4439A16}" WorkUnitID="{310A2652-B3EA-4EA2-8156-BCC60ACF3B8D}"/>
+																</Reference>
+															</ReferenceList>
+															<Curve Name="" ID="{E11C40D7-CF1F-46E3-8422-0BD50602B3C2}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="65537"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>0</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>0.498435870698644</XPos>
+																		<YPos>0</YPos>
+																		<Flags>0</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>1</XPos>
+																		<YPos>225</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</RTPC>
+													</RTPCList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<RTPCList>
+														<RTPC Name="" ID="{CB3A865F-20AD-4326-8CE2-0AB7058AFD20}" ShortID="459166786">
+															<ReferenceList>
+																<Reference Name="ControlInput">
+																	<ObjectRef Name="spotted" ID="{51998773-E63C-4082-A0F6-108CB4439A16}" WorkUnitID="{310A2652-B3EA-4EA2-8156-BCC60ACF3B8D}"/>
+																</Reference>
+															</ReferenceList>
+															<Curve Name="" ID="{BDA08ABF-B8D5-45DF-BF16-9D9D3CF637F5}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="3"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>-200</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>1</XPos>
+																		<YPos>0</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</RTPC>
+													</RTPCList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
@@ -32564,6 +32627,69 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="hii loop" ID="{15EB503C-F0BA-48F1-83C5-654361BF618D}" ShortID="122721759" Type="SoundFX">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<RTPCList>
+														<RTPC Name="" ID="{8D930A13-44FE-4136-900F-34652C742589}" ShortID="535192612">
+															<ReferenceList>
+																<Reference Name="ControlInput">
+																	<ObjectRef Name="spotted" ID="{51998773-E63C-4082-A0F6-108CB4439A16}" WorkUnitID="{310A2652-B3EA-4EA2-8156-BCC60ACF3B8D}"/>
+																</Reference>
+															</ReferenceList>
+															<Curve Name="" ID="{0231B3AF-930D-45EC-96F6-17FE98374365}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="65537"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>0</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>0.499478623566215</XPos>
+																		<YPos>0</YPos>
+																		<Flags>0</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>1</XPos>
+																		<YPos>225</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</RTPC>
+													</RTPCList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<RTPCList>
+														<RTPC Name="" ID="{C49DB116-E2D3-4DB4-ADA5-9EF6F003B734}" ShortID="328113818">
+															<ReferenceList>
+																<Reference Name="ControlInput">
+																	<ObjectRef Name="spotted" ID="{51998773-E63C-4082-A0F6-108CB4439A16}" WorkUnitID="{310A2652-B3EA-4EA2-8156-BCC60ACF3B8D}"/>
+																</Reference>
+															</ReferenceList>
+															<Curve Name="" ID="{95C19AE8-A72D-4B31-AE76-ECB7A716D9B1}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="3"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>-200</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>1</XPos>
+																		<YPos>0</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</RTPC>
+													</RTPCList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
