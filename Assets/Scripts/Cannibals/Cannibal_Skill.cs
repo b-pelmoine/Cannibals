@@ -17,16 +17,20 @@ public class Cannibal_Skill : MonoBehaviour {
     [SerializeField]
     Transform cannibalObjectParent;
 
+    [SerializeField]
+    float maxDistanceToCorpsePoint = 1.5f;
+
     public Joint corpseJoint;
     public Vector3 pointOnCorpse;
 
+
     private void LateUpdate()
     {
-        if (m_corpse != null && Vector3.Distance(corpseJoint.transform.position, m_cannibal.m_cannibalSkill.pointOnCorpse + m_corpse.m_transform.position) > 2f)
+        if (m_corpse != null && Vector3.Distance(corpseJoint.transform.position, m_corpse.m_transform.TransformPoint( m_cannibal.m_cannibalSkill.pointOnCorpse)) > maxDistanceToCorpsePoint)
         {
                 m_cannibal.m_cannibalMovement.CharacterControllerEx.CharacterTransform.position = m_cannibal.m_cannibalMovement.CharacterControllerEx.CharacterTransform.position - (corpseJoint.transform.position -
                                                                                                   Vector3.Lerp(corpseJoint.transform.position,
-                                                                                                            m_cannibal.m_cannibalSkill.pointOnCorpse + m_corpse.m_transform.position,
+                                                                                                             m_corpse.m_transform.TransformPoint(m_cannibal.m_cannibalSkill.pointOnCorpse),
                                                                                                              0.1f) );
         }
 
