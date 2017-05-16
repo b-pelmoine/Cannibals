@@ -72,6 +72,7 @@ namespace AI
                         {
                             CurrentTask.elapsed = 0;
                             CurrentTask.count++;
+                            AkSoundEngine.PostEvent("dog_idle", gameObject);
                         }
                     }
                     else
