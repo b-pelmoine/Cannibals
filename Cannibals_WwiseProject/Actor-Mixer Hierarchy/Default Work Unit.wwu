@@ -32501,6 +32501,7 @@
 											</RTPCList>
 										</Property>
 										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+										<Property Name="PlayMechanismResetPlaylistEachPlay" Type="bool" Value="False"/>
 										<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="4"/>
 										<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="2"/>
@@ -32628,6 +32629,7 @@
 										</Sound>
 										<Sound Name="hii loop" ID="{15EB503C-F0BA-48F1-83C5-654361BF618D}" ShortID="122721759" Type="SoundFX">
 											<PropertyList>
+												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 												<Property Name="Pitch" Type="int32">
 													<RTPCList>
 														<RTPC Name="" ID="{8D930A13-44FE-4136-900F-34652C742589}" ShortID="535192612">
