@@ -40,6 +40,7 @@ namespace AI
         private bool detecting = false;
 
         public float detectTime = 3;
+        protected int navMeshMask = 0;
 
         protected void Start()
         {

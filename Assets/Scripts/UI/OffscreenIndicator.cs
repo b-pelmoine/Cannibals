@@ -122,8 +122,24 @@ public class OffscreenIndicator : MonoBehaviour {
         //remove newly discovered from old list
         foreach (RawGO RawgameObject in oldAgents) { if (instanceID == RawgameObject.go.GetInstanceID()) { oldAgents.Remove(RawgameObject); break; } }
         AIAgents.Add(new RawGO(go, type));
+        playDiscoverSound(type);
         lastAIID = AIAgents[AIAgents.Count - 1].go.GetInstanceID();
         elapsedLastPop = 0f;
+    }
+
+    private void playDiscoverSound(AIType type)
+    {
+        string typeStr = "";
+        switch (type)
+        {
+            case AIType.Hunter: typeStr = "Hunter";break;
+            case AIType.Dog: typeStr = "Dog"; break;
+            case AIType.Scout: typeStr = "Scout"; break;
+            case AIType.Runner: typeStr = "Jogger"; break;
+            case AIType.Target_Alive: typeStr = "Granny"; break;
+        }
+        AkSoundEngine.SetSwitch("Characters", typeStr, Camera.main.gameObject);
+        AkSoundEngine.PostEvent("sense_spotted", Camera.main.gameObject);
     }
 
     public void triggerAgentIndicator(bool state)

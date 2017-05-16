@@ -47,14 +47,12 @@ public class ScanTerrain : MonoBehaviour
         {
             if (activeUsers == 1 && prev_ActiveUsers == 0)
             {
-                Debug.Log("1");
                 AkSoundEngine.PostEvent("sense_layer1", ScannerOrigin.gameObject);
             }
             else
             {
                 if (activeUsers == 2)
                 {
-                    Debug.Log("2");
                     AkSoundEngine.PostEvent("sense_layer2", ScannerOrigin.gameObject);
                 }
                 else
