@@ -18,6 +18,8 @@ public class DetectionIndicator : MonoBehaviour {
     public float height;
     [Range(0.5f, 5f)]
     public float width;
+    [Range(0.5f, 3f)]
+    public float scaleModifier;
     public GameObject ArrowPrefab;
     //color of not offensive AI
     public Color BasicLow;
@@ -51,6 +53,7 @@ public class DetectionIndicator : MonoBehaviour {
     {
         arrowCounter = 0;
         //loop through all players
+        float highestDetectionLevel = 0;
         for (int i = 0; i < trackers.Count; i++)
         {
             trackers[i] = AIAgentManager.getDetectData(playerTransforms[i].gameObject);
@@ -58,6 +61,7 @@ public class DetectionIndicator : MonoBehaviour {
             {
                 //update arrow
                 placeArrowFromDataAtPosition(data, playerTransforms[i]);
+                if (data.detectRate > highestDetectionLevel) highestDetectionLevel = data.detectRate;
             }
         }
         //disabled the unused ones
@@ -75,6 +79,8 @@ public class DetectionIndicator : MonoBehaviour {
         arrow.transform.position = transform.position + Vector3.up * height;
         Vector3 agentPos = data.agent.transform.position;
         agentPos.y = arrow.transform.position.y;
+        arrow.transform.localScale = (data.detectRate == 1) ? Vector3.one *2 : Vector3.one * data.detectRate + Vector3.forward * data.detectRate;
+        arrow.transform.localScale *= scaleModifier;
         arrow.transform.LookAt(agentPos);
         arrow.transform.position += arrow.transform.forward.normalized * width;
         //set its color
