@@ -43,15 +43,15 @@ namespace NodeCanvas.BehaviourTrees{
 		[SerializeField]
 		public float updateInterval = 0;
 		
-		///This event is called when the root status of the behaviour is changed
-		public event System.Action<BehaviourTree, Status> onRootStatusChanged;
+		///This event is called when the root status of a behaviour is changed
+		public static event System.Action<BehaviourTree, Status> onRootStatusChanged;
 
 		private float intervalCounter = 0;
 		private Status _rootStatus = Status.Resting;
 
 		///The last status of the root
 		public Status rootStatus{
-			get{return _rootStatus;}
+			get {return _rootStatus;}
 			private set
 			{
 				if (_rootStatus != value){

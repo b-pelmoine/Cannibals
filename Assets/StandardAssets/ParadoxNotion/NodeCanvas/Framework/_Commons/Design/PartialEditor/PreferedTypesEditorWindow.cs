@@ -33,9 +33,7 @@ namespace ParadoxNotion.Design{
 
 		void OnGUI(){
 			
-			EditorGUILayout.HelpBox("Here you can specify frequently used types for your game for easier access wherever you need to select a type, like for example when you create a new blackboard variable or using any refelection based actions. Furthermore, it is essential when working with AOT platforms like iOS or WebGL, that you generate an AOT Classes and link.xml files with the relevant button bellow.\nTo add types in the list quicker, you can also Drag&Drop an object, or a Script file in this editor window, or seach it bellow.", MessageType.Info);
-
-
+			EditorGUILayout.HelpBox("Here you can specify frequently used types for your project and for easier access wherever you need to select a type, like for example when you create a new blackboard variable or using any refelection based actions. Furthermore, it is essential when working with AOT platforms like iOS or WebGL, that you generate an AOT Classes and link.xml files with the relevant button bellow.\nTo add types in the list quicker, you can also Drag&Drop an object, or a Script file in this editor window, or seach the type bellow.", MessageType.Info);
 
 			GUILayout.BeginHorizontal();
 			search = EditorGUILayout.TextField(search, (GUIStyle)"ToolbarSeachTextField");
@@ -156,7 +154,11 @@ namespace ParadoxNotion.Design{
 
 			for (int i = 0; i < typeList.Count; i++){
 				GUILayout.BeginHorizontal("box");
-				EditorGUILayout.LabelField(typeList[i].Name, typeList[i].Namespace);
+				if (typeList[i] == null){
+					EditorGUILayout.LabelField("Missing Type", "--");
+				} else {
+					EditorGUILayout.LabelField(typeList[i].Name, typeList[i].Namespace);
+				}
 				if (GUILayout.Button("X", GUILayout.Width(18))){
 					RemoveType(typeList[i]);
 				}

@@ -39,31 +39,35 @@ namespace NodeCanvas.BehaviourTrees{
 
 		protected override Status OnExecute(Component agent, IBlackboard blackboard){
 
-			if (outConnections.Count == 0)
+			if (outConnections.Count == 0){
 				return Status.Failure;
+			}
 
 			if (selectionMode == CaseSelectionMode.IndexBased){
 
 				current = intCase.value;
-				if (outOfRangeMode == OutOfRangeMode.LoopIndex)
+				if (outOfRangeMode == OutOfRangeMode.LoopIndex){
 					current = Mathf.Abs(current) % outConnections.Count;
+				}
 
 			} else {
 
-				//current = (int)System.Enum.Parse(enumCase.value.GetType(), enumCase.value.ToString());
 				current = (int)enumCase.value;
 			}
 
-			if (runningIndex != current)
+			if (runningIndex != current){
 				outConnections[runningIndex].Reset();
+			}
 
-			if (current < 0 || current >= outConnections.Count)
+			if (current < 0 || current >= outConnections.Count){
 				return Status.Failure;
+			}
 
 			status = outConnections[current].Execute(agent, blackboard);
 
-			if (status == Status.Running)
+			if (status == Status.Running){
 				runningIndex = current;
+			}
 
 			return status;
 		}
@@ -75,11 +79,13 @@ namespace NodeCanvas.BehaviourTrees{
 
 		public override string GetConnectionInfo(int i){
 			if (selectionMode == CaseSelectionMode.EnumBased){
-				if (enumCase.value == null)
+				if (enumCase.value == null){
 					return "*Null Enum*";
+				}
 				var enumNames = System.Enum.GetNames(enumCase.value.GetType());
-				if (i >= enumNames.Length)
+				if (i >= enumNames.Length){
 					return "*Never*";
+				}
 				return enumNames[i];
 			}
 			return i.ToString();

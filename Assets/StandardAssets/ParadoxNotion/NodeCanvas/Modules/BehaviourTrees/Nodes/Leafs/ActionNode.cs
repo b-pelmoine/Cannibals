@@ -6,7 +6,7 @@ using UnityEngine;
 namespace NodeCanvas.BehaviourTrees{
 
 	[Name("Action")]
-	[Description("Executes an action and returns Success or Failure. Returns Running until the action is finished")]
+	[Description("Executes an action and returns Success or Failure.\nReturns Running until the action is finished.")]
 	[Icon("Action")]
 	public class ActionNode : BTNode, ITaskAssignable<ActionTask>{
 

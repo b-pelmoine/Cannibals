@@ -5,11 +5,15 @@ using UnityEngine;
 
 namespace NodeCanvas.DialogueTrees{
 
+	[Icon("Dialogue", IconAttribute.Mode.AppendToTitle)]
 	[Name("Say")]
 	[Description("Make the selected Dialogue Actor talk. You can make the text more dynamic by using variable names in square brackets\ne.g. [myVarName] or [Global/myVarName]")]
 	public class StatementNode : DTNode{
 
-		public Statement statement = new Statement("This is a dialogue text");
+		[SerializeField]
+		private Statement statement = new Statement("This is a dialogue text");
+
+		public override bool requireActorSelection{ get {return true;} }
 
 		protected override Status OnExecute(Component agent, IBlackboard bb){
 			var tempStatement = statement.BlackboardReplace(bb);
@@ -28,7 +32,7 @@ namespace NodeCanvas.DialogueTrees{
 		#if UNITY_EDITOR
 		
 		protected override void OnNodeGUI(){
-			var displayText = statement.text.Length > 60? statement.text.Substring(0, 60) + "..." : statement.text;
+			var displayText = statement.text.Length > 30? statement.text.Substring(0, 30) + "..." : statement.text;
 			GUILayout.Label("\"<i> " + displayText + "</i> \"");
 		}
 

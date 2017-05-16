@@ -69,13 +69,7 @@ public class Cannibal : MonoBehaviour {
 
     ICannibal_State CurrentState()
     {
-        FSMState currentSate = m_stateMachine.behaviour.currentState;
-
-        while (currentSate is NestedFSMState)
-        {
-            currentSate = ((NestedFSMState)currentSate).nestedFSM.currentState;
-        }
-
+        IState currentSate = m_stateMachine.GetCurrentState(true);
         return (ICannibal_State)currentSate;
     }
 }

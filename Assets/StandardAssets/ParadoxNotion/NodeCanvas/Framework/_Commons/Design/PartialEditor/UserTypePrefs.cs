@@ -8,6 +8,10 @@ using System;
 using System.Reflection;
 using System.Collections;
 
+#if UNITY_5_5_OR_NEWER
+using NavMesh = UnityEngine.AI.NavMesh;
+using NavMeshAgent = UnityEngine.AI.NavMeshAgent;
+#endif
 
 namespace ParadoxNotion.Design{
 
@@ -17,6 +21,7 @@ namespace ParadoxNotion.Design{
     public static class UserTypePrefs {
 
 		private static List<Type> _preferedTypes;
+		private static string typesPrefsKey = string.Format("ParadoxNotion.{0}.PreferedTypes", PlayerSettings.productName);
 
 
 		//The default prefered types list to be shown wherever a type is important
@@ -26,9 +31,9 @@ namespace ParadoxNotion.Design{
 				var typeList = new List<Type>{
 
 					typeof(object),
+					typeof(System.Type),
 
 					//Primitives
-					typeof(System.Type),
 					typeof(string),
 					typeof(float),
 					typeof(int),
@@ -50,7 +55,7 @@ namespace ParadoxNotion.Design{
 					typeof(Physics),
 					typeof(Physics2D),
 					typeof(Input),
-					typeof(UnityEngine.AI.NavMesh),
+					typeof(NavMesh),
 					typeof(PlayerPrefs),
 					typeof(UnityEngine.Random),
 					typeof(Time),
@@ -65,7 +70,7 @@ namespace ParadoxNotion.Design{
 					typeof(Rigidbody2D),
 					typeof(Collider),
 					typeof(Collider2D),
-					typeof(UnityEngine.AI.NavMeshAgent),
+					typeof(NavMeshAgent),
 					typeof(CharacterController),
 					typeof(AudioSource),
 					typeof(Camera),
@@ -94,18 +99,19 @@ namespace ParadoxNotion.Design{
 			typeof(Physics),
 			typeof(Physics2D),
 			typeof(Input),
-			typeof(UnityEngine.AI.NavMesh),
+			typeof(NavMesh),
 			typeof(PlayerPrefs),
 			typeof(UnityEngine.Random),
 			typeof(Time)
 		};
+
 
 		/// Get the prefered types set by the user.
 		public static List<Type> GetPreferedTypesList(Type baseType, bool filterOutFunctionalOnlyTypes = false){
 
 			if (_preferedTypes == null){
 				_preferedTypes = new List<Type>();
-				foreach(var s in EditorPrefs.GetString("ParadoxNotion.PreferedTypes", defaultPreferedTypesList).Split('|')){
+				foreach(var s in EditorPrefs.GetString(typesPrefsKey, defaultPreferedTypesList).Split('|')){
 					var resolvedType = ReflectionTools.GetType(s, /*fallback?*/ true);
 					if (resolvedType != null){
 						_preferedTypes.Add( resolvedType );
@@ -127,13 +133,13 @@ namespace ParadoxNotion.Design{
 		///Set the prefered types list for the user
 		public static void SetPreferedTypesList(List<Type> types){
 			var joined = string.Join("|", types.Where(t => t != null).Select(t => t.FullName).ToArray() );
-			EditorPrefs.SetString("ParadoxNotion.PreferedTypes", joined);
+			EditorPrefs.SetString(typesPrefsKey, joined);
 			_preferedTypes = types;
 		}
 
 		///Reset the prefered types to the default ones
 		public static void ResetTypeConfiguration(){
-			EditorPrefs.SetString("ParadoxNotion.PreferedTypes", defaultPreferedTypesList);
+			EditorPrefs.SetString(typesPrefsKey, defaultPreferedTypesList);
 			_preferedTypes = null;
 		}
 
@@ -164,25 +170,29 @@ namespace ParadoxNotion.Design{
 		///Get the color preference for a type
 		public static Color GetTypeColor(Type type){
 			
-			if (!EditorGUIUtility.isProSkin)
+			if (!EditorGUIUtility.isProSkin){
 				return Color.white;
+			}
 			
-			if (type == null)
+			if (type == null){
 				return Color.red;
+			}
 			
-			if (typeColors.ContainsKey(type))
+			if (typeColors.ContainsKey(type)){
 				return typeColors[type];
+			}
 
 			foreach (var pair in typeColors){
 				
-				if (pair.Key.IsAssignableFrom(type))
+				if (pair.Key.IsAssignableFrom(type)){
 					return typeColors[type] = pair.Value;
+				}
 				
 				if (typeof(IEnumerable).IsAssignableFrom(type)){
-					if (type.IsGenericType)
-						return typeColors[type] = GetTypeColor( type.GetGenericArguments()[0] );
-					if (type.IsArray)
-						return typeColors[type] = GetTypeColor( type.GetElementType() );
+					var argType = type.GetEnumerableElementType();
+					if (argType != null){
+						return typeColors[type] = GetTypeColor(argType);
+					}
 				}
 			}
 			
@@ -198,7 +208,7 @@ namespace ParadoxNotion.Design{
 		}
 
 		static string ColorToHex(Color32 color){
-			return ("#" + color.r.ToString("X2") + color.g.ToString("X2") + color.b.ToString("X2")).ToLower();
+			return ("#" + color.r.ToString("X2") + color.g.ToString("X2") + color.b.ToString("X2")).ToUpper();
 		}
 		 
 		static Color HexToColor(string hex){

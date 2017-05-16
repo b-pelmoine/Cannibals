@@ -29,17 +29,17 @@ namespace ParadoxNotion{
 			return string.Empty;
 		}
 
-		public static float Operate(float a, float b, OperationMethod om){
+		public static float Operate(float a, float b, OperationMethod om, float delta = 1f ){
 			if (om == OperationMethod.Set)
 				return b;
 			if (om == OperationMethod.Add)
-				return a + b;
+				return a + (b * delta);
 			if (om == OperationMethod.Subtract)
-				return a - b;
+				return a - (b * delta);
 			if (om == OperationMethod.Multiply)
-				return a * b;
+				return a * (b * delta);
 			if (om == OperationMethod.Divide)
-				return a / b;
+				return a / (b * delta);
 			return a;
 		}
 

@@ -81,7 +81,7 @@ namespace NodeCanvas.Editor{
 
 
 				menu.AddSeparator("/");
-				menu.AddItem(new GUIContent("Add Header Separator"), false, ()=>{ AddNewVariable(typeof(VariableSeperator)); } );
+				menu.AddItem(new GUIContent("Add Header Separator"), false, ()=>{ bb.AddVariable("Separator (Double Click To Rename)", new VariableSeperator()); });
 
 				menu.ShowAsContext();
 				e.Use();
@@ -154,16 +154,21 @@ namespace NodeCanvas.Editor{
 
 						GUI.enabled = !data.isProtected;
 						if (data.varType != typeof(VariableSeperator)){
-							data.name = EditorGUILayout.TextField(data.name, layoutOptions);
+							data.name = EditorGUILayout.DelayedTextField(data.name, layoutOptions);
+							// data.name = EditorGUILayout.TextField(data.name, layoutOptions);
 							EditorGUI.indentLevel = 0;
 
 						} else {
 
 							var separator = (VariableSeperator)data.value;
+							if (separator == null){
+								separator = new VariableSeperator();
+							}
 
 							GUI.color = Color.yellow;
 							if (separator.isEditingName){
-								data.name = EditorGUILayout.TextField(data.name, layoutOptions);
+								data.name = EditorGUILayout.DelayedTextField(data.name, layoutOptions);
+								// data.name = EditorGUILayout.TextField(data.name, layoutOptions);
 							} else {
 								GUILayout.Label(string.Format("<b>{0}</b>", data.name).ToUpper(), layoutOptions);
 							}
@@ -235,6 +240,9 @@ namespace NodeCanvas.Editor{
 					GUILayout.Box("", GUILayout.Width(6));
 					GUILayout.Label(data.name, layoutOptions);
 					GUILayout.Label(string.Format("<color=#ff6457>* {0} *</color>", internalTypeName), layoutOptions);
+					if (!Application.isPlaying && GUILayout.Button("x", GUILayout.Width(17), GUILayout.Height(16))){
+						tempStates[bb].list.Remove(data);
+					}
 				}
 
 				//reset coloring
@@ -356,6 +364,8 @@ namespace NodeCanvas.Editor{
 
 				var menu = new GenericMenu();
 
+				menu.AddDisabledItem( new GUIContent( string.Format("Type: {0}", data.varType.FriendlyName() ) ) );
+
 				if (bb.propertiesBindTarget != null){
 					foreach (var comp in bb.propertiesBindTarget.GetComponents(typeof(Component)).Where(c => c.hideFlags != HideFlags.HideInInspector) ){
 						menu = EditorUtils.GetPropertySelectionMenu(comp.GetType(), data.varType, SelectProp, false, false, menu, "Bind (Self)/Property");
@@ -406,7 +416,7 @@ namespace NodeCanvas.Editor{
 
 		    //Check Type second
 			if (t == typeof(System.Type)){
-				return EditorUtils.Popup<System.Type>(null, (System.Type)o, UserTypePrefs.GetPreferedTypesList(typeof(object), true), layoutOptions );
+				return EditorUtils.Popup<System.Type>("", (System.Type)o, UserTypePrefs.GetPreferedTypesList(typeof(object), true), layoutOptions );
 			}
 
 			t = o != null? o.GetType() : t;
@@ -481,7 +491,7 @@ namespace NodeCanvas.Editor{
 			}
 
 			if (t == typeof(LayerMask)){
-				return EditorUtils.LayerMaskField(null, (LayerMask)o, layoutOptions);
+				return EditorUtils.LayerMaskField("", (LayerMask)o, layoutOptions);
 			}
 
 

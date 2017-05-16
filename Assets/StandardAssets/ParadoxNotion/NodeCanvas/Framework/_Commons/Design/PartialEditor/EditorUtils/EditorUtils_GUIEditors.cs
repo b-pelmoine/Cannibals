@@ -18,24 +18,26 @@ namespace ParadoxNotion.Design{
 
         private static readonly Dictionary<object, bool> registeredEditorFoldouts = new Dictionary<object, bool>();
 
-		private static List<int> layerNumbers = new List<int>();
-		public static LayerMask LayerMaskField(string prefix, LayerMask layerMask, params GUILayoutOption[] layoutOptions){
+        public static LayerMask LayerMaskField(string prefix, LayerMask layerMask, params GUILayoutOption[] layoutOptions){
+        	return LayerMaskField( string.IsNullOrEmpty(prefix)? GUIContent.none : new GUIContent(prefix), layerMask, layoutOptions );
+        }
+		public static LayerMask LayerMaskField(GUIContent content, LayerMask layerMask, params GUILayoutOption[] layoutOptions){
 		    var layers = UnityEditorInternal.InternalEditorUtility.layers;
-		    layerNumbers.Clear();
+		    var layerNumbers = new List<int>();
 		 
-		    for (int i = 0; i < layers.Length; i++)
-		        layerNumbers.Add(LayerMask.NameToLayer(layers[i]));
+		    for (int i = 0; i < layers.Length; i++){
+				layerNumbers.Add(LayerMask.NameToLayer(layers[i]));
+			}
 		 
-		     var maskWithoutEmpty = 0;
-		     for (int i = 0; i < layerNumbers.Count; i++) {
-		        if (((1 << layerNumbers[i]) & layerMask.value) > 0){
+		    var maskWithoutEmpty = 0;
+		    for (int i = 0; i < layerNumbers.Count; i++) {
+		    	if (((1 << layerNumbers[i]) & layerMask.value) > 0){
 		            maskWithoutEmpty |= (1 << i);
 		        }
 		    }
 			
-			if (!string.IsNullOrEmpty(prefix)) maskWithoutEmpty = UnityEditor.EditorGUILayout.MaskField(prefix, maskWithoutEmpty, layers, layoutOptions);
-			else maskWithoutEmpty = UnityEditor.EditorGUILayout.MaskField(maskWithoutEmpty, layers, layoutOptions);
-		 
+			maskWithoutEmpty = UnityEditor.EditorGUILayout.MaskField(content, maskWithoutEmpty, layers, layoutOptions);
+
 		    var mask = 0;
 		    for (int i = 0; i < layerNumbers.Count; i++){
 		        if ((maskWithoutEmpty & (1 << i)) > 0){
@@ -48,17 +50,24 @@ namespace ParadoxNotion.Design{
 
 		//An IList editor (List<T> and Arrays)
 		public static IList ListEditor(string prefix, IList list, Type listType, object contextInstance){
+			return ListEditor(new GUIContent(prefix), list, listType, contextInstance);
+		}
+		public static IList ListEditor(GUIContent content, IList list, Type listType, object contextInstance){
 
-			var argType = listType.IsArray? listType.GetElementType() : listType.GetGenericArguments()[0];
+			var argType = listType.GetEnumerableElementType();
+			if (argType == null){
+				return list;
+			}
 
 			//register foldout
-			if (!registeredEditorFoldouts.ContainsKey(list))
+			if (!registeredEditorFoldouts.ContainsKey(list)){
 				registeredEditorFoldouts[list] = false;
+			}
 
 			GUILayout.BeginVertical();
 
 			var foldout = registeredEditorFoldouts[list];
-			foldout = EditorGUILayout.Foldout(foldout, prefix);
+			foldout = EditorGUILayout.Foldout(foldout, content);
 			registeredEditorFoldouts[list] = foldout;
 
 			if (!foldout){
@@ -126,6 +135,9 @@ namespace ParadoxNotion.Design{
 
 		//A dictionary editor
 		public static IDictionary DictionaryEditor(string prefix, IDictionary dict, Type dictType, object contextInstance){
+			return DictionaryEditor(new GUIContent(prefix), dict, dictType, contextInstance);
+		}
+		public static IDictionary DictionaryEditor(GUIContent content, IDictionary dict, Type dictType, object contextInstance){
 
 			var keyType = dictType.GetGenericArguments()[0];
 			var valueType = dictType.GetGenericArguments()[1];
@@ -137,7 +149,7 @@ namespace ParadoxNotion.Design{
 			GUILayout.BeginVertical();
 
 			var foldout = registeredEditorFoldouts[dict];
-			foldout = EditorGUILayout.Foldout(foldout, prefix);
+			foldout = EditorGUILayout.Foldout(foldout, content);
 			registeredEditorFoldouts[dict] = foldout;
 
 			if (!foldout){
@@ -202,14 +214,12 @@ namespace ParadoxNotion.Design{
 		//An editor field where if the component is null simply shows an object field, but if its not, shows a dropdown popup to select the specific component
 		//from within the gameobject
 		public static Component ComponentField(string prefix, Component comp, Type type, bool allowNone = true){
+			return ComponentField( string.IsNullOrEmpty(prefix)? GUIContent.none : new GUIContent(prefix), comp, type, allowNone );
+		}
+		public static Component ComponentField(GUIContent content, Component comp, Type type, bool allowNone = true){
 
-			if (!comp){
-				if (!string.IsNullOrEmpty(prefix)){
-					comp = EditorGUILayout.ObjectField(prefix, comp, type, true, GUILayout.ExpandWidth(true)) as Component;
-				} else {
-					comp = EditorGUILayout.ObjectField(comp, type, true, GUILayout.ExpandWidth(true)) as Component;
-				}
-
+			if (comp == null){
+				comp = EditorGUILayout.ObjectField(content, comp, type, true, GUILayout.ExpandWidth(true)) as Component;
 				return comp;
 			}
 
@@ -221,17 +231,17 @@ namespace ParadoxNotion.Design{
 				compNames.Add(c.GetType().FriendlyName() + " (" + c.gameObject.name + ")");
 			}
 
-			if (allowNone)
+			if (allowNone){
 				compNames.Add("|NONE|");
+			}
 
 			int index;
-			if (!string.IsNullOrEmpty(prefix))
-				index = EditorGUILayout.Popup(prefix, allComp.IndexOf(comp), compNames.ToArray(), GUILayout.ExpandWidth(true));
-			else
-				index = EditorGUILayout.Popup(allComp.IndexOf(comp), compNames.ToArray(), GUILayout.ExpandWidth(true));
+			var contentOptions = compNames.Select( n => new GUIContent(n) ).ToArray();
+			index = EditorGUILayout.Popup(content, allComp.IndexOf(comp), contentOptions, GUILayout.ExpandWidth(true));
 			
-			if (allowNone && index == compNames.Count - 1)
+			if (allowNone && index == compNames.Count - 1){
 				return null;
+			}
 
 			return allComp[index];
 		}
@@ -243,10 +253,13 @@ namespace ParadoxNotion.Design{
 
 		//a popup that is based on the string rather than the index
 		public static string StringPopup(string prefix, string selected, List<string> options, bool showWarning = true, bool allowNone = false, params GUILayoutOption[] GUIOptions){
+			return StringPopup( string.IsNullOrEmpty(prefix)? GUIContent.none : new GUIContent(prefix), selected, options, showWarning, allowNone,  GUIOptions);
+		}
+		public static string StringPopup(GUIContent content, string selected, List<string> options, bool showWarning = true, bool allowNone = false, params GUILayoutOption[] GUIOptions){
 
 			EditorGUILayout.BeginVertical();
 			if (options.Count == 0 && showWarning){
-				EditorGUILayout.HelpBox("There are no options to select for '" + prefix + "'", MessageType.Warning);
+				EditorGUILayout.HelpBox("There are no options to select for '" + content.text + "'", MessageType.Warning);
 				EditorGUILayout.EndVertical();
 				return null;
 			}
@@ -260,11 +273,9 @@ namespace ParadoxNotion.Design{
 			if (copy.Contains(selected)) index = copy.IndexOf(selected);
 			else index = allowNone? 0 : -1;
 
-			if (!string.IsNullOrEmpty(prefix)) index = EditorGUILayout.Popup(prefix, index, copy.ToArray(), GUIOptions);
-			else index = EditorGUILayout.Popup(index, copy.ToArray(), GUIOptions);
+			index = EditorGUILayout.Popup(content, index, copy.Select(n => new GUIContent(n)).ToArray(), GUIOptions);
 
 			if (index == -1 || (allowNone && index == 0)){
-
 				if (showWarning){
 					if (!string.IsNullOrEmpty(selected)){
 						EditorGUILayout.HelpBox("The previous selection '" + selected + "' has been deleted or changed. Please select another", MessageType.Warning);
@@ -284,6 +295,9 @@ namespace ParadoxNotion.Design{
 
 		///Generic Popup for selection of any element within a list
 		public static T Popup<T>(string prefix, T selected, List<T> options, params GUILayoutOption[] GUIOptions){
+			return Popup<T>( string.IsNullOrEmpty(prefix)? GUIContent.none : new GUIContent(prefix), selected, options, GUIOptions );
+		}
+		public static T Popup<T>(GUIContent content, T selected, List<T> options, params GUILayoutOption[] GUIOptions){
 
 			var index = 0;
 			if (options.Contains(selected)){
@@ -299,8 +313,7 @@ namespace ParadoxNotion.Design{
 			}
 
 			GUI.enabled = stringedOptions.Count > 1;
-			if (!string.IsNullOrEmpty(prefix)) index = EditorGUILayout.Popup(prefix, index, stringedOptions.ToArray(), GUIOptions);
-			else index = EditorGUILayout.Popup(index, stringedOptions.ToArray(), GUIOptions);		
+			index = EditorGUILayout.Popup(content, index, stringedOptions.Select(s => new GUIContent(s)).ToArray(), GUIOptions);
 			GUI.enabled = true;
 
 			return index == 0? default(T) : options[index - 1];

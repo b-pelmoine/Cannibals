@@ -12,7 +12,7 @@ namespace ParadoxNotion.Design{
 
 	///Do not derive this. Derive from it's generic version only, where T is the type we care for.
 	abstract public class CustomDrawer {
-		abstract public object DrawGUI(string label, object instance, FieldInfo fieldInfo, Attribute attribute, object context);
+		abstract public object DrawGUI(GUIContent content, object instance, FieldInfo fieldInfo, Attribute attribute, object context);
 	}
 
 	///Derive this to create custom drawers for T assignable object types.
@@ -26,14 +26,14 @@ namespace ParadoxNotion.Design{
 		public object context{get; set;}
 
 		///Begin GUI
-		sealed public override object DrawGUI(string label, object instance, FieldInfo fieldInfo, Attribute attribute, object context){
+		sealed public override object DrawGUI(GUIContent content, object instance, FieldInfo fieldInfo, Attribute attribute, object context){
 			this.fieldInfo = fieldInfo;
 			this.context = context;
-			return OnGUI(label, (T)instance);
+			return OnGUI(content, (T)instance);
 		}
 
 		///Override to implement GUI. Return the modified instance at the end.
-		abstract public T OnGUI(string label, T instance);
+		abstract public T OnGUI(GUIContent content, T instance);
 	}
 
 
@@ -50,21 +50,21 @@ namespace ParadoxNotion.Design{
 		public object context{get; set;}
 
 		///Begin GUI
-		sealed public override object DrawGUI(string label, object instance, FieldInfo fieldInfo, Attribute attribute, object context){
+		sealed public override object DrawGUI(GUIContent content, object instance, FieldInfo fieldInfo, Attribute attribute, object context){
 			this.fieldInfo = fieldInfo;
 			this.context = context;
 			this.attribute = (T)attribute;
-			return OnGUI(label, instance);
+			return OnGUI(content, instance);
 		}
 
 		///Override to implement GUI. Return the modified instance at the end.
-		abstract public object OnGUI(string label, object instance);
+		abstract public object OnGUI(GUIContent content, object instance);
 	}
 
 
 	///A stub
 	sealed public class NoDrawer : CustomDrawer{
-		public override object DrawGUI(string label, object instance, FieldInfo fieldInfo, Attribute attribute, object context){return instance;}
+		public override object DrawGUI(GUIContent content, object instance, FieldInfo fieldInfo, Attribute attribute, object context){return instance;}
 	}
 }
 

@@ -25,7 +25,7 @@ namespace ParadoxNotion.Design{
 			if (
 				((e.type == EventType.MouseDown || e.type == EventType.MouseUp) && e.button == 0) ||
 				(e.type == EventType.DragPerform) ||
-				(e.type == EventType.KeyUp)
+				(e.type == EventType.KeyDown)
 				)
 			{
 				Undo.RecordObject(target, name);

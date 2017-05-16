@@ -24,7 +24,9 @@ namespace NodeCanvas.Framework{
 	abstract public partial class Node {
 
 		[SerializeField]
-		private Vector2 _position = Vector2.zero;
+		private Vector2 _position;
+		[SerializeField]
+		private string _UID;
 		[SerializeField]
 		private string _name;
 		[SerializeField]
@@ -32,7 +34,7 @@ namespace NodeCanvas.Framework{
 		[SerializeField]
 		private string _comment;
 		[SerializeField]
-		private bool _isBreakpoint = false;
+		private bool _isBreakpoint;
 
 		//reconstructed OnDeserialization
 		private Graph _graph;
@@ -52,48 +54,54 @@ namespace NodeCanvas.Framework{
 
 		/////
 
-		public Vector2 nodePosition{
-			get {return _position;}
-			set {_position = value;}
-		}
-
-		///The graph this node belongs to
+		///The graph this node belongs to.
 		public Graph graph{
 			get {return _graph;}
 			set {_graph = value;}
 		}
 
-		///The node's ID in the graph
-		public int ID {
+		///The node's int ID in the graph.
+		public int ID{
 			get {return _ID;}
 			set {_ID = value;}
 		}
 
-		///All incomming connections to this node
+		///All incomming connections to this node.
 		public List<Connection> inConnections{
 			get {return _inConnections;}
 			protected set {_inConnections = value;}
 		}
 
-		///All outgoing connections from this node
+		///All outgoing connections from this node.
 		public List<Connection> outConnections{
 			get {return _outConnections;}
 			protected set {_outConnections = value;}
 		}
 
-		//The custom title name of the node if any
+		///The position of the node in the graph.
+		public Vector2 nodePosition{
+			get {return _position;}
+			set {_position = value;}
+		}
+
+		///The Unique ID of the node. One is created only if requested.
+		public string UID{
+			get { return string.IsNullOrEmpty(_UID)? _UID = System.Guid.NewGuid().ToString() : _UID; }
+		}
+
+		//The custom title name of the node if any.
 		private string customName{
 			get {return _name;}
 			set {_name = value;}
 		}
 
-		///The node tag. Useful for finding nodes through code
+		///The node tag. Useful for finding nodes through code.
 		public string tag{
 			get {return _tag;}
 			set {_tag = value;}
 		}
 
-		///The comments of the node if any
+		///The comments of the node if any.
 		public string nodeComment{
 			get {return _comment;}
 			set {_comment = value;}
@@ -245,7 +253,7 @@ namespace NodeCanvas.Framework{
 		public Status Execute(Component agent, IBlackboard blackboard){
 
 			if (isChecked){
-				return Error("Infinite Loop. Please check for other errors that may have caused this in the log.");
+				return Error("Infinite Loop. Please check for other errors that may have caused this in the log before this.");
 			}
 
 			#if UNITY_EDITOR
@@ -291,8 +299,9 @@ namespace NodeCanvas.Framework{
 		///Recursively reset the node and child nodes if it's not Resting already
 		public void Reset(bool recursively = true){
 
-			if (status == Status.Resting || isChecked)
+			if (status == Status.Resting || isChecked){
 				return;
+			}
 
 			OnReset();
 			status = Status.Resting;
@@ -465,18 +474,19 @@ namespace NodeCanvas.Framework{
 		virtual public void OnGraphUnpaused(){}
 
 		sealed public override string ToString(){
-			var assignable = this as ITaskAssignable;
-			return string.Format("{0} ({1})", name, assignable != null && assignable.task != null? assignable.task.ToString() : "" );
+			return string.Format("{0} ({1})", name, tag);
 		}
 
 		public void OnDrawGizmos(){
-			if (this is ITaskAssignable && (this as ITaskAssignable).task != null )
+			if (this is ITaskAssignable && (this as ITaskAssignable).task != null ){
 				(this as ITaskAssignable).task.OnDrawGizmos();
+			}
 		}
 
 		public void OnDrawGizmosSelected(){
-			if (this is ITaskAssignable && (this as ITaskAssignable).task != null)
+			if (this is ITaskAssignable && (this as ITaskAssignable).task != null){
 				(this as ITaskAssignable).task.OnDrawGizmosSelected();
+			}
 		}
 	}
 }

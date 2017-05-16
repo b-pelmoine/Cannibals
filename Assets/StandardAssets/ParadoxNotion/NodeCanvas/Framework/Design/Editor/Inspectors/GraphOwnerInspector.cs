@@ -15,14 +15,24 @@ namespace NodeCanvas.Editor{
 
         static HierarchyIcons() {
             EditorApplication.hierarchyWindowItemOnGUI += ShowIcon;
+            GraphOwner.onOwnerBehaviourStateChange += delegate { EditorApplication.RepaintHierarchyWindow(); };
         }
 
         static void ShowIcon(int ID, Rect r) {
             var go = EditorUtility.InstanceIDToObject(ID) as GameObject;
-            if ( go == null || go.GetComponent<GraphOwner>() == null ) return;
-            r.x = r.xMax - 18;
-            r.width = 18;
-            GUI.Label(r, "♟");
+            if (go == null) return;
+            var owner = go.GetComponent<GraphOwner>();
+            if (owner == null) return;
+            var prefix = string.Empty;
+            if (owner.isRunning){ prefix = "►"; }
+            if (owner.isPaused){ prefix = "||"; }
+            var content = new GUIContent( prefix + "♟");
+            var size = GUI.skin.GetStyle("label").CalcSize(content);
+            r.x = r.xMax - size.x;
+            r.width = size.x;
+            GUI.color = owner.isRunning || owner.isPaused? Color.green : Color.white;
+            GUI.Label(r, content);
+            GUI.color = Color.white;
         }
     }
 
@@ -155,7 +165,7 @@ namespace NodeCanvas.Editor{
 					if (GUILayout.Button("Delete Bound Graph")){
 						var safe = !EditorUtility.IsPersistent(owner.graph) || AssetDatabase.IsSubAsset(owner.graph);
 						if (safe && EditorUtility.DisplayDialog("Delete Bound Graph", "Are you sure?", "YES", "NO")){
-							Undo.DestroyObjectImmediate(owner.graph);
+							Object.DestroyImmediate(owner.graph, true);
 							Undo.RecordObject(owner, "Delete Bound Graph");
 							owner.SetBoundGraphReference(null);
 							EditorUtility.SetDirty(owner);

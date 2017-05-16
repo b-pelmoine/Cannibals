@@ -42,7 +42,8 @@ namespace NodeCanvas.DialogueTrees{
 		}
 
 		public Vector3 dialoguePosition{
-			get {return Vector3.Scale(transform.position + _dialogueOffset, transform.localScale);}
+			// get {return Vector3.Scale(transform.position + _dialogueOffset, transform.localScale);}
+			get {return transform.TransformPoint(_dialogueOffset);}
 		}
 
 		//IDialogueActor.transform is implemented by inherited MonoBehaviour.transform

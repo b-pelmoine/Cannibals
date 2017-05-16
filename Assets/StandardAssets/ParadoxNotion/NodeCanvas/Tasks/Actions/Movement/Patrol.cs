@@ -3,12 +3,15 @@ using NodeCanvas.Framework;
 using ParadoxNotion.Design;
 using UnityEngine;
 
+#if UNITY_5_5_OR_NEWER
+using NavMeshAgent = UnityEngine.AI.NavMeshAgent;
+#endif
 
 namespace NodeCanvas.Tasks.Actions{
 
-	[Category("Movement")]
+	[Category("Movement/Pathfinding")]
 	[Description("Move Randomly or Progressively between various game object positions taken from the list provided")]
-	public class Patrol : ActionTask<UnityEngine.AI.NavMeshAgent> {
+	public class Patrol : ActionTask<NavMeshAgent> {
 
 		public enum PatrolMode{
 			Progressive,
@@ -18,7 +21,7 @@ namespace NodeCanvas.Tasks.Actions{
 		[RequiredField]
 		public BBParameter<List<GameObject>> targetList;
 		public BBParameter<PatrolMode> patrolMode = PatrolMode.Random;
-		public BBParameter<float> speed = 3;
+		public BBParameter<float> speed = 4;
 		public float keepDistance = 0.1f;
 
 		private int index = -1;
@@ -42,12 +45,14 @@ namespace NodeCanvas.Tasks.Actions{
 			} else {
 
 				if (patrolMode.value == PatrolMode.Random){
-					var newIndex = Random.Range(0, targetList.value.Count);
+					var newIndex = index;
 					while(newIndex == index){
 						newIndex = Random.Range(0, targetList.value.Count);
 					}
 					index = newIndex;
-				} else if (patrolMode.value == PatrolMode.Progressive) {
+				}
+
+				if (patrolMode.value == PatrolMode.Progressive) {
 					index = (int)Mathf.Repeat(index + 1, targetList.value.Count);
 				}
 			}
@@ -66,14 +71,9 @@ namespace NodeCanvas.Tasks.Actions{
 				EndAction(true);
 				return;
 			}
-
-			Go();
 		}
 
-		protected override void OnUpdate(){ Go(); }
-
-		void Go(){
-
+		protected override void OnUpdate(){
 			var targetPos = targetList.value[index].transform.position;
 			if (lastRequest != targetPos){
 				if ( !agent.SetDestination( targetPos) ){
@@ -89,22 +89,20 @@ namespace NodeCanvas.Tasks.Actions{
 			}
 		}
 
+		protected override void OnPause(){ OnStop(); }
 		protected override void OnStop(){
-
-			lastRequest = null;
-			if (agent.gameObject.activeSelf){
+			if (lastRequest != null && agent.gameObject.activeSelf){
 				agent.ResetPath();
 			}
-		}
-
-		protected override void OnPause(){
-			OnStop();
+			lastRequest = null;
 		}
 
 		public override void OnDrawGizmosSelected(){
 			if (agent && targetList.value != null){
 				foreach (var go in targetList.value){
-					if (go)	Gizmos.DrawSphere(go.transform.position, 0.1f);
+					if (go != null){
+						Gizmos.DrawSphere(go.transform.position, 0.1f);
+					}
 				}
 			}
 		}

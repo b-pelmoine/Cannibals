@@ -71,15 +71,17 @@ namespace NodeCanvas.StateMachines{
 		#if UNITY_EDITOR
 	
 		protected override void OnNodeGUI(){
-			if (repeatStateActions)
+			if (repeatStateActions){
 				GUILayout.Label("<b>[REPEAT]</b>");
+			}
 			base.OnNodeGUI();
 		}
 
 		protected override void OnNodeInspectorGUI(){
 
-			if (actionList == null)
+			if (actionList == null){
 				return;
+			}
 
 			EditorUtils.CoolLabel("Actions");
 			repeatStateActions = UnityEditor.EditorGUILayout.ToggleLeft("Repeat Actions", repeatStateActions);

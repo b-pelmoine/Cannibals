@@ -23,14 +23,14 @@ namespace NodeCanvas.Framework{
 		private bool _infoCollapsed;
 		
 		private const float RELINK_DISTANCE_SNAP = 20f;
-		private Rect areaRect                    = new Rect(0,0,50,10);
-		private Status lastStatus                = Status.Resting;
-		private Color connectionColor            = Node.restingColor;
-		private float lineSize                   = 3;
-		private bool nowSwitchingColors          = false;
-		private Vector3 lineFromTangent          = Vector3.zero;
-		private Vector3 lineToTangent            = Vector3.zero;
-		private bool isRelinking                 = false;
+		private Rect areaRect           = new Rect(0,0,50,10);
+		private Status lastStatus       = Status.Resting;
+		private Color connectionColor   = Node.restingColor;
+		private float lineSize          = 3;
+		private bool nowSwitchingColors = false;
+		private Vector3 lineFromTangent = Vector3.zero;
+		private Vector3 lineToTangent   = Vector3.zero;
+		private bool isRelinking        = false;
 		private Vector3 relinkClickPos;
 		private Rect startPortRect;
 		private Rect endPortRect;
@@ -72,7 +72,7 @@ namespace NodeCanvas.Framework{
 			startPortRect = new Rect(0,0,12,12);
 			startPortRect.center = lineFrom;
 
-			endPortRect = new Rect(0,0,15,15);
+			endPortRect = new Rect(0, 0, 16, 16);
 			endPortRect.center = lineTo;
 
 			hor = 0;
@@ -97,39 +97,35 @@ namespace NodeCanvas.Framework{
 			if (lineTo.x <= targetNode.nodeRect.x){
 				lineToTangent = new Vector3(-tangentX, 0, 0);
 				hor--;
-				if (tipConnectionStyle == TipConnectionStyle.Circle)
-					GUI.Box(endPortRect, string.Empty, (GUIStyle)"circle");
-				else
-				if (tipConnectionStyle == TipConnectionStyle.Arrow)
+				if (tipConnectionStyle == TipConnectionStyle.Arrow){
 					GUI.Box(endPortRect, string.Empty, (GUIStyle)"arrowRight");
+				}
 			}
 
 			if (lineTo.x >= targetNode.nodeRect.xMax){
 				lineToTangent = new Vector3(tangentX, 0, 0);
 				hor++;
-				if (tipConnectionStyle == TipConnectionStyle.Circle)
-					GUI.Box(endPortRect, string.Empty, (GUIStyle)"circle");
-				else
-				if (tipConnectionStyle == TipConnectionStyle.Arrow)
+				if (tipConnectionStyle == TipConnectionStyle.Arrow){
 					GUI.Box(endPortRect, string.Empty, (GUIStyle)"arrowLeft");
+				}
 			}
 
 			if (lineTo.y <= targetNode.nodeRect.y){
 				lineToTangent = new Vector3(0, -tangentY, 0);
-				if (tipConnectionStyle == TipConnectionStyle.Circle)
-					GUI.Box(endPortRect, string.Empty, (GUIStyle)"circle");
-				else
-				if (tipConnectionStyle == TipConnectionStyle.Arrow)
+				if (tipConnectionStyle == TipConnectionStyle.Arrow){
 					GUI.Box(endPortRect, string.Empty, (GUIStyle)"arrowBottom");
+				}
 			}
 
 			if (lineTo.y >= targetNode.nodeRect.yMax){
 				lineToTangent = new Vector3(0, tangentY, 0);
-				if (tipConnectionStyle == TipConnectionStyle.Circle)
-					GUI.Box(endPortRect, string.Empty, (GUIStyle)"circle");
-				else
-				if (tipConnectionStyle == TipConnectionStyle.Arrow)
+				if (tipConnectionStyle == TipConnectionStyle.Arrow){
 					GUI.Box(endPortRect, string.Empty, (GUIStyle)"arrowTop");
+				}
+			}
+
+			if (tipConnectionStyle == TipConnectionStyle.Circle){
+				GUI.Box(endPortRect, string.Empty, (GUIStyle)"circle");
 			}
 
 			GUI.color = Color.white;
@@ -178,21 +174,11 @@ namespace NodeCanvas.Framework{
 
 		//Information showing in the middle
 		void DrawInfoRect(Vector3 lineFrom, Vector3 lineTo){
-			var t = 0.5f;
-			float u = 1.0f - t;
-		    float tt = t * t;
-		    float uu = u * u;
-		    float uuu = uu * u;
-		    float ttt = tt * t;
-		    Vector3 result = uuu * lineFrom;
-		    result += 3 * uu * t * (lineFrom + lineFromTangent);
-		    result += 3 * u * tt * (lineTo + lineToTangent);
-		    result += ttt * lineTo;
-		    var midPosition = (Vector2)result;
-			areaRect.center = midPosition;
 
-			var alpha = (infoExpanded || Graph.currentSelection == this || Graph.currentSelection == sourceNode)? 0.8f : 0.1f;
-			var info = GetConnectionInfo(infoExpanded);
+			areaRect.center = GetPosAlongConnectionCurve(lineFrom, lineTo, 0.5f);
+			var isExpanded = infoExpanded || Graph.currentSelection == this || Graph.currentSelection == sourceNode;
+			var alpha = isExpanded? 0.8f : 0.25f;
+			var info = GetConnectionInfo();
 			var extraInfo = sourceNode.GetConnectionInfo(sourceNode.outConnections.IndexOf(this) );
 			if (!string.IsNullOrEmpty(info) || !string.IsNullOrEmpty(extraInfo)){
 				
@@ -201,8 +187,8 @@ namespace NodeCanvas.Framework{
 				}
 
 				var textToShow = string.Format("<size=9>{0}{1}</size>", info, extraInfo);
-				if (!infoExpanded){
-					textToShow = "<size=9>-||-</size>";
+				if (!isExpanded){
+					textToShow = "<size=9>...</size>";
 				}
 				var finalSize = GUI.skin.GetStyle("Box").CalcSize(new GUIContent(textToShow));
 
@@ -220,6 +206,18 @@ namespace NodeCanvas.Framework{
 			}
 		}
 
+		public Vector2 GetPosAlongConnectionCurve(Vector3 from, Vector3 to, float t){
+			float u = 1.0f - t;
+		    float tt = t * t;
+		    float uu = u * u;
+		    float uuu = uu * u;
+		    float ttt = tt * t;
+		    Vector3 result = uuu * from;
+		    result += 3 * uu * t * (from + lineFromTangent);
+		    result += 3 * u * tt * (to + lineToTangent);
+		    result += ttt * to;
+		    return result;
+		}
 		
 		//The connection's inspector
 		public void ShowConnectionInspectorGUI(){
@@ -257,7 +255,7 @@ namespace NodeCanvas.Framework{
 		}
 
 		//The information to show in the middle area of the connection
-		virtual protected string GetConnectionInfo(bool isExpanded){ return null; }
+		virtual protected string GetConnectionInfo(){ return null; }
 		//Editor.Override to show controls in the editor panel when connection is selected
 		virtual protected void OnConnectionInspectorGUI(){}
 
@@ -279,7 +277,7 @@ namespace NodeCanvas.Framework{
 			if (canRelink && isRelinking){
 				if (Vector3.Distance(relinkClickPos, Event.current.mousePosition) > RELINK_DISTANCE_SNAP){
 					Handles.DrawBezier(startPortRect.center, e.mousePosition, startPortRect.center, e.mousePosition, defaultColor, null, defaultSize);
-					if (e.type == EventType.MouseUp){
+					if (e.rawType == EventType.MouseUp && e.button == 0){
 						foreach(var node in graph.allNodes){
 							if (node != targetNode && node != sourceNode && node.nodeRect.Contains(e.mousePosition) && node.IsNewConnectionAllowed() ){
 								SetTarget(node);
@@ -290,7 +288,7 @@ namespace NodeCanvas.Framework{
 						e.Use();
 					}
 				} else {
-					if (e.type == EventType.MouseUp){					
+					if (e.rawType == EventType.MouseUp && e.button == 0){					
 						isRelinking = false;
 					}
 				}
@@ -361,6 +359,14 @@ namespace NodeCanvas.Framework{
 				connectionColor = Node.runningColor;
 			}
 
+			if (status == Status.Error){
+				connectionColor = Node.errorColor;
+			}
+
+			if (status == Status.Optional){
+				connectionColor = Node.optionalColor;
+			}
+
 			nowSwitchingColors = true;
 			
 			var effectLength = 0.2f;
@@ -385,6 +391,14 @@ namespace NodeCanvas.Framework{
 
 			if (status == Status.Running){
 				connectionColor = Node.runningColor;
+			}
+
+			if (status == Status.Error){
+				connectionColor = Node.errorColor;
+			}
+
+			if (status == Status.Optional){
+				connectionColor = Node.optionalColor;
 			}
 			
 			nowSwitchingColors = false;

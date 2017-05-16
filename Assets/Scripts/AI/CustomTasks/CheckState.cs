@@ -12,7 +12,7 @@ public class CheckState : ConditionTask
     protected override bool OnCheck()
     {
         FSMOwner owner = target.value.GetComponentInParent<FSMOwner>();
-        if (owner == null || owner.currentStateName != state.value)
+        if (owner == null || owner.currentDeepStateName != state.value)
             return false;
         return true;
     }

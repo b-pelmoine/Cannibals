@@ -12,7 +12,7 @@ namespace NodeCanvas.StateMachines{
 		public bool dontRetriggerStates = false;
 
 		public override string name{
-			get {return base.name.ToUpper();}
+			get {return "FROM ANY STATE";}
 		}
 
 		public override int maxInConnections{ get {return 0;} }

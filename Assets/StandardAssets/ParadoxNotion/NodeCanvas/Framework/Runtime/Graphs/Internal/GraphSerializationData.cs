@@ -7,7 +7,7 @@ namespace NodeCanvas.Framework.Internal{
 	[System.Serializable]
 	public class GraphSerializationData {
 
-		private readonly float SerializationVersion = 2.6f;
+		private const float SERIALIZATION_VERSION = 2.6f;
 
 		public float version;
 		public System.Type type;
@@ -29,9 +29,9 @@ namespace NodeCanvas.Framework.Internal{
 		//Construct
 		public GraphSerializationData(Graph graph){
 
-			this.version         = SerializationVersion;
+			this.version         = SERIALIZATION_VERSION;
 			this.type            = graph.GetType();
-			this.name            = graph.name;
+			// this.name            = graph.name;
 			this.comments        = graph.graphComments;
 			this.translation     = graph.translation;
 			this.zoomFactor      = graph.zoomFactor;

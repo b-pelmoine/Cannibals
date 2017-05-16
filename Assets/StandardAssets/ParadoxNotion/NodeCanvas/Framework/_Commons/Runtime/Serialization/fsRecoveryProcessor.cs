@@ -14,7 +14,7 @@ namespace ParadoxNotion.Serialization{
 
 		public override void OnBeforeDeserialize(Type storageType, ref fsData data){
 
-			if (data.IsNull){
+			if (!data.IsDictionary){
 				return;
 			}
 

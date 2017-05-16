@@ -13,7 +13,7 @@ namespace NodeCanvas.Editor{
 
 	public class GraphEditor : EditorWindow{
 
-		const string WATERMARK = "@NodeCanvas Framework v2.6.2";
+		const string WATERMARK = "@NodeCanvas Framework v2.6.3";
 
 		//the current graph loaded for editing. Can be a nested graph of the root graph
 		public static Graph currentGraph;
@@ -50,7 +50,7 @@ namespace NodeCanvas.Editor{
 
 	    private static bool welcomeShown = false;
 
-		private readonly static float unityTabHeight        = 22;
+		private readonly static float unityToolbarHeight    = 22;
 		private readonly static float topMargin             = 22;
 		private readonly static int gridSize                = 15;
 		private readonly static Vector2 virtualCenterOffset = new Vector2(-5000, -5000);
@@ -67,9 +67,10 @@ namespace NodeCanvas.Editor{
 			set
 			{
 				_rootGraph = value;
-				rootGraphID = value != null? value.GetInstanceID() : -1;
+				rootGraphID = value != null? value.GetInstanceID() : 0;
 			}
 		}
+
 
 		private GraphOwner targetOwner{
 			get
@@ -82,7 +83,7 @@ namespace NodeCanvas.Editor{
 			set
 			{
 				_targetOwner = value;
-				targetOwnerID = value != null? value.GetInstanceID() : -1;
+				targetOwnerID = value != null? value.GetInstanceID() : 0;
 			}
 		}
 
@@ -144,7 +145,9 @@ namespace NodeCanvas.Editor{
 			wantsMouseMove = true;
 			guiSkin = (GUISkin)Resources.Load( EditorGUIUtility.isProSkin? "NodeCanvasSkin" : "NodeCanvasSkinLight" );
 			minSize = new Vector2(700, 300);
+			EditorApplication.playmodeStateChanged -= PlayModeChange;
 			EditorApplication.playmodeStateChanged += PlayModeChange;
+			Selection.selectionChanged -= OnSelectionChange;
 			Selection.selectionChanged += OnSelectionChange;
             //Application.logMessageReceived += ...; TODO
 		}
@@ -192,6 +195,16 @@ namespace NodeCanvas.Editor{
 				current.UpdateNodeIDs(true);
 				current.UpdateReferences();
 			}
+		}
+
+		[UnityEditor.Callbacks.OnOpenAsset(1)]
+		public static bool OpenAsset(int instanceID, int line){
+			var target = EditorUtility.InstanceIDToObject(instanceID) as Graph;
+			if (target != null){
+				GraphEditor.OpenWindow(target);
+				return true;
+			}
+			return false;
 		}
 
 	    //Opening the window for a graph owner
@@ -372,6 +385,7 @@ namespace NodeCanvas.Editor{
                 willRepaint = true;
                 fullDrawPass = true;
                 UpdateReferencesAndNodeIDs();
+                currentGraph.Validate();
                 e.Use();
 				return;
 			}
@@ -512,7 +526,7 @@ namespace NodeCanvas.Editor{
 		//Starts a zoom area, returns the scaled container rect
 		Rect StartZoomArea(Rect container){
 			GUI.EndGroup();
-			container.height += unityTabHeight;
+			container.height += unityToolbarHeight;
 			container.width *= 1/zoomFactor;
 			container.height *= 1/zoomFactor;
 			oldMatrix = GUI.matrix;
@@ -525,7 +539,7 @@ namespace NodeCanvas.Editor{
 		//Ends the zoom area
 		void EndZoomArea(){
 			GUI.matrix = oldMatrix;
-			var zoomRecoveryRect = new Rect(0, unityTabHeight, screenWidth, screenHeight);
+			var zoomRecoveryRect = new Rect(0, unityToolbarHeight, screenWidth, screenHeight);
 			GUI.BeginGroup(zoomRecoveryRect); //Recover rect
 		}
 
@@ -797,7 +811,7 @@ namespace NodeCanvas.Editor{
 
 				GUILayout.BeginHorizontal();
 
-				//"button" implemented this way due to e.used. It's a delegate matter..
+				//"button" implemented this way due to e.used. It's a weird matter..
 				GUILayout.Label("⤴ " + root.name, (GUIStyle)"button");
 				if (Event.current.type == EventType.MouseUp && GUILayoutUtility.GetLastRect().Contains(Event.current.mousePosition)){
 					root.currentChildGraph = null;
@@ -940,7 +954,8 @@ namespace NodeCanvas.Editor{
 
 		//this is shown when root graph is null
 		void ShowEmptyGraphGUI(){
-/*			//TODO
+/*
+			//TODO
 			foreach(var info in ParadoxNotion.Design.EditorUtils.GetScriptInfosOfType(typeof(GraphOwner))){
 				var ownerType = info.type;
 				while (!ownerType.IsGenericType && ownerType != null){

@@ -20,8 +20,13 @@ namespace NodeCanvas.Tasks.Actions{
 
         protected override void OnExecute(){
             var targetVar = agent.GetVariable(targetVariableName.value);
+            if (targetVar == null){
+                EndAction(false);
+                return;
+            }
+
             saveAs.value = targetVar.value;
-            EndAction();
+            EndAction(true);
         }
 
         ////////////////////////////////////////

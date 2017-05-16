@@ -39,10 +39,9 @@ namespace NodeCanvas.StateMachines{
 		protected override void OnEnter(){ OnUpdate(); }
 
 		protected override void OnUpdate(){
-			if (actionList.ExecuteAction(graphAgent, graphBlackboard) != Status.Running){
-				if (!repeatStateActions){
-					Finish();
-				}
+			var actionListStatus = actionList.ExecuteAction(graphAgent, graphBlackboard);
+			if (!repeatStateActions && actionListStatus != Status.Running){
+				Finish(actionListStatus == Status.Success? true : false);
 			}
 		}
 

@@ -22,16 +22,12 @@ namespace NodeCanvas.Framework{
 		private List<Object> _objectReferences;
 		[SerializeField]
 		private bool _deserializationFailed = false;
-
-		[System.NonSerialized]
-		private bool hasEnabled = false;
 		[System.NonSerialized]
 		private bool hasDeserialized = false;
 
 
 		//These are the data that are serialized and deserialized into/from a 'GraphSerializationData' object
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		private string _name                      = string.Empty;
 		private string _comments                  = string.Empty;
 		private Vector2 _translation              = new Vector2(-5000, -5000);
 		private float _zoomFactor                 = 1f;
@@ -62,7 +58,7 @@ namespace NodeCanvas.Framework{
 
 			//notify owner. This is used for bound graphs
 			var owner = agent != null && agent is GraphOwner? (GraphOwner)agent : null;
-			if (owner != null){
+			if (owner != null && owner.graph == this){
 				owner.OnGraphSerialized(this);
 			}
 			#endif
@@ -78,23 +74,12 @@ namespace NodeCanvas.Framework{
 		}
 
 
-#if UNITY_EDITOR
-		protected void OnValidate(){
-			if (!Application.isPlaying && !UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode){
-				Validate();
-			}
-		}
-#endif
-
 		protected void OnEnable(){
-			//Validate automaticaly though OnEnable, only the first time the graph is enabled.
-			if (!hasEnabled){
-				hasEnabled = true;
-				Validate();
-			}
+			Validate();
 		}
 		protected void OnDisable(){}
 		protected void OnDestroy(){}
+		protected void OnValidate(){}
 		//////////////////////////////////////
 		//////////////////////////////////////
 
@@ -164,7 +149,6 @@ namespace NodeCanvas.Framework{
 			data.Reconstruct(this);
 
 			//grab the final data and set fields directly
-			this._name            = data.name;
 			this._comments        = data.comments;
 			this._translation     = data.translation;
 			this._zoomFactor      = data.zoomFactor;
@@ -231,8 +215,9 @@ namespace NodeCanvas.Framework{
 			target.Deserialize( json, true, this._objectReferences );
 		}
 
-		///Validate the graph and it's nodes. Called both in editor OnValidate and in runtime OnEnable.
+		///Validate the graph and it's nodes. Also called from OnEnable callback.
 		public void Validate(){
+
 			#if UNITY_EDITOR
 			if (!Application.isPlaying && !UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode){
 				UpdateReferences();
@@ -299,8 +284,8 @@ namespace NodeCanvas.Framework{
 
 		///The friendly title name of the graph
 		new public string name{
-			get { return string.IsNullOrEmpty(_name)? GetType().Name : _name; }
-			set { _name = value; }
+			get {return base.name;}
+			set {base.name = value;}
 		}
 
 		///Graph Comments
@@ -532,7 +517,7 @@ namespace NodeCanvas.Framework{
 			}
 
 			if (primeNode == null && requiresPrimeNode){
-				Debug.LogWarning("<b>Graph:</b> You've tried to start graph without 'Start' node");
+				Debug.LogWarning("<b>Graph:</b> You've tried to start graph without a 'Start' node");
 				return;
 			}
 			
@@ -560,12 +545,8 @@ namespace NodeCanvas.Framework{
 
 			isRunning = true;
 
-			//
+			///place after OnGraphStarted?
 			runningGraphs.Add(this);
-
-			if (autoUpdate){
-				MonoManager.current.onUpdate += UpdateGraph;
-			}
 
 			if (!isPaused){
 				timeStarted = Time.time;
@@ -573,7 +554,7 @@ namespace NodeCanvas.Framework{
 			} else {
 				OnGraphUnpaused();
 			}
-			// place at the end?
+			/////
 
 			for (var i = 0; i < allNodes.Count; i++){
 				if (!isPaused){
@@ -584,6 +565,11 @@ namespace NodeCanvas.Framework{
 			}
 
 			isPaused = false;
+
+			if (autoUpdate){
+				MonoManager.current.onUpdate += UpdateGraph;
+				UpdateGraph();
+			}
 		}
 
 		///Stops the graph completely and resets all nodes.
@@ -628,11 +614,16 @@ namespace NodeCanvas.Framework{
 			for (var i = 0; i < allNodes.Count; i++){
 				allNodes[i].OnGraphPaused();
 			}
+			
 			OnGraphPaused();
 		}
 
-		//This is updated through the MonoManager...
-		public void UpdateGraph(){ OnGraphUpdate(); }
+		///Updates the graph. Normaly this is updated by MonoManager since at StartGraph, this method is registered for updating.
+		public void UpdateGraph(){
+			// UnityEngine.Profiling.Profiler.BeginSample(string.Format("NC Graph ({0})", agent != null? agent.name : this.name) );
+			OnGraphUpdate();
+			// UnityEngine.Profiling.Profiler.EndSample();
+		}
 
 		///Override for graph specific stuff to run when the graph is started
 		virtual protected void OnGraphStarted(){}
@@ -704,20 +695,20 @@ namespace NodeCanvas.Framework{
 		}
 
 		///Get a node by it's tag name
-		public T GetNodeWithTag<T>(string name) where T:Node{
+		public T GetNodeWithTag<T>(string tagName) where T:Node{
 			foreach (var node in allNodes.OfType<T>()){
-				if (node.tag == name){
+				if (node.tag == tagName){
 					return node;
 				}
 			}
-			return default(T);
+			return null;
 		}
 
 		///Get all nodes taged with such tag name
-		public List<T> GetNodesWithTag<T>(string name) where T:Node{
+		public List<T> GetNodesWithTag<T>(string tagName) where T:Node{
 			var nodes = new List<T>();
 			foreach (var node in allNodes.OfType<T>()){
-				if (node.tag == name){
+				if (node.tag == tagName){
 					nodes.Add(node);
 				}
 			}
@@ -742,7 +733,7 @@ namespace NodeCanvas.Framework{
 					return node;
 				}
 			}
-			return default(T);
+			return null;
 		}
 
 		//removes the text color that some nodes add with html tags
@@ -775,7 +766,7 @@ namespace NodeCanvas.Framework{
 			return graphs;
 		}
 
-		///Get all instance Nested graphs of this graph
+		///Get all instanced Nested graphs of this graph
 		public List<Graph> GetAllInstancedNestedGraphs(){
 			var instances = new List<Graph>();
 			foreach (var node in allNodes.OfType<IGraphAssignable>()){
@@ -831,6 +822,74 @@ namespace NodeCanvas.Framework{
 			return resultTasks;
 		}
 
+		///Get the parent node on which target task is assigned.
+		///This is done this way, since Tasks have no dependency on where they are assigned.
+		public Node GetParentNodeOfTask(Task task){
+			if (task == null){
+				return null;
+			}
+
+			for (var i = 0; i < allNodes.Count; i++){
+				var node = allNodes[i];
+				if (node is ITaskAssignable){
+					var assignable = (ITaskAssignable)node;
+					var nodeTask = assignable.task;
+					if (nodeTask == task){
+						return node;
+					}
+
+					if (nodeTask is ActionList){
+						var listTasks = (nodeTask as ActionList).actions;
+						for (var j = 0; j < listTasks.Count; j++){
+							if (listTasks[j] == task){
+								return node;
+							}
+						}
+					}
+
+					if (nodeTask is ConditionList){
+						var listTasks = (nodeTask as ConditionList).conditions;
+						for (var j = 0; j < listTasks.Count; j++){
+							if (listTasks[j] == task){
+								return node;
+							}
+						}
+					}
+				}
+				
+				if (node is ISubTasksContainer){
+					var container = (ISubTasksContainer)node;
+					var subTasks = container.GetTasks();
+					for (var j = 0; j < subTasks.Length; j++){
+						var subTask = subTasks[j];
+						if (subTask == task){
+							return node;
+						}
+
+						if (subTask is ActionList){
+							var listTasks = (subTask as ActionList).actions;
+							for (var k = 0; k < listTasks.Count; k++){
+								if (listTasks[k] == task){
+									return node;
+								}
+							}
+						}
+
+						if (subTask is ConditionList){
+							var listTasks = (subTask as ConditionList).conditions;
+							for (var k = 0; k < listTasks.Count; k++){
+								if (listTasks[k] == task){
+									return node;
+								}
+							}
+						}
+					}
+				}
+			}
+			return null;
+		}
+
+
 		///Get all defined BBParameters in the graph. Defined means that the BBParameter is set to read or write to/from a Blackboard and is not "|NONE|"
 		public BBParameter[] GetDefinedParameters(){
 
@@ -859,7 +918,7 @@ namespace NodeCanvas.Framework{
 		}
 
 
-		///Utility function to create all defined parameters of this graph into the provided blackboard
+		///Utility function to create all defined parameters of this graph as variables into the provided blackboard
 		public void CreateDefinedParameterVariables(IBlackboard bb){
 			foreach (var bbParam in GetDefinedParameters()){
 				bbParam.PromoteToVariable(bb);
@@ -906,6 +965,10 @@ namespace NodeCanvas.Framework{
 		///Disconnects and then removes a node from this graph
 		public void RemoveNode(Node node, bool recordUndo = true){
  
+ 			if (node.GetType().RTGetAttribute<ParadoxNotion.Design.ProtectedAttribute>(true) != null){
+ 				return;
+ 			}
+
 			if (!allNodes.Contains(node)){
 				Debug.LogWarning("Node is not part of this graph");
 				return;

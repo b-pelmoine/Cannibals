@@ -5,12 +5,15 @@ using ParadoxNotion.Design;
 
 namespace NodeCanvas.DialogueTrees{
 
+	[Icon("Selector", IconAttribute.Mode.AppendToTitle)]
 	[Name("Multiple Task Condition")]
-	[Category("Flow Control")]
+	[Category("Branch")]
 	[Description("Will continue with the first child node which condition returns true. The Dialogue Actor selected will be used for the checks")]
+	[Color("b3ff7f")]
 	public class MultipleConditionNode : DTNode, ISubTasksContainer{
 
-		public List<ConditionTask> conditions = new List<ConditionTask>();
+		[SerializeField]
+		private List<ConditionTask> conditions = new List<ConditionTask>();
 
 		public override int maxOutConnections{
 			get {return -1;}
@@ -59,8 +62,9 @@ namespace NodeCanvas.DialogueTrees{
 		}
 
 		protected override void OnNodeGUI(){
-			if (outConnections.Count == 0)
-				GUILayout.Label("Connect Outcomes");
+			if (outConnections.Count == 0){
+				GUILayout.Label("No Outcomes Connected");
+			}
 		}
 
 		#endif

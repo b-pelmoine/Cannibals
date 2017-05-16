@@ -162,6 +162,10 @@ namespace ParadoxNotion.Services{
 			Dispatch("OnControllerColliderHit", hit);
 		}
 
+		void OnParticleCollision(GameObject other){
+			Dispatch("OnParticleCollision", other);
+		}
+
 		//This is used for custom events other than the above
 		public void OnCustomEvent(EventData eventData){
 			Dispatch("OnCustomEvent", eventData);

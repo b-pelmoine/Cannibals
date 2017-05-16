@@ -86,8 +86,9 @@ namespace NodeCanvas.StateMachines{
 		protected override void OnNodeGUI(){
 			GUILayout.Label(string.Format("Sub FSM\n{0}", _nestedFSM) );
 			if (nestedFSM == null){
-				if (!Application.isPlaying && GUILayout.Button("CREATE NEW"))
+				if (!Application.isPlaying && GUILayout.Button("CREATE NEW")){
 					Node.CreateNested<FSM>(this);
+				}
 			}
 		}
 
@@ -101,10 +102,9 @@ namespace NodeCanvas.StateMachines{
 				nestedFSM = null;
 			}
 
-			if (nestedFSM == null)
+			if (nestedFSM == null){
 				return;
-
-			nestedFSM.name = this.name;
+			}
 
 	    	var defParams = nestedFSM.GetDefinedParameters();
 	    	if (defParams.Length != 0){

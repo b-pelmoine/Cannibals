@@ -18,13 +18,17 @@ namespace NodeCanvas.DialogueTrees{
 		public override string name{
 			get
 			{
-				if (DLGTree.definedActorParameterNames.Contains(actorName)){
-					return string.Format("#{0} {1}", ID, actorName);
+				if (requireActorSelection){
+					if (DLGTree.definedActorParameterNames.Contains(actorName)){
+						return string.Format("{0}", actorName);
+					}
+					return string.Format("<color=#d63e3e>* {0} *</color>", _actorName);
 				}
-				return string.Format("#{0} <color=#d63e3e>* {1} *</color>", ID, _actorName);
+				return base.name;
 			}
 		}
 
+		virtual public bool requireActorSelection{get {return true; }}
 		public override int maxInConnections{ get{return -1;} }
 		public override int maxOutConnections{ get{return 1;} }
 		sealed public override System.Type outConnectionType{ get{return typeof(DTConnection);} }
@@ -68,9 +72,12 @@ namespace NodeCanvas.DialogueTrees{
 		#if UNITY_EDITOR
 
 		protected override void OnNodeInspectorGUI(){
-			GUI.backgroundColor = EditorUtils.lightBlue;
-			actorName = EditorUtils.StringPopup(actorName, DLGTree.definedActorParameterNames, false, false);
-			GUI.backgroundColor = Color.white;					
+			if (requireActorSelection){
+				GUI.backgroundColor = EditorUtils.lightBlue;
+				actorName = EditorUtils.StringPopup(actorName, DLGTree.definedActorParameterNames, false, false);
+				GUI.backgroundColor = Color.white;
+			}
+			base.OnNodeInspectorGUI();
 		}
 
 		protected override UnityEditor.GenericMenu OnContextMenu(UnityEditor.GenericMenu menu){

@@ -86,8 +86,7 @@ namespace NodeCanvas.StateMachines{
 
 		protected override void OnNodeInspectorGUI(){
 
-            DrawDefaultInspector();
-            ShowBaseFSMInspectorGUI();
+			ShowBaseFSMInspectorGUI();
 
 			if (_onEnterList == null || _onUpdateList == null || _onExitList == null){
 				return;

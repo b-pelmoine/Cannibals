@@ -11,10 +11,17 @@ namespace NodeCanvas.Tasks.Actions{
 	[Description("Display a UI label on the agent's position if seconds to run is not 0 and also logs the message")]
 	public class DebugLogText : ActionTask<Transform>{
 
+		public enum LogMode{
+			Log,
+			Warning,
+			Error
+		}
+
         [RequiredField]
 		public BBParameter<string> log = "Hello World";
 		public float labelYOffset = 0;
 		public float secondsToRun = 1f;
+		public LogMode logMode;
 		public CompactStatus finishStatus = CompactStatus.Success;
 
 		protected override string info{
@@ -22,7 +29,16 @@ namespace NodeCanvas.Tasks.Actions{
 		}
 
 		protected override void OnExecute(){
-			Debug.Log(string.Format("(<b>{0}</b>) {1}", agent.gameObject.name, log.value), agent.gameObject);
+			var label = string.Format("(<b>{0}</b>) {1}", agent.gameObject.name, log.value);
+			if (logMode == LogMode.Log){
+				Debug.Log(label, agent.gameObject);
+			}
+			if (logMode == LogMode.Warning){
+				Debug.LogWarning(label, agent.gameObject);	
+			}
+			if (logMode == LogMode.Error){
+				Debug.LogError(label, agent.gameObject);
+			}
 			if (secondsToRun > 0){
 				MonoManager.current.onGUI += OnGUI;
 			}

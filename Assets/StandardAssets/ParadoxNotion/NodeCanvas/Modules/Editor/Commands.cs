@@ -27,10 +27,6 @@ namespace NodeCanvas.Editor{
 		}
 #endif
 
-		[MenuItem("Tools/ParadoxNotion/NodeCanvas/Update Project to Version 2.6.2 +")]
-		public static void UpdateProject(){
-			ProjectVersionUpdater.DoVersionUpdate();
-		}
 
 		[MenuItem("Tools/ParadoxNotion/NodeCanvas/Preferred Types Editor")]
 		public static void ShowPrefTypes(){

@@ -10,7 +10,7 @@ namespace NodeCanvas.BehaviourTrees{
 
 	[Name("SubTree")]
 	[Category("Nested")]
-	[Description("SubTree Node can be assigned an entire Sub BehaviorTree. The root node of that behaviour will be considered child node of this node and will return whatever it returns.\nThe SubTree can also be parametrized using Blackboard variables as normal.")]
+	[Description("SubTree Node can be assigned an entire Sub BehaviorTree. The root node of that behaviour will be considered child node of this node and will return whatever it returns.\nThe target SubTree can also be set by using a Blackboard variable as normal.")]
 	[Icon("BT")]
 	public class SubTree : BTNode, IGraphAssignable{
 
@@ -106,8 +106,9 @@ namespace NodeCanvas.BehaviourTrees{
 
 			GUILayout.Label(string.Format("SubTree\n{0}", _subTree) );
 			if (subTree == null){
-				if (!Application.isPlaying && GUILayout.Button("CREATE NEW"))
+				if (!Application.isPlaying && GUILayout.Button("CREATE NEW")){
 					Node.CreateNested<BehaviourTree>(this);
+				}
 			}
 		}
 

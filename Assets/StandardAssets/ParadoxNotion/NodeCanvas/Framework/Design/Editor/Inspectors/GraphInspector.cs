@@ -39,7 +39,6 @@ namespace NodeCanvas.Editor{
         public void ShowBasicGUI(){
 
             GUILayout.Space(10);
-            graph.name = EditorGUILayout.TextField("Name", graph.name);
             graph.graphComments = GUILayout.TextArea(graph.graphComments, GUILayout.Height(45));
             EditorUtils.TextFieldComment(graph.graphComments);
 

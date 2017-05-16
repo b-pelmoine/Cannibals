@@ -18,6 +18,8 @@ namespace NodeCanvas.Tasks.Conditions{
 		public BBParameter<GameObject> saveGameObjectAs;
 		[BlackboardOnly]
 		public BBParameter<Vector3> saveContactPoint;
+		[BlackboardOnly]
+		public BBParameter<Vector3> saveContactNormal;
 
 		private bool stay;
 
@@ -26,8 +28,9 @@ namespace NodeCanvas.Tasks.Conditions{
 		}
 
 		protected override bool OnCheck(){
-			if (checkType == CollisionTypes.CollisionStay)
+			if (checkType == CollisionTypes.CollisionStay){
 				return stay;
+			}
 			return false;
 		}
 
@@ -38,6 +41,7 @@ namespace NodeCanvas.Tasks.Conditions{
 				if (checkType == CollisionTypes.CollisionEnter || checkType == CollisionTypes.CollisionStay){
 					saveGameObjectAs.value = info.gameObject;
 					saveContactPoint.value = info.contacts[0].point;
+					saveContactNormal.value = info.contacts[0].normal;
 					YieldReturn(true);
 				}
 			}

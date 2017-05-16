@@ -41,11 +41,13 @@ namespace NodeCanvas.StateMachines{
 			get	{return previousState != null? previousState.name : null; }
 		}
 
-        public string nextStateName{
+        ///The next state name. Null if none
+        public string nextStateName
+        {
             get { return nextState != null ? nextState.name : null; }
         }
 
-		public override System.Type baseNodeType{ get {return typeof(FSMState);} }
+        public override System.Type baseNodeType{ get {return typeof(FSMState);} }
 		public override bool requiresAgent{	get {return true;} }
 		public override bool requiresPrimeNode { get {return true;} }
 		public override bool autoSort{ get {return false;} }
@@ -65,7 +67,10 @@ namespace NodeCanvas.StateMachines{
 				concurentStates = new List<ConcurrentState>();
 
 				for (var i = 0; i < allNodes.Count; i++){
-					var node = allNodes[i];
+					var node = allNodes[i] as FSMState;
+					if (node == null){
+						continue;
+					}
 					if (node is IUpdatable){
 						updatableNodes.Add((IUpdatable)node);
 					}
@@ -180,11 +185,11 @@ namespace NodeCanvas.StateMachines{
 				#endif
 			}
 
-			previousState = currentState;
-			currentState = newState;
             nextState = null;
+            previousState = currentState;
+			currentState = newState;
 
-            if (CallbackEnter != null){
+			if (CallbackEnter != null){
 				CallbackEnter(currentState);
 			}
 

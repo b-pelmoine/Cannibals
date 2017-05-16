@@ -19,7 +19,7 @@ namespace NodeCanvas.BehaviourTrees{
 		    	decoratedConnection.Reset();
 
 			status = decoratedConnection.Execute(agent, blackboard);
-			return status == Status.Running? Status.Running : Status.Resting;
+			return status == Status.Running? Status.Running : Status.Optional;
 		}
 	}
 }

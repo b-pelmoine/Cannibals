@@ -18,7 +18,6 @@ namespace NodeCanvas.DialogueTrees.UI.Examples{
 			public float finalDelay     = 1.2f;
 		}
 
-
 		//Options...
 		[Header("Input Options")]
 		public bool skipOnInput;
@@ -32,6 +31,7 @@ namespace NodeCanvas.DialogueTrees.UI.Examples{
 		public Image actorPortrait;
 		public RectTransform waitInputIndicator;
 		public SubtitleDelays subtitleDelays = new SubtitleDelays();
+		public List<AudioClip> typingSounds;
 
 		//Group...
 		[Header("Multiple Choice")]
@@ -45,7 +45,6 @@ namespace NodeCanvas.DialogueTrees.UI.Examples{
 		private AudioSource localSource{
 			get {return _localSource != null? _localSource : _localSource = gameObject.AddComponent<AudioSource>();}
 		}
-
 
 		void OnEnable(){
 			DialogueTree.OnDialogueStarted       += OnDialogueStarted;
@@ -137,7 +136,7 @@ namespace NodeCanvas.DialogueTrees.UI.Examples{
 					StartCoroutine(CheckInput( ()=>{ inputDown = true; } ));
 				}
 
-				for (int i= 0; i < text.Length; i++){
+				for (int i = 0; i < text.Length; i++){
 
 					if (skipOnInput && inputDown){
 						actorSpeech.text = text;
@@ -149,14 +148,17 @@ namespace NodeCanvas.DialogueTrees.UI.Examples{
 						yield break;
 					}
 
-					tempText += text[i];
-					yield return StartCoroutine(DelayPrint(subtitleDelays.characterDelay));
 					char c = text[i];
+					tempText += c;
+					yield return StartCoroutine(DelayPrint(subtitleDelays.characterDelay));
+					PlayTypeSound();
 					if (c == '.' || c == '!' || c == '?'){
 						yield return StartCoroutine(DelayPrint(subtitleDelays.sentenceDelay));
+						PlayTypeSound();
 					}
 					if (c == ','){
 						yield return StartCoroutine(DelayPrint(subtitleDelays.commaDelay));
+						PlayTypeSound();
 					}
 
 					actorSpeech.text = tempText;
@@ -178,6 +180,15 @@ namespace NodeCanvas.DialogueTrees.UI.Examples{
 			yield return null;
 			subtitlesGroup.gameObject.SetActive(false);
 			info.Continue();
+		}
+
+		void PlayTypeSound(){
+			if (typingSounds.Count > 0){
+				var sound = typingSounds[ Random.Range(0, typingSounds.Count) ];
+				if (sound != null){
+					localSource.PlayOneShot(sound, Random.Range(0.6f, 1f));
+				}
+			}
 		}
 
 		IEnumerator CheckInput(System.Action Do){
