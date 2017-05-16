@@ -95,6 +95,10 @@ namespace AI
                             AkSoundEngine.PostEvent("dog_bark", gameObject);
                             CurrentTask.count++;
                         }
+                        else if(CurrentTask.elapsed>2)
+                        {
+                            tasks.Pop();
+                        }
                         
                     }
                     else
