@@ -141,21 +141,21 @@ namespace ParadoxNotion.Design{
 			}
 
 			//Preliminary Hides
+			//Hide class?
+			if (t.GetCustomAttributes(typeof(HideInInspector), true ).FirstOrDefault() != null){
+				return value;
+			}
+
 			if (typeof(Delegate).IsAssignableFrom(t)){
 				return value;
 			}
 
 			name = name.SplitCamelCase();
-
+			var content = new GUIContent(name);
 			//
 
 			IEnumerable<Attribute> attributes = new Attribute[0];
 			if (member != null){
-
-				//Hide class?
-				if (t.GetCustomAttributes(typeof(HideInInspector), true ).FirstOrDefault() != null){
-					return value;
-				}
 
 				attributes = member.GetCustomAttributes(true).Cast<Attribute>();
 
@@ -180,6 +180,12 @@ namespace ParadoxNotion.Design{
 				var nameAtt = attributes.FirstOrDefault(a => a is NameAttribute) as NameAttribute;
 				if (nameAtt != null){
 					name = nameAtt.name;
+					content.text = name;
+				}
+
+				var tooltipAtt = attributes.FirstOrDefault(a => a is TooltipAttribute) as TooltipAttribute;
+				if (tooltipAtt != null){
+					content.tooltip = tooltipAtt.tooltip;
 				}
 
 				if (context != null){
@@ -200,7 +206,7 @@ namespace ParadoxNotion.Design{
 
 			//Before everything check BBParameter
 			if (typeof(BBParameter).IsAssignableFrom(t)){
-				return BBParameterField(name, (BBParameter)value, false, member, context);
+				return BBParameterField(content, (BBParameter)value, false, member, context);
 			}
 
 
@@ -215,14 +221,14 @@ namespace ParadoxNotion.Design{
 					member = bbParam.GetType().GetField("_value", BindingFlags.Instance | BindingFlags.NonPublic);
 				}
 */
-				return objectDrawer.DrawGUI(name, value, member as FieldInfo, null, context);
+				return objectDrawer.DrawGUI(content, value, member as FieldInfo, null, context);
 			}
 
 			//Custom attribute drawers
 			foreach(var att in attributes.OfType<CustomDrawerAttribute>()){
 				var attributeDrawer = GetCustomDrawer(att.GetType());
 				if (attributeDrawer != null && !(attributeDrawer is NoDrawer)){
-					return attributeDrawer.DrawGUI(name, value, member as FieldInfo, att, context);
+					return attributeDrawer.DrawGUI(content, value, member as FieldInfo, att, context);
 				}
 			}
 		
@@ -230,14 +236,14 @@ namespace ParadoxNotion.Design{
 			//Then check UnityObjects
             if ( typeof(UnityObject).IsAssignableFrom(t) ) {
                 if (t == typeof(Component) && (Component)value != null){
-                    return ComponentField(name, (Component)value, typeof(Component));
+                    return ComponentField(content, (Component)value, typeof(Component));
                 }
-                return EditorGUILayout.ObjectField(name, (UnityObject)value, t, typeof(Component).IsAssignableFrom(t) || t == typeof(GameObject) );
+                return EditorGUILayout.ObjectField(content, (UnityObject)value, t, typeof(Component).IsAssignableFrom(t) || t == typeof(GameObject) );
 		    }
 
 		    //Force UnityObject field?
 		    if (member != null && attributes.Any(a => a is ForceObjectFieldAttribute)){
-		    	return EditorGUILayout.ObjectField(name, value as UnityObject, t, typeof(Component).IsAssignableFrom(t) || t == typeof(GameObject) );
+		    	return EditorGUILayout.ObjectField(content, value as UnityObject, t, typeof(Component).IsAssignableFrom(t) || t == typeof(GameObject) );
 		    }
 
 			//Restricted popup values?
@@ -255,27 +261,27 @@ namespace ParadoxNotion.Design{
 							var prop = type.GetProperty( propName, BindingFlags.Static | BindingFlags.Public );
 							var propValue = prop.GetValue(null, null);
 							var values = ((IEnumerable)propValue).Cast<object>().ToList();
-							return Popup<object>(name, value, values);
+							return Popup<object>(content, value, values);
 						}
 						catch
 						{
-							EditorGUILayout.LabelField(name, "[PopupField] attribute error!");
+							EditorGUILayout.LabelField(content, new GUIContent("[PopupField] attribute error!") );
 							return value;
 						}
 					}
-					return Popup<object>(name, value, popAtt.values.ToList());
+					return Popup<object>(content, value, popAtt.values.ToList());
 				}
 			}
 
 
 		    //Check Type of Type
 			if (t == typeof(Type)){
-				return Popup<Type>(name, (Type)value, UserTypePrefs.GetPreferedTypesList(typeof(object), true) );
+				return Popup<Type>(content, (Type)value, UserTypePrefs.GetPreferedTypesList(typeof(object), true) );
 			}
 
 			//Check abstract
 			if ( (value != null && value.GetType().IsAbstract) || (value == null && t.IsAbstract) ){
-				EditorGUILayout.LabelField(name, string.Format("Abstract ({0})", t.FriendlyName()));
+				EditorGUILayout.LabelField(content, new GUIContent(string.Format("Abstract ({0})", t.FriendlyName()) ) );
 				return value;
 			}
 
@@ -294,11 +300,12 @@ namespace ParadoxNotion.Design{
 			//..............
             if (t == typeof(string)){
 				if (member != null){
-					if (attributes.Any(a => a is TagFieldAttribute))
-						return EditorGUILayout.TagField(name, (string)value);
+					if (attributes.Any(a => a is TagFieldAttribute)){
+						return EditorGUILayout.TagField(content, (string)value);
+					}
 					var areaAtt = attributes.FirstOrDefault(a => a is TextAreaFieldAttribute) as TextAreaFieldAttribute;
 					if (areaAtt != null){
-						GUILayout.Label(name);
+						GUILayout.Label(content);
 						var areaStyle = new GUIStyle(GUI.skin.GetStyle("TextArea"));
 						areaStyle.wordWrap = true;
 						var s = EditorGUILayout.TextArea((string)value, areaStyle, GUILayout.Height(areaAtt.height));
@@ -306,97 +313,121 @@ namespace ParadoxNotion.Design{
 					}
 				}
 
-				return EditorGUILayout.TextField(name, (string)value);
+				return EditorGUILayout.TextField(content, (string)value);
 			}
 
-			if (t == typeof(bool))
-				return EditorGUILayout.Toggle(name, (bool)value);
+			if (t == typeof(bool)){
+				return EditorGUILayout.Toggle(content, (bool)value);
+			}
 
 			if (t == typeof(int)){
 				if (member != null){
 					var sField = attributes.FirstOrDefault(a => a is SliderFieldAttribute) as SliderFieldAttribute;
-					if (sField != null)
-						return (int)EditorGUILayout.Slider(name, (int)value, (int)sField.left, (int)sField.right );
-					if (attributes.Any(a => a is LayerFieldAttribute))
-						return EditorGUILayout.LayerField(name, (int)value);
+					if (sField != null){
+						return (int)EditorGUILayout.Slider(content, (int)value, (int)sField.left, (int)sField.right );
+					}
+					if (attributes.Any(a => a is LayerFieldAttribute)){
+						return EditorGUILayout.LayerField(content, (int)value);
+					}
 				}
 
-				return EditorGUILayout.IntField(name, (int)value);
+				return EditorGUILayout.IntField(content, (int)value);
 			}
 
 			if (t == typeof(float)){
 				if (member != null){
 					var sField = attributes.FirstOrDefault(a => a is SliderFieldAttribute) as SliderFieldAttribute;
-					if (sField != null)
-						return EditorGUILayout.Slider(name, (float)value, sField.left, sField.right);
+					if (sField != null){
+						return EditorGUILayout.Slider(content, (float)value, sField.left, sField.right);
+					}
 				}
-				return EditorGUILayout.FloatField(name, (float)value);
+				return EditorGUILayout.FloatField(content, (float)value);
 			}
 
 			if (t == typeof(byte)){
-				return Convert.ToByte( Mathf.Clamp(EditorGUILayout.IntField(name, (byte)value), 0, 255) );
+				return Convert.ToByte( Mathf.Clamp(EditorGUILayout.IntField(content, (byte)value), 0, 255) );
 			}
 
-			if (t == typeof(Vector2))
-				return EditorGUILayout.Vector2Field(name, (Vector2)value);
+			if (t == typeof(Vector2)){
+				return EditorGUILayout.Vector2Field(content, (Vector2)value);
+			}
 
-			if (t == typeof(Vector3))
-				return EditorGUILayout.Vector3Field(name, (Vector3)value);
+			if (t == typeof(Vector3)){
+				return EditorGUILayout.Vector3Field(content, (Vector3)value);
+			}
 
-			if (t == typeof(Vector4))
-				return EditorGUILayout.Vector4Field(name, (Vector4)value);
+			if (t == typeof(Vector4)){
+				#if UNITY_5_4_OR_NEWER
+				return EditorGUILayout.Vector4Field(content, (Vector4)value);
+				#else
+				return EditorGUILayout.Vector4Field(content.text, (Vector4)value);
+				#endif
+			}
 
 			if (t == typeof(Quaternion)){
 				var quat = (Quaternion)value;
 				var vec4 = new Vector4(quat.x, quat.y, quat.z, quat.w);
-				vec4 = EditorGUILayout.Vector4Field(name, vec4);
+				#if UNITY_5_4_OR_NEWER
+				vec4 = EditorGUILayout.Vector4Field(content, vec4);
+				#else
+				vec4 = EditorGUILayout.Vector4Field(content.text, vec4);
+				#endif
 				return new Quaternion(vec4.x, vec4.y, vec4.z, vec4.w);
 			}
 
-			if (t == typeof(Color))
-				return EditorGUILayout.ColorField(name, (Color)value);
+			if (t == typeof(Color)){
+				return EditorGUILayout.ColorField(content, (Color)value);
+			}
 
-			if (t == typeof(Rect))
-				return EditorGUILayout.RectField(name, (Rect)value);
+			if (t == typeof(Rect)){
+				return EditorGUILayout.RectField(content, (Rect)value);
+			}
 
-			if (t == typeof(AnimationCurve))
-				return EditorGUILayout.CurveField(name, (AnimationCurve)value);
+			if (t == typeof(AnimationCurve)){
+				return EditorGUILayout.CurveField(content, (AnimationCurve)value);
+			}
 
-			if (t == typeof(Bounds))
-				return EditorGUILayout.BoundsField(name, (Bounds)value);
+			if (t == typeof(Bounds)){
+				return EditorGUILayout.BoundsField(content, (Bounds)value);
+			}
 
-			if (t == typeof(LayerMask))
-				return LayerMaskField(name, (LayerMask)value);
+			if (t == typeof(LayerMask)){
+				return LayerMaskField(content, (LayerMask)value);
+			}
             
 			if (t.IsSubclassOf(typeof(System.Enum))){
 #if UNITY_5				
 				if (t.GetCustomAttributes(typeof(FlagsAttribute), true).FirstOrDefault() != null ){
-					return EditorGUILayout.EnumMaskPopup(new GUIContent(name), (System.Enum)value);
+					return EditorGUILayout.EnumMaskPopup(content, (System.Enum)value);
 				}
 #endif
-				return EditorGUILayout.EnumPopup(name, (System.Enum)value);
+				return EditorGUILayout.EnumPopup(content, (System.Enum)value);
 			}
 
-			if (typeof(IList).IsAssignableFrom(t))
-				return ListEditor(name, (IList)value, t, context);
+			if (typeof(IList).IsAssignableFrom(t)){
+				return ListEditor(content, (IList)value, t, context);
+			}
 
-			if (typeof(IDictionary).IsAssignableFrom(t))
-				return DictionaryEditor(name, (IDictionary)value, t, context);
+			if (typeof(IDictionary).IsAssignableFrom(t)){
+				return DictionaryEditor(content, (IDictionary)value, t, context);
+			}
 
 
 			//show nested class members recursively
 			if (value != null && !t.IsEnum && !t.IsInterface){
-	
-				GUILayout.BeginVertical();
-				EditorGUILayout.LabelField(name, t.FriendlyName());
-				EditorGUI.indentLevel ++;
-				ShowAutoEditorGUI(value);
-				EditorGUI.indentLevel --;
-				GUILayout.EndVertical();
+				
+				if (EditorGUI.indentLevel < 8){
+					GUILayout.BeginVertical();
+					EditorGUILayout.LabelField(content, new GUIContent(t.FriendlyName()) );
+					EditorGUI.indentLevel ++;
+					ShowAutoEditorGUI(value);
+					EditorGUI.indentLevel --;
+					GUILayout.EndVertical();
+				}
 		
 			} else {
 
-				EditorGUILayout.LabelField(name, string.Format("({0})", t.FriendlyName()));
+				EditorGUILayout.LabelField(content, new GUIContent(string.Format("({0})", t.FriendlyName()) ) );
 			}
 			
 			return value;

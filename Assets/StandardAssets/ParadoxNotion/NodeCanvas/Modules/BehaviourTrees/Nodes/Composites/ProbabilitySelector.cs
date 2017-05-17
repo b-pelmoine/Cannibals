@@ -41,8 +41,9 @@ namespace NodeCanvas.BehaviourTrees{
 			currentProbability = probability;
 			for (var i = 0; i < outConnections.Count; i++){
 				
-				if (failedIndeces.Contains(i))
+				if (failedIndeces.Contains(i)){
 					continue;
+				}
 
 				if (currentProbability > childWeights[i].value){
 					currentProbability -= childWeights[i].value;
@@ -50,8 +51,9 @@ namespace NodeCanvas.BehaviourTrees{
 				}
 
 				status = outConnections[i].Execute(agent, blackboard);
-				if (status == Status.Success || status == Status.Running)
+				if (status == Status.Success || status == Status.Running){
 					return status;
+				}
 
 				if (status == Status.Failure){
 					failedIndeces.Add(i);
@@ -75,8 +77,9 @@ namespace NodeCanvas.BehaviourTrees{
 
 		float GetTotal(){
 			var total = failChance.value;
-			foreach (var weight in childWeights)
+			foreach (var weight in childWeights){
 				total += weight.value;
+			}
 			return total;
 		}
 
@@ -101,9 +104,7 @@ namespace NodeCanvas.BehaviourTrees{
 			}
 
 			var total = GetTotal();
-
 			for (var i = 0; i < childWeights.Count; i++){
-
 				GUILayout.BeginHorizontal();
 				childWeights[i] = (BBParameter<float>)EditorUtils.BBParameterField("Weight", childWeights[i]);
 				GUILayout.Label( Mathf.Round( (childWeights[i].value/total) * 100 ) + "%", GUILayout.Width(38));

@@ -46,39 +46,7 @@ namespace NodeCanvas.Framework{
 
 
 
-		///A special BBParameter for the task agent
-		[Serializable]
-		public class TaskAgent : BBParameter<UnityEngine.Object>{
 
-			new public UnityEngine.Object value{
-				get
-				{
-					if (useBlackboard){
-						var o = base.value;
-						if (o == null){
-							return null;
-						}
-						if (o is GameObject){
-							return (o as GameObject).transform;
-						}
-						if (o is Component){
-							return (Component)o;
-						}
-						return null;
-					}
-					return _value as Component;
-				}
-				set {_value = value;} //the linked blackboard variable is NEVER set through the TaskAgent. Instead we set the local (inherited) variable
-			}
-
-			protected override object objectValue{
-				get {return this.value;}
-				set {this.value = (UnityEngine.Object)value;}
-			}
-		}
-
-
-		
 
 		[SerializeField]
 		private bool _isDisabled;
@@ -458,7 +426,7 @@ namespace NodeCanvas.Framework{
 
 				#endif
 
-				if (typeof(Component).RTIsAssignableFrom(field.FieldType)){
+				if (newAgent != null && typeof(Component).RTIsAssignableFrom(field.FieldType)){
 
 					var getterAttribute = field.RTGetAttribute<GetFromAgentAttribute>(true);
 					if (getterAttribute != null){

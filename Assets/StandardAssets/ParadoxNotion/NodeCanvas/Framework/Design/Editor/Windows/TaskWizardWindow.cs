@@ -32,12 +32,12 @@ namespace NodeCanvas.Editor{
 
 		void OnGUI(){
 
-			type = (TaskType)EditorGUILayout.EnumPopup("Task Type", type);
-            taskName = EditorGUILayout.TextField("Task Name", taskName);
-            ns = EditorGUILayout.TextField("Namespace", ns);
-			category = EditorGUILayout.TextField("Category(?)", category);
-            description = EditorGUILayout.TextField("Description(?)", description);
-			agentType = EditorGUILayout.TextField("Agent Type(?)", agentType);
+			type        = (TaskType)EditorGUILayout.EnumPopup("Task Type", type);
+			taskName    = EditorGUILayout.TextField("Task Name", taskName);
+			ns          = EditorGUILayout.TextField("Namespace", ns);
+			category    = EditorGUILayout.TextField("Category(?)", category);
+			description = EditorGUILayout.TextField("Description(?)", description);
+			agentType   = EditorGUILayout.TextField("Agent Type(?)", agentType);
 
 			if (GUILayout.Button("CREATE")){
 
@@ -46,22 +46,26 @@ namespace NodeCanvas.Editor{
 					return;
 				}
 
-				if (type == TaskType.Action)
+				if (type == TaskType.Action){
 					CreateFile(GetActionTemplate());
+				}
 
-				if (type == TaskType.Condition)
+				if (type == TaskType.Condition){
 					CreateFile(GetCoditionTemplate());
+				}
 
 				taskName = "";
 				GUIUtility.hotControl = 0;
 				GUIUtility.keyboardControl = 0;
 			}
 
-			if (type == TaskType.Action)
+			if (type == TaskType.Action){
 				GUILayout.Label(GetActionTemplate());
+			}
 
-			if (type == TaskType.Condition)
+			if (type == TaskType.Condition){
 				GUILayout.Label(GetCoditionTemplate());
+			}
 		}
 
 		void CreateFile(string template){
@@ -69,8 +73,9 @@ namespace NodeCanvas.Editor{
 			var path = GetUniquePath();
 
 			if (System.IO.File.Exists(path)){
-				if (!EditorUtility.DisplayDialog("File Exists", "Overwrite file?","YES", "NO"))
+				if (!EditorUtility.DisplayDialog("File Exists", "Overwrite file?","YES", "NO")){
 					return;
+				}
 			}
 
 			System.IO.File.WriteAllText(path, template);
@@ -80,10 +85,12 @@ namespace NodeCanvas.Editor{
 
 		string GetUniquePath(){
 			var path = AssetDatabase.GetAssetPath (Selection.activeObject);
-			if (path == "")
+			if (path == ""){
 			    path = "Assets";
-			if (System.IO.Path.GetExtension(path) != "")
+			}
+			if (System.IO.Path.GetExtension(path) != ""){
 			    path = path.Replace(System.IO.Path.GetFileName (AssetDatabase.GetAssetPath (Selection.activeObject)), "");
+			}
 			return AssetDatabase.GenerateUniqueAssetPath(path + "/" + taskName + ".cs");
 		}
 

@@ -32,9 +32,11 @@ namespace NodeCanvas.Framework{
 		private Color _nodeColor;
 
 		private Texture2D _icon;
-		private Vector2 size = new Vector2(100, 20);
-		private string hexColor{get;set;}
 		private bool iconLoaded{get;set;}
+		private IconAttribute.Mode iconMode{get;set;}
+
+		private Vector2 size = minSize;
+		private string hexColor{get;set;}
 		private bool colorLoaded{get;set;}
 		private bool hasColorAttribute{get;set;}
 		private bool nodeIsPressed{get;set;}
@@ -45,10 +47,12 @@ namespace NodeCanvas.Framework{
 		private static int dragDropMisses;
 
 		public static Node[] copiedNodes{get;set;}
-		readonly public static Color successColor = new Color(0.4f, 0.7f, 0.2f);
-		readonly public static Color failureColor = new Color(1.0f, 0.3f, 0.3f);
-		readonly public static Color runningColor = Color.yellow;
-		readonly public static Color restingColor = new Color(0.7f, 0.7f, 1f, 0.8f);
+		readonly public static Color failureColor  = new Color(1.0f, 0.3f, 0.3f);
+		readonly public static Color successColor  = new Color(0.4f, 0.7f, 0.2f);
+		readonly public static Color runningColor  = Color.yellow;
+		readonly public static Color restingColor  = new Color(0.7f, 0.7f, 1f, 0.8f);
+		readonly public static Color errorColor    = Color.red;
+		readonly public static Color optionalColor = Color.grey;
 		readonly public static Vector2 minSize = new Vector2(100, 20);
 
 
@@ -119,7 +123,7 @@ namespace NodeCanvas.Framework{
 		}
 
 		//Is NC in icon mode && node has an icon?
-		private bool inIconMode{
+		private bool showIcon{
 			get {return NCPrefs.showIcons && icon != null;}
 		}
 
@@ -137,7 +141,10 @@ namespace NodeCanvas.Framework{
 				}
 				if (_icon == null){
 					var iconAtt = this.GetType().RTGetAttribute<IconAttribute>(true);
-					if (iconAtt != null) _icon = (Texture2D)Resources.Load(iconAtt.iconName);
+					if (iconAtt != null){
+						_icon = (Texture2D)Resources.Load(iconAtt.iconName);
+						iconMode = iconAtt.mode;
+					}
 				}
 				iconLoaded = true;				
 				return _icon;			
@@ -221,15 +228,19 @@ namespace NodeCanvas.Framework{
 				DrawNodeWindow(canvasMousePos, zoomFactor);
 				DrawNodeTag();
 				DrawNodeComments();
-				// DrawNodeID();
+				DrawNodeID();
 			}
 
 			DrawNodeConnections(drawCanvas, fullDrawPass, canvasMousePos, zoomFactor);
 		}
 
 		void DrawNodeID(){
-			var rect = new Rect(nodeRect.x, nodeRect.y - 20, nodeRect.width, 20);
-			GUI.Label(rect, ID.ToString() + " | " + (graph.allNodes.IndexOf(this) + 1));
+			if (NCPrefs.showNodeIDs){
+				var rect = new Rect(nodeRect.x, nodeRect.y - 18, nodeRect.width, 18);
+				GUI.color = Color.grey;
+				GUI.Label(rect, string.Format("<size=9>#{0}</size>", ID.ToString() ) );
+				GUI.color = Color.white;
+			}
 		}
 
 		//Draw the window
@@ -254,14 +265,24 @@ namespace NodeCanvas.Framework{
 
 			if (Application.isPlaying && status != Status.Resting){
 
-				if (status == Status.Success)
-					GUI.color = successColor;
-				else if (status == Status.Running)
-					GUI.color = runningColor;
-				else if (status == Status.Failure)
-					GUI.color = failureColor;
-				else if (status == Status.Error)
-					GUI.color = Color.red;
+				switch(status)
+				{
+					case Status.Failure:
+						GUI.color = failureColor;
+						break;
+					case Status.Success:
+						GUI.color = successColor;
+						break;
+					case Status.Running:
+						GUI.color = runningColor;
+						break;
+					case Status.Error:
+						GUI.color = errorColor;
+						break;
+					case Status.Optional:
+						GUI.color = optionalColor;
+						break;
+				}
 
 				GUI.Box(nodeRect, string.Empty, (GUIStyle)"windowHighlight");
 				
@@ -299,13 +320,24 @@ namespace NodeCanvas.Framework{
 
 		//The title name or icon of the node
 		void ShowHeader(){
+
+			if (!showIcon || iconMode == IconAttribute.Mode.AppendToTitle){
+				if (name != null){
+					if (!EditorGUIUtility.isProSkin){ //fix light coloring by adding a dark background
+						GUI.color = new Color(1,1,1,0.75f);
+						GUI.Box(new Rect(0,3,nodeRect.width, 23), string.Empty);
+						GUI.color = Color.white;
+					}
+					var finalTitle = this is IGraphAssignable? string.Format("{{ {0} }}", name) : name;
+					GUILayout.Label(string.Format("<b><size=12><color=#{0}>{1}</color></size></b>", hexColor, finalTitle), centerLabel);
+				}
+			}
+
 			
-			if (inIconMode){ //prefs in icon mode AND has icon
+			if (showIcon){ //prefs in icon mode AND has icon
 
 				GUI.color = nodeColor.a > 0.2f? nodeColor : Color.white;
-
 				if (!EditorGUIUtility.isProSkin){
-
 					var assignable = this as ITaskAssignable;
 					IconAttribute att = null;
 					if (assignable != null && assignable.task != null){
@@ -327,21 +359,11 @@ namespace NodeCanvas.Framework{
 				GUILayout.Box(icon, GUILayout.MaxHeight(50));
 				GUI.backgroundColor = Color.white;
 				GUI.color = Color.white;
-
-			} else {
-
-				if (name != null){
-					if (!EditorGUIUtility.isProSkin){ //fix light coloring by adding a dark background
-						GUI.color = new Color(1,1,1,0.75f);
-						GUI.Box(new Rect(0,3,nodeRect.width, 23), string.Empty);
-						GUI.color = Color.white;
-					}
-					var finalTitle = this is IGraphAssignable? string.Format("{{ {0} }}", name) : name;
-					GUILayout.Label(string.Format("<b><size=12><color=#{0}>{1}</color></size></b>", hexColor, finalTitle), centerLabel);
-				}
 			}
 
-			if ( name != null && nodeColor.a > 0.2f && (!inIconMode || !hasColorAttribute) ){
+
+			//custom horizontal line color indicator
+			if ( name != null && nodeColor.a > 0.2f && (!showIcon || !hasColorAttribute) ){
 				var lastRect = GUILayoutUtility.GetLastRect();
 				var hMargin = EditorGUIUtility.isProSkin? 4 : 1;
 				GUILayout.Space(2);
@@ -474,9 +496,12 @@ namespace NodeCanvas.Framework{
 							Graph.multiSelection = newNodes.Cast<object>().ToList();
 		            	});
 					menu.AddItem (new GUIContent ("Copy Selected Nodes"), false, ()=>{ copiedNodes = Graph.multiSelection.OfType<Node>().ToArray(); });
-		            menu.AddSeparator("/");
-		            menu.AddItem (new GUIContent ("Delete Selected Nodes"), false, ()=>{ foreach (Node node in Graph.multiSelection.ToArray()) graph.RemoveNode(node); });
-			        Graph.PostGUI += ()=> { menu.ShowAsContext(); }; //Post GUI cause of zoom
+			        menu = OnContextMenuMulti(menu, Graph.multiSelection.OfType<Node>().ToArray());
+			        if (menu != null){
+			            menu.AddSeparator("/");
+			            menu.AddItem (new GUIContent ("Delete Selected Nodes"), false, ()=>{ foreach (Node node in Graph.multiSelection.ToArray()) graph.RemoveNode(node); });
+				        Graph.PostGUI += ()=> { menu.ShowAsContext(); }; //Post GUI cause of zoom
+				    }
 			        e.Use();
 			        return;
 
@@ -639,7 +664,7 @@ namespace NodeCanvas.Framework{
 			}
 
 			GUILayout.BeginHorizontal();
-			if (!inIconMode && allowAsPrime){
+			if (!showIcon && allowAsPrime){
 				customName = EditorGUILayout.TextField(customName);
 				EditorUtils.TextFieldComment(customName, "Name...");
 			}
@@ -764,7 +789,8 @@ namespace NodeCanvas.Framework{
 		virtual protected void OnNodeInspectorGUI(){ DrawDefaultInspector(); }
 		//Editor. Override to add more entries to the right click context menu of the node
 		virtual protected GenericMenu OnContextMenu(GenericMenu menu){ return menu; }
-
+		//Editor. Override to add more entries to the right click context menu when multiple nodes are selected
+		virtual protected GenericMenu OnContextMenuMulti(GenericMenu menu, Node[] selection){ return menu; }
 
 		//Draw the connections line from this node, to all of its children. This is the default hierarchical tree style. Override in each system's base node class.
 		virtual protected void DrawNodeConnections(Rect drawCanvas, bool fullDrawPass, Vector2 canvasMousePos, float zoomFactor){

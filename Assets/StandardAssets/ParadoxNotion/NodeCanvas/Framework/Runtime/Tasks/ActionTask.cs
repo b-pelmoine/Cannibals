@@ -39,10 +39,12 @@ namespace NodeCanvas.Framework{
 		public float elapsedTime{
 			get
 			{
-				if (isPaused)
+				if (isPaused){
 					return pausedTime - startedTime;
-				if (isRunning)
+				}
+				if (isRunning){
 					return Time.time - startedTime;
+				}
 				return 0;
 			}
 		}
@@ -75,6 +77,7 @@ namespace NodeCanvas.Framework{
 		}
 
 		//The internal updater for when an action has been called with a callback parameter and only then.
+		//This is only used and usefull if user needs to execute an action task completely outside a graph as standalone.
 		IEnumerator ActionUpdater(Component agent, IBlackboard blackboard, Action<bool> callback){
 			while(ExecuteAction(agent, blackboard) == Status.Running){
 				yield return null;
@@ -124,12 +127,14 @@ namespace NodeCanvas.Framework{
 		///Ends the action either in success or failure. Ending with null means that it's a cancel/interrupt.
 		///Null is used by the external system. You should use true or false when calling EndAction within it.
 		public void EndAction(){ EndAction(true); }
+		public void EndAction(bool success){ EndAction( (bool?)success ); }
 		public void EndAction(bool? success){
 
 			latch = success != null? true : false;
 
-			if (status != Status.Running)
+			if (status != Status.Running){
 				return;
+			}
 			
 			isPaused = false;
 			status = success == true? Status.Success : Status.Failure;
@@ -139,8 +144,9 @@ namespace NodeCanvas.Framework{
 		///Pause the action from updating and calls OnPause
 		public void PauseAction(){
 			
-			if (status != Status.Running)
+			if (status != Status.Running){
 				return;
+			}
 
 			pausedTime = Time.time;
 			isPaused = true;

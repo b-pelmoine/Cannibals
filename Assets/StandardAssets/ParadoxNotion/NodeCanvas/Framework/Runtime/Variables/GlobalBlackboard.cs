@@ -41,10 +41,20 @@ namespace NodeCanvas.Framework{
 			if (!Application.isPlaying){
 				return FindObjectsOfType<GlobalBlackboard>().Where(b => b.name == name).FirstOrDefault();
 			}
-			return allGlobals.Find(b => b.name == name);
+			var result = allGlobals.Find(b => b.name == name);
+			//since bbs are registered in list in awake, if a script request a bb in it's own awake it might not found correctly.
+			if (result == null){
+				result = FindObjectsOfType<GlobalBlackboard>().Where(b => b.name == name).FirstOrDefault();
+				if (result != null){
+					allGlobals.Add(result);
+				}
+			}
+			return result;
 		}
 
-		void OnEnable(){
+		protected override void Awake(){
+
+			base.Awake();
 
 			if (!allGlobals.Contains(this)){
 				allGlobals.Add(this);
@@ -57,7 +67,7 @@ namespace NodeCanvas.Framework{
 					}
 				} else {
 					Debug.Log( string.Format("There exist more than one Global Blackboards with same name '{0}'. The old one will be destroyed and replaced with the new one.", name));
-					DestroyImmediate(this.gameObject);
+					Destroy(this.gameObject);
 				}
 			}
 
@@ -73,5 +83,22 @@ namespace NodeCanvas.Framework{
 		bool IsUnique(){
 			return allGlobals.Find(b => b.name == this.name && b != this) == null;
 		}
+
+
+		////////////////////////////////////////
+		///////////GUI AND EDITOR STUFF/////////
+		////////////////////////////////////////
+		#if UNITY_EDITOR
+
+		void OnValidate(){
+			if (!UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode){
+				if (!allGlobals.Contains(this)){
+					allGlobals.Add(this);
+				}			
+			}
+		}
+		
+		#endif
+
 	}
 }

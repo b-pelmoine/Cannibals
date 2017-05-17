@@ -15,26 +15,26 @@ public class Bone : CannibalObject, IDropable {
    
     public void Throw(float force , Vector3 normalizedDirection)
     {
-        m_rigidbody.isKinematic = false;
-        m_collider.enabled = true;
+        Release();
+
         // m_rigidbody.AddForce(force*(normalizedDirection+ dropDirection).normalized, ForceMode.Impulse);
     }
 
-    public override void Take(Transform newParent)
+    public override void Take(Cannibal c, Transform newParent)
     {
-        base.Take(newParent);
+        base.Take(c, newParent);
 
         m_rigidbody.isKinematic = true;
         m_rigidbody.velocity = Vector3.zero;
         m_rigidbody.angularVelocity = Vector3.zero;
-        m_collider.enabled = false;
+        m_collider.isTrigger = true;
     }
 
     public override void Release()
     {
         base.Release();
-        m_rigidbody.isKinematic = true;
-        m_collider.enabled = true;
+        m_rigidbody.isKinematic = false;
+        m_collider.isTrigger = false;
     }
 
 }

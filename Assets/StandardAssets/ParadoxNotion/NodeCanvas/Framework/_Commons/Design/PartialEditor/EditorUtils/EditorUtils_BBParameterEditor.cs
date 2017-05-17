@@ -10,18 +10,16 @@ using UnityObject = UnityEngine.Object;
 
 namespace ParadoxNotion.Design{
 
-    /// <summary>
-    /// BBParameter editor field
-    /// </summary>
-
 	partial class EditorUtils {
 
-
-		//a special object field for the BBParameter class to let user choose either a real value or enter a string to read data from a Blackboard
+		//a special object field for the BBParameter class to let user choose either a constant value or link to a Blackboard Variable.
 		public static BBParameter BBParameterField(string prefix, BBParameter bbParam, bool blackboardOnly = false, MemberInfo member = null, object context = null){
+			return BBParameterField( string.IsNullOrEmpty(prefix)? GUIContent.none : new GUIContent(prefix), bbParam, blackboardOnly, member, context );
+		}
+		public static BBParameter BBParameterField(GUIContent content, BBParameter bbParam, bool blackboardOnly = false, MemberInfo member = null, object context = null){
 
 			if (bbParam == null){
-				EditorGUILayout.LabelField(prefix, "Non Set Variable");
+				EditorGUILayout.LabelField(content, new GUIContent("Variable is null") );
 				return null;
 			}
 
@@ -37,7 +35,7 @@ namespace ParadoxNotion.Design{
 			if (!blackboardOnly && !bbParam.useBlackboard){
 
 				GUILayout.BeginVertical();
-				bbParam.value = GenericField(prefix, bbParam.value, bbParam.varType, member, context);
+				bbParam.value = GenericField(content.text, bbParam.value, bbParam.varType, member, context);
 				GUILayout.EndVertical();
 			
 			//Dropdown variable selection
@@ -77,15 +75,15 @@ namespace ParadoxNotion.Design{
 				var isDynamic = !string.IsNullOrEmpty(bbParam.name) && !varNames.Contains(bbParam.name);
 				if (!isDynamic){
 
-					bbParam.name = StringPopup(prefix, bbParam.name, varNames, false, true);
+					bbParam.name = StringPopup(content, bbParam.name, varNames, false, true);
 					
 					if (bbParam.name == "(DynamicVar)"){
 						bbParam.name = "_";
 					}
 
 					if (bbParam.bb != null && bbParam.name == "(Create New)"){
-						if (bbParam.bb.AddVariable(prefix, bbParam.varType) != null){
-							bbParam.name = prefix;
+						if (bbParam.bb.AddVariable(content.text, bbParam.varType) != null){
+							bbParam.name = content.text;
 						} else {
 							bbParam.name = null;
 						}
@@ -93,7 +91,7 @@ namespace ParadoxNotion.Design{
 				
 				} else {
 					
-					bbParam.name = EditorGUILayout.TextField(prefix + " (" + bbParam.varType.FriendlyName() + ")", bbParam.name);
+					bbParam.name = EditorGUILayout.DelayedTextField(content.text + " (" + bbParam.varType.FriendlyName() + ")", bbParam.name);
 					GUI.backgroundColor = new Color(1,1,1,0.2f);
 					if (bbParam.bb != null && GUILayout.Button("▲", GUILayout.Width(20), GUILayout.Height(14))){
 						bbParam.PromoteToVariable(bbParam.bb);
@@ -113,17 +111,19 @@ namespace ParadoxNotion.Design{
 
 			string info = null;
 
-			if (bbParam.bb == null){
-				info = "<i>No current Blackboard reference</i>";
-			} else
-			if (bbParam.isNone){
-				info = "Select a '" + bbParam.varType.FriendlyName() + "' Assignable Blackboard Variable";
-			} else
-			if (bbParam.varRef != null && bbParam.varType != bbParam.refType){
-				if (blackboardOnly){
-					info = string.Format("AutoConvert: ({0} ➲ {1})", bbParam.varType.FriendlyName(), bbParam.refType.FriendlyName() );
-				} else {
-					info = string.Format("AutoConvert: ({0} ➲ {1})", bbParam.refType.FriendlyName(), bbParam.varType.FriendlyName() );
+			if (bbParam.useBlackboard){
+				if (bbParam.bb == null){
+					info = "<i>No current Blackboard reference</i>";
+				} else
+				if (bbParam.isNone){
+					info = "Select a '" + bbParam.varType.FriendlyName() + "' Assignable Blackboard Variable";
+				} else
+				if (bbParam.varRef != null && bbParam.varType != bbParam.refType){
+					if (blackboardOnly){
+						info = string.Format("AutoConvert: ({0} ➲ {1})", bbParam.varType.FriendlyName(), bbParam.refType.FriendlyName() );
+					} else {
+						info = string.Format("AutoConvert: ({0} ➲ {1})", bbParam.refType.FriendlyName(), bbParam.varType.FriendlyName() );
+					}
 				}
 			}
 

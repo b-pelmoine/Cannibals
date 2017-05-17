@@ -17,17 +17,26 @@ public class Cannibal_Skill : MonoBehaviour {
     [SerializeField]
     Transform cannibalObjectParent;
 
+    [SerializeField]
+    float maxDistanceToCorpsePoint = 1.5f;
+
     public Joint corpseJoint;
-    public BoxCollider corpseTakenCollider;
+    public Vector3 pointOnCorpse;
+
 
     private void LateUpdate()
     {
-        if (m_corpse != null && Vector3.Distance(corpseJoint.transform.position, m_cannibal.m_cannibalSkill.corpseTakenCollider.transform.position + m_cannibal.m_cannibalSkill.corpseTakenCollider.center) > 2f)
+        if (m_corpse != null && Vector3.Distance(corpseJoint.transform.position, m_corpse.m_transform.TransformPoint( m_cannibal.m_cannibalSkill.pointOnCorpse)) > maxDistanceToCorpsePoint)
         {
                 m_cannibal.m_cannibalMovement.CharacterControllerEx.CharacterTransform.position = m_cannibal.m_cannibalMovement.CharacterControllerEx.CharacterTransform.position - (corpseJoint.transform.position -
                                                                                                   Vector3.Lerp(corpseJoint.transform.position,
-                                                                                                            m_cannibal.m_cannibalSkill.corpseTakenCollider.transform.position + m_cannibal.m_cannibalSkill.corpseTakenCollider.center,
+                                                                                                             m_corpse.m_transform.TransformPoint(m_cannibal.m_cannibalSkill.pointOnCorpse),
                                                                                                              0.1f) );
+        }
+
+        if(m_corpse != null && m_corpse.cannibals.Count == 1)
+        {
+            m_corpse.m_transform.rotation = Quaternion.Slerp(m_corpse.m_transform.rotation, m_cannibal.m_cannibalAppearence.m_appearenceTransform.rotation * Quaternion.Euler(0, 90, 0),0.1f);
         }
     }
 
@@ -43,8 +52,10 @@ public class Cannibal_Skill : MonoBehaviour {
             m_cannibalObject.Release();
         }
 
+        if (cannibalObject.linkedCannibal != null && cannibalObject.linkedCannibal != this.m_cannibal)
+            cannibalObject.linkedCannibal.m_cannibalSkill.LooseCannibalObject();
 
-       cannibalObject.Take(cannibalObjectParent);
+       cannibalObject.Take(this.m_cannibal, cannibalObjectParent);
        m_cannibalObject = cannibalObject;
     }
 

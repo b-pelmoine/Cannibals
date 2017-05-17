@@ -48,7 +48,7 @@ namespace NodeCanvas.Framework{
 		}
 
 
-		void Awake(){
+		virtual protected void Awake(){
 			//Call to bind the variables with respected properties on the target game object
 			_blackboard.InitializePropertiesBinding(propertiesBindTarget, false);
 		}
@@ -178,7 +178,7 @@ namespace NodeCanvas.Framework{
 
 		///Deserialize the blackboard from json
 		//We deserialize ON TOP of existing variables so that outside references to them stay intact.
-		public bool Deserialize(string json){
+		public bool Deserialize(string json, bool removeNonExisting = true){
 			var bb = JSONSerializer.Deserialize<BlackboardSource>(json, _objectReferences);
 			if (bb == null){
 				return false;
@@ -192,10 +192,12 @@ namespace NodeCanvas.Framework{
 				}
 			}
 
-			var keys = new List<string>(_blackboard.variables.Keys);
-			foreach(string key in keys){
-				if (!bb.variables.ContainsKey(key)){
-					_blackboard.variables.Remove(key);
+			if (removeNonExisting){
+				var keys = new List<string>(_blackboard.variables.Keys);
+				foreach(string key in keys){
+					if (!bb.variables.ContainsKey(key)){
+						_blackboard.variables.Remove(key);
+					}
 				}
 			}
 			

@@ -9,7 +9,7 @@ namespace AI
         public float waypointDistance = 2;
         public float shootingRange = 1;
         public LayerMask shootingMask = 0;
-        public float detectTime = 3;
+        
         public float lostTargetTime = 3;
         public float defendTime = 5;
         public Animator animator;
@@ -18,13 +18,14 @@ namespace AI
         int anim_speedId = Animator.StringToHash("Speed");
         int anim_shoot = Animator.StringToHash("Shoot");
 
-        private LineOfSight los;
+        
         
 
         public bool alerte = false;
 
         public Waypoint patrouille;
-
+        public float stunTime = 10;
+        
         enum ChasseurTask
         {
             Normal,
@@ -32,7 +33,9 @@ namespace AI
             Defend,
             Look,
             LostTarget,
-            Shoot
+            Shoot,
+            Drink,
+            Etourdi
         }
 
 	    // Use this for initialization
@@ -40,7 +43,7 @@ namespace AI
             base.Start();
             type = AIType.Hunter;
             Bottle.OnBottleShaked += OnBottleShaked;
-            los = GetComponent<LineOfSight>();
+            
             tasks.Push(new Task((int)ChasseurTask.Normal));
 	    }
 	
@@ -56,28 +59,21 @@ namespace AI
                 Debug.Log("Chasseur.cs: animator ou navmeshagent non présent");
             }
 
-            if (los.Updated)
+            //Check the navmesh for footsteps
+            NavMeshHit hit;
+            if(NavMesh.SamplePosition(transform.position, out hit, 10, ~0))
             {
-                //Analyse de la vue du chasseur
-                foreach(GameObject obj in los.sighted)
-                {
-                    Cannibal cannibal = obj.GetComponentInParent<Cannibal>();
-                    if (cannibal != null && !cannibal.IsDead())
-                    {
-                        if (CurrentTask.id == (int)ChasseurTask.Normal)
-                        {
-                            agent.ResetPath();
-                            tasks.Push(new Task((int)ChasseurTask.Look, obj));
-                        }
-                        else if(CurrentTask.id == (int)ChasseurTask.LostTarget && obj != CurrentTask.target) //Change de cible
-                        {
-                            agent.ResetPath();
-                            tasks.Pop();
-                            CurrentTask.target = obj;
-                        }
-                    }
-                }
+                if(hit.mask!=navMeshMask && (hit.mask & 8) != 0)
+                    AkSoundEngine.SetSwitch("Steps", "Grass", gameObject);
+                if (hit.mask != navMeshMask && (hit.mask & 1) != 0)
+                    AkSoundEngine.SetSwitch("Steps", "Gravel", gameObject);
+                if (hit.mask != navMeshMask && (hit.mask & 32) != 0)
+                    AkSoundEngine.SetSwitch("Steps", "Wood", gameObject);
+                navMeshMask = hit.mask;
             }
+
+
+            AnalyseSight();
 
             Vector3 targetPosition;
 
@@ -98,6 +94,7 @@ namespace AI
 
                 //Poursuis le joueur repéré
                 case (int)ChasseurTask.Chase:
+                    SetDetect(CurrentTask.target);
                     if(MoveTo(CurrentTask.target.transform.position, shootingRange))
                     {
                         agent.ResetPath();
@@ -114,29 +111,14 @@ namespace AI
 
                 //Regarde vers le joueur jusqu'à détection
                 case (int)ChasseurTask.Look:
-                    targetPosition = agent.transform.position;
-                    targetPosition.y = agent.transform.position.y;
-                    agent.transform.LookAt(targetPosition);
-                    //Si le joueur est en vue
-                    if (los.sighted.Contains(CurrentTask.target)) { 
-                        //Si le joueur est détecté -> poursuite
-                       if((CurrentTask.target.transform.position-transform.position).sqrMagnitude < Mathf.Pow((CurrentTask.elapsed/detectTime)*(los.camera.farClipPlane),2)){
-                            GameObject target = CurrentTask.target;
-                            tasks.Pop();
-                            tasks.Push(new Task((int)ChasseurTask.Chase, target));
-                       }
-                    }
-                    else //Si le joueur n'est plus en vue, on diminue le timer
+                    if (Look())
                     {
-                        CurrentTask.elapsed -= Time.deltaTime*2;
-                        //Si le temps est négatif, on abandonne
-                        if (CurrentTask.elapsed < 0)
-                        {
-                            tasks.Pop();
-                        }
+                        GameObject target = CurrentTask.target;
+                        tasks.Pop();
+                        tasks.Push(new Task((int)ChasseurTask.Chase, target));
                     }
                     break;
-
+                    
                 //Le chasseur a perdu sa cible de vue
                 case (int)ChasseurTask.LostTarget:
                     //Si il la voit à nouveau, retourne dans Chase
@@ -149,6 +131,7 @@ namespace AI
                         //Après un certain temps, retourne à l'état précédent le chase
                         if (CurrentTask.elapsed > lostTargetTime)
                         {
+                            ResetDetect(CurrentTask.target);
                             tasks.Pop();
                             tasks.Pop();
                         }
@@ -183,6 +166,25 @@ namespace AI
                         tasks.Pop();
                     }
                     break;
+
+                case (int)ChasseurTask.Drink:
+                    if (MoveTo(CurrentTask.target.transform.position, 2))
+                    {
+                        CurrentTask.target.gameObject.SetActive(false);
+                        animator.Play("IdleToKo");
+                        AkSoundEngine.PostEvent("hunter_objects", gameObject);
+                        tasks.Pop();
+                        tasks.Push(new Task((int)ChasseurTask.Etourdi));
+                    }
+                    break;
+
+                case (int)ChasseurTask.Etourdi:
+                    if (CurrentTask.elapsed > stunTime)
+                    {
+                        animator.Play("Resurrect");
+                        tasks.Pop();
+                    }
+                    break;
             }
 
 	    }
@@ -196,7 +198,6 @@ namespace AI
             RaycastHit hit;
             if (Physics.Raycast(position, direction, out hit, shootingRange, shootingMask))
             {
-                Debug.Log(hit.collider.gameObject);
                 AIAgent agent = hit.collider.gameObject.GetComponent<AIAgent>();
                 if (agent != null)
                 {
@@ -214,7 +215,6 @@ namespace AI
                         Bush bush = hit.collider.gameObject.GetComponent<Bush>();
                         if (bush != null)
                         {
-                            Debug.Log("Killing cannibals in bush:" + bush);
                             bush.KillACannibal();
                         }
                     }
@@ -233,6 +233,7 @@ namespace AI
                 {
                     if (cannibal.IsDead())
                     {
+                        ResetDetect(target);
                         tasks.Push(new Task((int)ChasseurTask.Defend, target));
                     }
                     else
@@ -257,13 +258,42 @@ namespace AI
 
         void OnBottleShaked(Bottle bot)
         {
-            /*if(Vector3.SqrMagnitude(bot.transform.position-this.transform.position)< range*range && !sawBottle)
+            if (Vector3.SqrMagnitude(bot.transform.position - this.transform.position) < Mathf.Pow(los.getSeeDistance(),2))
             {
-                bottle = bot.transform.position;
-                sawBottle = true;
-            }*/
+                tasks.Push(new Task((int)ChasseurTask.Drink, bot.gameObject));
+            }
         }
 
+        void AnalyseSight()
+        {
+            if (los.Updated)
+            {
+                //Analyse de la vue du chasseur
+                foreach (GameObject obj in los.sighted)
+                {
+                    Cannibal cannibal = obj.GetComponentInParent<Cannibal>();
+                    if (cannibal != null && !cannibal.IsDead())
+                    {
+                        if (CurrentTask.id == (int)ChasseurTask.Normal || CurrentTask.id == (int)ChasseurTask.Defend)
+                        {
+                            agent.ResetPath();
+                            tasks.Push(new Task((int)ChasseurTask.Look, obj));
+                        }
+                        else if (CurrentTask.id == (int)ChasseurTask.LostTarget && obj != CurrentTask.target) //Change de cible
+                        {
+                            agent.ResetPath();
+                            tasks.Pop();
+                            CurrentTask.target = obj;
+                        }
+                    }
+                }
+            }
+        }
+
+        void FootSteps()
+        {
+            AkSoundEngine.PostEvent("hunter_steps", gameObject);
+        }
         
     }
 }

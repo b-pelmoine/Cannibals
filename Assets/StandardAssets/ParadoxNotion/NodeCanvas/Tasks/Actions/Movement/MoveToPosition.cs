@@ -2,40 +2,35 @@ using NodeCanvas.Framework;
 using ParadoxNotion.Design;
 using UnityEngine;
 
+#if UNITY_5_5_OR_NEWER
+using NavMeshAgent = UnityEngine.AI.NavMeshAgent;
+#endif
 
 namespace NodeCanvas.Tasks.Actions{
 
-	[Name("Move To Target Position")]
-	[Category("Movement")]
-	public class MoveToPosition : ActionTask<UnityEngine.AI.NavMeshAgent> {
+	[Name("Seek (Vector3)")]
+	[Category("Movement/Pathfinding")]
+	public class MoveToPosition : ActionTask<NavMeshAgent> {
 
 		public BBParameter<Vector3> targetPosition;
-		public BBParameter<float> speed = 3;
+		public BBParameter<float> speed = 4;
 		public float keepDistance = 0.1f;
 
 		private Vector3? lastRequest;
 
 		protected override string info{
-			get {return "GoTo " + targetPosition.ToString();}
+			get {return "Seek " + targetPosition;}
 		}
 
 		protected override void OnExecute(){
-
 			agent.speed = speed.value;
-			if ( (agent.transform.position - targetPosition.value).magnitude < agent.stoppingDistance + keepDistance){
+			if ( Vector3.Distance(agent.transform.position, targetPosition.value) < agent.stoppingDistance + keepDistance ){
 				EndAction(true);
 				return;
 			}
-
-			Go();
 		}
 
 		protected override void OnUpdate(){
-			Go();
-		}
-
-		void Go(){
-
 			if (lastRequest != targetPosition.value){
 				if ( !agent.SetDestination( targetPosition.value) ){
 					EndAction(false);

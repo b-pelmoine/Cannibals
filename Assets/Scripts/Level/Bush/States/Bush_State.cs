@@ -15,9 +15,9 @@ public abstract class Bush_State : ActionState {
         m_bush = bush.value;
     }
 
-    public virtual bool Move()
+    public virtual bool Move(float duration)
     {
-        FSM.SendEvent("Move");
+        FSM.SendEvent<float>("Move", duration);
         return true;
     }
 

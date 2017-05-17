@@ -12,6 +12,7 @@ public class Cannibal_TakeObject : ActionState, ICannibal_State
     protected override void OnEnter()
     {
         base.OnEnter();
+
         m_cannibal.value.m_cannibalSkill.TakeCannibalObject(cannibalObjects.value[0]);
     }
 
@@ -32,4 +33,11 @@ public class Cannibal_TakeObject : ActionState, ICannibal_State
     /// </summary>
     /// <returns></returns>
     public bool IsDead() { return false; }
+
+
+    /// <summary>
+    /// Return if in the currentState the cannibal is taking a corpse (not having a corpse, just tkaing it from the ground ! )
+    /// </summary>
+    /// <returns></returns>
+    public bool IsTakingCorpse() { return false; }
 }

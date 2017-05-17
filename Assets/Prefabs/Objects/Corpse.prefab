@@ -4420,6 +4420,7 @@ GameObject:
   - component: {fileID: 114965879656065914}
   - component: {fileID: 114495323820324974}
   - component: {fileID: 65450201384199324}
+  - component: {fileID: 65408717689379228}
   m_Layer: 29
   m_Name: Corpse
   m_TagString: Untagged
@@ -5052,24 +5053,6 @@ GameObject:
   - component: {fileID: 4170068810871174}
   m_Layer: 29
   m_Name: s_v_26
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1567711218857400
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4393259594164404}
-  - component: {fileID: 65607850224789990}
-  - component: {fileID: 65122697548861156}
-  - component: {fileID: 65019087623951240}
-  m_Layer: 29
-  m_Name: Colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11025,7 +11008,6 @@ Transform:
   m_LocalPosition: {x: -3.44, y: -0.74, z: -1.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4393259594164404}
   - {fileID: 4844315617938124}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -12121,19 +12103,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4844315617938124}
   m_RootOrder: 253
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4393259594164404
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1567711218857400}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4259168834578866}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4394483914575636
 Transform:
@@ -15970,7 +15939,7 @@ Transform:
   - {fileID: 4695137159755548}
   - {fileID: 4892308968793190}
   m_Father: {fileID: 4259168834578866}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4845251928373436
 Transform:
@@ -17144,30 +17113,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65019087623951240
+--- !u!65 &65408717689379228
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1567711218857400}
+  m_GameObject: {fileID: 1485852813879610}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.21471214, y: 0.73538995, z: 0.4121139}
-  m_Center: {x: -0.80853724, y: 0, z: 0.03341365}
---- !u!65 &65122697548861156
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1567711218857400}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.16649818, y: 0.7353899, z: 0.4069289}
-  m_Center: {x: 0.8083067, y: 0, z: 0.037252367}
+  m_Size: {x: 2.05, y: 0.81563807, z: 0.85}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65450201384199324
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -17179,18 +17136,6 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.72, y: 0.58, z: 0.5}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65607850224789990
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1567711218857400}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.6439853, y: 0.81563807, z: 0.62650967}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &95548769840340698
 Animator:
@@ -17215,7 +17160,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1485852813879610}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66cd294ba4a3b424cbb4f4cdc16736b9, type: 3}
   m_Name: 
@@ -17285,9 +17230,9 @@ MonoBehaviour:
   m_transform: {fileID: 4259168834578866}
   m_rigidbody: {fileID: 54768738154289820}
   collision: {fileID: 65450201384199324}
-  normalCollider: {fileID: 65607850224789990}
-  rightCollider: {fileID: 65019087623951240}
-  leftCollider: {fileID: 65122697548861156}
+  centerPoint: {x: 0, y: 0, z: 0}
+  rightPoint: {x: -0.6, y: 0, z: 0}
+  leftPoint: {x: 0.6, y: 0, z: 0}
   characterControllerExt: {fileID: 114495323820324974}
 --- !u!137 &137184978328519932
 SkinnedMeshRenderer:

@@ -19,6 +19,7 @@ namespace NodeCanvas.Editor{
 			public bool showBlackboard             = true;
 			public bool showNodePanel              = true;
 			public bool showComments               = true;
+			public bool showNodeIDs                = false;
 			public bool hierarchicalMove           = false;
 			public bool useExternalInspector       = false;
 			public bool showWelcomeWindow          = true;
@@ -94,6 +95,11 @@ namespace NodeCanvas.Editor{
 		public static bool showComments{
 			get {return data.showComments;}
 			set {if (data.showComments != value){ data.showComments = value; Save(); } }
+		}
+
+		public static bool showNodeIDs{
+			get {return data.showNodeIDs;}
+			set {if (data.showNodeIDs != value){ data.showNodeIDs = value; Save(); } }
 		}
 
 		public static bool hierarchicalMove{

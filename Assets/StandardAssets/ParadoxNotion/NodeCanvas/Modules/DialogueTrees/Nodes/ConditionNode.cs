@@ -5,9 +5,11 @@ using UnityEngine;
 
 namespace NodeCanvas.DialogueTrees{
 
+	[Icon("Condition", IconAttribute.Mode.AppendToTitle)]
 	[Name("Task Condition")]
-	[Category("Flow Control")]
+	[Category("Branch")]
 	[Description("Execute the first child node if a Condition is true, or the second one if that Condition is false. The Actor selected is used for the Condition check")]
+	[Color("b3ff7f")]
 	public class ConditionNode : DTNode, ITaskAssignable<ConditionTask>{
 
 		[SerializeField]
@@ -23,17 +25,18 @@ namespace NodeCanvas.DialogueTrees{
 			set {condition = (ConditionTask)value;}
 		}
 
-		public override int maxOutConnections{
-			get {return 2;}
-		}
+		public override int maxOutConnections{ get {return 2;} }
+		public override bool requireActorSelection{ get {return true;} }
 
 		protected override Status OnExecute(Component agent, IBlackboard bb){
 
-			if (outConnections.Count == 0)
+			if (outConnections.Count == 0){
 				return Error("There are no connections on the Dialogue Condition Node");
+			}
 
-			if (condition == null)
+			if (condition == null){
 				return Error("There is no Conidition on the Dialoge Condition Node");
+			}
 
 			var isSuccess = condition.CheckCondition(finalActor.transform, graphBlackboard);
 			status = isSuccess? Status.Success : Status.Failure;
@@ -51,8 +54,9 @@ namespace NodeCanvas.DialogueTrees{
 		}
 
 		protected override void OnNodeGUI(){
-			if (outConnections.Count == 0)
-				GUILayout.Label("Connect Outcomes");
+			if (outConnections.Count == 0){
+				GUILayout.Label("No Outcomes Connected");
+			}
 		}
 
 		#endif

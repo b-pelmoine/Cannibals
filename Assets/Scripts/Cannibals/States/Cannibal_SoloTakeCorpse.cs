@@ -4,7 +4,7 @@ using ParadoxNotion.Design;
 using System.Collections.Generic;
 
 [Category("Cannibal")]
-public class Cannibal_SoloTakeCorpse : ActionState, ICannibal_State {
+public class Cannibal_SoloTakeCorpse : SuperActionState, ICannibal_State {
 
     public BBParameter<Cannibal> m_cannibal;
     public  BBParameter<List<Corpse>> corpses;
@@ -12,6 +12,7 @@ public class Cannibal_SoloTakeCorpse : ActionState, ICannibal_State {
     protected override void OnEnter()
     {
         base.OnEnter();
+
         m_cannibal.value.m_cannibalSkill.TakeCorpse(corpses.value[0]);
     }
 
@@ -32,4 +33,11 @@ public class Cannibal_SoloTakeCorpse : ActionState, ICannibal_State {
     /// </summary>
     /// <returns></returns>
     public bool IsDead() { return false; }
+
+
+    /// <summary>
+    /// Return if in the currentState the cannibal is taking a corpse (not having a corpse, just tkaing it from the ground ! )
+    /// </summary>
+    /// <returns></returns>
+    public bool IsTakingCorpse() { return true; }
 }

@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
     [Header("Hunt Sense")]
     public OffscreenIndicator indicator;
     public ScanTerrain scanner;
+    private DetectionIndicator detectionIndicator;
     
     public bool huntSensActive = false;
     private float elapsedTime;
@@ -23,6 +24,7 @@ public class UIManager : MonoBehaviour
     {
         Cannibal_Skill.OnStartUseHunterSense += StartTriggerHuntSense;
         Cannibal_Skill.OnStopUseHunterSense += StopTriggerSense;
+        detectionIndicator = GetComponent<DetectionIndicator>();
     }
 
     // Use this for initialization
@@ -38,6 +40,8 @@ public class UIManager : MonoBehaviour
     {
         //update UI for hunt sense
         UpdateHuntSense();
+        //update UI for detection purpose
+        UpdateDetectionUI();
     }
 
     void OnDestroy()
@@ -125,5 +129,10 @@ public class UIManager : MonoBehaviour
                 Shader.SetGlobalFloat("_HuntSenseIntensity", effectIntensity);
             }
         }
+    }
+
+    private void UpdateDetectionUI()
+    {
+        detectionIndicator.UpdateTrackersList();
     }
 }

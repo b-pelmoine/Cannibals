@@ -10,7 +10,9 @@ namespace ParadoxNotion{
 	///Helper extension methods to work with NETFX_CORE as well as some other reflection helper extensions and utilities
 	public static class ReflectionTools {
 
-		private const BindingFlags flagsEverything = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
+		#if !NETFX_CORE
+		private const BindingFlags flagsEverything = BindingFlags.Instance | BindingFlags.Static | BindingFlags.FlattenHierarchy | BindingFlags.Public | BindingFlags.NonPublic;
+		#endif
 
 		private static Assembly[] _loadedAssemblies;
 		private static Assembly[] loadedAssemblies{
@@ -20,7 +22,7 @@ namespace ParadoxNotion{
 
 	        		#if NETFX_CORE
 
-				    _loadedAssemblies = new List<Assembly>();
+				    var resultAssemblies = new List<Assembly>();
 		 		    var folder = Windows.ApplicationModel.Package.Current.InstalledLocation;
 				    var folderFilesAsync = folder.GetFilesAsync();
 				    folderFilesAsync.AsTask().Wait();
@@ -32,13 +34,13 @@ namespace ParadoxNotion{
 				                var filename = file.Name.Substring(0, file.Name.Length - file.FileType.Length);
 				                AssemblyName name = new AssemblyName { Name = filename };
 				                Assembly asm = Assembly.Load(name);
-				                _loadedAssemblies.Add(asm);
+				                resultAssemblies.Add(asm);
 				            }
 				            catch { continue; }
 				        }
 				    }
 
-				    _loadedAssemblies = _loadedAssemblies.ToArray();
+				    _loadedAssemblies = resultAssemblies.ToArray();
 
 	        		#else
 
@@ -71,19 +73,19 @@ namespace ParadoxNotion{
             	return typeMap[typeFullName] = type;
             }			
 
-			LateLog(string.Format("<b>(Type Request)</b> Trying Fallback Type match for type '{0}'...\n<i>(This happens if the type can't be resolved by it's full assembly/namespace name)</i>", typeFullName), UnityEngine.LogType.Warning);
+			// LateLog(string.Format("<b>(Type Request)</b> Trying Fallback Type match for type '{0}'...\n<i>(This happens if the type can't be resolved by it's full assembly/namespace name)</i>", typeFullName), UnityEngine.LogType.Warning);
 
             //handle generics now
             type = TryResolveGenericType(typeFullName, fallbackNoNamespace, fallbackAssignable);
             if (type != null){
-            	LateLog(string.Format("<b>(Type Request)</b> Fallback Type Resolved to '{0}'", type.FullName));
+            	// LateLog(string.Format("<b>(Type Request)</b> Fallback Type Resolved to '{0}'", type.FullName));
             	return typeMap[typeFullName] = type;
             }
 
             //make use of DeserializeFromAttribute
             type = TryResolveDeserializeFromAttribute(typeFullName);
             if (type != null){
-            	LateLog(string.Format("<b>(Type Request)</b> Fallback Type Resolved to '{0}'", type.FullName));
+            	// LateLog(string.Format("<b>(Type Request)</b> Fallback Type Resolved to '{0}'", type.FullName));
             	return typeMap[typeFullName] = type;
             }
 
@@ -91,7 +93,7 @@ namespace ParadoxNotion{
 	            //get type regardless namespace
 	            type = TryResolveWithoutNamespace(typeFullName, fallbackAssignable);
 	            if (type != null){
-	            	LateLog(string.Format("<b>(Type Request)</b> Fallback Type Resolved to '{0}'", type.FullName));
+	            	// LateLog(string.Format("<b>(Type Request)</b> Fallback Type Resolved to '{0}'", type.FullName));
 	            	//we store the found type's.FullName in the cache (instead of provided name), so that other types dont fail.
 	            	return typeMap[type.FullName] = type;
 		        }
@@ -291,12 +293,8 @@ namespace ParadoxNotion{
 			}
 
 			if ( t.RTIsGenericType() ){
-				
-				// s = (trueSignature? t.Namespace + "." : "") + t.Name;
 				s = trueSignature? t.FullName : t.Name;
-
-				var args= t.RTGetGenericArguments();
-				
+				var args = t.RTGetGenericArguments();
 				if (args.Length != 0){
 				
 					s = s.Replace("`" + args.Length.ToString(), "");
@@ -318,7 +316,7 @@ namespace ParadoxNotion{
 			var finalName = (method.IsStatic? "static " : "") + method.Name + " (";
 			for (var i = 0; i < parameters.Length; i++){
 				var p = parameters[i];
-				finalName += (p.IsOut? "out " : "") + p.ParameterType.FriendlyName() + (i < parameters.Length-1? ", " : "");
+				finalName += (p.ParameterType.IsByRef? (p.IsOut? "out " : "ref ") : "" ) + p.ParameterType.FriendlyName() + (i < parameters.Length-1? ", " : "");
 			}
 			finalName += ") : " + method.ReturnType.FriendlyName();
 			return finalName;
@@ -609,6 +607,37 @@ namespace ParadoxNotion{
 	    public static FieldInfo GetBaseDefinition(this FieldInfo fieldInfo){
 	    	return fieldInfo.DeclaringType.RTGetField(fieldInfo.Name);
 	    }
+
+	    ///Returns the element type of an enumerable type.
+        public static Type GetEnumerableElementType(this Type enumType) {
+            if (enumType == null){
+            	return null;
+            }
+
+            if (!typeof(IEnumerable).IsAssignableFrom(enumType)){
+                return null;
+            }
+ 
+            if (enumType.RTIsArray()){
+                return enumType.GetElementType();
+            }
+
+			var interfaces = enumType.GetInterfaces();
+			for (var i = 0; i < interfaces.Length; i++){
+				var iface = interfaces[i];
+				if (!iface.RTIsGenericType()){
+					continue;
+				}
+				var genType = iface.GetGenericTypeDefinition();
+				if (genType != typeof(IEnumerable<>)){
+					continue;
+				}
+
+				return iface.RTGetGenericArguments()[0];
+			}
+
+			return null;
+        }
 
 	}
 }

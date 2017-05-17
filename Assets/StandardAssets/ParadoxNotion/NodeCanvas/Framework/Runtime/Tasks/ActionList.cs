@@ -173,7 +173,7 @@ namespace NodeCanvas.Framework{
 		////////////////////////////////////////
 		#if UNITY_EDITOR
 
-		private ActionTask currentViewAction;
+		protected ActionTask currentViewAction;
 
 
 		protected override void OnTaskInspectorGUI(){

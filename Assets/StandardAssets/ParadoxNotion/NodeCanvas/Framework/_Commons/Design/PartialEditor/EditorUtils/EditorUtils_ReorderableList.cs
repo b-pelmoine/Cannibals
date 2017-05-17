@@ -75,7 +75,7 @@ namespace ParadoxNotion.Design{
 
 			GUILayout.EndVertical();
 
-			if (e.type == EventType.MouseUp){
+			if (e.rawType == EventType.MouseUp){
 				pickedObjectList[list] = null;
 			}
 		}

@@ -2,6 +2,7 @@ using System.Collections;
 using NodeCanvas.Framework;
 using NodeCanvas.Framework.Internal;
 using ParadoxNotion.Design;
+using ParadoxNotion;
 using UnityEngine;
 
 
@@ -69,6 +70,9 @@ namespace NodeCanvas.BehaviourTrees{
 
 				
 				if (currentIndex == list.Count-1 || currentIndex == maxIteration.value-1){
+					if (resetIndex){
+						currentIndex = 0;
+					}
 					return status;
 				}
 
@@ -108,7 +112,7 @@ namespace NodeCanvas.BehaviourTrees{
 		protected override void OnNodeInspectorGUI(){
 			DrawDefaultInspector();
 			if (GUI.changed){
-				var argType = targetList.refType != null? targetList.refType.GetGenericArguments()[0] : null;
+				var argType = targetList.refType != null? targetList.refType.GetEnumerableElementType() : null;
 				if (current.varType != argType){
 					current.SetType(argType);
 				}

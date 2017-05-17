@@ -70,8 +70,8 @@ namespace ParadoxNotion.Design{
 							nClasses++;
 							sb.AppendLine(string.Format("		void {0}()", type.FriendlyName(true).Replace(".", "_").Replace("<T>", "_Delegate") ) + "{" );
 							foreach(var spoofType in spoofTypes){
-								var a = type.FriendlyName(true).Replace("<T>", "<" + spoofType.FullName + ">");
-								var b = "_" + type.FriendlyName().Replace("<T>", "_" + spoofType.Name);
+								var a = type.FriendlyName(true).Replace("<T>", "<" + spoofType.FullName + ">").Replace("+", ".");
+								var b = "_" + type.FriendlyName().Replace("<T>", "_" + spoofType.FullName.Replace(".", "_").Replace("+", "_") );
 								sb.AppendLine(string.Format("			{0} {1} = null;", a, b ));
 							}
 							sb.AppendLine("		}");
@@ -80,9 +80,9 @@ namespace ParadoxNotion.Design{
 
 							foreach(var spoofType in spoofTypes){
 								nClasses++;
-								sb.AppendLine(string.Format("		class {0} : {1}",
-									type.FriendlyName(true).Replace(".", "_").Replace("<T>", "_" + spoofType.Name),
-									type.FriendlyName(true).Replace("<T>", "<" + spoofType.FullName + ">") ) + "{}");
+								var a = type.FriendlyName(true).Replace(".", "_").Replace("<T>", "_" + spoofType.FullName.Replace(".", "_").Replace("+", "_") );
+								var b = type.FriendlyName(true).Replace("<T>", "<" + spoofType.FullName + ">").Replace("+", ".") + "{}";
+								sb.AppendLine( string.Format("		class {0} : {1}", a, b) );
 							}
 						}
 
@@ -102,7 +102,7 @@ namespace ParadoxNotion.Design{
 							index++;
 
 							var decType = method.DeclaringType;
-							var varName = "_" + decType.Name;
+							var varName = "_" + decType.FullName.Replace(".", "_");
 							sb.AppendLine(string.Format("		void {0}_{1}_{2}()", decType.FullName.Replace(".", "_"), method.Name, index) + " {" );
 							if (!method.IsStatic){
 								sb.AppendLine(string.Format("			{0} {1} = null;", decType.FullName, varName));
@@ -112,7 +112,7 @@ namespace ParadoxNotion.Design{
 								nMethods++;
 								var a = method.IsStatic? decType.FullName : varName;
 								var b = method.Name;
-								var c = spoofType.FullName;
+								var c = spoofType.FullName.Replace("+", ".");
 								var paramsString = "";
 								var parameters = method.GetParameters();
 								for (var i = 0; i < parameters.Length; i++){
@@ -125,6 +125,7 @@ namespace ParadoxNotion.Design{
 										toString = parameter.ParameterType.FriendlyName(true).Replace("<T>", "<" + spoofType.FullName + ">");
 										toString = toString.Replace("[[T]]", "");
 									}
+									toString = toString.Replace("+", ".");
 									paramsString += string.Format("({0})o", toString);
 									if (i < parameters.Length-1){
 										paramsString += ", ";
@@ -144,10 +145,12 @@ namespace ParadoxNotion.Design{
 			//custom stuff
 			sb.AppendLine("		void CustomSpoof(){");
 			foreach(var spoofType in spoofTypes){
-				sb.AppendLine(string.Format("			System.Action<{0}> Action_{1};", spoofType.FullName, spoofType.Name));
-				sb.AppendLine(string.Format("			System.Func<{0}> Func_{1};", spoofType.FullName, spoofType.Name));
-				sb.AppendLine(string.Format("			System.Collections.Generic.IList<{0}> List_{1};", spoofType.FullName, spoofType.Name));
-				sb.AppendLine(string.Format("			System.Collections.Generic.IDictionary<System.String, {0}> Dict_{1};", spoofType.FullName, spoofType.Name));
+				var sName = spoofType.FullName.Replace("+", ".");
+				var fName = spoofType.FullName.Replace(".", "_").Replace("+", "_");
+				sb.AppendLine(string.Format("			System.Action<{0}> Action_{1};", sName, fName));
+				sb.AppendLine(string.Format("			System.Func<{0}> Func_{1};", sName, fName));
+				sb.AppendLine(string.Format("			System.Collections.Generic.IList<{0}> List_{1};", sName, fName));
+				sb.AppendLine(string.Format("			System.Collections.Generic.IDictionary<System.String, {0}> Dict_{1};", sName, fName));
 			}
 			sb.AppendLine("		}");
 

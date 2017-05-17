@@ -227,12 +227,14 @@ namespace ParadoxNotion.Design{
 
 			///MAIN AREA
 			mainRect = new Rect(rect.x, rect.y, rect.width, rect.height - helpRectHeight);
-			GUI.Box(mainRect, "", (GUIStyle)"PreBackground");
+			if (EditorGUIUtility.isProSkin){
+				GUI.Box(mainRect, "", (GUIStyle)"PreBackground");
+			}
 			GUILayout.BeginArea(mainRect);
 
 			//HEADER
 			GUILayout.Space(2);
-			GUILayout.Label(string.Format("<color=#dddddd><size=15><b>{0}</b></size></color>", title), headerStyle);
+			GUILayout.Label(string.Format("<color=#{0}><size=15><b>{1}</b></size></color>", EditorGUIUtility.isProSkin? "dddddd" : "222222", title), headerStyle);
 
 			///SEARCH
 			if (e.keyCode == KeyCode.DownArrow){GUIUtility.keyboardControl = 0;}
@@ -288,11 +290,20 @@ namespace ParadoxNotion.Design{
 				hoveringIndex = 0;
 				if (!string.IsNullOrEmpty(search) && search.Length >= 2 ){
 					var searchRootNode = new Node(){name = "Search Root"};
-					var a = GetCleanSearchString(search);
+					var a = search.ToUpper();
 					foreach (var node in leafNodes){
-						var b = GetCleanSearchString(node.name);
+						var b = node.name.ToUpper();
 						var match = false;
-						if ( searchMode == SearchMode.Contains && b.Contains(a) ){ match = true; }
+						if (searchMode == SearchMode.Contains){
+							match = true;
+							var words = a.Split(' ');
+							foreach(var word in words){
+								if ( !b.Contains(word) ){
+									match = false;
+									break;
+								}
+							}
+						}
 						if ( searchMode == SearchMode.StartsWith && b.StartsWith(a) ){ match = true; }
 						if (match){
 							searchRootNode.children[node.name] = node;
@@ -448,11 +459,6 @@ namespace ParadoxNotion.Design{
 			EditorGUIUtility.SetIconSize(Vector2.zero);
 		}
 
-		string GetCleanSearchString(string s){
-			s = s.ToUpper().Replace(" ", "").Replace("_", "");
-			string regex = "(\\[.*\\])|(\".*\")|('.*')|(\\(.*\\))";
-			return Regex.Replace(s, regex, "");
-		}
 
 		//Executes the item's registered delegate
 		void ExecuteItemFunc(EditorUtils.MenuItemInfo item){

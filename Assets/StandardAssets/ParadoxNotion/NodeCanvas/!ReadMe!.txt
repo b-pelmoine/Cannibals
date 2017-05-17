@@ -46,5 +46,5 @@ If you have both NodeCanvas and FlowCanvas in your project and considering you a
 
 -------------------------------------------------------------
 Thanks for using NodeCanvas!
-www.nodecanvas.paradoxnotion.com
+http://nodecanvas.paradoxnotion.com
 -------------------------------------------------------------

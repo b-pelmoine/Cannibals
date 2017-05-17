@@ -49,7 +49,7 @@ public class Cannibal : MonoBehaviour {
     /// Resuscitate the cannibal
     /// </summary>
     /// <returns>false if the cannibal can't be resuscitate for the moment</returns>
-    public bool Resurrect() { return CurrentState().Resurrect(); }
+    public bool Resurrect() { return CurrentState() != null && CurrentState().Resurrect(); }
 
 
     /// <summary>
@@ -57,25 +57,23 @@ public class Cannibal : MonoBehaviour {
     /// </summary>
     /// <returns>false if the cannibal can't be killed in the current state</returns>
     public bool Kill() {
-        return CurrentState().Kill(); }
+        return CurrentState() != null && CurrentState().Kill(); }
 
 
 
     public bool IsDead()
     {
-        return CurrentState().IsDead();
+        return CurrentState() != null && CurrentState().IsDead();
     }
 
+    public bool IsTakingCorpse()
+    {
+        return CurrentState() != null && CurrentState().IsTakingCorpse();
+    }
 
     ICannibal_State CurrentState()
     {
-        FSMState currentSate = m_stateMachine.behaviour.currentState;
-
-        while (currentSate is NestedFSMState)
-        {
-            currentSate = ((NestedFSMState)currentSate).nestedFSM.currentState;
-        }
-
+        IState currentSate = m_stateMachine.GetCurrentState(true);
         return (ICannibal_State)currentSate;
     }
 }

@@ -13,13 +13,14 @@ namespace NodeCanvas.Tasks.Actions{
 		public BBParameter<float> valueA;
 		public OperationMethod Operation = OperationMethod.Set;
 		public BBParameter<float> valueB;
+		public bool perSecond;
 
 		protected override string info{
 			get	{return valueA + OperationTools.GetOperationString(Operation) + valueB;}
 		}
 
 		protected override void OnExecute(){
-			valueA.value = OperationTools.Operate(valueA.value, valueB.value, Operation);
+			valueA.value = OperationTools.Operate(valueA.value, valueB.value, Operation, perSecond? UnityEngine.Time.deltaTime : 1f);
 			EndAction(true);
 		}
 	}

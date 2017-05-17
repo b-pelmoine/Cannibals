@@ -34,4 +34,11 @@ public class Cannibal_DualTakeCorpse : ActionState, ICannibal_State {
     /// </summary>
     /// <returns></returns>
     public bool IsDead() { return false; }
+
+
+    /// <summary>
+    /// Return if in the currentState the cannibal is taking a corpse (not having a corpse, just tkaing it from the ground ! )
+    /// </summary>
+    /// <returns></returns>
+    public bool IsTakingCorpse() { return true; }
 }

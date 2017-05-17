@@ -4,28 +4,19 @@ using UnityEngine;
 
 public class CheckCannibalsTrigger : CheckTriggerExt<Cannibal> {
 
-    protected override bool OnCheck()
+    protected override void SpecialCondition(List<Cannibal> detecteds)
     {
-        bool check = base.OnCheck();
-
-        if (check)
+        for(int i = savedList.value.Count -1; i >=0; i--)
         {
-
-            for(int i = savedList.value.Count -1; i >=0; i--)
+            if (savedList.value[i].IsDead())
             {
-                if (savedList.value[i].IsDead())
-                {
-                    savedList.value[i].m_cannibalAppearence.ShowResurrectIcon();
-                }
-                else
-                {
-                    savedList.value.RemoveAt(i);
-                }
+                savedList.value[i].m_cannibalAppearence.ShowResurrectIcon();
+            }
+            else
+            {
+                savedList.value.RemoveAt(i);
             }
         }
-
-
-        return savedList.value.Count > 0;
     }
 
 }

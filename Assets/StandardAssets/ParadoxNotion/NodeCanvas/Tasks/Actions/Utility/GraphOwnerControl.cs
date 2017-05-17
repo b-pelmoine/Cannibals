@@ -24,23 +24,28 @@ namespace NodeCanvas.Tasks.Actions{
 		}
 
 		protected override void OnExecute(){
-			StartCoroutine(Do());
-		}
-
-		//these should be done after graph has updated.
-		//EndAction is on purpose called before start/pause/stop.
-		IEnumerator Do(){
-			yield return null;
 
 			if (control == Control.StartBehaviour){
 				if (waitActionFinish){
 					agent.StartBehaviour( (s)=> { EndAction(s); } );
 				} else {
-					EndAction();
 					agent.StartBehaviour();
+					EndAction();
 				}
+				return;
 			}
 
+			//in case target is this owner, we must yield 1 frame before pausing/stoppping
+			if (agent == ownerAgent){ StartCoroutine(YieldDo()); }
+			else { Do(); }
+		}
+
+		IEnumerator YieldDo(){
+			yield return null;
+			Do();
+		}
+
+		void Do(){
 			if (control == Control.StopBehaviour){
 				EndAction();
 				agent.StopBehaviour();
@@ -49,7 +54,7 @@ namespace NodeCanvas.Tasks.Actions{
 			if (control == Control.PauseBehaviour){
 				EndAction();
 				agent.PauseBehaviour();
-			}
+			}			
 		}
 
 		protected override void OnStop(){

@@ -8,7 +8,7 @@ namespace NodeCanvas.Tasks.Actions{
 	[Category("✫ Utility")]
 	public class Wait : ActionTask {
 
-		public BBParameter<float> waitTime = new BBParameter<float>{value = 1};
+		public BBParameter<float> waitTime = 1f;
 		public CompactStatus finishStatus = CompactStatus.Success;
 
 		protected override string info{

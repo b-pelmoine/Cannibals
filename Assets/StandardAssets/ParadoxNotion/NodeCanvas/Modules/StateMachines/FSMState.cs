@@ -50,6 +50,7 @@ namespace NodeCanvas.StateMachines{
 		private TransitionEvaluationMode _transitionEvaluation;
 
 		private float _elapsedTime;
+		private bool hasInit;
 
 		public override int maxInConnections{ get{return -1;} }
 		public override int maxOutConnections{ get{return -1;} }
@@ -83,10 +84,7 @@ namespace NodeCanvas.StateMachines{
 			status = inSuccess? Status.Success : Status.Failure;
 		}
 
-		sealed public override void OnGraphStarted(){
-			OnInit();
-		}
-
+		sealed public override void OnGraphStarted(){}
 		sealed public override void OnGraphStoped(){
 			status = Status.Resting;
 		}
@@ -99,6 +97,11 @@ namespace NodeCanvas.StateMachines{
 
 		//OnEnter...
 		sealed protected override Status OnExecute(Component agent, IBlackboard bb){
+
+			if (!hasInit){
+				hasInit = true;
+				OnInit();
+			}
 
 			if (status == Status.Resting || status == Status.Running){
 				status = Status.Running;
@@ -203,17 +206,6 @@ namespace NodeCanvas.StateMachines{
 
 			var e = Event.current;
 
-			if (maxOutConnections == 0){
-				if (clickedPort != null && e.type == EventType.MouseUp){
-					dragDropMisses ++;
-					if (dragDropMisses == graph.allNodes.Count){
-						clickedPort = null;
-					}
-				}
-
-				return;
-			}
-
 			//Receive connections first
 			if (clickedPort != null && e.type == EventType.MouseUp && e.button == 0){
 
@@ -260,41 +252,43 @@ namespace NodeCanvas.StateMachines{
 			var portRectRight = new Rect(0,0,20,20);
 			var portRectBottom = new Rect(0,0,20,20);
 
-			portRectLeft.center = new Vector2(nodeRect.x - 11, nodeRect.yMax - 10);
-			portRectRight.center = new Vector2(nodeRect.xMax + 11, nodeRect.yMax - 10);
-			portRectBottom.center = new Vector2(nodeRect.center.x, nodeRect.yMax + 11);
+			portRectLeft.center = new Vector2( nodeRect.x - 11, nodeRect.center.y );
+			portRectRight.center = new Vector2( nodeRect.xMax + 11, nodeRect.center.y );
+			portRectBottom.center = new Vector2( nodeRect.center.x, nodeRect.yMax + 11 );
 
-			if (fullDrawPass || drawCanvas.Overlaps(nodeRect)){
-				EditorGUIUtility.AddCursorRect(portRectLeft, MouseCursor.ArrowPlus);
-				EditorGUIUtility.AddCursorRect(portRectRight, MouseCursor.ArrowPlus);
-				EditorGUIUtility.AddCursorRect(portRectBottom, MouseCursor.ArrowPlus);
+			if (maxOutConnections != 0){
+				if (fullDrawPass || drawCanvas.Overlaps(nodeRect)){
+					EditorGUIUtility.AddCursorRect(portRectLeft, MouseCursor.ArrowPlus);
+					EditorGUIUtility.AddCursorRect(portRectRight, MouseCursor.ArrowPlus);
+					EditorGUIUtility.AddCursorRect(portRectBottom, MouseCursor.ArrowPlus);
 
-				GUI.color = new Color(1,1,1,0.3f);
-				GUI.Box(portRectLeft, string.Empty, (GUIStyle)"arrowLeft");
-				GUI.Box(portRectRight, string.Empty, (GUIStyle)"arrowRight");
-				if (maxInConnections == 0){
-					GUI.Box(portRectBottom, string.Empty, (GUIStyle)"arrowBottom");
-				}
-				GUI.color = Color.white;
-
-				if (Graph.allowClick && e.type == EventType.MouseDown && e.button == 0){
-					
-					if (portRectLeft.Contains(e.mousePosition)){
-						clickedPort = new GUIPort(this, portRectLeft.center);
-						dragDropMisses = 0;
-						e.Use();
+					GUI.color = new Color(1,1,1,0.3f);
+					GUI.Box(portRectLeft, string.Empty, (GUIStyle)"arrowLeft");
+					GUI.Box(portRectRight, string.Empty, (GUIStyle)"arrowRight");
+					if (maxInConnections == 0){
+						GUI.Box(portRectBottom, string.Empty, (GUIStyle)"arrowBottom");
 					}
-					
-					if (portRectRight.Contains(e.mousePosition)){
-						clickedPort = new GUIPort(this, portRectRight.center);
-						dragDropMisses = 0;
-						e.Use();
-					}
+					GUI.color = Color.white;
 
-					if (maxInConnections == 0 && portRectBottom.Contains(e.mousePosition)){
-						clickedPort = new GUIPort(this, portRectBottom.center);
-						dragDropMisses = 0;
-						e.Use();
+					if (Graph.allowClick && e.type == EventType.MouseDown && e.button == 0){
+						
+						if (portRectLeft.Contains(e.mousePosition)){
+							clickedPort = new GUIPort(this, portRectLeft.center);
+							dragDropMisses = 0;
+							e.Use();
+						}
+						
+						if (portRectRight.Contains(e.mousePosition)){
+							clickedPort = new GUIPort(this, portRectRight.center);
+							dragDropMisses = 0;
+							e.Use();
+						}
+
+						if (maxInConnections == 0 && portRectBottom.Contains(e.mousePosition)){
+							clickedPort = new GUIPort(this, portRectBottom.center);
+							dragDropMisses = 0;
+							e.Use();
+						}
 					}
 				}
 			}
@@ -338,31 +332,66 @@ namespace NodeCanvas.StateMachines{
 			var sourcePos = connection.sourceNode.nodeRect.center;
 			var thisPos = nodeRect.center;
 
-			if (sourcePos.x > nodeRect.x && sourcePos.x < nodeRect.xMax){
-				return new Vector2(nodeRect.center.x, nodeRect.y);
-			}
-			
-			if (sourcePos.y > nodeRect.y - 100 && sourcePos.y < nodeRect.yMax){
+			var style = 0;
+
+			if (style == 0){
 				if (sourcePos.x <= thisPos.x){
-					return new Vector2(nodeRect.x, nodeRect.y + 10);
+					if (sourcePos.y <= thisPos.y){
+						return new Vector2(nodeRect.center.x - 15, nodeRect.yMin - (this == graph.primeNode? 20 : 0 ) );
+					} else {
+						return new Vector2(nodeRect.center.x - 15, nodeRect.yMax + 2);
+					}
 				}
+
 				if (sourcePos.x > thisPos.x){
-					return new Vector2(nodeRect.xMax, nodeRect.y + 10);
+					if (sourcePos.y <= thisPos.y){
+						return new Vector2(nodeRect.center.x + 15, nodeRect.yMin - (this == graph.primeNode? 20 : 0 ));
+					} else {
+						return new Vector2(nodeRect.center.x + 15, nodeRect.yMax + 2);
+					}
 				}
 			}
 
-			if (sourcePos.y <= thisPos.y){
-				return new Vector2(nodeRect.center.x, nodeRect.y);
+			if (style == 1){
+				//Another idea
+				if (sourcePos.x <= thisPos.x){
+					if (sourcePos.y >= thisPos.y){
+						return new Vector2(nodeRect.xMin - 3, nodeRect.yMax - 10);
+					} else {
+						return new Vector2(nodeRect.xMin - 3, nodeRect.yMin + 10);
+					}
+				}
+				if (sourcePos.x > thisPos.x){
+					if (sourcePos.y >= thisPos.y){
+						return new Vector2(nodeRect.center.x, nodeRect.yMax + 2);
+					} else {
+						return new Vector2(nodeRect.center.x, nodeRect.yMin - (this == graph.primeNode? 20 : 0 ));
+					}
+				}
 			}
-			if (sourcePos.y > thisPos.y){
-				return new Vector2(nodeRect.center.x, nodeRect.yMax);
+
+			if (style >= 2){
+				//YET Another idea
+				if (sourcePos.x <= thisPos.x){
+					if (sourcePos.y >= thisPos.y){
+						return new Vector2(nodeRect.xMin - 3, nodeRect.yMax - 10);
+					} else {
+						return new Vector2(nodeRect.xMin - 3, nodeRect.yMin + 10);
+					}
+				}
+				if (sourcePos.x > thisPos.x){
+					if (sourcePos.y >= thisPos.y){
+						return new Vector2(nodeRect.xMax + 3, nodeRect.yMax - 10);
+					} else {
+						return new Vector2(nodeRect.xMax + 3, nodeRect.yMin + 10);
+					}
+				}
 			}
 
 			return thisPos;
 		}
 		
 		// protected override void OnNodeGUI(){ }
-
 		protected override void OnNodeInspectorGUI(){
 			ShowBaseFSMInspectorGUI();
 			DrawDefaultInspector();

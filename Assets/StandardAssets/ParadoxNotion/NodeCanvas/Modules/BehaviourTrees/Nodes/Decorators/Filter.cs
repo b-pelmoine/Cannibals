@@ -9,7 +9,7 @@ namespace NodeCanvas.BehaviourTrees{
 	[Name("Filter")]
 	[Category("Decorators")]
 	[Description("Filters the access of it's child node either a specific number of times, or every specific amount of time. By default the node is 'Treated as Inactive' to it's parent when child is Filtered. Unchecking this option will instead return Failure when Filtered.")]
-	[Icon("Lock")]
+	[Icon("Filter")]
 	public class Filter : BTDecorator {
 
 		public enum FilterMode
@@ -18,10 +18,18 @@ namespace NodeCanvas.BehaviourTrees{
 			CoolDown
 		}
 
-		public FilterMode filterMode = FilterMode.CoolDown;
-		public BBParameter<int> maxCount = new BBParameter<int>{value = 1};
-		public BBParameter<float> coolDownTime = new BBParameter<float>{value = 5};
-		public bool inactiveWhenLimited = true;
+		public enum Policy
+		{
+			SuccessOrFailure,
+			SuccessOnly,
+			FailureOnly
+		}
+
+		public FilterMode filterMode           = FilterMode.CoolDown;
+		public BBParameter<int> maxCount       = 1;
+		public BBParameter<float> coolDownTime = 5f;
+		public bool inactiveWhenLimited        = true;
+		public Policy policy                   = Policy.SuccessOrFailure;
 
 		private int executedCount;
 		private float currentTime;
@@ -42,7 +50,7 @@ namespace NodeCanvas.BehaviourTrees{
                 case FilterMode.CoolDown:
 
 			        if (currentTime > 0){
-			            return inactiveWhenLimited? Status.Resting : Status.Failure;
+			            return inactiveWhenLimited? Status.Optional : Status.Failure;
 			        }
 
 			        status = decoratedConnection.Execute(agent, blackboard);
@@ -54,11 +62,16 @@ namespace NodeCanvas.BehaviourTrees{
                 case FilterMode.LimitNumberOfTimes:
 
 			        if (executedCount >= maxCount.value){
-			            return inactiveWhenLimited? Status.Resting : Status.Failure;
+			            return inactiveWhenLimited? Status.Optional : Status.Failure;
 			        }
 
 			        status = decoratedConnection.Execute(agent, blackboard);
-			        if (status == Status.Success || status == Status.Failure){
+			        if
+			        (
+			        	(status == Status.Success && policy == Policy.SuccessOnly) ||
+			        	(status == Status.Failure && policy == Policy.FailureOnly) ||
+			        	( (status == Status.Success || status == Status.Failure) && policy == Policy.SuccessOrFailure )
+			        ) {
 			            executedCount += 1;
 			        }
 			        break;
@@ -69,7 +82,6 @@ namespace NodeCanvas.BehaviourTrees{
 
 
 		IEnumerator Cooldown(){
-
 			currentTime = coolDownTime.value;
 			while (currentTime > 0){
 				yield return null;
@@ -105,6 +117,7 @@ namespace NodeCanvas.BehaviourTrees{
 			else
 			if (filterMode == FilterMode.LimitNumberOfTimes){
 				maxCount = (BBParameter<int>)EditorUtils.BBParameterField("Max Times", maxCount);
+				policy = (Policy)UnityEditor.EditorGUILayout.EnumPopup("Increase Count For", policy);
 			}
 
 			inactiveWhenLimited = UnityEditor.EditorGUILayout.Toggle("Inactive When Limited", inactiveWhenLimited);

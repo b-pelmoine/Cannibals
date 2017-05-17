@@ -235,7 +235,7 @@ namespace NodeCanvas.Framework{
 						}
 					});
 				}
-				else menu.AddDisabledItem(new GUIContent("Create Defined Blackboard Variables"));
+				else menu.AddDisabledItem(new GUIContent("Promote Defined Parameters To Variables"));
 
 				menu.ShowAsContext();
 			}
@@ -246,10 +246,15 @@ namespace NodeCanvas.Framework{
 			if (GUILayout.Button("Prefs", EditorStyles.toolbarDropDown, GUILayout.Width(50))){
 				var menu = new GenericMenu();
 				menu.AddItem (new GUIContent ("Use Node Browser"), NCPrefs.useBrowser, ()=> {NCPrefs.useBrowser = !NCPrefs.useBrowser;});
-				menu.AddItem (new GUIContent ("Show Icons"), NCPrefs.showIcons, ()=> {NCPrefs.showIcons = !NCPrefs.showIcons;});
+				menu.AddItem (new GUIContent ("Show Icons"), NCPrefs.showIcons, ()=>
+					{
+						NCPrefs.showIcons = !NCPrefs.showIcons;
+						foreach(var node in allNodes){ node.nodeRect = new Rect( node.nodePosition.x, node.nodePosition.y, Node.minSize.x, Node.minSize.y ); }
+					});
 				menu.AddItem (new GUIContent ("Show Node Help"), NCPrefs.showNodeInfo, ()=> {NCPrefs.showNodeInfo = !NCPrefs.showNodeInfo;});
 				menu.AddItem (new GUIContent ("Show Comments"), NCPrefs.showComments, ()=> {NCPrefs.showComments = !NCPrefs.showComments;});
 				menu.AddItem (new GUIContent ("Show Summary Info"), NCPrefs.showTaskSummary, ()=> {NCPrefs.showTaskSummary = !NCPrefs.showTaskSummary;});
+				menu.AddItem (new GUIContent ("Show Node IDs"), NCPrefs.showNodeIDs, ()=> {NCPrefs.showNodeIDs = !NCPrefs.showNodeIDs;});
 				menu.AddItem (new GUIContent ("Log Events"), NCPrefs.logEvents, ()=>{ NCPrefs.logEvents = !NCPrefs.logEvents; });
 				menu.AddItem (new GUIContent ("Grid Snap"), NCPrefs.doSnap, ()=> {NCPrefs.doSnap = !NCPrefs.doSnap;});
 				menu.AddItem (new GUIContent ("Breakpoints Pause Editor"), NCPrefs.breakpointPauseEditor, ()=> {NCPrefs.breakpointPauseEditor = !NCPrefs.breakpointPauseEditor;});
@@ -259,8 +264,7 @@ namespace NodeCanvas.Framework{
 				menu.AddItem (new GUIContent ("Connection Style/Smooth"), NCPrefs.connectionStyle == NCPrefs.ConnectionStyle.Smooth, ()=> {NCPrefs.connectionStyle = NCPrefs.ConnectionStyle.Smooth;});
 				menu.AddItem (new GUIContent ("Connection Style/Stepped"), NCPrefs.connectionStyle == NCPrefs.ConnectionStyle.Stepped, ()=> {NCPrefs.connectionStyle = NCPrefs.ConnectionStyle.Stepped;});
 				menu.AddItem (new GUIContent ("Connection Style/Straight"), NCPrefs.connectionStyle == NCPrefs.ConnectionStyle.Straight, ()=> {NCPrefs.connectionStyle = NCPrefs.ConnectionStyle.Straight;});
-				//menu.AddItem (new GUIContent ("Use External Inspector"), NCPrefs.useExternalInspector, ()=> {NCPrefs.useExternalInspector = !NCPrefs.useExternalInspector;});
-				menu.AddItem( new GUIContent("Open Preferred Types Editor..."), false, ()=>{PreferedTypesEditorWindow.ShowWindow();} );
+				menu.AddItem( new GUIContent ("Open Preferred Types Editor..."), false, ()=>{PreferedTypesEditorWindow.ShowWindow();} );
 				menu.ShowAsContext();
 			}
 			/////////
@@ -491,7 +495,11 @@ namespace NodeCanvas.Framework{
 				GUI.Box(inspectorRect, title, (GUIStyle)"editorPanel");
 				inspectorRect.height = 55;
 				GUI.color = new Color(1,1,1,0.2f);
-				GUI.Box(new Rect(inspectorRect.x,inspectorRect.y + 30, inspectorRect.width, 20), "...");
+				var r = new Rect(inspectorRect.x,inspectorRect.y + 30, inspectorRect.width, 20);
+				EditorGUIUtility.AddCursorRect(r, MouseCursor.Link);
+				if (GUI.Button(r, "...")){
+					NCPrefs.showNodePanel = true;
+				}
 				GUI.color = Color.white;
 			}
 		}
@@ -540,8 +548,12 @@ namespace NodeCanvas.Framework{
 			} else {
 				GUI.Box(blackboardRect, title, (GUIStyle)"editorPanel");
 				blackboardRect.height = 55;
+				var r = new Rect(blackboardRect.x,blackboardRect.y + 30, blackboardRect.width, 20);
 				GUI.color = new Color(1,1,1,0.2f);
-				GUI.Box(new Rect(blackboardRect.x,blackboardRect.y + 30, blackboardRect.width, 20), "...");
+				EditorGUIUtility.AddCursorRect(r, MouseCursor.Link);
+				if (GUI.Button(r, "...")){
+					NCPrefs.showBlackboard = true;
+				}
 				GUI.color = Color.white;
 			}
 
@@ -583,11 +595,39 @@ namespace NodeCanvas.Framework{
 		///Handle what happens when blackboard variable is drag&droped in graph
 		virtual protected void OnVariableDropInGraph(Variable variable, Event e, Vector2 canvasMousePos){}
 
-		[ContextMenu("Delete")]
-		public void Delete(){
-			if (EditorUtility.DisplayDialog("Delete Graph Object", "Area you sure you want to delete this Graph?", "Yes", "No!")){
-				Undo.DestroyObjectImmediate(this);
+		[ContextMenu("Deep Duplicate")]
+		public void DeepDuplicate(){
+			if (EditorUtility.DisplayDialog("Deep Duplicate", "This will create a deep duplicate of this graph asset along with it's subgraphs. Continue?", "Yes", "No")){
+				DeepCopy(this);
 			}
+		}
+
+		///Make a deep copy of provided graph asset along with it's sub-graphs.
+		static Graph DeepCopy(Graph root){
+			if (root == null){
+				return null;
+			}
+
+			var path = EditorUtility.SaveFilePanelInProject ("Duplicate of " + root.name, root.name + "_duplicate.asset", "asset", "");
+			if (string.IsNullOrEmpty(path)){
+				return null;
+			}
+
+			var copy = (Graph)ScriptableObject.CreateInstance(root.GetType());
+			AssetDatabase.CreateAsset(copy, path);
+			EditorUtility.CopySerialized(root, copy);
+
+			//make use of IGraphAssignable interface to find nodes that represent a sub-graph.
+			foreach(var subGraphNode in copy.allNodes.OfType<IGraphAssignable>()){
+				if (subGraphNode.nestedGraph != null){
+					//duplicate the existing sub-graph and assign the copy to node.
+					subGraphNode.nestedGraph = DeepCopy(subGraphNode.nestedGraph);;
+				}
+			}
+
+			copy.Validate();
+			AssetDatabase.SaveAssets();
+			return copy;			
 		}
 	}
 }

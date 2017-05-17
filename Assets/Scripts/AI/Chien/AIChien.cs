@@ -10,7 +10,7 @@ namespace AI
 
         public Chasseur hunter;
         
-        LineOfSight los;
+
         public enum btargetType
         {
             Viande, Buisson, Animal
@@ -21,7 +21,8 @@ namespace AI
         {
             WanderInFront,
             ChaseAndBark,
-            Eat
+            Eat,
+            Look
         }
 
         public Animator animator;
@@ -36,7 +37,6 @@ namespace AI
         new void Start () {
             base.Start();
             type = AIType.Dog;
-            los = GetComponent<LineOfSight>();
             AkSoundEngine.PostEvent("dog_idle", gameObject);
             tasks.Push(new Task((int)DogTask.WanderInFront));
         }
@@ -57,6 +57,14 @@ namespace AI
 
             switch (CurrentTask.id)
             {
+                case (int)DogTask.Look:
+                    if (Look())
+                    {
+                        GameObject target = CurrentTask.target;
+                        tasks.Pop();
+                        tasks.Push(new Task((int)DogTask.ChaseAndBark, target));
+                    }
+                    break;
                 case (int)DogTask.WanderInFront:
                     if (CurrentTask.count == 0)
                     {
@@ -64,6 +72,7 @@ namespace AI
                         {
                             CurrentTask.elapsed = 0;
                             CurrentTask.count++;
+                            AkSoundEngine.PostEvent("dog_idle", gameObject);
                         }
                     }
                     else
@@ -87,6 +96,10 @@ namespace AI
                             AkSoundEngine.PostEvent("dog_bark", gameObject);
                             CurrentTask.count++;
                         }
+                        else if(CurrentTask.elapsed>2)
+                        {
+                            tasks.Pop();
+                        }
                         
                     }
                     else
@@ -95,19 +108,24 @@ namespace AI
                     }
                     distance = CurrentTask.target.transform.position - transform.position;
                     distance.y = 0;
-                    if (distance.sqrMagnitude > Mathf.Pow(los.radius, 2) || CurrentTask.elapsed>10)
+                    if (distance.sqrMagnitude > Mathf.Pow(los.radius, 2) || CurrentTask.elapsed > 10)
+                    {
+                        ResetDetect(CurrentTask.target);
                         tasks.Pop();
+                    }
                     break;
 
                 case (int)DogTask.Eat:
                     if(CurrentTask.count==0 && MoveTo(CurrentTask.target.transform.position, 3))
                     {
                         animator.Play("IdleToEat");
+                        AkSoundEngine.PostEvent("dog_eat", gameObject);
                         CurrentTask.count = 1;
                         CurrentTask.elapsed = 0;
                     }
                     else if (CurrentTask.count == 1 && CurrentTask.elapsed>eatingTime)
                     {
+                        CurrentTask.target.gameObject.SetActive(false);
                         animator.Play("Idle");
                         tasks.Pop();
                     }
@@ -126,6 +144,7 @@ namespace AI
                     //target = los.sighted[i];
                     //targetType = btargetType.Viande;
                     //sawSomething = true;
+                    ResetDetect(CurrentTask.target);
                     tasks.Push(new Task((int)DogTask.Eat, obj));
                 
                 }
@@ -133,13 +152,14 @@ namespace AI
                 {
                     Cannibal can = obj.GetComponentInParent<Cannibal>();
                     if(can!=null && !can.IsDead())
-                        tasks.Push(new Task((int)DogTask.ChaseAndBark, obj));
+                        tasks.Push(new Task((int)DogTask.Look, obj));
                 }
                 else
                 {
                     Bush buisson = obj.GetComponent<Bush>();
-                    if(buisson != null && buisson.IsMoving())
+                    if(CurrentTask.id == (int)DogTask.WanderInFront && buisson != null && buisson.IsMoving())
                     {
+                        ResetDetect(CurrentTask.target);
                         tasks.Push(new Task((int)DogTask.ChaseAndBark, obj));
                         //target = los.sighted[i];
                         //targetType = btargetType.Buisson;

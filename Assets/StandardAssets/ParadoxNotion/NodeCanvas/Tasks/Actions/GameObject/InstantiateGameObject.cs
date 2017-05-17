@@ -17,8 +17,17 @@ namespace NodeCanvas.Tasks.Actions
         }
  
         protected override void OnExecute(){
+            #if UNITY_5_4_OR_NEWER
+
+            var clone = (GameObject)Object.Instantiate(agent.gameObject, parent.value, false);
+
+            #else
+
             var clone = (GameObject)Object.Instantiate(agent.gameObject);
             clone.transform.SetParent(parent.value);
+
+            #endif
+            
             clone.transform.position = clonePosition.value;
             clone.transform.eulerAngles = cloneRotation.value;
             saveCloneAs.value = clone;

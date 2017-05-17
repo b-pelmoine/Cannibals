@@ -5,7 +5,8 @@ using UnityEngine;
 
 namespace NodeCanvas.Tasks.Actions{
 
-	[Category("Movement")]
+	[Category("Movement/Direct")]
+	[Description("Rotate the agent towards the target per frame")]
 	public class RotateTowards : ActionTask<Transform> {
 
 		[RequiredField]
@@ -13,19 +14,18 @@ namespace NodeCanvas.Tasks.Actions{
 		public BBParameter<float> speed = 2;
 		[SliderField(1, 180)]
 		public BBParameter<float> angleDifference = 5;
-		public bool repeat;
+		public bool waitActionFinish;
 
-		protected override void OnExecute(){Rotate();}
-		protected override void OnUpdate(){Rotate();}
+		protected override void OnUpdate(){
+			if (Vector3.Angle(target.value.transform.position - agent.position, agent.forward) <= angleDifference.value){
+				EndAction();
+				return;
+			}
 
-		void Rotate(){
-			
-			if (Vector3.Angle(target.value.transform.position - agent.position, agent.forward) > angleDifference.value){
-				var dir = target.value.transform.position - agent.position;
-				agent.rotation = Quaternion.LookRotation(Vector3.RotateTowards(agent.forward, dir, speed.value * Time.deltaTime, 0));
-			} else {
-				if (!repeat)
-					EndAction();
+			var dir = target.value.transform.position - agent.position;
+			agent.rotation = Quaternion.LookRotation(Vector3.RotateTowards(agent.forward, dir, speed.value * Time.deltaTime, 0));
+			if (!waitActionFinish){
+				EndAction();
 			}
 		}
 	}

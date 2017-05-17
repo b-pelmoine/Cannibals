@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 namespace AI
 {
-    public class AIAgent : MonoBehaviour, IKnifeKillable {
+    public class AIAgent : MonoBehaviour {
         public enum AIState
         {
             NORMAL,
@@ -35,6 +35,13 @@ namespace AI
         public NavMeshAgent agent;
         Vector3? lastRequest;
 
+        protected LineOfSight los;
+        DetectionData detect = new DetectionData();
+        private bool detecting = false;
+
+        public float detectTime = 3;
+        protected int navMeshMask = 0;
+
         protected void Start()
         {
             AIAgentManager.registerAIAgent(this.gameObject);
@@ -44,6 +51,8 @@ namespace AI
             {
                 Debug.LogError(this + ":No navmesh agent in the object.");
             }
+            detect.agent = this;
+            los = GetComponent<LineOfSight>();
         }
 
         protected void Update()
@@ -112,6 +121,52 @@ namespace AI
             return false;
         }
 
+        protected bool Look()
+        {
+            SetDetect(CurrentTask.target);
+            detect.detectRate = Mathf.Clamp(Mathf.Pow((CurrentTask.elapsed / detectTime) * (los.getSeeDistance()), 2)
+                / (CurrentTask.target.transform.position - transform.position).sqrMagnitude, 0, 1);
+            Vector3 targetPosition = agent.transform.position;
+            targetPosition.y = agent.transform.position.y;
+            agent.transform.LookAt(targetPosition);
+            //Si le joueur est en vue
+            if (los.sighted.Contains(CurrentTask.target))
+            {
+                //Si le joueur est détecté -> poursuite
+                if ((CurrentTask.target.transform.position - transform.position).sqrMagnitude < Mathf.Pow((CurrentTask.elapsed / detectTime) * (los.getSeeDistance()), 2))
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                CurrentTask.elapsed -= Time.deltaTime * 2;
+                if (CurrentTask.elapsed < 0)
+                {
+                    ResetDetect(CurrentTask.target);
+                    tasks.Pop();
+                }
+            }
+            return false;
+        }
+
+        protected void SetDetect(GameObject target)
+        {
+            if (!detecting)
+            {
+                AIAgentManager.addDetectData(target, detect);
+                detecting = true;
+            }
+        }
+        protected void ResetDetect(GameObject target)
+        {
+            if (detecting)
+            {
+                AIAgentManager.deleteDetectData(target, detect);
+                detecting = false;
+            }
+        }
+
         public virtual bool isVulnerable()
         {
             return state == AIState.VULNERABLE;
@@ -125,27 +180,9 @@ namespace AI
             return state == AIState.DEAD;
         }
 
-        /// <summary>
-        /// Kill the agent
-        /// </summary>
-        public virtual void Kill()
+        public void Kill()
         {
-            throw new NotImplementedException();
-        }
 
-        public bool IsKnifeVulnerable()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void KnifeKill()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ShowKnifeIcon()
-        {
-            throw new NotImplementedException();
         }
     }
 }

@@ -8,8 +8,11 @@ using UnityEngine;
 
 namespace NodeCanvas.DialogueTrees{
 
+	[Icon("List", IconAttribute.Mode.AppendToTitle)]
 	[Name("Multiple Choice")]
+	[Category("Branch")]
 	[Description("Prompt a Dialogue Multiple Choice. A choice will be available if the connection's condition is true or there is no condition on that connection. The Actor selected is used for the Condition checks as well as will Say the selection if the option is checked.")]
+	[Color("b3ff7f")]
 	public class MultipleChoiceNode : DTNode, ISubTasksContainer{
 
 		[System.Serializable]
@@ -26,25 +29,15 @@ namespace NodeCanvas.DialogueTrees{
 		}
 
 
-		public Task[] GetTasks(){
-			return availableChoices != null? availableChoices.Select(c => c.condition).ToArray() : new Task[0];
-		}
-
-
-
+		[SliderField(0f,10f)]
 		public float availableTime = 0;
 		public bool saySelection = false;
-		public List<Choice> availableChoices = new List<Choice>();
-		
+		[SerializeField]
+		private List<Choice> availableChoices = new List<Choice>();
+
+		public Task[] GetTasks(){ return availableChoices != null? availableChoices.Select(c => c.condition).ToArray() : new Task[0]; }		
 		public override int maxOutConnections{ get{return availableChoices.Count;} }
-
-		public override void OnChildConnected(int index){
-
-		}
-
-		public override void OnChildDisconnected(int index){
-
-		}
+		public override bool requireActorSelection{ get {return true;} }
 
 		protected override Status OnExecute(Component agent, IBlackboard bb){
 
@@ -67,7 +60,7 @@ namespace NodeCanvas.DialogueTrees{
 				return Status.Failure;
 			}
 
-			var optionsInfo = new MultipleChoiceRequestInfo(finalOptions, availableTime, OnOptionSelected);
+			var optionsInfo = new MultipleChoiceRequestInfo(finalActor, finalOptions, availableTime, OnOptionSelected);
 			optionsInfo.showLastStatement = inConnections.Count > 0 && inConnections[0].sourceNode is StatementNode;
 			DialogueTree.RequestMultipleChoices( optionsInfo );
 			return Status.Running;
@@ -107,7 +100,7 @@ namespace NodeCanvas.DialogueTrees{
 		}
 
 		public override void OnConnectionInspectorGUI(int i){
-			EditorUtils.TaskField<ConditionTask>(availableChoices[i].condition, graph, (c)=> { availableChoices[i].condition = c; });
+			DoChoiceGUI(availableChoices[i]);
 		}
 
 		public override string GetConnectionInfo(int i){
@@ -115,8 +108,9 @@ namespace NodeCanvas.DialogueTrees{
 				return "NOT SET";
 			}
 			var text = string.Format("'{0}'", availableChoices[i].statement.text);
-			if (availableChoices[i].condition == null)
+			if (availableChoices[i].condition == null){
 				return text;
+			}
 			return string.Format("{0}\n{1}", text, availableChoices[i].condition.summaryInfo );
 		}
 
@@ -137,39 +131,37 @@ namespace NodeCanvas.DialogueTrees{
 			}
 
 			GUILayout.BeginHorizontal();
-			if (availableTime > 0)
+			if (availableTime > 0){
 				GUILayout.Label("Choose in '" + availableTime + "' seconds");
-			if (saySelection)
+			}
+			if (saySelection){
 				GUILayout.Label("Say Selection");
+			}
 			GUILayout.EndHorizontal();
 		}
 
 		protected override void OnNodeInspectorGUI(){
 
 			base.OnNodeInspectorGUI();
-			var e = Event.current;
 
 			if (GUILayout.Button("Add Choice")){
-				availableChoices.Add(new Choice(new Statement("I am a choice")));
+				availableChoices.Add(new Choice(new Statement("I am a choice...")));
 			}
 
 			if (availableChoices.Count == 0){
 				return;
 			}
 
-			for (var i = 0; i < availableChoices.Count; i++){
+			EditorUtils.ReorderableList(availableChoices, (int i) => {
 
 				var choice = availableChoices[i];
 				GUILayout.BeginHorizontal("box");
 
-				var arrowDir = choice.isUnfolded? "▼ " : "► ";
-				GUILayout.Label(arrowDir + choice.statement.text);
-
-				var lastRect = GUILayoutUtility.GetLastRect();
-				if (e.type == EventType.MouseUp && lastRect.Contains(e.mousePosition)){
+				if (GUILayout.Button(choice.isUnfolded? "▼ " : "► ", (GUIStyle)"label", GUILayout.Width(20))){
 					choice.isUnfolded = !choice.isUnfolded;
-					e.Use();
 				}
+
+				GUILayout.Label(choice.statement.text, GUILayout.Width(0), GUILayout.ExpandWidth(true));
 
 				if (GUILayout.Button("X", GUILayout.Width(20))){
 					availableChoices.RemoveAt(i);
@@ -180,28 +172,28 @@ namespace NodeCanvas.DialogueTrees{
 
 				GUILayout.EndHorizontal();
 
-				if (!choice.isUnfolded){
-					continue;
+				if (choice.isUnfolded){
+					DoChoiceGUI(choice);
 				}
+			});
 
-				GUILayout.BeginHorizontal();
-				GUILayout.Space(10);
-				GUILayout.BeginVertical("box");
+		}
 
-				choice.statement.text = UnityEditor.EditorGUILayout.TextField(choice.statement.text);
-				choice.statement.audio = UnityEditor.EditorGUILayout.ObjectField("Audio File", choice.statement.audio, typeof(AudioClip), false) as AudioClip;
-				choice.statement.meta = UnityEditor.EditorGUILayout.TextField("Meta Data", choice.statement.meta);
+		void DoChoiceGUI(Choice choice){
+			GUILayout.BeginHorizontal();
+			GUILayout.Space(10);
+			GUILayout.BeginVertical("box");
 
-				EditorUtils.TaskField<ConditionTask>(choice.condition, graph, (c)=> { choice.condition = c; });
+			choice.statement.text = UnityEditor.EditorGUILayout.TextField(choice.statement.text);
+			choice.statement.audio = UnityEditor.EditorGUILayout.ObjectField("Audio File", choice.statement.audio, typeof(AudioClip), false) as AudioClip;
+			choice.statement.meta = UnityEditor.EditorGUILayout.TextField("Meta Data", choice.statement.meta);
 
-				GUILayout.EndVertical();
-				GUILayout.EndHorizontal();
+			EditorUtils.TaskField<ConditionTask>(choice.condition, graph, (c)=> { choice.condition = c; });
 
-				GUILayout.Space(10);
-			}
+			GUILayout.EndVertical();
+			GUILayout.EndHorizontal();
 
-			availableTime = UnityEditor.EditorGUILayout.Slider("Available Time", availableTime, 0, 10);
-			saySelection = UnityEditor.EditorGUILayout.Toggle("Say Selection", saySelection);
+			GUILayout.Space(10);			
 		}
 
 		#endif

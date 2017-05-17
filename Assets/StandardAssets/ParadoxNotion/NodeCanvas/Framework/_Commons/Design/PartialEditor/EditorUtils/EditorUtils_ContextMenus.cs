@@ -48,11 +48,13 @@ namespace ParadoxNotion.Design{
 
 		public static GenericMenu GetPreferedTypesSelectionMenu(Type type, Action<Type> callback, bool showInterfaces = true, GenericMenu menu = null, string subCategory = null){
 			
-			if (menu == null)
+			if (menu == null){
 				menu = new GenericMenu();
+			}
 
-			if (subCategory != null)
+			if (subCategory != null){
 				subCategory = subCategory + "/";
+			}
 
 			GenericMenu.MenuFunction2 Selected = delegate(object t){
 				callback((Type)t);
@@ -64,7 +66,8 @@ namespace ParadoxNotion.Design{
 					var nsString = string.IsNullOrEmpty(t.Namespace)? "No Namespace/" : (t.Namespace.Replace(".","/") + "/") ;
 					var finalString = nsString + t.FriendlyName();
 					menu.AddItem(new GUIContent(subCategory + finalString), false, Selected, t);
-					listTypes.Add( typeof(List<>).MakeGenericType(new Type[]{t}), finalString );
+					// listTypes.Add( typeof(List<>).MakeGenericType(new Type[]{t}), finalString );
+					listTypes[ typeof(List<>).MakeGenericType(new Type[]{t}) ] = finalString;
 				}
 			}
 
@@ -91,7 +94,7 @@ namespace ParadoxNotion.Design{
 		}
 
 		public static GenericMenu GetStaticFieldSelectionMenu(Type type, Type fieldType, Action<FieldInfo> callback, GenericMenu menu = null, string subMenu = null){
-			return Internal_GetFieldSelectionMenu(BindingFlags.Public | BindingFlags.Static, type, fieldType, callback, menu, subMenu);
+			return Internal_GetFieldSelectionMenu(BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy, type, fieldType, callback, menu, subMenu);
 		}
 
 		///Get a GenericMenu for field selection in a type
@@ -116,7 +119,6 @@ namespace ParadoxNotion.Design{
 
 				var category = more? subMenu + type.FriendlyName() + "/More" : subMenu + type.FriendlyName();
 
-				//= field.DeclaringType.GetField(field.Name);
 				var finalField = field.GetBaseDefinition();
 
 			    menu.AddItem(new GUIContent(string.Format("{0}/{1} : {2}", category, finalField.Name, finalField.FieldType.FriendlyName())), false, Selected, finalField);
@@ -138,7 +140,7 @@ namespace ParadoxNotion.Design{
 		}
 
 		public static GenericMenu GetStaticPropertySelectionMenu(Type type, Type propType, Action<PropertyInfo> callback, bool mustRead = true, bool mustWrite = true, GenericMenu menu = null, string subMenu = null){
-			return Internal_GetPropertySelectionMenu(BindingFlags.Public | BindingFlags.Static, type, propType, callback, mustRead, mustWrite, menu, subMenu);
+			return Internal_GetPropertySelectionMenu(BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy, type, propType, callback, mustRead, mustWrite, menu, subMenu);
 		}
 
 		///Get a GenericMenu for properties of a type optionaly specifying mustRead & mustWrite
@@ -201,7 +203,7 @@ namespace ParadoxNotion.Design{
 
 		///Get a menu for static methods
 		public static GenericMenu GetStaticMethodSelectionMenu(Type type, Type returnType, Type acceptedParamsType, System.Action<MethodInfo> callback, int maxParameters, bool propertiesOnly, bool excludeVoid = false, GenericMenu menu = null, string subMenu = null){
-			return Internal_GetMethodSelectionMenu(BindingFlags.Public | BindingFlags.Static, type, returnType, acceptedParamsType, callback, maxParameters, propertiesOnly, excludeVoid, menu, subMenu);
+			return Internal_GetMethodSelectionMenu(BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy, type, returnType, acceptedParamsType, callback, maxParameters, propertiesOnly, excludeVoid, menu, subMenu);
 		}
 
 		///Get a GenericMenu for method or property get/set methods selection in a type
@@ -285,7 +287,7 @@ namespace ParadoxNotion.Design{
 
 		///Get a GenericMenu for Static Events of the type and only event handler type of System.Action
 		public static GenericMenu GetStaticEventSelectionMenu(Type type, Type argType, Action<EventInfo> callback, GenericMenu menu = null, string subMenu = null){
-			return Internal_GetEventSelectionMenu(BindingFlags.Public | BindingFlags.Static, type, argType, callback, menu, subMenu);
+			return Internal_GetEventSelectionMenu(BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy, type, argType, callback, menu, subMenu);
 		}
 
 		///Get a GenericMenu for Events of the type and only event handler type of System.Action

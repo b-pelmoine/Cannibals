@@ -9,13 +9,8 @@ namespace NodeCanvas.DialogueTrees{
 
 	[Name("Sub Dialogue Tree")]
 	[Category("Nested")]
-	[Description("Execute a Sub Dialogue Tree. When that Dialogue Tree is finished, this node will continue instead if it has a connection.\nUseful for making reusable and self-contained Dialogue Trees.")]
-	[Icon("Dialogue")]
+	[Description("Execute a Sub Dialogue Tree. When that Dialogue Tree is finished, this node will continue either in Success or Failure if it has any connections.\nUseful for making reusable and self-contained Dialogue Trees.")]
 	public class SubDialogueTree : DTNode, IGraphAssignable, ISubParametersContainer{
-
-		BBParameter[] ISubParametersContainer.GetIncludeParseParameters(){
-			return variablesMap.Values.ToArray();
-		}
 
 		[SerializeField]
 		private BBParameter<DialogueTree> _subTree = null;
@@ -26,8 +21,8 @@ namespace NodeCanvas.DialogueTrees{
 
 		private Dictionary<DialogueTree, DialogueTree> instances = new Dictionary<DialogueTree, DialogueTree>();
 
-		public override string name{
-			get {return "#" + ID + " SUB DIALOGUE";}
+		public override int maxOutConnections{
+			get {return 2;}
 		}
 
 		public DialogueTree subTree{
@@ -41,6 +36,10 @@ namespace NodeCanvas.DialogueTrees{
 		}
 
 		Graph[] IGraphAssignable.GetInstances(){ return instances.Values.ToArray(); }
+
+		BBParameter[] ISubParametersContainer.GetIncludeParseParameters(){
+			return variablesMap.Values.ToArray();
+		}
 
 		////
 
@@ -80,7 +79,7 @@ namespace NodeCanvas.DialogueTrees{
 
 		void OnSubDialogueFinish(bool success){
 			status = success? Status.Success : Status.Failure;
-			DLGTree.Continue();
+			DLGTree.Continue(success? 0 : 1);
 		}
 
 		public override void OnGraphStoped(){
@@ -121,16 +120,16 @@ namespace NodeCanvas.DialogueTrees{
 		////////////////////////////////////////
 		#if UNITY_EDITOR
 
+		public override string GetConnectionInfo(int i){
+			return i == 0? "Success" : "Failure";
+		}
 	
 		protected override void OnNodeGUI(){
-
-			if (subTree != null){
-				GUILayout.Label(_subTree.ToString());
-				return;
-			}
-
-			if (GUILayout.Button("CREATE NEW")){
-				Node.CreateNested<DialogueTree>(this);
+			GUILayout.Label( string.Format("Sub DialogueTree\n{0}", _subTree) );
+			if (subTree == null){
+				if (!Application.isPlaying && GUILayout.Button("CREATE NEW")){
+					Node.CreateNested<DialogueTree>(this);
+				}
 			}
 		}
 

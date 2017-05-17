@@ -19,14 +19,14 @@ namespace NodeCanvas{
 		private string _serializedList;
 
 
-		public void OnBeforeSerialize(){
+		void ISerializationCallbackReceiver.OnBeforeSerialize(){
 			_objectReferences = new List<Object>();
-			_serializedList = JSONSerializer.Serialize(typeof(ActionList), actionList, false, _objectReferences);
+			_serializedList = JSONSerializer.Serialize(typeof(ActionList), _actionList, false, _objectReferences);
 		}
 
-		public void OnAfterDeserialize(){
-			actionList = JSONSerializer.Deserialize<ActionList>(_serializedList, _objectReferences);
-			if (actionList == null) actionList = (ActionList)Task.Create(typeof(ActionList), this);
+		void ISerializationCallbackReceiver.OnAfterDeserialize(){
+			_actionList = JSONSerializer.Deserialize<ActionList>(_serializedList, _objectReferences);
+			if (_actionList == null) _actionList = (ActionList)Task.Create(typeof(ActionList), this);
 		}
 
 
@@ -35,10 +35,9 @@ namespace NodeCanvas{
 
 		public ActionList actionList{
 			get {return _actionList;}
-			set {_actionList = value; SendTaskOwnerDefaults();}
 		}
 
-		public Component agent{
+		Component ITaskSystem.agent{
 			get {return this;}
 		}
 
@@ -57,7 +56,7 @@ namespace NodeCanvas{
 			get {return actionList.elapsedTime;}
 		}
 
-		public Object contextObject{
+		Object ITaskSystem.contextObject{
 			get {return this;}
 		}
 
@@ -76,10 +75,12 @@ namespace NodeCanvas{
 			Debug.LogWarning("Sending events to action lists has no effect");
 		}
 
+		void Awake(){
+			SendTaskOwnerDefaults();
+		}
 
 		[ContextMenu("Play")]
 		public void Play(){
-			if (!Application.isPlaying) return;
 			Play(this, this.blackboard, null);
 		}
 
@@ -88,9 +89,18 @@ namespace NodeCanvas{
 		}
 
 		public void Play(Component agent, IBlackboard blackboard, System.Action<bool> OnFinish){
-			actionList.ExecuteAction(agent, blackboard, OnFinish);
+			if (Application.isPlaying){
+				actionList.ExecuteAction(agent, blackboard, OnFinish);
+			}
 		}
 
+		public Status ExecuteAction(){
+			return actionList.ExecuteAction(this, blackboard);
+		}
+
+		public Status ExecuteAction(Component agent){
+			return actionList.ExecuteAction(agent, blackboard);
+		}
 
 
 		////////////////////////////////////////
@@ -102,6 +112,12 @@ namespace NodeCanvas{
 			var bb = GetComponent<Blackboard>();
 			_blackboard = bb != null? bb : gameObject.AddComponent<Blackboard>();
 			_actionList = (ActionList)Task.Create(typeof(ActionList), this);
+		}
+
+		void OnValidate(){
+			if ( !Application.isPlaying && !UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode ){
+				SendTaskOwnerDefaults();
+			}
 		}
 
 		#endif

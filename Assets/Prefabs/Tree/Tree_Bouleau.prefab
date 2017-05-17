@@ -23,12 +23,12 @@ GameObject:
   - component: {fileID: 33756509182648758}
   - component: {fileID: 23626690137066138}
   - component: {fileID: 136329479473790414}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tree_Bouleau
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4196555391475402
 Transform:
@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1014413007725772}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.59, y: -1.86, z: 1.28}
+  m_LocalPosition: {x: -66.91312, y: 2.398828, z: 281.9582}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -136,8 +136,8 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 3ae25f054ee00f94788126a2ad884543, type: 2}
-  - {fileID: 2100000, guid: 3e006cb433521ef4b8f65ed2f50944da, type: 2}
+  - {fileID: 21472017078284644}
+  - {fileID: 21192265640459890}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -312,7 +312,7 @@ MonoBehaviour:
   m_Name: Tree Data
   m_EditorClassIdentifier: 
   _uniqueID: 81
-  materialHash: 50ac9c4ba5e77e3a0a4d2234cf381928215482368
+  materialHash: 63fdcb25b678f80b7860f95015a5eef1215482368
   root:
     _uniqueID: 1
     seed: 5834566
@@ -2606,8 +2606,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.73
-  m_Height: 13.41
+  m_Radius: 0.5
+  m_Height: 10
   m_Direction: 1
   m_Center: {x: -0, y: 0, z: 0}
 --- !u!193 &193193912864735128

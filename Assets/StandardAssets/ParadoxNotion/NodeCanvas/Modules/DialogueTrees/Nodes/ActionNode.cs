@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace NodeCanvas.DialogueTrees{
 
+	[Icon("Action", IconAttribute.Mode.AppendToTitle)]
 	[Name("Task Action")]
 	[Description("Execute an Action Task for the Dialogue Actor selected.")]
 	public class ActionNode : DTNode, ITaskAssignable<ActionTask>{
@@ -23,6 +24,7 @@ namespace NodeCanvas.DialogueTrees{
 			set {action = (ActionTask)value;}
 		}
 
+		public override bool requireActorSelection{ get {return true;} }
 
 		protected override Status OnExecute(Component agent, IBlackboard bb){
 

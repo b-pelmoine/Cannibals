@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using NodeCanvas.Framework;
 using ParadoxNotion;
@@ -40,6 +41,24 @@ namespace NodeCanvas.DialogueTrees{
 		}
 
 
+		///Set an actor reference by parameter name
+		public void SetActorReference(string paramName, IDialogueActor actor){
+			if (behaviour != null){
+				behaviour.SetActorReference(paramName, actor);
+			}
+		}
+
+		///Set all actor reference parameters at once
+		public void SetActorReferences(Dictionary<string, IDialogueActor> actors){
+			if (behaviour != null){
+				behaviour.SetActorReferences(actors);
+			}
+		}
+
+		///Get the actor reference by parameter name
+		public IDialogueActor GetActorReferenceByName(string paramName){
+			return behaviour != null? behaviour.GetActorReferenceByName(paramName) : null;
+		}
 
 		////////////////////////////////////////
 		///////////GUI AND EDITOR STUFF/////////

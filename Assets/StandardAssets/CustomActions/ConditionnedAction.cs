@@ -14,6 +14,7 @@ public class ConditionnedAction : ActionTask
 
     public ConditionList conditionTasks;
     public ActionList actionTasks;
+    public bool repeat = true;
 
     public override void OnValidate(ITaskSystem ownerSystem)
     {
@@ -68,6 +69,9 @@ public class ConditionnedAction : ActionTask
 
         if (conditionTasks.CheckCondition(agent, blackboard))
             actionTasks.ExecuteAction(agent, blackboard);
+
+        if (!actionTasks.isRunning && !repeat)
+            EndAction();
     }
 
 
@@ -77,6 +81,9 @@ public class ConditionnedAction : ActionTask
         {
             actionTasks.ExecuteAction(agent, blackboard);
         }
+
+        if (!actionTasks.isRunning && !repeat)
+            EndAction();
     }
 
     protected override void OnStop()
@@ -94,6 +101,8 @@ public class ConditionnedAction : ActionTask
 #if UNITY_EDITOR
     protected override void OnTaskInspectorGUI()
     {
+        repeat = GUILayout.Toggle(repeat, "repeat");
+
         foreach (ConditionTask c in conditionTasks.conditions)
         {
             c.SetOwnerSystem(this.ownerSystem);

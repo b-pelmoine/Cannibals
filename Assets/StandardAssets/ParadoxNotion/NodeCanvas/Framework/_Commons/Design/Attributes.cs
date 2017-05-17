@@ -25,7 +25,7 @@ namespace ParadoxNotion.Design{
 		}
 	}
 
-	///Use to categorization
+	///Use for categorization
 	[AttributeUsage(AttributeTargets.Class)]
 	public class CategoryAttribute : Attribute{
 		public string category;
@@ -37,8 +37,18 @@ namespace ParadoxNotion.Design{
 	///When a class is associated with an icon
 	[AttributeUsage(AttributeTargets.Class)]
 	public class IconAttribute : Attribute{
+		public enum Mode{
+			ReplaceTitle,
+			AppendToTitle
+		}
 		public string iconName;
+		public Mode mode = Mode.ReplaceTitle;
 		public bool fixedColor;
+		public IconAttribute(string iconName, Mode mode, bool fixedColor = false){
+			this.iconName = iconName;
+			this.fixedColor = fixedColor;
+			this.mode = mode;
+		}
 		public IconAttribute(string iconName, bool fixedColor = false){
 			this.iconName = iconName;
 			this.fixedColor = fixedColor;
@@ -53,6 +63,11 @@ namespace ParadoxNotion.Design{
 			this.hexColor = hexColor;
 		}
 	}	
+
+	///When a class should for some reason be marked as protected
+	[AttributeUsage(AttributeTargets.Class)]
+	public class ProtectedAttribute : Attribute{}
+
 
 	///Makes the int field show as layerfield
 	[AttributeUsage(AttributeTargets.Field)]

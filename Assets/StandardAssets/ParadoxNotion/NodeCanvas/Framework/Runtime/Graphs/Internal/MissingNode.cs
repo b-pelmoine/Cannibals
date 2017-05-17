@@ -8,7 +8,7 @@ namespace NodeCanvas.Framework.Internal{
 
     ///Missing node types are deserialized into this on deserialization and can load back if type is found
     [DoNotList]
-	[Description("Please resolve the MissingNode issue by either replacing the node or importing the missing node type in the project")]
+	[Description("Please resolve the MissingNode issue by either replacing the node or importing the missing node type in the project.")]
 	sealed public class MissingNode : Node, IMissingRecoverable{
 
 		[fsProperty]

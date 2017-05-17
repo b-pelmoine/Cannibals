@@ -139,10 +139,11 @@ namespace NodeCanvas.StateMachines{
 		
 		protected override void OnNodeGUI(){
 			
-			GUILayout.Label(string.Format("Nested BT\n{0}", _nestedBT) );
+			GUILayout.Label(string.Format("Sub BT\n{0}", _nestedBT) );
 			if (nestedBT == null){
-				if (!Application.isPlaying && GUILayout.Button("CREATE NEW"))
+				if (!Application.isPlaying && GUILayout.Button("CREATE NEW")){
 					Node.CreateNested<BehaviourTree>(this);
+				}
 			}
 		}
 
@@ -167,9 +168,6 @@ namespace NodeCanvas.StateMachines{
 			failureEvent = EditorGUILayout.TextField("Failure Status Event", failureEvent);
 			GUILayout.EndVertical();
 			GUI.color = Color.white;
-
-			nestedBT.name = name;
-
 
 	    	var defParams = nestedBT.GetDefinedParameters();
 	    	if (defParams.Length != 0){

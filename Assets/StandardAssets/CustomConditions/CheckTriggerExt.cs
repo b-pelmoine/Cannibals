@@ -7,9 +7,9 @@ using System.Collections.Generic;
 
 [Category("System Events")]
 [EventReceiver("OnTriggerEnter", "OnTriggerExit")]
-public class CheckTriggerExt<T> : ConditionTask<Collider> where T : class
+public class CheckTriggerExt<T> : ConditionTask<Collider>
 {
-    class Info
+    public class Info
     {
         public T script;
         public List<Collider> colliders = new List<Collider>();
@@ -26,7 +26,10 @@ public class CheckTriggerExt<T> : ConditionTask<Collider> where T : class
 
     private bool stay;
 
-    List<Info> infos = new List<Info>();
+    public List<Info> infos = new List<Info>();
+
+    bool justEnter = false;
+    bool justExit = false;
 
     protected override string info
     {
@@ -54,12 +57,14 @@ public class CheckTriggerExt<T> : ConditionTask<Collider> where T : class
 
                         if (infos[i].colliders.Count == 0)
                         {
-                            savedList.value.Remove(infos[i].script);
+                            savedList.value.RemoveAt(i);
                             infos.RemoveAt(i);
                         }
                     }
                 }
             }
+
+            SpecialCondition(savedList.value);
 
             return savedList.value.Count > 0;
         }
@@ -76,21 +81,28 @@ public class CheckTriggerExt<T> : ConditionTask<Collider> where T : class
 
             if (script != null)
             {
-                Info info = infos.Find(x => { return x.script == script; });
+                Info info = infos.Find(x => { return x.script.Equals(script); });
 
                 if (info != null)
-                    info.colliders.Add(other);
+                {
+                    if(!info.colliders.Exists(x => { return x == other; }))
+                        info.colliders.Add(other);
+                }
                 else
                 {
                     info = new Info();
                     info.script = script;
                     info.colliders.Add(other);
                     infos.Add(info);
+                    savedList.value.Add(script);
                 }
 
                 if (checkType == TriggerTypes.TriggerEnter || checkType == TriggerTypes.TriggerStay)
                 {
-                    YieldReturn(true);
+                    SpecialCondition(savedList.value);
+
+                    if(savedList.value.Count > 0)
+                        YieldReturn(true);
                 }
             }
         }
@@ -110,16 +122,23 @@ public class CheckTriggerExt<T> : ConditionTask<Collider> where T : class
 
                 if (info != null)
                 {
-                    info.colliders.Remove(other);
+                    info.colliders.RemoveAll(x=> { return x == other; });
                     if (info.colliders.Count == 0)
                         infos.Remove(info);
-                }
+                } 
 
                 if (checkType == TriggerTypes.TriggerExit)
                 {
-                    YieldReturn(true);
+                    SpecialCondition(savedList.value);
+
+                    if(savedList.value.Count > 0)
+                        YieldReturn(true);
                 }
             }
         }
+    }
+
+    protected virtual void SpecialCondition(List<T> detecteds)
+    {
     }
 }

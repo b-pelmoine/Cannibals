@@ -25,9 +25,9 @@ public class Bush : MonoBehaviour {
     /// <summary>
     /// Will move the bush for detecting that something is in it.
     /// </summary>
-    public bool Move()
+    public bool Move(float duration)
     {
-        return ((Bush_State)m_statemachine.behaviour.currentState).Move();
+        return ((Bush_State)m_statemachine.behaviour.currentState).Move(duration);
     }
 
     public bool IsMoving()
@@ -52,7 +52,7 @@ public class Bush : MonoBehaviour {
 
     void OnTriggerEnter(Collider c)
     {
-        if (((1 << c.gameObject.layer) & m_cannibalLayerMask) != 0)
+        if (((1 << c.gameObject.layer) & m_cannibalLayerMask) != 0 && c.gameObject.name.Equals("GlobalCollider"))
         {
             Cannibal ca = c.gameObject.GetComponentInParent<Cannibal>();
 
@@ -63,7 +63,7 @@ public class Bush : MonoBehaviour {
 
     void OnTriggerExit(Collider c)
     {
-        if (((1 << c.gameObject.layer) & m_cannibalLayerMask) != 0)
+        if (((1 << c.gameObject.layer) & m_cannibalLayerMask) != 0 && c.gameObject.name.Equals("GlobalCollider"))
         {
             Cannibal ca = c.gameObject.GetComponentInParent<Cannibal>();
 

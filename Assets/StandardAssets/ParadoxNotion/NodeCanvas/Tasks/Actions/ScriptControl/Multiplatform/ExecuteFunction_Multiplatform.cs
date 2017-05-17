@@ -21,6 +21,8 @@ namespace NodeCanvas.Tasks.Actions{
 		protected SerializedMethodInfo method;
 		[SerializeField]
 		protected List<BBObjectParameter> parameters = new List<BBObjectParameter>();
+		[SerializeField]
+		protected List<bool> parameterIsByRef = new List<bool>();
 		[SerializeField] [BlackboardOnly]
 		protected BBObjectParameter returnValue;
 
@@ -73,6 +75,10 @@ namespace NodeCanvas.Tasks.Actions{
 				args = new object[parameters.Count];
 			}
 
+			if (parameterIsByRef.Count != parameters.Count){
+				parameterIsByRef = parameters.Select(p => false).ToList();
+			}
+
 			return null;
 		}
 
@@ -90,6 +96,13 @@ namespace NodeCanvas.Tasks.Actions{
 			}
 
 			returnValue.value = targetMethod.Invoke(agent, args);
+
+			for (var i = 0; i < parameters.Count; i++){
+				if (parameterIsByRef[i]){
+					parameters[i].value = args[i];
+				}
+			}
+
 			EndAction();
 		}
 
@@ -122,11 +135,13 @@ namespace NodeCanvas.Tasks.Actions{
 			var methodParameters = method.GetParameters();
 			for (var i = 0; i < methodParameters.Length; i++){
 				var p = methodParameters[i];
-				var newParam = new BBObjectParameter(p.ParameterType){bb = blackboard};
+				var pType = p.ParameterType;
+				var newParam = new BBObjectParameter( pType.IsByRef? pType.GetElementType() : pType ){bb = blackboard};
 				if (p.IsOptional){
 					newParam.value = p.DefaultValue;
 				}
 				parameters.Add(newParam);
+				parameterIsByRef.Add(pType.IsByRef);
 			}
 
 			if (method.ReturnType != typeof(void) && targetMethod.ReturnType != typeof(IEnumerator)){

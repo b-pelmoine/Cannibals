@@ -46,7 +46,7 @@ namespace NodeCanvas.DialogueTrees{
 			private string _id;
 			[SerializeField]
 			private UnityEngine.Object _actorObject;
-
+			[System.NonSerialized]
 			private IDialogueActor _actor;
 			
 			public string name{

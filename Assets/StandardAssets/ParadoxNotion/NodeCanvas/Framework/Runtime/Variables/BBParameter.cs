@@ -94,12 +94,12 @@ namespace NodeCanvas.Framework{
 					}
 					continue;	
 				}
+			}
 
-				if (o is ISubParametersContainer){
-					var parameters = (o as ISubParametersContainer).GetIncludeParseParameters();
-					if (parameters != null && parameters.Length > 0){
-						bbParams.AddRange( parameters );
-					}
+			if (o is ISubParametersContainer){
+				var parameters = (o as ISubParametersContainer).GetIncludeParseParameters();
+				if (parameters != null && parameters.Length > 0){
+					bbParams.AddRange( parameters );
 				}
 			}
 
@@ -303,7 +303,9 @@ namespace NodeCanvas.Framework{
 
 			varRef = targetBB.AddVariable(varName, varType);
 			if (varRef != null){
+				#if UNITY_EDITOR
 				Debug.Log(string.Format("Parameter '{0}' (of type '{1}') promoted to a Variable in Blackboard '{2}'.", varName, varType.FriendlyName(), bbName));
+				#endif
 			} else {
 				Debug.LogError(string.Format("Parameter {0} (of type '{1}') failed to promote to a Variable in Blackboard '{2}'.", varName, varType.FriendlyName(), bbName));
 			}
@@ -384,7 +386,9 @@ namespace NodeCanvas.Framework{
 
 				//Dynamic?
 				if (bb != null && !string.IsNullOrEmpty(name)){
+					#if UNITY_EDITOR
 					Debug.LogWarning(string.Format("Dynamic Parameter Variable '{0}' Encountered...", name) );
+					#endif
 					//setting the varRef property also binds it
 					varRef = PromoteToVariable(bb);
 					if (setter != null){ setter(value); }

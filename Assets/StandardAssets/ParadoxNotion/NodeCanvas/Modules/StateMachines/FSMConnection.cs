@@ -36,12 +36,8 @@ namespace NodeCanvas.StateMachines{
 			get {return TipConnectionStyle.Arrow;}
 		}
 
-		protected override string GetConnectionInfo(bool isExpanded){
-			if (isExpanded){
-				return condition != null? condition.summaryInfo : "OnFinish";
-			} else {
-				return condition != null? "-||-" : "---";
-			}
+		protected override string GetConnectionInfo(){
+			return condition != null? condition.summaryInfo : "OnFinish";
 		}
 
 		protected override void OnConnectionInspectorGUI(){
