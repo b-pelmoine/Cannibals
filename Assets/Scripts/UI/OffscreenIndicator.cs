@@ -325,7 +325,7 @@ public class OffscreenIndicator : MonoBehaviour {
                     alterDimensionPop = 1 + (4 * (transitionIn - elapsedLastPop));
 
                 Vector2 dimensions = new Vector2(Screen.width / 20, Screen.height / 20) 
-                    * Mathf.Clamp(20 / distFromPlayers, 0.5f, 3) 
+                    * Mathf.Clamp(20 / distFromPlayers, 0.5f, 1.5f) 
                     * (sizeMultiplier + 0.1f * (Mathf.Sin(pulseSpeed*Time.time)))
                     * alterDimensionPop;
                 

@@ -12,10 +12,13 @@ public class FollowCam : MonoBehaviour {
         MOVE_DOWN
     }
 
+    [Header("Vars")]
     public Transform playerOne;
-    public Vector3 pOnePos;
+    private Cannibal cannibalOne;
+    private Vector3 pOnePos;
     public Transform playerTwo;
-    public Vector3 pTwoPos;
+    private Cannibal cannibalTwo;
+    private Vector3 pTwoPos;
 
     //flag to know if the camera can unzoom to see all players
     private bool cameraCanSeePlayers;
@@ -23,12 +26,18 @@ public class FollowCam : MonoBehaviour {
     private Vector3 barycenter, prevBarycenter;
     private CameraState state;
 
+    [Header("Camera settings")]
     [Range(5, 15)]
     [Tooltip("How Close the camera can be")]
     public float closePlan;
     [Range(15, 30)]
     [Tooltip("How Far the camera can be")]
     public float farPlan;
+    private float farplanStatic;
+
+    [Range(15, 30)]
+    [Tooltip("How Far the camera can be when only one player is alive")]
+    public float CamDistanceOnePlayer;
 
     [Range(.5f, 4)]
     [Tooltip("change the point of view angle")]
@@ -54,6 +63,11 @@ public class FollowCam : MonoBehaviour {
     private float distanceRemaining;
 
     float distanceBetweenPlayers;
+
+    bool bothPlayersDead;
+    bool bothPlayersAlive;
+    bool pOneAlive, pTwoAlive;
+    //cam distance when only one player is alive
     
     // elements / characters / whatever that the camera must show to the players
     private List<GameObject> leadingElements;
@@ -62,11 +76,13 @@ public class FollowCam : MonoBehaviour {
     void Awake()
     {
         goToPosition = transform.position;
+        bothPlayersDead = false;
     }
 
     public bool arePlayersTooFarAway(out float distance)
     {
         distance = distanceBetweenPlayers;
+        if (!bothPlayersAlive) return false;
         return distanceBetweenPlayers > farPlan;
     }
 
@@ -77,7 +93,20 @@ public class FollowCam : MonoBehaviour {
 
     Vector3 getBarycenter()
     {
-        Vector3 centerOfAttention = Vector3.Lerp(playerOne.position, playerTwo.position, .5f);
+        //center of attention vary if one player die
+        Vector3 centerOfAttention;
+        pOneAlive = !cannibalOne.IsDead();
+        pTwoAlive = !cannibalTwo.IsDead();
+        bothPlayersAlive = pOneAlive && pTwoAlive;
+        if (pOneAlive && pTwoAlive)
+            centerOfAttention = Vector3.Lerp(playerOne.position, playerTwo.position, .5f);
+        else
+        {
+            if (!pOneAlive && !pTwoAlive && !bothPlayersDead) bothPlayersDead = true;
+            else bothPlayersDead = false;
+            centerOfAttention = (pOneAlive) ? playerOne.position : playerTwo.position;
+        }
+
         int layerMask = 1 << LayerMask.NameToLayer("AI_Agent");
         Collider[] nearbyElements = Physics.OverlapSphere(centerOfAttention, catchElementsRadius, layerMask);
         int sumOfLevels = 1; //Importance level of both players
@@ -96,6 +125,11 @@ public class FollowCam : MonoBehaviour {
     void Start () {
         barycenter = Vector3.Lerp(playerOne.position, playerTwo.position, .5f);
         state = CameraState.IDLE;
+
+        farplanStatic = farPlan;
+
+        cannibalOne = playerOne.parent.GetComponent<Cannibal>();
+        cannibalTwo = playerTwo.parent.GetComponent<Cannibal>();
     }
 
 	void FixedUpdate () {
@@ -106,9 +140,16 @@ public class FollowCam : MonoBehaviour {
         barycenter = getBarycenter();
         barycenter = Vector3.Lerp(prevBarycenter, barycenter, Time.deltaTime* dragFactor);
 
-        Vector3 playersBarycenter = Vector3.Lerp(playerOne.position, playerTwo.position, .5f);
+        farPlan = (bothPlayersAlive) ? farplanStatic : CamDistanceOnePlayer;
+
+        Vector3 playersBarycenter;
+        if (bothPlayersAlive)
+            playersBarycenter = Vector3.Lerp(playerOne.position, playerTwo.position, .5f);
+        else
+            playersBarycenter = (pOneAlive) ? playerOne.position : playerTwo.position;
+
         float distanceplayersBarycenter = Vector3.Distance(barycenter, playersBarycenter);
-        distanceBetweenPlayers = Vector3.Distance(pOnePos, pTwoPos);
+        distanceBetweenPlayers = (bothPlayersAlive) ? Vector3.Distance(pOnePos, pTwoPos) : 0;
         float distanceBetweenCamPlayersBarycenter = Vector3.Distance(playersBarycenter, transform.position);
         float distance = distanceBetweenPlayers - distanceBetweenCamPlayersBarycenter + (distanceplayersBarycenter);
 
