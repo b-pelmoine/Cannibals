@@ -660,6 +660,13 @@
 								</Element>
 							</ElementList>
 						</Action>
+						<Action Name="Stop" ID="{8FF40CD8-6662-4416-BAB5-838D78C85A7F}" ShortID="509996795" Type="Stop" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{714E4737-DFAA-4BC2-8282-D96E4475A6C1}" Global="false">
+									<ObjectRef Name="Drink" ID="{247383AE-D60B-431B-A891-AD8C6339738C}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
 					</ChildrenList>
 				</Event>
 				<Event Name="hunter_idle" ID="{4E1D4B20-0680-4913-BE47-D9EEC9AABA21}">
@@ -667,6 +674,24 @@
 						<Action Name="Play" ID="{7F8C372B-3A79-4A02-8051-BC6E0B88D086}" ShortID="645278369" Type="Play" Scope="One" Global="false">
 							<ElementList>
 								<Element ID="{02D3FE52-2CCF-47F1-9E9F-F492F88DBF11}" Global="false">
+									<ObjectRef Name="Idle" ID="{55FE8E11-330C-4123-A995-2EFB2977DC76}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="hunter_drink" ID="{5C514046-F399-4B11-A2BC-43E323E11723}">
+					<ChildrenList>
+						<Action Name="Play" ID="{880B083E-4B7C-4012-9368-D6782CCF5E9F}" ShortID="401653350" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{A87ADE54-EE49-4D22-9DEE-67FAE4712043}" Global="false">
+									<ObjectRef Name="Drink" ID="{247383AE-D60B-431B-A891-AD8C6339738C}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Stop" ID="{F15FFEF4-1722-4334-93E2-039D594C42EA}" ShortID="253179917" Type="Stop" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{B7695AD5-C739-4374-AE2A-A82DFF972E42}" Global="false">
 									<ObjectRef Name="Idle" ID="{55FE8E11-330C-4123-A995-2EFB2977DC76}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
 								</Element>
 							</ElementList>
