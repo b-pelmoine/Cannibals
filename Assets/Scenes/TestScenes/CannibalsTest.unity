@@ -796,15 +796,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 21
       objectReference: {fileID: 0}
-    - target: {fileID: 114855613064038926, guid: c4fcfbe40c1d1324b9fb5d979c29c41b,
-        type: 2}
-      propertyPath: _serializedBlackboard
-      value: '{"_variables":{"mesher":{"_value":1,"_name":"mesher","_id":"bb862b0a-df93-4bf6-97e0-476b6ee2003c","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Animator,
-        UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"Leaves":{"_value":2,"_name":"Leaves","_id":"5e07524a-67d7-4025-9f9c-57e23ae3bf15","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.ParticleSystem,
-        UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"self":{"_value":3,"_name":"self","_id":"de8133e8-e7ac-41f7-85ba-3325705faa35","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
-        UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"moveDuration":{"_name":"moveDuration","_id":"c77acaa3-ecbc-4f6b-8dcf-c20201b40704","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-        mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c4fcfbe40c1d1324b9fb5d979c29c41b, type: 2}
   m_IsPrefabParent: 0
@@ -1459,6 +1450,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114855613064038926, guid: c4fcfbe40c1d1324b9fb5d979c29c41b,
+        type: 2}
+      propertyPath: _objectReferences.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4949184023702508, guid: c4fcfbe40c1d1324b9fb5d979c29c41b, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0.33
@@ -1498,11 +1494,7 @@ Prefab:
     - target: {fileID: 114855613064038926, guid: c4fcfbe40c1d1324b9fb5d979c29c41b,
         type: 2}
       propertyPath: _serializedBlackboard
-      value: '{"_variables":{"mesher":{"_value":1,"_name":"mesher","_id":"bb862b0a-df93-4bf6-97e0-476b6ee2003c","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Animator,
-        UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"Leaves":{"_value":2,"_name":"Leaves","_id":"5e07524a-67d7-4025-9f9c-57e23ae3bf15","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.ParticleSystem,
-        UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"self":{"_value":3,"_name":"self","_id":"de8133e8-e7ac-41f7-85ba-3325705faa35","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
-        UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"moveDuration":{"_name":"moveDuration","_id":"78166e37-791a-4787-91f6-e2724d99e167","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-        mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
+      value: '{"_variables":{}}'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c4fcfbe40c1d1324b9fb5d979c29c41b, type: 2}

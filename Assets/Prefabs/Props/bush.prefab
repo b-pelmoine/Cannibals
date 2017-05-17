@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 33911401512159696}
   - component: {fileID: 23990358293445420}
   - component: {fileID: 95591808244250056}
+  - component: {fileID: 114290846211006300}
   m_Layer: 11
   m_Name: Mesher004
   m_TagString: Untagged
@@ -128,8 +129,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1292751834278326}
-  m_LocalRotation: {x: -0, y: -0.44281, z: -0, w: 0.8966155}
-  m_LocalPosition: {x: 162.68, y: 3.09, z: 116.11}
+  m_LocalRotation: {x: -0, y: -0.8027421, z: -0, w: 0.5963263}
+  m_LocalPosition: {x: -2.61, y: -0.8, z: 3.51}
   m_LocalScale: {x: 1.5812497, y: 1.58125, z: 1.5812497}
   m_Children:
   - {fileID: 4686297927441248}
@@ -245,6 +246,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114290846211006300
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1768847823590666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a70c3ba7dbc98c43871a4d5b7a59061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_particleSystem: {fileID: 198631365212367738}
 --- !u!114 &114459082842510232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -303,13 +316,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedBlackboard: '{"_variables":{"mesher":{"_value":1,"_name":"mesher","_id":"bb862b0a-df93-4bf6-97e0-476b6ee2003c","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Animator,
-    UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"Leaves":{"_value":2,"_name":"Leaves","_id":"5e07524a-67d7-4025-9f9c-57e23ae3bf15","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.ParticleSystem,
-    UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"self":{"_value":3,"_name":"self","_id":"de8133e8-e7ac-41f7-85ba-3325705faa35","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
-    UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
+    UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"self":{"_value":2,"_name":"self","_id":"de8133e8-e7ac-41f7-85ba-3325705faa35","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
+    UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"moveDuration":{"_name":"moveDuration","_id":"c77acaa3-ecbc-4f6b-8dcf-c20201b40704","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences:
   - {fileID: 0}
   - {fileID: 95591808244250056}
-  - {fileID: 198631365212367738}
   - {fileID: 1292751834278326}
 --- !u!198 &198631365212367738
 ParticleSystem:
@@ -366,7 +378,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 444526119
+  randomSeed: 919565147
   InitialModule:
     serializedVersion: 3
     enabled: 1
