@@ -14,7 +14,7 @@ public class CheckCorpsesTrigger : CheckTriggerExt<Corpse> {
         {
             for (int i = savedList.value.Count - 1; i >= 0; i--)
             {
-                if(savedList.value[i].cannibals.Count != cannibalCount)
+                if(savedList.value[i].cannibals.Count != cannibalCount || (savedList.value[i].cannibals.Count > 0 && savedList.value[i].cannibals[0].IsTakingCorpse()))
                 {
                     savedList.value.RemoveAt(i);
                 }

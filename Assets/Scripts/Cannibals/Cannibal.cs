@@ -66,6 +66,10 @@ public class Cannibal : MonoBehaviour {
         return CurrentState() != null && CurrentState().IsDead();
     }
 
+    public bool IsTakingCorpse()
+    {
+        return CurrentState() != null && CurrentState().IsTakingCorpse();
+    }
 
     ICannibal_State CurrentState()
     {

@@ -93,9 +93,9 @@ public class Corpse : MonoBehaviour {
             }
             else
                 cannibals[0].m_cannibalSkill.pointOnCorpse = rightPoint;
-
-            cannibals[0].m_cannibalMovement.CharacterControllerEx.CharacterTransform.position = m_transform.TransformPoint(cannibals[0].m_cannibalSkill.pointOnCorpse) + cannibalTakeOffset;
-            cannibal.m_cannibalMovement.CharacterControllerEx.CharacterTransform.position = m_transform.TransformPoint(cannibal.m_cannibalSkill.pointOnCorpse) + cannibalTakeOffset;
+    
+                cannibals[0].m_cannibalMovement.CharacterControllerEx.CharacterTransform.position = m_transform.TransformPoint(cannibals[0].m_cannibalSkill.pointOnCorpse) + cannibalTakeOffset;       
+                cannibal.m_cannibalMovement.CharacterControllerEx.CharacterTransform.position = m_transform.TransformPoint(cannibal.m_cannibalSkill.pointOnCorpse) + cannibalTakeOffset;
 
             cannibals[0].m_cannibalSkill.corpseJoint.connectedBody = this.m_rigidbody;
             cannibals[0].m_cannibalSkill.corpseJoint.connectedAnchor = cannibals[0].m_cannibalSkill.pointOnCorpse;
