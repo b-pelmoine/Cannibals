@@ -605,6 +605,74 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="hunter_bottle" ID="{A1A0C03C-1B45-43CC-9505-A53ECA5E45B1}">
+					<ChildrenList>
+						<Action Name="Play" ID="{F9F65C2A-98A6-4F44-833F-4B96B5F45FE3}" ShortID="1015251691" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{511568A6-DA89-4556-821F-E67F3122F8F7}" Global="false">
+									<ObjectRef Name="Bottle" ID="{FD2059E5-79F7-41A3-A39F-626D8096147E}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Stop" ID="{66E8F5E0-1B7F-4F0B-85CB-F78ED4A997E2}" ShortID="37382597" Type="Stop" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{8C7E97EC-7150-4501-81BF-8D9C561B094D}" Global="false">
+									<ObjectRef Name="Idle" ID="{55FE8E11-330C-4123-A995-2EFB2977DC76}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="hunter_death" ID="{861876B4-1462-4B90-9A58-A00E54BEB008}">
+					<ChildrenList>
+						<Action Name="Play" ID="{056C86AB-9A6F-4277-961E-7B4CC2387158}" ShortID="55600619" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{D254216F-DA99-4E17-8940-00B0D53A5D7D}" Global="false">
+									<ObjectRef Name="Death" ID="{57625EF3-81E5-408A-B979-BEC995D99CBF}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Stop" ID="{0C698141-F565-4E5D-A34C-220700A0BDF9}" ShortID="555603100" Type="Stop" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{7A209756-3C70-4018-8896-53CE385DC2DD}" Global="false">
+									<ObjectRef Name="Bottle" ID="{FD2059E5-79F7-41A3-A39F-626D8096147E}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Stop" ID="{83D0BBAA-BF6E-44A7-B32C-431CBD2BC233}" ShortID="827506805" Type="Stop" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{FA4F9A29-0F6C-42F3-A370-2FE1E8BCCD39}" Global="false">
+									<ObjectRef Name="Idle" ID="{55FE8E11-330C-4123-A995-2EFB2977DC76}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Stop" ID="{2AD6DA4E-6057-40CB-840E-5D14A4A01D4C}" ShortID="894648981" Type="Stop" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{4FB681FC-C4E9-4D4C-9C15-3A1E586DA798}" Global="false">
+									<ObjectRef Name="Steps" ID="{392C6F42-A330-44DC-8424-047A166BB079}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Stop" ID="{E5FD9954-698A-48C3-8910-9D9BB7A8DC09}" ShortID="1012322662" Type="Stop" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{6910984B-72C6-4736-9D4A-529023A29CE1}" Global="false">
+									<ObjectRef Name="Objects" ID="{BA9DD2C5-6CE3-4BDD-9D9B-BE62FDD0FC74}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="hunter_idle" ID="{4E1D4B20-0680-4913-BE47-D9EEC9AABA21}">
+					<ChildrenList>
+						<Action Name="Play" ID="{7F8C372B-3A79-4A02-8051-BC6E0B88D086}" ShortID="645278369" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{02D3FE52-2CCF-47F1-9E9F-F492F88DBF11}" Global="false">
+									<ObjectRef Name="Idle" ID="{55FE8E11-330C-4123-A995-2EFB2977DC76}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
