@@ -6,23 +6,16 @@ using NodeCanvas.Framework;
 
 public class CheckIKnifeKillableTrigger : CheckTriggerExt<IKnifeKillable>
 {
-    protected override bool OnCheck()
+    protected override void SpecialCondition(List<IKnifeKillable> detecteds)
     {
-        bool check = base.OnCheck();
-
-        if (check)
+        for (int i = savedList.value.Count - 1; i >= 0; i--)
         {
-            for (int i = savedList.value.Count - 1; i >= 0; i--)
+            if (savedList.value[i].IsKnifeVulnerable())
             {
-                if (savedList.value[i].IsKnifeVulnerable())
-                {
-                    savedList.value[i].ShowKnifeIcon();
-                }
-                else
-                    savedList.value.RemoveAt(i);
+                savedList.value[i].ShowKnifeIcon();
             }
+            else
+                savedList.value.RemoveAt(i);
         }
-
-        return savedList.value.Count > 0;
     }
 }

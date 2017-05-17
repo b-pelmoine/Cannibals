@@ -12,6 +12,7 @@ public class Cannibal_SoloTakeCorpse : ActionState, ICannibal_State {
     protected override void OnEnter()
     {
         base.OnEnter();
+
         m_cannibal.value.m_cannibalSkill.TakeCorpse(corpses.value[0]);
     }
 

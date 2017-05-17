@@ -26,7 +26,10 @@ public class CheckTriggerExt<T> : ConditionTask<Collider>
 
     private bool stay;
 
-   public List<Info> infos = new List<Info>();
+    public List<Info> infos = new List<Info>();
+
+    bool justEnter = false;
+    bool justExit = false;
 
     protected override string info
     {
@@ -61,6 +64,8 @@ public class CheckTriggerExt<T> : ConditionTask<Collider>
                 }
             }
 
+            SpecialCondition(savedList.value);
+
             return savedList.value.Count > 0;
         }
 
@@ -89,11 +94,15 @@ public class CheckTriggerExt<T> : ConditionTask<Collider>
                     info.script = script;
                     info.colliders.Add(other);
                     infos.Add(info);
+                    savedList.value.Add(script);
                 }
 
                 if (checkType == TriggerTypes.TriggerEnter || checkType == TriggerTypes.TriggerStay)
                 {
-                    YieldReturn(true);
+                    SpecialCondition(savedList.value);
+
+                    if(savedList.value.Count > 0)
+                        YieldReturn(true);
                 }
             }
         }
@@ -120,9 +129,16 @@ public class CheckTriggerExt<T> : ConditionTask<Collider>
 
                 if (checkType == TriggerTypes.TriggerExit)
                 {
-                    YieldReturn(true);
+                    SpecialCondition(savedList.value);
+
+                    if(savedList.value.Count > 0)
+                        YieldReturn(true);
                 }
             }
         }
+    }
+
+    protected virtual void SpecialCondition(List<T> detecteds)
+    {
     }
 }
