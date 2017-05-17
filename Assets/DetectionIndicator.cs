@@ -30,9 +30,10 @@ public class DetectionIndicator : MonoBehaviour {
     public Color AggressiveLow;
     public Color AggressiveHigh;
 
-    void Start() {
-        /*AkSoundEngine.PostEvent("spotting", Camera.main.gameObject);
-        AkSoundEngine.SetRTPCValue("spotting", 0, Camera.main.gameObject);*/
+    void Start()
+    {
+        AkSoundEngine.SetRTPCValue("spotted", 0, Camera.main.gameObject);
+        AkSoundEngine.PostEvent("spotting", Camera.main.gameObject);
 
         arrowCounter = 0;
         arrowPool = new List<GameObject>();
@@ -69,13 +70,15 @@ public class DetectionIndicator : MonoBehaviour {
                 if (data.detectRate > highestDetectionLevel) highestDetectionLevel = data.detectRate;
             }
         }
-        /*Debug.Log(highestDetectionLevel);
-        AkSoundEngine.SetRTPCValue("spotted", highestDetectionLevel ,Camera.main.gameObject);
-        AkSoundEngine.PostEvent("spotting", Camera.main.gameObject);
+        if (prevHighest != 0 || highestDetectionLevel > 0 && highestDetectionLevel < 1)
+        {
+            AkSoundEngine.SetRTPCValue("spotted", highestDetectionLevel, Camera.main.gameObject);
+        }
+        
         if (highestDetectionLevel == 1 && prevHighest !=1)
         {
             AkSoundEngine.PostEvent("spotted", Camera.main.gameObject);
-        }*/
+        }
         prevHighest = highestDetectionLevel;
         //disabled the unused ones
         for (int i = arrowCounter; i < arrowPool.Count; i++)
