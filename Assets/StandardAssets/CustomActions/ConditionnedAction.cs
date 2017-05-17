@@ -101,7 +101,7 @@ public class ConditionnedAction : ActionTask
 #if UNITY_EDITOR
     protected override void OnTaskInspectorGUI()
     {
-        repeat = EditorGUILayout.Toggle(repeat, "repeat");
+        repeat = GUILayout.Toggle(repeat, "repeat");
 
         foreach (ConditionTask c in conditionTasks.conditions)
         {
