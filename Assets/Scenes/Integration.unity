@@ -1967,12 +1967,12 @@ MonoBehaviour:
   cannibalsRef:
   - {fileID: 1293958658}
   - {fileID: 836947297}
-  PlayersSizeMultiplier: 2
+  PlayersSizeMultiplier: 1.3
   pulse_Players: 1
   Targets:
   - go: {fileID: 1041930797}
     type: 2
-  TargetsSizeMultiplier: 2
+  TargetsSizeMultiplier: 1.5
   pulse_Targets: 1
   endPosition:
   - go: {fileID: 765567162}
@@ -6095,11 +6095,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerOne: {fileID: 893659443}
-  pOnePos: {x: 0, y: 0, z: 0}
   playerTwo: {fileID: 51068948}
-  pTwoPos: {x: 0, y: 0, z: 0}
   closePlan: 15
   farPlan: 25
+  CamDistanceOnePlayer: 20
   verticalityFactor: 1.6
   openViewFactor: 3
   stickFactor: 0.75
