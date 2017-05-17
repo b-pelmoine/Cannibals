@@ -4,7 +4,7 @@ using ParadoxNotion.Design;
 using System.Collections.Generic;
 
 [Category("Cannibal")]
-public class Cannibal_SoloTakeCorpse : ActionState, ICannibal_State {
+public class Cannibal_SoloTakeCorpse : SuperActionState, ICannibal_State {
 
     public BBParameter<Cannibal> m_cannibal;
     public  BBParameter<List<Corpse>> corpses;

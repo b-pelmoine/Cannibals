@@ -25,9 +25,9 @@ public class Bush : MonoBehaviour {
     /// <summary>
     /// Will move the bush for detecting that something is in it.
     /// </summary>
-    public bool Move()
+    public bool Move(float duration)
     {
-        return ((Bush_State)m_statemachine.behaviour.currentState).Move();
+        return ((Bush_State)m_statemachine.behaviour.currentState).Move(duration);
     }
 
     public bool IsMoving()

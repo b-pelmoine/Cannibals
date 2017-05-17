@@ -6,7 +6,9 @@ using NodeCanvas.Framework;
 public class BushMoveAction : ActionTask {
 
     public BBParameter<List<Bush>> bushes;
-    public bool playOneTime = false;
+    public float duration = 1f;
+
+    public bool moveOneTime = false;
 
     protected override void OnExecute()
     {
@@ -14,19 +16,22 @@ public class BushMoveAction : ActionTask {
 
         foreach (Bush b in bushes.value)
         {
-            b.Move();
+            b.Move(duration);
         }
 
-        if (playOneTime)
+        if (moveOneTime)
             EndAction();
     }
 
     protected override void OnUpdate()
     {
-        foreach(Bush b in bushes.value)
+        base.OnUpdate();
+
+        foreach (Bush b in bushes.value)
         {
-            b.Move();
+            b.Move(duration);
         }
     }
+
 
 }
