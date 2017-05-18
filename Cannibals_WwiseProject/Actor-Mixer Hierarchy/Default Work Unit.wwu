@@ -4,15 +4,15 @@
 		<WorkUnit Name="Default Work Unit" ID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}" PersistMode="Standalone">
 			<ChildrenList>
 				<ActorMixer Name="Ambiances" ID="{CBFF1E27-0FD4-4991-92C5-EC4331327670}" ShortID="591606811">
-					<PropertyList>
-						<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
-					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
 						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="Amb" ID="{9601936D-E8AC-4C84-867B-FB6173683DD9}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+						</Reference>
+						<Reference Name="UserAuxSend0">
+							<ObjectRef Name="Rverb_forest" ID="{BEE1AC0B-971A-4A04-9056-545507F906A1}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
@@ -16724,15 +16724,15 @@
 					</ChildrenList>
 				</ActorMixer>
 				<ActorMixer Name="Characters" ID="{A5FFF535-BCC1-404A-B33E-8A422438B871}" ShortID="504682874">
-					<PropertyList>
-						<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
-					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
 						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="SFX" ID="{D3C3252A-A46D-453F-B2E2-9A2EAB3A4AB3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+						</Reference>
+						<Reference Name="UserAuxSend0">
+							<ObjectRef Name="Rverb_forest" ID="{BEE1AC0B-971A-4A04-9056-545507F906A1}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
@@ -32410,15 +32410,15 @@
 					</ChildrenList>
 				</ActorMixer>
 				<ActorMixer Name="Village" ID="{CD5D5F96-8D4E-4E33-96FF-4A5E7196BCAD}" ShortID="649674899">
-					<PropertyList>
-						<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
-					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
 						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="SFX" ID="{D3C3252A-A46D-453F-B2E2-9A2EAB3A4AB3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+						</Reference>
+						<Reference Name="UserAuxSend0">
+							<ObjectRef Name="Rverb_forest" ID="{BEE1AC0B-971A-4A04-9056-545507F906A1}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
