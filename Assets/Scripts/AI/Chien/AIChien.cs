@@ -110,7 +110,6 @@ namespace AI
                     distance.y = 0;
                     if (distance.sqrMagnitude > Mathf.Pow(los.radius, 2) || CurrentTask.elapsed > 10)
                     {
-                        ResetDetect(CurrentTask.target);
                         tasks.Pop();
                     }
                     break;
@@ -137,30 +136,28 @@ namespace AI
 
         void AnalyseSight()
         {
-            foreach(GameObject obj in los.sighted)
+            foreach(SightInfo obj in los.sighted)
             {
-                if (CurrentTask.id != (int)DogTask.Eat && obj.GetComponent<Bone>() != null)
+                if (CurrentTask.id != (int)DogTask.Eat && obj.target.GetComponent<Bone>() != null)
                 {
                     //target = los.sighted[i];
                     //targetType = btargetType.Viande;
                     //sawSomething = true;
-                    ResetDetect(CurrentTask.target);
-                    tasks.Push(new Task((int)DogTask.Eat, obj));
+                    tasks.Push(new Task((int)DogTask.Eat, obj.target));
                 
                 }
-                else if (CurrentTask.id == (int)DogTask.WanderInFront && obj.CompareTag("Player"))
+                else if (CurrentTask.id == (int)DogTask.WanderInFront && obj.target.CompareTag("Player"))
                 {
-                    Cannibal can = obj.GetComponentInParent<Cannibal>();
+                    Cannibal can = obj.target.GetComponentInParent<Cannibal>();
                     if(can!=null && !can.IsDead())
-                        tasks.Push(new Task((int)DogTask.Look, obj));
+                        tasks.Push(new Task((int)DogTask.Look, obj.target));
                 }
                 else
                 {
-                    Bush buisson = obj.GetComponent<Bush>();
+                    Bush buisson = obj.target.GetComponent<Bush>();
                     if(CurrentTask.id == (int)DogTask.WanderInFront && buisson != null && buisson.IsMoving())
                     {
-                        ResetDetect(CurrentTask.target);
-                        tasks.Push(new Task((int)DogTask.ChaseAndBark, obj));
+                        tasks.Push(new Task((int)DogTask.ChaseAndBark, obj.target));
                         //target = los.sighted[i];
                         //targetType = btargetType.Buisson;
                         //sawSomething = true;

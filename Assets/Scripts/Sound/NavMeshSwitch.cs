@@ -18,11 +18,9 @@ public class NavMeshSwitch : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Debug.Log(switchName);
 		foreach(SwitchState st in switchStates)
         {
             st.mask = 1 << NavMesh.GetAreaFromName(st.aera);
-            Debug.Log(st.name);
         }
 	}
 	
@@ -33,7 +31,6 @@ public class NavMeshSwitch : MonoBehaviour {
         {
             if((hit.mask & lastMask) == 0)
             {
-                Debug.Log("lol3");
                 foreach (SwitchState st in switchStates)
                     if ((hit.mask & st.mask) != 0)
                         AkSoundEngine.SetSwitch(switchName, st.name, gameObject);

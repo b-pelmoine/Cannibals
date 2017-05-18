@@ -2,6 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class SightInfo
+{
+    public GameObject target;
+    public float time = 0;
+
+    public SightInfo(GameObject info)
+    {
+        target = info;
+    }
+}
 
 public class LineOfSight : MonoBehaviour {
     public new Camera camera;
@@ -10,7 +21,7 @@ public class LineOfSight : MonoBehaviour {
     static Texture2D tex2D;
     static List<GameObject> detected_objects = new List<GameObject>();
     static Dictionary<Collider, GameObject> colliders = new Dictionary<Collider, GameObject>();
-    public List<GameObject> sighted;
+    public List<SightInfo> sighted;
     static List<int> detect_rate= new List<int>();
     bool updated = false;
     public bool active = true;
@@ -23,7 +34,9 @@ public class LineOfSight : MonoBehaviour {
     }
     public SightType type = SightType.Camera;
     public float radius = 3;
+    public float detectTime = 3;
 
+    private float lastTime = -1;
 
     void Awake()
     {
@@ -33,6 +46,7 @@ public class LineOfSight : MonoBehaviour {
             texture = new RenderTexture(128, 128, 32, RenderTextureFormat.ARGB32);
         if (tex2D == null)
             tex2D = new Texture2D(texture.width, texture.height, TextureFormat.ARGB32, false);
+        lastTime = Time.time;
     }
 
 	void Start () {
@@ -48,7 +62,7 @@ public class LineOfSight : MonoBehaviour {
             camera.targetTexture = texture;
             camera.SetReplacementShader(shader, "RenderType");
         }
-        sighted = new List<GameObject>();
+        sighted = new List<SightInfo>();
         
         LineOfSightManager.Register(this);
     }
@@ -63,6 +77,13 @@ public class LineOfSight : MonoBehaviour {
         {
             return radius;
         }
+    }
+
+    public float getDetectRate(SightInfo si)
+    {
+        float detectRate = Mathf.Clamp(Mathf.Pow((si.time / detectTime) * (getSeeDistance()), 2)
+                / (si.target.transform.position - transform.position).sqrMagnitude, 0, 1);
+        return detectRate;
     }
 
     public static void Register(GameObject obj, int detect=30)
@@ -92,11 +113,15 @@ public class LineOfSight : MonoBehaviour {
 
     public bool Analyse()
     {
-        sighted.Clear();
+        sighted.RemoveAll(x => x.time < 0);
+        foreach (SightInfo si in sighted)
+            si.time -= Time.time - lastTime;
         if (type == SightType.Camera && active) AnalyseSight();
         else if (type == SightType.Camera) AnalyseSimple();
         AnalyseAllAround();
         updated = true;
+        
+        lastTime = Time.time;
         return sighted.Count != 0;
     }
 
@@ -119,7 +144,15 @@ public class LineOfSight : MonoBehaviour {
         {
             if (pixnum[i] > detect_rate[i])
             {
-                sighted.Add(detected_objects[i]);
+                SightInfo si = sighted.Find(x => x.target == detected_objects[i]);
+                if (si != null)
+                {
+                    si.time = Mathf.Clamp(si.time + (Time.time - lastTime)*2, -5.0f, detectTime);
+                }
+                else
+                {
+                    sighted.Add(new SightInfo(detected_objects[i]));
+                }
             }
         }
         RenderTexture.active = null;
@@ -130,9 +163,13 @@ public class LineOfSight : MonoBehaviour {
         Collider[] cols = Physics.OverlapSphere(transform.position, camera.nearClipPlane + camera.farClipPlane);
         foreach(Collider c in cols)
         {
-            if (detected_objects.Contains(c.gameObject) && Mathf.Abs(Vector3.Angle(transform.forward, c.transform.position-transform.position))<45)
+            if (colliders.ContainsKey(c) && Mathf.Abs(Vector3.Angle(transform.forward, c.transform.position-transform.position))<45)
             {
-                sighted.Add(c.gameObject);
+                SightInfo si = sighted.Find(x => x.target == colliders[c]);
+                if (si != null)
+                    si.time = Mathf.Clamp(si.time + (Time.time - lastTime) * 2, -5.0f, detectTime);
+                else
+                    sighted.Add(new SightInfo(colliders[c]));
             }
         }
     }
@@ -144,7 +181,11 @@ public class LineOfSight : MonoBehaviour {
         {
             if (colliders.ContainsKey(c))
             {
-                sighted.Add(colliders[c]);
+                SightInfo si = sighted.Find(x => x.target == colliders[c]);
+                if (si != null)
+                    si.time = Mathf.Clamp(si.time + (Time.time - lastTime) * 2, -5.0f, detectTime);
+                else
+                    sighted.Add(new SightInfo(colliders[c]));
             }
         }
     }

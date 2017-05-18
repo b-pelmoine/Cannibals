@@ -59,18 +59,7 @@ namespace AI
                 Debug.Log("Chasseur.cs: animator ou navmeshagent non présent");
             }
 
-            //Check the navmesh for footsteps
-            NavMeshHit hit;
-            if(NavMesh.SamplePosition(transform.position, out hit, 10, ~0))
-            {
-                if(hit.mask!=navMeshMask && (hit.mask & 8) != 0)
-                    AkSoundEngine.SetSwitch("Steps", "Grass", gameObject);
-                if (hit.mask != navMeshMask && (hit.mask & 1) != 0)
-                    AkSoundEngine.SetSwitch("Steps", "Gravel", gameObject);
-                if (hit.mask != navMeshMask && (hit.mask & 32) != 0)
-                    AkSoundEngine.SetSwitch("Steps", "Wood", gameObject);
-                navMeshMask = hit.mask;
-            }
+            
 
 
             AnalyseSight();
@@ -94,7 +83,6 @@ namespace AI
 
                 //Poursuis le joueur repéré
                 case (int)ChasseurTask.Chase:
-                    SetDetect(CurrentTask.target);
                     if(MoveTo(CurrentTask.target.transform.position, shootingRange))
                     {
                         agent.ResetPath();
@@ -122,7 +110,7 @@ namespace AI
                 //Le chasseur a perdu sa cible de vue
                 case (int)ChasseurTask.LostTarget:
                     //Si il la voit à nouveau, retourne dans Chase
-                    if (los.sighted.Contains(CurrentTask.target))
+                    if (los.sighted.Find(x => x.target ==CurrentTask.target)!=null)
                     {
                         tasks.Pop();
                     }
@@ -131,7 +119,6 @@ namespace AI
                         //Après un certain temps, retourne à l'état précédent le chase
                         if (CurrentTask.elapsed > lostTargetTime)
                         {
-                            ResetDetect(CurrentTask.target);
                             tasks.Pop();
                             tasks.Pop();
                         }
@@ -233,7 +220,6 @@ namespace AI
                 {
                     if (cannibal.IsDead())
                     {
-                        ResetDetect(target);
                         tasks.Push(new Task((int)ChasseurTask.Defend, target));
                     }
                     else
@@ -269,21 +255,21 @@ namespace AI
             if (los.Updated)
             {
                 //Analyse de la vue du chasseur
-                foreach (GameObject obj in los.sighted)
+                foreach (SightInfo obj in los.sighted)
                 {
-                    Cannibal cannibal = obj.GetComponentInParent<Cannibal>();
+                    Cannibal cannibal = obj.target.GetComponentInParent<Cannibal>();
                     if (cannibal != null && !cannibal.IsDead())
                     {
                         if (CurrentTask.id == (int)ChasseurTask.Normal || CurrentTask.id == (int)ChasseurTask.Defend)
                         {
                             agent.ResetPath();
-                            tasks.Push(new Task((int)ChasseurTask.Look, obj));
+                            tasks.Push(new Task((int)ChasseurTask.Look, obj.target));
                         }
-                        else if (CurrentTask.id == (int)ChasseurTask.LostTarget && obj != CurrentTask.target) //Change de cible
+                        else if (CurrentTask.id == (int)ChasseurTask.LostTarget && obj.target != CurrentTask.target) //Change de cible
                         {
                             agent.ResetPath();
                             tasks.Pop();
-                            CurrentTask.target = obj;
+                            CurrentTask.target = obj.target;
                         }
                     }
                 }

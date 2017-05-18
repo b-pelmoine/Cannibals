@@ -36,7 +36,6 @@ namespace AI
         Vector3? lastRequest;
 
         protected LineOfSight los;
-        DetectionData detect = new DetectionData();
         private bool detecting = false;
 
         public float detectTime = 3;
@@ -51,7 +50,6 @@ namespace AI
             {
                 Debug.LogError(this + ":No navmesh agent in the object.");
             }
-            detect.agent = this;
             los = GetComponent<LineOfSight>();
         }
 
@@ -123,14 +121,11 @@ namespace AI
 
         protected bool Look()
         {
-            SetDetect(CurrentTask.target);
-            detect.detectRate = Mathf.Clamp(Mathf.Pow((CurrentTask.elapsed / detectTime) * (los.getSeeDistance()), 2)
-                / (CurrentTask.target.transform.position - transform.position).sqrMagnitude, 0, 1);
             Vector3 targetPosition = agent.transform.position;
             targetPosition.y = agent.transform.position.y;
             agent.transform.LookAt(targetPosition);
             //Si le joueur est en vue
-            if (los.sighted.Contains(CurrentTask.target))
+            if (los.sighted.Find(x => x.target == CurrentTask.target)!=null)
             {
                 //Si le joueur est détecté -> poursuite
                 if ((CurrentTask.target.transform.position - transform.position).sqrMagnitude < Mathf.Pow((CurrentTask.elapsed / detectTime) * (los.getSeeDistance()), 2))
@@ -143,28 +138,10 @@ namespace AI
                 CurrentTask.elapsed -= Time.deltaTime * 2;
                 if (CurrentTask.elapsed < 0)
                 {
-                    ResetDetect(CurrentTask.target);
                     tasks.Pop();
                 }
             }
             return false;
-        }
-
-        protected void SetDetect(GameObject target)
-        {
-            if (!detecting)
-            {
-                AIAgentManager.addDetectData(target, detect);
-                detecting = true;
-            }
-        }
-        protected void ResetDetect(GameObject target)
-        {
-            if (detecting)
-            {
-                AIAgentManager.deleteDetectData(target, detect);
-                detecting = false;
-            }
         }
 
         public virtual bool isVulnerable()

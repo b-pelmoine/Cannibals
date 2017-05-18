@@ -7,6 +7,12 @@ public class DetectionData
 {
     public AI.AIAgent agent;
     public float detectRate = 0;
+
+    public DetectionData(AI.AIAgent a, float dR)
+    {
+        agent = a;
+        detectRate = dR;
+    }
 }
 
 public class AIAgentManager : MonoBehaviour {
@@ -41,6 +47,10 @@ public class AIAgentManager : MonoBehaviour {
 
     static public void deleteDetectData(GameObject target, DetectionData data)
     {
+        if (!detected.ContainsKey(target))
+        {
+            detected.Add(target, new List<DetectionData>());
+        }
         detected[target].Remove(data);
     }
 
@@ -49,6 +59,22 @@ public class AIAgentManager : MonoBehaviour {
         if (!detected.ContainsKey(target))
         {
             detected.Add(target, new List<DetectionData>());
+        }
+        else
+        {
+            detected[target] = new List<DetectionData>();
+        }
+        Cannibal can = target.GetComponentInParent<Cannibal>();
+        if (can != null && can.IsDead())
+            return detected[target];
+        foreach(GameObject a in agents)
+        {
+            LineOfSight los = a.GetComponent<LineOfSight>();
+            SightInfo si = los.sighted.Find(x => x.target == target);
+            if (si != null)
+            {
+                detected[target].Add(new DetectionData(a.GetComponent<AI.AIAgent>(), los.getDetectRate(si)));
+            }
         }
         return detected[target];
     }
