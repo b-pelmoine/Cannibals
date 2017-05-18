@@ -125,7 +125,7 @@ public class PlaytestsManager : MonoBehaviour {
             case GamePhase.PHASE_TWO: AISetPhaseOne.SetActive(false); AISetPhaseTwo.SetActive(true) ; break;
         }
 
-        corpse.transform.position = GameObject.Find("startCorpse").transform.position;
+        //corpse.transform.position = GameObject.Find("startCorpse").transform.position;
 
         if (phase == GamePhase.PHASE_TWO) LoadPhaseTwo();
     }
