@@ -38,7 +38,6 @@ namespace AI
         protected LineOfSight los;
         private bool detecting = false;
 
-        public float detectTime = 3;
         protected int navMeshMask = 0;
 
         protected void Start()
@@ -128,7 +127,7 @@ namespace AI
             if (los.sighted.Find(x => x.target == CurrentTask.target)!=null)
             {
                 //Si le joueur est détecté -> poursuite
-                if ((CurrentTask.target.transform.position - transform.position).sqrMagnitude < Mathf.Pow((CurrentTask.elapsed / detectTime) * (los.getSeeDistance()), 2))
+                if ((CurrentTask.target.transform.position - transform.position).sqrMagnitude < Mathf.Pow((CurrentTask.elapsed / los.detectTime) * (los.getSeeDistance()), 2))
                 {
                     return true;
                 }

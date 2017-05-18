@@ -158,7 +158,7 @@ namespace AI
                     if (MoveTo(CurrentTask.target.transform.position, 2))
                     {
                         CurrentTask.target.gameObject.SetActive(false);
-                        animator.Play("IdleToKo");
+                        animator.Play("Drink");
                         AkSoundEngine.PostEvent("hunter_objects", gameObject);
                         tasks.Pop();
                         tasks.Push(new Task((int)ChasseurTask.Etourdi));
@@ -260,7 +260,12 @@ namespace AI
                     Cannibal cannibal = obj.target.GetComponentInParent<Cannibal>();
                     if (cannibal != null && !cannibal.IsDead())
                     {
-                        if (CurrentTask.id == (int)ChasseurTask.Normal || CurrentTask.id == (int)ChasseurTask.Defend)
+                        if((CurrentTask.id == (int)ChasseurTask.Look || CurrentTask.id == (int)ChasseurTask.Chase) && obj.target!=CurrentTask.target 
+                            && (obj.target.transform.position-transform.position).sqrMagnitude < (CurrentTask.target.transform.position - transform.position).sqrMagnitude)
+                        {
+                            CurrentTask.target = obj.target;
+                        }
+                        else if (CurrentTask.id == (int)ChasseurTask.Normal || CurrentTask.id == (int)ChasseurTask.Defend)
                         {
                             agent.ResetPath();
                             tasks.Push(new Task((int)ChasseurTask.Look, obj.target));
@@ -280,6 +285,8 @@ namespace AI
         {
             AkSoundEngine.PostEvent("hunter_steps", gameObject);
         }
+
+
         
     }
 }
