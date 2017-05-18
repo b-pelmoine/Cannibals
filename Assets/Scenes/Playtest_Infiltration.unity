@@ -439,6 +439,7 @@ GameObject:
   - component: {fileID: 127921183}
   - component: {fileID: 127921182}
   - component: {fileID: 127921181}
+  - component: {fileID: 127921184}
   m_Layer: 0
   m_Name: WwiseGlobal
   m_TagString: Untagged
@@ -489,6 +490,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &127921184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 127921180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02f05c6bb9ce7cc47a72df26e8a0dd16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  valueGuid: 1b20e257a602754783376efc6286caeb
+  bankName: SDB_Cannibals
+  loadAsynchronous: 0
+  decodeBank: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
 --- !u!114 &139862253 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114890380888023570, guid: f6c9cfd2f7fd8b042833761436141a47,
@@ -4020,7 +4040,7 @@ GameObject:
   - component: {fileID: 695531664}
   - component: {fileID: 695531663}
   - component: {fileID: 695531662}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TerrainPlaytests
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5907,6 +5927,41 @@ Prefab:
       propertyPath: m_NavMeshLayer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114401005301078306, guid: 49868935a2faa864e8893e7d3cf1855c,
+        type: 2}
+      propertyPath: radius
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114401005301078306, guid: 49868935a2faa864e8893e7d3cf1855c,
+        type: 2}
+      propertyPath: detectTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114868104274586896, guid: 49868935a2faa864e8893e7d3cf1855c,
+        type: 2}
+      propertyPath: radius
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 20081656874567364, guid: 49868935a2faa864e8893e7d3cf1855c,
+        type: 2}
+      propertyPath: far clip plane
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114868104274586896, guid: 49868935a2faa864e8893e7d3cf1855c,
+        type: 2}
+      propertyPath: detectTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114401005301078306, guid: 49868935a2faa864e8893e7d3cf1855c,
+        type: 2}
+      propertyPath: active
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114349979152653790, guid: 49868935a2faa864e8893e7d3cf1855c,
+        type: 2}
+      propertyPath: level
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 49868935a2faa864e8893e7d3cf1855c, type: 2}
   m_IsPrefabParent: 0
@@ -7211,6 +7266,21 @@ Prefab:
       propertyPath: endPosition.Array.data[0].go
       value: 
       objectReference: {fileID: 1519664866}
+    - target: {fileID: 114523045323170936, guid: f6c9cfd2f7fd8b042833761436141a47,
+        type: 2}
+      propertyPath: players.Array.data[0]
+      value: 
+      objectReference: {fileID: 557403993}
+    - target: {fileID: 114523045323170936, guid: f6c9cfd2f7fd8b042833761436141a47,
+        type: 2}
+      propertyPath: players.Array.data[1]
+      value: 
+      objectReference: {fileID: 1676343407}
+    - target: {fileID: 114523045323170936, guid: f6c9cfd2f7fd8b042833761436141a47,
+        type: 2}
+      propertyPath: walkable
+      value: 
+      objectReference: {fileID: 695531663}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f6c9cfd2f7fd8b042833761436141a47, type: 2}
   m_IsPrefabParent: 0
@@ -7486,6 +7556,16 @@ Prefab:
       propertyPath: indicator
       value: 
       objectReference: {fileID: 139862253}
+    - target: {fileID: 114506740750132574, guid: 1fded1c1971158d43853357f22b832d5,
+        type: 2}
+      propertyPath: isActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114484382926615076, guid: 1fded1c1971158d43853357f22b832d5,
+        type: 2}
+      propertyPath: isActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1fded1c1971158d43853357f22b832d5, type: 2}
   m_IsPrefabParent: 0
