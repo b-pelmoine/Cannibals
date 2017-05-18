@@ -1,11 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace AI
 {
-    public class Chasseur : AIAgent {
+    public class Chasseur : AIAgent, IKnifeKillable {
         public float waypointDistance = 2;
         public float shootingRange = 1;
         public LayerMask shootingMask = 0;
@@ -49,6 +50,8 @@ namespace AI
 	
 	    // Update is called once per frame
 	    new void Update () {
+            if (state == AIState.DEAD)
+                return;
             base.Update();
 		    if(animator != null && agent!=null)
             {
@@ -77,6 +80,7 @@ namespace AI
                         {
                             patrouille.Next();
                             CurrentTask.elapsed = 0;
+                            AkSoundEngine.PostEvent("hunter_idle", gameObject);
                         }
                     }
                     break;
@@ -159,7 +163,7 @@ namespace AI
                     {
                         CurrentTask.target.gameObject.SetActive(false);
                         animator.Play("Drink");
-                        AkSoundEngine.PostEvent("hunter_objects", gameObject);
+                        AkSoundEngine.PostEvent("hunter_drink", gameObject);
                         tasks.Pop();
                         tasks.Push(new Task((int)ChasseurTask.Etourdi));
                     }
@@ -195,6 +199,8 @@ namespace AI
                     Cannibal cannibal = hit.collider.gameObject.GetComponentInParent<Cannibal>();
                     if (cannibal != null)
                     {
+                        if (CurrentTask.target != hit.collider.gameObject)
+                            CurrentTask.target = hit.collider.gameObject;
                         cannibal.Kill();
                     }
                     else
@@ -286,7 +292,23 @@ namespace AI
             AkSoundEngine.PostEvent("hunter_steps", gameObject);
         }
 
+        public bool IsKnifeVulnerable()
+        {
+            if (CurrentTask.id == (int)ChasseurTask.Etourdi)
+                return true;
+            return false;
+        }
 
-        
+        public void KnifeKill()
+        {
+            AkSoundEngine.PostEvent("hunter_death", gameObject);
+            animator.Play("Death");
+            state = AIState.DEAD;
+        }
+
+        public void ShowKnifeIcon()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

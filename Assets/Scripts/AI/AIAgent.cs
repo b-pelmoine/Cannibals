@@ -13,7 +13,7 @@ namespace AI
             VULNERABLE,
             DEAD
         }
-        private AIState state = AIState.NORMAL;
+        protected AIState state = AIState.NORMAL;
 
         public AIType type = AIType.UNKNOWN;
 

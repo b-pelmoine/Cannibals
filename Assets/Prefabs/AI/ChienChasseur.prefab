@@ -957,6 +957,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4256301224964720}
   - component: {fileID: 95837405385839286}
+  - component: {fileID: 114038827974742294}
   m_Layer: 0
   m_Name: dog_mesh
   m_TagString: Untagged
@@ -1008,6 +1009,7 @@ GameObject:
   - component: {fileID: 114349979152653790}
   - component: {fileID: 114401005301078306}
   - component: {fileID: 114100969251736066}
+  - component: {fileID: 114131110839376396}
   m_Layer: 9
   m_Name: dog
   m_TagString: Untagged
@@ -3091,7 +3093,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1956400642573850}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.235, y: 0.853, z: -7.606}
+  m_LocalPosition: {x: 4.94, y: 0.853, z: -11.82}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4388013786035306}
@@ -3488,6 +3490,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114038827974742294
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1593005902311144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d93428261d77f154f8fe716ee67db546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chien: {fileID: 114100969251736066}
 --- !u!114 &114045784058545518
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3513,11 +3527,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 6
   agent: {fileID: 0}
-  detectTime: 3
   hunter: {fileID: 114623528271031004}
   animator: {fileID: 95837405385839286}
   eatingTime: 3
   stopTime: 3
+--- !u!114 &114131110839376396
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1625361917524594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58a2393de5a34264a8b36ac7fb32a53b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switchName: Steps
+  switchStates:
+  - name: Grass
+    aera: Grass
+    mask: 0
+  - name: Gravel
+    aera: Gravel
+    mask: 0
+  - name: Wood
+    aera: Wood
+    mask: 0
 --- !u!114 &114249799008050458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3657,7 +3692,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 5
   agent: {fileID: 195448385931607524}
-  detectTime: 3
   waypointDistance: 2
   shootingRange: 13
   shootingMask:

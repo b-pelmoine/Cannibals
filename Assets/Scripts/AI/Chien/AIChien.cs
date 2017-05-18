@@ -37,7 +37,7 @@ namespace AI
         new void Start () {
             base.Start();
             type = AIType.Dog;
-            AkSoundEngine.PostEvent("dog_idle", gameObject);
+            //AkSoundEngine.PostEvent("dog_idle", gameObject);
             tasks.Push(new Task((int)DogTask.WanderInFront));
         }
 	
@@ -72,13 +72,16 @@ namespace AI
                         {
                             CurrentTask.elapsed = 0;
                             CurrentTask.count++;
-                            AkSoundEngine.PostEvent("dog_idle", gameObject);
+                            //AkSoundEngine.PostEvent("dog_idle", gameObject);
                         }
                     }
                     else
                     {
                         if (CurrentTask.elapsed > stopTime)
+                        {
+                            AkSoundEngine.PostEvent("dog_sniff", gameObject);
                             CurrentTask.count = 0;
+                        }
                     }
                     break;
 
@@ -93,7 +96,7 @@ namespace AI
                             animator.Play("Bark");
                             hunter.Call(CurrentTask.target);
                             
-                            AkSoundEngine.PostEvent("dog_bark", gameObject);
+                            //AkSoundEngine.PostEvent("dog_bark", gameObject);
                             CurrentTask.count++;
                         }
                         else if(CurrentTask.elapsed>2)
@@ -118,7 +121,7 @@ namespace AI
                     if(CurrentTask.count==0 && MoveTo(CurrentTask.target.transform.position, 3))
                     {
                         animator.Play("IdleToEat");
-                        AkSoundEngine.PostEvent("dog_eat", gameObject);
+                        //AkSoundEngine.PostEvent("dog_eat", gameObject);
                         CurrentTask.count = 1;
                         CurrentTask.elapsed = 0;
                     }
