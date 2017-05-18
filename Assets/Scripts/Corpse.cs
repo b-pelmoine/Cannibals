@@ -42,9 +42,9 @@ public class Corpse : MonoBehaviour {
         m_rigidbody.isKinematic = false;
     }
 
+
     void LateUpdate()
     {
-
         if (cannibals.Count >= 2)
         {
             CharacterControllerExt c1 = cannibals[0].m_cannibalMovement.CharacterControllerEx;
@@ -121,6 +121,8 @@ public class Corpse : MonoBehaviour {
         {
             collision.enabled = true;
             // m_rigidbody.isKinematic = false;
+            m_rigidbody.velocity = Vector3.zero;
+            m_rigidbody.angularVelocity = Vector3.zero;
             m_rigidbody.constraints = RigidbodyConstraints.None;
             m_rigidbody.useGravity = true;
             characterControllerExt.enabled = false;
