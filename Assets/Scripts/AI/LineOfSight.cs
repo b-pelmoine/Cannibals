@@ -97,10 +97,8 @@ public class LineOfSight : MonoBehaviour {
         foreach (Renderer rend in renderers)
             foreach(Material mat in rend.materials)
                 mat.SetColor("_LoSColor", new Color(detected_objects.Count / 255f, 0, 0));
-        List<Collider> colls = new List<Collider>();
-        obj.GetComponentsInChildren<Collider>(colls);
-        foreach (Collider col in colls)
-            colliders.Add(col, obj);
+        Collider col = obj.GetComponentInChildren<Collider>();
+        colliders.Add(col, obj);
     }
 
     public static void Register(GameObject obj, MeshRenderer mesh, int detect = 30)
