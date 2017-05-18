@@ -3156,44 +3156,6 @@ Prefab:
       propertyPath: m_Name
       value: Player 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114399292702623858, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: UIManager
-      value: 
-      objectReference: {fileID: 1060108160}
-    - target: {fileID: 114948318535230978, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: detect_value
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114215143224513318, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: number
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4492891532676730, guid: 6d5c73a2de9863c49bd4ddcc77af1888, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4607302841101214, guid: 6d5c73a2de9863c49bd4ddcc77af1888, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4032406690156546, guid: 6d5c73a2de9863c49bd4ddcc77af1888, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 137316634649064318, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114753656786614946, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: boundGraphSerialization
-      value: '{"version":2.6,"type":"NodeCanvas.StateMachines.FSM","translation":{"x":-4814.0,"y":-4798.0},"zoomFactor":0.9842328,"nodes":[{"_nestedFSM":{"_value":1},"_position":{"x":5226.38,"y":5229.775},"_name":"Alive","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"2"},{"_nestedFSM":{"_value":2},"_position":{"x":5546.0,"y":5336.0},"_name":"Dead","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"4"},{"_nestedFSM":{"_value":3},"_position":{"x":5659.0,"y":5074.109},"_name":"Resurrect","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"6"}],"connections":[{"_condition":{"eventName":{"_value":"Death"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"eventName":{"_value":"Resurrect"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"primeNode":{"$ref":"2"},"canvasGroups":[],"localBlackboard":{"_name":"Local
-        Blackboard","_variables":{}}}'
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d5c73a2de9863c49bd4ddcc77af1888, type: 2}
   m_IsPrefabParent: 0
@@ -8888,6 +8850,11 @@ Prefab:
       propertyPath: boundGraphSerialization
       value: '{"version":2.6,"type":"NodeCanvas.StateMachines.FSM","translation":{"x":-4918.0,"y":-4927.0},"nodes":[{"_nestedFSM":{"_value":1},"_position":{"x":5227.38,"y":5229.775},"_name":"Alive","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"2"},{"_nestedFSM":{"_value":2},"_position":{"x":5546.0,"y":5336.0},"_name":"Dead","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"4"},{"_nestedFSM":{"_value":3},"_position":{"x":5659.0,"y":5074.109},"_name":"Resurrect","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"6"}],"connections":[{"_condition":{"eventName":{"_value":"Death"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"eventName":{"_value":"Resurrect"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"primeNode":{"$ref":"2"},"canvasGroups":[],"localBlackboard":{"_name":"Local
         Blackboard","_variables":{}}}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114629617129819988, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
+        type: 2}
+      propertyPath: maxGroundAngle
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d5c73a2de9863c49bd4ddcc77af1888, type: 2}
