@@ -80,6 +80,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4607302841101214}
   - component: {fileID: 95925132400520912}
+  - component: {fileID: 114745509020747726}
+  - component: {fileID: 114397788781665538}
   m_Layer: 0
   m_Name: cannibalMesh
   m_TagString: Untagged
@@ -1650,7 +1652,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1067895843713848}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.95, y: 0.19, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4862562871971514}
@@ -2087,6 +2089,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 223467812501303312}
   transformToFollow: {fileID: 4862562871971514}
+--- !u!114 &114397788781665538
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1058823409060876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58a2393de5a34264a8b36ac7fb32a53b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switchName: Steps
+  switchStates:
+  - name: Grass
+    aera: Grass
+    mask: 0
+  - name: Gravel
+    aera: Gravel
+    mask: 0
+  - name: Wood
+    aera: Wood
+    mask: 0
 --- !u!114 &114399292702623858
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2233,6 +2257,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_displayTime: 0.2
   m_image: {fileID: 114527003955770932}
+--- !u!114 &114745509020747726
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1058823409060876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57887d14165d72a4b91e990f34663a8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetObject: {fileID: 1419312899644530}
 --- !u!114 &114753656786614946
 MonoBehaviour:
   m_ObjectHideFlags: 1
