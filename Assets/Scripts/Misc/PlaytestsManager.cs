@@ -12,6 +12,8 @@ public class PlaytestsManager : MonoBehaviour {
     [SerializeField]
     Cannibal[] cannibals;
 
+    bool endGame = false;
+
     public GameObject[] cannibalsPositions;
     public GameObject corpse;
 
@@ -132,12 +134,6 @@ public class PlaytestsManager : MonoBehaviour {
 
     void LoadPhaseTwo()
     {
-        if(phase != GamePhase.PHASE_TWO)
-        {
-            phase = GamePhase.PHASE_TWO;
-            switchColliderState();
-        }
-
         if (!phaseTwoData.activeInHierarchy)
             phaseTwoData.SetActive(true);
 
@@ -150,6 +146,17 @@ public class PlaytestsManager : MonoBehaviour {
         Camera.main.transform.position = cannibalsPositions[0].transform.position;
 
         loading = false;
+
+        if(phase == GamePhase.PHASE_ONE)
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Playtest_Infiltration");
+
+        if (phase != GamePhase.PHASE_TWO)
+        {
+            phase = GamePhase.PHASE_TWO;
+            switchColliderState();
+        }
+
+        targetReachedTheExit = false;
     }
 
     // c = colliders / l= load / r= restart
@@ -167,6 +174,10 @@ public class PlaytestsManager : MonoBehaviour {
                 if (!endPhase.isPlaying)
                     endPhase.Play();
                 StartCoroutine(startNextPhase());
+                if(phase == GamePhase.PHASE_TWO)
+                {
+                    endGame = true;
+                }
             }
         }
         else
@@ -208,6 +219,9 @@ public class PlaytestsManager : MonoBehaviour {
         string phaseStr = phase.ToString();
         GUI.Label(new Rect(10, 10, 100, 20), colliderState);
         GUI.Label(new Rect(Screen.width -110, 10, 100, 20), phaseStr);
+        GUIStyle style = new GUIStyle();
+        style.fontSize = 40;
+        if (endGame) GUI.Label(new Rect(Screen.width/2 -100, Screen.height/2 -10, 200, 20), "It's meal time !", style);
     }
 
     bool BothCannibalsAreDead()

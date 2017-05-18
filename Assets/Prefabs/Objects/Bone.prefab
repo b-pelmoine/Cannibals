@@ -20,10 +20,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4190384489481814}
   - component: {fileID: 33190407790761142}
-  - component: {fileID: 135746381006447788}
   - component: {fileID: 23360064386949468}
   - component: {fileID: 114330542164924104}
   - component: {fileID: 54981466611955738}
+  - component: {fileID: 65050760710476378}
+  - component: {fileID: 114119743071541344}
   m_Layer: 13
   m_Name: Bone
   m_TagString: Untagged
@@ -42,6 +43,7 @@ GameObject:
   - component: {fileID: 223948898455270134}
   - component: {fileID: 114323012083217066}
   - component: {fileID: 114447903125852880}
+  - component: {fileID: 114006787660450630}
   m_Layer: 13
   m_Name: Canvas
   m_TagString: Untagged
@@ -74,7 +76,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1444923796248206}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 96.27, y: 0.21, z: 124.04}
+  m_LocalPosition: {x: 112.28, y: 10.43, z: 90.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224853370847846830}
@@ -135,6 +137,45 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65050760710476378
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1444923796248206}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9016527, y: 0.11172581, z: 0.16047668}
+  m_Center: {x: 0.000000059604645, y: -0.0039744377, z: 0.104522705}
+--- !u!114 &114006787660450630
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1616195118335514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb3e4fe1309abd94da177635fa2602f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 223948898455270134}
+  offset: 1
+  transformToFollow: {fileID: 4190384489481814}
+--- !u!114 &114119743071541344
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1444923796248206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1123ed074b6511147b6704ba35126297, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detect_value: 5
+  mesh: {fileID: 23360064386949468}
 --- !u!114 &114323012083217066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -170,8 +211,9 @@ MonoBehaviour:
   m_info: {fileID: 11400000, guid: e95fb90da518c584590e4a7ecbaeaa23, type: 2}
   m_transform: {fileID: 4190384489481814}
   m_objectIconDisplayer: {fileID: 114623893900229862}
+  linkedCannibal: {fileID: 0}
   m_rigidbody: {fileID: 54981466611955738}
-  m_collider: {fileID: 135746381006447788}
+  m_collider: {fileID: 65050760710476378}
   dropDirection: {x: 0, y: 1, z: 0}
 --- !u!114 &114447903125852880
 MonoBehaviour:
@@ -200,7 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 7956ea2f6644cdb48ae1f7cc3212f24a, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
@@ -208,7 +250,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: e6d118e04fd8cc046a5050fcf281dab2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -229,18 +271,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_displayTime: 0.2
   m_image: {fileID: 114576411127291532}
---- !u!135 &135746381006447788
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1444923796248206}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!222 &222362045979139500
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -283,7 +313,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: -0.00000011921, y: -2.29}
-  m_SizeDelta: {x: 2.5, y: 2.5}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224853370847846830
 RectTransform:
