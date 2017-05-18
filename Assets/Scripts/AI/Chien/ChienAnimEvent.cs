@@ -22,7 +22,7 @@ public class ChienAnimEvent : MonoBehaviour {
 
     void Idle()
     {
-        AkSoundEngine.PostEvent("dog_sniff", chien.gameObject);
+        AkSoundEngine.PostEvent("dog_idle", chien.gameObject);
     }
 
     void Eat()
