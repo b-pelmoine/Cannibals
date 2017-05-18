@@ -4,7 +4,128 @@
 		<WorkUnit Name="Default Work Unit" ID="{068960D6-A717-493E-B90F-BE62835606C7}" PersistMode="Standalone">
 			<ChildrenList>
 				<Bus Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}">
-					<ReferenceList/>
+					<ChildrenList>
+						<Bus Name="SFX" ID="{D3C3252A-A46D-453F-B2E2-9A2EAB3A4AB3}">
+							<PropertyList>
+								<Property Name="BusVolume" Type="Real64">
+									<RTPCList>
+										<RTPC Name="" ID="{A284D6E6-D95C-491F-AA25-397CBA1AC669}" ShortID="795875514">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="sfx_volume_option" ID="{5C02E1FE-07F0-4F16-9DED-8A4454BD0488}" WorkUnitID="{9C4F79BA-6A12-4D43-9C66-89B7344BF0F9}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{702E9582-8A30-4134-BBB3-1C24120B4F2A}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-200</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>100</XPos>
+														<YPos>0</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
+							</PropertyList>
+						</Bus>
+						<Bus Name="Amb" ID="{9601936D-E8AC-4C84-867B-FB6173683DD9}">
+							<PropertyList>
+								<Property Name="BusVolume" Type="Real64">
+									<RTPCList>
+										<RTPC Name="" ID="{7011F076-63FB-4C72-BBFD-D9E6BC0DD8F2}" ShortID="681380267">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="amb_volume_option" ID="{F598B414-CFD0-4E68-9E38-C5BC761ED199}" WorkUnitID="{9C4F79BA-6A12-4D43-9C66-89B7344BF0F9}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{5BDC8E29-52AE-4EAA-BE50-9DA3A8C8213A}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-200</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>100</XPos>
+														<YPos>0</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
+							</PropertyList>
+							<StateInfo>
+								<StateGroupList>
+									<StateGroupInfo>
+										<StateGroupRef Name="HunterEars" ID="{5734CFA7-1D01-4C36-AC30-091216E931A3}"/>
+									</StateGroupInfo>
+								</StateGroupList>
+								<CustomStateList>
+									<CustomState>
+										<StateRef Name="Active" ID="{68E92B5D-0148-4950-83F6-076A0952FE8D}"/>
+										<State Name="Custom State" ID="{9AA34F60-78C8-46E4-8DD6-6E9024310540}" ShortID="545333192">
+											<PropertyList>
+												<Property Name="Lowpass" Type="int16" Value="60"/>
+											</PropertyList>
+										</State>
+									</CustomState>
+								</CustomStateList>
+							</StateInfo>
+						</Bus>
+						<Bus Name="Music" ID="{F0C01A2F-384D-4ACD-85B5-30071B046EB4}">
+							<PropertyList>
+								<Property Name="BusVolume" Type="Real64">
+									<RTPCList>
+										<RTPC Name="" ID="{D8E27405-1FD4-467C-BFE0-EA19F64588B3}" ShortID="343127542">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="music_volume_option" ID="{D39E02DC-4B0D-4544-AEE3-139A6720C8C3}" WorkUnitID="{9C4F79BA-6A12-4D43-9C66-89B7344BF0F9}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{54971058-71B9-48CC-9E07-C93264EE2935}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-200</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>100</XPos>
+														<YPos>0</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
+							</PropertyList>
+						</Bus>
+						<AuxBus Name="Rverb_forest" ID="{BEE1AC0B-971A-4A04-9056-545507F906A1}">
+							<ReferenceList>
+								<Reference Name="Effect0" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
+									<ObjectRef Name="ForestAuterlitz_DenseFar" ID="{0F74A865-50E7-4277-956F-A54FFB0E301C}" WorkUnitID="{C0E78DAA-768A-438F-8F7B-3701395185C3}"/>
+								</Reference>
+							</ReferenceList>
+						</AuxBus>
+					</ChildrenList>
 				</Bus>
 				<Bus Name="Master Secondary Bus" ID="{D2E0BC7E-7B3F-4FFE-A670-FAE02761B631}"/>
 				<MotionBus Name="Master Motion Bus" ID="{20A630BA-3398-4676-B927-1004DFE41FD8}"/>

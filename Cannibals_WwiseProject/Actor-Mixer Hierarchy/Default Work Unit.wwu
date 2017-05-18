@@ -4,15 +4,15 @@
 		<WorkUnit Name="Default Work Unit" ID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}" PersistMode="Standalone">
 			<ChildrenList>
 				<ActorMixer Name="Ambiances" ID="{CBFF1E27-0FD4-4991-92C5-EC4331327670}" ShortID="591606811">
+					<PropertyList>
+						<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
 						</Reference>
-						<Reference Name="Effect0" CompanyID="4095" PluginID="65535" PluginType="15">
-							<ObjectRef Name="ForestAuterlitz_DenseFar" ID="{0F74A865-50E7-4277-956F-A54FFB0E301C}" WorkUnitID="{C0E78DAA-768A-438F-8F7B-3701395185C3}"/>
-						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+							<ObjectRef Name="Amb" ID="{9601936D-E8AC-4C84-867B-FB6173683DD9}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
@@ -16722,34 +16722,17 @@
 							</ChildrenList>
 						</ActorMixer>
 					</ChildrenList>
-					<StateInfo>
-						<StateGroupList>
-							<StateGroupInfo>
-								<StateGroupRef Name="HunterEars" ID="{5734CFA7-1D01-4C36-AC30-091216E931A3}"/>
-							</StateGroupInfo>
-						</StateGroupList>
-						<CustomStateList>
-							<CustomState>
-								<StateRef Name="Active" ID="{68E92B5D-0148-4950-83F6-076A0952FE8D}"/>
-								<State Name="Custom State" ID="{98DA7C83-365C-4BBE-A830-A95F8B885D21}" ShortID="439384049">
-									<PropertyList>
-										<Property Name="Lowpass" Type="int16" Value="60"/>
-									</PropertyList>
-								</State>
-							</CustomState>
-						</CustomStateList>
-					</StateInfo>
 				</ActorMixer>
 				<ActorMixer Name="Characters" ID="{A5FFF535-BCC1-404A-B33E-8A422438B871}" ShortID="504682874">
+					<PropertyList>
+						<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
 						</Reference>
-						<Reference Name="Effect0" CompanyID="4095" PluginID="65535" PluginType="15">
-							<ObjectRef Name="ForestAuterlitz_WideOpen" ID="{2239E747-92DD-4A09-81B6-AEAD2528D282}" WorkUnitID="{C0E78DAA-768A-438F-8F7B-3701395185C3}"/>
-						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+							<ObjectRef Name="SFX" ID="{D3C3252A-A46D-453F-B2E2-9A2EAB3A4AB3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
@@ -32427,12 +32410,15 @@
 					</ChildrenList>
 				</ActorMixer>
 				<ActorMixer Name="Village" ID="{CD5D5F96-8D4E-4E33-96FF-4A5E7196BCAD}" ShortID="649674899">
+					<PropertyList>
+						<Property Name="UseGameAuxSends" Type="bool" Value="True"/>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+							<ObjectRef Name="SFX" ID="{D3C3252A-A46D-453F-B2E2-9A2EAB3A4AB3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
@@ -32499,7 +32485,7 @@
 							<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+							<ObjectRef Name="SFX" ID="{D3C3252A-A46D-453F-B2E2-9A2EAB3A4AB3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
