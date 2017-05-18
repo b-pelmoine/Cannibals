@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1948835044890510}
+  m_IsPrefabParent: 1
+--- !u!1 &1948835044890510
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4883890438618428}
+  - component: {fileID: 114890380888023570}
+  - component: {fileID: 114959667982774634}
+  - component: {fileID: 114523045323170936}
+  m_Layer: 0
+  m_Name: AIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4883890438618428
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1948835044890510}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114523045323170936
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1948835044890510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98ffc9ea2deaa21438c99d0c4d763102, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkable: {fileID: 0}
+  framerate: 30
+  players:
+  - {fileID: 0}
+  - {fileID: 0}
+  render_distance: 30
+--- !u!114 &114890380888023570
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1948835044890510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e636aa836faae294d8ff015835c15be7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceFromScreenBounds: 0.9
+  pulseSpeed: 5
+  tex_default: {fileID: 2800000, guid: f5ebc2201489db449b5a1bfdf439981e, type: 3}
+  tex_AI_Hunter: {fileID: 2800000, guid: 2d755b052beaf04469340da415c44e72, type: 3}
+  tex_AI_Dog: {fileID: 2800000, guid: 8a69e74001c3e15498a9a24074a14b07, type: 3}
+  tex_AI_Scout: {fileID: 0}
+  tex_AI_Runner: {fileID: 2800000, guid: dd3cca88cddd51b4d959cf31cdc58fc3, type: 3}
+  tex_Target_Alive: {fileID: 2800000, guid: 997e89bbe0dce614f9ec78913de2d6c2, type: 3}
+  tex_Target_Dead: {fileID: 2800000, guid: a6ff1bf989505f0429e0fbe8827a68ef, type: 3}
+  tex_Player_One: {fileID: 2800000, guid: 50030f2e1082cd141821bd36e4dd99f9, type: 3}
+  tex_Player_Two: {fileID: 2800000, guid: a7efd880b47b826428bf72451a211bbe, type: 3}
+  tex_Village: {fileID: 2800000, guid: 86a04c96fbc48744f9b9ba0910d3f7b4, type: 3}
+  mCamera: {fileID: 0}
+  AIAgents: []
+  AIAgentsSizeMultiplier: 1.5
+  pulse_AIAgents: 0
+  Players:
+  - go: {fileID: 0}
+    type: 3
+  - go: {fileID: 0}
+    type: 4
+  cannibalsRef:
+  - {fileID: 0}
+  - {fileID: 0}
+  PlayersSizeMultiplier: 1.3
+  pulse_Players: 1
+  Targets:
+  - go: {fileID: 0}
+    type: 2
+  TargetsSizeMultiplier: 1.5
+  pulse_Targets: 1
+  endPosition:
+  - go: {fileID: 0}
+    type: 9
+  transitionOut: 5
+  transitionIn: 0.5
+--- !u!114 &114959667982774634
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1948835044890510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49b2e7f52f2320b48a2e8dad4649f820, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
