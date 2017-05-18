@@ -81,7 +81,6 @@ GameObject:
   - component: {fileID: 4607302841101214}
   - component: {fileID: 95925132400520912}
   - component: {fileID: 114745509020747726}
-  - component: {fileID: 114397788781665538}
   m_Layer: 0
   m_Name: cannibalMesh
   m_TagString: Untagged
@@ -505,6 +504,7 @@ GameObject:
   - component: {fileID: 4862562871971514}
   - component: {fileID: 54834919276491144}
   - component: {fileID: 114948318535230978}
+  - component: {fileID: 114555365059725610}
   m_Layer: 12
   m_Name: NotStatic
   m_TagString: Player
@@ -2089,28 +2089,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 223467812501303312}
   transformToFollow: {fileID: 4862562871971514}
---- !u!114 &114397788781665538
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1058823409060876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58a2393de5a34264a8b36ac7fb32a53b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  switchName: Steps
-  switchStates:
-  - name: Grass
-    aera: Grass
-    mask: 0
-  - name: Gravel
-    aera: Gravel
-    mask: 0
-  - name: Wood
-    aera: Wood
-    mask: 0
 --- !u!114 &114399292702623858
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2170,6 +2148,28 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114555365059725610
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1419312899644530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58a2393de5a34264a8b36ac7fb32a53b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switchName: Steps
+  switchStates:
+  - name: Grass
+    aera: Grass
+    mask: 0
+  - name: Gravel
+    aera: Gravel
+    mask: 0
+  - name: Wood
+    aera: Wood
+    mask: 0
 --- !u!114 &114582109173767800
 MonoBehaviour:
   m_ObjectHideFlags: 1
