@@ -1014,6 +1014,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4844702324796866}
   - component: {fileID: 95218874991712418}
+  - component: {fileID: 114460001120575624}
   m_Layer: 0
   m_Name: cannibalMesh
   m_TagString: Untagged
@@ -1061,6 +1062,7 @@ GameObject:
   - component: {fileID: 4712286737092530}
   - component: {fileID: 54493132571798488}
   - component: {fileID: 114684263325824092}
+  - component: {fileID: 114504012234333626}
   m_Layer: 12
   m_Name: NotStatic
   m_TagString: Player
@@ -1139,6 +1141,7 @@ GameObject:
   - component: {fileID: 4009764448990762}
   - component: {fileID: 54071781152481968}
   - component: {fileID: 114389644791515554}
+  - component: {fileID: 114045802468394474}
   m_Layer: 12
   m_Name: NotStatic
   m_TagString: Player
@@ -1843,6 +1846,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4900955075379842}
   - component: {fileID: 95472097153343196}
+  - component: {fileID: 114803441527231092}
   m_Layer: 0
   m_Name: cannibalMesh
   m_TagString: Untagged
@@ -2392,7 +2396,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1313921885954696}
-  m_LocalRotation: {x: -0.1904654, y: 0.79131335, z: -0.56749994, w: 0.12445858}
+  m_LocalRotation: {x: -0.23621832, y: 0.7881144, z: -0.5641437, w: 0.06941544}
   m_LocalPosition: {x: -0.13970084, y: 0.16453199, z: 0}
   m_LocalScale: {x: 1, y: 1.0000001, z: 1}
   m_Children:
@@ -4229,6 +4233,28 @@ MonoBehaviour:
   maxDistanceToCorpsePoint: 0.1
   corpseJoint: {fileID: 153544173684619122}
   pointOnCorpse: {x: 0, y: 0, z: 0}
+--- !u!114 &114045802468394474
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1488732907054402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58a2393de5a34264a8b36ac7fb32a53b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switchName: Steps
+  switchStates:
+  - name: Grass
+    aera: Grass
+    mask: 0
+  - name: Gravel
+    aera: Gravel
+    mask: 0
+  - name: Wood
+    aera: Wood
+    mask: 0
 --- !u!114 &114059822877936120
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4749,6 +4775,18 @@ MonoBehaviour:
   m_appearenceTransform: {fileID: 4009764448990762}
   iconDisplayer: {fileID: 114665946702820336}
   resurrectIcon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 3}
+--- !u!114 &114460001120575624
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1435977280858752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57887d14165d72a4b91e990f34663a8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetObject: {fileID: 1453918584315898}
 --- !u!114 &114464250803836374
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4825,6 +4863,28 @@ MonoBehaviour:
   separableBlurShader: {fileID: 4800000, guid: e97c14fbb5ea04c3a902cc533d7fc5d1, type: 3}
   chromAberrationShader: {fileID: 4800000, guid: 2b4f29398d9484ccfa9fd220449f5eee,
     type: 3}
+--- !u!114 &114504012234333626
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1453918584315898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58a2393de5a34264a8b36ac7fb32a53b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switchName: Steps
+  switchStates:
+  - name: Grass
+    aera: Grass
+    mask: 0
+  - name: Gravel
+    aera: Gravel
+    mask: 0
+  - name: Wood
+    aera: Wood
+    mask: 0
 --- !u!114 &114506740750132574
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5046,6 +5106,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_displayTime: 0.2
   m_image: {fileID: 114464250803836374}
+--- !u!114 &114803441527231092
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1824920987691370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57887d14165d72a4b91e990f34663a8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetObject: {fileID: 1488732907054402}
 --- !u!114 &114856167867931070
 MonoBehaviour:
   m_ObjectHideFlags: 1
