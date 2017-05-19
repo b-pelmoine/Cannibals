@@ -30,6 +30,8 @@ namespace AI
 
         public float eatingTime = 3;
         public float stopTime = 3;
+        public float wanderDistance = 3;
+        public float barkDistance = 7;
 
 
 
@@ -68,7 +70,7 @@ namespace AI
                 case (int)DogTask.WanderInFront:
                     if (CurrentTask.count == 0)
                     {
-                        if (WanderAround(hunter.transform.position + hunter.transform.forward * 0, 3))
+                        if (WanderAround(hunter.transform.position + hunter.transform.forward * 0, wanderDistance))
                         {
                             CurrentTask.elapsed = 0;
                             CurrentTask.count++;
@@ -86,7 +88,7 @@ namespace AI
                     break;
 
                 case (int)DogTask.ChaseAndBark:
-                    if(MoveTo(CurrentTask.target.transform.position, 3))
+                    if(MoveTo(CurrentTask.target.transform.position, barkDistance))
                     {
                         if (CurrentTask.count == 0)
                         {
