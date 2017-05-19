@@ -162,6 +162,7 @@ namespace AI
                 case (int)ChasseurTask.Drink:
                     if (MoveTo(CurrentTask.target.transform.position, 2))
                     {
+                        CurrentTask.target.GetComponent<Bottle>().linkedCannibal.LooseCannibalObject();
                         CurrentTask.target.gameObject.SetActive(false);
                         animator.Play("Drink");
                         AkSoundEngine.PostEvent("hunter_drink", gameObject);
