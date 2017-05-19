@@ -52,7 +52,15 @@ public class Corpse : MonoBehaviour {
         {
 
             m_transform.position = (cannibals[0].m_cannibalSkill.CannibalObjectParent.position + cannibals[1].m_cannibalSkill.CannibalObjectParent.position)*0.5f;
-            m_transform.rotation = Quaternion.LookRotation(cannibals[0].m_cannibalSkill.CannibalObjectParent.position - cannibals[1].m_cannibalSkill.CannibalObjectParent.position) *  Quaternion.Euler(orientationOffset);
+
+            int orientationFactor = 1; ///Because the direction in the quaternion rotation is significant, we have to adjust this by specifying wich character is front or back to the corpse
+
+            if (cannibals[0].m_cannibalSkill.pointOnCorpse == rightPoint)
+                orientationFactor = -1;
+            else
+                orientationFactor = 1;
+
+                m_transform.rotation = Quaternion.LookRotation(orientationFactor * (cannibals[0].m_cannibalSkill.CannibalObjectParent.position - cannibals[1].m_cannibalSkill.CannibalObjectParent.position)) *  Quaternion.Euler(orientationOffset);
 
             CharacterControllerExt c1 = cannibals[0].m_cannibalMovement.CharacterControllerEx;
             CharacterControllerExt c2 = cannibals[1].m_cannibalMovement.CharacterControllerEx;
