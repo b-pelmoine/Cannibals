@@ -8,6 +8,7 @@ namespace AI
 {
     public class Chasseur : AIAgent, IKnifeKillable {
         public float waypointDistance = 2;
+        public float chaseShootDistance = 10;
         public float shootingRange = 1;
         public LayerMask shootingMask = 0;
         
@@ -87,14 +88,14 @@ namespace AI
 
                 //Poursuis le joueur repéré
                 case (int)ChasseurTask.Chase:
-                    if(MoveTo(CurrentTask.target.transform.position, shootingRange))
+                    if(MoveTo(CurrentTask.target.transform.position, chaseShootDistance))
                     {
                         agent.ResetPath();
                         GameObject target = CurrentTask.target;
                         tasks.Pop();
                         tasks.Push(new Task((int)ChasseurTask.Shoot, target));
                     }
-                    else if((CurrentTask.target.transform.position - transform.position).sqrMagnitude >= Mathf.Pow((los.camera.farClipPlane), 2))
+                    else if((CurrentTask.target.transform.position - transform.position).sqrMagnitude >= Mathf.Pow((los.camera.farClipPlane), 2.2f))
                     {
                         agent.ResetPath();
                         tasks.Push(new Task((int)ChasseurTask.LostTarget, CurrentTask.target));
