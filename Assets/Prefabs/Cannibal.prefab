@@ -2086,6 +2086,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_cannibal: {fileID: 114493353351655670}
   cannibalObjectParent: {fileID: 4070672457990026}
+  speedToRecoverCorpsePoint: 10
   maxDistanceToCorpsePoint: 0.1
   pointOnCorpse: {x: 0, y: 0, z: 0}
 --- !u!114 &114493353351655670
@@ -2318,6 +2319,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detect_value: 30
   mesh: {fileID: 0}
+  debug: 0
+  col: {r: 0, g: 0, b: 0, a: 0}
 --- !u!137 &137316634649064318
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
