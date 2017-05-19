@@ -26,9 +26,11 @@ public class DetectionIndicator : MonoBehaviour {
     //color of not offensive AI
     public Color BasicLow;
     public Color BasicHigh;
+    public Color BasicDetected;
     //color of aggressive AI
     public Color AggressiveLow;
     public Color AggressiveHigh;
+    public Color AggressiveDetected;
 
     void Start()
     {
@@ -110,10 +112,22 @@ public class DetectionIndicator : MonoBehaviour {
 
     private Color getArrowColor(AIType type, float detectionLevel)
     {
-        if (type == AIType.Hunter)
-            return Color.Lerp(AggressiveLow, AggressiveHigh, detectionLevel);
+        bool isAgressive = type == AIType.Hunter;
+        if(detectionLevel < 1)
+        {
+            if (isAgressive)
+                return Color.Lerp(AggressiveLow, AggressiveHigh, detectionLevel);
+            else
+                return Color.Lerp(BasicLow, BasicHigh, detectionLevel);
+        }
         else
-            return Color.Lerp(BasicLow, BasicHigh, detectionLevel);
+        {
+            if (isAgressive)
+                return AggressiveDetected;
+            else
+                return BasicDetected;
+        }
+        
     }
 
     private GameObject getArrow(Transform parent)
