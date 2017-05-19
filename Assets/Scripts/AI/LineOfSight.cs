@@ -112,6 +112,7 @@ public class LineOfSight : MonoBehaviour {
 
     public bool Analyse()
     {
+        if (!gameObject.activeInHierarchy) return false;
         sighted.RemoveAll(x => x.time < 0);
         foreach (SightInfo si in sighted)
             si.time -= Time.time - lastTime;
@@ -197,7 +198,7 @@ public class LineOfSight : MonoBehaviour {
 
     public void Rendering()
     {
-        if(camera!=null && type==SightType.Camera && active)
+        if(gameObject.activeInHierarchy && camera!=null && type==SightType.Camera && active)
             camera.Render();
     }
 
