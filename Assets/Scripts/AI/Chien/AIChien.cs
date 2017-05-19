@@ -117,7 +117,7 @@ namespace AI
                     break;
 
                 case (int)DogTask.Eat:
-                    if(CurrentTask.count==0 && MoveTo(CurrentTask.target.transform.position, 3))
+                    if(CurrentTask.count==0 && MoveTo(CurrentTask.target.transform.position, 1f))
                     {
                         animator.Play("IdleToEat");
                         //AkSoundEngine.PostEvent("dog_eat", gameObject);
@@ -127,7 +127,7 @@ namespace AI
                     else if (CurrentTask.count == 1 && CurrentTask.elapsed>eatingTime)
                     {
                         CurrentTask.target.gameObject.SetActive(false);
-                        animator.Play("Idle");
+                        animator.Play("EatToIdle");
                         tasks.Pop();
                     }
                     break;
