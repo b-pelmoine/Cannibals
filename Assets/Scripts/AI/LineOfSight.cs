@@ -81,8 +81,9 @@ public class LineOfSight : MonoBehaviour {
 
     public float getDetectRate(SightInfo si)
     {
-        float detectRate = Mathf.Clamp(Mathf.Pow((si.time / detectTime) * (getSeeDistance()), 2)
+        float detectRate = Mathf.Clamp((((si.time+(Time.time-lastTime)) / detectTime) *Mathf.Pow( (getSeeDistance()), 2))
                 / (si.target.transform.position - transform.position).sqrMagnitude, 0, 1);
+        Debug.Log("DetectRate:" + detectRate);
         return detectRate;
     }
 

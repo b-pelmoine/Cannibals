@@ -124,10 +124,11 @@ namespace AI
             targetPosition.y = agent.transform.position.y;
             agent.transform.LookAt(targetPosition);
             //Si le joueur est en vue
-            if (los.sighted.Find(x => x.target == CurrentTask.target)!=null)
+            SightInfo si = los.sighted.Find(x => x.target == CurrentTask.target);
+            if (si!=null)
             {
                 //Si le joueur est détecté -> poursuite
-                if ((CurrentTask.target.transform.position - transform.position).sqrMagnitude < Mathf.Pow((CurrentTask.elapsed / los.detectTime) * (los.getSeeDistance()), 2))
+                if (los.getDetectRate(si)>=1.0f)
                 {
                     return true;
                 }
