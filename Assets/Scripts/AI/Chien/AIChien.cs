@@ -97,14 +97,11 @@ namespace AI
                             agent.transform.LookAt(targetLookAt);
                             animator.Play("Bark");
                             hunter.Call(CurrentTask.target);
-                            
-                            //AkSoundEngine.PostEvent("dog_bark", gameObject);
-                            CurrentTask.count++;
-                        }
-                        else if(CurrentTask.elapsed>2)
-                        {
                             tasks.Pop();
+                            //AkSoundEngine.PostEvent("dog_bark", gameObject);
+                            //CurrentTask.count++;
                         }
+
                         
                     }
                     else
