@@ -406,7 +406,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.73, y: 8.216934, z: 0.65}
-  m_Center: {x: -0.12, y: 4.108467, z: -0.115309775}
+  m_Center: {x: 0, y: 4.108467, z: -0.115309775}
 --- !u!1 &449850993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1099,6 +1099,52 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 89be47188a35e124899e0938f8094af3, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &1021853363
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4949184023702508, guid: c4fcfbe40c1d1324b9fb5d979c29c41b, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949184023702508, guid: c4fcfbe40c1d1324b9fb5d979c29c41b, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949184023702508, guid: c4fcfbe40c1d1324b9fb5d979c29c41b, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 4.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949184023702508, guid: c4fcfbe40c1d1324b9fb5d979c29c41b, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949184023702508, guid: c4fcfbe40c1d1324b9fb5d979c29c41b, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0.8027421
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949184023702508, guid: c4fcfbe40c1d1324b9fb5d979c29c41b, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949184023702508, guid: c4fcfbe40c1d1324b9fb5d979c29c41b, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.5963263
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949184023702508, guid: c4fcfbe40c1d1324b9fb5d979c29c41b, type: 2}
+      propertyPath: m_RootOrder
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 1292751834278326, guid: c4fcfbe40c1d1324b9fb5d979c29c41b, type: 2}
+      propertyPath: m_Name
+      value: bush (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: c4fcfbe40c1d1324b9fb5d979c29c41b, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1064145075
 GameObject:
   m_ObjectHideFlags: 0
@@ -1179,7 +1225,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4764890013179124, guid: 810a8059e702ab549bf5df5a839f08b6, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.72
       objectReference: {fileID: 0}
     - target: {fileID: 4764890013179124, guid: 810a8059e702ab549bf5df5a839f08b6, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1209,6 +1255,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 23549193039391566, guid: 810a8059e702ab549bf5df5a839f08b6,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3bf968c9a4f348140a2237a2f6baaf38, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 810a8059e702ab549bf5df5a839f08b6, type: 2}
   m_IsPrefabParent: 0
@@ -1354,11 +1405,10 @@ Prefab:
       propertyPath: _graph
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 114753656786614946, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
+    - target: {fileID: 114399292702623858, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
         type: 2}
-      propertyPath: boundGraphSerialization
-      value: '{"version":2.6,"type":"NodeCanvas.StateMachines.FSM","translation":{"x":-4825.0,"y":-4954.0},"zoomFactor":0.9842181,"nodes":[{"_nestedFSM":{"_value":1},"_position":{"x":5226.38,"y":5230.792},"_name":"Alive","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"2"},{"_nestedFSM":{"_value":2},"_position":{"x":5546.0,"y":5336.0},"_name":"Dead","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"4"},{"_nestedFSM":{"_value":3},"_position":{"x":5659.0,"y":5074.109},"_name":"Resurrect","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"6"}],"connections":[{"_condition":{"eventName":{"_value":"Death"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"eventName":{"_value":"Resurrect"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"primeNode":{"$ref":"2"},"canvasGroups":[],"localBlackboard":{"_name":"Local
-        Blackboard","_variables":{}}}'
+      propertyPath: corpseJoint
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d5c73a2de9863c49bd4ddcc77af1888, type: 2}
@@ -1443,62 +1493,6 @@ MonoBehaviour:
   decodeBank: 0
   saveDecodedBank: 0
   unloadTriggerList: 958ca0ea
---- !u!1001 &1499212719
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 114855613064038926, guid: c4fcfbe40c1d1324b9fb5d979c29c41b,
-        type: 2}
-      propertyPath: _objectReferences.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4949184023702508, guid: c4fcfbe40c1d1324b9fb5d979c29c41b, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 4949184023702508, guid: c4fcfbe40c1d1324b9fb5d979c29c41b, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4949184023702508, guid: c4fcfbe40c1d1324b9fb5d979c29c41b, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 4.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 4949184023702508, guid: c4fcfbe40c1d1324b9fb5d979c29c41b, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4949184023702508, guid: c4fcfbe40c1d1324b9fb5d979c29c41b, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0.8027421
-      objectReference: {fileID: 0}
-    - target: {fileID: 4949184023702508, guid: c4fcfbe40c1d1324b9fb5d979c29c41b, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4949184023702508, guid: c4fcfbe40c1d1324b9fb5d979c29c41b, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.5963263
-      objectReference: {fileID: 0}
-    - target: {fileID: 4949184023702508, guid: c4fcfbe40c1d1324b9fb5d979c29c41b, type: 2}
-      propertyPath: m_RootOrder
-      value: 22
-      objectReference: {fileID: 0}
-    - target: {fileID: 1292751834278326, guid: c4fcfbe40c1d1324b9fb5d979c29c41b, type: 2}
-      propertyPath: m_Name
-      value: bush (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 114855613064038926, guid: c4fcfbe40c1d1324b9fb5d979c29c41b,
-        type: 2}
-      propertyPath: _serializedBlackboard
-      value: '{"_variables":{}}'
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: c4fcfbe40c1d1324b9fb5d979c29c41b, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &1548502067
 Prefab:
   m_ObjectHideFlags: 0
@@ -1538,10 +1532,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 18
       objectReference: {fileID: 0}
-    - target: {fileID: 114495323820324974, guid: 9d2bd102ef351bb40b7b1d50cc603d34,
-        type: 2}
-      propertyPath: m_Enabled
+    - target: {fileID: 4844315617938124, guid: 9d2bd102ef351bb40b7b1d50cc603d34, type: 2}
+      propertyPath: m_LocalRotation.w
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114965879656065914, guid: 9d2bd102ef351bb40b7b1d50cc603d34,
+        type: 2}
+      propertyPath: orientationOffset.y
+      value: -90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d2bd102ef351bb40b7b1d50cc603d34, type: 2}
@@ -1883,6 +1881,11 @@ Prefab:
         type: 2}
       propertyPath: m_Radius
       value: 0.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 23626690137066138, guid: c1d32a1522cf373499a36416a3f21144,
+        type: 2}
+      propertyPath: m_SelectedEditorRenderState
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 136329479473790414, guid: c1d32a1522cf373499a36416a3f21144, type: 2}
@@ -2383,7 +2386,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 80bf986191c5d074baad562e48e46231, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2589,12 +2592,6 @@ Prefab:
       propertyPath: number
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114753656786614946, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: boundGraphSerialization
-      value: '{"version":2.6,"type":"NodeCanvas.StateMachines.FSM","translation":{"x":-4926.0,"y":-5021.0},"nodes":[{"_nestedFSM":{"_value":1},"_position":{"x":5227.38,"y":5229.775},"_name":"Alive","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"2"},{"_nestedFSM":{"_value":2},"_position":{"x":5545.0,"y":5336.0},"_name":"Dead","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"4"},{"_nestedFSM":{"_value":3},"_position":{"x":5659.0,"y":5074.109},"_name":"Resurrect","$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"6"},{"_onEnterList":{"executionMode":"ActionsRunInParallel","actions":[{"conditionTasks":{"conditions":[{"target":{},"state":{},"$type":"CheckState"}]},"actionTasks":{"actions":[{"target":{},"distance":{},"maxAngle":{},"$type":"AI.Kill"},{"target":{},"distance":{},"maxAngle":{"_value":20.0},"$type":"AI.Kill"}]},"$type":"ConditionnedAction"}]},"_onUpdateList":{"executionMode":"ActionsRunInParallel","actions":[]},"_onExitList":{"executionMode":"ActionsRunInParallel","actions":[]},"foldEnter":true,"_position":{"x":5983.602,"y":5409.937},"$type":"NodeCanvas.StateMachines.SuperActionState"}],"connections":[{"_condition":{"eventName":{"_value":"Death"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"eventName":{"_value":"Resurrect"},"$type":"NodeCanvas.Tasks.Conditions.CheckEvent"},"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"primeNode":{"$ref":"2"},"canvasGroups":[],"localBlackboard":{"_name":"Local
-        Blackboard","_variables":{}}}'
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d5c73a2de9863c49bd4ddcc77af1888, type: 2}
   m_IsPrefabParent: 0
@@ -2637,6 +2634,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 23976186212938864, guid: 32632e23be3a1034da9e66457f738de6,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e81e4a6517754046b7c012f4d6ce993, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 32632e23be3a1034da9e66457f738de6, type: 2}
   m_IsPrefabParent: 0

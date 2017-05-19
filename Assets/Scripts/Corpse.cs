@@ -29,6 +29,9 @@ public class Corpse : MonoBehaviour {
     [SerializeField]
     Vector3 cannibalTakeOffset = new Vector3(0, -1.5f, 0);
 
+    [SerializeField]
+    Vector3 orientationOffset = new Vector3(0, 90, 0);
+
     void Awake()
     {
         characterControllerExt.enabled = false;
@@ -47,6 +50,10 @@ public class Corpse : MonoBehaviour {
     {
         if (cannibals.Count >= 2)
         {
+
+            m_transform.position = (cannibals[0].m_cannibalSkill.CannibalObjectParent.position + cannibals[1].m_cannibalSkill.CannibalObjectParent.position)*0.5f;
+            m_transform.rotation = Quaternion.LookRotation(cannibals[0].m_cannibalSkill.CannibalObjectParent.position - cannibals[1].m_cannibalSkill.CannibalObjectParent.position) *  Quaternion.Euler(orientationOffset);
+
             CharacterControllerExt c1 = cannibals[0].m_cannibalMovement.CharacterControllerEx;
             CharacterControllerExt c2 = cannibals[1].m_cannibalMovement.CharacterControllerEx;
             Vector3 c1VelocityMemory = c1.velocity;
@@ -57,9 +64,10 @@ public class Corpse : MonoBehaviour {
         }
         else if ((cannibals.Count >= 1))
         {
+            m_transform.position = cannibals[0].m_cannibalSkill.CannibalObjectParent.position;
             characterControllerExt.velocity = cannibals[0].m_cannibalMovement.CharacterControllerEx.velocity;
+            m_transform.rotation = Quaternion.Slerp(m_transform.rotation, cannibals[0].m_cannibalAppearence.m_appearenceTransform.rotation * Quaternion.Euler(0, 90, 0), 20f*Time.deltaTime);
         }
-
     }
 
 
@@ -68,6 +76,10 @@ public class Corpse : MonoBehaviour {
         cannibals.Add(cannibal);
         characterControllerExt.enabled = true;
         characterControllerExt.LinkTo(cannibal.m_cannibalMovement.CharacterControllerEx);
+
+        m_rigidbody.isKinematic = true;
+        m_rigidbody.velocity = Vector3.zero;
+        m_rigidbody.angularVelocity = Vector3.zero;
 
         //MAL FAIT A REFAIRE NIVEAU CONCEPTION
         if (cannibals.Count == 1)
@@ -79,9 +91,6 @@ public class Corpse : MonoBehaviour {
             m_rigidbody.velocity = Vector3.zero;
             m_rigidbody.angularVelocity = Vector3.zero;
             m_rigidbody.constraints = RigidbodyConstraints.FreezeRotationX;
-
-            cannibal.m_cannibalSkill.corpseJoint.connectedBody = this.m_rigidbody;
-            cannibal.m_cannibalSkill.corpseJoint.connectedAnchor = centerPoint;
         }
         else if (cannibals.Count > 1)
         {
@@ -96,26 +105,18 @@ public class Corpse : MonoBehaviour {
     
                 cannibals[0].m_cannibalMovement.CharacterControllerEx.CharacterTransform.position = m_transform.TransformPoint(cannibals[0].m_cannibalSkill.pointOnCorpse) + cannibalTakeOffset;       
                 cannibal.m_cannibalMovement.CharacterControllerEx.CharacterTransform.position = m_transform.TransformPoint(cannibal.m_cannibalSkill.pointOnCorpse) + cannibalTakeOffset;
-
-            cannibals[0].m_cannibalSkill.corpseJoint.connectedBody = this.m_rigidbody;
-            cannibals[0].m_cannibalSkill.corpseJoint.connectedAnchor = cannibals[0].m_cannibalSkill.pointOnCorpse;
-
-            cannibal.m_cannibalSkill.corpseJoint.connectedBody = this.m_rigidbody;
-            cannibal.m_cannibalSkill.corpseJoint.connectedAnchor = cannibal.m_cannibalSkill.pointOnCorpse;
-        }
+         }
     }
 
     public void BeReleased(Cannibal cannibal)
     {
         cannibals.Remove(cannibal);
         characterControllerExt.Unlink(cannibal.m_cannibalMovement.CharacterControllerEx);
-        cannibal.m_cannibalSkill.corpseJoint.connectedBody = null;
 
         if (cannibals.Count == 1)
         {
             cannibals[0].m_cannibalSkill.pointOnCorpse = centerPoint;
             cannibals[0].m_cannibalMovement.CharacterControllerEx.CharacterTransform.position = m_transform.TransformPoint(centerPoint) + cannibalTakeOffset;
-            cannibals[0].m_cannibalSkill.corpseJoint.connectedAnchor = centerPoint;
         }
         else if (cannibals.Count == 0)
         {
@@ -124,8 +125,8 @@ public class Corpse : MonoBehaviour {
             m_rigidbody.velocity = Vector3.zero;
             m_rigidbody.angularVelocity = Vector3.zero;
             m_rigidbody.constraints = RigidbodyConstraints.None;
-            m_rigidbody.useGravity = true;
             characterControllerExt.enabled = false;
+            m_rigidbody.isKinematic = false;
         }
     }
 
