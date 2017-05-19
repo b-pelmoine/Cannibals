@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 23976186212938864}
   - component: {fileID: 54809179285102526}
   - component: {fileID: 64123366516134948}
+  - component: {fileID: 114928846944666012}
   m_Layer: 13
   m_Name: Bottle
   m_TagString: Untagged
@@ -81,7 +82,7 @@ Transform:
   - {fileID: 224216823844546456}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 56.229004, z: 0}
 --- !u!23 &23976186212938864
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -258,6 +259,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_displayTime: 0.2
   m_image: {fileID: 114826218133396318}
+--- !u!114 &114928846944666012
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1777552028560104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1123ed074b6511147b6704ba35126297, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detect_value: 5
+  mesh: {fileID: 23976186212938864}
 --- !u!222 &222683725586089000
 CanvasRenderer:
   m_ObjectHideFlags: 1

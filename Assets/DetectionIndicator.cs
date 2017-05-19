@@ -74,7 +74,12 @@ public class DetectionIndicator : MonoBehaviour {
         {
             AkSoundEngine.SetRTPCValue("spotted", highestDetectionLevel, Camera.main.gameObject);
         }
-        
+
+        if (highestDetectionLevel < 1 && prevHighest == 1)
+        {
+            AkSoundEngine.PostEvent("spotting", Camera.main.gameObject);
+        }
+
         if (highestDetectionLevel == 1 && prevHighest !=1)
         {
             AkSoundEngine.PostEvent("spotted", Camera.main.gameObject);

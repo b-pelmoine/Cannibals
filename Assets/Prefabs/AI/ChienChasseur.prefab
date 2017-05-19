@@ -2771,8 +2771,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1443385088526980}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.9803104, y: 1, z: 2.5285873}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 69.02194, y: 9.796741, z: 111.05694}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4789305613664332}
@@ -3529,7 +3529,7 @@ MonoBehaviour:
   agent: {fileID: 0}
   hunter: {fileID: 114623528271031004}
   animator: {fileID: 95837405385839286}
-  eatingTime: 3
+  eatingTime: 5
   stopTime: 3
 --- !u!114 &114131110839376396
 MonoBehaviour:
@@ -3589,7 +3589,7 @@ MonoBehaviour:
     aera: Walkable
     mask: 0
   - name: Wood
-    aera: 
+    aera: Wood
     mask: 0
 --- !u!114 &114349979152653790
 MonoBehaviour:
@@ -3620,7 +3620,7 @@ MonoBehaviour:
   active: 1
   type: 2
   radius: 7
-  detectTime: 3
+  detectTime: 5
 --- !u!114 &114445266336008992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3654,16 +3654,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points:
   - tag: 1
-    position: {x: -4.984749, y: 0.77321696, z: -1.3312454}
+    position: {x: 68.85505, y: 9.921635, z: 102.22031}
     links: 01000000
   - tag: 2
-    position: {x: 0.85902214, y: 0, z: 8.188934}
+    position: {x: 53.212822, y: 10.199596, z: 97.21344}
     links: 02000000
   - tag: 3
-    position: {x: 18.863506, y: 0, z: 6.0874996}
+    position: {x: 48.486618, y: 9.998169, z: 110.75051}
     links: 03000000
   - tag: 4
-    position: {x: 13.749325, y: 0.047714233, z: -12.6540365}
+    position: {x: 64.418495, y: 9.796741, z: 120.30116}
+    links: 04000000
+  - tag: 5
+    position: {x: 79.02748, y: 9.932411, z: 110.56749}
     links: 
   currentDestination: {x: 0, y: 0, z: 0}
 --- !u!114 &114580166646768798
@@ -3732,7 +3735,7 @@ MonoBehaviour:
   active: 1
   type: 0
   radius: 1.56
-  detectTime: 3
+  detectTime: 5
 --- !u!136 &136087379642080698
 CapsuleCollider:
   m_ObjectHideFlags: 1
