@@ -17,6 +17,9 @@ public class Cannibal_Skill : MonoBehaviour {
     [SerializeField]
     Transform cannibalObjectParent;
 
+    [SerializeField]
+    float speedToRecoverCorpsePoint = 10f;
+
     public Transform CannibalObjectParent
     {
         get { return cannibalObjectParent; }
@@ -35,7 +38,7 @@ public class Cannibal_Skill : MonoBehaviour {
                 m_cannibal.m_cannibalMovement.CharacterControllerEx.CharacterTransform.position = m_cannibal.m_cannibalMovement.CharacterControllerEx.CharacterTransform.position - (cannibalObjectParent.position -
                                                                                                   Vector3.Lerp(cannibalObjectParent.position,
                                                                                                              m_corpse.m_transform.TransformPoint(m_cannibal.m_cannibalSkill.pointOnCorpse),
-                                                                                                             0.1f) );
+                                                                                                             speedToRecoverCorpsePoint * Time.deltaTime) );
         }
     }
 
