@@ -60,7 +60,7 @@ public class LineOfSight : MonoBehaviour {
         {
             camera.enabled = false;
             camera.targetTexture = texture;
-            camera.SetReplacementShader(shader, "RenderType");
+            camera.SetReplacementShader(shader, "");
         }
         sighted = new List<SightInfo>();
         
@@ -86,7 +86,7 @@ public class LineOfSight : MonoBehaviour {
         return detectRate;
     }
 
-    public static void Register(GameObject obj, int detect=30)
+    public static void Register(GameObject obj, int detect=30, Color? color = null)
     {
         detected_objects.Add(obj);
         detect_rate.Add(detect);
@@ -96,7 +96,8 @@ public class LineOfSight : MonoBehaviour {
             Debug.LogError("LineOfSight.cs: No renderers found on " + obj);
         foreach (Renderer rend in renderers)
             foreach(Material mat in rend.materials)
-                mat.SetColor("_LoSColor", new Color(detected_objects.Count / 255f, 0, 0));
+                if(color.HasValue) mat.SetColor("_LoSColor", color.Value);
+                else mat.SetColor("_LoSColor", new Color(detected_objects.Count / 255f, 0, 0));
         Collider col = obj.GetComponentInChildren<Collider>();
         colliders.Add(col, obj);
     }
@@ -147,7 +148,7 @@ public class LineOfSight : MonoBehaviour {
                 {
                     si.time = Mathf.Clamp(si.time + (Time.time - lastTime)*2, -5.0f, detectTime);
                 }
-                else
+                else// if((si.target.transform.position-transform.position).sqrMagnitude < 0.95*Mathf.Pow(getSeeDistance(), 2))
                 {
                     sighted.Add(new SightInfo(detected_objects[i]));
                 }
@@ -175,11 +176,17 @@ public class LineOfSight : MonoBehaviour {
     public void AnalyseAllAround()
     {
         Collider[] cols = Physics.OverlapSphere(transform.position, radius);
+        List<SightInfo> bushes = sighted.FindAll(x => x.target.GetComponent<Bush>() != null);
         foreach(Collider c in cols)
         {
             if (colliders.ContainsKey(c))
             {
+                if ((1<<c.gameObject.layer & LayerMask.GetMask("Bush"))==0 && bushes.FindAll(x => (x.target.transform.position-c.transform.position).sqrMagnitude<2).Count!=0)
+                {
+                    continue;
+                }
                 SightInfo si = sighted.Find(x => x.target == colliders[c]);
+                
                 if (si != null)
                     si.time = Mathf.Clamp(si.time + (Time.time - lastTime) * 2, -5.0f, detectTime);
                 else
