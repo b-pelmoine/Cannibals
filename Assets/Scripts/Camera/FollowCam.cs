@@ -108,20 +108,21 @@ public class FollowCam : MonoBehaviour {
         }
 
         int layerMask = 1 << LayerMask.NameToLayer("AI_Agent");
-        Collider[] nearbyElements = Physics.OverlapSphere(centerOfAttention, catchElementsRadius, layerMask);
+        //Collider[] nearbyElements = Physics.OverlapSphere(centerOfAttention, catchElementsRadius, layerMask);
+        List<GameObject> agents = AIAgentManager.getActiveAgents().FindAll(x => (x.transform.position-centerOfAttention).sqrMagnitude<Mathf.Pow(catchElementsRadius,2));
         int sumOfLevels = 1; //Importance level of both players
         Vector3 elementsBarycenter = centerOfAttention;
-        foreach(Collider elt in nearbyElements)
+        foreach(GameObject a in agents)
         {
-            int level = elt.GetComponent<LevelOfImportance>().getLevel();
-            elementsBarycenter = Vector3.Lerp(elementsBarycenter, elt.transform.position, (float)level/(float)(sumOfLevels+level));
+            int level = a.GetComponent<AI.AIAgent>().GetLevel();
+            elementsBarycenter = Vector3.Lerp(elementsBarycenter, a.transform.position, (float)level/(float)(sumOfLevels+level));
             sumOfLevels += level;
         }
         Vector3 newBarycenter = Vector3.Lerp(elementsBarycenter, centerOfAttention, stickFactor); 
 
         return newBarycenter;
     }
-
+    
     void Start () {
         barycenter = Vector3.Lerp(playerOne.position, playerTwo.position, .5f);
         state = CameraState.IDLE;

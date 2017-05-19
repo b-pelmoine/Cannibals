@@ -16,6 +16,8 @@ namespace AI
         protected AIState state = AIState.NORMAL;
 
         public AIType type = AIType.UNKNOWN;
+        [Range(0,10)]
+        public int LevelOfImportance = 0;
 
         protected class Task
         {
@@ -39,6 +41,7 @@ namespace AI
         private bool detecting = false;
 
         protected int navMeshMask = 0;
+        
 
         protected void Start()
         {
@@ -160,6 +163,11 @@ namespace AI
         public void Kill()
         {
 
+        }
+
+        public int GetLevel()
+        {
+            return LevelOfImportance;
         }
     }
 }

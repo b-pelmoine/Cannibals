@@ -309,7 +309,7 @@ namespace AI
 
         public void ShowKnifeIcon()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }
