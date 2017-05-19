@@ -76,4 +76,10 @@ public class Cannibal : MonoBehaviour {
         IState currentSate = m_stateMachine.GetCurrentState(true);
         return (ICannibal_State)currentSate;
     }
+
+    public bool LooseCannibalObject()
+    {
+        m_cannibalSkill.LooseCannibalObject();
+        return true;
+    }
 }
