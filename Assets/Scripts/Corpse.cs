@@ -86,8 +86,6 @@ public class Corpse : MonoBehaviour {
         {
             collision.enabled = false;
             cannibal.m_cannibalSkill.pointOnCorpse = centerPoint;
-            //m_rigidbody.isKinematic = true;
-            m_rigidbody.useGravity = false;
             m_rigidbody.velocity = Vector3.zero;
             m_rigidbody.angularVelocity = Vector3.zero;
             m_rigidbody.constraints = RigidbodyConstraints.FreezeRotationX;
@@ -121,7 +119,6 @@ public class Corpse : MonoBehaviour {
         else if (cannibals.Count == 0)
         {
             collision.enabled = true;
-            // m_rigidbody.isKinematic = false;
             m_rigidbody.velocity = Vector3.zero;
             m_rigidbody.angularVelocity = Vector3.zero;
             m_rigidbody.constraints = RigidbodyConstraints.None;
