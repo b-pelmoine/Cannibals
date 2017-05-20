@@ -9,29 +9,17 @@ namespace AI
     public class AIChien : AIAgent {
 
         public Chasseur hunter;
-        
 
-        public enum btargetType
-        {
-            Viande, Buisson, Animal
-        }
-        
 
-        enum DogTask
-        {
-            WanderInFront,
-            ChaseAndBark,
-            Eat,
-            Look
-        }
-
-        public Animator animator;
         int anim_speedId = Animator.StringToHash("Speed");
 
         public float eatingTime = 3;
         public float stopTime = 3;
         public float wanderDistance = 3;
         public float barkDistance = 7;
+
+        GameObject target = null;
+        Cannibal cannibalTarget = null;
 
 
 
@@ -40,7 +28,6 @@ namespace AI
             base.Start();
             type = AIType.Dog;
             //AkSoundEngine.PostEvent("dog_idle", gameObject);
-            tasks.Push(new Task((int)DogTask.WanderInFront));
         }
 	
 	    // Update is called once per frame
@@ -50,122 +37,73 @@ namespace AI
             {
                 animator.SetFloat(anim_speedId, agent.velocity.magnitude);
             }
-            if (los!=null && los.Updated)
+            if (!IsIdle()) return;
+            if (AnalyseSight())
+                return;
+            if(WanderAround(hunter.transform.position, wanderDistance))
             {
-                AnalyseSight();
+                Play(() => false, 2);
             }
-
-            Vector3 distance;
-
-            switch (CurrentTask.id)
-            {
-                case (int)DogTask.Look:
-                    if (Look())
-                    {
-                        GameObject target = CurrentTask.target;
-                        tasks.Pop();
-                        tasks.Push(new Task((int)DogTask.ChaseAndBark, target));
-                    }
-                    break;
-                case (int)DogTask.WanderInFront:
-                    if (CurrentTask.count == 0)
-                    {
-                        if (WanderAround(hunter.transform.position + hunter.transform.forward * 0, wanderDistance))
-                        {
-                            CurrentTask.elapsed = 0;
-                            CurrentTask.count++;
-                            //AkSoundEngine.PostEvent("dog_idle", gameObject);
-                        }
-                    }
-                    else
-                    {
-                        if (CurrentTask.elapsed > stopTime)
-                        {
-                            AkSoundEngine.PostEvent("dog_sniff", gameObject);
-                            CurrentTask.count = 0;
-                        }
-                    }
-                    break;
-
-                case (int)DogTask.ChaseAndBark:
-                    if(MoveTo(CurrentTask.target.transform.position, barkDistance))
-                    {
-                        if (CurrentTask.count == 0)
-                        {
-                            Vector3 targetLookAt = CurrentTask.target.transform.position;
-                            targetLookAt.y = agent.transform.position.y;
-                            agent.transform.LookAt(targetLookAt);
-                            animator.Play("Bark");
-                            hunter.Call(CurrentTask.target);
-                            tasks.Pop();
-                            //AkSoundEngine.PostEvent("dog_bark", gameObject);
-                            //CurrentTask.count++;
-                        }
-
-                        
-                    }
-                    else
-                    {
-                        CurrentTask.count = 0;
-                    }
-                    distance = CurrentTask.target.transform.position - transform.position;
-                    distance.y = 0;
-                    if (distance.sqrMagnitude > Mathf.Pow(los.radius, 2) || CurrentTask.elapsed > 10)
-                    {
-                        tasks.Pop();
-                    }
-                    break;
-
-                case (int)DogTask.Eat:
-                    if(CurrentTask.count==0 && MoveTo(CurrentTask.target.transform.position, 1f))
-                    {
-                        animator.Play("IdleToEat");
-                        //AkSoundEngine.PostEvent("dog_eat", gameObject);
-                        CurrentTask.count = 1;
-                        CurrentTask.elapsed = 0;
-                    }
-                    else if (CurrentTask.count == 1 && CurrentTask.elapsed>eatingTime)
-                    {
-                        CurrentTask.target.gameObject.SetActive(false);
-                        animator.Play("EatToIdle");
-                        tasks.Pop();
-                    }
-                    break;
-            }
-
 	    }
 
-
-        void AnalyseSight()
+        bool EatEnd()
         {
-            foreach(SightInfo obj in los.sighted)
+            animator.Play("EatToIdle");
+            target.gameObject.SetActive(false);
+            target = null;
+            return false;
+        }
+
+        void BarkOn(GameObject target)
+        {
+            if (MoveTo(target.transform.position, barkDistance))
             {
-                if (CurrentTask.id != (int)DogTask.Eat && obj.target.GetComponent<Bone>() != null)
+                LookAt(target.transform.position);
+                animator.Play("Bark");
+                hunter.Call(target);
+                Play(() => false, 1);
+            }
+        }
+
+
+        bool AnalyseSight()
+        {
+            foreach (SightInfo obj in los.sighted)
+            {
+                if (obj.target.GetComponent<Bone>() != null)
                 {
-                    //target = los.sighted[i];
-                    //targetType = btargetType.Viande;
-                    //sawSomething = true;
-                    tasks.Push(new Task((int)DogTask.Eat, obj.target));
-                
+                    if (MoveTo(obj.target.transform.position, 2))
+                    {
+                        animator.Play("IdleToEat");
+                        target = obj.target;
+                        Play(() => false, 7, EatEnd);
+                    }
+                    return true;
                 }
-                else if (CurrentTask.id == (int)DogTask.WanderInFront && obj.target.CompareTag("Player"))
+                else if (obj.target.CompareTag("Player"))
                 {
                     Cannibal can = obj.target.GetComponentInParent<Cannibal>();
-                    if(can!=null && !can.IsDead())
-                        tasks.Push(new Task((int)DogTask.Look, obj.target));
+                    if (can != null && !can.IsDead())
+                    {
+                        BarkOn(obj.target);
+                        return true;
+                    }
                 }
                 else
                 {
                     Bush buisson = obj.target.GetComponent<Bush>();
-                    if(CurrentTask.id == (int)DogTask.WanderInFront && buisson != null && buisson.IsMoving())
+                    if (buisson!=null && buisson.IsMoving() || target==obj.target)
                     {
-                        tasks.Push(new Task((int)DogTask.ChaseAndBark, obj.target));
-                        //target = los.sighted[i];
-                        //targetType = btargetType.Buisson;
-                        //sawSomething = true;
+                        target = obj.target;
+                        if(MoveTo(obj.target.transform.position, barkDistance))
+                        {
+                            BarkOn(obj.target);
+                            return true;
+                        }
                     }
                 }
             }
+            return false;
         }
     }
 

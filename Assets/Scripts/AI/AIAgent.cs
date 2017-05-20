@@ -19,28 +19,28 @@ namespace AI
         [Range(0,10)]
         public int LevelOfImportance = 0;
 
-        protected class Task
-        {
-            public int id;
-            public float elapsed = 0;
-            public GameObject target;
-            public int count = 0;
+        public delegate bool Action();
+        Action currentAction = null;
+        Action endAction = null;
+        float actionElapsed;
+        float actionTime;
 
-            public Task(int _id, GameObject _target = null)
-            {
-                id = _id;
-                target = _target;
-            }
-        }
-        
-        protected Stack<Task> tasks = new Stack<Task>();
         public NavMeshAgent agent;
+        public Animator animator;
         Vector3? lastRequest;
 
         protected LineOfSight los;
         private bool detecting = false;
 
         protected int navMeshMask = 0;
+
+        public LineOfSight LoS
+        {
+            get
+            {
+                return los;
+            }
+        }
         
 
         protected void Start()
@@ -55,10 +55,23 @@ namespace AI
             los = GetComponent<LineOfSight>();
         }
 
+        public bool IsIdle()
+        {
+            return currentAction == null;
+        }
+
         protected void Update()
         {
-            if(tasks.Count>0)
-                tasks.Peek().elapsed += Time.deltaTime;
+            actionElapsed += Time.deltaTime;
+            if (currentAction != null && (currentAction() || (actionElapsed>=0 && actionElapsed>actionTime)))
+            {
+                currentAction = null;
+                if (endAction != null)
+                {
+                    endAction();
+                    endAction = null;
+                }
+            }
         }
 
         public AIState State{
@@ -68,16 +81,22 @@ namespace AI
             }
         }
 
-        protected Task CurrentTask
+
+        protected void Play(Action act, float timer = -1, Action end = null)
         {
-            get
-            {
-                return tasks.Peek();
-            }
+            currentAction = act;
+            endAction = end;
+            actionElapsed = 0;
+            actionTime = timer;
+        }
+
+        protected void Stop()
+        {
+            currentAction = null;
         }
 
         //Se déplace vers target
-        protected bool MoveTo(Vector3 target, float stopRadius)
+        public bool MoveTo(Vector3 target, float stopRadius)
         {
             if(lastRequest==null || lastRequest != target)
             {
@@ -99,7 +118,7 @@ namespace AI
                 return false;
         }
 
-        protected bool WanderAround(Vector3 target, float wanderRadius, float stopRadius=2)
+        public bool WanderAround(Vector3 target, float wanderRadius, float stopRadius=2)
         {
             if (lastRequest == null)
             {
@@ -121,30 +140,10 @@ namespace AI
             return false;
         }
 
-        protected bool Look()
+        protected void LookAt(Vector3 position)
         {
-            Vector3 targetPosition = agent.transform.position;
-            targetPosition.y = agent.transform.position.y;
-            agent.transform.LookAt(targetPosition);
-            //Si le joueur est en vue
-            SightInfo si = los.sighted.Find(x => x.target == CurrentTask.target);
-            if (si!=null)
-            {
-                //Si le joueur est détecté -> poursuite
-                if (los.getDetectRate(si)>=1.0f)
-                {
-                    return true;
-                }
-            }
-            else
-            {
-                CurrentTask.elapsed -= Time.deltaTime * 2;
-                if (CurrentTask.elapsed < 0)
-                {
-                    tasks.Pop();
-                }
-            }
-            return false;
+            position.y = agent.transform.position.y;
+            agent.transform.LookAt(position);
         }
 
         public virtual bool isVulnerable()
