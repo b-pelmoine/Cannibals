@@ -288,13 +288,13 @@
 														<Flags>5</Flags>
 													</Point>
 													<Point>
-														<XPos>0.999</XPos>
+														<XPos>0.89987</XPos>
 														<YPos>0.25</YPos>
 														<Flags>0</Flags>
 													</Point>
 													<Point>
 														<XPos>1</XPos>
-														<YPos>1</YPos>
+														<YPos>0.75</YPos>
 														<Flags>37</Flags>
 													</Point>
 												</PointList>
@@ -328,8 +328,14 @@
 														<SegmentShape>Log2</SegmentShape>
 													</Point>
 													<Point>
+														<XPos>0.898852971845673</XPos>
+														<YPos>-0.219350032993543</YPos>
+														<Flags>0</Flags>
+														<SegmentShape>Log3</SegmentShape>
+													</Point>
+													<Point>
 														<XPos>1</XPos>
-														<YPos>0</YPos>
+														<YPos>-5.20388</YPos>
 														<Flags>37</Flags>
 													</Point>
 												</PointList>
@@ -412,10 +418,12 @@
 					</TransitionList>
 					<Playlist>
 						<MusicPlaylistItem Name="" ID="{1AD4EAD0-EB46-4279-ABF6-46C573F65A36}" ShortID="933404824">
+							<PropertyList>
+								<Property Name="LoopCount" Type="int16" Value="0"/>
+							</PropertyList>
 							<ChildrenList>
 								<MusicPlaylistItem Name="" ID="{06C71523-3EC6-43BE-823D-B786CE3CC943}" ShortID="1024840446">
 									<PropertyList>
-										<Property Name="LoopCount" Type="int16" Value="0"/>
 										<Property Name="PlaylistItemType" Type="int16" Value="1"/>
 									</PropertyList>
 									<SegmentRef Name="Xylo" ID="{EB9E1AC2-1D48-448F-ADCF-0AD178447BDB}"/>
