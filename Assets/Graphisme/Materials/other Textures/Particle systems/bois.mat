@@ -6,10 +6,10 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: water
-  m_Shader: {fileID: 4800000, guid: 24d6779479c2c214ab7eda2a4feb1182, type: 3}
-  m_ShaderKeywords: _EMISSION
-  m_LightmapFlags: 1
+  m_Name: bois
+  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: _ALPHABLEND_ON _SPECULARHIGHLIGHTS_OFF
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -17,12 +17,12 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 19cb157b097517a4b820367bbdab4229, type: 3}
-        m_Scale: {x: 0.8, y: -0.45}
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Cube:
-        m_Texture: {fileID: 8900000, guid: f7dca9b35c316224296828571c15c45d, type: 2}
+    - _BumpMap:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -41,9 +41,13 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _FalloffTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 454a38508025cbd4cbe5eb22a32f160a, type: 3}
-        m_Scale: {x: 0.81, y: -0.45}
+        m_Texture: {fileID: 2800000, guid: db0d0e46be0bdbc468fa759c4585a8d0, type: 3}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
@@ -57,28 +61,37 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _ShadowTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
+    - PixelSnap: 0
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _DstBlend: 0
+    - _DstBlend: 10
+    - _EdgeLength: 10
+    - _EnableExternalAlpha: 0
     - _GlossMapScale: 1
-    - _Glossiness: 1
+    - _Glossiness: 0
     - _GlossyReflections: 1
+    - _InvFade: 0.01
     - _Metallic: 0
-    - _Mode: 0
+    - _Mode: 2
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _PhaseMultiplier: 6.15
-    - _Shininess: 0.16
+    - _Shininess: 0.078125
     - _SmoothnessTextureChannel: 0
-    - _SpecularHighlights: 1
-    - _SrcBlend: 1
+    - _SpecularHighlights: 0
+    - _SrcBlend: 5
     - _UVSec: 0
-    - _WaveHeigth: 0.097
-    - _ZWrite: 1
+    - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 0.0063797636, g: 0.65381503, b: 0.86764705, a: 1}
-    - _EmissionColor: {r: 0, g: 0.015263688, b: 0.051470578, a: 1}
-    - _ReflectColor: {r: 0.064284176, g: 0.25239748, b: 0.30147058, a: 0.5}
-    - _SpecColor: {r: 0.38235295, g: 0.38235295, b: 0.38235295, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmisColor: {r: 0.2, g: 0.2, b: 0.2, a: 0}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _TintColor: {r: 0.49264705, g: 0.47453502, b: 0.47453502, a: 0.5}
