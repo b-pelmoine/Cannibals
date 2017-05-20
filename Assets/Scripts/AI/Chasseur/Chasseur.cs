@@ -220,7 +220,8 @@ namespace AI
         public void Call(GameObject target)
         {
             shootTarget = target;
-            Play(GoTo);
+            if(IsIdle())
+                Play(GoTo);
         }
 
         void OnBottleShaked(Bottle bot)
