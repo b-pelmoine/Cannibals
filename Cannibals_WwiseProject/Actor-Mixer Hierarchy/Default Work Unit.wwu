@@ -19,6 +19,11 @@
 						<ActorMixer Name="Amb Forest" ID="{4DBA9C02-99F2-4E74-9FFE-0EC16ABB6BF4}" ShortID="935235556">
 							<PropertyList>
 								<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+								<Property Name="MakeUpGain" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
 								<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
 								<Property Name="MaxSoundPerInstance" Type="int16">
 									<ValueList>
@@ -69,6 +74,22 @@
 										</Property>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="OverrideVirtualVoice" Type="bool" Value="True"/>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>150</Value>
+											</ValueList>
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{55371D7B-2DBF-4D5B-9EC2-CDEAC7F917FB}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="100"/>
+															<Property Name="Min" Type="Real64" Value="-100"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
 										<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
 										<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="5">
@@ -85,13 +106,26 @@
 										</Property>
 										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 										<Property Name="PositioningType" Type="int16" Value="1"/>
-										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="10"/>
+										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="5"/>
 										<Property Name="UseMaxSoundPerInstance" Type="bool">
 											<ValueList>
 												<Value>True</Value>
 											</ValueList>
 										</Property>
 										<Property Name="VirtualVoiceQueueBehavior" Type="int16" Value="0"/>
+										<Property Name="Volume" Type="Real64">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{28C3A67F-63AF-40B5-AD7E-B696DE545980}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="3"/>
+															<Property Name="Min" Type="Real64" Value="-3"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Attenuation">
@@ -107,7 +141,7 @@
 									<ChildrenList>
 										<RandomSequenceContainer Name="Bald Eagle" ID="{B01375DA-2864-4646-BFD5-F1D55BAD5CD6}" ShortID="114337463">
 											<PropertyList>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="3"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -198,7 +232,7 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Yellow Bird" ID="{11791994-3D36-4705-B18A-3541F81684E1}" ShortID="95776817">
 											<PropertyList>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="25"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="13"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -1714,7 +1748,7 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Wren" ID="{DA6B34A2-9450-4ED6-A279-09249AF13851}" ShortID="262081760">
 											<PropertyList>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="4"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -1829,7 +1863,7 @@
 														<Value>-6</Value>
 													</ValueList>
 												</Property>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="10"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="5"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -2457,7 +2491,7 @@
 														<Value>-12</Value>
 													</ValueList>
 												</Property>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="10"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="5"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -2966,7 +3000,7 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Robin" ID="{9112A150-A8D6-4086-92EA-2C383FC0A72C}" ShortID="42140664">
 											<PropertyList>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="8"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="6"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -3152,7 +3186,7 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Redstart" ID="{C69BF1B9-6309-406D-B577-A36FA26F1F6B}" ShortID="227077276">
 											<PropertyList>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="10"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="6"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -3376,7 +3410,7 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Nightingale" ID="{B9497505-591A-4836-8EBC-674A1B84329C}" ShortID="322054249">
 											<PropertyList>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="15"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="8"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -3695,7 +3729,7 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Mockingbird" ID="{7570F0E4-F74F-404D-98F6-D68540702BCC}" ShortID="549697247">
 											<PropertyList>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="15"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="7"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -4736,7 +4770,7 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Magpie" ID="{5603ECFB-D952-4873-B216-BC48E99D3550}" ShortID="408449994">
 											<PropertyList>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="10"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="6"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -4960,7 +4994,7 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Greenfinch" ID="{6C97E50D-669B-402C-B05F-FA571BB22A8F}" ShortID="725234531">
 											<PropertyList>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="15"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="9"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -5526,7 +5560,7 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Flapping bird" ID="{3A8B5BF3-32D7-45EF-A12B-456EF11D60D4}" ShortID="422519542">
 											<PropertyList>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="4"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -5657,7 +5691,7 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Coniferous bird" ID="{B90600B2-FCB7-47DD-B304-85EB66EFFFA6}" ShortID="415089778">
 											<PropertyList>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="10"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="6"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -5919,7 +5953,7 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Coal tit" ID="{1E910B63-AEC7-458C-B1B0-A60DA5C423B8}" ShortID="585651323">
 											<PropertyList>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="5"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="3"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -6029,7 +6063,7 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Chiffchaff" ID="{DACF5D4D-4166-44F9-97FE-D6E907A61937}" ShortID="248578236">
 											<PropertyList>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="6"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="4"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -6177,7 +6211,7 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Chaffinch" ID="{FE6498C5-62B0-40FD-8868-7A063B25C6E1}" ShortID="238465489">
 											<PropertyList>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="6"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="4"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -6329,7 +6363,7 @@
 									<PropertyList>
 										<Property Name="MakeUpGain" Type="Real64">
 											<ValueList>
-												<Value>-8</Value>
+												<Value>-15</Value>
 											</ValueList>
 										</Property>
 										<Property Name="OverrideEffect" Type="bool" Value="True"/>
@@ -6379,54 +6413,6 @@
 										<ItemRef Name="Amb tone" ID="{DA9FE918-7493-470A-8EA9-3D6D49BAB8FC}"/>
 									</Playlist>
 								</RandomSequenceContainer>
-								<RandomSequenceContainer Name="Loop forest birds" ID="{6269A903-DAA8-408C-821C-BC0DED45E95D}" ShortID="10424399">
-									<PropertyList>
-										<Property Name="MakeUpGain" Type="Real64">
-											<ValueList>
-												<Value>-25</Value>
-											</ValueList>
-										</Property>
-										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
-										<Property Name="PlayMechanismResetPlaylistEachPlay" Type="bool" Value="False"/>
-										<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
-										<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="2"/>
-										<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="4"/>
-										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
-										<Property Name="RandomOrSequence" Type="int16" Value="0"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<Sound Name="Amb birds" ID="{425D3B3A-BF20-4050-AFBC-5CE77BF8F525}" ShortID="984783743" Type="SoundFX">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="24 - Sky lark - Feldlerch-NORM_05-01" ID="{8ABB9383-DF74-4452-A3C9-7B2A5A7667DD}" ShortID="857493091">
-													<Language>SFX</Language>
-													<AudioFile>24 - Sky lark - Feldlerch-NORM_05-01.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="24 - Sky lark - Feldlerch-NORM_05-01" ID="{8ABB9383-DF74-4452-A3C9-7B2A5A7667DD}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-									</ChildrenList>
-									<Playlist>
-										<ItemRef Name="Amb birds" ID="{425D3B3A-BF20-4050-AFBC-5CE77BF8F525}"/>
-									</Playlist>
-								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="Fauna begin" ID="{05385E2E-FBB2-4CD9-9063-80EDFB505614}" ShortID="396810064">
 									<PropertyList>
 										<Property Name="BelowThresholdBehavior" Type="int16" Value="2"/>
@@ -6454,6 +6440,22 @@
 										</Property>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="OverrideVirtualVoice" Type="bool" Value="True"/>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>150</Value>
+											</ValueList>
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{0A38A93B-308E-425B-9C9D-5A8E51DE6649}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="100"/>
+															<Property Name="Min" Type="Real64" Value="-100"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
 										<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
 										<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0">
@@ -6468,13 +6470,26 @@
 											</ModifierList>
 										</Property>
 										<Property Name="PositioningType" Type="int16" Value="1"/>
-										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="10"/>
+										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="5"/>
 										<Property Name="UseMaxSoundPerInstance" Type="bool">
 											<ValueList>
 												<Value>True</Value>
 											</ValueList>
 										</Property>
 										<Property Name="VirtualVoiceQueueBehavior" Type="int16" Value="0"/>
+										<Property Name="Volume" Type="Real64">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{EE340AA2-296A-4EE0-9D1F-F96B8CFB79BF}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="3"/>
+															<Property Name="Min" Type="Real64" Value="-3"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Attenuation">
@@ -6490,7 +6505,7 @@
 									<ChildrenList>
 										<RandomSequenceContainer Name="Bald Eagle" ID="{2BA23F4A-DB64-48C3-95B1-6B749AC5357E}" ShortID="352871125">
 											<PropertyList>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="3"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -6593,7 +6608,7 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Yellow Bird" ID="{830759DA-F1B7-4BEC-BB5F-CA9232BE838F}" ShortID="843164908">
 											<PropertyList>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="25"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="12"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -8346,7 +8361,7 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Wren" ID="{C9E2E191-5A64-4813-8BC6-310017AFC20D}" ShortID="139404593">
 											<PropertyList>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="4"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -8476,7 +8491,7 @@
 														<Value>-6</Value>
 													</ValueList>
 												</Property>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="10"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="5"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -9200,7 +9215,7 @@
 														<Value>-12</Value>
 													</ValueList>
 												</Property>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="10"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="5"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -9787,7 +9802,7 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Robin" ID="{579CAB0B-E10C-4EAE-B806-D2E02F30E6BA}" ShortID="526632664">
 											<PropertyList>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="8"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="4"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -10000,7 +10015,7 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Redstart" ID="{2F6205AE-D75A-41C5-8FAC-CF322F55F94A}" ShortID="917898526">
 											<PropertyList>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="10"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="5"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -10257,7 +10272,7 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Nightingale" ID="{BDBE5D36-835E-4238-ABC9-30BE616DB087}" ShortID="677209604">
 											<PropertyList>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="15"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="7"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -10624,7 +10639,7 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Mockingbird" ID="{65E12E6A-497E-48E4-A50E-609BC93B4252}" ShortID="114113787">
 											<PropertyList>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="15"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="7"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -11827,7 +11842,7 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Magpie" ID="{BE9F11E3-7C2D-45D7-B72B-31431BE08ACC}" ShortID="846259097">
 											<PropertyList>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="10"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="5"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -12084,7 +12099,7 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Greenfinch" ID="{1B31906F-58D7-42BE-8AB6-4747C0E26B19}" ShortID="239324911">
 											<PropertyList>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="15"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="7"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -12737,7 +12752,7 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Flapping bird" ID="{42A2AE58-9752-4BB7-98D2-6B1871EFFDC2}" ShortID="22647512">
 											<PropertyList>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="4"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -12883,7 +12898,7 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Coniferous bird" ID="{4731C5B7-BC43-406A-BB28-F652BF3F573F}" ShortID="127873258">
 											<PropertyList>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="10"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="5"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -13309,7 +13324,7 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Chiffchaff" ID="{4379F52D-0998-48EB-8EB6-EEF5AA6178DE}" ShortID="460398989">
 											<PropertyList>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="6"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="3"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -13478,7 +13493,7 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Chaffinch" ID="{CD73C1A4-0180-40A1-B92B-2AD8A72CCE83}" ShortID="713829447">
 											<PropertyList>
-												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="6"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -13644,6 +13659,174 @@
 													</ActiveSourceList>
 												</Sound>
 											</ChildrenList>
+										</RandomSequenceContainer>
+									</ChildrenList>
+								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="Forest birds" ID="{7B3FA1AF-7B47-4AF0-87EE-759246E6E7F9}" ShortID="744365018">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Amb" ID="{9601936D-E8AC-4C84-867B-FB6173683DD9}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+										</Reference>
+										<Reference Name="UserAuxSend0">
+											<ObjectRef Name="Rverb_forest" ID="{BEE1AC0B-971A-4A04-9056-545507F906A1}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<RandomSequenceContainer Name="Loop forest birds 1" ID="{6269A903-DAA8-408C-821C-BC0DED45E95D}" ShortID="10424399">
+											<PropertyList>
+												<Property Name="MakeUpGain" Type="Real64">
+													<ValueList>
+														<Value>-15</Value>
+													</ValueList>
+												</Property>
+												<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismResetPlaylistEachPlay" Type="bool" Value="False"/>
+												<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="2"/>
+												<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="4"/>
+												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Amb" ID="{9601936D-E8AC-4C84-867B-FB6173683DD9}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+												<Reference Name="UserAuxSend0">
+													<ObjectRef Name="Rverb_forest" ID="{BEE1AC0B-971A-4A04-9056-545507F906A1}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="Amb birds" ID="{425D3B3A-BF20-4050-AFBC-5CE77BF8F525}" ShortID="984783743" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="24 - Sky lark - Feldlerch-NORM_05-01" ID="{8ABB9383-DF74-4452-A3C9-7B2A5A7667DD}" ShortID="857493091">
+															<Language>SFX</Language>
+															<AudioFile>24 - Sky lark - Feldlerch-NORM_05-01.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="24 - Sky lark - Feldlerch-NORM_05-01" ID="{8ABB9383-DF74-4452-A3C9-7B2A5A7667DD}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+											<Playlist>
+												<ItemRef Name="Amb birds" ID="{425D3B3A-BF20-4050-AFBC-5CE77BF8F525}"/>
+											</Playlist>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Loop forest birds 2" ID="{27F5856B-DB77-481C-8437-525F25670545}" ShortID="151859303">
+											<PropertyList>
+												<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="4"/>
+												<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="4"/>
+												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="AT-10 03 Ambience, Night-01" ID="{4BD52966-C534-4283-B79B-C781E0C86DA8}" ShortID="799185138" Type="SoundFX">
+													<PropertyList>
+														<Property Name="MakeUpGain" Type="Real64">
+															<ValueList>
+																<Value>-25</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Amb" ID="{9601936D-E8AC-4C84-867B-FB6173683DD9}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+														<Reference Name="UserAuxSend0">
+															<ObjectRef Name="Rverb_forest" ID="{BEE1AC0B-971A-4A04-9056-545507F906A1}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="AT-10 03 Ambience, Night-01" ID="{24B78202-434E-4937-A03D-D6D5F9F287D2}" ShortID="876997553">
+															<Language>SFX</Language>
+															<AudioFile>AT-10 03 Ambience, Night-01.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="AT-10 03 Ambience, Night-01" ID="{24B78202-434E-4937-A03D-D6D5F9F287D2}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+											<Playlist>
+												<ItemRef Name="AT-10 03 Ambience, Night-01" ID="{4BD52966-C534-4283-B79B-C781E0C86DA8}"/>
+											</Playlist>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Loop forest birds 3" ID="{439A6A0F-CE6E-4D22-97AC-4E9BCB7609C9}" ShortID="630511443">
+											<PropertyList>
+												<Property Name="MakeUpGain" Type="Real64">
+													<ValueList>
+														<Value>-20</Value>
+													</ValueList>
+												</Property>
+												<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="4"/>
+												<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="4"/>
+												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="AT-10 07 Ambience, Mounta-02" ID="{11BC471F-23F8-4CC9-8EAB-2C020563DA5F}" ShortID="446049010" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Amb" ID="{9601936D-E8AC-4C84-867B-FB6173683DD9}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+														<Reference Name="UserAuxSend0">
+															<ObjectRef Name="Rverb_forest" ID="{BEE1AC0B-971A-4A04-9056-545507F906A1}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="AT-10 07 Ambience, Mounta-02" ID="{81630726-720F-4CBF-A8C8-E87234FEF671}" ShortID="510197415">
+															<Language>SFX</Language>
+															<AudioFile>AT-10 07 Ambience, Mounta-02.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="AT-10 07 Ambience, Mounta-02" ID="{81630726-720F-4CBF-A8C8-E87234FEF671}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+											<Playlist>
+												<ItemRef Name="AT-10 07 Ambience, Mounta-02" ID="{11BC471F-23F8-4CC9-8EAB-2C020563DA5F}"/>
+											</Playlist>
 										</RandomSequenceContainer>
 									</ChildrenList>
 								</RandomSequenceContainer>
@@ -23289,140 +23472,6 @@
 										</GroupingList>
 									</GroupingInfo>
 								</SwitchContainer>
-								<RandomSequenceContainer Name="KO" ID="{6CE92CD3-1866-4D70-98E3-20903D52CDAC}" ShortID="218818414">
-									<PropertyList>
-										<Property Name="MakeUpGain" Type="Real64">
-											<ValueList>
-												<Value>-12</Value>
-											</ValueList>
-										</Property>
-										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="5"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<Sound Name="KO_1" ID="{6E90786C-7ED1-44D4-A259-B4DE3E73E848}" ShortID="228425450" Type="SoundFX">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="KO-C3AS_07-22" ID="{F2D9D0AF-65B0-4183-B224-D3FE0B1C62DD}" ShortID="940176480">
-													<Language>SFX</Language>
-													<AudioFile>KO-C3AS_07-22.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="KO-C3AS_07-22" ID="{F2D9D0AF-65B0-4183-B224-D3FE0B1C62DD}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="KO_2" ID="{DBAEDE7E-25E2-422B-A985-AF24E76F5862}" ShortID="350186474" Type="SoundFX">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="KO-C3AS_08-11" ID="{29AA05E9-EE90-4384-9B72-C301E481AE2E}" ShortID="890192814">
-													<Language>SFX</Language>
-													<AudioFile>KO-C3AS_08-11.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="KO-C3AS_08-11" ID="{29AA05E9-EE90-4384-9B72-C301E481AE2E}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="KO_3" ID="{AB8EF6AF-9936-4BDD-939D-AA71F5C1BBC6}" ShortID="175650645" Type="SoundFX">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="KO-C3AS_09-07" ID="{C98B0976-84B0-4AFF-9C95-883BDB7C6436}" ShortID="845519913">
-													<Language>SFX</Language>
-													<AudioFile>KO-C3AS_09-07.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="KO-C3AS_09-07" ID="{C98B0976-84B0-4AFF-9C95-883BDB7C6436}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="KO_4" ID="{C7FA172E-A3E5-4C6B-85DE-4DD0BE0DD21D}" ShortID="708147163" Type="SoundFX">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="KO-C3AS_10-20" ID="{45044EC1-BE61-408C-875F-95A2A6B52F15}" ShortID="521853464">
-													<Language>SFX</Language>
-													<AudioFile>KO-C3AS_10-20.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="KO-C3AS_10-20" ID="{45044EC1-BE61-408C-875F-95A2A6B52F15}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="KO_5" ID="{09040D1C-16D3-4ADB-BFB6-CD4BCF7F2866}" ShortID="328143424" Type="SoundFX">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="KO-C3AS_11-15" ID="{48C4E751-AE93-44FB-8D6D-CDEA5EE07C6E}" ShortID="500000654">
-													<Language>SFX</Language>
-													<AudioFile>KO-C3AS_11-15.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="KO-C3AS_11-15" ID="{48C4E751-AE93-44FB-8D6D-CDEA5EE07C6E}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="KO_6" ID="{06014909-2B64-4547-815F-84B8859E6F74}" ShortID="432605288" Type="SoundFX">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="KO-C3AS_12-17" ID="{4E6EE479-0A72-4696-9C21-2E0541471EA9}" ShortID="806070136">
-													<Language>SFX</Language>
-													<AudioFile>KO-C3AS_12-17.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="KO-C3AS_12-17" ID="{4E6EE479-0A72-4696-9C21-2E0541471EA9}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-									</ChildrenList>
-								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="Stab" ID="{295083FF-F58C-4E99-B18A-226379ACC393}" ShortID="1067124898">
 									<PropertyList>
 										<Property Name="MakeUpGain" Type="Real64">
@@ -25319,6 +25368,211 @@
 											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>
+								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="KO" ID="{524A4488-E5E2-4D53-B50D-F73296BB997A}" ShortID="350760318">
+									<PropertyList>
+										<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+										<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<RandomSequenceContainer Name="Shout" ID="{6CE92CD3-1866-4D70-98E3-20903D52CDAC}" ShortID="218818414">
+											<PropertyList>
+												<Property Name="MakeUpGain" Type="Real64">
+													<ValueList>
+														<Value>-12</Value>
+													</ValueList>
+												</Property>
+												<Property Name="PositioningType" Type="int16" Value="1"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="5"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{D3C3252A-A46D-453F-B2E2-9A2EAB3A4AB3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+												<Reference Name="UserAuxSend0">
+													<ObjectRef Name="Rverb_forest" ID="{BEE1AC0B-971A-4A04-9056-545507F906A1}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="KO_1" ID="{6E90786C-7ED1-44D4-A259-B4DE3E73E848}" ShortID="228425450" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="KO-C3AS_07-22" ID="{F2D9D0AF-65B0-4183-B224-D3FE0B1C62DD}" ShortID="940176480">
+															<Language>SFX</Language>
+															<AudioFile>KO-C3AS_07-22.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="KO-C3AS_07-22" ID="{F2D9D0AF-65B0-4183-B224-D3FE0B1C62DD}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="KO_2" ID="{DBAEDE7E-25E2-422B-A985-AF24E76F5862}" ShortID="350186474" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="KO-C3AS_08-11" ID="{29AA05E9-EE90-4384-9B72-C301E481AE2E}" ShortID="890192814">
+															<Language>SFX</Language>
+															<AudioFile>KO-C3AS_08-11.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="KO-C3AS_08-11" ID="{29AA05E9-EE90-4384-9B72-C301E481AE2E}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="KO_3" ID="{AB8EF6AF-9936-4BDD-939D-AA71F5C1BBC6}" ShortID="175650645" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="KO-C3AS_09-07" ID="{C98B0976-84B0-4AFF-9C95-883BDB7C6436}" ShortID="845519913">
+															<Language>SFX</Language>
+															<AudioFile>KO-C3AS_09-07.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="KO-C3AS_09-07" ID="{C98B0976-84B0-4AFF-9C95-883BDB7C6436}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="KO_4" ID="{C7FA172E-A3E5-4C6B-85DE-4DD0BE0DD21D}" ShortID="708147163" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="KO-C3AS_10-20" ID="{45044EC1-BE61-408C-875F-95A2A6B52F15}" ShortID="521853464">
+															<Language>SFX</Language>
+															<AudioFile>KO-C3AS_10-20.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="KO-C3AS_10-20" ID="{45044EC1-BE61-408C-875F-95A2A6B52F15}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="KO_5" ID="{09040D1C-16D3-4ADB-BFB6-CD4BCF7F2866}" ShortID="328143424" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="KO-C3AS_11-15" ID="{48C4E751-AE93-44FB-8D6D-CDEA5EE07C6E}" ShortID="500000654">
+															<Language>SFX</Language>
+															<AudioFile>KO-C3AS_11-15.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="KO-C3AS_11-15" ID="{48C4E751-AE93-44FB-8D6D-CDEA5EE07C6E}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="KO_6" ID="{06014909-2B64-4547-815F-84B8859E6F74}" ShortID="432605288" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="KO-C3AS_12-17" ID="{4E6EE479-0A72-4696-9C21-2E0541471EA9}" ShortID="806070136">
+															<Language>SFX</Language>
+															<AudioFile>KO-C3AS_12-17.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="KO-C3AS_12-17" ID="{4E6EE479-0A72-4696-9C21-2E0541471EA9}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<Sound Name="Tweetytweety" ID="{CB1F10BE-BEA8-4655-B1F4-7B532446589E}" ShortID="970574168" Type="SoundFX">
+											<PropertyList>
+												<Property Name="MakeUpGain" Type="Real64">
+													<ValueList>
+														<Value>-24</Value>
+													</ValueList>
+												</Property>
+												<Property Name="Pitch" Type="int32">
+													<ValueList>
+														<Value>150</Value>
+													</ValueList>
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{CE203AA4-5CD2-41C1-8054-B0476F79E9F1}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="100"/>
+																	<Property Name="Min" Type="Real64" Value="-100"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="PositioningType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{D3C3252A-A46D-453F-B2E2-9A2EAB3A4AB3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+												<Reference Name="UserAuxSend0">
+													<ObjectRef Name="Rverb_forest" ID="{BEE1AC0B-971A-4A04-9056-545507F906A1}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="MFX1_12" ID="{6E3C2392-DEDC-4F25-996C-59CF4D2F7BE0}" ShortID="498386427">
+													<Language>SFX</Language>
+													<AudioFile>MFX1_12.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="MFX1_12" ID="{6E3C2392-DEDC-4F25-996C-59CF4D2F7BE0}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+									<Playlist>
+										<ItemRef Name="Shout" ID="{6CE92CD3-1866-4D70-98E3-20903D52CDAC}"/>
+										<ItemRef Name="Tweetytweety" ID="{CB1F10BE-BEA8-4655-B1F4-7B532446589E}"/>
+									</Playlist>
 								</RandomSequenceContainer>
 							</ChildrenList>
 						</ActorMixer>
@@ -32588,6 +32842,11 @@
 									<ChildrenList>
 										<RandomSequenceContainer Name="Layer 1" ID="{02781905-8647-4877-828F-BCC222DD1D63}" ShortID="877703473">
 											<PropertyList>
+												<Property Name="MakeUpGain" Type="Real64">
+													<ValueList>
+														<Value>3</Value>
+													</ValueList>
+												</Property>
 												<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 												<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
 												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
@@ -32630,7 +32889,7 @@
 											<PropertyList>
 												<Property Name="MakeUpGain" Type="Real64">
 													<ValueList>
-														<Value>3</Value>
+														<Value>6</Value>
 													</ValueList>
 												</Property>
 												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
@@ -33006,7 +33265,7 @@
 															</Point>
 															<Point>
 																<XPos>1</XPos>
-																<YPos>0</YPos>
+																<YPos>360</YPos>
 																<Flags>37</Flags>
 															</Point>
 														</PointList>
@@ -33038,6 +33297,13 @@
 																<XPos>0</XPos>
 																<YPos>-200</YPos>
 																<Flags>5</Flags>
+																<SegmentShape>Exp1</SegmentShape>
+															</Point>
+															<Point>
+																<XPos>0.49948</XPos>
+																<YPos>-10.12568</YPos>
+																<Flags>0</Flags>
+																<SegmentShape>Log1</SegmentShape>
 															</Point>
 															<Point>
 																<XPos>1</XPos>
@@ -33059,70 +33325,7 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="hiii" ID="{9AE731EF-D407-4714-B895-368603C6A262}" ShortID="502180438" Type="SoundFX">
-											<PropertyList>
-												<Property Name="Pitch" Type="int32">
-													<RTPCList>
-														<RTPC Name="" ID="{4B980783-94B9-4998-9D51-4CCEEB8C239B}" ShortID="99975248">
-															<ReferenceList>
-																<Reference Name="ControlInput">
-																	<ObjectRef Name="spotted" ID="{51998773-E63C-4082-A0F6-108CB4439A16}" WorkUnitID="{310A2652-B3EA-4EA2-8156-BCC60ACF3B8D}"/>
-																</Reference>
-															</ReferenceList>
-															<Curve Name="" ID="{E11C40D7-CF1F-46E3-8422-0BD50602B3C2}">
-																<PropertyList>
-																	<Property Name="Flags" Type="int32" Value="65537"/>
-																</PropertyList>
-																<PointList>
-																	<Point>
-																		<XPos>0</XPos>
-																		<YPos>0</YPos>
-																		<Flags>5</Flags>
-																	</Point>
-																	<Point>
-																		<XPos>0.498435870698644</XPos>
-																		<YPos>0</YPos>
-																		<Flags>0</Flags>
-																	</Point>
-																	<Point>
-																		<XPos>1</XPos>
-																		<YPos>225</YPos>
-																		<Flags>37</Flags>
-																	</Point>
-																</PointList>
-															</Curve>
-														</RTPC>
-													</RTPCList>
-												</Property>
-												<Property Name="Volume" Type="Real64">
-													<RTPCList>
-														<RTPC Name="" ID="{CB3A865F-20AD-4326-8CE2-0AB7058AFD20}" ShortID="459166786">
-															<ReferenceList>
-																<Reference Name="ControlInput">
-																	<ObjectRef Name="spotted" ID="{51998773-E63C-4082-A0F6-108CB4439A16}" WorkUnitID="{310A2652-B3EA-4EA2-8156-BCC60ACF3B8D}"/>
-																</Reference>
-															</ReferenceList>
-															<Curve Name="" ID="{BDA08ABF-B8D5-45DF-BF16-9D9D3CF637F5}">
-																<PropertyList>
-																	<Property Name="Flags" Type="int32" Value="3"/>
-																</PropertyList>
-																<PointList>
-																	<Point>
-																		<XPos>0</XPos>
-																		<YPos>-200</YPos>
-																		<Flags>5</Flags>
-																	</Point>
-																	<Point>
-																		<XPos>1</XPos>
-																		<YPos>0</YPos>
-																		<Flags>37</Flags>
-																	</Point>
-																</PointList>
-															</Curve>
-														</RTPC>
-													</RTPCList>
-												</Property>
-											</PropertyList>
+										<Sound Name="Hiiii" ID="{AF67B492-675C-408D-9875-952FE404B1D6}" ShortID="177345773" Type="SoundFX">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
@@ -33132,80 +33335,16 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="hiii" ID="{1BFDE3DB-C895-4CE8-968A-487FCF8EEAE8}" ShortID="884122652">
+												<AudioFileSource Name="Hiiii" ID="{845C21D4-B61E-46FF-B379-8ECBE3467A1A}" ShortID="572050357">
 													<Language>SFX</Language>
-													<AudioFile>hiii.wav</AudioFile>
+													<AudioFile>Hiiii.wav</AudioFile>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="hiii" ID="{1BFDE3DB-C895-4CE8-968A-487FCF8EEAE8}" Platform="Linked"/>
+												<ActiveSource Name="Hiiii" ID="{845C21D4-B61E-46FF-B379-8ECBE3467A1A}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="hii loop" ID="{15EB503C-F0BA-48F1-83C5-654361BF618D}" ShortID="122721759" Type="SoundFX">
-											<PropertyList>
-												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-												<Property Name="Pitch" Type="int32">
-													<RTPCList>
-														<RTPC Name="" ID="{8D930A13-44FE-4136-900F-34652C742589}" ShortID="535192612">
-															<ReferenceList>
-																<Reference Name="ControlInput">
-																	<ObjectRef Name="spotted" ID="{51998773-E63C-4082-A0F6-108CB4439A16}" WorkUnitID="{310A2652-B3EA-4EA2-8156-BCC60ACF3B8D}"/>
-																</Reference>
-															</ReferenceList>
-															<Curve Name="" ID="{0231B3AF-930D-45EC-96F6-17FE98374365}">
-																<PropertyList>
-																	<Property Name="Flags" Type="int32" Value="65537"/>
-																</PropertyList>
-																<PointList>
-																	<Point>
-																		<XPos>0</XPos>
-																		<YPos>0</YPos>
-																		<Flags>5</Flags>
-																	</Point>
-																	<Point>
-																		<XPos>0.499478623566215</XPos>
-																		<YPos>0</YPos>
-																		<Flags>0</Flags>
-																	</Point>
-																	<Point>
-																		<XPos>1</XPos>
-																		<YPos>225</YPos>
-																		<Flags>37</Flags>
-																	</Point>
-																</PointList>
-															</Curve>
-														</RTPC>
-													</RTPCList>
-												</Property>
-												<Property Name="Volume" Type="Real64">
-													<RTPCList>
-														<RTPC Name="" ID="{C49DB116-E2D3-4DB4-ADA5-9EF6F003B734}" ShortID="328113818">
-															<ReferenceList>
-																<Reference Name="ControlInput">
-																	<ObjectRef Name="spotted" ID="{51998773-E63C-4082-A0F6-108CB4439A16}" WorkUnitID="{310A2652-B3EA-4EA2-8156-BCC60ACF3B8D}"/>
-																</Reference>
-															</ReferenceList>
-															<Curve Name="" ID="{95C19AE8-A72D-4B31-AE76-ECB7A716D9B1}">
-																<PropertyList>
-																	<Property Name="Flags" Type="int32" Value="3"/>
-																</PropertyList>
-																<PointList>
-																	<Point>
-																		<XPos>0</XPos>
-																		<YPos>-200</YPos>
-																		<Flags>5</Flags>
-																	</Point>
-																	<Point>
-																		<XPos>1</XPos>
-																		<YPos>0</YPos>
-																		<Flags>37</Flags>
-																	</Point>
-																</PointList>
-															</Curve>
-														</RTPC>
-													</RTPCList>
-												</Property>
-											</PropertyList>
+										<Sound Name="hiiii loop" ID="{6A058F75-AF2F-46F3-B69C-97E089E94883}" ShortID="225691559" Type="SoundFX">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
@@ -33215,19 +33354,19 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="hii loop" ID="{CB6D2D84-EBDD-4735-9810-8ACA4163C9BE}" ShortID="612289190">
+												<AudioFileSource Name="hiiii loop" ID="{D10F959C-0C21-4564-89EE-7D5E9473471E}" ShortID="808365475">
 													<Language>SFX</Language>
-													<AudioFile>hii loop.wav</AudioFile>
+													<AudioFile>hiiii loop.wav</AudioFile>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="hii loop" ID="{CB6D2D84-EBDD-4735-9810-8ACA4163C9BE}" Platform="Linked"/>
+												<ActiveSource Name="hiiii loop" ID="{D10F959C-0C21-4564-89EE-7D5E9473471E}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>
 									<Playlist>
-										<ItemRef Name="hiii" ID="{9AE731EF-D407-4714-B895-368603C6A262}"/>
-										<ItemRef Name="hii loop" ID="{15EB503C-F0BA-48F1-83C5-654361BF618D}"/>
+										<ItemRef Name="Hiiii" ID="{AF67B492-675C-408D-9875-952FE404B1D6}"/>
+										<ItemRef Name="hiiii loop" ID="{6A058F75-AF2F-46F3-B69C-97E089E94883}"/>
 									</Playlist>
 								</RandomSequenceContainer>
 								<Sound Name="Hit" ID="{E34B911F-0E86-4D34-A537-47CFE7DE236B}" ShortID="941032789" Type="SoundFX">
@@ -33249,16 +33388,11 @@
 										<ActiveSource Name="SFX1_03" ID="{FDD3EBD2-087E-4873-98FD-EEF623101A47}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="hiii end" ID="{41587D90-DB66-41F5-9277-3E62C0161AC4}" ShortID="562124142" Type="SoundFX">
+								<Sound Name="hiiii end" ID="{CA842812-8321-4FD8-810A-DB040403BF3D}" ShortID="59171041" Type="SoundFX">
 									<PropertyList>
-										<Property Name="MakeUpGain" Type="Real64">
-											<ValueList>
-												<Value>-3</Value>
-											</ValueList>
-										</Property>
 										<Property Name="Pitch" Type="int32">
 											<ValueList>
-												<Value>225</Value>
+												<Value>360</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -33271,17 +33405,146 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="hiii end" ID="{D9E5CCDF-0F76-4A3E-9A37-9F8FE73386AE}" ShortID="962954363">
+										<AudioFileSource Name="hiiii end" ID="{662651B2-AD1C-4E7D-8FF2-8080528ABDAA}" ShortID="555841683">
 											<Language>SFX</Language>
-											<AudioFile>hiii end.wav</AudioFile>
+											<AudioFile>hiiii end.wav</AudioFile>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="hiii end" ID="{D9E5CCDF-0F76-4A3E-9A37-9F8FE73386AE}" Platform="Linked"/>
+										<ActiveSource Name="hiiii end" ID="{662651B2-AD1C-4E7D-8FF2-8080528ABDAA}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
 						</ActorMixer>
+						<RandomSequenceContainer Name="Menu Click" ID="{4C458D0F-C742-43A8-9057-290F6CDA7506}" ShortID="286508226">
+							<PropertyList>
+								<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="3"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Click_1" ID="{F6AB57BE-DF26-42EB-9E6A-5F61D3413788}" ShortID="1044270712" Type="SoundFX">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{D3C3252A-A46D-453F-B2E2-9A2EAB3A4AB3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="REC M2_119" ID="{53A432EE-5123-475C-B9FD-A0F7A8213E9A}" ShortID="531223233">
+											<Language>SFX</Language>
+											<AudioFile>REC M2_119.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="REC M2_119" ID="{53A432EE-5123-475C-B9FD-A0F7A8213E9A}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Click_2" ID="{65A9E21B-E27A-41CD-8505-09D1CFBF8688}" ShortID="303069606" Type="SoundFX">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{D3C3252A-A46D-453F-B2E2-9A2EAB3A4AB3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="REC M2_120" ID="{E0221BDF-E07C-476A-BBDF-0358966D7DC6}" ShortID="664016456">
+											<Language>SFX</Language>
+											<AudioFile>REC M2_120.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="REC M2_120" ID="{E0221BDF-E07C-476A-BBDF-0358966D7DC6}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Click_3" ID="{06B95709-7F92-4DCD-A5B9-1324461956A6}" ShortID="600276562" Type="SoundFX">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{D3C3252A-A46D-453F-B2E2-9A2EAB3A4AB3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="REC M2_121" ID="{B2472E4D-2A13-4BA6-9793-3A170AFB15CB}" ShortID="235453594">
+											<Language>SFX</Language>
+											<AudioFile>REC M2_121.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="REC M2_121" ID="{B2472E4D-2A13-4BA6-9793-3A170AFB15CB}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Click_4" ID="{8A2E189D-CB55-4E96-9F9B-CA08AF2B8A1F}" ShortID="924613357" Type="SoundFX">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{D3C3252A-A46D-453F-B2E2-9A2EAB3A4AB3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="REC M2_122" ID="{6CE0565E-844B-460F-BDF2-A2290E2C083C}" ShortID="990343945">
+											<Language>SFX</Language>
+											<AudioFile>REC M2_122.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="REC M2_122" ID="{6CE0565E-844B-460F-BDF2-A2290E2C083C}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Click_5" ID="{7522D63A-D883-4253-9658-E8B53D48A861}" ShortID="505179663" Type="SoundFX">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{D3C3252A-A46D-453F-B2E2-9A2EAB3A4AB3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="REC M2_123" ID="{BC2A2C86-4638-4B1A-9F22-A75F04D2447A}" ShortID="810346159">
+											<Language>SFX</Language>
+											<AudioFile>REC M2_123.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="REC M2_123" ID="{BC2A2C86-4638-4B1A-9F22-A75F04D2447A}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Click_6" ID="{85F03E90-FE15-4C31-A25B-9F46AFE93CC9}" ShortID="655387156" Type="SoundFX">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{D3C3252A-A46D-453F-B2E2-9A2EAB3A4AB3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="REC M2_124" ID="{4D820A76-9DD7-48D0-9DBA-3678F884BA6D}" ShortID="672679342">
+											<Language>SFX</Language>
+											<AudioFile>REC M2_124.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="REC M2_124" ID="{4D820A76-9DD7-48D0-9DBA-3678F884BA6D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
 					</ChildrenList>
 				</ActorMixer>
 			</ChildrenList>
