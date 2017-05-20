@@ -250,6 +250,180 @@
 						</MusicPlaylistItem>
 					</Playlist>
 				</MusicPlaylistContainer>
+				<MusicPlaylistContainer Name="Spotted" ID="{F8C430ED-6464-4BB8-AD72-A588A6BFC153}" ShortID="729162539">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<MusicSegment Name="Xylo" ID="{EB9E1AC2-1D48-448F-ADCF-0AD178447BDB}" ShortID="161481290">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="5760"/>
+								<Property Name="MakeUpGain" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OverrideUserAuxSends" Type="bool" Value="True"/>
+								<Property Name="PlaybackSpeed" Type="Real64">
+									<RTPCList>
+										<RTPC Name="" ID="{D726DA52-E4F4-45D3-BF7D-D91ACB9AFAD5}" ShortID="79965635">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="spotted" ID="{51998773-E63C-4082-A0F6-108CB4439A16}" WorkUnitID="{310A2652-B3EA-4EA2-8156-BCC60ACF3B8D}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{FD010C0F-A5BC-473A-8F37-EA18B6EAF5F5}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="1"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>0.25</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>0.999</XPos>
+														<YPos>0.25</YPos>
+														<Flags>0</Flags>
+													</Point>
+													<Point>
+														<XPos>1</XPos>
+														<YPos>1</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<RTPCList>
+										<RTPC Name="" ID="{B7F95C16-18FD-4F8F-B027-45198EE36F81}" ShortID="232909565">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="spotted" ID="{51998773-E63C-4082-A0F6-108CB4439A16}" WorkUnitID="{310A2652-B3EA-4EA2-8156-BCC60ACF3B8D}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{EC6B9D5C-3F2A-4763-BE38-A4F8765BD8EC}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-200</YPos>
+														<Flags>5</Flags>
+														<SegmentShape>Exp2</SegmentShape>
+													</Point>
+													<Point>
+														<XPos>0.498073217726397</XPos>
+														<YPos>-6.05413620836993</YPos>
+														<Flags>0</Flags>
+														<SegmentShape>Log2</SegmentShape>
+													</Point>
+													<Point>
+														<XPos>1</XPos>
+														<YPos>0</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+								</Reference>
+								<Reference Name="UserAuxSend0">
+									<ObjectRef Name="Rverb_forest" ID="{BEE1AC0B-971A-4A04-9056-545507F906A1}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="Xylo" ID="{916421FF-FDE9-43E6-A1E5-08CF1365B791}" ShortID="266027512">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Audio 1_01" ID="{05747B0C-242A-4A7D-A3C5-632C1735B87A}" ShortID="949647823">
+											<Language>SFX</Language>
+											<AudioFile>Audio 1_01.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{59A4150B-950C-4FB9-9F31-BA77D2A0FCCC}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<SequenceList>
+										<MusicTrackSequence Name="" ID="{38FEFA74-4017-48BD-9467-76A27E48F49C}">
+											<ClipList>
+												<MusicClip Name="Audio 1_01" ID="{FF1A1A3A-C8C3-4A63-A8A1-4DF23A032117}">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="5760"/>
+														<Property Name="FadeInMode" Type="int16" Value="0"/>
+														<Property Name="FadeOutMode" Type="int16" Value="0"/>
+													</PropertyList>
+													<AudioSourceRef Name="Audio 1_01" ID="{05747B0C-242A-4A7D-A3C5-632C1735B87A}"/>
+												</MusicClip>
+											</ClipList>
+										</MusicTrackSequence>
+									</SequenceList>
+								</MusicTrack>
+							</ChildrenList>
+							<CueList>
+								<MusicCue Name="Entry Cue" ID="{03C0FBDA-04AA-4D82-8D09-7B0C107AB649}"/>
+								<MusicCue Name="Exit Cue" ID="{C4F2AC34-E4E0-4423-8166-BCBBD00B4332}">
+									<PropertyList>
+										<Property Name="CueType" Type="int16" Value="1"/>
+										<Property Name="TimeMs" Type="Real64" Value="5760"/>
+									</PropertyList>
+								</MusicCue>
+							</CueList>
+						</MusicSegment>
+					</ChildrenList>
+					<TransitionList>
+						<MusicTransition Name="Root" ID="{F7B2C018-A5F9-48B0-9673-E2E3DF321B26}">
+							<PropertyList>
+								<Property Name="IsFolder" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<MusicTransition Name="Transition" ID="{B5286BDD-33BE-466C-A431-CDD5807C87DD}">
+									<TransitionInfo/>
+								</MusicTransition>
+							</ChildrenList>
+							<TransitionInfo/>
+						</MusicTransition>
+					</TransitionList>
+					<Playlist>
+						<MusicPlaylistItem Name="" ID="{1AD4EAD0-EB46-4279-ABF6-46C573F65A36}" ShortID="933404824">
+							<ChildrenList>
+								<MusicPlaylistItem Name="" ID="{06C71523-3EC6-43BE-823D-B786CE3CC943}" ShortID="1024840446">
+									<PropertyList>
+										<Property Name="LoopCount" Type="int16" Value="0"/>
+										<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+									</PropertyList>
+									<SegmentRef Name="Xylo" ID="{EB9E1AC2-1D48-448F-ADCF-0AD178447BDB}"/>
+								</MusicPlaylistItem>
+							</ChildrenList>
+						</MusicPlaylistItem>
+					</Playlist>
+				</MusicPlaylistContainer>
 			</ChildrenList>
 		</WorkUnit>
 	</InteractiveMusic>
