@@ -48,6 +48,7 @@ namespace AI
             if (state == AIState.DEAD)
                 return;
             base.Update();
+            currentTarget = null;
 		    if(animator != null && agent!=null)
             {
                 animator.SetFloat(anim_speedId, agent.velocity.magnitude);
@@ -154,6 +155,7 @@ namespace AI
             {
                 if (los.getDetectRate(bestTarget)>=1 && (bestTarget.target.transform.position - transform.position).sqrMagnitude <= chaseShootDistance * chaseShootDistance)
                 {
+                    currentTarget = bestTarget.target;
                     agent.ResetPath();
                     animator.Play("Shoot");
                     shootTarget = bestTarget.target;
@@ -164,11 +166,13 @@ namespace AI
                 {
                     if (los.getDetectRate(bestTarget) >= 1)
                     {
+                        currentTarget = bestTarget.target;
                         agent.speed = runSpeed;
                         MoveTo(bestTarget.target.transform.position, 1);
                     }
                     else
                     {
+                        currentTarget = null;
                         agent.speed = walkSpeed;
                         MoveTo(bestTarget.target.transform.position, 1);
                     }
@@ -180,7 +184,8 @@ namespace AI
 
         protected bool GoTo()
         {
-            Chase();
+            if (Chase())
+                return true;
             if (MoveTo(shootTarget.transform.position, 3)) return true;
             return false;
         }
@@ -215,8 +220,8 @@ namespace AI
                             return true;
                         });
                     }
-                    if (los.sighted.Find(x => x.target == bot.linkedCannibal) == null)
-                        return true;
+                    //if (los.sighted.Find(x => x.target == bot.linkedCannibal) == null)
+                    //    return true;
                     return false;
                 });
             }

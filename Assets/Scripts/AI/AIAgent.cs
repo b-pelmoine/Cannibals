@@ -34,12 +34,19 @@ namespace AI
 
         protected int navMeshMask = 0;
 
+        protected GameObject currentTarget = null;
+
         public LineOfSight LoS
         {
             get
             {
                 return los;
             }
+        }
+
+        public GameObject getCurrentTarget()
+        {
+            return currentTarget;
         }
         
 
