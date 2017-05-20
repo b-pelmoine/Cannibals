@@ -36,12 +36,14 @@ public class DetectionIndicator : MonoBehaviour {
 
     void Start()
     {
+        //Init wwise sounds for detection
         AkSoundEngine.SetRTPCValue("spotted", 0, Camera.main.gameObject);
         AkSoundEngine.PostEvent("spotting", Camera.main.gameObject);
 
         arrowCounter = 0;
         arrowPool = new List<GameObject>();
         arrowRenderer = new List<MeshRenderer>();
+
         for (int i = 0; i < 10; i++)
         {
             arrowPool.Add(Instantiate(ArrowPrefab));
@@ -70,7 +72,7 @@ public class DetectionIndicator : MonoBehaviour {
             foreach (DetectionData data in trackers[i])
             {
                 //update arrow
-                placeArrowFromDataAtPosition(data, playerTransforms[i], true);
+                placeArrowFromDataAtPosition(data, playerTransforms[i], false);
                 if (data.detectRate > highestDetectionLevel) highestDetectionLevel = data.detectRate;
             }
         }
