@@ -28,6 +28,24 @@ namespace AI
             base.Start();
             type = AIType.Dog;
             //AkSoundEngine.PostEvent("dog_idle", gameObject);
+            ActionTask brain = new ActionTask();
+            brain.OnExecute = () =>
+            {
+                if (AnalyseSight())
+                    return;
+                if (WanderAround(hunter.transform.position, wanderDistance))
+                {
+                    ActionTask task = new ActionTask();
+                    task.timer = 2;
+                    task.OnExecute = () => AnalyseSight();
+                    task.callbacks.Add(0, EatBone);
+                    task.callbacks.Add(1, Bark);
+                    Play(task);
+                }
+            };
+            brain.callbacks.Add(0, EatBone);
+            brain.callbacks.Add(1, Bark);
+            Play(brain);
         }
 	
 	    // Update is called once per frame
@@ -36,49 +54,61 @@ namespace AI
             if (animator != null && agent != null)
             {
                 animator.SetFloat(anim_speedId, agent.velocity.magnitude);
-            }
-            if (!IsIdle()) return;
-            if (AnalyseSight())
-                return;
-            if(WanderAround(hunter.transform.position, wanderDistance))
-            {
-                Play(() => false, 2);
-            }
+            }  
 	    }
 
-        bool EatEnd()
-        {
-            animator.Play("EatToIdle");
-            target.gameObject.SetActive(false);
-            target = null;
-            return false;
-        }
 
-        bool Bark()
+
+        void Bark()
         {
+            GameObject target = CurrentAction.callData as GameObject;
+
             if (MoveTo(target.transform.position, barkDistance))
             {
                 LookAt(target.transform.position);
                 animator.Play("Bark");
                 hunter.Call(target);
-                Stop();
-                Play(() => false, 1);
+                ActionTask wait = new ActionTask();
+                wait.timer = 1;
+                Play(wait);
             }
-            return false;
+        }
+
+
+        void EatBone()
+        {
+            Bone target = (CurrentAction.callData as Bone);
+            ActionTask action = new ActionTask();
+            action.OnExecute = () =>
+            {
+                if (MoveTo(target.transform.position, 2))
+                {
+                    Stop();
+                    animator.Play("IdleToEat");
+                    ActionTask task = new ActionTask();
+                    task.timer = 7;
+                    task.OnEnd = () =>
+                    {
+                        animator.Play("EatToIdle");
+                        if (target.linkedCannibal != null)
+                            target.linkedCannibal.LooseCannibalObject();
+                        target.gameObject.SetActive(false);
+                    };
+                    Play(task);
+                }
+            };
+            Play(action);
         }
 
         bool AnalyseSight()
         {
             foreach (SightInfo obj in los.sighted)
             {
-                if (obj.target.GetComponent<Bone>() != null)
+                Bone bone = obj.target.GetComponent<Bone>();
+                if (bone != null)
                 {
-                    if (MoveTo(obj.target.transform.position, 2))
-                    {
-                        animator.Play("IdleToEat");
-                        target = obj.target;
-                        Play(() => false, 7, EatEnd);
-                    }
+                    CurrentAction.callData = bone;
+                    Call(0);
                     return true;
                 }
                 else if (obj.target.CompareTag("Player"))
@@ -86,8 +116,8 @@ namespace AI
                     Cannibal can = obj.target.GetComponentInParent<Cannibal>();
                     if (!can.IsDead())
                     {
-                        target = obj.target;
-                        Play(Bark);
+                        CurrentAction.callData = obj.target;
+                        Call(1);
                         return true;
                     }
                 }
@@ -96,8 +126,8 @@ namespace AI
                     Bush buisson = obj.target.GetComponent<Bush>();
                     if (buisson!=null && buisson.IsMoving())
                     {
-                        target = obj.target;
-                        Play(Bark);
+                        CurrentAction.callData = obj.target;
+                        Call(1);
                         return true;
                     }
                 }
