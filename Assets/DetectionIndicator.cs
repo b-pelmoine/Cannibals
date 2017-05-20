@@ -27,10 +27,12 @@ public class DetectionIndicator : MonoBehaviour {
     public Color BasicLow;
     public Color BasicHigh;
     public Color BasicDetected;
+    public Color BasicTarget;
     //color of aggressive AI
     public Color AggressiveLow;
     public Color AggressiveHigh;
     public Color AggressiveDetected;
+    public Color AggressiveTarget;
 
     void Start()
     {
@@ -68,7 +70,7 @@ public class DetectionIndicator : MonoBehaviour {
             foreach (DetectionData data in trackers[i])
             {
                 //update arrow
-                placeArrowFromDataAtPosition(data, playerTransforms[i]);
+                placeArrowFromDataAtPosition(data, playerTransforms[i], true);
                 if (data.detectRate > highestDetectionLevel) highestDetectionLevel = data.detectRate;
             }
         }
@@ -94,7 +96,7 @@ public class DetectionIndicator : MonoBehaviour {
         }
     }
 
-    private void placeArrowFromDataAtPosition(DetectionData data, Transform transform)
+    private void placeArrowFromDataAtPosition(DetectionData data, Transform transform, bool targeted)
     {
         //place the arrow above player head
         GameObject arrow = getArrow(transform);
@@ -102,17 +104,23 @@ public class DetectionIndicator : MonoBehaviour {
         arrow.transform.position = transform.position + Vector3.up * height;
         Vector3 agentPos = data.agent.transform.position;
         agentPos.y = arrow.transform.position.y;
-        arrow.transform.localScale = (data.detectRate == 1) ? Vector3.one *2 : Vector3.one * data.detectRate + Vector3.forward * data.detectRate;
-        arrow.transform.localScale *= scaleModifier;
+        arrow.transform.localScale = (data.detectRate == 1 && targeted) ? Vector3.one *2 : Vector3.one * data.detectRate + Vector3.forward * data.detectRate;
+        arrow.transform.localScale *= scaleModifier; 
         arrow.transform.LookAt(agentPos);
         arrow.transform.position += arrow.transform.forward.normalized * width;
         //set its color
-        renderer.material.SetColor("_Color", getArrowColor(data.agent.type, data.detectRate));
+        renderer.material.SetColor("_Color", getArrowColor(data.agent.type, data.detectRate, targeted));
     }
 
-    private Color getArrowColor(AIType type, float detectionLevel)
+    private Color getArrowColor(AIType type, float detectionLevel, bool targeted)
     {
         bool isAgressive = type == AIType.Hunter;
+        if (targeted)
+        {
+            if (isAgressive) return AggressiveTarget;
+            else return BasicTarget;
+        }
+        
         if(detectionLevel < 1)
         {
             if (isAgressive)
@@ -127,7 +135,6 @@ public class DetectionIndicator : MonoBehaviour {
             else
                 return BasicDetected;
         }
-        
     }
 
     private GameObject getArrow(Transform parent)

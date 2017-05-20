@@ -36,9 +36,6 @@ public class PlaytestsManager : MonoBehaviour {
     public bool colliderEnabled;
     public Terrain terrainUsingTrees;
 
-    private List<CapsuleCollider> treeColliders;
-    private List<GameObject> colliderContainer;
-
     private static PlaytestsManager instance = null;
 
     // Game Instance Singleton
@@ -94,26 +91,6 @@ public class PlaytestsManager : MonoBehaviour {
         if(phase != GamePhase.PHASE_TWO)
             phase = GamePhase.PHASE_ONE;
 
-        treeColliders = new List<CapsuleCollider>();
-        colliderContainer = new List<GameObject>();
-
-        //init tree colliders
-        Transform parent = transform;
-        
-        foreach (TreeInstance t in terrainUsingTrees.terrainData.treeInstances)
-        {
-            GameObject go = Instantiate(new GameObject(), parent);
-            CapsuleCollider capsule = go.AddComponent<CapsuleCollider>();
-            capsule.radius = 0.5f;
-            capsule.height = 20f;
-            capsule.enabled = colliderEnabled;
-            Vector3 pos = Vector3.Scale(t.position, terrainUsingTrees.terrainData.size);
-            go.transform.position = pos;
-            go.name = "treeCollider" + t.GetHashCode();
-            treeColliders.Add(capsule);
-            colliderContainer.Add(go);
-        }
-
         posPOne = phaseTwoData.transform.Find("pOnePhase2").transform;
         posPTwo = phaseTwoData.transform.Find("pTwoPhase2").transform;
         posCorpse = phaseTwoData.transform.Find("CorpsePhase2").transform;
@@ -153,7 +130,6 @@ public class PlaytestsManager : MonoBehaviour {
         if (phase != GamePhase.PHASE_TWO)
         {
             phase = GamePhase.PHASE_TWO;
-            switchColliderState();
         }
 
         targetReachedTheExit = false;
@@ -190,16 +166,6 @@ public class PlaytestsManager : MonoBehaviour {
         //magic buttons
         if (Input.GetKeyDown(KeyCode.R)) UnityEngine.SceneManagement.SceneManager.LoadScene("Playtest_Infiltration");
         if (Input.GetKeyDown(KeyCode.L)) LoadPhaseTwo();
-        if (Input.GetKeyDown(KeyCode.C)) switchColliderState();
-    }
-
-    void switchColliderState()
-    {
-        colliderEnabled = !colliderEnabled;
-        foreach(CapsuleCollider collider in treeColliders)
-        {
-            collider.enabled = colliderEnabled;
-        }
     }
 
     IEnumerator reloadLevel()
