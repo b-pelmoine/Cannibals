@@ -546,6 +546,13 @@
 				</Event>
 				<Event Name="spotting" ID="{28AF7E62-9881-4745-878F-0A23D12B6D46}">
 					<ChildrenList>
+						<Action Name="Stop" ID="{44DBCE03-9290-4B8B-91D7-D232A5FC976F}" ShortID="228461118" Type="Stop" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{E7363F1D-7A34-4C15-B872-2A98982C32B2}" Global="false">
+									<ObjectRef Name="Xylo loop" ID="{83D908EF-6D38-462A-8FB8-C109AB2C2344}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
 						<Action Name="Play" ID="{02B004C5-98A0-4BAA-A325-92F693FCBDA3}" ShortID="631373820" Type="Play" Scope="One" Global="false">
 							<ElementList>
 								<Element ID="{BC32E7A9-4012-4115-A54F-7960A05C5374}" Global="false">
@@ -700,6 +707,17 @@
 							<ElementList>
 								<Element ID="{B7695AD5-C739-4374-AE2A-A82DFF972E42}" Global="false">
 									<ObjectRef Name="Idle" ID="{55FE8E11-330C-4123-A995-2EFB2977DC76}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="hunter_reload" ID="{9DD0E8EC-544F-460B-BCBD-6FFA0762B34C}">
+					<ChildrenList>
+						<Action Name="Play" ID="{F017826D-6298-4812-A1A3-EFD9BF58AA6F}" ShortID="10614357" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{48285C45-4062-408E-B56F-04960C0DBA30}" Global="false">
+									<ObjectRef Name="Reload" ID="{15271366-BA57-4EB6-A6C5-DCC47482FDB3}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
 								</Element>
 							</ElementList>
 						</Action>

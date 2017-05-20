@@ -27350,6 +27350,31 @@
 										</Sound>
 									</ChildrenList>
 								</RandomSequenceContainer>
+								<Sound Name="Reload" ID="{15271366-BA57-4EB6-A6C5-DCC47482FDB3}" ShortID="904887267" Type="SoundFX">
+									<PropertyList>
+										<Property Name="PositioningType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{D3C3252A-A46D-453F-B2E2-9A2EAB3A4AB3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+										</Reference>
+										<Reference Name="UserAuxSend0">
+											<ObjectRef Name="Rverb_forest" ID="{BEE1AC0B-971A-4A04-9056-545507F906A1}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="MFX6_04" ID="{4C59DE42-513A-4CDD-8AF3-441BB20AFF17}" ShortID="875790365">
+											<Language>SFX</Language>
+											<AudioFile>MFX6_04.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="MFX6_04" ID="{4C59DE42-513A-4CDD-8AF3-441BB20AFF17}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 						</ActorMixer>
 						<ActorMixer Name="Dog" ID="{D7460FB2-8C83-4F0C-A18C-7EEF5338E651}" ShortID="790679977">
@@ -33045,7 +33070,7 @@
 												<ActiveSource Name="MFX6_03" ID="{ABB8B3C4-B682-467A-8DDD-6FBBA0A6D9AD}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="Hunter" ID="{15271366-BA57-4EB6-A6C5-DCC47482FDB3}" ShortID="904887267" Type="SoundFX">
+										<RandomSequenceContainer Name="Hunter" ID="{56106832-8C54-439E-99A2-35CF526F57B3}" ShortID="712892683">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
@@ -33055,15 +33080,65 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="MFX6_04" ID="{4C59DE42-513A-4CDD-8AF3-441BB20AFF17}" ShortID="875790365">
-													<Language>SFX</Language>
-													<AudioFile>MFX6_04.wav</AudioFile>
-												</AudioFileSource>
+												<Sound Name="Hips_1" ID="{BC9ADCD4-3C7D-4D48-B3DB-48ED49AA512E}" ShortID="506843579" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="MFX2_01" ID="{AD8FCDC0-A387-4079-BA1B-6A1E5D9A27B5}" ShortID="447727268">
+															<Language>SFX</Language>
+															<AudioFile>MFX2_01.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="MFX2_01" ID="{AD8FCDC0-A387-4079-BA1B-6A1E5D9A27B5}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Hips_2" ID="{D4C2A32D-3913-46BA-992D-E2F5340D6E97}" ShortID="681288715" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="MFX3_01" ID="{D71B0AC2-CC2F-44F6-98A8-720283242416}" ShortID="113305320">
+															<Language>SFX</Language>
+															<AudioFile>MFX3_01.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="MFX3_01" ID="{D71B0AC2-CC2F-44F6-98A8-720283242416}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Hips_3" ID="{96B88059-22E5-4217-B39E-2E11B30125C9}" ShortID="178142884" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="MFX4_10" ID="{7154A219-D73C-450F-A301-FA686B9E7257}" ShortID="642910657">
+															<Language>SFX</Language>
+															<AudioFile>MFX4_10.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="MFX4_10" ID="{7154A219-D73C-450F-A301-FA686B9E7257}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
 											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="MFX6_04" ID="{4C59DE42-513A-4CDD-8AF3-441BB20AFF17}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
+										</RandomSequenceContainer>
 									</ChildrenList>
 									<GroupingInfo>
 										<GroupRef Name="Characters" ID="{0ED01610-D84F-4CF3-A30D-34ECF51F0800}"/>
@@ -33073,10 +33148,10 @@
 												<ItemRef Name="Dog" ID="{53926525-2F12-4CA9-A518-1C5EDC78C5EB}"/>
 											</GroupingBehavior>
 											<GroupingBehavior>
-												<ItemRef Name="Jogger" ID="{F28B1447-63F2-47DB-8D8C-496048539986}"/>
+												<ItemRef Name="Hunter" ID="{56106832-8C54-439E-99A2-35CF526F57B3}"/>
 											</GroupingBehavior>
 											<GroupingBehavior>
-												<ItemRef Name="Hunter" ID="{15271366-BA57-4EB6-A6C5-DCC47482FDB3}"/>
+												<ItemRef Name="Jogger" ID="{F28B1447-63F2-47DB-8D8C-496048539986}"/>
 											</GroupingBehavior>
 											<GroupingBehavior>
 												<ItemRef Name="Scout" ID="{CC109978-BF9E-45BE-A151-5B3DF6EDCA88}"/>
@@ -33092,7 +33167,7 @@
 											<Grouping>
 												<SwitchRef Name="Hunter" ID="{DDD70562-6C8B-45D9-A288-10240DF3506C}"/>
 												<ItemList>
-													<ItemRef Name="Hunter" ID="{15271366-BA57-4EB6-A6C5-DCC47482FDB3}"/>
+													<ItemRef Name="Hunter" ID="{56106832-8C54-439E-99A2-35CF526F57B3}"/>
 												</ItemList>
 											</Grouping>
 											<Grouping>
