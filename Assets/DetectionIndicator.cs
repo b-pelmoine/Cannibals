@@ -14,6 +14,7 @@ public class DetectionIndicator : MonoBehaviour {
     private int arrowCounter;
 
     private float prevHighest = 0f;
+    private bool chaseMode = false;
 
     [Header("Display Settings")]
     [Range(1.7f, 3f)]
@@ -66,30 +67,51 @@ public class DetectionIndicator : MonoBehaviour {
         arrowCounter = 0;
         //loop through all players
         float highestDetectionLevel = 0;
+        bool isOnePlayerChased = false;
         for (int i = 0; i < trackers.Count; i++)
         {
             trackers[i] = AIAgentManager.getDetectData(playerTransforms[i].gameObject);
             foreach (DetectionData data in trackers[i])
             {
                 //update arrow
-                placeArrowFromDataAtPosition(data, playerTransforms[i], false);
+                GameObject AITarget = data.agent.getCurrentTarget();
+                bool isTargeted = GameObject.ReferenceEquals(AITarget, playerTransforms[i].gameObject);
+                if(isTargeted)
+                {
+                    isOnePlayerChased = true;
+                    if(data.agent.type == AIType.Hunter)
+                    {
+                        if (Vector3.Distance(AITarget.transform.position, playerTransforms[i].position) > (data.agent as AI.Chasseur).shootingRange)
+                            isTargeted = false;
+                    }
+                }
+                placeArrowFromDataAtPosition(data, playerTransforms[i], isTargeted);
                 if (data.detectRate > highestDetectionLevel) highestDetectionLevel = data.detectRate;
             }
         }
+        
         if (prevHighest != 0 || highestDetectionLevel > 0 && highestDetectionLevel < 1)
         {
             AkSoundEngine.SetRTPCValue("spotted", highestDetectionLevel, Camera.main.gameObject);
         }
 
-        if (highestDetectionLevel < 1 && prevHighest == 1)
+        if (highestDetectionLevel == 0 && prevHighest > 0)
         {
             AkSoundEngine.PostEvent("spotting", Camera.main.gameObject);
+            chaseMode = false;
         }
 
-        if (highestDetectionLevel == 1 && prevHighest !=1)
+        if (highestDetectionLevel == 1 && prevHighest < 1)
         {
-            AkSoundEngine.PostEvent("spotted", Camera.main.gameObject);
+            if(!chaseMode)
+            {
+                AkSoundEngine.SetRTPCValue("spotted", 0, Camera.main.gameObject);
+                AkSoundEngine.PostEvent("spotted", Camera.main.gameObject);
+            }
         }
+
+        if (isOnePlayerChased) chaseMode = true;
+
         prevHighest = highestDetectionLevel;
         //disabled the unused ones
         for (int i = arrowCounter; i < arrowPool.Count; i++)
