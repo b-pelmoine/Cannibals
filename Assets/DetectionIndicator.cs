@@ -90,26 +90,24 @@ public class DetectionIndicator : MonoBehaviour {
             }
         }
         
-        if (prevHighest != 0 || highestDetectionLevel > 0 && highestDetectionLevel < 1 && !chaseMode)
+        if(!chaseMode)
         {
-            AkSoundEngine.SetRTPCValue("spotted", highestDetectionLevel, Camera.main.gameObject);
-        }
-
-        if (highestDetectionLevel == 0 && prevHighest > 0)
-        {
-            AkSoundEngine.PostEvent("spotting", Camera.main.gameObject);
-            chaseMode = false;
-        }
-
-        if (highestDetectionLevel == 1 && prevHighest < 1)
-        {
-            if(!chaseMode)
+            if (prevHighest != 0 || highestDetectionLevel > 0)
             {
-                AkSoundEngine.SetRTPCValue("spotted", 0, Camera.main.gameObject);
+                AkSoundEngine.SetRTPCValue("spotted", highestDetectionLevel, Camera.main.gameObject);
+            }
+            if (highestDetectionLevel == 1 && prevHighest < 1)
+            {
                 AkSoundEngine.PostEvent("spotted", Camera.main.gameObject);
             }
         }
 
+        if (highestDetectionLevel == 0 && prevHighest > 0 && chaseMode)
+        {
+            AkSoundEngine.PostEvent("spotting", Camera.main.gameObject);
+            AkSoundEngine.SetRTPCValue("spotted", 0, Camera.main.gameObject);
+            chaseMode = false;
+        }
         if (isOnePlayerChased) chaseMode = true;
 
         prevHighest = highestDetectionLevel;
