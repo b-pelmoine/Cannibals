@@ -14,7 +14,7 @@ public class DetectionIndicator : MonoBehaviour {
     private int arrowCounter;
 
     private float prevHighest = 0f;
-    private bool chaseMode = false;
+    public bool chaseMode = false;
 
     [Header("Display Settings")]
     [Range(1.7f, 3f)]
@@ -90,7 +90,7 @@ public class DetectionIndicator : MonoBehaviour {
             }
         }
         
-        if (prevHighest != 0 || highestDetectionLevel > 0 && highestDetectionLevel < 1)
+        if (prevHighest != 0 || highestDetectionLevel > 0 && highestDetectionLevel < 1 && !chaseMode)
         {
             AkSoundEngine.SetRTPCValue("spotted", highestDetectionLevel, Camera.main.gameObject);
         }
