@@ -84,9 +84,12 @@ namespace AI
                 else if (obj.target.CompareTag("Player"))
                 {
                     Cannibal can = obj.target.GetComponentInParent<Cannibal>();
-                    target = obj.target;
-                    Play(Bark);
-                    return true;
+                    if (!can.IsDead())
+                    {
+                        target = obj.target;
+                        Play(Bark);
+                        return true;
+                    }
                 }
                 else
                 {
