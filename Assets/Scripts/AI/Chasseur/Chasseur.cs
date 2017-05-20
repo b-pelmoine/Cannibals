@@ -48,7 +48,8 @@ namespace AI
             if (state == AIState.DEAD)
                 return;
             base.Update();
-            currentTarget = null;
+            if (bottleTarget != null) return;
+            
 		    if(animator != null && agent!=null)
             {
                 animator.SetFloat(anim_speedId, agent.velocity.magnitude);
@@ -60,6 +61,7 @@ namespace AI
 
             if (IsIdle())
             {
+                currentTarget = null;
                 if (Chase())
                 {
                     return;
@@ -190,6 +192,28 @@ namespace AI
             return false;
         }
 
+        protected bool Drink()
+        {
+            if (MoveTo(bottleTarget.transform.position, 1))
+            {
+                bottleTarget = null;
+                Stop();
+                animator.Play("Drink");
+                AkSoundEngine.PostEvent("hunter_drink", gameObject);
+                stun = true;
+                Play(() => false, stunTime, Resurrect);
+            }
+            return false;
+        }
+
+        protected bool Resurrect()
+        {
+            stun = false;
+            animator.Play("Resurrect");
+            Stop();
+            return true;
+        }
+
         /// <summary>
         /// The dog calls the hunter
         /// </summary>
@@ -204,26 +228,8 @@ namespace AI
             if (Vector3.SqrMagnitude(bot.transform.position - this.transform.position) < Mathf.Pow(los.getSeeDistance(),2))
             {
                 bottleTarget = bot;
-                Play(() =>
-                {
-                    if (MoveTo(bottleTarget.transform.position, 1))
-                    {
-                        Stop();
-                        animator.Play("Drink");
-                        AkSoundEngine.PostEvent("hunter_drink", gameObject);
-                        stun = true;
-                        Play(() => false, stunTime, () =>
-                        {
-                            stun = false;
-                            animator.Play("Resurrect");
-                            Stop();
-                            return true;
-                        });
-                    }
-                    //if (los.sighted.Find(x => x.target == bot.linkedCannibal) == null)
-                    //    return true;
-                    return false;
-                });
+                if(IsIdle())
+                    Play(Drink);
             }
         }
 

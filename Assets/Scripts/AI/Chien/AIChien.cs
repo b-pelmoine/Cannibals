@@ -54,17 +54,18 @@ namespace AI
             return false;
         }
 
-        void BarkOn(GameObject target)
+        bool Bark()
         {
             if (MoveTo(target.transform.position, barkDistance))
             {
                 LookAt(target.transform.position);
                 animator.Play("Bark");
                 hunter.Call(target);
+                Stop();
                 Play(() => false, 1);
             }
+            return false;
         }
-
 
         bool AnalyseSight()
         {
@@ -83,23 +84,18 @@ namespace AI
                 else if (obj.target.CompareTag("Player"))
                 {
                     Cannibal can = obj.target.GetComponentInParent<Cannibal>();
-                    if (can != null && !can.IsDead())
-                    {
-                        BarkOn(obj.target);
-                        return true;
-                    }
+                    target = obj.target;
+                    Play(Bark);
+                    return true;
                 }
                 else
                 {
                     Bush buisson = obj.target.GetComponent<Bush>();
-                    if (buisson!=null && buisson.IsMoving() || target==obj.target)
+                    if (buisson!=null && buisson.IsMoving())
                     {
                         target = obj.target;
-                        if(MoveTo(obj.target.transform.position, barkDistance))
-                        {
-                            BarkOn(obj.target);
-                            return true;
-                        }
+                        Play(Bark);
+                        return true;
                     }
                 }
             }
