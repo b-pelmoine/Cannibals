@@ -59,14 +59,22 @@ namespace AI
         void Bark()
         {
             GameObject target = (CurrentAction.callData as SightInfo).target;
-
-            if (MoveTo(target.transform.position, barkDistance))
+            ActionTask action = new ActionTask();
+            action.OnExecute = () =>
             {
-                LookAt(target.transform.position);
-                animator.Play("Bark");
-                hunter.Call(target);
-                Wait(1);
-            }
+                if (MoveTo(target.transform.position, barkDistance))
+                {
+                    LookAt(target.transform.position);
+                    animator.Play("Bark");
+                    hunter.Call(target);
+                    Stop();
+                    Wait(1);
+                }
+            };
+            action.AddReaction(
+                () => los.sighted.Find(x => x.target == target) == null,
+                () => Stop());
+            Play(action);
         }
 
 
@@ -126,7 +134,10 @@ namespace AI
 
         bool SeeBuisson()
         {
-            SightInfo buisson = los.FindNearest(x => x.target.GetComponent<Bush>());
+            SightInfo buisson = los.FindNearest(x => {
+                Bush b = x.target.GetComponent<Bush>();
+                return b != null && b.IsMoving();
+            });
             if (buisson != null)
             {
                 CurrentAction.callData = buisson;
