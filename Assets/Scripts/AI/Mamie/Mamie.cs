@@ -89,6 +89,20 @@ namespace AI
             }
         }
 
+        protected void RamasseChampi()
+        {
+            GameObject best = (CurrentAction.callData as SightInfo).target;
+            if(MoveTo(best.transform.position, 2))
+            {
+                LookAt(best.transform.position);
+                animator.Play("PickUp");
+                AkSoundEngine.SetSwitch("Objects", "Mushrooms", gameObject);
+                AkSoundEngine.PostEvent("granny_objects", gameObject);
+                Wait(animator.GetCurrentAnimatorStateInfo(0).length, null, () => best.SetActive(false));
+            }
+        }
+
+        //Etats
         protected void Feeding()
         {
             Vector3 position = patrouille[0];
@@ -128,18 +142,6 @@ namespace AI
                 , Hit);
             action.AddReaction(SeeChampi, RamasseChampi);
             Play(action);
-        }
-
-        protected void RamasseChampi()
-        {
-            GameObject best = (CurrentAction.callData as SightInfo).target;
-            if(MoveTo(best.transform.position, 2))
-            {
-                animator.Play("PickUp");
-                AkSoundEngine.SetSwitch("Objects", "Mushrooms", gameObject);
-                AkSoundEngine.PostEvent("granny_objects", gameObject);
-                Wait(animator.GetCurrentAnimatorStateInfo(0).length, null, () => best.SetActive(false));
-            }
         }
 
         protected void Deposer()
@@ -188,6 +190,7 @@ namespace AI
             Play(action);
         }
 
+        //Calls
         public override void Kill()
         {
             StopAll();
@@ -206,6 +209,12 @@ namespace AI
         public void ShowKnifeIcon()
         {
             //throw new NotImplementedException();
+        }
+
+        //Callbacks des Animations
+        void SonIdle()
+        {
+            AkSoundEngine.PostEvent("granny_idle", gameObject);
         }
     }
 }

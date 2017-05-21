@@ -193,7 +193,7 @@ namespace AI
         protected void Drink()
         {
             Bottle bottle = CurrentAction.callData as Bottle;
-
+            AkSoundEngine.PostEvent("hunter_bottle", gameObject);
             ActionTask drink = new ActionTask();
             drink.OnExecute = () =>
             {

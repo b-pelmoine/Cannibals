@@ -86,6 +86,7 @@ namespace AI
             {
                 if (MoveTo(target.transform.position, 2))
                 {
+                    LookAt(target.transform.position);
                     Stop();
                     animator.Play("IdleToEat");
                     ActionTask task = new ActionTask();
