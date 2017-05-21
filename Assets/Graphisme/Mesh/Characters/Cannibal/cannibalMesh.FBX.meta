@@ -161,15 +161,19 @@ ModelImporter:
     7400008: TakeObject
     7400010: Idle
     7400012: IdleToUse
-    7400014: RunCorpse
-    7400016: IdleCorpseToRunCorpse
-    7400018: RunCorpseToIdleCorpse
-    7400020: IdleCorpse
+    7400014: DuoRunCorpse
+    7400016: DuoIdleCorpseToRunCorpse
+    7400018: DuoRunCorpseToIdleCorpse
+    7400020: DuoIdleCorpse
     7400022: Kill
     7400024: Whistle
     7400026: KO
     7400028: Resurrect
     7400030: UseToIdle
+    7400032: SoloIdleCorpse
+    7400034: SoloIdleCorpseToRunCorpse
+    7400036: SoloRunCorpseToIdleCorpse
+    7400038: SoloRunCorpse
     9500000: //RootNode
     13700000: ' cannibal'
     13700002: kway Skin
@@ -1117,7 +1121,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: RunCorpse
+      name: DuoRunCorpse
       takeName: Take 001
       firstFrame: 274
       lastFrame: 347
@@ -1268,7 +1272,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: IdleCorpseToRunCorpse
+      name: DuoIdleCorpseToRunCorpse
       takeName: Take 001
       firstFrame: 250
       lastFrame: 273
@@ -1419,7 +1423,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: RunCorpseToIdleCorpse
+      name: DuoRunCorpseToIdleCorpse
       takeName: Take 001
       firstFrame: 348
       lastFrame: 373
@@ -1570,10 +1574,10 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: IdleCorpse
+      name: DuoIdleCorpse
       takeName: Take 001
       firstFrame: 374
-      lastFrame: 429
+      lastFrame: 400
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -2488,6 +2492,726 @@ ModelImporter:
         weight: 1
       - path: spine00/spine01/spine02/Right arm00/Right arm01/Right arm02/Right arm03/Right
           hand
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: SoloIdleCorpse
+      takeName: Take 001
+      firstFrame: 588
+      lastFrame: 658
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: ' cannibal'
+        weight: 1
+      - path: IK Left arm
+        weight: 1
+      - path: IK Left leg
+        weight: 1
+      - path: IK Right arm
+        weight: 1
+      - path: IK Right leg
+        weight: 1
+      - path: kway Skin
+        weight: 1
+      - path: spine00
+        weight: 1
+      - path: spine00/Left leg00
+        weight: 1
+      - path: spine00/Left leg00/Left leg01
+        weight: 1
+      - path: spine00/Left leg00/Left leg01/Left leg02
+        weight: 1
+      - path: spine00/Left leg00/Left leg01/Left leg02/Left leg03
+        weight: 1
+      - path: spine00/Left leg00/Left leg01/Left leg02/Left leg03/Left foot
+        weight: 1
+      - path: spine00/Left leg00/Left leg01/Left leg02/Left leg03/Left foot/Left foot-nub
+        weight: 1
+      - path: spine00/Left leg00/Left leg01/Left leg02/Left leg03/Left leg04
+        weight: 1
+      - path: spine00/Point-left leg00
+        weight: 1
+      - path: spine00/Point-left leg00/Point-left leg01
+        weight: 1
+      - path: spine00/Point-left leg00/Point-left leg02
+        weight: 1
+      - path: spine00/Point-right leg02
+        weight: 1
+      - path: spine00/Point-right leg02/Point-right leg00
+        weight: 1
+      - path: spine00/Point-right leg02/Point-right leg01
+        weight: 1
+      - path: spine00/Right leg00
+        weight: 1
+      - path: spine00/Right leg00/Right leg01
+        weight: 1
+      - path: spine00/Right leg00/Right leg01/Right leg02
+        weight: 1
+      - path: spine00/Right leg00/Right leg01/Right leg02/Right leg03
+        weight: 1
+      - path: spine00/Right leg00/Right leg01/Right leg02/Right leg03/Right foot
+        weight: 1
+      - path: spine00/Right leg00/Right leg01/Right leg02/Right leg03/Right foot/Right
+          foot-nub
+        weight: 1
+      - path: spine00/Right leg00/Right leg01/Right leg02/Right leg03/Right leg04
+        weight: 1
+      - path: spine00/spine01
+        weight: 1
+      - path: spine00/spine01/spine02
+        weight: 1
+      - path: spine00/spine01/spine02/back kway-left00
+        weight: 1
+      - path: spine00/spine01/spine02/back kway-left00/back kway-left01
+        weight: 1
+      - path: spine00/spine01/spine02/back kway-left00/back kway-left01/back kway-left02
+        weight: 1
+      - path: spine00/spine01/spine02/back kway-right00
+        weight: 1
+      - path: spine00/spine01/spine02/back kway-right00/back kway-right01
+        weight: 1
+      - path: spine00/spine01/spine02/back kway-right00/back kway-right01/back kway-right02
+        weight: 1
+      - path: spine00/spine01/spine02/front kway-left00
+        weight: 1
+      - path: spine00/spine01/spine02/front kway-left00/front kway-left01
+        weight: 1
+      - path: spine00/spine01/spine02/front kway-left00/front kway-left01/front kway-left02
+        weight: 1
+      - path: spine00/spine01/spine02/front kway-right00
+        weight: 1
+      - path: spine00/spine01/spine02/front kway-right00/front kway-right01
+        weight: 1
+      - path: spine00/spine01/spine02/front kway-right00/front kway-right01/front
+          kway-right02
+        weight: 1
+      - path: spine00/spine01/spine02/Left arm00
+        weight: 1
+      - path: spine00/spine01/spine02/Left arm00/Left arm01
+        weight: 1
+      - path: spine00/spine01/spine02/Left arm00/Left arm01/Left arm02
+        weight: 1
+      - path: spine00/spine01/spine02/Left arm00/Left arm01/Left arm02/Left arm03
+        weight: 1
+      - path: spine00/spine01/spine02/Left arm00/Left arm01/Left arm02/Left arm03/Left
+          hand
+        weight: 1
+      - path: spine00/spine01/spine02/Left arm00/Left arm01/Left arm02/Left arm03/Left
+          hand/Left arm-nub
+        weight: 1
+      - path: spine00/spine01/spine02/neck
+        weight: 1
+      - path: spine00/spine01/spine02/neck/head
+        weight: 1
+      - path: spine00/spine01/spine02/neck/head/head-nub
+        weight: 1
+      - path: spine00/spine01/spine02/neck/head/kway head
+        weight: 1
+      - path: spine00/spine01/spine02/Point-left arm00
+        weight: 1
+      - path: spine00/spine01/spine02/Point-left arm00/Point-left arm01
+        weight: 1
+      - path: spine00/spine01/spine02/Point-left arm00/Point-left arm02
+        weight: 1
+      - path: spine00/spine01/spine02/Point-left arm00/Point-left arm03
+        weight: 1
+      - path: spine00/spine01/spine02/Point-left arm00/Point-left arm04
+        weight: 1
+      - path: spine00/spine01/spine02/Point-left arm00/Point-left arm05
+        weight: 1
+      - path: spine00/spine01/spine02/Point-right arm00
+        weight: 1
+      - path: spine00/spine01/spine02/Point-right arm00/Point-right arm01
+        weight: 1
+      - path: spine00/spine01/spine02/Point-right arm00/Point-right arm02
+        weight: 1
+      - path: spine00/spine01/spine02/Point-right arm00/Point-right arm03
+        weight: 1
+      - path: spine00/spine01/spine02/Point-right arm00/Point-right arm04
+        weight: 1
+      - path: spine00/spine01/spine02/Point-right arm00/Point-right arm05
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00/Right arm01
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00/Right arm01/Right arm02
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00/Right arm01/Right arm02/Right arm03
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00/Right arm01/Right arm02/Right arm03/Right
+          hand
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00/Right arm01/Right arm02/Right arm03/Right
+          hand/Right arm-nub
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00/Right arm01/Right arm02/Right arm03/Right
+          hand/Right arm-nub/Object
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00/Right arm01/Right arm02/Right arm03/Right
+          hand/Right arm-nub/Object/Object-nub
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: SoloIdleCorpseToRunCorpse
+      takeName: Take 001
+      firstFrame: 577
+      lastFrame: 587
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: ' cannibal'
+        weight: 1
+      - path: IK Left arm
+        weight: 1
+      - path: IK Left leg
+        weight: 1
+      - path: IK Right arm
+        weight: 1
+      - path: IK Right leg
+        weight: 1
+      - path: kway Skin
+        weight: 1
+      - path: spine00
+        weight: 1
+      - path: spine00/Left leg00
+        weight: 1
+      - path: spine00/Left leg00/Left leg01
+        weight: 1
+      - path: spine00/Left leg00/Left leg01/Left leg02
+        weight: 1
+      - path: spine00/Left leg00/Left leg01/Left leg02/Left leg03
+        weight: 1
+      - path: spine00/Left leg00/Left leg01/Left leg02/Left leg03/Left foot
+        weight: 1
+      - path: spine00/Left leg00/Left leg01/Left leg02/Left leg03/Left foot/Left foot-nub
+        weight: 1
+      - path: spine00/Left leg00/Left leg01/Left leg02/Left leg03/Left leg04
+        weight: 1
+      - path: spine00/Point-left leg00
+        weight: 1
+      - path: spine00/Point-left leg00/Point-left leg01
+        weight: 1
+      - path: spine00/Point-left leg00/Point-left leg02
+        weight: 1
+      - path: spine00/Point-right leg02
+        weight: 1
+      - path: spine00/Point-right leg02/Point-right leg00
+        weight: 1
+      - path: spine00/Point-right leg02/Point-right leg01
+        weight: 1
+      - path: spine00/Right leg00
+        weight: 1
+      - path: spine00/Right leg00/Right leg01
+        weight: 1
+      - path: spine00/Right leg00/Right leg01/Right leg02
+        weight: 1
+      - path: spine00/Right leg00/Right leg01/Right leg02/Right leg03
+        weight: 1
+      - path: spine00/Right leg00/Right leg01/Right leg02/Right leg03/Right foot
+        weight: 1
+      - path: spine00/Right leg00/Right leg01/Right leg02/Right leg03/Right foot/Right
+          foot-nub
+        weight: 1
+      - path: spine00/Right leg00/Right leg01/Right leg02/Right leg03/Right leg04
+        weight: 1
+      - path: spine00/spine01
+        weight: 1
+      - path: spine00/spine01/spine02
+        weight: 1
+      - path: spine00/spine01/spine02/back kway-left00
+        weight: 1
+      - path: spine00/spine01/spine02/back kway-left00/back kway-left01
+        weight: 1
+      - path: spine00/spine01/spine02/back kway-left00/back kway-left01/back kway-left02
+        weight: 1
+      - path: spine00/spine01/spine02/back kway-right00
+        weight: 1
+      - path: spine00/spine01/spine02/back kway-right00/back kway-right01
+        weight: 1
+      - path: spine00/spine01/spine02/back kway-right00/back kway-right01/back kway-right02
+        weight: 1
+      - path: spine00/spine01/spine02/front kway-left00
+        weight: 1
+      - path: spine00/spine01/spine02/front kway-left00/front kway-left01
+        weight: 1
+      - path: spine00/spine01/spine02/front kway-left00/front kway-left01/front kway-left02
+        weight: 1
+      - path: spine00/spine01/spine02/front kway-right00
+        weight: 1
+      - path: spine00/spine01/spine02/front kway-right00/front kway-right01
+        weight: 1
+      - path: spine00/spine01/spine02/front kway-right00/front kway-right01/front
+          kway-right02
+        weight: 1
+      - path: spine00/spine01/spine02/Left arm00
+        weight: 1
+      - path: spine00/spine01/spine02/Left arm00/Left arm01
+        weight: 1
+      - path: spine00/spine01/spine02/Left arm00/Left arm01/Left arm02
+        weight: 1
+      - path: spine00/spine01/spine02/Left arm00/Left arm01/Left arm02/Left arm03
+        weight: 1
+      - path: spine00/spine01/spine02/Left arm00/Left arm01/Left arm02/Left arm03/Left
+          hand
+        weight: 1
+      - path: spine00/spine01/spine02/Left arm00/Left arm01/Left arm02/Left arm03/Left
+          hand/Left arm-nub
+        weight: 1
+      - path: spine00/spine01/spine02/neck
+        weight: 1
+      - path: spine00/spine01/spine02/neck/head
+        weight: 1
+      - path: spine00/spine01/spine02/neck/head/head-nub
+        weight: 1
+      - path: spine00/spine01/spine02/neck/head/kway head
+        weight: 1
+      - path: spine00/spine01/spine02/Point-left arm00
+        weight: 1
+      - path: spine00/spine01/spine02/Point-left arm00/Point-left arm01
+        weight: 1
+      - path: spine00/spine01/spine02/Point-left arm00/Point-left arm02
+        weight: 1
+      - path: spine00/spine01/spine02/Point-left arm00/Point-left arm03
+        weight: 1
+      - path: spine00/spine01/spine02/Point-left arm00/Point-left arm04
+        weight: 1
+      - path: spine00/spine01/spine02/Point-left arm00/Point-left arm05
+        weight: 1
+      - path: spine00/spine01/spine02/Point-right arm00
+        weight: 1
+      - path: spine00/spine01/spine02/Point-right arm00/Point-right arm01
+        weight: 1
+      - path: spine00/spine01/spine02/Point-right arm00/Point-right arm02
+        weight: 1
+      - path: spine00/spine01/spine02/Point-right arm00/Point-right arm03
+        weight: 1
+      - path: spine00/spine01/spine02/Point-right arm00/Point-right arm04
+        weight: 1
+      - path: spine00/spine01/spine02/Point-right arm00/Point-right arm05
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00/Right arm01
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00/Right arm01/Right arm02
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00/Right arm01/Right arm02/Right arm03
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00/Right arm01/Right arm02/Right arm03/Right
+          hand
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00/Right arm01/Right arm02/Right arm03/Right
+          hand/Right arm-nub
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00/Right arm01/Right arm02/Right arm03/Right
+          hand/Right arm-nub/Object
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00/Right arm01/Right arm02/Right arm03/Right
+          hand/Right arm-nub/Object/Object-nub
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: SoloRunCorpseToIdleCorpse
+      takeName: Take 001
+      firstFrame: 658
+      lastFrame: 666
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: ' cannibal'
+        weight: 1
+      - path: IK Left arm
+        weight: 1
+      - path: IK Left leg
+        weight: 1
+      - path: IK Right arm
+        weight: 1
+      - path: IK Right leg
+        weight: 1
+      - path: kway Skin
+        weight: 1
+      - path: spine00
+        weight: 1
+      - path: spine00/Left leg00
+        weight: 1
+      - path: spine00/Left leg00/Left leg01
+        weight: 1
+      - path: spine00/Left leg00/Left leg01/Left leg02
+        weight: 1
+      - path: spine00/Left leg00/Left leg01/Left leg02/Left leg03
+        weight: 1
+      - path: spine00/Left leg00/Left leg01/Left leg02/Left leg03/Left foot
+        weight: 1
+      - path: spine00/Left leg00/Left leg01/Left leg02/Left leg03/Left foot/Left foot-nub
+        weight: 1
+      - path: spine00/Left leg00/Left leg01/Left leg02/Left leg03/Left leg04
+        weight: 1
+      - path: spine00/Point-left leg00
+        weight: 1
+      - path: spine00/Point-left leg00/Point-left leg01
+        weight: 1
+      - path: spine00/Point-left leg00/Point-left leg02
+        weight: 1
+      - path: spine00/Point-right leg02
+        weight: 1
+      - path: spine00/Point-right leg02/Point-right leg00
+        weight: 1
+      - path: spine00/Point-right leg02/Point-right leg01
+        weight: 1
+      - path: spine00/Right leg00
+        weight: 1
+      - path: spine00/Right leg00/Right leg01
+        weight: 1
+      - path: spine00/Right leg00/Right leg01/Right leg02
+        weight: 1
+      - path: spine00/Right leg00/Right leg01/Right leg02/Right leg03
+        weight: 1
+      - path: spine00/Right leg00/Right leg01/Right leg02/Right leg03/Right foot
+        weight: 1
+      - path: spine00/Right leg00/Right leg01/Right leg02/Right leg03/Right foot/Right
+          foot-nub
+        weight: 1
+      - path: spine00/Right leg00/Right leg01/Right leg02/Right leg03/Right leg04
+        weight: 1
+      - path: spine00/spine01
+        weight: 1
+      - path: spine00/spine01/spine02
+        weight: 1
+      - path: spine00/spine01/spine02/back kway-left00
+        weight: 1
+      - path: spine00/spine01/spine02/back kway-left00/back kway-left01
+        weight: 1
+      - path: spine00/spine01/spine02/back kway-left00/back kway-left01/back kway-left02
+        weight: 1
+      - path: spine00/spine01/spine02/back kway-right00
+        weight: 1
+      - path: spine00/spine01/spine02/back kway-right00/back kway-right01
+        weight: 1
+      - path: spine00/spine01/spine02/back kway-right00/back kway-right01/back kway-right02
+        weight: 1
+      - path: spine00/spine01/spine02/front kway-left00
+        weight: 1
+      - path: spine00/spine01/spine02/front kway-left00/front kway-left01
+        weight: 1
+      - path: spine00/spine01/spine02/front kway-left00/front kway-left01/front kway-left02
+        weight: 1
+      - path: spine00/spine01/spine02/front kway-right00
+        weight: 1
+      - path: spine00/spine01/spine02/front kway-right00/front kway-right01
+        weight: 1
+      - path: spine00/spine01/spine02/front kway-right00/front kway-right01/front
+          kway-right02
+        weight: 1
+      - path: spine00/spine01/spine02/Left arm00
+        weight: 1
+      - path: spine00/spine01/spine02/Left arm00/Left arm01
+        weight: 1
+      - path: spine00/spine01/spine02/Left arm00/Left arm01/Left arm02
+        weight: 1
+      - path: spine00/spine01/spine02/Left arm00/Left arm01/Left arm02/Left arm03
+        weight: 1
+      - path: spine00/spine01/spine02/Left arm00/Left arm01/Left arm02/Left arm03/Left
+          hand
+        weight: 1
+      - path: spine00/spine01/spine02/Left arm00/Left arm01/Left arm02/Left arm03/Left
+          hand/Left arm-nub
+        weight: 1
+      - path: spine00/spine01/spine02/neck
+        weight: 1
+      - path: spine00/spine01/spine02/neck/head
+        weight: 1
+      - path: spine00/spine01/spine02/neck/head/head-nub
+        weight: 1
+      - path: spine00/spine01/spine02/neck/head/kway head
+        weight: 1
+      - path: spine00/spine01/spine02/Point-left arm00
+        weight: 1
+      - path: spine00/spine01/spine02/Point-left arm00/Point-left arm01
+        weight: 1
+      - path: spine00/spine01/spine02/Point-left arm00/Point-left arm02
+        weight: 1
+      - path: spine00/spine01/spine02/Point-left arm00/Point-left arm03
+        weight: 1
+      - path: spine00/spine01/spine02/Point-left arm00/Point-left arm04
+        weight: 1
+      - path: spine00/spine01/spine02/Point-left arm00/Point-left arm05
+        weight: 1
+      - path: spine00/spine01/spine02/Point-right arm00
+        weight: 1
+      - path: spine00/spine01/spine02/Point-right arm00/Point-right arm01
+        weight: 1
+      - path: spine00/spine01/spine02/Point-right arm00/Point-right arm02
+        weight: 1
+      - path: spine00/spine01/spine02/Point-right arm00/Point-right arm03
+        weight: 1
+      - path: spine00/spine01/spine02/Point-right arm00/Point-right arm04
+        weight: 1
+      - path: spine00/spine01/spine02/Point-right arm00/Point-right arm05
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00/Right arm01
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00/Right arm01/Right arm02
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00/Right arm01/Right arm02/Right arm03
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00/Right arm01/Right arm02/Right arm03/Right
+          hand
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00/Right arm01/Right arm02/Right arm03/Right
+          hand/Right arm-nub
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00/Right arm01/Right arm02/Right arm03/Right
+          hand/Right arm-nub/Object
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00/Right arm01/Right arm02/Right arm03/Right
+          hand/Right arm-nub/Object/Object-nub
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: SoloRunCorpse
+      takeName: Take 001
+      firstFrame: 588
+      lastFrame: 658
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: ' cannibal'
+        weight: 1
+      - path: IK Left arm
+        weight: 1
+      - path: IK Left leg
+        weight: 1
+      - path: IK Right arm
+        weight: 1
+      - path: IK Right leg
+        weight: 1
+      - path: kway Skin
+        weight: 1
+      - path: spine00
+        weight: 1
+      - path: spine00/Left leg00
+        weight: 1
+      - path: spine00/Left leg00/Left leg01
+        weight: 1
+      - path: spine00/Left leg00/Left leg01/Left leg02
+        weight: 1
+      - path: spine00/Left leg00/Left leg01/Left leg02/Left leg03
+        weight: 1
+      - path: spine00/Left leg00/Left leg01/Left leg02/Left leg03/Left foot
+        weight: 1
+      - path: spine00/Left leg00/Left leg01/Left leg02/Left leg03/Left foot/Left foot-nub
+        weight: 1
+      - path: spine00/Left leg00/Left leg01/Left leg02/Left leg03/Left leg04
+        weight: 1
+      - path: spine00/Point-left leg00
+        weight: 1
+      - path: spine00/Point-left leg00/Point-left leg01
+        weight: 1
+      - path: spine00/Point-left leg00/Point-left leg02
+        weight: 1
+      - path: spine00/Point-right leg02
+        weight: 1
+      - path: spine00/Point-right leg02/Point-right leg00
+        weight: 1
+      - path: spine00/Point-right leg02/Point-right leg01
+        weight: 1
+      - path: spine00/Right leg00
+        weight: 1
+      - path: spine00/Right leg00/Right leg01
+        weight: 1
+      - path: spine00/Right leg00/Right leg01/Right leg02
+        weight: 1
+      - path: spine00/Right leg00/Right leg01/Right leg02/Right leg03
+        weight: 1
+      - path: spine00/Right leg00/Right leg01/Right leg02/Right leg03/Right foot
+        weight: 1
+      - path: spine00/Right leg00/Right leg01/Right leg02/Right leg03/Right foot/Right
+          foot-nub
+        weight: 1
+      - path: spine00/Right leg00/Right leg01/Right leg02/Right leg03/Right leg04
+        weight: 1
+      - path: spine00/spine01
+        weight: 1
+      - path: spine00/spine01/spine02
+        weight: 1
+      - path: spine00/spine01/spine02/back kway-left00
+        weight: 1
+      - path: spine00/spine01/spine02/back kway-left00/back kway-left01
+        weight: 1
+      - path: spine00/spine01/spine02/back kway-left00/back kway-left01/back kway-left02
+        weight: 1
+      - path: spine00/spine01/spine02/back kway-right00
+        weight: 1
+      - path: spine00/spine01/spine02/back kway-right00/back kway-right01
+        weight: 1
+      - path: spine00/spine01/spine02/back kway-right00/back kway-right01/back kway-right02
+        weight: 1
+      - path: spine00/spine01/spine02/front kway-left00
+        weight: 1
+      - path: spine00/spine01/spine02/front kway-left00/front kway-left01
+        weight: 1
+      - path: spine00/spine01/spine02/front kway-left00/front kway-left01/front kway-left02
+        weight: 1
+      - path: spine00/spine01/spine02/front kway-right00
+        weight: 1
+      - path: spine00/spine01/spine02/front kway-right00/front kway-right01
+        weight: 1
+      - path: spine00/spine01/spine02/front kway-right00/front kway-right01/front
+          kway-right02
+        weight: 1
+      - path: spine00/spine01/spine02/Left arm00
+        weight: 1
+      - path: spine00/spine01/spine02/Left arm00/Left arm01
+        weight: 1
+      - path: spine00/spine01/spine02/Left arm00/Left arm01/Left arm02
+        weight: 1
+      - path: spine00/spine01/spine02/Left arm00/Left arm01/Left arm02/Left arm03
+        weight: 1
+      - path: spine00/spine01/spine02/Left arm00/Left arm01/Left arm02/Left arm03/Left
+          hand
+        weight: 1
+      - path: spine00/spine01/spine02/Left arm00/Left arm01/Left arm02/Left arm03/Left
+          hand/Left arm-nub
+        weight: 1
+      - path: spine00/spine01/spine02/neck
+        weight: 1
+      - path: spine00/spine01/spine02/neck/head
+        weight: 1
+      - path: spine00/spine01/spine02/neck/head/head-nub
+        weight: 1
+      - path: spine00/spine01/spine02/neck/head/kway head
+        weight: 1
+      - path: spine00/spine01/spine02/Point-left arm00
+        weight: 1
+      - path: spine00/spine01/spine02/Point-left arm00/Point-left arm01
+        weight: 1
+      - path: spine00/spine01/spine02/Point-left arm00/Point-left arm02
+        weight: 1
+      - path: spine00/spine01/spine02/Point-left arm00/Point-left arm03
+        weight: 1
+      - path: spine00/spine01/spine02/Point-left arm00/Point-left arm04
+        weight: 1
+      - path: spine00/spine01/spine02/Point-left arm00/Point-left arm05
+        weight: 1
+      - path: spine00/spine01/spine02/Point-right arm00
+        weight: 1
+      - path: spine00/spine01/spine02/Point-right arm00/Point-right arm01
+        weight: 1
+      - path: spine00/spine01/spine02/Point-right arm00/Point-right arm02
+        weight: 1
+      - path: spine00/spine01/spine02/Point-right arm00/Point-right arm03
+        weight: 1
+      - path: spine00/spine01/spine02/Point-right arm00/Point-right arm04
+        weight: 1
+      - path: spine00/spine01/spine02/Point-right arm00/Point-right arm05
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00/Right arm01
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00/Right arm01/Right arm02
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00/Right arm01/Right arm02/Right arm03
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00/Right arm01/Right arm02/Right arm03/Right
+          hand
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00/Right arm01/Right arm02/Right arm03/Right
+          hand/Right arm-nub
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00/Right arm01/Right arm02/Right arm03/Right
+          hand/Right arm-nub/Object
+        weight: 1
+      - path: spine00/spine01/spine02/Right arm00/Right arm01/Right arm02/Right arm03/Right
+          hand/Right arm-nub/Object/Object-nub
         weight: 1
       maskType: 3
       maskSource: {instanceID: 0}

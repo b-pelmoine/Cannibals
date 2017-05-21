@@ -18,6 +18,8 @@ public class Cannibal_Appearence : MonoBehaviour {
     [SerializeField]
     Sprite resurrectIcon;
 
+    public Animator m_animator;
+
     void Update()
     {
         if (m_cannibal.m_cannibalMovement.CharacterControllerEx.velocity.magnitude != 0)
@@ -26,6 +28,9 @@ public class Cannibal_Appearence : MonoBehaviour {
             orientationDirection.y = 0;
             Orientate(orientationDirection);
         }
+
+        if(m_cannibal.m_cannibalSkill.m_corpse)
+            m_animator.SetInteger("corpseCount", m_cannibal.m_cannibalSkill.m_corpse.cannibals.Count);
     }
 
     float rotationVelocity;
