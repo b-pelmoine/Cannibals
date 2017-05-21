@@ -34,6 +34,8 @@ namespace AI
 
         Bottle bottleTarget = null;
 
+        const int BOTTLE_CALL = 0;
+        const int DOG_CALL = 1;
 
 
         // Use this for initialization
@@ -51,8 +53,9 @@ namespace AI
                 animator.Play("Death");
                 state = AIState.DEAD;
             };
-            action.callbacks.Add(0, GoTo);
-            action.callbacks.Add(1, Drink);
+            action.AddReaction(SeeCannibal, Chase);
+            action.callbacks.Add(DOG_CALL, GoTo);
+            action.callbacks.Add(BOTTLE_CALL, Drink);
             Play(action);
 	    }
 	
@@ -74,18 +77,141 @@ namespace AI
 
         public void Brain()
         {
-            if (!Chase())
+            if (MoveTo(patrouille.getCurrentDestination(), waypointDistance))
             {
-                if (MoveTo(patrouille.getCurrentDestination(), waypointDistance))
+                patrouille.Next();
+                //S'arrete 4 sec
+                ActionTask act = new ActionTask();
+                act.timer = 4;
+                act.OnExecute= () => Chase();
+                Play(act);
+            }
+        }
+
+        protected void Defend(GameObject target)
+        {
+            ActionTask defend = new ActionTask();
+            defend.target = target;
+            defend.OnExecute = () =>
+            {
+                if (WanderAround(target.transform.position, defendRange, 1))
                 {
-                    patrouille.Next();
-                    //S'arrete 4 sec
-                    ActionTask act = new ActionTask();
-                    act.timer = 4;
-                    act.OnExecute= () => Chase();
-                    Play(act);
+                    ActionTask wait = new ActionTask();
+                    wait.OnExecute = () => Chase();
+                    wait.timer = 3;
+                    Play(wait);
+                }
+            };
+            defend.reaction.Add(new ActionTask.Reaction(SeeCannibal, Chase));
+            defend.callbacks.Add(DOG_CALL, GoTo);
+            defend.callbacks.Add(BOTTLE_CALL, Drink);
+            defend.timer = defendTime;
+            Play(defend);
+        }
+
+        protected bool SeeCannibal()
+        {
+            List<SightInfo> sightedCannibals = los.sighted.FindAll(x => {
+                Cannibal can = x.target.GetComponentInParent<Cannibal>();
+                return can != null && !can.IsDead();
+            });
+            SightInfo bestTarget = null;
+            foreach (SightInfo si in sightedCannibals)
+            {
+                if (bestTarget == null || ((si.target.transform.position - transform.position).sqrMagnitude < (bestTarget.target.transform.position - transform.position).sqrMagnitude))
+                {
+                    bestTarget = si;
                 }
             }
+            if (bestTarget != null)
+            {
+                CurrentAction.callData = bestTarget;
+                return true;
+            }
+            return false;
+        }
+
+        protected void Chase()
+        {
+            SightInfo bestTarget = CurrentAction.callData as SightInfo;
+            if (bestTarget != null)
+            {
+                if (los.getDetectRate(bestTarget)>=1 && (bestTarget.target.transform.position - transform.position).sqrMagnitude <= chaseShootDistance * chaseShootDistance)
+                {
+                    //Shoot at target
+                    ActionTask shoot = new ActionTask();
+                    shoot.target = bestTarget.target;
+                    shoot.OnBegin = () =>
+                    {
+                        agent.ResetPath();
+                        animator.Play("Shoot");
+                    };
+                    shoot.OnExecute = () => LookAt(CurrentAction.target.transform.position);
+                    currentTarget = bestTarget.target;
+                    Play(shoot);
+                    return;
+                }
+                if (los.getDetectRate(bestTarget) >= 1)
+                {
+                    //Run after player
+                    currentTarget = bestTarget.target;
+                    agent.speed = runSpeed;
+                    MoveTo(bestTarget.target.transform.position, 1);
+                    return;
+                }
+                currentTarget = null;
+                agent.speed = walkSpeed;
+                MoveTo(bestTarget.target.transform.position, 1);
+                return;
+            }
+            return;
+        }
+
+        protected void GoTo()
+        {
+            Vector3 position = (CurrentAction.callData as GameObject).transform.position;
+            ActionTask action = new ActionTask();
+            action.OnExecute = () =>
+             {
+                 if (MoveTo(position, 3))
+                 {
+                     Stop();
+                     ActionTask wait = new ActionTask();
+                     wait.timer=2;
+                     wait.OnExecute = () => Chase();
+                     wait.callbacks.Add(DOG_CALL, CurrentAction.callbacks[DOG_CALL]);
+                     wait.callbacks.Add(BOTTLE_CALL, Drink);
+                     Play(wait);
+                 }
+             };
+            action.reaction.Add(new ActionTask.Reaction(SeeCannibal, Chase));
+            action.callbacks.Add(DOG_CALL, CurrentAction.callbacks[DOG_CALL]);
+            action.callbacks.Add(BOTTLE_CALL, Drink);
+            Play(action);
+        }
+
+        protected void Drink()
+        {
+            Bottle bottle = CurrentAction.callData as Bottle;
+
+            ActionTask drink = new ActionTask();
+            drink.OnExecute = () =>
+            {
+                if (MoveTo(bottle.transform.position, 2))
+                {
+                    animator.Play("Drink");
+                    AkSoundEngine.PostEvent("hunter_drink", gameObject);
+                    stun = true;
+                    if(bottle.linkedCannibal!=null)
+                        bottle.linkedCannibal.LooseCannibalObject();
+                    bottle.gameObject.SetActive(false);
+                    ActionTask action = new ActionTask();
+                    action.timer = stunTime;
+                    action.OnEnd = Resurrect;
+                    Play(action);
+                }
+            };
+            Play(drink);           
         }
 
         public void Shoot()
@@ -133,121 +259,6 @@ namespace AI
             }
         }
 
-        protected void Defend(GameObject target)
-        {
-            ActionTask defend = new ActionTask();
-            defend.target = target;
-            defend.OnExecute = () =>
-            {
-                if (Chase()) return;
-                if (WanderAround(target.transform.position, defendRange, 1))
-                {
-                    ActionTask wait = new ActionTask();
-                    wait.OnExecute = () => Chase();
-                    wait.timer = 3;
-                    Play(wait);
-                }
-            };
-            defend.callbacks.Add(0, GoTo);
-            defend.callbacks.Add(1, Drink);
-            defend.timer = defendTime;
-            Play(defend);
-        }
-
-        protected bool Chase()
-        {
-            List<SightInfo> sightedCannibals = los.sighted.FindAll(x => {
-                Cannibal can = x.target.GetComponentInParent<Cannibal>();
-                return can != null && !can.IsDead();
-                });
-            SightInfo bestTarget = null;
-            foreach (SightInfo si in sightedCannibals)
-            {
-                if (bestTarget == null || ((si.target.transform.position - transform.position).sqrMagnitude < (bestTarget.target.transform.position - transform.position).sqrMagnitude))
-                {
-                    bestTarget = si;
-                }
-            }
-            if (bestTarget != null)
-            {
-                if (los.getDetectRate(bestTarget)>=1 && (bestTarget.target.transform.position - transform.position).sqrMagnitude <= chaseShootDistance * chaseShootDistance)
-                {
-                    //Shoot at target
-                    ActionTask shoot = new ActionTask();
-                    shoot.target = bestTarget.target;
-                    shoot.OnBegin = () =>
-                    {
-                        agent.ResetPath();
-                        animator.Play("Shoot");
-                    };
-                    shoot.OnExecute = () => LookAt(CurrentAction.target.transform.position);
-                    currentTarget = bestTarget.target;
-                    Play(shoot);
-                    return true;
-                }
-                if (los.getDetectRate(bestTarget) >= 1)
-                {
-                    //Run after player
-                    currentTarget = bestTarget.target;
-                    agent.speed = runSpeed;
-                    MoveTo(bestTarget.target.transform.position, 1);
-                    return true;
-                }
-                currentTarget = null;
-                agent.speed = walkSpeed;
-                MoveTo(bestTarget.target.transform.position, 1);
-                return true;
-            }
-            return false;
-        }
-
-        protected void GoTo()
-        {
-            Vector3 position = (CurrentAction.callData as GameObject).transform.position;
-            ActionTask action = new ActionTask();
-            action.OnExecute = () =>
-             {
-                 if (Chase()) return;
-                 if (MoveTo(position, 3))
-                 {
-                     Stop();
-                     ActionTask wait = new ActionTask();
-                     wait.timer=2;
-                     wait.OnExecute = () => Chase();
-                     wait.callbacks.Add(0, CurrentAction.callbacks[0]);
-                     wait.callbacks.Add(1, Drink);
-                     Play(wait);
-                 }
-             };
-            action.callbacks.Add(0, CurrentAction.callbacks[0]);
-            action.callbacks.Add(1, Drink);
-            Play(action);
-        }
-
-        protected void Drink()
-        {
-            Bottle bottle = CurrentAction.callData as Bottle;
-
-            ActionTask drink = new ActionTask();
-            drink.OnExecute = () =>
-            {
-                if (MoveTo(bottle.transform.position, 2))
-                {
-                    animator.Play("Drink");
-                    AkSoundEngine.PostEvent("hunter_drink", gameObject);
-                    stun = true;
-                    if(bottle.linkedCannibal!=null)
-                        bottle.linkedCannibal.LooseCannibalObject();
-                    bottle.gameObject.SetActive(false);
-                    ActionTask action = new ActionTask();
-                    action.timer = stunTime;
-                    action.OnEnd = Resurrect;
-                    Play(action);
-                }
-            };
-            Play(drink);           
-        }
-
         protected void Resurrect()
         {
             stun = false;
@@ -263,7 +274,7 @@ namespace AI
             if (CurrentAction != null)
             {
                 CurrentAction.callData = target;
-                Call(0);
+                Call(DOG_CALL);
             }
         }
 
@@ -274,7 +285,7 @@ namespace AI
                 if (CurrentAction != null)
                 {
                     CurrentAction.callData = bot;
-                    Call(1);
+                    Call(BOTTLE_CALL);
                 }
             }
         }

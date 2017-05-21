@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -200,6 +201,17 @@ public class LineOfSight : MonoBehaviour {
     {
         if(gameObject.activeInHierarchy && camera!=null && type==SightType.Camera && active)
             camera.Render();
+    }
+
+    public SightInfo FindNearest(Predicate<SightInfo> p)
+    {
+        SightInfo result = null;
+        foreach(SightInfo si in sighted)
+        {
+            if (p(si) && (result == null || (si.target.transform.position - transform.position).sqrMagnitude < (result.target.transform.position).sqrMagnitude))
+                result = si;
+        }
+        return result;
     }
 
     public bool Updated

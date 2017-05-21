@@ -10,6 +10,7 @@ namespace AI
 
         bool stun = false;
         private float feedTime;
+        private float champignonRadius;
 
         // Use this for initialization
         new void Start () {
@@ -17,14 +18,6 @@ namespace AI
             animator = GetComponent<Animator>();
 
             ActionTask root = new ActionTask();
-            root.OnExecute = () =>
-            {
-                if (MoveTo(patrouille.getCurrentDestination(), 3))
-                {
-                    patrouille.Next();
-                    Wait(2);
-                }
-            };
             root.OnEnd = () =>
             {
                 AkSoundEngine.PostEvent("granny_death", gameObject);
@@ -32,6 +25,7 @@ namespace AI
                 state = AIState.DEAD;
             };
             Play(root);
+            Feeding();
 	    }
 	
 	    // Update is called once per frame
@@ -41,6 +35,38 @@ namespace AI
             
 	    }
 
+        //Vue et sens
+        bool SeeCannibal()
+        {
+            SightInfo cannibal = los.FindNearest(x =>
+            {
+                Cannibal c = x.target.GetComponentInParent<Cannibal>();
+                return c != null && !c.IsDead();
+            });
+            if (cannibal != null)
+            {
+                CurrentAction.callData = cannibal;
+                return true;
+            }
+            return false;
+        }
+
+        bool SeeChampi()
+        {
+            Collider[] cols = Physics.OverlapSphere(transform.position, champignonRadius);
+            GameObject best = null;
+            foreach (Collider c in cols)
+                if ((c.transform.position - transform.position).sqrMagnitude < (best.transform.position - transform.position).sqrMagnitude)
+                    best = c.gameObject;
+            if (best != null)
+            {
+                CurrentAction.callData = new SightInfo(best);
+                return true;
+            }
+            return false;
+        }
+
+        //Actions
         protected void Feeding()
         {
             Vector3 position = patrouille[0];
@@ -75,10 +101,6 @@ namespace AI
                 if (MoveTo(position, 2))
                 {
                     ActionTask make = new ActionTask();
-                    make.OnExecute = () =>
-                    {
-
-                    };
                     make.OnEnd = () =>
                     {
                         Deposer();
@@ -88,7 +110,19 @@ namespace AI
                     Play(make);
                 }
             };
+            action.AddReaction(SeeChampi, RamasseChampi);
             Play(action);
+        }
+
+        protected void RamasseChampi()
+        {
+            GameObject best = (CurrentAction.callData as SightInfo).target;
+            if(MoveTo(best.transform.position, 2))
+            {
+                animator.Play("PickUp");
+                AkSoundEngine.PostEvent("granny_objects", gameObject);
+                Wait(1);
+            }
         }
 
         protected void Deposer()

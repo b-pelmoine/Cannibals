@@ -22,14 +22,31 @@ namespace AI
         public class ActionTask
         {
             public delegate void Action();
+            public delegate bool Condition();
+            public class Reaction
+            {
+                public Condition pred = null;
+                public Action action = null;
+                public Reaction(Condition c, Action a)
+                {
+                    pred = c;
+                    action = a;
+                }
+            }
             public Action OnExecute = null;
             public Action OnBegin = null;
             public Action OnEnd = null;
+            public List<Reaction> reaction = new List<Reaction>();
             public Dictionary<int, Action> callbacks = new Dictionary<int, Action>();
             public object callData = null;
             public float elapsed = 0;
             public float timer = 0;
             public GameObject target = null;
+
+            public void AddReaction(Condition c, Action a)
+            {
+                reaction.Add(new Reaction(c, a));
+            }
         }
 
         Stack<ActionTask> actions = new Stack<ActionTask>();
@@ -75,10 +92,19 @@ namespace AI
         {
             if (actions.Count==0) return;
             CurrentAction.elapsed += Time.deltaTime;
-            if(CurrentAction.OnExecute!=null)
-                CurrentAction.OnExecute();
             if (CurrentAction.timer > 0 && CurrentAction.elapsed > CurrentAction.timer)
                 Stop();
+            foreach (ActionTask.Reaction r in CurrentAction.reaction)
+            {
+                if (r.pred())
+                {
+                    r.action();
+                    return;
+                }
+            }
+            if(CurrentAction.OnExecute!=null)
+                CurrentAction.OnExecute();
+            
         }
 
         public AIState State{

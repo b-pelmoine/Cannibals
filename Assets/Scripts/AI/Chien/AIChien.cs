@@ -31,20 +31,17 @@ namespace AI
             ActionTask brain = new ActionTask();
             brain.OnExecute = () =>
             {
-                if (AnalyseSight())
-                    return;
                 if (WanderAround(hunter.transform.position, wanderDistance))
                 {
                     ActionTask task = new ActionTask();
                     task.timer = 2;
-                    task.OnExecute = () => AnalyseSight();
-                    task.callbacks.Add(0, EatBone);
-                    task.callbacks.Add(1, Bark);
+                    brain.reaction = CurrentAction.reaction;
                     Play(task);
                 }
             };
-            brain.callbacks.Add(0, EatBone);
-            brain.callbacks.Add(1, Bark);
+            brain.AddReaction(SeeBone, EatBone);
+            brain.AddReaction(SeeCannibal, Bark);
+            brain.AddReaction(SeeBuisson, Bark);
             Play(brain);
         }
 	
@@ -61,16 +58,14 @@ namespace AI
 
         void Bark()
         {
-            GameObject target = CurrentAction.callData as GameObject;
+            GameObject target = (CurrentAction.callData as SightInfo).target;
 
             if (MoveTo(target.transform.position, barkDistance))
             {
                 LookAt(target.transform.position);
                 animator.Play("Bark");
                 hunter.Call(target);
-                ActionTask wait = new ActionTask();
-                wait.timer = 1;
-                Play(wait);
+                Wait(1);
             }
         }
 
@@ -100,40 +95,47 @@ namespace AI
             Play(action);
         }
 
-        bool AnalyseSight()
+        bool SeeBone()
         {
-            foreach (SightInfo obj in los.sighted)
+            SightInfo bone = los.FindNearest(x => {
+                Bone b = x.target.GetComponent<Bone>();
+                return b != null && b.linkedCannibal == null;
+                });
+            if (bone != null)
             {
-                Bone bone = obj.target.GetComponent<Bone>();
-                if (bone != null)
-                {
-                    CurrentAction.callData = bone;
-                    Call(0);
-                    return true;
-                }
-                else if (obj.target.CompareTag("Player"))
-                {
-                    Cannibal can = obj.target.GetComponentInParent<Cannibal>();
-                    if (!can.IsDead())
-                    {
-                        CurrentAction.callData = obj.target;
-                        Call(1);
-                        return true;
-                    }
-                }
-                else
-                {
-                    Bush buisson = obj.target.GetComponent<Bush>();
-                    if (buisson!=null && buisson.IsMoving())
-                    {
-                        CurrentAction.callData = obj.target;
-                        Call(1);
-                        return true;
-                    }
-                }
+                CurrentAction.callData = bone.target.GetComponent<Bone>();
+                return true;
             }
             return false;
         }
+
+        bool SeeCannibal()
+        {
+            SightInfo cannibal = los.FindNearest(x =>
+            {
+                Cannibal c = x.target.GetComponentInParent<Cannibal>();
+                return c != null && !c.IsDead();
+            });
+            if (cannibal != null)
+            {
+                CurrentAction.callData = cannibal;
+                return true;
+            }
+            return false;
+        }
+
+        bool SeeBuisson()
+        {
+            SightInfo buisson = los.FindNearest(x => x.target.GetComponent<Bush>());
+            if (buisson != null)
+            {
+                CurrentAction.callData = buisson;
+                return true;
+            }
+            return false;
+        }
+
+
     }
 
 }
