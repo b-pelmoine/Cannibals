@@ -296,6 +296,11 @@ namespace AI
             StopAll();
         }
 
+        public override void Kill()
+        {
+            StopAll();
+        }
+
         public void ShowKnifeIcon()
         {
             //throw new NotImplementedException();

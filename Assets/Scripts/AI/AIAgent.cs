@@ -122,6 +122,15 @@ namespace AI
                 CurrentAction.callbacks[id]();
         }
 
+        protected void Wait(float time, ActionTask.Action execute=null, ActionTask.Action end = null)
+        {
+            ActionTask wait = new ActionTask();
+            wait.timer = time;
+            wait.OnExecute = execute;
+            wait.OnEnd = end;
+            Play(wait);
+        }
+
         //Se déplace vers target
         public bool MoveTo(Vector3 target, float stopRadius)
         {
@@ -186,7 +195,7 @@ namespace AI
             return state == AIState.DEAD;
         }
 
-        public void Kill()
+        public virtual void Kill()
         {
 
         }
