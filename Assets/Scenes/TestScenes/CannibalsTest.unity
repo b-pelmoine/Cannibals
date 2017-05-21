@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -592,7 +592,7 @@ GameObject:
   - component: {fileID: 517272768}
   - component: {fileID: 517272767}
   - component: {fileID: 517272766}
-  m_Layer: 14
+  m_Layer: 9
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -757,6 +757,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &603108373
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4734082779262672, guid: cc6c4af6ccda5db49a0cce98f62c9bae, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.07904589
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734082779262672, guid: cc6c4af6ccda5db49a0cce98f62c9bae, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.066911995
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734082779262672, guid: cc6c4af6ccda5db49a0cce98f62c9bae, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.10180551
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734082779262672, guid: cc6c4af6ccda5db49a0cce98f62c9bae, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734082779262672, guid: cc6c4af6ccda5db49a0cce98f62c9bae, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734082779262672, guid: cc6c4af6ccda5db49a0cce98f62c9bae, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734082779262672, guid: cc6c4af6ccda5db49a0cce98f62c9bae, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734082779262672, guid: cc6c4af6ccda5db49a0cce98f62c9bae, type: 2}
+      propertyPath: m_RootOrder
+      value: 26
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: cc6c4af6ccda5db49a0cce98f62c9bae, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &609811458
 Prefab:
   m_ObjectHideFlags: 0
@@ -999,7 +1041,7 @@ GameObject:
   - component: {fileID: 792222424}
   - component: {fileID: 792222423}
   - component: {fileID: 792222422}
-  m_Layer: 14
+  m_Layer: 9
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1403,11 +1445,6 @@ Prefab:
     - target: {fileID: 114753656786614946, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
         type: 2}
       propertyPath: _graph
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114399292702623858, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: corpseJoint
       value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2366,7 +2403,7 @@ GameObject:
   - component: {fileID: 1817682895}
   - component: {fileID: 1817682894}
   - component: {fileID: 1817682893}
-  m_Layer: 14
+  m_Layer: 9
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2591,6 +2628,21 @@ Prefab:
         type: 2}
       propertyPath: number
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 137906467917136154, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
+        type: 2}
+      propertyPath: m_AABB.m_Center.y
+      value: -0.5206934
+      objectReference: {fileID: 0}
+    - target: {fileID: 137906467917136154, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
+        type: 2}
+      propertyPath: m_AABB.m_Center.z
+      value: -0.010822587
+      objectReference: {fileID: 0}
+    - target: {fileID: 137906467917136154, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
+        type: 2}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.41451216
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d5c73a2de9863c49bd4ddcc77af1888, type: 2}

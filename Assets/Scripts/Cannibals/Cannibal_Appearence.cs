@@ -20,6 +20,22 @@ public class Cannibal_Appearence : MonoBehaviour {
 
     public Animator m_animator;
 
+    [SerializeField]
+    GameObject knifePrefab;
+
+    [SerializeField]
+    Transform objectsTransform;
+
+    GameObject knifeGo = null;
+
+    private void Awake()
+    {
+        knifeGo = Instantiate(knifePrefab);
+        knifeGo.transform.SetParent(objectsTransform, false);
+        knifeGo.SetActive(false);
+    }
+
+
     void Update()
     {
         if (m_cannibal.m_cannibalMovement.CharacterControllerEx.velocity.magnitude != 0)
@@ -52,5 +68,15 @@ public class Cannibal_Appearence : MonoBehaviour {
     public void ShowResurrectIcon()
     {
         iconDisplayer.Show(resurrectIcon);
+    }
+
+    public void ShowKnife()
+    {
+        knifeGo.SetActive(true);
+    }
+
+    public void HideKnife()
+    {
+        knifeGo.SetActive(false);
     }
 }

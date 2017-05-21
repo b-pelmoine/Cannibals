@@ -6,14 +6,22 @@ using ParadoxNotion.Design;
 [Category("Cannibal")]
 public class Cannibal_KnifeAttack :ActionState, ICannibal_State
 {
+    public BBParameter<Cannibal> m_cannibal;
     public BBParameter<List<IKnifeKillable>> iKillables;
 
     protected override void OnEnter()
     {
         base.OnEnter();
         iKillables.value[0].KnifeKill();
+        m_cannibal.value.m_cannibalAppearence.ShowKnife();
     }
 
+
+    protected override void OnExit()
+    {
+        base.OnExit();
+        m_cannibal.value.m_cannibalAppearence.HideKnife();
+    }
 
     /// <summary>
     /// Resuscitate the cannibal
