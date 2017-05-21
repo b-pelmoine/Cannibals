@@ -9,8 +9,10 @@ namespace AI
         public Waypoint patrouille;
 
         bool stun = false;
-        private float feedTime;
-        private float champignonRadius;
+        public float feedTime = 2;
+        public float champignonRadius = 15;
+
+        public float protectRadius = 5;
 
         // Use this for initialization
         new void Start () {
@@ -56,7 +58,7 @@ namespace AI
             Collider[] cols = Physics.OverlapSphere(transform.position, champignonRadius);
             GameObject best = null;
             foreach (Collider c in cols)
-                if ((c.transform.position - transform.position).sqrMagnitude < (best.transform.position - transform.position).sqrMagnitude)
+                if (c.gameObject.CompareTag("Champignon") && (best==null || (c.transform.position - transform.position).sqrMagnitude < (best.transform.position - transform.position).sqrMagnitude))
                     best = c.gameObject;
             if (best != null)
             {
@@ -67,6 +69,26 @@ namespace AI
         }
 
         //Actions
+        protected void Hit()
+        {
+            SightInfo target = CurrentAction.callData as SightInfo;
+            if(MoveTo(target.target.transform.position, 2))
+            {
+                animator.Play("Hit");
+                Wait(animator.GetCurrentAnimatorStateInfo(0).length, 
+                () => LookAt(target.target.transform.position), 
+                () =>
+                {
+                    AkSoundEngine.PostEvent("granny_whoosh_hit", gameObject);
+                    if ((target.target.transform.position - transform.position).sqrMagnitude < 2*2)
+                    {
+                        Cannibal can = target.target.GetComponentInParent<Cannibal>();
+                        if (can != null) can.Kill();
+                    }
+                });
+            }
+        }
+
         protected void Feeding()
         {
             Vector3 position = patrouille[0];
@@ -76,19 +98,13 @@ namespace AI
                 if(MoveTo(position, 2))
                 {
                     ActionTask feed = new ActionTask();
-                    feed.OnExecute = () => 
-                    {
-
-                    };
-                    feed.OnEnd = () =>
-                    {
-                        Fabrique();
-                    };
+                    feed.Next = Fabrique;
                     feed.timer = feedTime;
                     Stop();
                     Play(feed);
                 }
             };
+            action.AddReaction(SeeCannibal, Hit);
             Play(action);
         }
         
@@ -101,15 +117,15 @@ namespace AI
                 if (MoveTo(position, 2))
                 {
                     ActionTask make = new ActionTask();
-                    make.OnEnd = () =>
-                    {
-                        Deposer();
-                    };
+                    make.Next = Deposer;
                     make.timer = feedTime;
                     Stop();
                     Play(make);
                 }
             };
+            action.AddReaction(
+                () => SeeCannibal() && Vector3.Distance((CurrentAction.callData as SightInfo).target.transform.position, position)<protectRadius
+                , Hit);
             action.AddReaction(SeeChampi, RamasseChampi);
             Play(action);
         }
@@ -120,8 +136,9 @@ namespace AI
             if(MoveTo(best.transform.position, 2))
             {
                 animator.Play("PickUp");
+                AkSoundEngine.SetSwitch("Objects", "Mushrooms", gameObject);
                 AkSoundEngine.PostEvent("granny_objects", gameObject);
-                Wait(1);
+                Wait(animator.GetCurrentAnimatorStateInfo(0).length, null, () => best.SetActive(false));
             }
         }
 
@@ -138,15 +155,13 @@ namespace AI
                     {
 
                     };
-                    make.OnEnd = () =>
-                    {
-                        Deposer();
-                    };
+                    make.Next = Echanger;
                     make.timer = feedTime;
                     Stop();
                     Play(make);
                 }
             };
+            action.AddReaction(SeeCannibal, Hit);
             Play(action);
         }
 
@@ -163,15 +178,13 @@ namespace AI
                     {
 
                     };
-                    make.OnEnd = () =>
-                    {
-                        Feeding();
-                    };
+                    make.Next = Feeding;
                     make.timer = feedTime;
                     Stop();
                     Play(make);
                 }
             };
+            action.AddReaction(SeeCannibal, Hit);
             Play(action);
         }
 

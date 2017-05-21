@@ -36,6 +36,7 @@ namespace AI
             public Action OnExecute = null;
             public Action OnBegin = null;
             public Action OnEnd = null;
+            public Action Next = null;
             public List<Reaction> reaction = new List<Reaction>();
             public Dictionary<int, Action> callbacks = new Dictionary<int, Action>();
             public object callData = null;
@@ -56,7 +57,6 @@ namespace AI
         Vector3? lastRequest;
 
         protected LineOfSight los;
-        private bool detecting = false;
 
         protected int navMeshMask = 0;
 
@@ -132,9 +132,12 @@ namespace AI
 
         protected void Stop()
         {
+            ActionTask.Action next = CurrentAction.Next;
             if(CurrentAction.OnEnd!=null)
                 CurrentAction.OnEnd();
             actions.Pop();
+            if (next != null)
+                next();
         }
 
         protected void StopAll()
