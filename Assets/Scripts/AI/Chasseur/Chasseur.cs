@@ -16,6 +16,7 @@ namespace AI
         
         public float lostTargetTime = 3;
         public float defendTime = 5;
+        public float defendRange = 10;
         
         public ParticleSystem fireBurst;
 
@@ -40,7 +41,19 @@ namespace AI
             base.Start();
             type = AIType.Hunter;
             Bottle.OnBottleShaked += OnBottleShaked;
-            
+
+            //Initialisation de la racine
+            ActionTask action = new ActionTask();
+            action.OnExecute = Brain;
+            action.OnEnd = () =>
+            {
+                AkSoundEngine.PostEvent("hunter_death", gameObject);
+                animator.Play("Death");
+                state = AIState.DEAD;
+            };
+            action.callbacks.Add(0, GoTo);
+            action.callbacks.Add(1, Drink);
+            Play(action);
 	    }
 	
 	    // Update is called once per frame
@@ -48,7 +61,6 @@ namespace AI
             if (state == AIState.DEAD)
                 return;
             base.Update();
-            if (bottleTarget != null) return;
             
 		    if(animator != null && agent!=null)
             {
@@ -58,29 +70,22 @@ namespace AI
             {
                 Debug.Log("Chasseur.cs: animator ou navmeshagent non présent");
             }
-
-            if (IsIdle())
-            {
-                currentTarget = null;
-                if (Chase())
-                {
-                    return;
-                }
-                if(MoveTo(patrouille.getCurrentDestination(), waypointDistance))
-                {
-                    patrouille.Next();
-                    Play(() => false, 4);
-                }
-            }
-
-            
-
 	    }
 
-        public bool ShootAction()
+        public void Brain()
         {
-            LookAt(shootTarget.transform.position);
-            return false;
+            if (!Chase())
+            {
+                if (MoveTo(patrouille.getCurrentDestination(), waypointDistance))
+                {
+                    patrouille.Next();
+                    //S'arrete 4 sec
+                    ActionTask act = new ActionTask();
+                    act.timer = 4;
+                    act.OnExecute= () => Chase();
+                    Play(act);
+                }
+            }
         }
 
         public void Shoot()
@@ -102,8 +107,7 @@ namespace AI
                     Cannibal cannibal = hit.collider.gameObject.GetComponentInParent<Cannibal>();
                     if (cannibal != null)
                     {
-                        if (cannibalTarget != cannibal)
-                           shootTarget = hit.collider.gameObject;
+                        CurrentAction.target = hit.collider.gameObject;
                         cannibal.Kill();
                     }
                     else
@@ -118,31 +122,42 @@ namespace AI
             }
         }
 
-        public bool EndShoot()
+        public void EndShoot()
         {
+            GameObject target = CurrentAction.target;
             Stop();
-            if (cannibalTarget != null)
+            Cannibal can = target.GetComponentInParent<Cannibal>();
+            if (can != null && can.IsDead())
             {
-                if (cannibalTarget.IsDead())
-                {
-                    Play(Defend, 10);
-                }
+                Defend(target);
             }
-            return false;
         }
 
-        protected bool Defend()
+        protected void Defend(GameObject target)
         {
-            if (Chase()) return false;
-            WanderAround(shootTarget.transform.position, 5);
-            return false;
+            ActionTask defend = new ActionTask();
+            defend.target = target;
+            defend.OnExecute = () =>
+            {
+                if (Chase()) return;
+                if (WanderAround(target.transform.position, defendRange, 1))
+                {
+                    ActionTask wait = new ActionTask();
+                    wait.OnExecute = () => Chase();
+                    wait.timer = 3;
+                    Play(wait);
+                }
+            };
+            defend.callbacks.Add(0, GoTo);
+            defend.callbacks.Add(1, Drink);
+            defend.timer = defendTime;
+            Play(defend);
         }
 
         protected bool Chase()
         {
-            Cannibal can = null;
             List<SightInfo> sightedCannibals = los.sighted.FindAll(x => {
-                can = x.target.GetComponentInParent<Cannibal>();
+                Cannibal can = x.target.GetComponentInParent<Cannibal>();
                 return can != null && !can.IsDead();
                 });
             SightInfo bestTarget = null;
@@ -157,61 +172,86 @@ namespace AI
             {
                 if (los.getDetectRate(bestTarget)>=1 && (bestTarget.target.transform.position - transform.position).sqrMagnitude <= chaseShootDistance * chaseShootDistance)
                 {
+                    //Shoot at target
+                    ActionTask shoot = new ActionTask();
+                    shoot.target = bestTarget.target;
+                    shoot.OnBegin = () =>
+                    {
+                        agent.ResetPath();
+                        animator.Play("Shoot");
+                    };
+                    shoot.OnExecute = () => LookAt(CurrentAction.target.transform.position);
                     currentTarget = bestTarget.target;
-                    agent.ResetPath();
-                    animator.Play("Shoot");
-                    shootTarget = bestTarget.target;
-                    cannibalTarget = bestTarget.target.GetComponentInParent<Cannibal>();
-                    Play(ShootAction, 7, EndShoot);
+                    Play(shoot);
+                    return true;
                 }
-                else
+                if (los.getDetectRate(bestTarget) >= 1)
                 {
-                    if (los.getDetectRate(bestTarget) >= 1)
-                    {
-                        currentTarget = bestTarget.target;
-                        agent.speed = runSpeed;
-                        MoveTo(bestTarget.target.transform.position, 1);
-                    }
-                    else
-                    {
-                        currentTarget = null;
-                        agent.speed = walkSpeed;
-                        MoveTo(bestTarget.target.transform.position, 1);
-                    }
+                    //Run after player
+                    currentTarget = bestTarget.target;
+                    agent.speed = runSpeed;
+                    MoveTo(bestTarget.target.transform.position, 1);
+                    return true;
                 }
+                currentTarget = null;
+                agent.speed = walkSpeed;
+                MoveTo(bestTarget.target.transform.position, 1);
                 return true;
             }
             return false;
         }
 
-        protected bool GoTo()
+        protected void GoTo()
         {
-            if (Chase())
-                return true;
-            if (MoveTo(shootTarget.transform.position, 3)) return true;
-            return false;
+            Vector3 position = (CurrentAction.callData as GameObject).transform.position;
+            ActionTask action = new ActionTask();
+            action.OnExecute = () =>
+             {
+                 if (Chase()) return;
+                 if (MoveTo(position, 3))
+                 {
+                     Stop();
+                     ActionTask wait = new ActionTask();
+                     wait.timer=2;
+                     wait.OnExecute = () => Chase();
+                     wait.callbacks.Add(0, CurrentAction.callbacks[0]);
+                     wait.callbacks.Add(1, Drink);
+                     Play(wait);
+                 }
+             };
+            action.callbacks.Add(0, CurrentAction.callbacks[0]);
+            action.callbacks.Add(1, Drink);
+            Play(action);
         }
 
-        protected bool Drink()
+        protected void Drink()
         {
-            if (MoveTo(bottleTarget.transform.position, 1))
+            Bottle bottle = CurrentAction.callData as Bottle;
+
+            ActionTask drink = new ActionTask();
+            drink.OnExecute = () =>
             {
-                bottleTarget = null;
-                Stop();
-                animator.Play("Drink");
-                AkSoundEngine.PostEvent("hunter_drink", gameObject);
-                stun = true;
-                Play(() => false, stunTime, Resurrect);
-            }
-            return false;
+                if (MoveTo(bottle.transform.position, 2))
+                {
+                    animator.Play("Drink");
+                    AkSoundEngine.PostEvent("hunter_drink", gameObject);
+                    stun = true;
+                    if(bottle.linkedCannibal!=null)
+                        bottle.linkedCannibal.LooseCannibalObject();
+                    bottle.gameObject.SetActive(false);
+                    ActionTask action = new ActionTask();
+                    action.timer = stunTime;
+                    action.OnEnd = Resurrect;
+                    Play(action);
+                }
+            };
+            Play(drink);           
         }
 
-        protected bool Resurrect()
+        protected void Resurrect()
         {
             stun = false;
             animator.Play("Resurrect");
-            Stop();
-            return true;
         }
 
         /// <summary>
@@ -220,17 +260,22 @@ namespace AI
         public void Call(GameObject target)
         {
             shootTarget = target;
-            if(IsIdle())
-                Play(GoTo);
+            if (CurrentAction != null)
+            {
+                CurrentAction.callData = target;
+                Call(0);
+            }
         }
 
         void OnBottleShaked(Bottle bot)
         {
             if (Vector3.SqrMagnitude(bot.transform.position - this.transform.position) < Mathf.Pow(los.getSeeDistance(),2))
             {
-                bottleTarget = bot;
-                if(IsIdle())
-                    Play(Drink);
+                if (CurrentAction != null)
+                {
+                    CurrentAction.callData = bot;
+                    Call(1);
+                }
             }
         }
 
@@ -248,9 +293,12 @@ namespace AI
 
         public void KnifeKill()
         {
-            AkSoundEngine.PostEvent("hunter_death", gameObject);
-            animator.Play("Death");
-            state = AIState.DEAD;
+            StopAll();
+        }
+
+        public override void Kill()
+        {
+            StopAll();
         }
 
         public void ShowKnifeIcon()

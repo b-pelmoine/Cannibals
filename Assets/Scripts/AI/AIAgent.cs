@@ -19,11 +19,20 @@ namespace AI
         [Range(0,10)]
         public int LevelOfImportance = 0;
 
-        public delegate bool Action();
-        Action currentAction = null;
-        Action endAction = null;
-        float actionElapsed;
-        float actionTime;
+        public class ActionTask
+        {
+            public delegate void Action();
+            public Action OnExecute = null;
+            public Action OnBegin = null;
+            public Action OnEnd = null;
+            public Dictionary<int, Action> callbacks = new Dictionary<int, Action>();
+            public object callData = null;
+            public float elapsed = 0;
+            public float timer = 0;
+            public GameObject target = null;
+        }
+
+        Stack<ActionTask> actions = new Stack<ActionTask>();
 
         public NavMeshAgent agent;
         public Animator animator;
@@ -62,23 +71,14 @@ namespace AI
             los = GetComponent<LineOfSight>();
         }
 
-        public bool IsIdle()
-        {
-            return currentAction == null;
-        }
-
         protected void Update()
         {
-            actionElapsed += Time.deltaTime;
-            if (currentAction != null && (currentAction() || (actionElapsed>=0 && actionElapsed>actionTime)))
-            {
-                currentAction = null;
-                if (endAction != null)
-                {
-                    endAction();
-                    endAction = null;
-                }
-            }
+            if (actions.Count==0) return;
+            CurrentAction.elapsed += Time.deltaTime;
+            if(CurrentAction.OnExecute!=null)
+                CurrentAction.OnExecute();
+            if (CurrentAction.timer > 0 && CurrentAction.elapsed > CurrentAction.timer)
+                Stop();
         }
 
         public AIState State{
@@ -88,18 +88,47 @@ namespace AI
             }
         }
 
-
-        protected void Play(Action act, float timer = -1, Action end = null)
+        protected ActionTask CurrentAction
         {
-            currentAction = act;
-            endAction = end;
-            actionElapsed = 0;
-            actionTime = timer;
+            get
+            {
+                if (actions.Count == 0) return null;
+                return actions.Peek();
+            }
+        }
+
+        protected void Play(ActionTask act)
+        {
+            actions.Push(act);
+            if (act.OnBegin != null)
+                act.OnBegin();
         }
 
         protected void Stop()
         {
-            currentAction = null;
+            if(CurrentAction.OnEnd!=null)
+                CurrentAction.OnEnd();
+            actions.Pop();
+        }
+
+        protected void StopAll()
+        {
+            while (CurrentAction != null) Stop();
+        }
+
+        protected void Call(int id)
+        {
+            if (CurrentAction!=null && CurrentAction.callbacks.ContainsKey(id))
+                CurrentAction.callbacks[id]();
+        }
+
+        protected void Wait(float time, ActionTask.Action execute=null, ActionTask.Action end = null)
+        {
+            ActionTask wait = new ActionTask();
+            wait.timer = time;
+            wait.OnExecute = execute;
+            wait.OnEnd = end;
+            Play(wait);
         }
 
         //Se déplace vers target
@@ -166,7 +195,7 @@ namespace AI
             return state == AIState.DEAD;
         }
 
-        public void Kill()
+        public virtual void Kill()
         {
 
         }

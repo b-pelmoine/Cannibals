@@ -27,6 +27,12 @@ public class Corpse : MonoBehaviour {
     CharacterControllerExt characterControllerExt;
 
     [SerializeField]
+    IconDisplayer iconDisplayer;
+
+    [SerializeField]
+    Sprite takeIcon;
+
+    [SerializeField]
     Vector3 cannibalTakeOffset = new Vector3(0, -1.5f, 0);
 
     [SerializeField]
@@ -150,6 +156,11 @@ public class Corpse : MonoBehaviour {
             b = leftPoint;
 
         return b;
+    }
+
+    public void ShowTakeIcon()
+    {
+        iconDisplayer.Show(takeIcon);
     }
 
 
