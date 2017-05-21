@@ -134,6 +134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4492891532676730}
   - component: {fileID: 65311292302855688}
+  - component: {fileID: 65421699477474174}
   m_Layer: 12
   m_Name: GlobalCollider
   m_TagString: Player
@@ -2385,6 +2386,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.4704175, y: 1.6417592, z: 0.4395368}
   m_Center: {x: 0, y: 0.14279616, z: 0}
+--- !u!65 &65421699477474174
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1079857465350904}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.4704175, y: 1.6417592, z: 0.4395368}
+  m_Center: {x: 0, y: 0.14279616, z: 0}
 --- !u!95 &95207576259170064
 Animator:
   serializedVersion: 3
@@ -2659,7 +2672,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4096
   characterPushback: 0
-  elasticForce: 0.1
+  elasticForce: 0.001
   objectPushbackLayerMask:
     serializedVersion: 2
     m_Bits: 0

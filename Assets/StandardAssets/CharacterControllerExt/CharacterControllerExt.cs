@@ -1504,8 +1504,8 @@ namespace EquilibreGames
 
                     Vector3 normal = (this.characterTransform.position - otherCharacterController.characterTransform.position);
 
-                    otherCharacterController.velocity -= elasticForce * normal.normalized / normal.sqrMagnitude;
-                    this.velocity += elasticForce * normal.normalized / normal.sqrMagnitude;
+                    otherCharacterController.characterTransform.position -= elasticForce * normal.normalized / normal.sqrMagnitude;
+                    this.characterTransform.position += elasticForce * normal.normalized / normal.sqrMagnitude;
 
                     break;
             }
