@@ -7,12 +7,16 @@ public class PlaytestsManager : MonoBehaviour {
     public GameObject phaseTwoData;
     private Transform posPOne, posPTwo, posCorpse;
 
+    public Texture splashScreen;
+
     public ParticleSystem endPhase;
 
     [SerializeField]
     Cannibal[] cannibals;
 
     bool endGame = false;
+
+    bool firstScreen = true;
 
     public GameObject[] cannibalsPositions;
     public GameObject corpse;
@@ -98,18 +102,19 @@ public class PlaytestsManager : MonoBehaviour {
         if (phaseTwoData.activeInHierarchy)
             phaseTwoData.SetActive(false);
 
-        switch(phase)
+
+        /*switch (phase)
         {
             case GamePhase.PHASE_ONE: AISetPhaseOne.SetActive(true); AISetPhaseTwo.SetActive(false) ;break;
             case GamePhase.PHASE_TWO: AISetPhaseOne.SetActive(false); AISetPhaseTwo.SetActive(true) ; break;
-        }
+        }*/
 
         //corpse.transform.position = GameObject.Find("startCorpse").transform.position;
 
-        if (phase == GamePhase.PHASE_TWO) LoadPhaseTwo();
+        //if (phase == GamePhase.PHASE_TWO) LoadPhaseTwo();
     }
 
-    void LoadPhaseTwo()
+    /*void LoadPhaseTwo()
     {
         if (!phaseTwoData.activeInHierarchy)
             phaseTwoData.SetActive(true);
@@ -133,10 +138,17 @@ public class PlaytestsManager : MonoBehaviour {
         }
 
         targetReachedTheExit = false;
-    }
+    }*/
 
     // c = colliders / l= load / r= restart
     void Update() {
+
+        if(firstScreen)
+        {
+            if(Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.Joystick2Button0) || Time.time > 5f)
+                firstScreen = false;
+            return;
+        }
 
         if (!terrainUsingTrees) Start();
 
@@ -165,7 +177,6 @@ public class PlaytestsManager : MonoBehaviour {
 
         //magic buttons
         if (Input.GetKeyDown(KeyCode.R)) UnityEngine.SceneManagement.SceneManager.LoadScene("Playtest_Infiltration");
-        if (Input.GetKeyDown(KeyCode.L)) LoadPhaseTwo();
     }
 
     IEnumerator reloadLevel()
@@ -176,11 +187,16 @@ public class PlaytestsManager : MonoBehaviour {
     IEnumerator startNextPhase()
     {
         yield return new WaitForSeconds(3f);
-        LoadPhaseTwo();
+        reloadLevel();
     }
 
     void OnGUI()
     {
+        if(firstScreen)
+        {
+            GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), splashScreen, ScaleMode.ScaleToFit);
+        }
+        /*
         string colliderState = (colliderEnabled) ? "ON" : "OFF";
         string phaseStr = phase.ToString();
         GUI.Label(new Rect(10, 10, 100, 20), colliderState);
@@ -188,6 +204,7 @@ public class PlaytestsManager : MonoBehaviour {
         GUIStyle style = new GUIStyle();
         style.fontSize = 40;
         if (endGame) GUI.Label(new Rect(Screen.width/2 -100, Screen.height/2 -10, 200, 20), "It's meal time !", style);
+        */
     }
 
     bool BothCannibalsAreDead()
