@@ -28,6 +28,7 @@ public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        AkSoundEngine.PostEvent("menu_scroll", gameObject);
         anim.SetBool("Hover", true);
         buttonImage.sprite = ImageHover;
     }
