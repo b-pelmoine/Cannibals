@@ -10,6 +10,9 @@ namespace AI
 
         public Transform mamieHand;
 
+        public float baseSpeed = 2;
+        public float runSpeed = 13;
+
         bool stun = false;
         public float feedTime = 2;
         public float champignonRadius = 15;
@@ -19,11 +22,13 @@ namespace AI
 
         public Machine machine;
         public Generateur generateur;
+        public Transform positionReserve;
+
+        private GameObject carry = null;
 
         // Use this for initialization
         new void Start () {
             base.Start();
-            animator = GetComponent<Animator>();
             machine.finish += Finish;
             ActionTask root = new ActionTask();
             root.OnEnd = () =>
@@ -38,6 +43,7 @@ namespace AI
 	
 	    // Update is called once per frame
 	    new void Update () {
+            agent.speed = baseSpeed;
             base.Update();
             animator.SetFloat("Speed", agent.velocity.sqrMagnitude);
             
@@ -80,6 +86,7 @@ namespace AI
         //Actions
         protected void Hit()
         {
+            agent.speed = runSpeed;
             SightInfo target = CurrentAction.callData as SightInfo;
             if(MoveTo(target.target.transform.position, 2))
             {
@@ -189,6 +196,7 @@ namespace AI
                     {
                         can.transform.parent = mamieHand;
                         can.transform.localPosition = Vector3.zero;
+                        carry = can;
                     });
                 };
                 
@@ -220,24 +228,24 @@ namespace AI
 
         protected void Deposer()
         {
-            Vector3 position = patrouille[2];
+            Vector3 position = positionReserve.position;
             ActionTask action = new ActionTask();
             action.OnExecute = () =>
             {
-                if (MoveTo(position, 2))
+                if (MoveTo(position, 0.2f))
                 {
-                    ActionTask make = new ActionTask();
-                    make.OnExecute = () =>
+                    animator.Play("PickUp");
+                    
+                    ActionTask wait = Wait(animator.GetCurrentAnimatorStateInfo(0).length, null, () =>
                     {
-
-                    };
-                    make.Next = Echanger;
-                    make.timer = feedTime;
-                    Stop();
-                    Play(make);
+                        carry.transform.parent = null;
+                        carry = null;
+                    });
+                    wait.Next = Stop;
                 }
             };
             action.AddReaction(SeeCannibal, Hit);
+            action.Next = Echanger;
             Play(action);
         }
 
@@ -292,10 +300,6 @@ namespace AI
             Call(0);
         }
 
-        //Callbacks des Animations
-        void SonIdle()
-        {
-            AkSoundEngine.PostEvent("granny_idle", gameObject);
-        }
+        
     }
 }
