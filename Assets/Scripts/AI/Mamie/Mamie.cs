@@ -22,11 +22,15 @@ namespace AI
         public float machineRadius = 5;
         public float generateurRadius = 5;
 
+        public int machineCanetteNumber = 3;
+        private int canetteCounter = 0;
+
+
         public Machine machine;
         public Generateur generateur;
         public Transform positionReserve;
 
-        private GameObject carry = null;
+        private List<GameObject> carry = new List<GameObject>();
 
         // Use this for initialization
         new void Start () {
@@ -188,7 +192,14 @@ namespace AI
             {
                 RamasseCanette();
             });
-            action.Next = Deposer;
+            if (canetteCounter == machineCanetteNumber-1)
+                action.Next = () =>
+                {
+                    Deposer();
+                    canetteCounter = 0;
+                };
+            else
+                action.Next = Fabrique;
             Play(action);
         }
 
@@ -201,16 +212,20 @@ namespace AI
                 {
                     animator.Play("Give");
                     
-                    Stop();
                     Wait(0.1f).Next = () =>
                     {
                         anim_call_count = 0;
-                        Wait(animator.GetCurrentAnimatorStateInfo(0).length).callbacks.Add(0, () =>
+                        ActionTask take = Wait(animator.GetCurrentAnimatorStateInfo(0).length);
+                        take.callbacks.Add(0, () =>
                         {
                             can.transform.parent = mamieHand;
                             can.transform.localPosition = Vector3.zero;
-                            carry = can;
+                            canetteCounter++;
+                            carry.Add(can);
+                            if (canetteCounter < machineCanetteNumber)
+                                can.SetActive(false);
                         });
+                        take.Next = Stop;
                     };
                 };
                 
@@ -259,10 +274,11 @@ namespace AI
                         ActionTask wait = Wait(animator.GetCurrentAnimatorStateInfo(0).length);
                         wait.callbacks.Add(0, () =>
                         {
-                            carry.transform.parent = null;
-                            Rigidbody rigid = carry.GetComponent<Rigidbody>();
+                            GameObject c = carry[carry.Count - 1];
+                            c.transform.parent = null;
+                            Rigidbody rigid = c.GetComponent<Rigidbody>();
                             if (rigid != null) rigid.isKinematic = false;
-                            carry = null;
+                            carry.Remove(c);
                         });
                         wait.Next = Stop;
                     };
