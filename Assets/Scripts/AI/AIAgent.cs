@@ -151,13 +151,14 @@ namespace AI
                 CurrentAction.callbacks[id]();
         }
 
-        protected void Wait(float time, ActionTask.Action execute=null, ActionTask.Action end = null)
+        protected ActionTask Wait(float time, ActionTask.Action execute=null, ActionTask.Action end = null)
         {
             ActionTask wait = new ActionTask();
             wait.timer = time;
             wait.OnExecute = execute;
             wait.OnEnd = end;
             Play(wait);
+            return wait;
         }
 
         //Se déplace vers target

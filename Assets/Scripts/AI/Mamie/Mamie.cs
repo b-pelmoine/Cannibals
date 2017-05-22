@@ -12,13 +12,17 @@ namespace AI
         public float feedTime = 2;
         public float champignonRadius = 15;
 
-        public float protectRadius = 5;
+        public float machineRadius = 5;
+        public float generateurRadius = 5;
+
+        public Machine machine;
+        public Generateur generateur;
 
         // Use this for initialization
         new void Start () {
             base.Start();
             animator = GetComponent<Animator>();
-
+            machine.finish += Finish;
             ActionTask root = new ActionTask();
             root.OnEnd = () =>
             {
@@ -58,8 +62,11 @@ namespace AI
             Collider[] cols = Physics.OverlapSphere(transform.position, champignonRadius);
             GameObject best = null;
             foreach (Collider c in cols)
-                if (c.gameObject.CompareTag("Champignon") && (best==null || (c.transform.position - transform.position).sqrMagnitude < (best.transform.position - transform.position).sqrMagnitude))
+            {
+                Champignon champ = c.gameObject.GetComponent<Champignon>();
+                if (champ!=null && champ.type==Champignon.Type.Champibon && (best==null || (c.transform.position - transform.position).sqrMagnitude < (best.transform.position - transform.position).sqrMagnitude))
                     best = c.gameObject;
+            }
             if (best != null)
             {
                 CurrentAction.callData = new SightInfo(best);
@@ -124,23 +131,59 @@ namespace AI
         
         protected void Fabrique()
         {
-            Vector3 position = patrouille[1];
+            Vector3 position = machine.transform.position;
             ActionTask action = new ActionTask();
             action.OnExecute = () =>
             {
                 if (MoveTo(position, 2))
                 {
-                    ActionTask make = new ActionTask();
-                    make.Next = Deposer;
-                    make.timer = feedTime;
+                    animator.Play("Give");
                     Stop();
-                    Play(make);
+                    ActionTask wait = Wait(animator.GetCurrentAnimatorStateInfo(0).length, null, () => machine.Launch());
+                    wait.Next = WaitForCanette;
                 }
             };
             action.AddReaction(
-                () => SeeCannibal() && Vector3.Distance((CurrentAction.callData as SightInfo).target.transform.position, position)<protectRadius
+                () => SeeCannibal() && Vector3.Distance((CurrentAction.callData as SightInfo).target.transform.position, position)<machineRadius
                 , Hit);
             action.AddReaction(SeeChampi, RamasseChampi);
+            Play(action);
+        }
+
+        protected void WaitForCanette()
+        {
+            ActionTask action = new ActionTask();
+            action.OnExecute = () =>
+            {
+                if(MoveTo(machine.transform.position, 3))
+                    LookAt(machine.transform.position);
+            };
+            action.AddReaction(
+                () => !machine.IsOn()
+                , ActiverGenerateur);
+            action.AddReaction(
+                () => SeeCannibal() && Vector3.Distance((CurrentAction.callData as SightInfo).target.transform.position, machine.transform.position) < machineRadius
+                , Hit);
+            action.callbacks.Add(0, Stop);
+            action.Next = Deposer;
+            Play(action);
+        }
+
+        protected void ActiverGenerateur()
+        {
+            ActionTask action = new ActionTask();
+            action.OnExecute = () =>
+            {
+                if (MoveTo(generateur.transform.position, 2))
+                {
+                    animator.Play("Give");
+                    ActionTask wait = Wait(animator.GetCurrentAnimatorStateInfo(0).length, null, () => generateur.Switch());
+                    wait.Next = Stop;
+                }
+            };
+            action.AddReaction(
+                () => SeeCannibal() && Vector3.Distance((CurrentAction.callData as SightInfo).target.transform.position, generateur.transform.position) < generateurRadius
+                , Hit);
             Play(action);
         }
 
@@ -209,6 +252,12 @@ namespace AI
         public void ShowKnifeIcon()
         {
             //throw new NotImplementedException();
+        }
+
+        //Callback Machine
+        public void Finish(GameObject can)
+        {
+            Call(0);
         }
 
         //Callbacks des Animations

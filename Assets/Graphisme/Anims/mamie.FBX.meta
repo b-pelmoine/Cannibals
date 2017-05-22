@@ -103,6 +103,13 @@ ModelImporter:
     4300006: canne
     7400000: Idle
     7400002: Walk
+    7400004: PickUp
+    7400006: Give
+    7400008: Hit
+    7400010: IdleToKo
+    7400012: KO
+    7400014: KoToIdle
+    7400016: Die
     9500000: //RootNode
     13700000: chale
     13700002: mamie
@@ -133,7 +140,136 @@ ModelImporter:
       name: Idle
       takeName: Take 001
       firstFrame: 1
-      lastFrame: 30
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0
+        functionName: SonIdle
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: mamie
+        weight: 1
+      - path: mamie/chale
+        weight: 1
+      - path: Pelvis
+        weight: 1
+      - path: Pelvis/Left leg00
+        weight: 1
+      - path: Pelvis/Left leg00/Left leg01
+        weight: 1
+      - path: Pelvis/Left leg00/Left leg01/Left foot
+        weight: 1
+      - path: Pelvis/Right leg00
+        weight: 1
+      - path: Pelvis/Right leg00/Right leg01
+        weight: 1
+      - path: Pelvis/Right leg00/Right leg01/Right foot
+        weight: 1
+      - path: Pelvis/Spine00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col center00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col center00/col center01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col center00/col center01/col center02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col left00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col left00/col left01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col left00/col left01/col left02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col right00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col right00/col right01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col right00/col right01/col right02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Left arm00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Left arm00/Left arm01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Left arm00/Left arm01/Left arm02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Left arm00/Left arm01/Left arm02/Left
+          arm-nub
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Left arm00/Left arm01/Left arm02/Left
+          hand
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Neck
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Neck/Head
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Neck/Head/Chignon
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Neck/Head/lunettes
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Left arm00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Left arm00/Point-Left arm01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Left arm00/Point-Left arm02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Right arm00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Right arm00/Point-Right arm01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Right arm00/Point-Right arm02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01/Right arm02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01/Right arm02/Right
+          arm-nub
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01/Right arm02/Right
+          hand
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01/Right arm02/Right
+          hand/canne
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01/Right arm02/Right
+          hand/Right hand-nub
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Walk
+      takeName: Take 001
+      firstFrame: 33
+      lastFrame: 45
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -252,10 +388,498 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Walk
+      name: PickUp
       takeName: Take 001
-      firstFrame: 30
-      lastFrame: 47
+      firstFrame: 48
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: mamie
+        weight: 1
+      - path: mamie/chale
+        weight: 1
+      - path: Pelvis
+        weight: 1
+      - path: Pelvis/Left leg00
+        weight: 1
+      - path: Pelvis/Left leg00/Left leg01
+        weight: 1
+      - path: Pelvis/Left leg00/Left leg01/Left foot
+        weight: 1
+      - path: Pelvis/Right leg00
+        weight: 1
+      - path: Pelvis/Right leg00/Right leg01
+        weight: 1
+      - path: Pelvis/Right leg00/Right leg01/Right foot
+        weight: 1
+      - path: Pelvis/Spine00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col center00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col center00/col center01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col center00/col center01/col center02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col left00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col left00/col left01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col left00/col left01/col left02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col right00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col right00/col right01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col right00/col right01/col right02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Left arm00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Left arm00/Left arm01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Left arm00/Left arm01/Left arm02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Left arm00/Left arm01/Left arm02/Left
+          arm-nub
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Left arm00/Left arm01/Left arm02/Left
+          hand
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Neck
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Neck/Head
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Neck/Head/Chignon
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Neck/Head/lunettes
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Left arm00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Left arm00/Point-Left arm01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Left arm00/Point-Left arm02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Right arm00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Right arm00/Point-Right arm01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Right arm00/Point-Right arm02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01/Right arm02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01/Right arm02/Right
+          arm-nub
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01/Right arm02/Right
+          hand
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01/Right arm02/Right
+          hand/canne
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01/Right arm02/Right
+          hand/Right hand-nub
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Give
+      takeName: Take 001
+      firstFrame: 101
+      lastFrame: 145
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: mamie
+        weight: 1
+      - path: mamie/chale
+        weight: 1
+      - path: Pelvis
+        weight: 1
+      - path: Pelvis/Left leg00
+        weight: 1
+      - path: Pelvis/Left leg00/Left leg01
+        weight: 1
+      - path: Pelvis/Left leg00/Left leg01/Left foot
+        weight: 1
+      - path: Pelvis/Right leg00
+        weight: 1
+      - path: Pelvis/Right leg00/Right leg01
+        weight: 1
+      - path: Pelvis/Right leg00/Right leg01/Right foot
+        weight: 1
+      - path: Pelvis/Spine00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col center00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col center00/col center01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col center00/col center01/col center02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col left00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col left00/col left01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col left00/col left01/col left02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col right00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col right00/col right01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col right00/col right01/col right02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Left arm00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Left arm00/Left arm01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Left arm00/Left arm01/Left arm02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Left arm00/Left arm01/Left arm02/Left
+          arm-nub
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Left arm00/Left arm01/Left arm02/Left
+          hand
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Neck
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Neck/Head
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Neck/Head/Chignon
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Neck/Head/lunettes
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Left arm00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Left arm00/Point-Left arm01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Left arm00/Point-Left arm02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Right arm00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Right arm00/Point-Right arm01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Right arm00/Point-Right arm02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01/Right arm02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01/Right arm02/Right
+          arm-nub
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01/Right arm02/Right
+          hand
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01/Right arm02/Right
+          hand/canne
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01/Right arm02/Right
+          hand/Right hand-nub
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Hit
+      takeName: Take 001
+      firstFrame: 146
+      lastFrame: 172
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: mamie
+        weight: 1
+      - path: mamie/chale
+        weight: 1
+      - path: Pelvis
+        weight: 1
+      - path: Pelvis/Left leg00
+        weight: 1
+      - path: Pelvis/Left leg00/Left leg01
+        weight: 1
+      - path: Pelvis/Left leg00/Left leg01/Left foot
+        weight: 1
+      - path: Pelvis/Right leg00
+        weight: 1
+      - path: Pelvis/Right leg00/Right leg01
+        weight: 1
+      - path: Pelvis/Right leg00/Right leg01/Right foot
+        weight: 1
+      - path: Pelvis/Spine00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col center00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col center00/col center01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col center00/col center01/col center02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col left00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col left00/col left01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col left00/col left01/col left02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col right00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col right00/col right01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col right00/col right01/col right02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Left arm00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Left arm00/Left arm01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Left arm00/Left arm01/Left arm02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Left arm00/Left arm01/Left arm02/Left
+          arm-nub
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Left arm00/Left arm01/Left arm02/Left
+          hand
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Neck
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Neck/Head
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Neck/Head/Chignon
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Neck/Head/lunettes
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Left arm00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Left arm00/Point-Left arm01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Left arm00/Point-Left arm02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Right arm00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Right arm00/Point-Right arm01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Right arm00/Point-Right arm02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01/Right arm02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01/Right arm02/Right
+          arm-nub
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01/Right arm02/Right
+          hand
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01/Right arm02/Right
+          hand/canne
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01/Right arm02/Right
+          hand/Right hand-nub
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: IdleToKo
+      takeName: Take 001
+      firstFrame: 173
+      lastFrame: 177
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: mamie
+        weight: 1
+      - path: mamie/chale
+        weight: 1
+      - path: Pelvis
+        weight: 1
+      - path: Pelvis/Left leg00
+        weight: 1
+      - path: Pelvis/Left leg00/Left leg01
+        weight: 1
+      - path: Pelvis/Left leg00/Left leg01/Left foot
+        weight: 1
+      - path: Pelvis/Right leg00
+        weight: 1
+      - path: Pelvis/Right leg00/Right leg01
+        weight: 1
+      - path: Pelvis/Right leg00/Right leg01/Right foot
+        weight: 1
+      - path: Pelvis/Spine00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col center00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col center00/col center01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col center00/col center01/col center02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col left00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col left00/col left01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col left00/col left01/col left02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col right00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col right00/col right01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col right00/col right01/col right02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Left arm00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Left arm00/Left arm01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Left arm00/Left arm01/Left arm02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Left arm00/Left arm01/Left arm02/Left
+          arm-nub
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Left arm00/Left arm01/Left arm02/Left
+          hand
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Neck
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Neck/Head
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Neck/Head/Chignon
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Neck/Head/lunettes
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Left arm00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Left arm00/Point-Left arm01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Left arm00/Point-Left arm02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Right arm00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Right arm00/Point-Right arm01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Right arm00/Point-Right arm02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01/Right arm02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01/Right arm02/Right
+          arm-nub
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01/Right arm02/Right
+          hand
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01/Right arm02/Right
+          hand/canne
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01/Right arm02/Right
+          hand/Right hand-nub
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: KO
+      takeName: Take 001
+      firstFrame: 178
+      lastFrame: 208
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -264,6 +888,250 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: mamie
+        weight: 1
+      - path: mamie/chale
+        weight: 1
+      - path: Pelvis
+        weight: 1
+      - path: Pelvis/Left leg00
+        weight: 1
+      - path: Pelvis/Left leg00/Left leg01
+        weight: 1
+      - path: Pelvis/Left leg00/Left leg01/Left foot
+        weight: 1
+      - path: Pelvis/Right leg00
+        weight: 1
+      - path: Pelvis/Right leg00/Right leg01
+        weight: 1
+      - path: Pelvis/Right leg00/Right leg01/Right foot
+        weight: 1
+      - path: Pelvis/Spine00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col center00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col center00/col center01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col center00/col center01/col center02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col left00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col left00/col left01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col left00/col left01/col left02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col right00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col right00/col right01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col right00/col right01/col right02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Left arm00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Left arm00/Left arm01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Left arm00/Left arm01/Left arm02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Left arm00/Left arm01/Left arm02/Left
+          arm-nub
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Left arm00/Left arm01/Left arm02/Left
+          hand
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Neck
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Neck/Head
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Neck/Head/Chignon
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Neck/Head/lunettes
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Left arm00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Left arm00/Point-Left arm01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Left arm00/Point-Left arm02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Right arm00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Right arm00/Point-Right arm01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Right arm00/Point-Right arm02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01/Right arm02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01/Right arm02/Right
+          arm-nub
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01/Right arm02/Right
+          hand
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01/Right arm02/Right
+          hand/canne
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01/Right arm02/Right
+          hand/Right hand-nub
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: KoToIdle
+      takeName: Take 001
+      firstFrame: 209
+      lastFrame: 245
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: mamie
+        weight: 1
+      - path: mamie/chale
+        weight: 1
+      - path: Pelvis
+        weight: 1
+      - path: Pelvis/Left leg00
+        weight: 1
+      - path: Pelvis/Left leg00/Left leg01
+        weight: 1
+      - path: Pelvis/Left leg00/Left leg01/Left foot
+        weight: 1
+      - path: Pelvis/Right leg00
+        weight: 1
+      - path: Pelvis/Right leg00/Right leg01
+        weight: 1
+      - path: Pelvis/Right leg00/Right leg01/Right foot
+        weight: 1
+      - path: Pelvis/Spine00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col center00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col center00/col center01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col center00/col center01/col center02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col left00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col left00/col left01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col left00/col left01/col left02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col right00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col right00/col right01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/col right00/col right01/col right02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Left arm00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Left arm00/Left arm01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Left arm00/Left arm01/Left arm02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Left arm00/Left arm01/Left arm02/Left
+          arm-nub
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Left arm00/Left arm01/Left arm02/Left
+          hand
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Neck
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Neck/Head
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Neck/Head/Chignon
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Neck/Head/lunettes
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Left arm00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Left arm00/Point-Left arm01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Left arm00/Point-Left arm02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Right arm00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Right arm00/Point-Right arm01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Point-Right arm00/Point-Right arm02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01/Right arm02
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01/Right arm02/Right
+          arm-nub
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01/Right arm02/Right
+          hand
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01/Right arm02/Right
+          hand/canne
+        weight: 1
+      - path: Pelvis/Spine00/Spine01/Spine02/Right arm00/Right arm01/Right arm02/Right
+          hand/Right hand-nub
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Die
+      takeName: Take 001
+      firstFrame: 246
+      lastFrame: 259
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
