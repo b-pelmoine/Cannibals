@@ -8,6 +8,8 @@ namespace AI
     public class Mamie : AIAgent, IKnifeKillable {
         public Waypoint patrouille;
 
+        public Transform mamieHand;
+
         bool stun = false;
         public float feedTime = 2;
         public float champignonRadius = 15;
@@ -164,8 +166,37 @@ namespace AI
             action.AddReaction(
                 () => SeeCannibal() && Vector3.Distance((CurrentAction.callData as SightInfo).target.transform.position, machine.transform.position) < machineRadius
                 , Hit);
-            action.callbacks.Add(0, Stop);
+            //Canette fini
+            action.callbacks.Add(0, () =>
+            {
+                RamasseCanette();
+            });
             action.Next = Deposer;
+            Play(action);
+        }
+
+        protected void RamasseCanette()
+        {
+            GameObject can = CurrentAction.callData as GameObject;
+            ActionTask action = new ActionTask();
+            action.OnExecute = () => {
+                if(MoveTo(can.transform.position, 1))
+                {
+                    animator.Play("Give");
+                    
+                    Stop();
+                    Wait(animator.GetCurrentAnimatorStateInfo(0).length, null, () =>
+                    {
+                        can.transform.parent = mamieHand;
+                        can.transform.localPosition = Vector3.zero;
+                    });
+                };
+                
+            };
+            action.AddReaction(
+                () => SeeCannibal() && Vector3.Distance((CurrentAction.callData as SightInfo).target.transform.position, machine.transform.position) < machineRadius
+                , Hit);
+            action.Next = Stop;
             Play(action);
         }
 
@@ -257,6 +288,7 @@ namespace AI
         //Callback Machine
         public void Finish(GameObject can)
         {
+            CurrentAction.callData = can;
             Call(0);
         }
 

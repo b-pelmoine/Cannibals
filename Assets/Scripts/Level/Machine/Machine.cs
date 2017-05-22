@@ -11,6 +11,8 @@ public class Machine : MonoBehaviour {
     private Animator animator;
     public delegate void Finish(GameObject can);
     public event Finish finish;
+    public GameObject prefabCanette;
+    public Transform positionCanette;
 
 	void Awake()
     {
@@ -24,11 +26,14 @@ public class Machine : MonoBehaviour {
             timer += Time.deltaTime;
             if (timer > time)
             {
+                GameObject newCan = Instantiate(prefabCanette);
+                newCan.transform.position = positionCanette.position;
                 //Generate canette 
                 if (finish != null)
-                    finish(null);
+                    finish(newCan);
                 animator.Play("Click");
                 Working = false;
+                
             }
         }
     }
