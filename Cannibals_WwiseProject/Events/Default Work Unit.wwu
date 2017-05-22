@@ -723,6 +723,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="menu_scroll" ID="{FEE0782D-717E-40A0-80DF-881CB83A5067}">
+					<ChildrenList>
+						<Action Name="Play" ID="{B5184EB6-244E-4ECE-98E3-29C8A91E8EB6}" ShortID="154707365" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{C835EA58-A4FE-48E8-8697-844310EEA551}" Global="false">
+									<ObjectRef Name="Menu Click" ID="{4C458D0F-C742-43A8-9057-290F6CDA7506}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
