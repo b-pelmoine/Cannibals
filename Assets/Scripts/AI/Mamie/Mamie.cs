@@ -8,6 +8,8 @@ namespace AI
     public class Mamie : AIAgent, IKnifeKillable {
         public Waypoint patrouille;
 
+        private int anim_call_count = 0;
+
         public Transform mamieHand;
 
         public float baseSpeed = 2;
@@ -114,7 +116,10 @@ namespace AI
                 animator.Play("PickUp");
                 AkSoundEngine.SetSwitch("Objects", "Mushrooms", gameObject);
                 AkSoundEngine.PostEvent("granny_objects", gameObject);
-                Wait(animator.GetCurrentAnimatorStateInfo(0).length, null, () => best.SetActive(false));
+                Wait(0.1f).Next = () =>
+                {
+                    Wait(animator.GetCurrentAnimatorStateInfo(0).length).callbacks.Add(0, () => best.SetActive(false));
+                };
             }
         }
 
@@ -148,8 +153,13 @@ namespace AI
                 {
                     animator.Play("Give");
                     Stop();
-                    ActionTask wait = Wait(animator.GetCurrentAnimatorStateInfo(0).length, null, () => machine.Launch());
-                    wait.Next = WaitForCanette;
+                    Wait(0.1f).Next = () =>
+                    {
+                        anim_call_count = 0;
+                        ActionTask wait = Wait(animator.GetCurrentAnimatorStateInfo(0).length);
+                        wait.callbacks.Add(0, machine.Launch);
+                        wait.Next = WaitForCanette;
+                    };
                 }
             };
             action.AddReaction(
@@ -192,12 +202,16 @@ namespace AI
                     animator.Play("Give");
                     
                     Stop();
-                    Wait(animator.GetCurrentAnimatorStateInfo(0).length, null, () =>
+                    Wait(0.1f).Next = () =>
                     {
-                        can.transform.parent = mamieHand;
-                        can.transform.localPosition = Vector3.zero;
-                        carry = can;
-                    });
+                        anim_call_count = 0;
+                        Wait(animator.GetCurrentAnimatorStateInfo(0).length).callbacks.Add(0, () =>
+                        {
+                            can.transform.parent = mamieHand;
+                            can.transform.localPosition = Vector3.zero;
+                            carry = can;
+                        });
+                    };
                 };
                 
             };
@@ -216,8 +230,13 @@ namespace AI
                 if (MoveTo(generateur.transform.position, 2))
                 {
                     animator.Play("Give");
-                    ActionTask wait = Wait(animator.GetCurrentAnimatorStateInfo(0).length, null, () => generateur.Switch());
-                    wait.Next = Stop;
+                    Wait(0.1f).Next = () =>
+                    {
+                        anim_call_count = 0;
+                        ActionTask wait = Wait(animator.GetCurrentAnimatorStateInfo(0).length);
+                        wait.callbacks.Add(0, generateur.Switch);
+                        wait.Next = Stop;
+                    };
                 }
             };
             action.AddReaction(
@@ -235,13 +254,18 @@ namespace AI
                 if (MoveTo(position, 0.2f))
                 {
                     animator.Play("PickUp");
-                    
-                    ActionTask wait = Wait(animator.GetCurrentAnimatorStateInfo(0).length, null, () =>
-                    {
-                        carry.transform.parent = null;
-                        carry = null;
-                    });
-                    wait.Next = Stop;
+                    Wait(0.1f).Next = () => {
+                        anim_call_count = 0;
+                        ActionTask wait = Wait(animator.GetCurrentAnimatorStateInfo(0).length);
+                        wait.callbacks.Add(0, () =>
+                        {
+                            carry.transform.parent = null;
+                            Rigidbody rigid = carry.GetComponent<Rigidbody>();
+                            if (rigid != null) rigid.isKinematic = false;
+                            carry = null;
+                        });
+                        wait.Next = Stop;
+                    };
                 }
             };
             action.AddReaction(SeeCannibal, Hit);
@@ -300,6 +324,11 @@ namespace AI
             Call(0);
         }
 
+        public void Call()
+        {
+            if(CurrentAction.callbacks.ContainsKey(anim_call_count))
+                Call(anim_call_count++);
+        }
         
     }
 }
