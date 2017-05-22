@@ -27,6 +27,7 @@ public class SceneController : MonoBehaviour {
 
     private bool Loading;
     private string currentScene;
+    private float elapsed;
 
     private CanvasGroup LoadingCanvas;
     private Text hint;
@@ -62,11 +63,12 @@ public class SceneController : MonoBehaviour {
         currentScene = SceneManager.GetActiveScene().name;
     }
 	
-	void Update () {
-        if (Input.GetKeyDown(KeyCode.G))
-            LoadScene(GameScene);
-        if (Input.GetKeyDown(KeyCode.M))
-            LoadScene(MenuScene);
+	IEnumerator AutoUpdateHint () {
+        while(Loading)
+        {
+            yield return new WaitForSeconds(4f);
+            hint.text = getRandomHint();
+        }
     }
 
     public void LoadScene(Object Scene)
@@ -76,6 +78,7 @@ public class SceneController : MonoBehaviour {
         if(!Loading)
         {
             Loading = true;
+            StartCoroutine(AutoUpdateHint());
             lock (thisLock)
             {
                 StartCoroutine(FadeCanvas(0, 1, fadeInDuration,

@@ -14,9 +14,26 @@ public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public Animator anim;
 
+    private bool state;
+
     public void Awake()
     {
         StartCoroutine(skipFirstAnim());
+        state = EventSystem.current.currentSelectedGameObject == gameObject;
+    }
+
+    public void Update()
+    {
+        bool newState = EventSystem.current.currentSelectedGameObject == gameObject;
+        if (state != newState)
+        {
+            PointerEventData data = new PointerEventData(EventSystem.current);
+            if (newState)
+                OnPointerEnter(data);
+            else
+                OnPointerExit(data);
+            state = newState;
+        }
     }
 
     IEnumerator skipFirstAnim()
