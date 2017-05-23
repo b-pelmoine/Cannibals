@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LineOfSightManager : MonoBehaviour {
-    public Terrain walkable;
     [Range(1.0f, 100.0f)]
     public float framerate = 30.0f;
     static private List<LineOfSight> agents_sight;
@@ -38,9 +37,7 @@ public class LineOfSightManager : MonoBehaviour {
                     break;
                 }
             }
-            walkable.drawTreesAndFoliage = false;
             agents_sight[turn].Rendering();
-            walkable.drawTreesAndFoliage = true;
             yield return new WaitForSeconds(1 / (framerate*agents_sight.Count));
             agents_sight[turn].Analyse();
             turn = (turn + 1) % agents_sight.Count;
