@@ -107,7 +107,7 @@ public class OffscreenIndicator : MonoBehaviour {
         PlayersOnScreenPositions = new List<IndicatorData>();
         endPositions = new List<IndicatorData>();
 
-        showTarget = true;
+        //showTarget = true;
         showPlayers = true;
         showAIAgents = true;
         //showPlayers = true;
