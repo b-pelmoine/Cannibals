@@ -118,6 +118,26 @@ namespace AI
             return false;
         }
 
+        bool SeeScout()
+        {
+            Collider[] cols = Physics.OverlapSphere(transform.position, canardSeeRadius);
+            Scout best = null;
+            foreach (Collider c in cols)
+            {
+                Scout can = c.GetComponent<Scout>();
+                if (can != null && !can.isDead() && (best == null || (can.transform.position - transform.position).sqrMagnitude < (best.transform.position - transform.position).sqrMagnitude))
+                {
+                    best = can;
+                }
+            }
+            if (best != null)
+            {
+                CurrentAction.callData = best;
+                return true;
+            }
+            return false;
+        }
+
         //Actions
         protected void Hit()
         {
@@ -174,6 +194,40 @@ namespace AI
                 };
             };
             
+        }
+
+        protected void EchangeAvecScout()
+        {
+            agent.ResetPath();
+            Debug.Log("Echange");
+            Scout scout = (CurrentAction.callData as Scout);
+            scout.Call(this);
+            Wait(0).callbacks.Add(0, () =>
+            {
+                Stop();
+                anim_call_count = 0;
+                LookAt(scout.transform.position);
+                animator.Play("Give");
+                Wait(0.1f).Next = () =>
+                {
+                    anim_call_count = 0;
+                    ActionTask wait = Wait(animator.GetCurrentAnimatorStateInfo(0).length);
+                    wait.Next = () =>
+                    {
+                        scout.Call(10);
+                        Wait(0).callbacks.Add(10, () =>
+                        {
+                            Stop();
+                            Feeding();
+                        });
+                    };
+                    wait.callbacks.Add(0, () =>
+                    {
+                        if (carry.Count > 0)
+                            scout.Take(carry[carry.Count - 1]);
+                    });
+                };
+            });
         }
 
         //Etats
@@ -351,6 +405,8 @@ namespace AI
                             Rigidbody rigid = c.GetComponent<Rigidbody>();
                             if (rigid != null) rigid.isKinematic = false;
                             carry.Remove(c);
+                            if (carry.Count > 0)
+                                carry[carry.Count - 1].SetActive(true);
                         });
                         wait.Next = Stop;
                     };
@@ -367,20 +423,9 @@ namespace AI
             ActionTask action = new ActionTask();
             action.OnExecute = () =>
             {
-                if (MoveTo(position, 2))
-                {
-                    ActionTask make = new ActionTask();
-                    make.OnExecute = () =>
-                    {
-
-                    };
-                    make.Next = Feeding;
-                    make.timer = feedTime;
-                    Stop();
-                    Play(make);
-                }
+                MoveTo(position, 0.1f);
             };
-            action.AddReaction(SeeCannibal, Hit);
+            action.AddReaction(SeeScout, EchangeAvecScout);
             Play(action);
         }
 
@@ -416,6 +461,16 @@ namespace AI
         {
             if(CurrentAction.callbacks.ContainsKey(anim_call_count))
                 Call(anim_call_count++);
+        }
+
+        public void Take(GameObject g)
+        {
+            Debug.Log("objet recu");
+            g.transform.parent = mamieHand;
+            g.transform.localPosition = Vector3.zero;
+            carry.Add(g);
+            g.SetActive(true);
+            Call(10);
         }
         
     }

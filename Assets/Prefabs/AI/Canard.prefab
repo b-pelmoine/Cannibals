@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 114079677161548968}
   - component: {fileID: 195865432801054652}
   - component: {fileID: 114080089066932960}
+  - component: {fileID: 135487013862336166}
   m_Layer: 9
   m_Name: Canard
   m_TagString: Untagged
@@ -514,6 +515,18 @@ MonoBehaviour:
     position: {x: 22.081505, y: 0, z: 5.9574394}
     links: 
   currentDestination: {x: 0, y: 0, z: 0}
+--- !u!135 &135487013862336166
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1610097365979428}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!137 &137246606311737934
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

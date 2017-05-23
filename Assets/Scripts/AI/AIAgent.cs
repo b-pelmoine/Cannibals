@@ -92,10 +92,12 @@ namespace AI
 
         protected void Update()
         {
+            
             if (actions.Count==0) return;
             CurrentAction.elapsed += Time.deltaTime;
             if (CurrentAction.timer > 0 && CurrentAction.elapsed > CurrentAction.timer)
                 Stop();
+            if (CurrentAction == null) return;
             foreach (ActionTask.Reaction r in CurrentAction.reaction)
             {
                 if (r.pred())
@@ -147,7 +149,7 @@ namespace AI
             while (CurrentAction != null) Stop();
         }
 
-        protected void Call(int id)
+        public void Call(int id)
         {
             if (CurrentAction!=null && CurrentAction.callbacks.ContainsKey(id))
                 CurrentAction.callbacks[id]();
