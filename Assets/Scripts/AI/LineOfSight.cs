@@ -100,7 +100,8 @@ public class LineOfSight : MonoBehaviour {
                 if(color.HasValue) mat.SetColor("_LoSColor", color.Value);
                 else mat.SetColor("_LoSColor", new Color(detected_objects.Count / 255f, 0, 0));
         Collider col = obj.GetComponentInChildren<Collider>();
-        colliders.Add(col, obj);
+        if(col!=null)
+            colliders.Add(col, obj);
     }
 
     public static void Register(GameObject obj, MeshRenderer mesh, int detect = 30)
