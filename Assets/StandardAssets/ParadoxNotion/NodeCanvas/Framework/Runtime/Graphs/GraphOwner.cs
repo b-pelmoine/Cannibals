@@ -475,15 +475,26 @@ namespace NodeCanvas.Framework{
 				for (var i = 0; i < targetGraph.allNodes.Count; i++){
 					var node = targetGraph.allNodes[i];
 					node.OnDrawGizmos();
+
+                    foreach(Connection c in node.outConnections)
+                    {
+                        c.OnDrawGizmos();
+                    }
+
 					if (Graph.currentSelection == node){
 						node.OnDrawGizmosSelected();
-					}
+
+                        foreach (Connection c in node.outConnections)
+                        {
+                            c.OnDrawGizmosSelected();
+                        }
+                    }
 					var graphAssignable = node as IGraphAssignable;
 					if (graphAssignable != null && graphAssignable.nestedGraph != null){
 						DoGizmos(graphAssignable.nestedGraph);
 					}
-				}
-			}			
+				}            
+            }			
 		}
 
 		#endif

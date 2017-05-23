@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckCannibalsTrigger : CheckTriggerExt<Cannibal> {
+public class CheckCannibalsBoxOverlap : CheckBoxOverlapCondition<Cannibal> {
 
     protected override void SpecialCondition(List<Cannibal> detecteds)
     {

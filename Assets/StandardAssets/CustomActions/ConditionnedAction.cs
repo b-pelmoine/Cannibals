@@ -18,7 +18,6 @@ public class ConditionnedAction : ActionTask
 
     public override void OnValidate(ITaskSystem ownerSystem)
     {
-
         base.OnValidate(ownerSystem);
         SetOwnerSystem(ownerSystem);
 
@@ -43,7 +42,7 @@ public class ConditionnedAction : ActionTask
 
         foreach (ConditionTask c in conditionTasks.conditions)
         {
-            c.SetOwnerSystem(this.ownerSystem);
+            c.SetOwnerSystem(this.ownerSystem);      
         }
 
         foreach (ActionTask a in actionTasks.actions)
@@ -51,7 +50,6 @@ public class ConditionnedAction : ActionTask
             a.SetOwnerSystem(this.ownerSystem);
         }
     }
-
 
     public override Task Duplicate(ITaskSystem newOwnerSystem)
     {
@@ -61,7 +59,6 @@ public class ConditionnedAction : ActionTask
 
         return newConditionnedAction;
     }
-
 
     protected override void OnExecute()
     {
@@ -124,6 +121,12 @@ public class ConditionnedAction : ActionTask
     }
 
 
+    public override void OnDrawGizmos()
+    {
+        base.OnDrawGizmos();
+        conditionTasks.OnDrawGizmos();
+        actionTasks.OnDrawGizmos();
+    }
 
 
     public void DoSavePreset()
