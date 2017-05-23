@@ -19,11 +19,6 @@
 						<ActorMixer Name="Amb Forest" ID="{4DBA9C02-99F2-4E74-9FFE-0EC16ABB6BF4}" ShortID="935235556">
 							<PropertyList>
 								<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
-								<Property Name="MakeUpGain" Type="Real64">
-									<ValueList>
-										<Value>-6</Value>
-									</ValueList>
-								</Property>
 								<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
 								<Property Name="MaxSoundPerInstance" Type="int16">
 									<ValueList>
@@ -25222,7 +25217,7 @@
 									<PropertyList>
 										<Property Name="MakeUpGain" Type="Real64">
 											<ValueList>
-												<Value>-12</Value>
+												<Value>-14</Value>
 											</ValueList>
 										</Property>
 										<Property Name="Pitch" Type="int32">
@@ -25602,7 +25597,7 @@
 									<PropertyList>
 										<Property Name="MakeUpGain" Type="Real64">
 											<ValueList>
-												<Value>-12</Value>
+												<Value>-6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -26796,11 +26791,6 @@
 								</SwitchContainer>
 								<RandomSequenceContainer Name="Rifle" ID="{4E4BF932-B094-4499-8716-CCCD9EB91142}" ShortID="493308903">
 									<PropertyList>
-										<Property Name="MakeUpGain" Type="Real64">
-											<ValueList>
-												<Value>-6</Value>
-											</ValueList>
-										</Property>
 										<Property Name="OverrideEffect" Type="bool" Value="True"/>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="PositioningType" Type="int16" Value="1"/>
@@ -33176,11 +33166,6 @@
 									<ChildrenList>
 										<RandomSequenceContainer Name="Layer 1" ID="{02781905-8647-4877-828F-BCC222DD1D63}" ShortID="877703473">
 											<PropertyList>
-												<Property Name="MakeUpGain" Type="Real64">
-													<ValueList>
-														<Value>-6</Value>
-													</ValueList>
-												</Property>
 												<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 												<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
 												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
@@ -33221,11 +33206,6 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Layer 2" ID="{6EE697CC-412D-4926-B4EC-93B87AE46F36}" ShortID="601222749">
 											<PropertyList>
-												<Property Name="MakeUpGain" Type="Real64">
-													<ValueList>
-														<Value>6</Value>
-													</ValueList>
-												</Property>
 												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
 											</PropertyList>
 											<ReferenceList>
@@ -33514,6 +33494,13 @@
 							</StateInfo>
 						</ActorMixer>
 						<ActorMixer Name="Spotted" ID="{62C565EA-AE03-4E31-9B50-CA359501B63E}" ShortID="704585410">
+							<PropertyList>
+								<Property Name="MakeUpGain" Type="Real64">
+									<ValueList>
+										<Value>6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
