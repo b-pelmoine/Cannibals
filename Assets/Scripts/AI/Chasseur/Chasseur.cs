@@ -141,14 +141,15 @@ namespace AI
                     //Shoot at target
                     ActionTask shoot = new ActionTask();
                     shoot.target = bestTarget.target;
-                    shoot.OnBegin = () =>
-                    {
-                        agent.ResetPath();
-                        animator.Play("Shoot");
-                    };
+                    agent.ResetPath();
+                    animator.Play("Shoot");
                     shoot.OnExecute = () => LookAt(CurrentAction.target.transform.position);
+                    Wait(0.1f).Next = () =>
+                    {
+                        shoot.timer = animator.GetCurrentAnimatorStateInfo(0).length;
+                        Play(shoot);
+                    };
                     currentTarget = bestTarget.target;
-                    Play(shoot);
                     return;
                 }
                 if (los.getDetectRate(bestTarget) >= 1)

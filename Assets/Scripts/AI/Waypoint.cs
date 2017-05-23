@@ -39,6 +39,11 @@ public class Waypoint : MonoBehaviour {
         currentDestination = this[current];
     }
 
+    public void Reset()
+    {
+        current = 0;
+    }
+
     public void Add(Vector3 point)
     {
         points.Add(new Wpoint(point));
@@ -95,9 +100,12 @@ public class Waypoint : MonoBehaviour {
         return points[id][0];
     }
 
-    public void Next()
+    public bool Next()
     {
         current = (current + 1) % points.Count;
+        if (current == 0)
+            return true;
+        return false;
     }
 
     public Vector3 this[int key]

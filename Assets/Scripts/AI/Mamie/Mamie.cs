@@ -6,7 +6,7 @@ using UnityEngine;
 namespace AI
 {
     public class Mamie : AIAgent, IKnifeKillable {
-        public Waypoint patrouille;
+        
 
         
 
@@ -16,7 +16,14 @@ namespace AI
         public float runSpeed = 13;
 
         bool stun = false;
+
+
+        public Transform positionCanard;
         public float feedTime = 2;
+        public float canardSeeRadius = 7;
+
+
+
         public float champignonRadius = 15;
 
         public float machineRadius = 5;
@@ -25,10 +32,12 @@ namespace AI
         public int machineCanetteNumber = 3;
         private int canetteCounter = 0;
 
-
+        public Waypoint toMachine;
         public Machine machine;
         public Generateur generateur;
         public Transform positionReserve;
+
+        public Transform positionScout;
 
         private List<GameObject> carry = new List<GameObject>();
 
@@ -89,6 +98,26 @@ namespace AI
             return false;
         }
 
+        bool SeeCanard()
+        {
+            Collider[] cols = Physics.OverlapSphere(transform.position, canardSeeRadius);
+            Canard best = null;
+            foreach(Collider c in cols)
+            {
+                Canard can = c.GetComponent<Canard>();
+                if (can != null && !can.DeadDuck() && (best==null || (can.transform.position - transform.position).sqrMagnitude < (best.transform.position - transform.position).sqrMagnitude))
+                 {
+                    best = can;
+                }
+            }
+            if (best != null)
+            {
+                CurrentAction.callData = best;
+                return true;
+            }
+            return false;
+        }
+
         //Actions
         protected void Hit()
         {
@@ -132,18 +161,34 @@ namespace AI
             }
         }
 
+        protected void FeedCanard()
+        {
+            Canard target = (CurrentAction.callData as Canard);
+            LookAt(target.transform.position);
+            animator.Play("Give");
+            Wait(0.1f).Next = () =>
+            {
+                Wait(animator.GetCurrentAnimatorStateInfo(0).length).Next = () =>
+                {
+                    target.CallEat();
+                };
+            };
+            
+        }
+
         //Etats
         protected void Feeding()
         {
-            Vector3 position = patrouille[0];
+            Vector3 position = positionCanard.position;
             ActionTask action = new ActionTask();
             action.OnExecute = () =>
             {
-                if(MoveTo(position, 2))
+                if(MoveTo(position, 0.1f))
                 {
                     ActionTask feed = new ActionTask();
                     feed.Next = Fabrique;
                     feed.timer = feedTime;
+                    feed.AddReaction(SeeCanard, FeedCanard);
                     Stop();
                     Play(feed);
                 }
@@ -151,10 +196,29 @@ namespace AI
             action.AddReaction(SeeCannibal, Hit);
             Play(action);
         }
+
+        protected void GoToMachine()
+        {
+            ActionTask goingToMachine = new ActionTask();
+            toMachine.Reset();
+            goingToMachine.OnExecute = () =>
+            {
+                if (MoveTo(toMachine.getCurrentDestination(), 2))
+                {
+                    if (toMachine.Next())
+                    {
+                        Stop();
+                    }
+                }
+            };
+            goingToMachine.AddReaction(SeeChampi, RamasseChampi);
+            goingToMachine.Next = Fabrique;
+        }
         
         protected void Fabrique()
         {
             Vector3 position = machine.transform.position;
+
             ActionTask action = new ActionTask();
             action.OnExecute = () =>
             {
@@ -175,7 +239,7 @@ namespace AI
             action.AddReaction(
                 () => SeeCannibal() && Vector3.Distance((CurrentAction.callData as SightInfo).target.transform.position, position)<machineRadius
                 , Hit);
-            action.AddReaction(SeeChampi, RamasseChampi);
+            
             Play(action);
         }
 
@@ -299,7 +363,7 @@ namespace AI
 
         protected void Echanger()
         {
-            Vector3 position = patrouille[1];
+            Vector3 position = positionScout.position;
             ActionTask action = new ActionTask();
             action.OnExecute = () =>
             {
