@@ -7,7 +7,12 @@ public class Mamie_AnimCallback : MonoBehaviour {
     //Callbacks des Animations
     void SonIdle()
     {
-        AkSoundEngine.PostEvent("granny_idle", gameObject);
+        AkSoundEngine.PostEvent("granny_idle", mamie.gameObject);
+    }
+
+    void FootSteps()
+    {
+        AkSoundEngine.PostEvent("granny_steps", mamie.gameObject);
     }
 
     void Call()

@@ -8,7 +8,7 @@ namespace AI
     public class Mamie : AIAgent, IKnifeKillable {
         public Waypoint patrouille;
 
-        private int anim_call_count = 0;
+        
 
         public Transform mamieHand;
 
@@ -97,17 +97,22 @@ namespace AI
             if(MoveTo(target.target.transform.position, 2))
             {
                 animator.Play("Hit");
-                Wait(animator.GetCurrentAnimatorStateInfo(0).length, 
-                () => LookAt(target.target.transform.position), 
-                () =>
+                AkSoundEngine.PostEvent("granny_whoosh_hit", gameObject);
+                Wait(0.1f).Next = () =>
                 {
-                    AkSoundEngine.PostEvent("granny_whoosh_hit", gameObject);
-                    if ((target.target.transform.position - transform.position).sqrMagnitude < 2*2)
+                    anim_call_count = 0;
+                    Wait(animator.GetCurrentAnimatorStateInfo(0).length,
+                    () => LookAt(target.target.transform.position)).callbacks.Add(0, () =>
                     {
-                        Cannibal can = target.target.GetComponentInParent<Cannibal>();
-                        if (can != null) can.Kill();
-                    }
-                });
+                        
+                        if ((target.target.transform.position - transform.position).sqrMagnitude < 2 * 2)
+                        {
+                            AkSoundEngine.PostEvent("granny_hit", gameObject);
+                            Cannibal can = target.target.GetComponentInParent<Cannibal>();
+                            if (can != null) can.Kill();
+                        }
+                    });
+                };
             }
         }
 
@@ -156,6 +161,7 @@ namespace AI
                 if (MoveTo(position, 2))
                 {
                     animator.Play("Give");
+                    
                     Stop();
                     Wait(0.1f).Next = () =>
                     {
@@ -218,6 +224,8 @@ namespace AI
                         ActionTask take = Wait(animator.GetCurrentAnimatorStateInfo(0).length);
                         take.callbacks.Add(0, () =>
                         {
+                            AkSoundEngine.SetSwitch("Objects", "Can", gameObject);
+                            AkSoundEngine.PostEvent("granny_objects", gameObject);
                             can.transform.parent = mamieHand;
                             can.transform.localPosition = Vector3.zero;
                             canetteCounter++;

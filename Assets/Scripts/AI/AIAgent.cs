@@ -19,6 +19,8 @@ namespace AI
         [Range(0,10)]
         public int LevelOfImportance = 0;
 
+        protected int anim_call_count = 0;
+
         public class ActionTask
         {
             public delegate void Action();
@@ -149,6 +151,12 @@ namespace AI
         {
             if (CurrentAction!=null && CurrentAction.callbacks.ContainsKey(id))
                 CurrentAction.callbacks[id]();
+        }
+
+        public void AnimCall()
+        {
+            Call(anim_call_count);
+            anim_call_count++;
         }
 
         protected ActionTask Wait(float time, ActionTask.Action execute=null, ActionTask.Action end = null)
