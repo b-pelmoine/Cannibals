@@ -106,8 +106,6 @@ public class FollowCam : MonoBehaviour {
             else bothPlayersDead = false;
             centerOfAttention = (pOneAlive) ? playerOne.position : playerTwo.position;
         }
-
-        int layerMask = 1 << LayerMask.NameToLayer("AI_Agent");
         //Collider[] nearbyElements = Physics.OverlapSphere(centerOfAttention, catchElementsRadius, layerMask);
         List<GameObject> agents = AIAgentManager.getActiveAgents().FindAll(x => (x.transform.position-centerOfAttention).sqrMagnitude<Mathf.Pow(catchElementsRadius,2));
         int sumOfLevels = 1; //Importance level of both players
