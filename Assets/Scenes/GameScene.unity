@@ -402,7 +402,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4181655239219258, guid: 5b3ad50fbd36a8744876b3af4aced323, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 112.46
+      value: 108
       objectReference: {fileID: 0}
     - target: {fileID: 4181655239219258, guid: 5b3ad50fbd36a8744876b3af4aced323, type: 2}
       propertyPath: m_LocalPosition.y
@@ -410,7 +410,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4181655239219258, guid: 5b3ad50fbd36a8744876b3af4aced323, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 139.28
+      value: 135.78
       objectReference: {fileID: 0}
     - target: {fileID: 4181655239219258, guid: 5b3ad50fbd36a8744876b3af4aced323, type: 2}
       propertyPath: m_LocalRotation.x
@@ -464,9 +464,42 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: 7.98
       objectReference: {fileID: 0}
+    - target: {fileID: 4181655239219258, guid: 5b3ad50fbd36a8744876b3af4aced323, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.8548782
+      objectReference: {fileID: 0}
+    - target: {fileID: 4181655239219258, guid: 5b3ad50fbd36a8744876b3af4aced323, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.8548788
+      objectReference: {fileID: 0}
+    - target: {fileID: 4181655239219258, guid: 5b3ad50fbd36a8744876b3af4aced323, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1.8548788
+      objectReference: {fileID: 0}
+    - target: {fileID: 1201597898994360, guid: 5b3ad50fbd36a8744876b3af4aced323, type: 2}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5b3ad50fbd36a8744876b3af4aced323, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &36733768 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1201597898994360, guid: 5b3ad50fbd36a8744876b3af4aced323,
+    type: 2}
+  m_PrefabInternal: {fileID: 36733767}
+--- !u!135 &36733769
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 36733768}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &45817844 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1976782564147100, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
