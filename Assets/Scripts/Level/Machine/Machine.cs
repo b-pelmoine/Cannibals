@@ -14,6 +14,8 @@ public class Machine : MonoBehaviour {
     public GameObject prefabCanette;
     public Transform positionCanette;
 
+    public bool poisoned = false;
+
 	void Awake()
     {
         animator = GetComponent<Animator>();
@@ -28,6 +30,7 @@ public class Machine : MonoBehaviour {
             {
                 GameObject newCan = Instantiate(prefabCanette);
                 newCan.transform.position = positionCanette.position;
+                if (poisoned) newCan.GetComponent<Canette>().poisoned = true;
                 //Generate canette 
                 if (finish != null)
                     finish(newCan);

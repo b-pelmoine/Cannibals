@@ -22,6 +22,8 @@ public class Canette : CannibalObject, IDropable
     }
     public Type type;
 
+    public bool poisoned = false;
+
 
     public override void Take(Cannibal c, Transform newParent)
     {

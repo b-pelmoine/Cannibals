@@ -6,9 +6,11 @@ using UnityEngine;
 namespace AI
 {
     public class Mamie : AIAgent, IKnifeKillable {
-        
 
-        
+
+        public ParticleSystem dieParticle;
+        public float dieTime = 2;
+        public GameObject corpse;
 
         public Transform mamieHand;
 
@@ -46,12 +48,6 @@ namespace AI
             base.Start();
             machine.finish += Finish;
             ActionTask root = new ActionTask();
-            root.OnEnd = () =>
-            {
-                AkSoundEngine.PostEvent("granny_death", gameObject);
-                animator.Play("Die");
-                state = AIState.DEAD;
-            };
             Play(root);
             Feeding();
 	    }
@@ -74,6 +70,10 @@ namespace AI
             });
             if (cannibal != null)
             {
+                if (los.getDetectRate(cannibal) == 1)
+                    currentTarget = cannibal.target;
+                else
+                    currentTarget = null;   
                 CurrentAction.callData = cannibal;
                 return true;
             }
@@ -285,7 +285,7 @@ namespace AI
             ActionTask action = new ActionTask();
             action.OnExecute = () =>
             {
-                if(MoveTo(position, 0.1f))
+                if(MoveTo(position, 2f))
                 {
                     DestroyCarried();
                     ActionTask feed = new ActionTask();
@@ -311,10 +311,35 @@ namespace AI
                     ActionTask chope = new ActionTask();
                     chope.AddReaction(SeeDeadCanard, RamasseCanard);
                     chope.AddReaction(() => !SeeDeadCanard(), Stop);
-                    chope.Next = Fabrique;
+                    chope.Next = () =>
+                    {
+                        ActionTask move = new ActionTask();
+                        move.OnExecute = () =>
+                        {
+                            if (MoveTo(machine.transform.position, 2))
+                            {
+                                anim_call_count = 0;
+                                animator.Play("Give");
+                                Stop();
+                                Wait(0.1f).Next = () =>
+                                {
+                                    ActionTask t = Wait(animator.GetCurrentAnimatorStateInfo(0).length);
+                                    t.Next = () =>
+                                    {
+                                        Fabrique();
+                                    };
+                                    t.callbacks.Add(0, () =>
+                                    {
+                                        while (carry.Count > 0)
+                                            DestroyCarried();
+                                    });
+                                };
+                            }
+                        };
+                    };
+                    Play(chope);
                 }
             };
-            task.AddReaction(SeeDeadCanard, RamasseCanard);
             Play(task);
         }
 
@@ -355,8 +380,6 @@ namespace AI
                         ActionTask wait = Wait(animator.GetCurrentAnimatorStateInfo(0).length);
                         wait.callbacks.Add(0, () => {
                             machine.Launch();
-                            while (carry.Count > 0)
-                                DestroyCarried();
                         });
                         wait.Next = WaitForCanette;
                     };
@@ -391,7 +414,7 @@ namespace AI
             if (canetteCounter == machineCanetteNumber-1)
                 action.Next = () =>
                 {
-                    Deposer();
+                    EatCanette();
                     canetteCounter = 0;
                 };
             else
@@ -416,12 +439,8 @@ namespace AI
                         {
                             AkSoundEngine.SetSwitch("Objects", "Can", gameObject);
                             AkSoundEngine.PostEvent("granny_objects", gameObject);
-                            can.transform.parent = mamieHand;
-                            can.transform.localPosition = Vector3.zero;
+                            Grab(can);
                             canetteCounter++;
-                            carry.Add(can);
-                            if (canetteCounter < machineCanetteNumber)
-                                can.SetActive(false);
                         });
                         take.Next = Stop;
                     };
@@ -472,13 +491,7 @@ namespace AI
                         ActionTask wait = Wait(animator.GetCurrentAnimatorStateInfo(0).length);
                         wait.callbacks.Add(0, () =>
                         {
-                            GameObject c = carry[carry.Count - 1];
-                            c.transform.parent = null;
-                            Rigidbody rigid = c.GetComponent<Rigidbody>();
-                            if (rigid != null) rigid.isKinematic = false;
-                            carry.Remove(c);
-                            if (carry.Count > 0)
-                                carry[carry.Count - 1].SetActive(true);
+                            Release();
                         });
                         wait.Next = Stop;
                     };
@@ -487,6 +500,30 @@ namespace AI
             action.AddReaction(SeeCannibal, Hit);
             action.Next = Echanger;
             Play(action);
+        }
+
+        protected void EatCanette()
+        {
+            animator.Play("Drink");
+            Wait(0.1f).Next = () =>
+            {
+                Wait(animator.GetCurrentAnimatorStateInfo(0).length).Next = () =>
+                {
+                    if (carry.Count > 0)
+                    {
+                        Canette can = carry[carry.Count - 1].GetComponent<Canette>();
+                        if (can != null && can.poisoned)
+                        {
+                            Die();
+                        }
+                        else
+                        {
+                            Deposer();
+                        }
+                        DestroyCarried();
+                    }
+                };
+            };
         }
 
         protected void Echanger()
@@ -501,6 +538,23 @@ namespace AI
             Play(action);
         }
 
+        protected void Die()
+        {
+            AkSoundEngine.PostEvent("granny_death", gameObject);
+            animator.Play("Die");
+            state = AIState.DEAD;
+            Wait(0.1f).Next = () =>
+            {
+                Wait(animator.GetCurrentAnimatorStateInfo(0).length).Next = () => {
+                    Wait(dieTime).Next = () =>
+                    {
+                        dieParticle.Play();
+                        Instantiate(corpse).transform.position = transform.position;
+                        Destroy();
+                    };
+                };
+            };
+        }
         //Calls
         public override void Kill()
         {

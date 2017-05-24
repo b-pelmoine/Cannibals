@@ -127,6 +127,10 @@ namespace AI
             });
             if (cannibal != null)
             {
+                if (los.getDetectRate(cannibal) == 1)
+                    currentTarget = cannibal.target;
+                else
+                    currentTarget = null;
                 CurrentAction.callData = cannibal;
                 return true;
             }

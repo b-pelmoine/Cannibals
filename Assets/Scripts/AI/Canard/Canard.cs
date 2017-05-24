@@ -34,6 +34,7 @@ namespace AI
             dead = true;
             agent.ResetPath();
             animator.Play("ToEat");
+            Stop();
             Wait(eatTime).Next = () =>
             {
                 animator.Play("ToSwim");
