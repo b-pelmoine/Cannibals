@@ -244,5 +244,12 @@ namespace AI
         {
             return LevelOfImportance;
         }
+
+        public void Destroy()
+        {
+            LineOfSightManager.Unregister(los);
+            AIAgentManager.unregisterAIAgent(gameObject);
+            Destroy(gameObject);
+        }
     }
 }

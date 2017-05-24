@@ -7,7 +7,7 @@ namespace AI
     public class Canard : AIAgent {
         public Transform wanderPosition;
         public float wanderRadius = 3;
-        public Waypoint goTo;
+        public Transform deadPosition;
 
         private bool dead = false;
 
@@ -26,14 +26,6 @@ namespace AI
                     Wait(2);
                 }
             };
-            root.Next = () =>
-            {
-                animator.Play("Die");
-                Wait(0.1f).Next = () =>
-                {
-                    Wait(animator.GetCurrentAnimatorStateInfo(0).length).Next = Move;
-                };
-            };
             Play(root);
 	    }
 
@@ -47,7 +39,11 @@ namespace AI
                 animator.Play("ToSwim");
                 Wait(dieTime).Next = () =>
                 {
-                    StopAll();
+                    animator.Play("Die");
+                    Wait(0.1f).Next = () =>
+                    {
+                        Wait(animator.GetCurrentAnimatorStateInfo(0).length).Next = Move;
+                    };
                 };
             };
         }
@@ -57,15 +53,13 @@ namespace AI
             ActionTask action = new ActionTask();
             action.OnExecute = () =>
             {
-                if (MoveTo(goTo.getCurrentDestination(), 2))
+                if (MoveTo(deadPosition.position, 2))
                 {
-                    if (goTo.Next())
-                    {
-                        Stop();
-                    }
+                    Stop();
                 }
             };
             Play(action);
+            
         }
 
         public bool DeadDuck()

@@ -22,7 +22,7 @@ namespace AI
         public float feedTime = 2;
         public float canardSeeRadius = 7;
 
-
+        public Transform positionDeadCanard;
 
         public float champignonRadius = 15;
 
@@ -118,6 +118,26 @@ namespace AI
             return false;
         }
 
+        bool SeeDeadCanard()
+        {
+            Collider[] cols = Physics.OverlapSphere(transform.position, canardSeeRadius);
+            Canard best = null;
+            foreach (Collider c in cols)
+            {
+                Canard can = c.GetComponent<Canard>();
+                if (can != null && can.transform.parent!= mamieHand && can.DeadDuck() && (best == null || (can.transform.position - transform.position).sqrMagnitude < (best.transform.position - transform.position).sqrMagnitude))
+                {
+                    best = can;
+                }
+            }
+            if (best != null)
+            {
+                CurrentAction.callData = best;
+                return true;
+            }
+            return false;
+        }
+
         bool SeeScout()
         {
             Collider[] cols = Physics.OverlapSphere(transform.position, canardSeeRadius);
@@ -196,6 +216,34 @@ namespace AI
             
         }
 
+        protected void RamasseCanard()
+        {
+            Canard target = (CurrentAction.callData as Canard);
+            ActionTask task = new ActionTask();
+            task.OnExecute = () =>
+            {
+                if(MoveTo(target.transform.position, 1))
+                {
+                    anim_call_count = 0;
+                    AkSoundEngine.SetSwitch("Objects", "Duck", gameObject);
+                    animator.Play("PickUp");
+                    Wait(0.1f).Next = () =>
+                    {
+                        ActionTask pickup = Wait(animator.GetCurrentAnimatorStateInfo(0).length);
+                        pickup.callbacks.Add(0, () =>
+                        {
+                            AkSoundEngine.PostEvent("granny_objects", gameObject);
+                            Grab(target.gameObject);
+                            target.agent.enabled = false;
+                            target.enabled = false;
+                        });
+                        pickup.Next = Stop;
+                    };
+                }
+            };
+            Play(task);
+        }
+
         protected void EchangeAvecScout()
         {
             agent.ResetPath();
@@ -239,8 +287,9 @@ namespace AI
             {
                 if(MoveTo(position, 0.1f))
                 {
+                    DestroyCarried();
                     ActionTask feed = new ActionTask();
-                    feed.Next = Fabrique;
+                    feed.Next = GoToMachine;
                     feed.timer = feedTime;
                     feed.AddReaction(SeeCanard, FeedCanard);
                     Stop();
@@ -249,6 +298,24 @@ namespace AI
             };
             action.AddReaction(SeeCannibal, Hit);
             Play(action);
+        }
+
+        protected void RecupereCanard()
+        {
+            ActionTask task = new ActionTask();
+            task.OnExecute = () =>
+            {
+                if(MoveTo(positionDeadCanard.position, 3))
+                {
+                    Stop();
+                    ActionTask chope = new ActionTask();
+                    chope.AddReaction(SeeDeadCanard, RamasseCanard);
+                    chope.AddReaction(() => !SeeDeadCanard(), Stop);
+                    chope.Next = Fabrique;
+                }
+            };
+            task.AddReaction(SeeDeadCanard, RamasseCanard);
+            Play(task);
         }
 
         protected void GoToMachine()
@@ -266,7 +333,8 @@ namespace AI
                 }
             };
             goingToMachine.AddReaction(SeeChampi, RamasseChampi);
-            goingToMachine.Next = Fabrique;
+            goingToMachine.Next = RecupereCanard;
+            Play(goingToMachine);
         }
         
         protected void Fabrique()
@@ -285,7 +353,11 @@ namespace AI
                     {
                         anim_call_count = 0;
                         ActionTask wait = Wait(animator.GetCurrentAnimatorStateInfo(0).length);
-                        wait.callbacks.Add(0, machine.Launch);
+                        wait.callbacks.Add(0, () => {
+                            machine.Launch();
+                            while (carry.Count > 0)
+                                DestroyCarried();
+                        });
                         wait.Next = WaitForCanette;
                     };
                 }
@@ -465,12 +537,48 @@ namespace AI
 
         public void Take(GameObject g)
         {
-            Debug.Log("objet recu");
             g.transform.parent = mamieHand;
             g.transform.localPosition = Vector3.zero;
             carry.Add(g);
             g.SetActive(true);
             Call(10);
+        }
+
+        public void Grab(GameObject g)
+        {
+            g.transform.parent = mamieHand;
+            g.transform.localPosition = Vector3.zero;
+            if(carry.Count>0)
+                carry[carry.Count - 1].SetActive(false);
+            carry.Add(g);
+        }
+
+        public void Release()
+        {
+            if (carry.Count > 0)
+            {
+                GameObject c = carry[carry.Count - 1];
+                c.transform.parent = null;
+                Rigidbody r = c.GetComponent<Rigidbody>();
+                if (r != null) r.isKinematic = false;
+                carry.Remove(c);
+                if (carry.Count > 0)
+                    carry[carry.Count - 1].SetActive(true);
+            }
+        }
+
+        public void DestroyCarried()
+        {
+            if(carry.Count > 0)
+            {
+                GameObject c = carry[carry.Count - 1];
+                carry.Remove(c);
+                AIAgent agent = c.GetComponent<AIAgent>();
+                if (agent != null) agent.Destroy();
+                else Destroy(c);
+                if (carry.Count > 0)
+                    carry[carry.Count - 1].SetActive(true);
+            }
         }
         
     }
