@@ -43,7 +43,20 @@ namespace NodeCanvas.StateMachines{
 		protected override void OnConnectionInspectorGUI(){
 			EditorUtils.TaskField<ConditionTask>(condition, graph, (c)=> { condition = c; });
 		}
-		
-		#endif
-	}
+
+        public override void OnDrawGizmos()
+        {
+            base.OnDrawGizmos();
+            if(_condition != null)
+                _condition.OnDrawGizmos();
+        }
+
+        public override void OnDrawGizmosSelected()
+        {
+            base.OnDrawGizmosSelected();
+            if (_condition != null)
+                _condition.OnDrawGizmosSelected();
+        }
+#endif
+    }
 }

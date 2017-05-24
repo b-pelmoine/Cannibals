@@ -4,7 +4,7 @@ using UnityEngine;
 using NodeCanvas.Tasks.Conditions;
 using NodeCanvas.Framework;
 
-public class CheckIKnifeKillableTrigger : CheckTriggerExt<IKnifeKillable>
+public class CheckIKnifeKillableBoxOverlap : CheckBoxOverlapCondition<IKnifeKillable>
 {
     protected override void SpecialCondition(List<IKnifeKillable> detecteds)
     {

@@ -196,5 +196,10 @@ namespace NodeCanvas.Framework {
 				targetNode.Reset(recursively);
 			}
 		}
-	}
+
+#if UNITY_EDITOR
+        public virtual void OnDrawGizmos() { }
+        public virtual void OnDrawGizmosSelected(){ }
+#endif
+    }
 }

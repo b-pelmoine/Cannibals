@@ -4,7 +4,7 @@ using UnityEngine;
 using NodeCanvas.Tasks.Conditions;
 using NodeCanvas.Framework;
 
-public class CheckCannibalObjectTrigger : CheckTriggerExt<CannibalObject> {
+public class CheckCannibalObjectBoxOverlapCondition : CheckBoxOverlapCondition<CannibalObject> {
 
     public BBParameter<Cannibal> m_cannibal;
 
