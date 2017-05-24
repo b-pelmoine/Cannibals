@@ -31,6 +31,11 @@ public class AIAgentManager : MonoBehaviour {
             agents.Add(go);
     }
 
+    static public void unregisterAIAgent(GameObject go)
+    {
+        agents.Remove(go);
+    }
+
     static public List<GameObject> getActiveAgents()
     {
         return agents;

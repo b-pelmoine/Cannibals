@@ -21,6 +21,11 @@ public class LineOfSightManager : MonoBehaviour {
         agents_sight.Add(agent);
     }
 
+    public static void Unregister(LineOfSight agent)
+    {
+        agents_sight.Remove(agent);
+    }
+
 
     public IEnumerator Detect()
     {
@@ -39,6 +44,7 @@ public class LineOfSightManager : MonoBehaviour {
             }
             agents_sight[turn].Rendering();
             yield return new WaitForSeconds(1 / (framerate*agents_sight.Count));
+            if (turn >= agents_sight.Count) turn = 0;
             agents_sight[turn].Analyse();
             turn = (turn + 1) % agents_sight.Count;
         }
