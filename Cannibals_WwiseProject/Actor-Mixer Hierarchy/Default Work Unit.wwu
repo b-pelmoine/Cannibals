@@ -19,6 +19,11 @@
 						<ActorMixer Name="Amb Forest" ID="{4DBA9C02-99F2-4E74-9FFE-0EC16ABB6BF4}" ShortID="935235556">
 							<PropertyList>
 								<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+								<Property Name="MakeUpGain" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
 								<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
 								<Property Name="MaxSoundPerInstance" Type="int16">
 									<ValueList>
@@ -13844,13 +13849,18 @@
 												<Value>-20</Value>
 											</ValueList>
 										</Property>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="4"/>
 										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+										<Property Name="PositioningType" Type="int16" Value="1"/>
 										<Property Name="RandomOrSequence" Type="int16" Value="0"/>
 									</PropertyList>
 									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Waterfall" ID="{09E10853-3D58-405B-A3D4-8FE270A130B0}" WorkUnitID="{D49E8AC8-F75C-42C2-9D03-ECF68261003A}"/>
+										</Reference>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
 										</Reference>
@@ -13896,6 +13906,7 @@
 												<Value>-20</Value>
 											</ValueList>
 										</Property>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="4"/>
@@ -13943,6 +13954,7 @@
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="Ducks" ID="{7F1B24E6-8ADE-4023-BC8E-414DECE5BBDB}" ShortID="666235602">
 									<PropertyList>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
 										<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64">
 											<ModifierList>
@@ -13951,9 +13963,13 @@
 												</ModifierInfo>
 											</ModifierList>
 										</Property>
-										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="50"/>
+										<Property Name="PositioningType" Type="int16" Value="1"/>
+										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="25"/>
 									</PropertyList>
 									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Oiseaux" ID="{AD677CE6-1CAC-4F8E-919A-E8E41B105DF2}" WorkUnitID="{D49E8AC8-F75C-42C2-9D03-ECF68261003A}"/>
+										</Reference>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
 										</Reference>
@@ -13962,25 +13978,6 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="Duck_multiple_2" ID="{AC81E15F-0FE0-433A-95A6-3D14A598F5F7}" ShortID="184224933" Type="SoundFX">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="AT-08 53 Ducks, Quack - D-NORM_26-60_R" ID="{58C1D5C2-2304-46CA-BCFF-A51F57E518CE}" ShortID="1071979792">
-													<Language>SFX</Language>
-													<AudioFile>Canards\AT-08 53 Ducks, Quack - D-NORM_26-60.R.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_26-60_R" ID="{58C1D5C2-2304-46CA-BCFF-A51F57E518CE}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
 										<Sound Name="Duck_49" ID="{D9843557-BDA1-49AE-AE5D-1217ECB3A795}" ShortID="171349107" Type="SoundFX">
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -14036,25 +14033,6 @@
 											</ChildrenList>
 											<ActiveSourceList>
 												<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_30-70_R" ID="{4039C1DD-71FB-47E3-BFBE-C7966FDB8485}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Duck_multiple_3" ID="{7F69F846-E35B-40D9-9A79-8ADC58DE41B2}" ShortID="553606276" Type="SoundFX">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="AT-08 53 Ducks, Quack - D-NORM_32-74_R" ID="{2D5FCA4F-9DF9-4BE2-99C6-64EED2BD27FC}" ShortID="257690873">
-													<Language>SFX</Language>
-													<AudioFile>Canards\AT-08 53 Ducks, Quack - D-NORM_32-74.R.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_32-74_R" ID="{2D5FCA4F-9DF9-4BE2-99C6-64EED2BD27FC}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Duck_45" ID="{D9E61F74-A49C-4DF9-9F4E-3116CF1F2304}" ShortID="1014316423" Type="SoundFX">
@@ -14302,25 +14280,6 @@
 											</ChildrenList>
 											<ActiveSourceList>
 												<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_06-14_R" ID="{296D0C79-35CC-4709-A67C-A4297D72A730}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Duck_multiple_1" ID="{6FCAB5CF-DC1C-488F-93D5-808DB03DB33B}" ShortID="427663944" Type="SoundFX">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="AT-08 53 Ducks, Quack - D-NORM_14-32_R" ID="{86700ED6-16F6-4E48-9419-E2EB0881CF2F}" ShortID="53895806">
-													<Language>SFX</Language>
-													<AudioFile>Canards\AT-08 53 Ducks, Quack - D-NORM_14-32.R.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="AT-08 53 Ducks, Quack - D-NORM_14-32_R" ID="{86700ED6-16F6-4E48-9419-E2EB0881CF2F}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Duck_35" ID="{DE6C8952-13B1-4EDD-B7A6-FE66DF9BD59E}" ShortID="884381113" Type="SoundFX">
@@ -14985,11 +14944,6 @@
 											<PropertyList>
 												<Property Name="BelowThresholdBehavior" Type="int16" Value="2"/>
 												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
-												<Property Name="MakeUpGain" Type="Real64">
-													<ValueList>
-														<Value>-8</Value>
-													</ValueList>
-												</Property>
 												<Property Name="MaxSoundPerInstance" Type="int16">
 													<ValueList>
 														<Value>2</Value>
