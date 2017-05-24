@@ -13842,116 +13842,6 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<RandomSequenceContainer Name="Loop river" ID="{83CE6832-5AB5-4683-9CF1-182B0FE34789}" ShortID="469915938">
-									<PropertyList>
-										<Property Name="MakeUpGain" Type="Real64">
-											<ValueList>
-												<Value>-20</Value>
-											</ValueList>
-										</Property>
-										<Property Name="OverridePositioning" Type="bool" Value="True"/>
-										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
-										<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
-										<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="4"/>
-										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
-										<Property Name="PositioningType" Type="int16" Value="1"/>
-										<Property Name="RandomOrSequence" Type="int16" Value="0"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Attenuation">
-											<ObjectRef Name="Waterfall" ID="{09E10853-3D58-405B-A3D4-8FE270A130B0}" WorkUnitID="{D49E8AC8-F75C-42C2-9D03-ECF68261003A}"/>
-										</Reference>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
-										</Reference>
-										<Reference Name="Effect0" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
-											<ObjectRef Name="ForestAuterlitz_DenseFar" ID="{0F74A865-50E7-4277-956F-A54FFB0E301C}" WorkUnitID="{C0E78DAA-768A-438F-8F7B-3701395185C3}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<Sound Name="River_stream" ID="{94C786DE-4A49-4BAE-A1B0-49FD981FA91D}" ShortID="495915106" Type="SoundFX">
-											<PropertyList>
-												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Close river, water lappin-NORM_01-03" ID="{B12B1D5F-98F0-411A-BF24-06566D4F91BB}" ShortID="545845107">
-													<Language>SFX</Language>
-													<AudioFile>Close river, water lappin-NORM_01-03.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Close river, water lappin-NORM_01-03" ID="{B12B1D5F-98F0-411A-BF24-06566D4F91BB}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-									</ChildrenList>
-									<Playlist>
-										<ItemRef Name="River_stream" ID="{94C786DE-4A49-4BAE-A1B0-49FD981FA91D}"/>
-									</Playlist>
-								</RandomSequenceContainer>
-								<RandomSequenceContainer Name="Loop river on lake" ID="{C5F91A81-DD85-4077-BF2B-D51D15A680AA}" ShortID="1036029102">
-									<PropertyList>
-										<Property Name="MakeUpGain" Type="Real64">
-											<ValueList>
-												<Value>-20</Value>
-											</ValueList>
-										</Property>
-										<Property Name="OverridePositioning" Type="bool" Value="True"/>
-										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
-										<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
-										<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="4"/>
-										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
-										<Property Name="RandomOrSequence" Type="int16" Value="0"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
-										</Reference>
-										<Reference Name="Effect0" PluginName="Wwise Convolution Reverb" CompanyID="0" PluginID="127" PluginType="3">
-											<ObjectRef Name="ForestAuterlitz_DenseFar" ID="{0F74A865-50E7-4277-956F-A54FFB0E301C}" WorkUnitID="{C0E78DAA-768A-438F-8F7B-3701395185C3}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<Sound Name="River_on_lake" ID="{79BA4083-8E83-44D7-9D3F-BE15A8DB2BDA}" ShortID="709441309" Type="SoundFX">
-											<PropertyList>
-												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="PE-49 40 Water, Stream -NORM_01-02" ID="{53E993EB-86B2-4B65-9A36-A61EFBCB9C7A}" ShortID="197150017">
-													<Language>SFX</Language>
-													<AudioFile>PE-49 40 Water, Stream -NORM_01-02.wav</AudioFile>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="PE-49 40 Water, Stream -NORM_01-02" ID="{53E993EB-86B2-4B65-9A36-A61EFBCB9C7A}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-									</ChildrenList>
-									<Playlist>
-										<ItemRef Name="River_on_lake" ID="{79BA4083-8E83-44D7-9D3F-BE15A8DB2BDA}"/>
-									</Playlist>
-								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="Ducks" ID="{7F1B24E6-8ADE-4023-BC8E-414DECE5BBDB}" ShortID="666235602">
 									<PropertyList>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
@@ -15005,7 +14895,7 @@
 											<PropertyList>
 												<Property Name="MakeUpGain" Type="Real64">
 													<ValueList>
-														<Value>-25</Value>
+														<Value>-19</Value>
 													</ValueList>
 												</Property>
 												<Property Name="MaxSoundPerInstance" Type="int16">
@@ -15655,6 +15545,182 @@
 													</ChildrenList>
 												</RandomSequenceContainer>
 											</ChildrenList>
+										</RandomSequenceContainer>
+									</ChildrenList>
+								</ActorMixer>
+								<ActorMixer Name="Waterfall" ID="{183514D4-539A-4EBF-A0CD-544B62BEB0A3}" ShortID="574375181">
+									<PropertyList>
+										<Property Name="MakeUpGain" Type="Real64">
+											<ValueList>
+												<Value>3</Value>
+											</ValueList>
+										</Property>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="PositioningType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Waterfall" ID="{09E10853-3D58-405B-A3D4-8FE270A130B0}" WorkUnitID="{D49E8AC8-F75C-42C2-9D03-ECF68261003A}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<RandomSequenceContainer Name="Loop river" ID="{83CE6832-5AB5-4683-9CF1-182B0FE34789}" ShortID="469915938">
+											<PropertyList>
+												<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="4"/>
+												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+												<Property Name="PositioningType" Type="int16" Value="1"/>
+												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Waterfall" ID="{09E10853-3D58-405B-A3D4-8FE270A130B0}" WorkUnitID="{D49E8AC8-F75C-42C2-9D03-ECF68261003A}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Amb" ID="{9601936D-E8AC-4C84-867B-FB6173683DD9}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+												<Reference Name="UserAuxSend0">
+													<ObjectRef Name="Rverb_forest" ID="{BEE1AC0B-971A-4A04-9056-545507F906A1}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="River_stream" ID="{94C786DE-4A49-4BAE-A1B0-49FD981FA91D}" ShortID="495915106" Type="SoundFX">
+													<PropertyList>
+														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Close river, water lappin-NORM_01-03" ID="{B12B1D5F-98F0-411A-BF24-06566D4F91BB}" ShortID="545845107">
+															<Language>SFX</Language>
+															<AudioFile>Close river, water lappin-NORM_01-03.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Close river, water lappin-NORM_01-03" ID="{B12B1D5F-98F0-411A-BF24-06566D4F91BB}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+											<Playlist>
+												<ItemRef Name="River_stream" ID="{94C786DE-4A49-4BAE-A1B0-49FD981FA91D}"/>
+											</Playlist>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Loop river on lake" ID="{C5F91A81-DD85-4077-BF2B-D51D15A680AA}" ShortID="1036029102">
+											<PropertyList>
+												<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="4"/>
+												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+												<Property Name="PositioningType" Type="int16" Value="1"/>
+												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Waterfall" ID="{09E10853-3D58-405B-A3D4-8FE270A130B0}" WorkUnitID="{D49E8AC8-F75C-42C2-9D03-ECF68261003A}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Amb" ID="{9601936D-E8AC-4C84-867B-FB6173683DD9}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+												<Reference Name="UserAuxSend0">
+													<ObjectRef Name="Rverb_forest" ID="{BEE1AC0B-971A-4A04-9056-545507F906A1}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="River_on_lake" ID="{79BA4083-8E83-44D7-9D3F-BE15A8DB2BDA}" ShortID="709441309" Type="SoundFX">
+													<PropertyList>
+														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{3EA8BF07-E3DF-425D-B930-72A15ED915DD}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="PE-49 40 Water, Stream -NORM_01-02" ID="{53E993EB-86B2-4B65-9A36-A61EFBCB9C7A}" ShortID="197150017">
+															<Language>SFX</Language>
+															<AudioFile>PE-49 40 Water, Stream -NORM_01-02.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="PE-49 40 Water, Stream -NORM_01-02" ID="{53E993EB-86B2-4B65-9A36-A61EFBCB9C7A}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+											<Playlist>
+												<ItemRef Name="River_on_lake" ID="{79BA4083-8E83-44D7-9D3F-BE15A8DB2BDA}"/>
+											</Playlist>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Loop rumble" ID="{C1CB83C4-9991-4A05-AEF3-AA2DD6C1A3D1}" ShortID="467288133">
+											<PropertyList>
+												<Property Name="MakeUpGain" Type="Real64">
+													<ValueList>
+														<Value>-13</Value>
+													</ValueList>
+												</Property>
+												<Property Name="Pitch" Type="int32">
+													<ValueList>
+														<Value>-1000</Value>
+													</ValueList>
+												</Property>
+												<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="Sens chasseur layer 1" ID="{E0357D9E-C03F-416A-B165-FAA83BBA9031}" ShortID="438533396" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Sens chasseur layer 1" ID="{1A271B8A-B5A8-4C18-8231-48E3B526973B}" ShortID="979566657">
+															<Language>SFX</Language>
+															<AudioFile>Sens chasseur layer 1.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Sens chasseur layer 1" ID="{1A271B8A-B5A8-4C18-8231-48E3B526973B}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+											<Playlist>
+												<ItemRef Name="Sens chasseur layer 1" ID="{E0357D9E-C03F-416A-B165-FAA83BBA9031}"/>
+											</Playlist>
 										</RandomSequenceContainer>
 									</ChildrenList>
 								</ActorMixer>
@@ -25320,6 +25386,11 @@
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="KO" ID="{524A4488-E5E2-4D53-B50D-F73296BB997A}" ShortID="350760318">
 									<PropertyList>
+										<Property Name="MakeUpGain" Type="Real64">
+											<ValueList>
+												<Value>6</Value>
+											</ValueList>
+										</Property>
 										<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 										<Property Name="RandomOrSequence" Type="int16" Value="0"/>
@@ -28308,6 +28379,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<SwitchContainer Name="Steps" ID="{12664412-CA0D-4F3C-8BCB-2C9EDBDBDCBA}" ShortID="240654127">
+									<PropertyList>
+										<Property Name="MakeUpGain" Type="Real64">
+											<ValueList>
+												<Value>-8</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
@@ -30275,7 +30353,24 @@
 								</SwitchContainer>
 								<RandomSequenceContainer Name="Idle" ID="{95AA0BE4-5D82-45A8-B9C7-C6CDDF8DCC57}" ShortID="1004831246">
 									<PropertyList>
+										<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
+										<Property Name="MakeUpGain" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+										<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
+										<Property Name="MaxSoundPerInstance" Type="int16">
+											<ValueList>
+												<Value>1</Value>
+											</ValueList>
+										</Property>
 										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="5"/>
+										<Property Name="UseMaxSoundPerInstance" Type="bool">
+											<ValueList>
+												<Value>True</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -30502,7 +30597,7 @@
 									<PropertyList>
 										<Property Name="MakeUpGain" Type="Real64">
 											<ValueList>
-												<Value>-12</Value>
+												<Value>-4</Value>
 											</ValueList>
 										</Property>
 										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="5"/>
@@ -30636,7 +30731,7 @@
 									<PropertyList>
 										<Property Name="MakeUpGain" Type="Real64">
 											<ValueList>
-												<Value>-20</Value>
+												<Value>-5</Value>
 											</ValueList>
 										</Property>
 										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
