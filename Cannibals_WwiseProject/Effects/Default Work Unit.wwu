@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{DB303EB7-5FD2-492A-A621-E66097E22DEA}" SchemaVersion="75">
 	<Effects>
-		<WorkUnit Name="Default Work Unit" ID="{DB303EB7-5FD2-492A-A621-E66097E22DEA}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{DB303EB7-5FD2-492A-A621-E66097E22DEA}" PersistMode="Standalone">
+			<ChildrenList>
+				<Effect Name="Limiter" ID="{EBFFE0CA-13DC-4FDE-B1C0-54DEB95C45A6}" PluginName="Wwise Compressor" CompanyID="0" PluginID="108" PluginType="3">
+					<PropertyList>
+						<Property Name="AttackTime" Type="Real32" Value="0.001"/>
+						<Property Name="Ratio" Type="Real32" Value="50"/>
+						<Property Name="ReleaseTime" Type="Real32" Value="0.99"/>
+						<Property Name="Threshold" Type="Real32" Value="-3"/>
+					</PropertyList>
+				</Effect>
+			</ChildrenList>
+		</WorkUnit>
 	</Effects>
 </WwiseDocument>

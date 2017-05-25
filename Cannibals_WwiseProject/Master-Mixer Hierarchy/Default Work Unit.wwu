@@ -4,6 +4,11 @@
 		<WorkUnit Name="Default Work Unit" ID="{068960D6-A717-493E-B90F-BE62835606C7}" PersistMode="Standalone">
 			<ChildrenList>
 				<Bus Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}">
+					<ReferenceList>
+						<Reference Name="Effect0" PluginName="Wwise Compressor" CompanyID="0" PluginID="108" PluginType="3">
+							<ObjectRef Name="Limiter" ID="{EBFFE0CA-13DC-4FDE-B1C0-54DEB95C45A6}" WorkUnitID="{DB303EB7-5FD2-492A-A621-E66097E22DEA}"/>
+						</Reference>
+					</ReferenceList>
 					<ChildrenList>
 						<Bus Name="SFX" ID="{D3C3252A-A46D-453F-B2E2-9A2EAB3A4AB3}">
 							<PropertyList>
