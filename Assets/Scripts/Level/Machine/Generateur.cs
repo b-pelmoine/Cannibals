@@ -44,6 +44,6 @@ public class Generateur : MonoBehaviour, IActivable {
 
     public void ShowIcon()
     {
-        //A faire
+        Debug.Log("ok");
     }
 }
