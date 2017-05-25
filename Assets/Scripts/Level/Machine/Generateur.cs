@@ -15,19 +15,19 @@ public class Generateur : MonoBehaviour, IActivable {
         animator = GetComponent<Animator>();
         
         machine.GenerateurSwitch(On);
-        animator.Play("On");
+        if(On) animator.Play("ToOn");
     }
 
 	public void Switch()
     {
         if (On)
         {
-            animator.Play("Click");
+            animator.Play("ToIdle");
             On = false;
         }
         else
         {
-            animator.Play("On");
+            animator.Play("ToOn");
             On = true;
         }
         machine.GenerateurSwitch(On);

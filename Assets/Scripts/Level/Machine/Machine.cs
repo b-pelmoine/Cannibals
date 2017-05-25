@@ -15,6 +15,8 @@ public class Machine : MonoBehaviour, IActivable {
     public event Finish finish;
     public GameObject prefabCanette;
     public Transform positionCanette;
+    public int production = 3;
+    int produced = 0;
 
     public bool poisoned = false;
 
@@ -36,8 +38,17 @@ public class Machine : MonoBehaviour, IActivable {
                 //Generate canette 
                 if (finish != null)
                     finish(newCan);
-                animator.Play("Click");
-                Working = false;
+                produced++;
+                if (produced == production)
+                {
+                    Working = false;
+                    produced = 0;
+                    animator.Play("Idle");
+                }
+                else
+                {
+                    timer = 0;
+                }
                 //poisoned = true;
             }
         }
@@ -51,12 +62,12 @@ public class Machine : MonoBehaviour, IActivable {
         {
             On = true;
             if(Working)
-                animator.Play("On");
+                animator.Play("ToOn");
         }
         else
         {
             On = false;
-            animator.Play("Click");
+            animator.Play("Idle");
         }
     }
 
@@ -71,7 +82,7 @@ public class Machine : MonoBehaviour, IActivable {
         timer = 0;
         Working = true;
         if(On)
-            animator.Play("On");
+            animator.Play("ToOn");
     }
 
     public bool IsActivable(CannibalObject cannibalObject)

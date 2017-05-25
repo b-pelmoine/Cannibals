@@ -171,6 +171,25 @@ namespace AI
             return task;
         }
 
+        public ActionTask RotateTowards(Vector3 target, float angle, float speed)
+        {
+            ActionTask rotate = new ActionTask();
+            rotate.OnExecute = () =>
+            {
+                Vector3 dir = target - transform.position;
+                dir.y = transform.position.y;
+                if (Vector3.Angle(dir, transform.forward) < angle)
+                {
+                    LookAt(target);
+                    Stop();
+                    return;
+                }
+                transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, dir, speed * Time.deltaTime, 0));
+            };
+            Play(rotate);
+            return rotate;
+        }
+
         public void AnimCall()
         {
             Call(anim_call_count);

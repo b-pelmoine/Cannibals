@@ -31,7 +31,7 @@ namespace AI
         public float machineRadius = 5;
         public float generateurRadius = 5;
 
-        public int machineCanetteNumber = 3;
+        private int machineCanetteNumber = 3;
         private int canetteCounter = 0;
 
         public Waypoint toMachine;
@@ -46,6 +46,7 @@ namespace AI
         // Use this for initialization
         new void Start () {
             base.Start();
+            machineCanetteNumber = machine.production;
             machine.finish += Finish;
             ActionTask root = new ActionTask();
             Play(root);
@@ -192,15 +193,17 @@ namespace AI
             if(MoveTo(best.transform.position, 0.5f))
             {
                 anim_call_count = 0;
-                LookAt(best.transform.position);
-                animator.Play("PickUp");
-                AkSoundEngine.SetSwitch("Objects", "Mushrooms", gameObject);
-                AkSoundEngine.PostEvent("granny_objects", gameObject);
-                Wait(0.1f).Next = () =>
+                RotateTowards(best.transform.position, 10, 5).Next = () =>
                 {
-                    Wait(animator.GetCurrentAnimatorStateInfo(0).length).callbacks.Add(0, () => {
-                        Grab(best);
-                        });
+                    animator.Play("PickUp");
+                    AkSoundEngine.SetSwitch("Objects", "Mushrooms", gameObject);
+                    AkSoundEngine.PostEvent("granny_objects", gameObject);
+                    Wait(0.1f).Next = () =>
+                    {
+                        Wait(animator.GetCurrentAnimatorStateInfo(0).length).callbacks.Add(0, () => {
+                            Grab(best);
+                            });
+                    };
                 };
             }
         }
@@ -208,16 +211,17 @@ namespace AI
         protected void FeedCanard()
         {
             Canard target = (CurrentAction.callData as Canard);
-            LookAt(target.transform.position);
-            animator.Play("Give");
-            Wait(0.1f).Next = () =>
+            RotateTowards(target.transform.position, 10, 5).Next = () =>
             {
-                Wait(animator.GetCurrentAnimatorStateInfo(0).length).Next = () =>
+                animator.Play("Give");
+                Wait(0.1f).Next = () =>
                 {
-                    target.CallEat();
+                    Wait(animator.GetCurrentAnimatorStateInfo(0).length).Next = () =>
+                    {
+                        target.CallEat();
+                    };
                 };
             };
-            
         }
 
         protected void RamasseCanard()
@@ -266,10 +270,11 @@ namespace AI
                     wait.Next = () =>
                     {
                         scout.Call(10);
+                        animator.Play("Give");
                         Wait(0).callbacks.Add(10, () =>
                         {
                             Stop();
-                            Feeding();
+                            Wait(1).Next = Feeding;
                         });
                     };
                     wait.callbacks.Add(0, () =>
@@ -319,7 +324,7 @@ namespace AI
                         ActionTask move = new ActionTask();
                         move.OnExecute = () =>
                         {
-                            if (MoveTo(machine.transform.position, 2))
+                            if (MoveTo(machine.transform.position, 1.5f))
                             {
                                 anim_call_count = 0;
                                 animator.Play("Give");
@@ -373,19 +378,23 @@ namespace AI
             ActionTask action = new ActionTask();
             action.OnExecute = () =>
             {
-                if (MoveTo(position, 2))
+                if (MoveTo(position, 1.5f))
                 {
-                    animator.Play("Give");
-                    
-                    Stop();
-                    Wait(0.1f).Next = () =>
+                    RotateTowards(position, 10, 5).Next = () =>
                     {
-                        anim_call_count = 0;
-                        ActionTask wait = Wait(animator.GetCurrentAnimatorStateInfo(0).length);
-                        wait.callbacks.Add(0, () => {
-                            machine.Launch();
-                        });
-                        wait.Next = WaitForCanette;
+                        animator.Play("Give");
+
+                        Stop();
+                        Wait(0.1f).Next = () =>
+                        {
+                            anim_call_count = 0;
+                            ActionTask wait = Wait(animator.GetCurrentAnimatorStateInfo(0).length);
+                            wait.callbacks.Add(0, () =>
+                            {
+                                machine.Launch();
+                            });
+                            wait.Next = WaitForCanette;
+                        };
                     };
                 }
             };
@@ -401,8 +410,17 @@ namespace AI
             ActionTask action = new ActionTask();
             action.OnExecute = () =>
             {
-                if(MoveTo(machine.transform.position, 3))
-                    LookAt(machine.transform.position);
+                if (MoveTo(machine.transform.position, 1.5f))
+                {
+                    ActionTask rot = RotateTowards(machine.positionCanette.position, 10, 5);
+                    rot.callbacks.Add(0, () =>
+                    {
+                        object dat = rot.callData;
+                        Stop();
+                        CurrentAction.callData = dat;
+                        Call(0);
+                    });
+                }
             };
             action.AddReaction(
                 () => !machine.IsOn()
@@ -422,7 +440,7 @@ namespace AI
                     canetteCounter = 0;
                 };
             else
-                action.Next = Fabrique;
+                action.Next = WaitForCanette;
             Play(action);
         }
 
@@ -433,6 +451,7 @@ namespace AI
             action.OnExecute = () => {
                 if(MoveTo(can.transform.position, 1))
                 {
+                    LookAt(can.transform.position);
                     animator.Play("Give");
                     
                     Wait(0.1f).Next = () =>
@@ -463,7 +482,7 @@ namespace AI
             ActionTask action = new ActionTask();
             action.OnExecute = () =>
             {
-                if (MoveTo(generateur.transform.position, 2))
+                if (MoveTo(generateur.transform.position, 1f))
                 {
                     animator.Play("Give");
                     Wait(0.1f).Next = () =>
