@@ -249,6 +249,7 @@ namespace AI
         {
             LineOfSightManager.Unregister(los);
             AIAgentManager.unregisterAIAgent(gameObject);
+            LineOfSight.UnRegister(gameObject);
             Destroy(gameObject);
         }
     }

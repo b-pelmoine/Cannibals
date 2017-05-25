@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
@@ -110,6 +111,19 @@ public class LineOfSight : MonoBehaviour {
         detect_rate.Add(detect);
         foreach (Material mat in mesh.materials)
             mat.SetColor("_LoSColor", new Color(detected_objects.Count / 255f, 0, 0));
+    }
+
+    public static void UnRegister(GameObject obj)
+    {
+        int pos = detected_objects.FindIndex(x => x==obj);
+        if(pos>=0 && pos < detected_objects.Count)
+        {
+            detected_objects.RemoveAt(pos);
+            detect_rate.RemoveAt(pos);
+            var keys = colliders.Where(x => x.Value == obj).ToList();
+            foreach (var k in keys)
+                colliders.Remove(k.Key);
+        }
     }
 
     public bool Analyse()

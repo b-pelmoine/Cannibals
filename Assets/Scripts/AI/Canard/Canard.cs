@@ -56,7 +56,7 @@ namespace AI
             {
                 if (MoveTo(deadPosition.position, 2))
                 {
-                    Stop();
+                    StopAll();
                 }
             };
             Play(action);
