@@ -8,6 +8,7 @@ namespace AI
 {
     public class Chasseur : AIAgent, IKnifeKillable {
         public IconDisplayer icon;
+        public Transform hand;
         public float walkSpeed = 3;
         public float runSpeed = 6;
         public float waypointDistance = 2;
@@ -195,16 +196,20 @@ namespace AI
             {
                 if (MoveTo(bottle.transform.position, 2))
                 {
-                    animator.Play("Drink");
+                    Stop();
                     AkSoundEngine.PostEvent("hunter_drink", gameObject);
-                    stun = true;
                     if(bottle.linkedCannibal!=null)
                         bottle.linkedCannibal.LooseCannibalObject();
-                    bottle.gameObject.SetActive(false);
-                    ActionTask action = new ActionTask();
-                    action.timer = stunTime;
-                    action.OnEnd = Resurrect;
-                    Play(action);
+                    bottle.transform.parent = hand;
+                    PlayAnim("Drink", () =>
+                    {
+                        bottle.gameObject.SetActive(false);
+                        stun = true;
+                        ActionTask action = new ActionTask();
+                        action.timer = stunTime;
+                        action.Next = Resurrect;
+                        Play(action);
+                    });
                 }
             };
             Play(drink);           
@@ -258,7 +263,7 @@ namespace AI
         protected void Resurrect()
         {
             stun = false;
-            animator.Play("Resurrect");
+            PlayAnim("Resurrect");
         }
 
         /// <summary>
