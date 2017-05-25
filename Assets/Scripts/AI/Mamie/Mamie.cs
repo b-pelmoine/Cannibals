@@ -250,7 +250,6 @@ namespace AI
         protected void EchangeAvecScout()
         {
             agent.ResetPath();
-            Debug.Log("Echange");
             Scout scout = (CurrentAction.callData as Scout);
             scout.Call(this);
             Wait(0).callbacks.Add(0, () =>
