@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Machine : MonoBehaviour {
+public class Machine : MonoBehaviour, IActivable {
 
     private bool On = false;
     public bool Working = false;
@@ -36,7 +37,7 @@ public class Machine : MonoBehaviour {
                     finish(newCan);
                 animator.Play("Click");
                 Working = false;
-                
+                poisoned = false;
             }
         }
     }
@@ -72,5 +73,31 @@ public class Machine : MonoBehaviour {
             animator.Play("On");
     }
 
+    public bool IsActivable(Cannibal cannibal)
+    {
+        CannibalObject obj = cannibal.m_cannibalSkill.m_cannibalObject;
+        if (obj != null && obj.GetComponent<Champignon>() != null)
+            return true;
+        return false;
+    }
 
+    public void Activate(Cannibal cannibal)
+    {
+        CannibalObject obj = cannibal.m_cannibalSkill.m_cannibalObject;
+        if (obj != null) {
+            Champignon champ = obj.GetComponent<Champignon>();
+            if (champ != null)
+            {
+                if (champ.type == Champignon.Type.Champoison)
+                    poisoned = true;
+                cannibal.LooseCannibalObject();
+                champ.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    public void ShowIcon()
+    {
+        //A faire
+    }
 }

@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class Generateur : MonoBehaviour {
+public class Generateur : MonoBehaviour, IActivable {
     public bool On = true;
     public Machine machine;
     private Animator animator;
@@ -29,5 +30,20 @@ public class Generateur : MonoBehaviour {
             On = true;
         }
         machine.GenerateurSwitch(On);
+    }
+
+    public bool IsActivable(Cannibal cannibal)
+    {
+        return true;
+    }
+
+    public void Activate(Cannibal cannibal)
+    {
+        Switch();
+    }
+
+    public void ShowIcon()
+    {
+        //A faire
     }
 }

@@ -155,6 +155,22 @@ namespace AI
                 CurrentAction.callbacks[id]();
         }
 
+        public ActionTask PlayAnim(string anim, ActionTask.Action next = null, params ActionTask.Action[] calls)
+        {
+            ActionTask task = new ActionTask();
+            animator.Play(anim);
+            anim_call_count = 0;
+            for (int i = 0; i < calls.Length; i++)
+                task.callbacks.Add(i, calls[i]);
+            task.Next = next;
+            Wait(0.1f).Next = () =>
+            {
+                task.timer = animator.GetCurrentAnimatorStateInfo(0).length;
+                Play(task);
+            };
+            return task;
+        }
+
         public void AnimCall()
         {
             Call(anim_call_count);
