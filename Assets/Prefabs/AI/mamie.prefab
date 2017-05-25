@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: 4685421319113102}
   - component: {fileID: 95046988341434532}
   - component: {fileID: 114203685608951796}
+  - component: {fileID: 65587083277058906}
   m_Layer: 0
   m_Name: Machine
   m_TagString: Untagged
@@ -9392,6 +9393,7 @@ GameObject:
   - component: {fileID: 4692297185007936}
   - component: {fileID: 95669177470750366}
   - component: {fileID: 114901706858121810}
+  - component: {fileID: 65300352544037466}
   m_Layer: 0
   m_Name: Generateur
   m_TagString: Untagged
@@ -27828,6 +27830,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1539937277245360}
   m_Mesh: {fileID: 4300002, guid: fd4a577f0bfe9134caa9c754a2a28fd4, type: 3}
+--- !u!65 &65300352544037466
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1672659645881246}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.4162643, y: 0.63739395, z: 0.51992416}
+  m_Center: {x: -0.030501485, y: 0.32118917, z: 0.02644062}
+--- !u!65 &65587083277058906
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1001168414959894}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.758915, y: 1.1246121, z: 1}
+  m_Center: {x: -0.18854308, y: 0.54958117, z: 0}
 --- !u!95 &95046988341434532
 Animator:
   serializedVersion: 3
@@ -27980,6 +28006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58a2393de5a34264a8b36ac7fb32a53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 0
   switchName: Steps
   switchStates:
   - name: Grass
@@ -28014,6 +28041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58a2393de5a34264a8b36ac7fb32a53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 0
   switchName: Steps
   switchStates:
   - name: Grass

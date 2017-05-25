@@ -37,7 +37,7 @@ public class Machine : MonoBehaviour, IActivable {
                     finish(newCan);
                 animator.Play("Click");
                 Working = false;
-                poisoned = false;
+                //poisoned = true;
             }
         }
     }
