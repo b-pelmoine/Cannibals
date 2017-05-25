@@ -34,4 +34,10 @@ public class IconDisplayer : MonoBehaviour {
         m_image.sprite = sprite;
         m_timer = Time.time + m_displayTime;
     }
+
+    public void Show()
+    {
+        m_image.enabled = true;
+        m_timer = Time.time + m_displayTime;
+    }
 }

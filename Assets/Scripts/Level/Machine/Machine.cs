@@ -6,6 +6,7 @@ using UnityEngine;
 public class Machine : MonoBehaviour, IActivable {
 
     private bool On = false;
+    public IconDisplayer icon;
     public bool Working = false;
     public float time = 30;
     private float timer = 0;
@@ -94,6 +95,6 @@ public class Machine : MonoBehaviour, IActivable {
 
     public void ShowIcon()
     {
-        //A faire
+        icon.Show();
     }
 }

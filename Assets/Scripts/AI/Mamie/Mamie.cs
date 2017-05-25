@@ -7,7 +7,7 @@ namespace AI
 {
     public class Mamie : AIAgent, IKnifeKillable {
 
-
+        public IconDisplayer icon;
         public ParticleSystem dieParticle;
         public float dieTime = 2;
         public GameObject corpse;
@@ -576,7 +576,7 @@ namespace AI
 
         public void ShowKnifeIcon()
         {
-            //throw new NotImplementedException();
+            icon.Show();
         }
 
         //Callback Machine

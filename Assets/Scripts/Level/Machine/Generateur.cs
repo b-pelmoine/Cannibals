@@ -5,6 +5,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 public class Generateur : MonoBehaviour, IActivable {
+    public IconDisplayer icon;
     public bool On = true;
     public Machine machine;
     private Animator animator;
@@ -44,6 +45,6 @@ public class Generateur : MonoBehaviour, IActivable {
 
     public void ShowIcon()
     {
-        //Debug.Log("ok");
+        icon.Show();
     }
 }

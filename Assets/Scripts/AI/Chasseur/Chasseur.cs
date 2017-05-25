@@ -7,6 +7,7 @@ using UnityEngine.AI;
 namespace AI
 {
     public class Chasseur : AIAgent, IKnifeKillable {
+        public IconDisplayer icon;
         public float walkSpeed = 3;
         public float runSpeed = 6;
         public float waypointDistance = 2;
@@ -309,7 +310,7 @@ namespace AI
 
         public void ShowKnifeIcon()
         {
-            //throw new NotImplementedException();
+            icon.Show();
         }
     }
 }
