@@ -10,6 +10,7 @@ public class NavMeshSwitchEditor : Editor {
     {
         //base.OnInspectorGUI();
         NavMeshSwitch t = target as NavMeshSwitch;
+        t.debug = EditorGUILayout.Toggle(t.debug);
         t.switchName = GUILayout.TextField(t.switchName);
         if (GUILayout.Button("Add"))
         {

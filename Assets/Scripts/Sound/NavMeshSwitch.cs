@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class NavMeshSwitch : MonoBehaviour {
+    public bool debug = false;
     public string switchName = "";
     [System.Serializable]
     public class SwitchState
@@ -15,6 +16,7 @@ public class NavMeshSwitch : MonoBehaviour {
     public List<SwitchState> switchStates = new List<SwitchState>();
 
     int lastMask = 0;
+    
 
 	// Use this for initialization
 	void Start () {
@@ -33,7 +35,10 @@ public class NavMeshSwitch : MonoBehaviour {
             {
                 foreach (SwitchState st in switchStates)
                     if ((hit.mask & st.mask) != 0)
+                    {
                         AkSoundEngine.SetSwitch(switchName, st.name, gameObject);
+                        if(debug) Debug.Log(st.name);
+                    }
             }
             lastMask = hit.mask;
         }
