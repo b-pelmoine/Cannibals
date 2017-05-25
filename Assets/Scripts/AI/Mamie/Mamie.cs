@@ -87,7 +87,7 @@ namespace AI
             foreach (Collider c in cols)
             {
                 Champignon champ = c.gameObject.GetComponent<Champignon>();
-                if (champ!=null && champ.transform.parent!=mamieHand && champ.type==Champignon.Type.Champibon && (best==null || (c.transform.position - transform.position).sqrMagnitude < (best.transform.position - transform.position).sqrMagnitude))
+                if (champ!=null && champ.linkedCannibal==null && champ.transform.parent!=mamieHand && champ.type==Champignon.Type.Champibon && (best==null || (c.transform.position - transform.position).sqrMagnitude < (best.transform.position - transform.position).sqrMagnitude))
                     best = c.gameObject;
             }
             if (best != null)
