@@ -56,6 +56,7 @@ namespace AI
                              Stop();
                              GameObject c = Instantiate(cookie);
                              c.transform.parent = scoutHand;
+                             c.GetComponent<Cookies>().m_rigidbody.isKinematic = true;
                              c.transform.localPosition = Vector3.zero;
                              animator.Play("Give");
                              Wait(0.1f).Next = () =>

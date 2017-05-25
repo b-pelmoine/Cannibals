@@ -65,6 +65,7 @@ namespace AI
         {
             SightInfo cannibal = los.FindNearest(x =>
             {
+                if (x.target == null) return false;
                 Cannibal c = x.target.GetComponentInParent<Cannibal>();
                 return c != null && !c.IsDead();
             });
@@ -551,6 +552,7 @@ namespace AI
                 Wait(animator.GetCurrentAnimatorStateInfo(0).length).Next = () => {
                     Wait(dieTime).Next = () =>
                     {
+                        dieParticle.transform.position = transform.position;
                         dieParticle.Play();
                         Instantiate(corpse).transform.position = transform.position;
                         Destroy();
@@ -596,6 +598,9 @@ namespace AI
         {
             g.transform.parent = mamieHand;
             g.transform.localPosition = Vector3.zero;
+            Cookies rigid = g.GetComponent<Cookies>();
+            if (rigid != null)
+                rigid.m_rigidbody.isKinematic = true;
             carry.Add(g);
             g.SetActive(true);
             Call(10);

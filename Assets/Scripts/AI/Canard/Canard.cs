@@ -5,6 +5,7 @@ using UnityEngine;
 namespace AI
 {
     public class Canard : AIAgent {
+        public Transform body;
         public Transform wanderPosition;
         public float wanderRadius = 3;
         public Transform deadPosition;
@@ -35,18 +36,31 @@ namespace AI
             agent.ResetPath();
             animator.Play("ToEat");
             Stop();
-            Wait(eatTime).Next = () =>
-            {
-                animator.Play("ToSwim");
-                Wait(dieTime).Next = () =>
-                {
-                    animator.Play("Die");
-                    Wait(0.1f).Next = () =>
-                    {
-                        Wait(animator.GetCurrentAnimatorStateInfo(0).length).Next = Move;
-                    };
-                };
-            };
+            Wait(eatTime / 3).Next = () =>
+              {
+                  AkSoundEngine.SetRTPCValue("duck", 0.31f, gameObject);
+                  AkSoundEngine.PostEvent("duck", gameObject);
+                  body.localScale *= 1.2f;
+                  Wait(eatTime / 3).Next = () =>
+                  {
+                      AkSoundEngine.SetRTPCValue("duck", 0.61f, gameObject);
+                      AkSoundEngine.PostEvent("duck", gameObject);
+                      body.localScale *= 1.2f;
+                      Wait(eatTime / 3).Next = () =>
+                      {
+                          body.localScale *= 1.2f;
+                          animator.Play("ToSwim");
+                          Wait(dieTime).Next = () =>
+                          {
+                              animator.Play("Die");
+                              Wait(0.1f).Next = () =>
+                              {
+                                  Wait(animator.GetCurrentAnimatorStateInfo(0).length).Next = Move;
+                              };
+                          };
+                      };
+                  };
+              };
         }
 
         protected void Move()

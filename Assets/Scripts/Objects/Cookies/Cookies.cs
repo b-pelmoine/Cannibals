@@ -6,7 +6,7 @@ using System;
 public class Cookies : CannibalObject
 {
     [SerializeField]
-    Rigidbody m_rigidbody;
+    public Rigidbody m_rigidbody;
 
     [SerializeField]
     Collider m_collider;

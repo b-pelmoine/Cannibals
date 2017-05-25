@@ -52,6 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4950443371220456}
   - component: {fileID: 95132508978611326}
+  - component: {fileID: 114049921101321212}
   m_Layer: 9
   m_Name: duck_mesh
   m_TagString: Untagged
@@ -246,7 +247,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1792486696777940}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.7127533, y: -0, z: 16.499104}
+  m_LocalPosition: {x: -1.19, y: 0.15, z: 13.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4950443371220456}
@@ -364,6 +365,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114049921101321212
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1307443385425940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 858cada7a12636d4e93f06d464eb7a0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1792486696777940}
 --- !u!114 &114329398183999396
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -379,6 +392,7 @@ MonoBehaviour:
   LevelOfImportance: 0
   agent: {fileID: 0}
   animator: {fileID: 95132508978611326}
+  body: {fileID: 4794244667379808}
   wanderPosition: {fileID: 0}
   wanderRadius: 7
   deadPosition: {fileID: 0}
