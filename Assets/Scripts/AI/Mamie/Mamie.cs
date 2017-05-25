@@ -87,7 +87,7 @@ namespace AI
             foreach (Collider c in cols)
             {
                 Champignon champ = c.gameObject.GetComponent<Champignon>();
-                if (champ!=null && champ.type==Champignon.Type.Champibon && (best==null || (c.transform.position - transform.position).sqrMagnitude < (best.transform.position - transform.position).sqrMagnitude))
+                if (champ!=null && champ.transform.parent!=mamieHand && champ.type==Champignon.Type.Champibon && (best==null || (c.transform.position - transform.position).sqrMagnitude < (best.transform.position - transform.position).sqrMagnitude))
                     best = c.gameObject;
             }
             if (best != null)
@@ -188,15 +188,18 @@ namespace AI
         protected void RamasseChampi()
         {
             GameObject best = (CurrentAction.callData as SightInfo).target;
-            if(MoveTo(best.transform.position, 2))
+            if(MoveTo(best.transform.position, 0.5f))
             {
+                anim_call_count = 0;
                 LookAt(best.transform.position);
                 animator.Play("PickUp");
                 AkSoundEngine.SetSwitch("Objects", "Mushrooms", gameObject);
                 AkSoundEngine.PostEvent("granny_objects", gameObject);
                 Wait(0.1f).Next = () =>
                 {
-                    Wait(animator.GetCurrentAnimatorStateInfo(0).length).callbacks.Add(0, () => best.SetActive(false));
+                    Wait(animator.GetCurrentAnimatorStateInfo(0).length).callbacks.Add(0, () => {
+                        Grab(best);
+                        });
                 };
             }
         }
@@ -336,6 +339,7 @@ namespace AI
                                 };
                             }
                         };
+                        Play(move);
                     };
                     Play(chope);
                 }
