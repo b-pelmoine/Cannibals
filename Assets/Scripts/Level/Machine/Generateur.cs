@@ -32,12 +32,12 @@ public class Generateur : MonoBehaviour, IActivable {
         machine.GenerateurSwitch(On);
     }
 
-    public bool IsActivable(Cannibal cannibal)
+    public bool IsActivable(CannibalObject cannibal)
     {
         return true;
     }
 
-    public void Activate(Cannibal cannibal)
+    public void Activate(CannibalObject cannibal)
     {
         Switch();
     }

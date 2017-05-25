@@ -73,26 +73,22 @@ public class Machine : MonoBehaviour, IActivable {
             animator.Play("On");
     }
 
-    public bool IsActivable(Cannibal cannibal)
+    public bool IsActivable(CannibalObject cannibalObject)
     {
-        CannibalObject obj = cannibal.m_cannibalSkill.m_cannibalObject;
-        if (obj != null && obj.GetComponent<Champignon>() != null)
+        if (cannibalObject is Champignon)
             return true;
+
         return false;
     }
 
-    public void Activate(Cannibal cannibal)
+    public void Activate(CannibalObject cannibalObject)
     {
-        CannibalObject obj = cannibal.m_cannibalSkill.m_cannibalObject;
-        if (obj != null) {
-            Champignon champ = obj.GetComponent<Champignon>();
-            if (champ != null)
-            {
-                if (champ.type == Champignon.Type.Champoison)
-                    poisoned = true;
-                cannibal.LooseCannibalObject();
-                champ.gameObject.SetActive(false);
-            }
+        if (cannibalObject is Champignon)
+        {
+            if (((Champignon)cannibalObject).type == Champignon.Type.Champoison)
+                poisoned = true;
+
+            ((Champignon)cannibalObject).gameObject.SetActive(false);
         }
     }
 
