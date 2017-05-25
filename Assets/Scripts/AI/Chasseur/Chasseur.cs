@@ -81,10 +81,7 @@ namespace AI
             {
                 patrouille.Next();
                 //S'arrete 4 sec
-                ActionTask act = new ActionTask();
-                act.timer = 4;
-                act.OnExecute= () => Chase();
-                Play(act);
+                Wait(4).AddReaction(SeeCannibal, Chase);
             }
         }
 
@@ -96,13 +93,10 @@ namespace AI
             {
                 if (WanderAround(target.transform.position, defendRange, 1))
                 {
-                    ActionTask wait = new ActionTask();
-                    wait.OnExecute = () => Chase();
-                    wait.timer = 3;
-                    Play(wait);
+                   Wait(3).AddReaction(SeeCannibal, Chase);
                 }
             };
-            defend.reaction.Add(new ActionTask.Reaction(SeeCannibal, Chase));
+            defend.AddReaction(SeeCannibal, Chase);
             defend.callbacks.Add(DOG_CALL, GoTo);
             defend.callbacks.Add(BOTTLE_CALL, Drink);
             defend.timer = defendTime;
@@ -179,13 +173,13 @@ namespace AI
                      Stop();
                      ActionTask wait = new ActionTask();
                      wait.timer=2;
-                     wait.OnExecute = () => Chase();
+                     wait.AddReaction(SeeCannibal, Chase);
                      wait.callbacks.Add(DOG_CALL, CurrentAction.callbacks[DOG_CALL]);
                      wait.callbacks.Add(BOTTLE_CALL, Drink);
                      Play(wait);
                  }
              };
-            action.reaction.Add(new ActionTask.Reaction(SeeCannibal, Chase));
+            action.AddReaction(SeeCannibal, Chase);
             action.callbacks.Add(DOG_CALL, CurrentAction.callbacks[DOG_CALL]);
             action.callbacks.Add(BOTTLE_CALL, Drink);
             Play(action);

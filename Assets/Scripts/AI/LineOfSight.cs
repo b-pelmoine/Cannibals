@@ -42,8 +42,6 @@ public class LineOfSight : MonoBehaviour {
 
     void Awake()
     {
-        detected_objects = new List<GameObject>();
-        detect_rate = new List<int>();
         if (texture == null)
             texture = new RenderTexture(128, 128, 32, RenderTextureFormat.ARGB32);
         if (tex2D == null)
@@ -155,11 +153,12 @@ public class LineOfSight : MonoBehaviour {
             if (red >= 0 && red < detected_objects.Count)
                 pixnum[red]++;
         }
-        
         for (int i = 0; i < detected_objects.Count; i++)
         {
+            
             if (pixnum[i] > detect_rate[i])
             {
+                
                 SightInfo si = sighted.Find(x => x.target == detected_objects[i]);
                 if (si != null)
                 {
@@ -167,6 +166,7 @@ public class LineOfSight : MonoBehaviour {
                 }
                 else// if((si.target.transform.position-transform.position).sqrMagnitude < 0.95*Mathf.Pow(getSeeDistance(), 2))
                 {
+                    
                     sighted.Add(new SightInfo(detected_objects[i]));
                 }
             }
