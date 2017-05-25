@@ -21,7 +21,7 @@
 								<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
 								<Property Name="MakeUpGain" Type="Real64">
 									<ValueList>
-										<Value>-6</Value>
+										<Value>-10</Value>
 									</ValueList>
 								</Property>
 								<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
@@ -13748,7 +13748,7 @@
 													<PropertyList>
 														<Property Name="MakeUpGain" Type="Real64">
 															<ValueList>
-																<Value>-25</Value>
+																<Value>-35</Value>
 															</ValueList>
 														</Property>
 													</PropertyList>
@@ -13782,7 +13782,7 @@
 											<PropertyList>
 												<Property Name="MakeUpGain" Type="Real64">
 													<ValueList>
-														<Value>-20</Value>
+														<Value>-25</Value>
 													</ValueList>
 												</Property>
 												<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
@@ -33645,6 +33645,64 @@
 									</ReferenceList>
 									<ChildrenList>
 										<Sound Name="Noise" ID="{C2FC7CBD-81AF-4F12-86CB-2FEBF52E386E}" ShortID="280385227" Type="SoundFX">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<RTPCList>
+														<RTPC Name="" ID="{2979697F-7715-4CB4-804E-715697710F03}" ShortID="692209737">
+															<ReferenceList>
+																<Reference Name="ControlInput">
+																	<ObjectRef Name="spotted" ID="{51998773-E63C-4082-A0F6-108CB4439A16}" WorkUnitID="{310A2652-B3EA-4EA2-8156-BCC60ACF3B8D}"/>
+																</Reference>
+															</ReferenceList>
+															<Curve Name="" ID="{9FDCDE97-762E-48FD-B46B-178585708F70}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="65537"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>-2390</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>1</XPos>
+																		<YPos>541</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</RTPC>
+													</RTPCList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<RTPCList>
+														<RTPC Name="" ID="{0566A0C9-300C-4910-988A-44071E819621}" ShortID="28024644">
+															<ReferenceList>
+																<Reference Name="ControlInput">
+																	<ObjectRef Name="spotted" ID="{51998773-E63C-4082-A0F6-108CB4439A16}" WorkUnitID="{310A2652-B3EA-4EA2-8156-BCC60ACF3B8D}"/>
+																</Reference>
+															</ReferenceList>
+															<Curve Name="" ID="{68426F2E-2A3A-4EA4-8E3A-B7B12C560D71}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="3"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>-28.50348</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>1</XPos>
+																		<YPos>0</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</RTPC>
+													</RTPCList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
