@@ -727,6 +727,64 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="machine_gloups" ID="{AC2A5D5C-FBF6-4B10-A302-9136E6DC7AFC}">
+					<ChildrenList>
+						<Action Name="Play" ID="{0E5644D1-E5F8-46B8-95E9-691E42EC5F9C}" ShortID="765295630" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{763D0A15-39BF-4E0E-A8F9-9C372B3BADEE}" Global="false">
+									<ObjectRef Name="Gloups" ID="{C4896B57-D29E-4BEE-B5BD-77183588F7B4}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="machine_work" ID="{AF9C97ED-0B5A-4C1E-B796-E16F5FBB97B6}">
+					<ChildrenList>
+						<Action Name="Play" ID="{2ACDFB49-12F7-40FC-999D-4C4C5F2D3E49}" ShortID="547316939" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{9ABF1391-2538-42D0-9D2B-4117F2085E72}" Global="false">
+									<ObjectRef Name="Machine" ID="{21778361-5589-4FDE-A3FC-2771AA59BF4B}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="machine_end" ID="{EE7184AA-2A36-4710-8B3E-EF6BF90B1A63}">
+					<ChildrenList>
+						<Action Name="Stop" ID="{3516A889-8EBA-49A2-8204-4A867B721F14}" ShortID="341736213" Type="Stop" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{530094BF-FDB1-443E-86CD-9BE38E9D2FDC}" Global="false">
+									<ObjectRef Name="Machine" ID="{21778361-5589-4FDE-A3FC-2771AA59BF4B}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Stop" ID="{99739E45-E3CC-488F-A22E-52518B1CA885}" ShortID="427276163" Type="Stop" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{F05C97A3-BA3D-4D85-B46B-5E58379D78E3}" Global="false">
+									<ObjectRef Name="Générateur" ID="{B9941FC7-494F-4789-9A3A-C5F832AC5EDD}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Play" ID="{EBA114D4-8799-41F5-A1C4-DF7E8861A9FB}" ShortID="135102299" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{444ABEE6-6E51-442C-914B-0F6B4F582C33}" Global="false">
+									<ObjectRef Name="Machine end" ID="{F92BC55B-A3C8-44E3-A710-34F2C4675206}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="machine_gen" ID="{F8CA55C1-8E7D-4A16-8D37-9B2DB195ACD2}">
+					<ChildrenList>
+						<Action Name="Play" ID="{5D3A8666-13DE-405B-AA36-436E27950C84}" ShortID="166869796" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{F69C6A32-9DEA-48C0-B642-5D37CC180ABA}" Global="false">
+									<ObjectRef Name="Générateur" ID="{B9941FC7-494F-4789-9A3A-C5F832AC5EDD}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
