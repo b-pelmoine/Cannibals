@@ -38,6 +38,9 @@ public class Corpse : MonoBehaviour {
     [SerializeField]
     Vector3 orientationOffset = new Vector3(0, 90, 0);
 
+    [SerializeField]
+    Animator animator;
+
     void Awake()
     {
         characterControllerExt.enabled = false;
@@ -161,6 +164,11 @@ public class Corpse : MonoBehaviour {
     public void ShowTakeIcon()
     {
         iconDisplayer.Show(takeIcon);
+    }
+
+    public void Move(bool b)
+    {
+        animator.SetBool("move", b);
     }
 
 

@@ -6,8 +6,7 @@ public class Cannibal : MonoBehaviour {
 
     public static List<Cannibal> cannibals = new List<Cannibal>();
 
-    [SerializeField]
-    FSMOwner m_stateMachine;
+    public FSMOwner m_stateMachine;
 
     [Space(5)]
     public RewiredInput m_rewiredInput;

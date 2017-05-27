@@ -1265,6 +1265,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114279542657548412, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
+        type: 2}
+      propertyPath: _objectReferences.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4627913784702358, guid: 6d5c73a2de9863c49bd4ddcc77af1888, type: 2}
       propertyPath: m_LocalPosition.x
       value: -4.95
@@ -1302,6 +1307,34 @@ Prefab:
       propertyPath: _graph
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114279542657548412, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
+        type: 2}
+      propertyPath: _serializedBlackboard
+      value: '{"_variables":{"cannibalGameObject":{"_value":1,"_name":"cannibalGameObject","_id":"1a2e2198-8be6-46e9-8335-a97449cadac6","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
+        UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"cannibal":{"_value":2,"_name":"cannibal","_id":"4d46f1cc-f307-4258-b2ea-5cb1e0f461aa","$type":"NodeCanvas.Framework.Variable`1[[Cannibal,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"globalCollider":{"_value":3,"_name":"globalCollider","_id":"8ff76c52-119e-4dc6-aacd-6a49b6459f18","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Collider,
+        UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"animator":{"_value":4,"_name":"animator","_id":"612fe8fc-9046-4dea-ba21-a32c732e43ec","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Animator,
+        UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"cannibalObjects":{"_value":[],"_name":"cannibalObjects","_id":"44cf62bb-6c3c-4fbd-b5cb-8a6203d770ad","$type":"NodeCanvas.Framework.Variable`1[[System.Collections.Generic.List`1[[CannibalObject,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
+        mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"bushes":{"_value":[],"_name":"bushes","_id":"c0b463cc-c0ee-418d-a9df-3e923a364d0b","$type":"NodeCanvas.Framework.Variable`1[[System.Collections.Generic.List`1[[Bush,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
+        mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"IKnifeKillables":{"_value":[],"_name":"IKnifeKillables","_id":"11c643e0-d43f-4607-b1ac-158c55a7dcea","$type":"NodeCanvas.Framework.Variable`1[[System.Collections.Generic.List`1[[IKnifeKillable,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
+        mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"cannibals":{"_value":[],"_name":"cannibals","_id":"0067c3c8-cb35-40e2-8cc4-d1a9163f293f","$type":"NodeCanvas.Framework.Variable`1[[System.Collections.Generic.List`1[[Cannibal,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
+        mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"corpses":{"_value":[],"_name":"corpses","_id":"fbe21068-1b02-4aab-82c4-5ed2e8bf31b9","$type":"NodeCanvas.Framework.Variable`1[[System.Collections.Generic.List`1[[Corpse,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
+        mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"IActivables":{"_value":[],"_name":"IActivables","_id":"442a740c-03fb-47f3-8955-d16426f39d98","$type":"NodeCanvas.Framework.Variable`1[[System.Collections.Generic.List`1[[IActivable,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
+        mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"takenCorpse":{"_name":"takenCorpse","_id":"77a5da9c-c3b2-472d-90a8-a547e9226903","$type":"NodeCanvas.Framework.Variable`1[[Corpse,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"takenObject":{"_name":"takenObject","_id":"ccdde1dc-9e15-4c71-8311-512a2e3a9b6b","$type":"NodeCanvas.Framework.Variable`1[[CannibalObject,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114279542657548412, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
+        type: 2}
+      propertyPath: _objectReferences.Array.data[5]
+      value: 
+      objectReference: {fileID: 1179939686}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d5c73a2de9863c49bd4ddcc77af1888, type: 2}
   m_IsPrefabParent: 0
@@ -1450,6 +1483,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1179939686 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114330542164924104, guid: 89be47188a35e124899e0938f8094af3,
+    type: 2}
+  m_PrefabInternal: {fileID: 946385584}
+  m_Script: {fileID: 11500000, guid: 40e77c6ba3639b04e99dc348feb341a7, type: 3}
+--- !u!1 &1367647112 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1777552028560104, guid: 32632e23be3a1034da9e66457f738de6,
+    type: 2}
+  m_PrefabInternal: {fileID: 1907670258}
+--- !u!114 &1367647120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1367647112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3421bac6707e3f64fa82fb1158643650, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  groupGuid: a2fd86c40853fa40b88aa5ec8eafa195
+  valueGuid: f7b7a8af532b3e4d9e985701923b61e2
+  groupID: 1695690031
+  valueID: -446384847
 --- !u!1 &1493112335
 GameObject:
   m_ObjectHideFlags: 0
@@ -1569,15 +1630,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 18
       objectReference: {fileID: 0}
-    - target: {fileID: 4844315617938124, guid: 9d2bd102ef351bb40b7b1d50cc603d34, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114965879656065914, guid: 9d2bd102ef351bb40b7b1d50cc603d34,
+    - target: {fileID: 95548769840340698, guid: 9d2bd102ef351bb40b7b1d50cc603d34,
         type: 2}
-      propertyPath: orientationOffset.y
-      value: -90
-      objectReference: {fileID: 0}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 08ac06abcb9fa644b96c3e24d2477985, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d2bd102ef351bb40b7b1d50cc603d34, type: 2}
   m_IsPrefabParent: 0

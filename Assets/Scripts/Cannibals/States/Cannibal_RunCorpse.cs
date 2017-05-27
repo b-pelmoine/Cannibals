@@ -12,12 +12,14 @@ public class Cannibal_RunCorpse :ActionState, ICannibal_State {
 
     protected override void OnEnter()
     {
+        m_cannibal.value.m_cannibalSkill.m_corpse.Move(true);
         base.OnEnter();
     }
     protected override void OnExit()
     {
         base.OnExit();
         m_cannibal.value.m_cannibalMovement.ResetMaxSpeed();
+        m_cannibal.value.m_cannibalSkill.m_corpse.Move(false);
     }
 
     protected override void OnUpdate()

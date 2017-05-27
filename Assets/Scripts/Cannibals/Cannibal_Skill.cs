@@ -8,11 +8,20 @@ public class Cannibal_Skill : MonoBehaviour {
     public static Action<Cannibal> OnStartUseHunterSense;
     public static Action<Cannibal> OnStopUseHunterSense;
 
-    public CannibalObject m_cannibalObject { get; private set; }
-    public Corpse m_corpse { get; private set; }
+    public CannibalObject m_cannibalObject
+    {
+        get { return m_cannibal.m_stateMachine.blackboard.GetValue<CannibalObject>("takenObject"); }
+        private set { m_cannibal.m_stateMachine.blackboard.SetValue("takenObject", value); }
+    }
+
+    public Corpse m_corpse {
+        get { return m_cannibal.m_stateMachine.blackboard.GetValue<Corpse>("takenCorpse"); }
+        private set { m_cannibal.m_stateMachine.blackboard.SetValue("takenCorpse", value); }
+    }
 
     [SerializeField]
     Cannibal m_cannibal;
+
 
     [SerializeField]
     Transform cannibalObjectParent;
