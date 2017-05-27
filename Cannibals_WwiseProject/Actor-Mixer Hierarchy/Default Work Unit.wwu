@@ -30092,9 +30092,10 @@
 					<ChildrenList>
 						<Sound Name="Fire" ID="{3116519F-11D2-45ED-809E-1536E871D442}" ShortID="765751192" Type="SoundFX">
 							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 								<Property Name="MakeUpGain" Type="Real64">
 									<ValueList>
-										<Value>-20</Value>
+										<Value>-10</Value>
 									</ValueList>
 								</Property>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
@@ -30893,6 +30894,17 @@
 						</ActorMixer>
 						<RandomSequenceContainer Name="Menu Click" ID="{4C458D0F-C742-43A8-9057-290F6CDA7506}" ShortID="286508226">
 							<PropertyList>
+								<Property Name="OutputBusHighpass" Type="int16">
+									<ValueList>
+										<Value>22</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OutputBusLowpass" Type="int16">
+									<ValueList>
+										<Value>26</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
 									<ModifierList>
 										<ModifierInfo>
@@ -30913,122 +30925,122 @@
 									<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+									<ObjectRef Name="SFX" ID="{D3C3252A-A46D-453F-B2E2-9A2EAB3A4AB3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<Sound Name="Click_1" ID="{F6AB57BE-DF26-42EB-9E6A-5F61D3413788}" ShortID="1044270712" Type="SoundFX">
+								<Sound Name="Click_1" ID="{A29D78DC-7763-4154-A707-95CB260F5F27}" ShortID="136726487" Type="SoundFX">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
 										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="SFX" ID="{D3C3252A-A46D-453F-B2E2-9A2EAB3A4AB3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="REC M2_119" ID="{53A432EE-5123-475C-B9FD-A0F7A8213E9A}" ShortID="531223233">
+										<AudioFileSource Name="REC M2-D3AS_127-02" ID="{4FFE0463-31EA-49EA-B22C-7A855B5F87FB}" ShortID="897622580">
 											<Language>SFX</Language>
-											<AudioFile>REC M2_119.wav</AudioFile>
+											<AudioFile>REC M2-D3AS_127-02.wav</AudioFile>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="REC M2_119" ID="{53A432EE-5123-475C-B9FD-A0F7A8213E9A}" Platform="Linked"/>
+										<ActiveSource Name="REC M2-D3AS_127-02" ID="{4FFE0463-31EA-49EA-B22C-7A855B5F87FB}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Click_2" ID="{65A9E21B-E27A-41CD-8505-09D1CFBF8688}" ShortID="303069606" Type="SoundFX">
+								<Sound Name="Click_2" ID="{00827152-91A2-443F-9651-E75E3E74883A}" ShortID="277638070" Type="SoundFX">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
 										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="SFX" ID="{D3C3252A-A46D-453F-B2E2-9A2EAB3A4AB3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="REC M2_120" ID="{E0221BDF-E07C-476A-BBDF-0358966D7DC6}" ShortID="664016456">
+										<AudioFileSource Name="REC M2-D3AS_128-02" ID="{A001683B-5CDB-4CDC-BD1C-C6149F499EAD}" ShortID="185065321">
 											<Language>SFX</Language>
-											<AudioFile>REC M2_120.wav</AudioFile>
+											<AudioFile>REC M2-D3AS_128-02.wav</AudioFile>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="REC M2_120" ID="{E0221BDF-E07C-476A-BBDF-0358966D7DC6}" Platform="Linked"/>
+										<ActiveSource Name="REC M2-D3AS_128-02" ID="{A001683B-5CDB-4CDC-BD1C-C6149F499EAD}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Click_3" ID="{06B95709-7F92-4DCD-A5B9-1324461956A6}" ShortID="600276562" Type="SoundFX">
+								<Sound Name="Click_3" ID="{80B2AA57-76A2-4A35-A856-5FDCCF776FD9}" ShortID="943359368" Type="SoundFX">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
 										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="SFX" ID="{D3C3252A-A46D-453F-B2E2-9A2EAB3A4AB3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="REC M2_121" ID="{B2472E4D-2A13-4BA6-9793-3A170AFB15CB}" ShortID="235453594">
+										<AudioFileSource Name="REC M2-D3AS_129-02" ID="{B865D5CA-A6CD-431E-B3BF-F01A0003BB1B}" ShortID="530637950">
 											<Language>SFX</Language>
-											<AudioFile>REC M2_121.wav</AudioFile>
+											<AudioFile>REC M2-D3AS_129-02.wav</AudioFile>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="REC M2_121" ID="{B2472E4D-2A13-4BA6-9793-3A170AFB15CB}" Platform="Linked"/>
+										<ActiveSource Name="REC M2-D3AS_129-02" ID="{B865D5CA-A6CD-431E-B3BF-F01A0003BB1B}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Click_4" ID="{8A2E189D-CB55-4E96-9F9B-CA08AF2B8A1F}" ShortID="924613357" Type="SoundFX">
+								<Sound Name="Click_4" ID="{DD4EEF69-BD4A-470E-97F1-B8EFBBC36940}" ShortID="894042932" Type="SoundFX">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
 										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="SFX" ID="{D3C3252A-A46D-453F-B2E2-9A2EAB3A4AB3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="REC M2_122" ID="{6CE0565E-844B-460F-BDF2-A2290E2C083C}" ShortID="990343945">
+										<AudioFileSource Name="REC M2-D3AS_130-02" ID="{EE1BDA7F-5A8A-4264-80AB-2F55ABE463E2}" ShortID="545186891">
 											<Language>SFX</Language>
-											<AudioFile>REC M2_122.wav</AudioFile>
+											<AudioFile>REC M2-D3AS_130-02.wav</AudioFile>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="REC M2_122" ID="{6CE0565E-844B-460F-BDF2-A2290E2C083C}" Platform="Linked"/>
+										<ActiveSource Name="REC M2-D3AS_130-02" ID="{EE1BDA7F-5A8A-4264-80AB-2F55ABE463E2}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Click_5" ID="{7522D63A-D883-4253-9658-E8B53D48A861}" ShortID="505179663" Type="SoundFX">
+								<Sound Name="Click_5" ID="{4B34E8F1-86CF-4B8F-A024-30105BED8AA5}" ShortID="509580492" Type="SoundFX">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
 										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="SFX" ID="{D3C3252A-A46D-453F-B2E2-9A2EAB3A4AB3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="REC M2_123" ID="{BC2A2C86-4638-4B1A-9F22-A75F04D2447A}" ShortID="810346159">
+										<AudioFileSource Name="REC M2-D3AS_131-02" ID="{0ED0744F-4548-46A9-B3D7-8C4A337FA2AE}" ShortID="794472783">
 											<Language>SFX</Language>
-											<AudioFile>REC M2_123.wav</AudioFile>
+											<AudioFile>REC M2-D3AS_131-02.wav</AudioFile>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="REC M2_123" ID="{BC2A2C86-4638-4B1A-9F22-A75F04D2447A}" Platform="Linked"/>
+										<ActiveSource Name="REC M2-D3AS_131-02" ID="{0ED0744F-4548-46A9-B3D7-8C4A337FA2AE}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Click_6" ID="{85F03E90-FE15-4C31-A25B-9F46AFE93CC9}" ShortID="655387156" Type="SoundFX">
+								<Sound Name="Click_6" ID="{EC63E6F7-0CCB-4C3F-8E34-CC9B2BCD6D99}" ShortID="550667276" Type="SoundFX">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
 										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="SFX" ID="{D3C3252A-A46D-453F-B2E2-9A2EAB3A4AB3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="REC M2_124" ID="{4D820A76-9DD7-48D0-9DBA-3678F884BA6D}" ShortID="672679342">
+										<AudioFileSource Name="REC M2-D3AS_132-02" ID="{165BB737-4447-45FC-AE11-6C8910EBC7DF}" ShortID="883675137">
 											<Language>SFX</Language>
-											<AudioFile>REC M2_124.wav</AudioFile>
+											<AudioFile>REC M2-D3AS_132-02.wav</AudioFile>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="REC M2_124" ID="{4D820A76-9DD7-48D0-9DBA-3678F884BA6D}" Platform="Linked"/>
+										<ActiveSource Name="REC M2-D3AS_132-02" ID="{165BB737-4447-45FC-AE11-6C8910EBC7DF}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>

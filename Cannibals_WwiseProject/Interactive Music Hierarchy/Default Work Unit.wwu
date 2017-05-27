@@ -7,11 +7,16 @@
 					<PropertyList>
 						<Property Name="MakeUpGain" Type="Real64">
 							<ValueList>
-								<Value>-6</Value>
+								<Value>3</Value>
 							</ValueList>
 						</Property>
 						<Property Name="PositioningType" Type="int16" Value="1"/>
 						<Property Name="Spatialization" Type="bool" Value="False"/>
+						<Property Name="UserAuxSendVolume0" Type="Real64">
+							<ValueList>
+								<Value>-15</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Attenuation">
@@ -22,6 +27,9 @@
 						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="Music" ID="{F0C01A2F-384D-4ACD-85B5-30071B046EB4}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+						</Reference>
+						<Reference Name="UserAuxSend0">
+							<ObjectRef Name="Rverb_forest" ID="{BEE1AC0B-971A-4A04-9056-545507F906A1}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
@@ -160,8 +168,8 @@
 						<MusicSegment Name="Intro" ID="{E6DAB552-BD31-4729-B68E-A4DE0DC36ADA}" ShortID="768729324">
 							<PropertyList>
 								<Property Name="EndPosition" Type="Real64" Value="68287.625"/>
-								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 								<Property Name="PositioningType" Type="int16" Value="1"/>
+								<Property Name="Spatialization" Type="bool" Value="False"/>
 								<Property Name="Tempo" Type="Real64" Value="140"/>
 							</PropertyList>
 							<ReferenceList>
