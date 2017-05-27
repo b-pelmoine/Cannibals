@@ -771,6 +771,28 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="village_music" ID="{A016AD07-6F4E-4C38-A4F0-961F4B3BEFE6}">
+					<ChildrenList>
+						<Action Name="Play" ID="{A0EF56D2-8B6D-4E46-8C0F-9CAFED9C9A60}" ShortID="937039325" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{9E3476AE-E538-42AC-B2EA-E804943F9AAE}" Global="false">
+									<ObjectRef Name="Village music" ID="{4E20C662-7FE0-4710-84E4-07796FA3A419}" WorkUnitID="{8B484C34-D920-4316-BE02-D8D9343F8208}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="village_chaudron" ID="{289C39E5-E695-4067-993B-6EBE674E0B6F}">
+					<ChildrenList>
+						<Action Name="Play" ID="{23E3542F-BAFF-4057-BADA-93F0BE6F89B4}" ShortID="535277808" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{1DE18168-D53A-4A29-AA3F-999931F6C912}" Global="false">
+									<ObjectRef Name="Fire" ID="{3116519F-11D2-45ED-809E-1536E871D442}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
