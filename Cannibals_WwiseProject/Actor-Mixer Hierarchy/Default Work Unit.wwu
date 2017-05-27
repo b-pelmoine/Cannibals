@@ -13833,6 +13833,13 @@
 							</ChildrenList>
 						</ActorMixer>
 						<ActorMixer Name="Amb Lake" ID="{CF538847-92E0-40BA-A9EB-98F916C37EB1}" ShortID="487402720">
+							<PropertyList>
+								<Property Name="MakeUpGain" Type="Real64">
+									<ValueList>
+										<Value>4</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
@@ -16968,7 +16975,7 @@
 											<PropertyList>
 												<Property Name="MakeUpGain" Type="Real64">
 													<ValueList>
-														<Value>-33</Value>
+														<Value>-26</Value>
 													</ValueList>
 												</Property>
 												<Property Name="OutputBusHighpass" Type="int16">
@@ -18190,16 +18197,22 @@
 											<PropertyList>
 												<Property Name="MakeUpGain" Type="Real64">
 													<ValueList>
-														<Value>-24</Value>
+														<Value>-26</Value>
 													</ValueList>
 												</Property>
+												<Property Name="OutputBusHighpass" Type="int16">
+													<ValueList>
+														<Value>42</Value>
+													</ValueList>
+												</Property>
+												<Property Name="OverrideOutput" Type="bool" Value="True"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+													<ObjectRef Name="SFX" ID="{D3C3252A-A46D-453F-B2E2-9A2EAB3A4AB3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
@@ -19633,7 +19646,7 @@
 									</ChildrenList>
 									<GroupingInfo>
 										<GroupRef Name="Steps" ID="{E59B9C2B-E14E-4841-985F-0CE4AAE17B9F}"/>
-										<DefaultSwitchRef Name="" ID="{00000000-0000-0000-0000-000000000000}"/>
+										<DefaultSwitchRef Name="Grass" ID="{A4BFD645-2711-467D-8057-3F9DE85F67B2}"/>
 										<GroupingBehaviorList>
 											<GroupingBehavior>
 												<ItemRef Name="Wood run" ID="{E1F59816-6114-43E7-95B4-C47D35FFC15A}"/>
@@ -22166,7 +22179,7 @@
 									<PropertyList>
 										<Property Name="MakeUpGain" Type="Real64">
 											<ValueList>
-												<Value>-14</Value>
+												<Value>-25</Value>
 											</ValueList>
 										</Property>
 										<Property Name="Pitch" Type="int32">
@@ -22337,7 +22350,7 @@
 											<PropertyList>
 												<Property Name="MakeUpGain" Type="Real64">
 													<ValueList>
-														<Value>-16</Value>
+														<Value>-18</Value>
 													</ValueList>
 												</Property>
 												<Property Name="PositioningType" Type="int16" Value="1"/>
@@ -24401,7 +24414,7 @@
 										<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 										<Property Name="MakeUpGain" Type="Real64">
 											<ValueList>
-												<Value>-16</Value>
+												<Value>-12</Value>
 											</ValueList>
 										</Property>
 										<Property Name="MaxSoundPerInstance" Type="int16">
@@ -24561,7 +24574,7 @@
 										<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 										<Property Name="MakeUpGain" Type="Real64">
 											<ValueList>
-												<Value>-20</Value>
+												<Value>-16</Value>
 											</ValueList>
 										</Property>
 										<Property Name="MaxSoundPerInstance" Type="int16">
@@ -24742,6 +24755,11 @@
 								<RandomSequenceContainer Name="Bark" ID="{050C9568-5617-45CF-87B6-BA3EEDA0EAE9}" ShortID="744586618">
 									<PropertyList>
 										<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
+										<Property Name="MakeUpGain" Type="Real64">
+											<ValueList>
+												<Value>6</Value>
+											</ValueList>
+										</Property>
 										<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
 										<Property Name="MaxSoundPerInstance" Type="int16">
 											<ValueList>
