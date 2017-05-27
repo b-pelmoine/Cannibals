@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace AI
 {
@@ -28,8 +29,9 @@ namespace AI
         void AddCanard()
         {
             Canard can = (Instantiate(canard)).GetComponent<Canard>();
+
             can.transform.parent = transform;
-            can.transform.position = createPosition.position;
+            can.gameObject.GetComponent<NavMeshAgent>().Warp(createPosition.position);
             can.wanderPosition = feedPosition;
             can.deadPosition = deadPosition;
             instances.Add(can);
