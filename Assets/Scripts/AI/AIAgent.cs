@@ -176,8 +176,9 @@ namespace AI
             ActionTask rotate = new ActionTask();
             rotate.OnExecute = () =>
             {
-                Vector3 dir = target - transform.position;
-                dir.y = transform.position.y;
+                Vector3 t = target;
+                t.y = transform.position.y;
+                Vector3 dir = t - transform.position;
                 if (Vector3.Angle(dir, transform.forward) < angle)
                 {
                     LookAt(target);
