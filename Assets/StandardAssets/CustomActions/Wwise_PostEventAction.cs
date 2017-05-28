@@ -7,7 +7,7 @@ using ParadoxNotion.Design;
 public class Wwise_PostEventAction : ActionTask {
 
     [RequiredField]
-    public BBParameter<MonoBehaviour> monobehaviour;
+    public BBParameter<GameObject> gameObject;
 
     public string eventName;
 
@@ -15,7 +15,7 @@ public class Wwise_PostEventAction : ActionTask {
     {
         base.OnExecute();
 
-        AkSoundEngine.PostEvent(eventName, monobehaviour.value.gameObject);
+        AkSoundEngine.PostEvent(eventName, gameObject.value);
         EndAction();
     }
 }
