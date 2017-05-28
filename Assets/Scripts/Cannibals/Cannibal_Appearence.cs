@@ -26,6 +26,29 @@ public class Cannibal_Appearence : MonoBehaviour {
     [SerializeField]
     Transform objectsTransform;
 
+    [Space(20)]
+    [SerializeField]
+    SkinnedMeshRenderer cannibalMeshRenderer;
+
+    [SerializeField]
+    MeshRenderer kwayHeadMeshRenderer;
+
+    [SerializeField]
+    SkinnedMeshRenderer kwayMeshRenderer;
+
+    [SerializeField]
+    Texture[] cannibalTextures;
+
+    [SerializeField]
+    Texture[] kwayHeadTextures;
+
+    [SerializeField]
+    Texture[] kwayTextures;
+
+    [SerializeField]
+    Texture[] bloodkwayTextures;
+
+
     GameObject knifeGo = null;
 
     private void Awake()
@@ -63,6 +86,18 @@ public class Cannibal_Appearence : MonoBehaviour {
             deltaAngle *= -1; 
 
         m_appearenceTransform.Rotate(Vector3.up, deltaAngle);
+    }
+
+    public void SetAppearence(int index)
+    {
+        cannibalMeshRenderer.material.SetTexture("_MainTex", cannibalTextures[index]);
+        kwayHeadMeshRenderer.material.SetTexture("_MainTex", kwayHeadTextures[index]);
+        kwayMeshRenderer.material.SetTexture("_MainTex", kwayTextures[index]);
+    }
+
+    public void CoverKwayOfBlood(int index)
+    {
+        kwayMeshRenderer.material.SetTexture("_MainTex", bloodkwayTextures[index]);
     }
 
     public void ShowResurrectIcon()

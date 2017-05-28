@@ -18,10 +18,13 @@ public class Cannibal : MonoBehaviour {
 
     public Cannibal_Appearence m_cannibalAppearence;
 
+    public bool isCoverOfBlood { get; private set; }
 
     void Awake()
     {
         cannibals.Add(this);
+        isCoverOfBlood = false;
+        m_cannibalAppearence.SetAppearence(m_rewiredInput.number);
     }
 
     void OnDestroy()
@@ -80,5 +83,11 @@ public class Cannibal : MonoBehaviour {
     {
         m_cannibalSkill.LooseCannibalObject();
         return true;
+    }
+
+    public void CoverOfBlood()
+    {
+        isCoverOfBlood = true;
+        m_cannibalAppearence.CoverKwayOfBlood(m_rewiredInput.number);
     }
 }

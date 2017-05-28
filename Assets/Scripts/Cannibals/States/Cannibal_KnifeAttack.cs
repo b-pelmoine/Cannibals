@@ -14,6 +14,7 @@ public class Cannibal_KnifeAttack :ActionState, ICannibal_State
         base.OnEnter();
         iKillables.value[0].KnifeKill();
         m_cannibal.value.m_cannibalAppearence.ShowKnife();
+        m_cannibal.value.CoverOfBlood();
     }
 
 

@@ -2469,8 +2469,8 @@ MonoBehaviour:
     Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib,
     Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"IActivables":{"_value":[],"_name":"IActivables","_id":"442a740c-03fb-47f3-8955-d16426f39d98","$type":"NodeCanvas.Framework.Variable`1[[System.Collections.Generic.List`1[[IActivable,
     Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib,
-    Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"takenCorpse":{"_name":"takenCorpse","$type":"NodeCanvas.Framework.Variable`1[[Corpse,
-    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"takenObject":{"_name":"takenObject","$type":"NodeCanvas.Framework.Variable`1[[CannibalObject,
+    Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"takenCorpse":{"_name":"takenCorpse","_id":"77a5da9c-c3b2-472d-90a8-a547e9226903","$type":"NodeCanvas.Framework.Variable`1[[Corpse,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"takenObject":{"_name":"takenObject","_id":"ccdde1dc-9e15-4c71-8311-512a2e3a9b6b","$type":"NodeCanvas.Framework.Variable`1[[CannibalObject,
     Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
   _objectReferences:
   - {fileID: 0}
@@ -2704,6 +2704,21 @@ MonoBehaviour:
   knifePrefab: {fileID: 1065554746384704, guid: cc6c4af6ccda5db49a0cce98f62c9bae,
     type: 2}
   objectsTransform: {fileID: 4418550137113164}
+  cannibalMeshRenderer: {fileID: 137016950634473720}
+  kwayHeadMeshRenderer: {fileID: 23928341113267056}
+  kwayMeshRenderer: {fileID: 137906467917136154}
+  cannibalTextures:
+  - {fileID: 2800000, guid: 38495abc5f789b04d908e1115a9fe3e2, type: 3}
+  - {fileID: 2800000, guid: e1a779b5786b1a8409cc29353b870f55, type: 3}
+  kwayHeadTextures:
+  - {fileID: 2800000, guid: beb487fde0da1fc4aa7dfda57f4af95b, type: 3}
+  - {fileID: 2800000, guid: a43a5372649004640a19c7df4cb3f9bf, type: 3}
+  kwayTextures:
+  - {fileID: 2800000, guid: 51fd12f62e10ab840a3a3fad0c0d5243, type: 3}
+  - {fileID: 2800000, guid: 1231d77dd9ef3e9468bd54afa2b29802, type: 3}
+  bloodkwayTextures:
+  - {fileID: 2800000, guid: 3aaf8c73320eaad4c8b5508fd5c34013, type: 3}
+  - {fileID: 2800000, guid: 98c02d6837fd8b649845ddcf4a56ff21, type: 3}
 --- !u!114 &114849411753315476
 MonoBehaviour:
   m_ObjectHideFlags: 1
