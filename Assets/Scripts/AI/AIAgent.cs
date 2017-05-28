@@ -217,10 +217,13 @@ namespace AI
                     lastRequest = null;
                     return false;
                 }
+                else
+                {
+                    lastRequest = target;
+                }
             }
-            Vector3 distance = (target - transform.position);
-            distance.y = 0;
-            if (distance.sqrMagnitude < stopRadius * stopRadius)
+            Debug.DrawRay(lastRequest.Value, Vector3.up, Color.blue);
+            if (!agent.pathPending && (!agent.hasPath || agent.remainingDistance<stopRadius))
             {
                 agent.ResetPath();
                 lastRequest = null;
@@ -239,11 +242,13 @@ namespace AI
                 {
                     lastRequest = position;
                 }
+                else
+                {
+                    return false;
+                }
             }
-            Vector3 distance = (lastRequest.Value - transform.position);
-            distance.y = 0;
-            if (!agent.pathPending && lastRequest.HasValue 
-            && (distance.sqrMagnitude <= Mathf.Pow(agent.stoppingDistance,2)  || distance.magnitude < Mathf.Pow(agent.stoppingDistance, 2)))
+            Debug.DrawRay(lastRequest.Value, Vector3.up, Color.red);
+            if (!agent.pathPending && (!agent.hasPath || agent.remainingDistance<stopRadius))
             {
                 agent.ResetPath();
                 lastRequest = null;
