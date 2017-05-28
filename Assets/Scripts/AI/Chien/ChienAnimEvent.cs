@@ -7,7 +7,7 @@ public class ChienAnimEvent : MonoBehaviour {
 
 	void FootSteps()
     {
-        AkSoundEngine.PostEvent("dog_steps", chien.gameObject);
+        //AkSoundEngine.PostEvent("dog_steps", chien.gameObject);
     }
 
     void Bark()
