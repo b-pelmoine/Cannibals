@@ -217,6 +217,10 @@ namespace AI
                     lastRequest = null;
                     return false;
                 }
+                else
+                {
+                    lastRequest = target;
+                }
             }
             Debug.DrawRay(lastRequest.Value, Vector3.up, Color.blue);
             if (!agent.pathPending && (!agent.hasPath || agent.remainingDistance<stopRadius))
