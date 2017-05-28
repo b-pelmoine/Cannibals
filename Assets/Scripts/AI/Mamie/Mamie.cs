@@ -23,6 +23,8 @@ namespace AI
         public Transform positionCanard;
         public float feedTime = 2;
         public float canardSeeRadius = 7;
+        public int feedNumber = 4;
+        int feeded = 0;
 
         public Transform positionDeadCanard;
 
@@ -219,6 +221,9 @@ namespace AI
                     Wait(animator.GetCurrentAnimatorStateInfo(0).length).Next = () =>
                     {
                         target.CallEat();
+                        feeded++;
+                        if (feeded >= feedNumber)
+                            Stop();
                     };
                 };
             };
@@ -295,10 +300,11 @@ namespace AI
             {
                 if(MoveTo(position, 2f))
                 {
+                    feeded = 0;
                     DestroyCarried();
                     ActionTask feed = new ActionTask();
                     feed.Next = GoToMachine;
-                    feed.timer = feedTime;
+                    //feed.timer = feedTime;
                     feed.AddReaction(SeeCanard, FeedCanard);
                     Stop();
                     Play(feed);

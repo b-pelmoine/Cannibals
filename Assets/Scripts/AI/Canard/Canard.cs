@@ -70,7 +70,16 @@ namespace AI
             {
                 if (MoveTo(deadPosition.position, 2))
                 {
-                    StopAll();
+                    agent.areaMask = -1;
+                    ActionTask act = new ActionTask();
+                    act.OnExecute = () =>
+                    {
+                        if (MoveTo(deadPosition.position, 2))
+                        {
+                            StopAll();
+                        }
+                    };
+                    Play(act);
                 }
             };
             Play(action);
