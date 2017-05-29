@@ -10,11 +10,18 @@ public enum SceneState
     InMenu
 }
 
+[System.Serializable]
+public enum Scene
+{
+    MainMenu,
+    Game
+}
+
 public class SceneController : MonoBehaviour {
 
     public SceneState state { get
         {
-            return (currentScene == MenuScene.name) ? SceneState.InMenu : SceneState.InGame;
+            return (currentScene == (int) Scene.MainMenu) ? SceneState.InMenu : SceneState.InGame;
         }
     }
 
@@ -22,11 +29,8 @@ public class SceneController : MonoBehaviour {
 
     public static SceneController Instance;
 
-    public Object GameScene;
-    public Object MenuScene;
-
     private bool Loading;
-    private string currentScene;
+    private int currentScene;
     private float elapsed;
 
     private CanvasGroup LoadingCanvas;
@@ -60,7 +64,7 @@ public class SceneController : MonoBehaviour {
         hint.text = "";
         StartCoroutine(FadeCanvas(1f, 0f, .5f));
         Loading = false;
-        currentScene = SceneManager.GetActiveScene().name;
+        currentScene = SceneManager.GetActiveScene().buildIndex;
     }
 	
 	IEnumerator AutoUpdateHint () {
@@ -71,11 +75,11 @@ public class SceneController : MonoBehaviour {
         }
     }
 
-    public void LoadScene(Object Scene)
+    public void LoadScene(int scene)
     {
+        Scene index = (Scene)scene;
         hint.text = getRandomHint();
-        string sceneToLoad = Scene.name;
-        if(!Loading)
+        if (!Loading)
         {
             Loading = true;
             StartCoroutine(AutoUpdateHint());
@@ -85,7 +89,7 @@ public class SceneController : MonoBehaviour {
                 () =>
                 {
                     //loading Scene
-                    StartCoroutine(PlayLoadingInfo(SceneManager.LoadSceneAsync(sceneToLoad),
+                    StartCoroutine(PlayLoadingInfo(SceneManager.LoadSceneAsync((int)index),
                     () =>
                     {
                         StartCoroutine(FadeCanvas(1, 0, fadeOutDuration,
@@ -136,7 +140,7 @@ public class SceneController : MonoBehaviour {
     IEnumerator OnFinishTransition()
     {
         Loading = false;
-        currentScene = SceneManager.GetActiveScene().name;
+        currentScene = SceneManager.GetActiveScene().buildIndex;
         yield return new WaitForSeconds(0);
     }
 }
