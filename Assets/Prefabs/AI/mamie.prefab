@@ -22525,7 +22525,7 @@ Transform:
   m_GameObject: {fileID: 1001168414959894}
   m_LocalRotation: {x: -0, y: -0.24512354, z: -0, w: 0.9694919}
   m_LocalPosition: {x: 7.33, y: -2.76, z: -0.94}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4283380307093544}
   - {fileID: 4546229008133904}
@@ -23207,9 +23207,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1672659645881246}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 24.38, y: -2.76, z: -13.83}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.122219294, y: -0, z: -0, w: 0.99250317}
+  m_LocalPosition: {x: 24.37, y: -2.93, z: -14.17}
+  m_LocalScale: {x: 1.3089292, y: 1.3089288, z: 1.3089288}
   m_Children:
   - {fileID: 4885670282919422}
   - {fileID: 4369970533003236}
@@ -23421,7 +23421,7 @@ Transform:
   - {fileID: 224990188107906826}
   m_Father: {fileID: 4808853907274484}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 14.040001, y: 0, z: 0}
 --- !u!4 &4692752095376626
 Transform:
   m_ObjectHideFlags: 1
@@ -28080,7 +28080,7 @@ MonoBehaviour:
   feedPosition: {fileID: 4212804349208982}
   deadPosition: {fileID: 4124367292449852}
   createPosition: {fileID: 4195762992379352}
-  numberOfCanard: 4
+  numberOfCanard: 15
 --- !u!114 &114133043488259344
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -28573,18 +28573,19 @@ MonoBehaviour:
   animator: {fileID: 95232866495379998}
   icon: {fileID: 114315005396575172}
   dieParticle: {fileID: 198075404700906522}
-  dieTime: 2
+  dieTime: 1.5
   corpse: {fileID: 1485852813879610, guid: 9d2bd102ef351bb40b7b1d50cc603d34, type: 2}
   mamieHand: {fileID: 4809347767100400}
   baseSpeed: 2
   runSpeed: 5
   positionCanard: {fileID: 4212804349208982}
-  feedTime: 1
+  feedTime: 2
   canardSeeRadius: 7
+  feedNumber: 4
   positionDeadCanard: {fileID: 4124367292449852}
-  champignonRadius: 5
-  machineRadius: 5
-  generateurRadius: 5
+  champignonRadius: 15
+  machineRadius: 4
+  generateurRadius: 7
   toMachine: {fileID: 114170637910628278}
   machine: {fileID: 114203685608951796}
   generateur: {fileID: 114901706858121810}

@@ -2809,7 +2809,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1443385088526980}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 51.30048, y: 10.006596, z: 80.73159}
+  m_LocalPosition: {x: 94.12378, y: 10.001221, z: 59.75484}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4789305613664332}
@@ -3589,10 +3589,10 @@ MonoBehaviour:
   agent: {fileID: 0}
   animator: {fileID: 95837405385839286}
   hunter: {fileID: 114623528271031004}
-  eatingTime: 5
+  eatingTime: 10
   stopTime: 3
   wanderDistance: 3
-  barkDistance: 7
+  barkDistance: 5
 --- !u!114 &114131110839376396
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3696,7 +3696,7 @@ MonoBehaviour:
   sighted: []
   active: 1
   type: 2
-  radius: 7
+  radius: 13
   detectTime: 5
 --- !u!114 &114414130804494420
 MonoBehaviour:
@@ -3829,7 +3829,7 @@ MonoBehaviour:
   runSpeed: 6
   waypointDistance: 2
   chaseShootDistance: 10
-  shootingRange: 13
+  shootingRange: 15
   shootingMask:
     serializedVersion: 2
     m_Bits: 3221225417
