@@ -172,7 +172,7 @@ public class FollowCam : MonoBehaviour {
         cameraZOffset = -Yoffset;
         cameraZOffset = Mathf.Round(cameraZOffset * 100f) / (100f*verticalityFactor);
         transform.position = new Vector3(barycenter.x + cameraXOffset, Yoffset, barycenter.z + cameraZOffset + distanceplayersBarycenter/5);
-        transform.LookAt(barycenter+Vector3.back*verticalVariation/5);
+        transform.LookAt(barycenter+Vector3.back*verticalVariation/8);
 
         prevDistance = distance;
     }
