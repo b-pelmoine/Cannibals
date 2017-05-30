@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public enum SceneState
 {
-    InGame,
-    InMenu
+    InMenu,
+    InGame
 }
 
 [System.Serializable]
