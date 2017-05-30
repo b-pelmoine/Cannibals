@@ -16,7 +16,7 @@ namespace AI
         public float shootingRange = 1;
         public LayerMask shootingMask = 0;
 
-        static bool alert = false;
+        public static bool alert = false;
         
         public float lostTargetTime = 3;
         public float defendTime = 5;
