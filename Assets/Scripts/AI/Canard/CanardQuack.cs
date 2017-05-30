@@ -6,6 +6,6 @@ public class CanardQuack : MonoBehaviour {
     public GameObject target;
 	void Quack()
     {
-        AkSoundEngine.PostEvent("duck", target);
+        //AkSoundEngine.PostEvent("duck", target);
     }
 }

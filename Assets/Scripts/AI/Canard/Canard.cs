@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,7 +29,17 @@ namespace AI
                 }
             };
             Play(root);
+            StartCoroutine(quack());
 	    }
+
+        public IEnumerator quack()
+        {
+            while (dead == false)
+            {
+                AkSoundEngine.PostEvent("duck", gameObject);
+                yield return new WaitForSeconds(UnityEngine.Random.Range(0.5f,1.5f));
+            }
+        }
 
         protected void Eating()
         {

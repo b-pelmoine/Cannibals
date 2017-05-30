@@ -23,6 +23,12 @@ namespace AI
             };
             Play(root);
 	    }
+
+        new void Update()
+        {
+            base.Update();
+            animator.SetFloat("Speed", agent.velocity.sqrMagnitude);
+        }
 	
 	    
     }
