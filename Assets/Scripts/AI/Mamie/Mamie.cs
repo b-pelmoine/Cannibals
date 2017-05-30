@@ -678,6 +678,9 @@ namespace AI
             g.transform.localPosition = Vector3.zero;
             if(carry.Count>0)
                 carry[carry.Count - 1].SetActive(false);
+            Collider c = g.GetComponentInChildren<Collider>();
+            if (c != null)
+                c.enabled = false;
             carry.Add(g);
         }
 
