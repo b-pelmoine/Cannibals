@@ -47,6 +47,7 @@ public class Machine : MonoBehaviour, IActivable {
                     Working = false;
                     produced = 0;
                     animator.Play("Idle");
+                    AkSoundEngine.PostEvent("machine_end", gameObject);
                 }
                 else
                 {
@@ -77,13 +78,17 @@ public class Machine : MonoBehaviour, IActivable {
         if (val)
         {
             On = true;
-            if(Working)
+            if (Working)
+            {
                 animator.Play("ToOn");
+                AkSoundEngine.PostEvent("machine_gen", gameObject);
+            }
         }
         else
         {
             On = false;
             animator.Play("Idle");
+            AkSoundEngine.PostEvent("machine_end", gameObject);
         }
     }
 
@@ -97,8 +102,11 @@ public class Machine : MonoBehaviour, IActivable {
     {
         timer = 0;
         Working = true;
-        if(On)
+        if (On)
+        {
             animator.Play("ToOn");
+            AkSoundEngine.PostEvent("machine_gen", gameObject);
+        }
     }
 
     public bool IsActivable(CannibalObject cannibalObject)
