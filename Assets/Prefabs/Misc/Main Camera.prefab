@@ -71,7 +71,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1967619457445822}
   m_LocalRotation: {x: 0.5126046, y: 0.081647225, z: -0.04868758, w: 0.8533463}
-  m_LocalPosition: {x: -47.2, y: 19.1, z: 287.2}
+  m_LocalPosition: {x: -141.5, y: 19.1, z: 313.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4186491820722992}
@@ -99,7 +99,7 @@ Camera:
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -158,14 +158,14 @@ MonoBehaviour:
   playerTwo: {fileID: 0}
   closePlan: 15
   farPlan: 25
-  CamDistanceOnePlayer: 0
-  verticalityFactor: 2.5
+  CamDistanceOnePlayer: 25
+  verticalityFactor: 2.2
   openViewFactor: 3
   stickFactor: 0.75
   dragFactor: 1.43
   cameraXOffset: 0
   cameraSpeed: 5
-  catchElementsRadius: 15
+  catchElementsRadius: 20
 --- !u!114 &114511190826723362
 MonoBehaviour:
   m_ObjectHideFlags: 1
