@@ -107,6 +107,22 @@ namespace AI
             return false;
         }
 
+        bool CannibalAround()
+        {
+            SightInfo cannibal = los.FindNearest(x =>
+            {
+                if (x.target == null) return false;
+                Cannibal c = x.target.GetComponentInParent<Cannibal>();
+                return c != null && !c.IsDead() && Vector3.Distance(c.transform.position, transform.position)<los.radius;
+            });
+            if (cannibal != null)
+            {
+                CurrentAction.callData = cannibal;
+                return true;
+            }
+            return false;
+        }
+
         bool SeeChampi()
         {
             Collider[] cols = Physics.OverlapSphere(transform.position, champignonRadius);
@@ -328,12 +344,13 @@ namespace AI
                     ActionTask feed = new ActionTask();
                     feed.Next = GoToMachine;
                     //feed.timer = feedTime;
+                    feed.AddReaction(CannibalAround, Hit);
                     feed.AddReaction(SeeCanard, FeedCanard);
                     Stop();
                     Play(feed);
                 }
             };
-            action.AddReaction(SeeCannibal, Hit);
+            action.AddReaction(CannibalAround, Hit);
             Play(action);
         }
 
@@ -346,6 +363,7 @@ namespace AI
                 {
                     Stop();
                     ActionTask chope = new ActionTask();
+                    chope.AddReaction(CannibalAround, Hit);
                     chope.AddReaction(SeeDeadCanard, RamasseCanard);
                     chope.AddReaction(() => !SeeDeadCanard(), Stop);
                     chope.Next = () =>
@@ -373,11 +391,13 @@ namespace AI
                                 };
                             }
                         };
+                        move.AddReaction(CannibalAround, Hit);
                         Play(move);
                     };
                     Play(chope);
                 }
             };
+            task.AddReaction(CannibalAround, Hit);
             Play(task);
         }
 
@@ -395,6 +415,7 @@ namespace AI
                     }
                 }
             };
+            goingToMachine.AddReaction(CannibalAround, Hit);
             goingToMachine.AddReaction(SeeChampi, RamasseChampi);
             goingToMachine.Next = RecupereCanard;
             Play(goingToMachine);
@@ -451,6 +472,7 @@ namespace AI
                     });
                 }
             };
+            action.AddReaction(CannibalAround, Hit);
             action.AddReaction(
                 () => !machine.IsOn()
                 , ActiverGenerateur);
@@ -499,6 +521,7 @@ namespace AI
                 };
                 
             };
+            action.AddReaction(CannibalAround, Hit);
             action.AddReaction(
                 () => SeeCannibal() && Vector3.Distance((CurrentAction.callData as SightInfo).target.transform.position, machine.transform.position) < machineRadius
                 , Hit);
@@ -523,6 +546,7 @@ namespace AI
                     };
                 }
             };
+            action.AddReaction(CannibalAround, Hit);
             action.AddReaction(
                 () => SeeCannibal() && Vector3.Distance((CurrentAction.callData as SightInfo).target.transform.position, generateur.transform.position) < generateurRadius
                 , Hit);
@@ -549,7 +573,7 @@ namespace AI
                     };
                 }
             };
-            action.AddReaction(SeeCannibal, Hit);
+            action.AddReaction(CannibalAround, Hit);
             action.Next = Echanger;
             Play(action);
         }
@@ -586,6 +610,7 @@ namespace AI
             {
                 MoveTo(position, 0.1f);
             };
+            action.AddReaction(CannibalAround, Hit);
             action.AddReaction(SeeScout, EchangeAvecScout);
             Play(action);
         }
