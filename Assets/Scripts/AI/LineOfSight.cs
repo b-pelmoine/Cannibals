@@ -27,6 +27,7 @@ public class LineOfSight : MonoBehaviour {
     static List<int> detect_rate= new List<int>();
     bool updated = false;
     public bool active = true;
+    public bool on = true;
     
     public enum SightType
     {
@@ -126,7 +127,7 @@ public class LineOfSight : MonoBehaviour {
 
     public bool Analyse()
     {
-        if (!gameObject.activeInHierarchy) return false;
+        if (on && !gameObject.activeInHierarchy) return false;
         sighted.RemoveAll(x => x.time < 0 || x.target==null);
         foreach (SightInfo si in sighted)
             si.time -= Time.time - lastTime;

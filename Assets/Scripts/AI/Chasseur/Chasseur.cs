@@ -54,6 +54,8 @@ namespace AI
                 AkSoundEngine.PostEvent("hunter_death", gameObject);
                 animator.Play("Death");
                 state = AIState.DEAD;
+                los.on = false;
+                currentTarget = null;
             };
             action.AddReaction(SeeCannibal, Chase);
             action.callbacks.Add(DOG_CALL, GoTo);
@@ -246,6 +248,12 @@ namespace AI
                         }
                     }
                 }
+            }
+            Collider[] cols = Physics.OverlapSphere(agent.transform.position, 2);
+            foreach(Collider col in cols)
+            {
+                Cannibal c = col.GetComponentInParent<Cannibal>();
+                c.Kill();
             }
         }
 
