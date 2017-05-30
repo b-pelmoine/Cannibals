@@ -7,6 +7,14 @@ namespace AI
 {
     public class Mamie : AIAgent, IKnifeKillable {
 
+        public enum StartState
+        {
+            Feeding,
+            Generateur
+        }
+
+        public StartState startState = StartState.Feeding;
+
         public IconDisplayer icon;
         public ParticleSystem dieParticle;
         public float dieTime = 2;
@@ -18,6 +26,7 @@ namespace AI
         public float runSpeed = 13;
 
         bool stun = false;
+        bool drink = true;
 
 
         public Transform positionCanard;
@@ -48,11 +57,25 @@ namespace AI
         // Use this for initialization
         new void Start () {
             base.Start();
+
+            Bottle.OnBottleShaked += OnDrink;
+
             machineCanetteNumber = machine.production;
             machine.finish += Finish;
             ActionTask root = new ActionTask();
             Play(root);
-            Feeding();
+            switch (startState)
+            {
+                case StartState.Generateur:
+                    Fabrique();
+                    break;
+
+                case StartState.Feeding:
+                default:
+                    Feeding();
+                    break;
+            }
+            
 	    }
 	
 	    // Update is called once per frame
@@ -598,7 +621,7 @@ namespace AI
 
         public void KnifeKill()
         {
-            StopAll();
+            Die();
         }
 
         public void ShowKnifeIcon()
@@ -665,6 +688,36 @@ namespace AI
                 else Destroy(c);
                 if (carry.Count > 0)
                     carry[carry.Count - 1].SetActive(true);
+            }
+        }
+
+        void OnDrink(Bottle bot)
+        {
+            if (drink && Vector3.Distance(bot.transform.position, transform.position) < los.getSeeDistance())
+            {
+                ActionTask task = new ActionTask();
+                task.OnExecute = () =>
+                {
+                    if(MoveTo(bot.transform.position, 1.5f))
+                    {
+                        Stop();
+                        bot.linkedCannibal.LooseCannibalObject();
+                        Grab(bot.gameObject);
+                        ActionTask drinkAnim = PlayAnim("Drink", () => {
+                            stun = true;
+                            drink = false;
+                            PlayAnimFor("IdleToKo", 10, () =>
+                            {
+                                PlayAnim("KoToIdle", () =>
+                                {
+                                    stun = false;
+                                    drink = true;
+                                });
+                            });
+                        });
+                    }
+                };
+                Play(task);
             }
         }
         

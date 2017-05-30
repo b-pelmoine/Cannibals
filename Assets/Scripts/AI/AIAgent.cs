@@ -171,6 +171,17 @@ namespace AI
             return task;
         }
 
+        public ActionTask PlayAnimFor(string anim, float time, ActionTask.Action next = null)
+        {
+            ActionTask t = new ActionTask();
+            animator.Play(anim);
+            anim_call_count = 0;
+            t.Next = next;
+            t.timer = time;
+            Play(t);
+            return t;
+        }
+
         public ActionTask RotateTowards(Vector3 target, float angle, float speed)
         {
             ActionTask rotate = new ActionTask();
