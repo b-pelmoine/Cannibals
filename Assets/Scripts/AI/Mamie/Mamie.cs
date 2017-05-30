@@ -463,7 +463,9 @@ namespace AI
                 if (MoveTo(machine.transform.position, 1.5f))
                 {
                     if (machine.CanReady())
+                    {
                         RamasseCanette();
+                    }
                     else
                         RotateTowards(machine.positionCanette.position, 10, 5);
                 }
@@ -489,7 +491,7 @@ namespace AI
 
         protected void RamasseCanette()
         {
-            GameObject can = CurrentAction.callData as GameObject;
+            GameObject can = machine.takeCan();
             ActionTask action = new ActionTask();
             action.OnExecute = () => {
                 if(MoveTo(can.transform.position, 1))
@@ -506,7 +508,6 @@ namespace AI
                             AkSoundEngine.SetSwitch("Objects", "Can", gameObject);
                             AkSoundEngine.PostEvent("granny_objects", gameObject);
                             Grab(can);
-                            machine.takeCan();
                             canetteCounter++;
                         });
                         take.Next = Stop;
