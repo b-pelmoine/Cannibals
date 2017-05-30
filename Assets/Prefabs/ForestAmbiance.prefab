@@ -20,7 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4317338829296202}
   - component: {fileID: 114592350508909034}
-  m_Layer: 0
+  - component: {fileID: 135136951121771308}
+  m_Layer: 30
   m_Name: ForestAmbiance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,5 +56,20 @@ MonoBehaviour:
   forestAmbianceEvent: ambiance_forest_fauna
   ghostTreeCount: 20
   range: 20
+  sphereCollider: {fileID: 135136951121771308}
+  treeLayer: 31
+  capsuleSize: {x: 0.5, y: 14}
   terrain: {fileID: 0}
   debug: 1
+--- !u!135 &135136951121771308
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1100033260304478}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}

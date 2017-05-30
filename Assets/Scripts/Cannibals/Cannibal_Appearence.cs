@@ -48,6 +48,8 @@ public class Cannibal_Appearence : MonoBehaviour {
     [SerializeField]
     Texture[] bloodkwayTextures;
 
+    [SerializeField]
+    Texture[] bloodheadKwayTextures;
 
     GameObject knifeGo = null;
 
@@ -98,6 +100,7 @@ public class Cannibal_Appearence : MonoBehaviour {
     public void CoverKwayOfBlood(int index)
     {
         kwayMeshRenderer.material.SetTexture("_MainTex", bloodkwayTextures[index]);
+        kwayHeadMeshRenderer.material.SetTexture("_MainTex", bloodheadKwayTextures[index]);
     }
 
     public void ShowResurrectIcon()
