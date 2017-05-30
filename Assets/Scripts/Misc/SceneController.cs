@@ -30,7 +30,7 @@ public class SceneController : MonoBehaviour {
     public static SceneController Instance;
 
     private bool Loading;
-    private int currentScene;
+    public int currentScene;
     private float elapsed;
 
     private CanvasGroup LoadingCanvas;
@@ -85,6 +85,7 @@ public class SceneController : MonoBehaviour {
             StartCoroutine(AutoUpdateHint());
             lock (thisLock)
             {
+                AkSoundEngine.StopAll();
                 StartCoroutine(FadeCanvas(0, 1, fadeInDuration,
                 () =>
                 {

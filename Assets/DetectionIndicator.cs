@@ -35,11 +35,15 @@ public class DetectionIndicator : MonoBehaviour {
     public Color AggressiveDetected;
     public Color AggressiveTarget;
 
+    private Cannibal[] cannibals;
+
     void Start()
     {
         //Init wwise sounds for detection
         AkSoundEngine.SetRTPCValue("spotted", 0, Camera.main.gameObject);
         AkSoundEngine.PostEvent("spotting", Camera.main.gameObject);
+
+        cannibals = GameObject.FindObjectsOfType<Cannibal>();
 
         arrowCounter = 0;
         arrowPool = new List<GameObject>();
@@ -70,23 +74,26 @@ public class DetectionIndicator : MonoBehaviour {
         bool isOnePlayerChased = false;
         for (int i = 0; i < trackers.Count; i++)
         {
-            trackers[i] = AIAgentManager.getDetectData(playerTransforms[i].gameObject);
-            foreach (DetectionData data in trackers[i])
+            if(cannibals[i].m_cannibalSkill.m_corpse || cannibals[i].isCoverOfBlood)
             {
-                //update arrow
-                GameObject AITarget = data.agent.getCurrentTarget();
-                bool isTargeted = GameObject.ReferenceEquals(AITarget, playerTransforms[i].gameObject);
-                if(isTargeted)
+                trackers[i] = AIAgentManager.getDetectData(playerTransforms[i].gameObject);
+                foreach (DetectionData data in trackers[i])
                 {
-                    isOnePlayerChased = true;
-                    if(data.agent.type == AIType.Hunter)
+                    //update arrow
+                    GameObject AITarget = data.agent.getCurrentTarget();
+                    bool isTargeted = GameObject.ReferenceEquals(AITarget, playerTransforms[i].gameObject);
+                    if (isTargeted)
                     {
-                        if (Vector3.Distance(AITarget.transform.position, playerTransforms[i].position) > (data.agent as AI.Chasseur).shootingRange)
-                            isTargeted = false;
+                        isOnePlayerChased = true;
+                        if (data.agent.type == AIType.Hunter)
+                        {
+                            if (Vector3.Distance(AITarget.transform.position, playerTransforms[i].position) > (data.agent as AI.Chasseur).shootingRange)
+                                isTargeted = false;
+                        }
                     }
+                    placeArrowFromDataAtPosition(data, playerTransforms[i], isTargeted);
+                    if (data.detectRate > highestDetectionLevel) highestDetectionLevel = data.detectRate;
                 }
-                placeArrowFromDataAtPosition(data, playerTransforms[i], isTargeted);
-                if (data.detectRate > highestDetectionLevel) highestDetectionLevel = data.detectRate;
             }
         }
         
