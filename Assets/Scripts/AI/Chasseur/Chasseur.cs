@@ -109,7 +109,7 @@ namespace AI
         {
             List<SightInfo> sightedCannibals = los.sighted.FindAll(x => {
                 Cannibal can = x.target.GetComponentInParent<Cannibal>();
-                return can != null && !can.IsDead();
+                return can != null && !can.IsDead() && can.isCoverOfBlood;
             });
             SightInfo bestTarget = null;
             foreach (SightInfo si in sightedCannibals)
