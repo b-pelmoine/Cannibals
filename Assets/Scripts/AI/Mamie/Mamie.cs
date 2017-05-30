@@ -113,7 +113,10 @@ namespace AI
             {
                 if (x.target == null) return false;
                 Cannibal c = x.target.GetComponentInParent<Cannibal>();
-                return c != null && !c.IsDead() && Vector3.Distance(c.transform.position, transform.position)<los.radius;
+                if (c == null || c.IsDead()) return false;
+                Vector3 v = x.target.transform.position;
+                v.y = transform.position.y;
+                return Vector3.Distance(v, transform.position) < los.radius;
             });
             if (cannibal != null)
             {
@@ -640,6 +643,7 @@ namespace AI
 
         public void KnifeKill()
         {
+            stun = false;
             Die();
         }
 
