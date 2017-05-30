@@ -15,6 +15,8 @@ namespace AI
         public float chaseShootDistance = 10;
         public float shootingRange = 1;
         public LayerMask shootingMask = 0;
+
+        static bool alert = false;
         
         public float lostTargetTime = 3;
         public float defendTime = 5;
@@ -57,6 +59,7 @@ namespace AI
                 los.on = false;
                 currentTarget = null;
             };
+            action.AddReaction(SeeCorpse, () => alert = true);
             action.AddReaction(SeeCannibal, Chase);
             action.callbacks.Add(DOG_CALL, GoTo);
             action.callbacks.Add(BOTTLE_CALL, Drink);
@@ -85,7 +88,9 @@ namespace AI
             {
                 patrouille.Next();
                 //S'arrete 4 sec
-                Wait(4).AddReaction(SeeCannibal, Chase);
+                ActionTask w = Wait(4);
+                w.AddReaction(SeeCorpse, () => alert = true);
+                w.AddReaction(SeeCannibal, Chase);
             }
         }
 
@@ -111,7 +116,7 @@ namespace AI
         {
             List<SightInfo> sightedCannibals = los.sighted.FindAll(x => {
                 Cannibal can = x.target.GetComponentInParent<Cannibal>();
-                return can != null && !can.IsDead() && can.isCoverOfBlood;
+                return can != null && !can.IsDead() && (alert || can.isCoverOfBlood);
             });
             SightInfo bestTarget = null;
             foreach (SightInfo si in sightedCannibals)
@@ -126,6 +131,14 @@ namespace AI
                 CurrentAction.callData = bestTarget;
                 return true;
             }
+            return false;
+        }
+
+        protected bool SeeCorpse()
+        {
+            SightInfo corpse = los.sighted.Find(x => x.target.GetComponent<Corpse>()!=null);
+            if (corpse != null)
+                return true;
             return false;
         }
 
