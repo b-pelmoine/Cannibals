@@ -25,10 +25,13 @@ public class ScanTerrain : MonoBehaviour
     int prev_ActiveUsers = 0;
     GameObject[] _scannables;
 
+    AI.Mamie granny;
+
     void Start()
     {
         RegisteredUIDs = new List<int>();
         _scannables = AIAgentManager.getActiveAgents().ToArray();
+        granny = GameObject.FindObjectOfType<AI.Mamie>();
     }
 
     public void StartScan(Vector3 src)
@@ -83,6 +86,21 @@ public class ScanTerrain : MonoBehaviour
     {
         if (_scanning)
         {
+            if (!RegisteredUIDs.Contains(granny.GetInstanceID()) && !granny.isDead())
+            {
+                RegisteredUIDs.Add(granny.GetInstanceID());
+                indicator.AddAgentIndicator(granny.gameObject, granny.type);
+            }
+            if (granny.isDead())
+            {
+                Corpse c = GameObject.FindObjectOfType<Corpse>();
+                if(c && !RegisteredUIDs.Contains(c.GetInstanceID()))
+                {
+                    RegisteredUIDs.Add(c.GetInstanceID());
+                    indicator.AddAgentIndicator(c.gameObject, AIType.Target_Dead);
+                }
+            }
+
             ScanDistance += Time.deltaTime * speed;
             foreach (GameObject s in _scannables)
             {

@@ -769,23 +769,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 41286541}
   m_Mesh: {fileID: 4300010, guid: 5848eee1bdc392c45b7c54a35952e541, type: 3}
---- !u!1 &45817844 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1976782564147100, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-    type: 2}
-  m_PrefabInternal: {fileID: 708921148}
---- !u!114 &45817847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 45817844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57887d14165d72a4b91e990f34663a8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetObject: {fileID: 279313693}
 --- !u!4 &51068948 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4862562871971514, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
@@ -5866,6 +5849,9 @@ MonoBehaviour:
   endPosition:
   - go: {fileID: 1235551077}
     type: 9
+  showAIAgents: 0
+  showTarget: 0
+  showPlayers: 0
   transitionOut: 0
   transitionIn: 0
 --- !u!4 &493365476
@@ -5879,7 +5865,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &493365477
 MonoBehaviour:
@@ -8197,1248 +8183,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1067895843713848, guid: 6d5c73a2de9863c49bd4ddcc77af1888, type: 2}
-      propertyPath: m_Name
-      value: Player 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114753656786614946, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
         type: 2}
       propertyPath: _graph
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 137906467917136154, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_AABB.m_Center.x
-      value: 0.00021266937
-      objectReference: {fileID: 0}
-    - target: {fileID: 137906467917136154, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_AABB.m_Center.y
-      value: -0.52069664
-      objectReference: {fileID: 0}
-    - target: {fileID: 137906467917136154, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_AABB.m_Center.z
-      value: -0.01083374
-      objectReference: {fileID: 0}
-    - target: {fileID: 137906467917136154, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_AABB.m_Extent.x
-      value: 0.9966448
-      objectReference: {fileID: 0}
-    - target: {fileID: 137906467917136154, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_AABB.m_Extent.y
-      value: 0.61163795
-      objectReference: {fileID: 0}
-    - target: {fileID: 137906467917136154, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_AABB.m_Extent.z
-      value: 0.5740362
-      objectReference: {fileID: 0}
-    - target: {fileID: 114828388721346976, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: resurrectIcon
-      value: 
-      objectReference: {fileID: 21300000, guid: ac6a6943942a64b4cb0e5efe7b295a6e,
-        type: 3}
-    - target: {fileID: 137016950634473720, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: b4d5b879260c78f428ca28f33077b584, type: 2}
-    - target: {fileID: 137016950634473720, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: b4d5b879260c78f428ca28f33077b584, type: 2}
-    - target: {fileID: 137906467917136154, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 5e4b7fc00026b4049a3fd8e8cdf0e416, type: 2}
-    - target: {fileID: 23928341113267056, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 886464a48883d24408b92f9a298ad75d, type: 2}
-    - target: {fileID: 114215143224513318, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: number
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[34].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[35].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[36].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[243].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[244].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[245].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[266].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[267].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[306].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[307].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[408].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[409].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[410].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[411].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[414].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[415].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[416].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[417].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[420].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[422].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[423].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[426].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[427].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[428].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[429].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[432].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[433].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[434].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[435].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[436].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[438].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[439].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[440].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[441].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[442].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[443].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[607].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[608].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[609].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[610].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[611].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[612].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[613].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[616].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[617].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[618].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[619].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[622].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[623].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[624].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[625].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[628].maxDistance
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[629].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[630].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[631].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[633].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[634].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[635].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[636].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[637].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[638].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[689].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[792].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[793].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[794].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[795].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[796].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[797].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[798].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[799].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[800].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[801].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[802].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[803].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[804].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[805].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[806].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[807].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[808].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[809].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[810].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[813].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[814].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[815].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[818].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[819].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[820].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[821].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[822].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[843].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[863].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[865].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[866].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[869].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[874].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[881].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[886].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[888].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[904].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1002].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1003].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1004].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1005].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1006].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1007].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1008].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1009].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1010].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1012].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1013].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1014].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1015].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1018].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1019].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1021].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1024].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1025].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1026].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1027].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1031].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1032].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1033].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1038].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[421].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[632].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[16].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[18].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[12].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[10].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[9].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[4].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[5].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[0].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[3].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[2].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[212].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[211].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[214].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[216].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[217].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[220].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[222].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[223].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[226].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[232].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[228].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[230].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[225].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[224].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[215].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[210].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[8].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[213].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[218].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[11].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[22].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[21].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[23].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[15].maxDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[816].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1020].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[418].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[424].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[425].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[430].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[431].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[437].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[444].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[447].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[448].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[462].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[464].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[465].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[615].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[620].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[621].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[626].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[627].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[639].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[640].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[641].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[642].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[643].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[648].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[651].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[652].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[811].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[812].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[817].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[836].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[838].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1001].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1011].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1016].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1017].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1042].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1044].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1045].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1046].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1047].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[825].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[826].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[459].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[460].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[463].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[647].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[649].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[650].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[840].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[841].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[842].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[844].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1000].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1049].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1050].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[6].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[7].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1228].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1234].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1235].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1426].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1431].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1413].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1420].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1415].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[14].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1423].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1427].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[1429].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[234].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[235].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[239].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 183884245511439784, guid: 6d5c73a2de9863c49bd4ddcc77af1888,
-        type: 2}
-      propertyPath: m_Coefficients.Array.data[241].maxDistance
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114006321375143476, guid: 6d5c73a2de9863c49bd4ddcc77af1888, type: 2}
+    - target: {fileID: 1067895843713848, guid: 6d5c73a2de9863c49bd4ddcc77af1888, type: 2}
+      propertyPath: m_Name
+      value: Player 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d5c73a2de9863c49bd4ddcc77af1888, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &708921149 stripped
@@ -10038,8 +8792,10 @@ ParticleSystem:
   playOnAwake: 1
   autoRandomSeed: 1
   startDelay:
+    serializedVersion: 2
     minMaxState: 0
     scalar: 0
+    minScalar: 0
     maxCurve:
       serializedVersion: 2
       m_Curve: []
@@ -10060,8 +8816,10 @@ ParticleSystem:
     serializedVersion: 3
     enabled: 1
     startLifetime:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 5
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -10099,8 +8857,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     startSpeed:
+      serializedVersion: 2
       minMaxState: 3
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -10140,6 +8900,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 0
+      minColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.055795845, g: 0.14650995, b: 0.17647058, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -10198,11 +8960,11 @@ ParticleSystem:
         m_Mode: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
-      minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.055795845, g: 0.14650995, b: 0.17647058, a: 1}
     startSize:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -10240,8 +9002,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     startSizeY:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -10279,8 +9043,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     startSizeZ:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -10318,8 +9084,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     startRotationX:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -10357,8 +9125,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     startRotationY:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -10396,8 +9166,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     startRotation:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -10439,8 +9211,10 @@ ParticleSystem:
     size3D: 0
     rotation3D: 0
     gravityModifier:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -10491,8 +9265,10 @@ ParticleSystem:
       mode: 0
       spread: 0
       speed:
+        serializedVersion: 2
         minMaxState: 0
         scalar: 1
+        minScalar: 0
         maxCurve:
           serializedVersion: 2
           m_Curve:
@@ -10534,8 +9310,10 @@ ParticleSystem:
       mode: 0
       spread: 0
       speed:
+        serializedVersion: 2
         minMaxState: 0
         scalar: 1
+        minScalar: 0
         maxCurve:
           serializedVersion: 2
           m_Curve:
@@ -10588,8 +9366,10 @@ ParticleSystem:
     enabled: 1
     serializedVersion: 4
     rateOverTime:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 20
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -10627,8 +9407,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     rateOverDistance:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -10670,8 +9452,10 @@ ParticleSystem:
   SizeModule:
     enabled: 1
     curve:
+      serializedVersion: 2
       minMaxState: 1
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -10715,8 +9499,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     y:
+      serializedVersion: 2
       minMaxState: 1
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve: []
@@ -10742,8 +9528,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     z:
+      serializedVersion: 2
       minMaxState: 1
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve: []
@@ -10772,8 +9560,10 @@ ParticleSystem:
   RotationModule:
     enabled: 1
     x:
+      serializedVersion: 2
       minMaxState: 3
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -10811,8 +9601,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     y:
+      serializedVersion: 2
       minMaxState: 3
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -10850,8 +9642,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     curve:
+      serializedVersion: 2
       minMaxState: 3
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -10894,6 +9688,8 @@ ParticleSystem:
     gradient:
       serializedVersion: 2
       minMaxState: 1
+      minColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -10952,13 +9748,13 @@ ParticleSystem:
         m_Mode: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
-      minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
   UVModule:
     enabled: 0
     frameOverTime:
+      serializedVersion: 2
       minMaxState: 1
       scalar: 0.9999
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve: []
@@ -10984,8 +9780,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     startFrame:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -11034,8 +9832,10 @@ ParticleSystem:
   VelocityModule:
     enabled: 0
     x:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -11073,8 +9873,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     y:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -11112,8 +9914,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     z:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -11155,8 +9959,10 @@ ParticleSystem:
     enabled: 0
     m_Mode: 0
     m_Curve:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -11196,8 +10002,10 @@ ParticleSystem:
   ForceModule:
     enabled: 0
     x:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -11235,8 +10043,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     y:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -11274,8 +10084,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     z:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -11320,8 +10132,10 @@ ParticleSystem:
   ClampVelocityModule:
     enabled: 0
     x:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -11359,8 +10173,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     y:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -11398,8 +10214,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     z:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -11437,8 +10255,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     magnitude:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -11481,8 +10301,10 @@ ParticleSystem:
   NoiseModule:
     enabled: 0
     strength:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -11520,8 +10342,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     strengthY:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -11559,8 +10383,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     strengthZ:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -11605,8 +10431,10 @@ ParticleSystem:
     octaveScale: 2
     quality: 2
     scrollSpeed:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -11644,8 +10472,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     remap:
+      serializedVersion: 2
       minMaxState: 1
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -11683,8 +10513,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     remapY:
+      serializedVersion: 2
       minMaxState: 1
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -11722,8 +10554,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     remapZ:
+      serializedVersion: 2
       minMaxState: 1
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -11764,8 +10598,10 @@ ParticleSystem:
   SizeBySpeedModule:
     enabled: 0
     curve:
+      serializedVersion: 2
       minMaxState: 1
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve: []
@@ -11791,8 +10627,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     y:
+      serializedVersion: 2
       minMaxState: 1
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve: []
@@ -11818,8 +10656,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     z:
+      serializedVersion: 2
       minMaxState: 1
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve: []
@@ -11849,8 +10689,10 @@ ParticleSystem:
   RotationBySpeedModule:
     enabled: 0
     x:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -11888,8 +10730,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     y:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -11927,8 +10771,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     curve:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0.7853982
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -11972,6 +10818,8 @@ ParticleSystem:
     gradient:
       serializedVersion: 2
       minMaxState: 1
+      minColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -12030,8 +10878,6 @@ ParticleSystem:
         m_Mode: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
-      minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
     range: {x: 0, y: 1}
   CollisionModule:
     enabled: 0
@@ -12045,8 +10891,10 @@ ParticleSystem:
     plane4: {fileID: 0}
     plane5: {fileID: 0}
     m_Dampen:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -12084,8 +10932,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     m_Bounce:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -12123,8 +10973,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     m_EnergyLossOnCollision:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -12202,8 +11054,10 @@ ParticleSystem:
     range: 1
     intensity: 1
     rangeCurve:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -12241,8 +11095,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     intensityCurve:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -12284,8 +11140,10 @@ ParticleSystem:
     enabled: 0
     ratio: 1
     lifetime:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -12332,6 +11190,8 @@ ParticleSystem:
     colorOverLifetime:
       serializedVersion: 2
       minMaxState: 0
+      minColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -12390,11 +11250,11 @@ ParticleSystem:
         m_Mode: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
-      minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
     widthOverTrail:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -12434,6 +11294,8 @@ ParticleSystem:
     colorOverTrail:
       serializedVersion: 2
       minMaxState: 0
+      minColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -12492,8 +11354,6 @@ ParticleSystem:
         m_Mode: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
-      minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
   CustomDataModule:
     enabled: 0
     mode0: 0
@@ -12501,6 +11361,8 @@ ParticleSystem:
     color0:
       serializedVersion: 2
       minMaxState: 0
+      minColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -12559,11 +11421,11 @@ ParticleSystem:
         m_Mode: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
-      minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
     vector0_0:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -12601,8 +11463,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vector0_1:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -12640,8 +11504,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vector0_2:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -12679,8 +11545,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vector0_3:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -12722,6 +11590,8 @@ ParticleSystem:
     color1:
       serializedVersion: 2
       minMaxState: 0
+      minColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -12780,11 +11650,11 @@ ParticleSystem:
         m_Mode: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
-      minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
     vector1_0:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -12822,8 +11692,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vector1_1:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -12861,8 +11733,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vector1_2:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -12900,8 +11774,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vector1_3:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -13425,7 +12301,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 841534613}
-  m_LocalRotation: {x: -0.01318595, y: -0.7069842, z: 0.7069835, w: -0.0131858885}
+  m_LocalRotation: {x: -0.013185947, y: -0.70698416, z: 0.70698345, w: -0.013185886}
   m_LocalPosition: {x: 141.33, y: 10.98, z: 143.26}
   m_LocalScale: {x: 0.49098563, y: 1.0000005, z: 1.0000005}
   m_Children: []
@@ -15796,7 +14672,7 @@ Transform:
   - {fileID: 1586077818}
   - {fileID: 183911815}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1060108159
 MonoBehaviour:
@@ -16391,7 +15267,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4317338829296202, guid: 594d5352cf89fb34aa09183673de5ecd, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114592350508909034, guid: 594d5352cf89fb34aa09183673de5ecd,
         type: 2}
@@ -16416,6 +15292,11 @@ Prefab:
         type: 2}
       propertyPath: range
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114592350508909034, guid: 594d5352cf89fb34aa09183673de5ecd,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 594d5352cf89fb34aa09183673de5ecd, type: 2}
@@ -16904,7 +15785,7 @@ Transform:
   - {fileID: 1350192629}
   - {fileID: 331103516}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1189905323
 GameObject:
@@ -18687,8 +17568,10 @@ ParticleSystem:
   playOnAwake: 1
   autoRandomSeed: 1
   startDelay:
+    serializedVersion: 2
     minMaxState: 0
     scalar: 0
+    minScalar: 0
     maxCurve:
       serializedVersion: 2
       m_Curve: []
@@ -18709,8 +17592,10 @@ ParticleSystem:
     serializedVersion: 3
     enabled: 1
     startLifetime:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 5
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -18748,8 +17633,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     startSpeed:
+      serializedVersion: 2
       minMaxState: 3
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -18789,6 +17676,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 0
+      minColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.055795845, g: 0.14650995, b: 0.17647058, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -18847,11 +17736,11 @@ ParticleSystem:
         m_Mode: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
-      minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.055795845, g: 0.14650995, b: 0.17647058, a: 1}
     startSize:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -18889,8 +17778,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     startSizeY:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -18928,8 +17819,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     startSizeZ:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -18967,8 +17860,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     startRotationX:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -19006,8 +17901,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     startRotationY:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -19045,8 +17942,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     startRotation:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -19088,8 +17987,10 @@ ParticleSystem:
     size3D: 0
     rotation3D: 0
     gravityModifier:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -19140,8 +18041,10 @@ ParticleSystem:
       mode: 0
       spread: 0
       speed:
+        serializedVersion: 2
         minMaxState: 0
         scalar: 1
+        minScalar: 0
         maxCurve:
           serializedVersion: 2
           m_Curve:
@@ -19183,8 +18086,10 @@ ParticleSystem:
       mode: 0
       spread: 0
       speed:
+        serializedVersion: 2
         minMaxState: 0
         scalar: 1
+        minScalar: 0
         maxCurve:
           serializedVersion: 2
           m_Curve:
@@ -19237,8 +18142,10 @@ ParticleSystem:
     enabled: 1
     serializedVersion: 4
     rateOverTime:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 50
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -19276,8 +18183,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     rateOverDistance:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -19319,8 +18228,10 @@ ParticleSystem:
   SizeModule:
     enabled: 1
     curve:
+      serializedVersion: 2
       minMaxState: 1
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -19364,8 +18275,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     y:
+      serializedVersion: 2
       minMaxState: 1
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve: []
@@ -19391,8 +18304,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     z:
+      serializedVersion: 2
       minMaxState: 1
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve: []
@@ -19421,8 +18336,10 @@ ParticleSystem:
   RotationModule:
     enabled: 1
     x:
+      serializedVersion: 2
       minMaxState: 3
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -19460,8 +18377,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     y:
+      serializedVersion: 2
       minMaxState: 3
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -19499,8 +18418,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     curve:
+      serializedVersion: 2
       minMaxState: 3
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -19543,6 +18464,8 @@ ParticleSystem:
     gradient:
       serializedVersion: 2
       minMaxState: 1
+      minColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -19601,13 +18524,13 @@ ParticleSystem:
         m_Mode: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
-      minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
   UVModule:
     enabled: 0
     frameOverTime:
+      serializedVersion: 2
       minMaxState: 1
       scalar: 0.9999
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve: []
@@ -19633,8 +18556,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     startFrame:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -19683,8 +18608,10 @@ ParticleSystem:
   VelocityModule:
     enabled: 0
     x:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -19722,8 +18649,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     y:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -19761,8 +18690,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     z:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -19804,8 +18735,10 @@ ParticleSystem:
     enabled: 0
     m_Mode: 0
     m_Curve:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -19845,8 +18778,10 @@ ParticleSystem:
   ForceModule:
     enabled: 0
     x:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -19884,8 +18819,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     y:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -19923,8 +18860,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     z:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -19969,8 +18908,10 @@ ParticleSystem:
   ClampVelocityModule:
     enabled: 0
     x:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -20008,8 +18949,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     y:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -20047,8 +18990,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     z:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -20086,8 +19031,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     magnitude:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -20130,8 +19077,10 @@ ParticleSystem:
   NoiseModule:
     enabled: 0
     strength:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -20169,8 +19118,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     strengthY:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -20208,8 +19159,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     strengthZ:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -20254,8 +19207,10 @@ ParticleSystem:
     octaveScale: 2
     quality: 2
     scrollSpeed:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -20293,8 +19248,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     remap:
+      serializedVersion: 2
       minMaxState: 1
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -20332,8 +19289,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     remapY:
+      serializedVersion: 2
       minMaxState: 1
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -20371,8 +19330,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     remapZ:
+      serializedVersion: 2
       minMaxState: 1
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -20413,8 +19374,10 @@ ParticleSystem:
   SizeBySpeedModule:
     enabled: 0
     curve:
+      serializedVersion: 2
       minMaxState: 1
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve: []
@@ -20440,8 +19403,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     y:
+      serializedVersion: 2
       minMaxState: 1
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve: []
@@ -20467,8 +19432,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     z:
+      serializedVersion: 2
       minMaxState: 1
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve: []
@@ -20498,8 +19465,10 @@ ParticleSystem:
   RotationBySpeedModule:
     enabled: 0
     x:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -20537,8 +19506,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     y:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -20576,8 +19547,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     curve:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0.7853982
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -20621,6 +19594,8 @@ ParticleSystem:
     gradient:
       serializedVersion: 2
       minMaxState: 1
+      minColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -20679,8 +19654,6 @@ ParticleSystem:
         m_Mode: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
-      minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
     range: {x: 0, y: 1}
   CollisionModule:
     enabled: 0
@@ -20694,8 +19667,10 @@ ParticleSystem:
     plane4: {fileID: 0}
     plane5: {fileID: 0}
     m_Dampen:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -20733,8 +19708,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     m_Bounce:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -20772,8 +19749,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     m_EnergyLossOnCollision:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -20851,8 +19830,10 @@ ParticleSystem:
     range: 1
     intensity: 1
     rangeCurve:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -20890,8 +19871,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     intensityCurve:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -20933,8 +19916,10 @@ ParticleSystem:
     enabled: 0
     ratio: 1
     lifetime:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -20981,6 +19966,8 @@ ParticleSystem:
     colorOverLifetime:
       serializedVersion: 2
       minMaxState: 0
+      minColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -21039,11 +20026,11 @@ ParticleSystem:
         m_Mode: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
-      minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
     widthOverTrail:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 1
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -21083,6 +20070,8 @@ ParticleSystem:
     colorOverTrail:
       serializedVersion: 2
       minMaxState: 0
+      minColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -21141,8 +20130,6 @@ ParticleSystem:
         m_Mode: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
-      minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
   CustomDataModule:
     enabled: 0
     mode0: 0
@@ -21150,6 +20137,8 @@ ParticleSystem:
     color0:
       serializedVersion: 2
       minMaxState: 0
+      minColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -21208,11 +20197,11 @@ ParticleSystem:
         m_Mode: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
-      minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
     vector0_0:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -21250,8 +20239,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vector0_1:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -21289,8 +20280,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vector0_2:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -21328,8 +20321,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vector0_3:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -21371,6 +20366,8 @@ ParticleSystem:
     color1:
       serializedVersion: 2
       minMaxState: 0
+      minColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -21429,11 +20426,11 @@ ParticleSystem:
         m_Mode: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
-      minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
     vector1_0:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -21471,8 +20468,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vector1_1:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -21510,8 +20509,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vector1_2:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -21549,8 +20550,10 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vector1_3:
+      serializedVersion: 2
       minMaxState: 0
       scalar: 0
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -22384,7 +21387,7 @@ Transform:
   m_Children:
   - {fileID: 837238658}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1410508317
 Prefab:
@@ -23036,7 +22039,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1436671459}
-  m_LocalRotation: {x: 0.31043786, y: -0.6353176, z: 0.63531744, w: 0.31043777}
+  m_LocalRotation: {x: 0.3104379, y: -0.6353177, z: 0.6353175, w: 0.3104378}
   m_LocalPosition: {x: 104.42, y: 12.33, z: 126.22}
   m_LocalScale: {x: 0.9101883, y: 1.0000002, z: 0.3758582}
   m_Children: []
@@ -23497,7 +22500,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1455533359}
-  m_LocalRotation: {x: 0.28001645, y: -0.6493004, z: 0.6493002, w: 0.28001636}
+  m_LocalRotation: {x: 0.28001642, y: -0.64930034, z: 0.64930016, w: 0.28001633}
   m_LocalPosition: {x: 114.7, y: 10.98, z: 140.99}
   m_LocalScale: {x: 0.312605, y: 1.0000002, z: 1.0000005}
   m_Children: []
@@ -25225,7 +24228,7 @@ Prefab:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 114006321375143476, guid: 6d5c73a2de9863c49bd4ddcc77af1888, type: 2}
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 6d5c73a2de9863c49bd4ddcc77af1888, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1586077818 stripped
@@ -26156,7 +25159,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1650101213
 Prefab:
@@ -26659,7 +25662,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1689056701}
-  m_LocalRotation: {x: -0.3647592, y: -0.6057651, z: 0.60576445, w: -0.3647588}
+  m_LocalRotation: {x: -0.36475918, y: -0.60576504, z: 0.6057644, w: -0.36475876}
   m_LocalPosition: {x: 79.73, y: 10.54, z: 165.58}
   m_LocalScale: {x: 0.97980475, y: 1.0000002, z: 1}
   m_Children: []
@@ -29097,7 +28100,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1897870231
 MonoBehaviour:
@@ -29272,7 +28275,7 @@ Transform:
   - {fileID: 1572418180}
   - {fileID: 1986787104}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1921358524
 GameObject:
@@ -30618,7 +29621,7 @@ Transform:
   m_Children:
   - {fileID: 1210662513}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2025208588
 MonoBehaviour:
@@ -31175,54 +30178,8 @@ Transform:
   - {fileID: 434434167}
   - {fileID: 302551315}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!1001 &2062097694
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4259168834578866, guid: 9d2bd102ef351bb40b7b1d50cc603d34, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 21.280346
-      objectReference: {fileID: 0}
-    - target: {fileID: 4259168834578866, guid: 9d2bd102ef351bb40b7b1d50cc603d34, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 10.001221
-      objectReference: {fileID: 0}
-    - target: {fileID: 4259168834578866, guid: 9d2bd102ef351bb40b7b1d50cc603d34, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 31.994242
-      objectReference: {fileID: 0}
-    - target: {fileID: 4259168834578866, guid: 9d2bd102ef351bb40b7b1d50cc603d34, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4259168834578866, guid: 9d2bd102ef351bb40b7b1d50cc603d34, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4259168834578866, guid: 9d2bd102ef351bb40b7b1d50cc603d34, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4259168834578866, guid: 9d2bd102ef351bb40b7b1d50cc603d34, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4259168834578866, guid: 9d2bd102ef351bb40b7b1d50cc603d34, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1485852813879610, guid: 9d2bd102ef351bb40b7b1d50cc603d34, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 9d2bd102ef351bb40b7b1d50cc603d34, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &2066971409
 GameObject:
   m_ObjectHideFlags: 0
