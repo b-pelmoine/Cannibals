@@ -462,14 +462,10 @@ namespace AI
             {
                 if (MoveTo(machine.transform.position, 1.5f))
                 {
-                    ActionTask rot = RotateTowards(machine.positionCanette.position, 10, 5);
-                    rot.callbacks.Add(0, () =>
-                    {
-                        object dat = rot.callData;
-                        Stop();
-                        CurrentAction.callData = dat;
-                        Call(0);
-                    });
+                    if (machine.CanReady())
+                        RamasseCanette();
+                    else
+                        RotateTowards(machine.positionCanette.position, 10, 5);
                 }
             };
             action.AddReaction(CannibalAround, Hit);
@@ -480,10 +476,6 @@ namespace AI
                 () => SeeCannibal() && Vector3.Distance((CurrentAction.callData as SightInfo).target.transform.position, machine.transform.position) < machineRadius
                 , Hit);
             //Canette fini
-            action.callbacks.Add(0, () =>
-            {
-                RamasseCanette();
-            });
             if (canetteCounter == machineCanetteNumber-1)
                 action.Next = () =>
                 {
@@ -514,6 +506,7 @@ namespace AI
                             AkSoundEngine.SetSwitch("Objects", "Can", gameObject);
                             AkSoundEngine.PostEvent("granny_objects", gameObject);
                             Grab(can);
+                            machine.takeCan();
                             canetteCounter++;
                         });
                         take.Next = Stop;

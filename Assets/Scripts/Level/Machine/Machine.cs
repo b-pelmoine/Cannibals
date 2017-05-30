@@ -18,6 +18,8 @@ public class Machine : MonoBehaviour, IActivable {
     public int production = 3;
     int produced = 0;
 
+    bool hasCan = false;
+
     public bool poisoned = false;
 
 	void Awake()
@@ -49,9 +51,20 @@ public class Machine : MonoBehaviour, IActivable {
                 {
                     timer = 0;
                 }
+                hasCan = true;
                 //poisoned = true;
             }
         }
+    }
+
+    public void takeCan()
+    {
+        hasCan = false;
+    }
+
+    public bool CanReady()
+    {
+        return hasCan;
     }
 
 
