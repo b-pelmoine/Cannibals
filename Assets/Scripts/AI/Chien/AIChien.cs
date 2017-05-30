@@ -123,7 +123,7 @@ namespace AI
             SightInfo cannibal = los.FindNearest(x =>
             {
                 Cannibal c = x.target.GetComponentInParent<Cannibal>();
-                return c != null && !c.IsDead();
+                return c != null && !c.IsDead() && c.isCoverOfBlood;
             });
             if (cannibal != null)
             {

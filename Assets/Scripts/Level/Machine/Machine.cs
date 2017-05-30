@@ -19,6 +19,7 @@ public class Machine : MonoBehaviour, IActivable {
     int produced = 0;
 
     bool hasCan = false;
+    GameObject can = null;
 
     public bool poisoned = false;
 
@@ -51,15 +52,17 @@ public class Machine : MonoBehaviour, IActivable {
                 {
                     timer = 0;
                 }
+                can = newCan;
                 hasCan = true;
                 //poisoned = true;
             }
         }
     }
 
-    public void takeCan()
+    public GameObject takeCan()
     {
         hasCan = false;
+        return can;
     }
 
     public bool CanReady()
