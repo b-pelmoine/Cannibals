@@ -17,9 +17,8 @@ public class Cannibal_RunCorpse :ActionState, ICannibal_State {
     }
     protected override void OnExit()
     {
-        base.OnExit();
         m_cannibal.value.m_cannibalMovement.ResetMaxSpeed();
-        m_cannibal.value.m_cannibalSkill.m_corpse.Move(false);
+        base.OnExit();
     }
 
     protected override void OnUpdate()

@@ -74,7 +74,7 @@ public class DetectionIndicator : MonoBehaviour {
         bool isOnePlayerChased = false;
         for (int i = 0; i < trackers.Count; i++)
         {
-            if(cannibals[i].m_cannibalSkill.m_corpse || cannibals[i].isCoverOfBlood)
+            if(cannibals[i].m_cannibalSkill.m_corpse || cannibals[i].isCoverOfBlood || chaseMode)
             {
                 trackers[i] = AIAgentManager.getDetectData(playerTransforms[i].gameObject);
                 foreach (DetectionData data in trackers[i])
