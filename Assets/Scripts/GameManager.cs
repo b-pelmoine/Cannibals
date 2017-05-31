@@ -102,9 +102,19 @@ public class GameManager : MonoBehaviour {
 
     void PhaseOneUpdate()
     {
-        if(granny.isDead())
+        if(granny)
         {
-            if(GameObject.FindObjectOfType<Corpse>())
+            if (granny.isDead())
+            {
+                if (GameObject.FindObjectOfType<Corpse>())
+                {
+                    state = GameState.PHASE_TWO;
+                }
+            }
+        }
+        else
+        {
+            if (GameObject.FindObjectOfType<Corpse>())
             {
                 state = GameState.PHASE_TWO;
             }
