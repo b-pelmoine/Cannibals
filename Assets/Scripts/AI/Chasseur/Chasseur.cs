@@ -9,6 +9,7 @@ namespace AI
     public class Chasseur : AIAgent, IKnifeKillable {
         public IconDisplayer icon;
         public Transform hand;
+        public GameObject koFX;
         public float walkSpeed = 3;
         public float runSpeed = 6;
         public float waypointDistance = 2;
@@ -248,6 +249,7 @@ namespace AI
                     {
                         bottle.gameObject.SetActive(false);
                         stun = true;
+                        koFX.SetActive(true);
                         ActionTask action = new ActionTask();
                         action.timer = stunTime;
                         action.Next = Resurrect;
@@ -313,6 +315,7 @@ namespace AI
         {
             stun = false;
             PlayAnim("Resurrect");
+            koFX.SetActive(false);
         }
 
         /// <summary>
