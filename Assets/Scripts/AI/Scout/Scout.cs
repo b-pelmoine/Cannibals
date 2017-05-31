@@ -53,6 +53,8 @@ namespace AI
                      {
                          Wait(0).callbacks.Add(10, () =>
                          {
+                             AkSoundEngine.SetSwitch("Objects", "Can", gameObject);
+                             AkSoundEngine.PostEvent("scout_objects", gameObject);
                              Stop();
                              GameObject c = Instantiate(cookie);
                              c.transform.parent = scoutHand;
