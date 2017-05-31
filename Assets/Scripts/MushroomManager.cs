@@ -29,8 +29,10 @@ public class MushroomManager : MonoBehaviour {
                 if(!Physics.CheckSphere(v,2, objectLayer)){
                     GameObject o = Instantiate(mushroom, v, Quaternion.FromToRotation(Vector3.forward,Vector3.up));
                     o.transform.parent = mushroomHolder.transform;
+                    
+                    //Pour décaler les Check dans le temps, au cas où
+                    yield return new WaitForFixedUpdate();
                 }
-                yield return new WaitForFixedUpdate();
             }
             yield return new WaitForSeconds(RefreshRate);
         }
