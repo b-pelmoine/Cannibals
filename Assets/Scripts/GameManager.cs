@@ -91,6 +91,8 @@ public class GameManager : MonoBehaviour {
     {
         cannibals = GameObject.FindObjectsOfType<Cannibal>();
         granny = GameObject.FindObjectOfType<AI.Mamie>();
+
+        AI.Chasseur.alert = false;
     }
 
     void PhaseOneUpdate()
@@ -127,7 +129,8 @@ public class GameManager : MonoBehaviour {
         yield return new WaitForSeconds(1f);
         sceneController.displayEndGameScreen(true);
         yield return new WaitForSeconds(.5f);
-        while (Input.anyKeyDown) { yield return new WaitForSeconds(.1f); }
+        while (!Input.GetKeyDown("joystick button 0")) { yield return new WaitForSeconds(.1f); }
+        yield return new WaitForSeconds(.5f);
         sceneController.displayEndGameScreen(false);
         sceneController.LoadScene(0);
     }
