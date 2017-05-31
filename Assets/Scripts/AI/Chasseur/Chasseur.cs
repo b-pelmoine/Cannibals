@@ -16,7 +16,7 @@ namespace AI
         public float shootingRange = 1;
         public LayerMask shootingMask = 0;
 
-        static bool alert = false;
+        public static bool alert = false;
         
         public float lostTargetTime = 3;
         public float defendTime = 5;
@@ -136,7 +136,7 @@ namespace AI
 
         protected bool SeeCorpse()
         {
-            SightInfo corpse = los.sighted.Find(x => x.target.GetComponent<Corpse>()!=null);
+            SightInfo corpse = los.sighted.Find(x => x.target.GetComponent<Corpse>() != null && los.getDetectRate(x) > 0.9f);
             if (corpse != null)
                 return true;
             return false;

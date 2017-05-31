@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager Instance;
 
+    private Cannibal[] cannibals;
+
     GameState state, prevState;
 
     void Awake()
@@ -37,19 +39,22 @@ public class GameManager : MonoBehaviour {
     void Start()
     {
         sceneController = GameObject.FindObjectOfType<SceneController>();
-        state = prevState = GameState.MENU;
+        if (sceneController.currentScene == 0)
+            state = prevState = GameState.MENU;
+        switch(state)
+        {
+            case GameState.PHASE_ONE: OnPhaseOneStart(); break;
+            case GameState.PHASE_TWO: OnPhaseTwoStart(); break;
+        }
     }
 
     void Update()
     {
         if(sceneController)
         {
-            if (state == GameState.MENU)
+            bool inMenu = state == GameState.MENU;
+            if (inMenu)
                 state = (GameState)sceneController.state;
-            else
-            {
-                if (Input.GetKeyDown(KeyCode.R)) sceneController.LoadScene(1);
-            }
             if(state != prevState)
             {
                 switch(state)
@@ -57,6 +62,10 @@ public class GameManager : MonoBehaviour {
                     case GameState.PHASE_ONE: OnPhaseOneStart(); break;
                     case GameState.PHASE_TWO: OnPhaseTwoStart(); break;
                 }
+            }
+            if (!inMenu)
+            {
+                if (Input.GetKeyDown(KeyCode.R) || AreBothCannibalsDead()) StartCoroutine(reloadCurrentPhase());
             }
             prevState = state;
         }
@@ -69,7 +78,7 @@ public class GameManager : MonoBehaviour {
 
     void OnPhaseOneStart()
     {
-
+        cannibals = GameObject.FindObjectsOfType<Cannibal>();
     }
 
     void PhaseOneUpdate()
@@ -85,5 +94,22 @@ public class GameManager : MonoBehaviour {
     void PhaseTwoUpdate()
     {
 
+    }
+
+    bool AreBothCannibalsDead()
+    {
+        if (state == GameState.MENU || cannibals.Length == 0) return false;
+        bool dead = true;
+        foreach(var c in cannibals)
+        {
+            if (!c.IsDead()) dead = false;
+        }
+        return dead;
+    }
+
+    IEnumerator reloadCurrentPhase()
+    {
+        yield return new WaitForSeconds(3f);
+        sceneController.LoadScene(1);
     }
 }

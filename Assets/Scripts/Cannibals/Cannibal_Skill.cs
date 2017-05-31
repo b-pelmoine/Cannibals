@@ -60,11 +60,15 @@ public class Cannibal_Skill : MonoBehaviour {
         if (m_cannibalObject)
         {
             m_cannibalObject.Exchange(cannibalObject);
-            m_cannibalObject.Release();
         }
 
         if (cannibalObject.linkedCannibal != null && cannibalObject.linkedCannibal != this.m_cannibal)
-            cannibalObject.linkedCannibal.m_cannibalSkill.LooseCannibalObject();
+        {
+            cannibalObject.linkedCannibal.m_cannibalSkill.m_cannibalObject = m_cannibalObject;
+
+            if(m_cannibalObject)
+                m_cannibalObject.linkedCannibal = cannibalObject.linkedCannibal;
+        }
 
        cannibalObject.Take(this.m_cannibal, cannibalObjectParent);
        m_cannibalObject = cannibalObject;
@@ -74,6 +78,7 @@ public class Cannibal_Skill : MonoBehaviour {
     {
         m_cannibalObject.Transform.SetParent(null);
         m_cannibalObject = null;
+        m_cannibalObject.Release();
     }
 
     public void ReleaseCorpse()

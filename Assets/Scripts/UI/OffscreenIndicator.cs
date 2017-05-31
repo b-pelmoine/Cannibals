@@ -77,9 +77,11 @@ public class OffscreenIndicator : MonoBehaviour {
     public RawGO[] endPosition;
     private List<IndicatorData> endPositions;
 
-    private bool showAIAgents;
-    private bool showTarget; // automatique ? offscreen = enabled
-    private bool showPlayers;
+    AI.Mamie granny;
+
+    public bool showAIAgents;
+    public bool showTarget; // automatique ? offscreen = enabled
+    public bool showPlayers;
 
     [Header("Params :")]
     private float elapsedTime = 0f;
@@ -106,6 +108,8 @@ public class OffscreenIndicator : MonoBehaviour {
         OldTargetOnScreenPositions = new List<IndicatorData>();
         PlayersOnScreenPositions = new List<IndicatorData>();
         endPositions = new List<IndicatorData>();
+
+        granny = GameObject.FindObjectOfType<AI.Mamie>();
 
         //showTarget = true;
         showPlayers = true;
@@ -209,10 +213,14 @@ public class OffscreenIndicator : MonoBehaviour {
             }
         }
         //proto uiui
-        foreach (IndicatorData data in endPositions)
+        if (granny.isDead())
         {
-            GUI.DrawTexture(data._pos, getTextureFromType(data._type), ScaleMode.ScaleToFit);
+            foreach (IndicatorData data in endPositions)
+            {
+                GUI.DrawTexture(data._pos, getTextureFromType(data._type), ScaleMode.ScaleToFit);
+            }
         }
+            
     }
 
     void Update () {
@@ -248,8 +256,8 @@ public class OffscreenIndicator : MonoBehaviour {
             }
             addIndicatorForGameObjects(PlayersOnScreenPositions, deadPlayers.ToArray(), PlayersSizeMultiplier , true, pSpeed);
         }
-
-        addIndicatorForGameObjects(endPositions, endPosition, 2);
+        if(granny.isDead())
+            addIndicatorForGameObjects(endPositions, endPosition, 2);
     }
 
     //add IndicatorData for the given GameObjects into the list

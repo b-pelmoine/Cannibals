@@ -16,8 +16,8 @@ MonoBehaviour:
   - PhysicalPath: Events\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{D1C7715C-8472-4B77-B603-950C3928E700}'
-    m_lastTimePsrt1: -1964796416
-    m_lastTimePart2: -1999330053
+    m_lastTimePsrt1: 837573120
+    m_lastTimePart2: -1999329368
     List:
     - Name: ambiance_forest_fauna
       Path: Default Work Unit\ambiance_forest_fauna
@@ -199,6 +199,16 @@ MonoBehaviour:
       ID: -1677918618
       Guid: 6291321f223837458d9c38c572b41812
       maxAttenuation: 0
+    - Name: generator
+      Path: Default Work Unit\generator
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: generator
+        ObjectType: 3
+      ID: 334231652
+      Guid: c155caf87d8e164a8d379b2db195acd2
+      maxAttenuation: 0
     - Name: granny_death
       Path: Default Work Unit\granny_death
       PathAndIcons:
@@ -357,17 +367,17 @@ MonoBehaviour:
       - ElementName: machine_end
         ObjectType: 3
       ID: 1868087034
-      Guid: aa8471ee362a10478b3eef6bf90b1a63
+      Guid: 29a26b585f5a7b4ab9ebdee8182535b9
       maxAttenuation: 0
-    - Name: machine_gen
-      Path: Default Work Unit\machine_gen
+    - Name: machine_end_complete
+      Path: Default Work Unit\machine_end_complete
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
-      - ElementName: machine_gen
+      - ElementName: machine_end_complete
         ObjectType: 3
-      ID: 2052935027
-      Guid: c155caf87d8e164a8d379b2db195acd2
+      ID: -1939178496
+      Guid: aa8471ee362a10478b3eef6bf90b1a63
       maxAttenuation: 0
     - Name: machine_gloups
       Path: Default Work Unit\machine_gloups
@@ -712,6 +722,8 @@ MonoBehaviour:
       Guid: 1b20e257a602754783376efc6286caeb
   ExpandedItems:
   - /Cannibals_WwiseProject
+  - /Cannibals_WwiseProject/Events
+  - /Cannibals_WwiseProject/Events/Default Work Unit
   m_lastPopulateTimePsrt1: 0
   m_lastPopulateTimePart2: 0
   autoPopulateEnabled: 1

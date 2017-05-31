@@ -31,6 +31,9 @@ public class ForestAmbiance : MonoBehaviour {
     [SerializeField]
     int treeLayer = 31;
 
+    [SerializeField]
+    Vector2 capsuleSize= new Vector2(1,2);
+
     public Terrain terrain;
 
     /*   List<ForestAmbianceSound> availablesTreesRepresentation = new List<ForestAmbianceSound>();
@@ -58,8 +61,10 @@ public class ForestAmbiance : MonoBehaviour {
 
         for (int i = 0; i < td.treeInstanceCount; i++)
         {
-           SphereCollider s = treeCollidersGo.AddComponent<SphereCollider>();
-           s.center =  Vector3.Scale(td.treeInstances[i].position, td.size) + terrain.transform.position;
+           CapsuleCollider s = treeCollidersGo.AddComponent<CapsuleCollider>();
+            s.height = capsuleSize.y;
+            s.radius = capsuleSize.x;
+            s.center =  Vector3.Scale(td.treeInstances[i].position, td.size) + terrain.transform.position;
         }
 
         for(int i=0; i < ghostTreeCount; i++)
@@ -138,14 +143,14 @@ public class ForestAmbiance : MonoBehaviour {
 
     void OnTriggerExit(Collider c)
     {
-        if (!(c is SphereCollider))
+        if (!(c is CapsuleCollider))
         { 
             return;
         }
-
+ 
         for (int i = 0; i < unavailablesGO.Count; i++)
         {
-            if (unavailablesGO[i].transform.position == ((SphereCollider)c).center)
+            if (unavailablesGO[i].transform.position == ((CapsuleCollider)c).center)
             {
                 AkSoundEngine.StopAll(unavailablesGO[i]);
                 availablesGO.Add(unavailablesGO[i]);
