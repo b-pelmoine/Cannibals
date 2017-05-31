@@ -77,8 +77,8 @@ public class Cannibal_Skill : MonoBehaviour {
     public void LooseCannibalObject()
     {
         m_cannibalObject.Transform.SetParent(null);
-        m_cannibalObject = null;
         m_cannibalObject.Release();
+        m_cannibalObject = null;
     }
 
     public void ReleaseCorpse()

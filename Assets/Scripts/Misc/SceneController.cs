@@ -36,6 +36,8 @@ public class SceneController : MonoBehaviour {
     private CanvasGroup LoadingCanvas;
     private Text hint;
 
+    private CanvasGroup EndGameCanvas;
+
     [Header("Parameters")]
     [Range(0.1f, 2f)]
     public float fadeOutDuration;
@@ -59,10 +61,11 @@ public class SceneController : MonoBehaviour {
     void Start()
     {
         LoadingCanvas = transform.Find("transitionUI").GetComponent<CanvasGroup>();
+        EndGameCanvas = transform.Find("transitionEnd").GetComponent<CanvasGroup>();
         hint = LoadingCanvas.gameObject.transform.Find("Canvas").Find("Hint").GetComponent<Text>();
         LoadingCanvas.alpha = 1f;
         hint.text = "";
-        StartCoroutine(FadeCanvas(1f, 0f, .5f));
+        StartCoroutine(FadeCanvas(LoadingCanvas, 1f, 0f, .5f));
         Loading = false;
         currentScene = SceneManager.GetActiveScene().buildIndex;
     }
@@ -73,6 +76,14 @@ public class SceneController : MonoBehaviour {
             yield return new WaitForSeconds(4f);
             hint.text = getRandomHint();
         }
+    }
+
+    public void displayEndGameScreen(bool state)
+    {
+        if(state)
+            StartCoroutine(FadeCanvas(EndGameCanvas, 0f, 1f, .5f));
+        else
+            StartCoroutine(FadeCanvas(EndGameCanvas, 1f, 0f, .5f));
     }
 
     public void LoadScene(int scene)
@@ -86,14 +97,14 @@ public class SceneController : MonoBehaviour {
             lock (thisLock)
             {
                 AkSoundEngine.StopAll();
-                StartCoroutine(FadeCanvas(0, 1, fadeInDuration,
+                StartCoroutine(FadeCanvas( LoadingCanvas , 0, 1, fadeInDuration,
                 () =>
                 {
                     //loading Scene
                     StartCoroutine(PlayLoadingInfo(SceneManager.LoadSceneAsync((int)index),
                     () =>
                     {
-                        StartCoroutine(FadeCanvas(1, 0, fadeOutDuration,
+                        StartCoroutine(FadeCanvas(LoadingCanvas, 1, 0, fadeOutDuration,
                         () =>
                         {
                             StartCoroutine(OnFinishTransition());
@@ -122,7 +133,7 @@ public class SceneController : MonoBehaviour {
         callback();
     }
 
-    IEnumerator FadeCanvas(float alphaSrc, float alphaDst, float transitDuration, System.Action callback = null)
+    IEnumerator FadeCanvas(CanvasGroup canvas, float alphaSrc, float alphaDst, float transitDuration, System.Action callback = null)
     {
         float alpha = alphaSrc;
         float elpased = 0f;
@@ -130,7 +141,7 @@ public class SceneController : MonoBehaviour {
         {
             elpased += Time.deltaTime;
             alpha = Mathf.Lerp(alphaSrc, alphaDst, elpased / transitDuration);
-            LoadingCanvas.alpha = alpha;
+            canvas.alpha = alpha;
             yield return new WaitForSeconds(Time.deltaTime);
         }
 

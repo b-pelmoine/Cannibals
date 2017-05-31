@@ -6,7 +6,8 @@ public enum GameState
 {
     MENU,
     PHASE_ONE,
-    PHASE_TWO
+    PHASE_TWO,
+    END_GAME
 }
 
 public class GameManager : MonoBehaviour {
@@ -15,8 +16,12 @@ public class GameManager : MonoBehaviour {
     public static GameManager Instance;
 
     private Cannibal[] cannibals;
+    private AI.Mamie granny;
+    private Corpse corpse;
 
     GameState state, prevState;
+
+    bool endCondition;
 
     void Awake()
     {
@@ -29,6 +34,11 @@ public class GameManager : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+    }
+
+    public void setEndConditionState(bool state)
+    {
+        endCondition = state;
     }
 
     public void Quit()
@@ -61,6 +71,7 @@ public class GameManager : MonoBehaviour {
                 {
                     case GameState.PHASE_ONE: OnPhaseOneStart(); break;
                     case GameState.PHASE_TWO: OnPhaseTwoStart(); break;
+                    case GameState.END_GAME: OnPhaseTwoEnd();break;
                 }
             }
             if (!inMenu)
@@ -79,21 +90,49 @@ public class GameManager : MonoBehaviour {
     void OnPhaseOneStart()
     {
         cannibals = GameObject.FindObjectsOfType<Cannibal>();
+        granny = GameObject.FindObjectOfType<AI.Mamie>();
+
+        AI.Chasseur.alert = false;
     }
 
     void PhaseOneUpdate()
     {
-        
+        if(granny.isDead())
+        {
+            if(GameObject.FindObjectOfType<Corpse>())
+            {
+                state = GameState.PHASE_TWO;
+            }
+        }
     }
 
     void OnPhaseTwoStart()
     {
-
+        corpse = GameObject.FindObjectOfType<Corpse>();
+        setEndConditionState(false);
     }
 
     void PhaseTwoUpdate()
     {
+        if (endCondition)
+            state = GameState.END_GAME;
+    }
 
+    void OnPhaseTwoEnd()
+    {
+        StartCoroutine(EndGame());
+    }
+
+    IEnumerator EndGame()
+    {
+        Debug.Log("end game gg");
+        yield return new WaitForSeconds(1f);
+        sceneController.displayEndGameScreen(true);
+        yield return new WaitForSeconds(.5f);
+        while (!Input.GetKeyDown("joystick button 0")) { yield return new WaitForSeconds(.1f); }
+        yield return new WaitForSeconds(.5f);
+        sceneController.displayEndGameScreen(false);
+        sceneController.LoadScene(0);
     }
 
     bool AreBothCannibalsDead()
