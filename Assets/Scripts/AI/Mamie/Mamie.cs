@@ -209,27 +209,30 @@ namespace AI
         //Actions
         protected void Hit()
         {
-            agent.speed = runSpeed;
-            SightInfo target = CurrentAction.callData as SightInfo;
-            if(MoveTo(target.target.transform.position, 2))
+            if(!stun)
             {
-                animator.Play("Hit");
-                AkSoundEngine.PostEvent("granny_whoosh_hit", gameObject);
-                Wait(0.1f).Next = () =>
+                agent.speed = runSpeed;
+                SightInfo target = CurrentAction.callData as SightInfo;
+                if(MoveTo(target.target.transform.position, 2))
                 {
-                    anim_call_count = 0;
-                    Wait(animator.GetCurrentAnimatorStateInfo(0).length,
-                    () => LookAt(target.target.transform.position)).callbacks.Add(0, () =>
+                    animator.Play("Hit");
+                    AkSoundEngine.PostEvent("granny_whoosh_hit", gameObject);
+                    Wait(0.1f).Next = () =>
                     {
-                        
-                        if ((target.target.transform.position - transform.position).sqrMagnitude < 2 * 2)
+                        anim_call_count = 0;
+                        Wait(animator.GetCurrentAnimatorStateInfo(0).length,
+                        () => LookAt(target.target.transform.position)).callbacks.Add(0, () =>
                         {
-                            AkSoundEngine.PostEvent("granny_hit", gameObject);
-                            Cannibal can = target.target.GetComponentInParent<Cannibal>();
-                            if (can != null) can.Kill();
-                        }
-                    });
-                };
+                        
+                            if ((target.target.transform.position - transform.position).sqrMagnitude < 2 * 2)
+                            {
+                                AkSoundEngine.PostEvent("granny_hit", gameObject);
+                                Cannibal can = target.target.GetComponentInParent<Cannibal>();
+                                if (can != null) can.Kill();
+                            }
+                        });
+                    };
+                }
             }
         }
 
