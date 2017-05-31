@@ -17,6 +17,7 @@ public class Machine : MonoBehaviour, IActivable {
     public Transform positionCanette;
     public int production = 3;
     int produced = 0;
+    bool finished = false;
 
     bool hasCan = false;
     GameObject can = null;
@@ -33,7 +34,7 @@ public class Machine : MonoBehaviour, IActivable {
         if (On && Working)
         {
             timer += Time.deltaTime;
-            if (timer > time)
+            if (finished && timer > 1.0f)
             {
                 GameObject newCan = Instantiate(prefabCanette);
                 newCan.transform.position = positionCanette.position;
@@ -47,7 +48,8 @@ public class Machine : MonoBehaviour, IActivable {
                     Working = false;
                     produced = 0;
                     animator.Play("Idle");
-                    AkSoundEngine.PostEvent("machine_end", gameObject);
+                    AkSoundEngine.PostEvent("machine_end_complete", gameObject);
+                    finished = false;
                 }
                 else
                 {
@@ -56,6 +58,11 @@ public class Machine : MonoBehaviour, IActivable {
                 can = newCan;
                 hasCan = true;
                 //poisoned = true;
+            }
+            else if(timer > time)
+            {
+                finished = true;
+                timer = 0;
             }
         }
     }
@@ -107,6 +114,11 @@ public class Machine : MonoBehaviour, IActivable {
             animator.Play("ToOn");
             AkSoundEngine.PostEvent("machine_gen", gameObject);
         }
+    }
+
+    public void Fill()
+    {
+        AkSoundEngine.PostEvent("machine_gloups", gameObject);
     }
 
     public bool IsActivable(CannibalObject cannibalObject)

@@ -388,6 +388,7 @@ namespace AI
                                     };
                                     t.callbacks.Add(0, () =>
                                     {
+                                        machine.Fill();
                                         while (carry.Count > 0)
                                             DestroyCarried();
                                     });
