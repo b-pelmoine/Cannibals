@@ -40,6 +40,7 @@ namespace AI
 
         const int BOTTLE_CALL = 0;
         const int DOG_CALL = 1;
+        const int APPEAU = 2;
 
 
         // Use this for initialization
@@ -47,6 +48,7 @@ namespace AI
             base.Start();
             type = AIType.Hunter;
             Bottle.OnBottleShaked += OnBottleShaked;
+            BasicCall.OnBasicCallUsed += OnCall;
 
             //Initialisation de la racine
             ActionTask action = new ActionTask();
@@ -61,6 +63,7 @@ namespace AI
             };
             action.AddReaction(SeeCorpse, () => alert = true);
             action.AddReaction(SeeCannibal, Chase);
+            action.callbacks.Add(APPEAU, ShootOn);
             action.callbacks.Add(DOG_CALL, GoTo);
             action.callbacks.Add(BOTTLE_CALL, Drink);
             Play(action);
@@ -91,6 +94,9 @@ namespace AI
                 ActionTask w = Wait(4);
                 w.AddReaction(SeeCorpse, () => alert = true);
                 w.AddReaction(SeeCannibal, Chase);
+                w.callbacks.Add(APPEAU, ShootOn);
+                w.callbacks.Add(DOG_CALL, GoTo);
+                w.callbacks.Add(BOTTLE_CALL, Drink);
             }
         }
 
@@ -106,6 +112,7 @@ namespace AI
                 }
             };
             defend.AddReaction(SeeCannibal, Chase);
+            defend.callbacks.Add(APPEAU, ShootOn);
             defend.callbacks.Add(DOG_CALL, GoTo);
             defend.callbacks.Add(BOTTLE_CALL, Drink);
             defend.timer = defendTime;
@@ -151,6 +158,7 @@ namespace AI
                 {
                     //Shoot at target
                     ActionTask shoot = new ActionTask();
+                    AkSoundEngine.PostEvent("hunter_reload", gameObject);
                     shoot.target = bestTarget.target;
                     agent.ResetPath();
                     animator.Play("Shoot");
@@ -191,15 +199,35 @@ namespace AI
                      ActionTask wait = new ActionTask();
                      wait.timer=2;
                      wait.AddReaction(SeeCannibal, Chase);
+                     wait.callbacks.Add(APPEAU, ShootOn);
                      wait.callbacks.Add(DOG_CALL, CurrentAction.callbacks[DOG_CALL]);
                      wait.callbacks.Add(BOTTLE_CALL, Drink);
                      Play(wait);
                  }
              };
             action.AddReaction(SeeCannibal, Chase);
+            action.callbacks.Add(APPEAU, ShootOn);
             action.callbacks.Add(DOG_CALL, CurrentAction.callbacks[DOG_CALL]);
             action.callbacks.Add(BOTTLE_CALL, Drink);
             Play(action);
+        }
+
+        protected void ShootOn()
+        {
+            GameObject target = (CurrentAction.callData as GameObject);
+            AkSoundEngine.PostEvent("hunter_reload", gameObject);
+            //Shoot at target
+            ActionTask shoot = new ActionTask();
+            shoot.target = target;
+            agent.ResetPath();
+            animator.Play("Shoot");
+            LookAt(target.transform.position);
+            Wait(0.1f).Next = () =>
+            {
+                shoot.timer = animator.GetCurrentAnimatorStateInfo(0).length;
+                Play(shoot);
+            };
+            return;
         }
 
         protected void Drink()
@@ -297,6 +325,20 @@ namespace AI
             {
                 CurrentAction.callData = target;
                 Call(DOG_CALL);
+            }
+        }
+
+        public void OnCall(BasicCall obj)
+        {
+            Vector3 pos = obj.transform.position;
+            pos.y = transform.position.y;
+            if (Vector3.Distance(pos, transform.position) > los.getSeeDistance())
+                return;
+            shootTarget = obj.gameObject;
+            if(CurrentAction != null)
+            {
+                CurrentAction.callData = obj.gameObject;
+                Call(APPEAU);
             }
         }
 

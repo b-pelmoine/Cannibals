@@ -15,7 +15,11 @@ public class Generateur : MonoBehaviour, IActivable {
         animator = GetComponent<Animator>();
         
         machine.GenerateurSwitch(On);
-        if(On) animator.Play("ToOn");
+        if (On)
+        {
+            animator.Play("ToOn");
+            AkSoundEngine.PostEvent("generator", gameObject);
+        }
     }
 
 	public void Switch()
@@ -24,11 +28,13 @@ public class Generateur : MonoBehaviour, IActivable {
         {
             animator.Play("ToIdle");
             On = false;
+            AkSoundEngine.StopAll(gameObject);
         }
         else
         {
             animator.Play("ToOn");
             On = true;
+            AkSoundEngine.PostEvent("generator", gameObject);
         }
         machine.GenerateurSwitch(On);
     }
