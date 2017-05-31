@@ -158,6 +158,7 @@ namespace AI
                 {
                     //Shoot at target
                     ActionTask shoot = new ActionTask();
+                    AkSoundEngine.PostEvent("hunter_reload", gameObject);
                     shoot.target = bestTarget.target;
                     agent.ResetPath();
                     animator.Play("Shoot");
@@ -214,6 +215,7 @@ namespace AI
         protected void ShootOn()
         {
             GameObject target = (CurrentAction.callData as GameObject);
+            AkSoundEngine.PostEvent("hunter_reload", gameObject);
             //Shoot at target
             ActionTask shoot = new ActionTask();
             shoot.target = target;

@@ -291,6 +291,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4811082412270446}
   - component: {fileID: 95726355576162960}
+  - component: {fileID: 114954629752016210}
   m_Layer: 0
   m_Name: jogger_mesh
   m_TagString: Untagged
@@ -1348,7 +1349,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1375605370188922}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 150.2666, y: 10.050052, z: 135.54953}
+  m_LocalPosition: {x: 3.2673779, y: 0, z: -3.7348537}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4811082412270446}
@@ -2244,6 +2245,18 @@ MonoBehaviour:
     position: {x: 137.09224, y: 10.050052, z: 125.34509}
     links: 
   currentDestination: {x: 0, y: 0, z: 0}
+--- !u!114 &114954629752016210
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1248993272243298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0189eab76c37f984686a4bfcf8c31314, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obj: {fileID: 1375605370188922}
 --- !u!136 &136649972132733872
 CapsuleCollider:
   m_ObjectHideFlags: 1
