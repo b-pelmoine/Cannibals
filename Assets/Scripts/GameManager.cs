@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public enum GameState
 {
     MENU,
@@ -19,7 +20,7 @@ public class GameManager : MonoBehaviour {
     private AI.Mamie granny;
     private Corpse corpse;
 
-    GameState state, prevState;
+    public GameState state, prevState;
 
     bool endCondition;
 
@@ -62,9 +63,13 @@ public class GameManager : MonoBehaviour {
     {
         if(sceneController)
         {
-            bool inMenu = state == GameState.MENU;
+            bool inMenu = sceneController.currentScene == 0;
             if (inMenu)
                 state = (GameState)sceneController.state;
+            else
+            {
+                if (state == GameState.MENU) state = GameState.PHASE_ONE;
+            }
             if(state != prevState)
             {
                 switch(state)
@@ -126,12 +131,13 @@ public class GameManager : MonoBehaviour {
     IEnumerator EndGame()
     {
         Debug.Log("end game gg");
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         sceneController.displayEndGameScreen(true);
         yield return new WaitForSeconds(.5f);
-        while (!Input.GetKeyDown("joystick button 0")) { yield return new WaitForSeconds(.1f); }
+        while (!Input.GetKeyDown("joystick button 0")) { yield return new WaitForSeconds(.01f); }
         yield return new WaitForSeconds(.5f);
         sceneController.displayEndGameScreen(false);
+        state = GameState.MENU;
         sceneController.LoadScene(0);
     }
 

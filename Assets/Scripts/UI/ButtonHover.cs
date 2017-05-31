@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -12,6 +13,8 @@ public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public Image buttonImage;
 
+    private SceneController controller;
+
     public Animator anim;
 
     private bool state;
@@ -20,6 +23,26 @@ public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         StartCoroutine(skipFirstAnim());
         state = EventSystem.current.currentSelectedGameObject == gameObject;
+        controller = GameObject.FindObjectOfType<SceneController>();
+    }
+
+    public void Start()
+    {
+        if (gameObject.name == "play")
+        {
+            Button btn = GetComponent<Button>();
+            btn.onClick.RemoveAllListeners();
+            btn.onClick.AddListener(() => { controller.LoadScene(1); });
+        }
+        else
+        {
+            if(gameObject.name == "quit")
+            {
+                Button btn = GetComponent<Button>();
+                btn.onClick.RemoveAllListeners();
+                btn.onClick.AddListener(() => { FindObjectOfType<GameManager>().Quit(); });
+            }
+        }
     }
 
     public void Update()
