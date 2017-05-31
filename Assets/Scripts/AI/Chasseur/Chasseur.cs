@@ -219,7 +219,7 @@ namespace AI
             shoot.target = target;
             agent.ResetPath();
             animator.Play("Shoot");
-            shoot.OnExecute = () => LookAt(CurrentAction.target.transform.position);
+            LookAt(target.transform.position);
             Wait(0.1f).Next = () =>
             {
                 shoot.timer = animator.GetCurrentAnimatorStateInfo(0).length;
