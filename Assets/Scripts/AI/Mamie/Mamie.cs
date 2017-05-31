@@ -15,6 +15,8 @@ namespace AI
 
         public StartState startState = StartState.Feeding;
 
+        public GameObject koFX;
+
         public IconDisplayer icon;
         public ParticleSystem dieParticle;
         public float dieTime = 2;
@@ -733,12 +735,14 @@ namespace AI
                         ActionTask drinkAnim = PlayAnim("Drink", () => {
                             stun = true;
                             drink = false;
+                            koFX.SetActive(true);
                             PlayAnimFor("IdleToKo", 10, () =>
                             {
                                 PlayAnim("KoToIdle", () =>
                                 {
                                     stun = false;
                                     drink = true;
+                                    koFX.SetActive(false);
                                 });
                             });
                         });
