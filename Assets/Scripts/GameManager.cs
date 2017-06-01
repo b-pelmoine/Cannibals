@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour {
     public GameState state, prevState;
 
     bool endCondition;
-    bool End_CR_Running = false;
+    bool Reload_CR_Running = false;
 
     void Awake()
     {
@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour {
             {
                 if (Input.GetKeyDown(KeyCode.R) || AreBothCannibalsDead())
                 {
-                    if(!End_CR_Running)
+                    if(!Reload_CR_Running)
                         StartCoroutine(reloadCurrentPhase());
                 }
             }
@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour {
         granny = GameObject.FindObjectOfType<AI.Mamie>();
 
         AI.Chasseur.alert = false;
-        End_CR_Running = false;
+        Reload_CR_Running = false;
     }
 
     void PhaseOneUpdate()
@@ -170,7 +170,7 @@ public class GameManager : MonoBehaviour {
 
     IEnumerator reloadCurrentPhase()
     {
-        End_CR_Running = true;
+        Reload_CR_Running = true;
         yield return new WaitForSeconds(3f);
         sceneController.LoadScene(1);
     }
