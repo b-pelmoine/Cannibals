@@ -67,6 +67,7 @@ namespace AI
 
         public void KnifeKill()
         {
+            Kill();
             animator.Play("Die");
             StopAll();
         }

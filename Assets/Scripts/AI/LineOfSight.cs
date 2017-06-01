@@ -127,7 +127,10 @@ public class LineOfSight : MonoBehaviour {
 
     public bool Analyse()
     {
-        if (on && !gameObject.activeInHierarchy) return false;
+        if (!on || !gameObject.activeInHierarchy)
+        {
+            return false;
+        }
         sighted.RemoveAll(x => x.time < 0 || x.target==null);
         foreach (SightInfo si in sighted)
             si.time -= Time.time - lastTime;

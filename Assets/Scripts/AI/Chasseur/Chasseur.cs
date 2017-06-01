@@ -373,11 +373,12 @@ namespace AI
 
         public void KnifeKill()
         {
-            StopAll();
+            Kill();
         }
 
         public override void Kill()
         {
+            base.Kill();
             StopAll();
         }
 

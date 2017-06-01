@@ -620,6 +620,7 @@ namespace AI
 
         protected void Die()
         {
+            Kill();
             AkSoundEngine.PostEvent("granny_death", gameObject);
             animator.Play("Die");
             state = AIState.DEAD;
@@ -733,6 +734,7 @@ namespace AI
                     if(MoveTo(bot.transform.position, 1.5f))
                     {
                         Stop();
+                        agent.ResetPath();
                         bot.linkedCannibal.LooseCannibalObject();
                         Grab(bot.gameObject);
                         ActionTask drinkAnim = PlayAnim("Drink", () => {

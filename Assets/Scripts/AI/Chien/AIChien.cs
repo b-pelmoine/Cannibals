@@ -107,6 +107,7 @@ namespace AI
         bool SeeBone()
         {
             SightInfo bone = los.FindNearest(x => {
+                if (x.target == null) return false;
                 Bone b = x.target.GetComponent<Bone>();
                 return b != null && b.linkedCannibal == null;
                 });
