@@ -726,6 +726,8 @@ namespace AI
 
         void OnDrink(Bottle bot)
         {
+            if (bot == null)
+                return;
             if (drink && Vector3.Distance(bot.transform.position, transform.position) < los.getSeeDistance())
             {
                 ActionTask task = new ActionTask();
