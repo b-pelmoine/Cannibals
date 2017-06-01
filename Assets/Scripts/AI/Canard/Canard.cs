@@ -37,7 +37,7 @@ namespace AI
             while (dead == false)
             {
                 AkSoundEngine.PostEvent("duck", gameObject);
-                yield return new WaitForSeconds(UnityEngine.Random.Range(0.5f,1.5f));
+                yield return new WaitForSeconds(UnityEngine.Random.Range(1.5f,3f));
             }
         }
 
