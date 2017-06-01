@@ -128,7 +128,7 @@ public class ForestAmbiance : MonoBehaviour {
     {
         if(!(c is SphereCollider))
         {
-            Debug.LogWarning("! A Tree has no sphere, or an object is on the Tree layer for no reason !");
+            //Debug.LogWarning("! A Tree has no sphere, or an object is on the Tree layer for no reason !");
             return;
         }
 
