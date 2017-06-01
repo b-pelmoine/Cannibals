@@ -752,6 +752,7 @@ namespace AI
                             drink = false;
                             koFX.SetActive(true);
                             bot.gameObject.SetActive(false);
+                            carry.Remove(bot.gameObject);
                             PlayAnimFor("IdleToKo", 10, () =>
                             {
                                 PlayAnim("KoToIdle", () =>
