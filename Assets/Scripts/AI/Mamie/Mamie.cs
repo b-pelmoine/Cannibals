@@ -768,6 +768,13 @@ namespace AI
                 Play(task);
             }
         }
+
+        /// <summary>
+        /// Déso pas Déso
+        /// </summary>
+        public void DieByDebug() {
+            Die();
+        }
         
     }
 }
