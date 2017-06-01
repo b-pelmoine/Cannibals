@@ -289,7 +289,8 @@ namespace AI
 
         public virtual void Kill()
         {
-
+            los.on = false;
+            los.sighted.Clear();
         }
 
         public int GetLevel()

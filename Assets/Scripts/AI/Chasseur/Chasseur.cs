@@ -349,6 +349,7 @@ namespace AI
 
         void OnBottleShaked(Bottle bot)
         {
+            if (bot == null) return;
             if (Vector3.SqrMagnitude(bot.transform.position - this.transform.position) < Mathf.Pow(los.getSeeDistance(),2))
             {
                 if (CurrentAction != null)
@@ -373,11 +374,12 @@ namespace AI
 
         public void KnifeKill()
         {
-            StopAll();
+            Kill();
         }
 
         public override void Kill()
         {
+            base.Kill();
             StopAll();
         }
 
