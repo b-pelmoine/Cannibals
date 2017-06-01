@@ -69,6 +69,11 @@ public class Cannibal_Skill : MonoBehaviour {
             if(m_cannibalObject)
                 m_cannibalObject.linkedCannibal = cannibalObject.linkedCannibal;
         }
+        else if (m_cannibalObject)
+        {
+            m_cannibalObject.Release();
+        }
+
 
        cannibalObject.Take(this.m_cannibal, cannibalObjectParent);
        m_cannibalObject = cannibalObject;

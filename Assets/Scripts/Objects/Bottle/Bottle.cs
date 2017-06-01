@@ -32,7 +32,7 @@ public class Bottle : CannibalObject, IShakable {
     public override void Release()
     {
         base.Release();
-        m_rigidbody.isKinematic = true;
+        m_rigidbody.isKinematic = false;
         m_collider.isTrigger = false;
     }
 
