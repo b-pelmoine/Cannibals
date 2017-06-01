@@ -13,6 +13,8 @@ public class Cannibal_Call : ActionState, ICannibal_State {
 
         if (m_cannibal.value.m_cannibalSkill.m_cannibalObject)
             ((ICall)m_cannibal.value.m_cannibalSkill.m_cannibalObject).Use();
+        else
+            this.Finish();
     }
 
     /// <summary>

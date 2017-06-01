@@ -18,6 +18,8 @@ public class Cannibal_LaunchObject : ActionState, ICannibal_State {
             ((IDropable)m_cannibal.value.m_cannibalSkill.m_cannibalObject).Throw(force, m_cannibal.value.m_cannibalAppearence.m_appearenceTransform.forward);
             m_cannibal.value.m_cannibalSkill.LooseCannibalObject();
         }
+        else
+            this.Finish();
     }
 
     /// <summary>

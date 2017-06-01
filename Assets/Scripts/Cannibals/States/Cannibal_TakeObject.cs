@@ -11,8 +11,10 @@ public class Cannibal_TakeObject : ActionState, ICannibal_State
 
     protected override void OnEnter()
     {
-        if(cannibalObjects.value[0])
+        if (cannibalObjects.value[0])
             m_cannibal.value.m_cannibalSkill.TakeCannibalObject(cannibalObjects.value[0]);
+        else
+            this.Finish();
 
         base.OnEnter();
     }

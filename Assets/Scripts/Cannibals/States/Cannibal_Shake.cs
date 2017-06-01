@@ -13,6 +13,8 @@ public class Cannibal_Shake :ActionState, ICannibal_State
 
         if (m_cannibal.value.m_cannibalSkill.m_cannibalObject)
             ((IShakable)m_cannibal.value.m_cannibalSkill.m_cannibalObject).Shake();
+        else
+            this.Finish();
     }
 
     /// <summary>
