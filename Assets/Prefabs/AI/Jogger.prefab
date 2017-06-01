@@ -1174,9 +1174,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4357269052286972}
   - component: {fileID: 20625495660755730}
-  - component: {fileID: 124155992641616772}
-  - component: {fileID: 92977969358400122}
-  - component: {fileID: 81147579745469836}
   m_Layer: 9
   m_Name: Camera
   m_TagString: Untagged
@@ -1403,8 +1400,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1375605370188922}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 162.97559, y: 10.001221, z: 161.87326}
+  m_LocalRotation: {x: -0, y: -0.6230628, z: -0, w: 0.78217185}
+  m_LocalPosition: {x: 237.80788, y: 10.11, z: 174.30632}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4811082412270446}
@@ -1413,7 +1410,7 @@ Transform:
   - {fileID: 224706605080476832}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -77.08, z: 0}
 --- !u!4 &4184450527387956
 Transform:
   m_ObjectHideFlags: 1
@@ -1928,7 +1925,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1863756096569036}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 0.45682034, z: 0}
+  m_LocalPosition: {x: -0.35, y: -2.45, z: -2.11}
   m_LocalScale: {x: 1.3363111, y: 1.3363111, z: 1.3363111}
   m_Children: []
   m_Father: {fileID: 4811082412270446}
@@ -2274,20 +2271,6 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
---- !u!81 &81147579745469836
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1980421180982564}
-  m_Enabled: 1
---- !u!92 &92977969358400122
-Behaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1980421180982564}
-  m_Enabled: 1
 --- !u!95 &95726355576162960
 Animator:
   serializedVersion: 3
@@ -2397,7 +2380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 8
-  LevelOfImportance: 0
+  LevelOfImportance: 1
   agent: {fileID: 0}
   animator: {fileID: 95726355576162960}
   waypoints: {fileID: 114829139847473522}
@@ -2415,16 +2398,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points:
   - tag: 1
-    position: {x: 147.15671, y: 10.050052, z: 136.40157}
+    position: {x: 161.25876, y: 10.001221, z: 152.86592}
     links: 01000000
   - tag: 2
-    position: {x: 152.49648, y: 10.364234, z: 124.479355}
+    position: {x: 153.30307, y: 10.008338, z: 177.52733}
     links: 02000000
   - tag: 3
-    position: {x: 144.1676, y: 10.050052, z: 113.48213}
+    position: {x: 91.30504, y: 10.001221, z: 167.12218}
     links: 03000000
   - tag: 4
-    position: {x: 137.09224, y: 10.050052, z: 125.34509}
+    position: {x: 93.93874, y: 10.001221, z: 132.5192}
+    links: 04000000
+  - tag: 5
+    position: {x: 141.16193, y: 10.050052, z: 128.35799}
     links: 
   currentDestination: {x: 0, y: 0, z: 0}
 --- !u!114 &114954629752016210
@@ -2455,13 +2441,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!124 &124155992641616772
-Behaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1980421180982564}
-  m_Enabled: 1
 --- !u!136 &136649972132733872
 CapsuleCollider:
   m_ObjectHideFlags: 1

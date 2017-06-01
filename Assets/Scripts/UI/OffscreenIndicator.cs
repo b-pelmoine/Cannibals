@@ -67,7 +67,7 @@ public class OffscreenIndicator : MonoBehaviour {
     public float PlayersSizeMultiplier = 1.0f;
     public bool pulse_Players = false;
     private List<IndicatorData> PlayersOnScreenPositions;
-    public RawGO[] Targets; // assigned at runtime / may vary over time
+    private List<RawGO> Targets; // assigned at runtime / may vary over time
     [Range(0.5f, 2f)]
     public float TargetsSizeMultiplier = 1.0f;
     public bool pulse_Targets = false;
@@ -77,7 +77,11 @@ public class OffscreenIndicator : MonoBehaviour {
     public RawGO[] endPosition;
     private List<IndicatorData> endPositions;
 
-    AI.Mamie granny;
+    public AI.Mamie granny;
+    private Corpse corpse;
+    private bool grannyDead;
+    private RawGO grannyRAW;
+    private RawGO corpseRAW;
 
     public bool showAIAgents;
     public bool showTarget; // automatique ? offscreen = enabled
@@ -102,24 +106,34 @@ public class OffscreenIndicator : MonoBehaviour {
 
         AIAgents = new List<RawGO>();
         oldAgents = new List<RawGO>();
-        
+        Targets = new List<RawGO>();
+
         AIOnScreenPositions = new List<IndicatorData>();
         TargetOnScreenPositions = new List<IndicatorData>();
         OldTargetOnScreenPositions = new List<IndicatorData>();
         PlayersOnScreenPositions = new List<IndicatorData>();
         endPositions = new List<IndicatorData>();
+        
 
         granny = GameObject.FindObjectOfType<AI.Mamie>();
 
-        //showTarget = true;
+        showTarget = true;
         showPlayers = true;
         showAIAgents = true;
+
+        grannyDead = false;
         //showPlayers = true;
     }
 
     //test if not already registered
     public void AddAgentIndicator(GameObject go, AIType type)
     {
+        if (type == AIType.Target_Alive)
+        {
+            grannyRAW = new RawGO(go, type);
+            Targets.Add(grannyRAW);
+            return;
+        }
         int instanceID = go.GetInstanceID();
         //don't add if already in the list
         foreach (RawGO RawgameObject in AIAgents){if (instanceID == RawgameObject.go.GetInstanceID()) return;}
@@ -154,6 +168,7 @@ public class OffscreenIndicator : MonoBehaviour {
                 elapsedTime = 0;
             foreach (RawGO go in AIAgents) oldAgents.Add(go);
             AIAgents.Clear();
+            Targets.Remove(grannyRAW);
         }
     }
 
@@ -199,7 +214,7 @@ public class OffscreenIndicator : MonoBehaviour {
         GUI.color = Color.white;
         if (showTarget)
         {
-            
+            if(granny)
             foreach (IndicatorData data in TargetOnScreenPositions)
             {
                 GUI.DrawTexture(data._pos, getTextureFromType(data._type), ScaleMode.ScaleToFit);
@@ -213,7 +228,7 @@ public class OffscreenIndicator : MonoBehaviour {
             }
         }
         //proto uiui
-        if (granny.isDead())
+        if (grannyDead)
         {
             foreach (IndicatorData data in endPositions)
             {
@@ -237,9 +252,7 @@ public class OffscreenIndicator : MonoBehaviour {
         if(showTarget)
         {
             pSpeed = (pulse_Targets) ? pulseSpeed : 0;
-            //checke if alive then display
-            addIndicatorForGameObjects(TargetOnScreenPositions, Targets, TargetsSizeMultiplier, false, pSpeed);
-            
+            addIndicatorForGameObjects(TargetOnScreenPositions, Targets.ToArray(), TargetsSizeMultiplier, false, pSpeed);
         }
         if(showPlayers)
         {
@@ -256,8 +269,24 @@ public class OffscreenIndicator : MonoBehaviour {
             }
             addIndicatorForGameObjects(PlayersOnScreenPositions, deadPlayers.ToArray(), PlayersSizeMultiplier , true, pSpeed);
         }
-        if(granny.isDead())
+        if(!grannyDead)
+        {
+            if (granny.isDead()) grannyDead = true;
+        }
+        else
+        {
+            if (!corpse) corpse = GameObject.FindObjectOfType<Corpse>();
+            else
+            {
+                if(!Targets.Contains(corpseRAW))
+                {
+                    corpseRAW = new RawGO(corpse.gameObject, AIType.Target_Dead);
+                    Targets.Add(corpseRAW);
+                }
+            }
             addIndicatorForGameObjects(endPositions, endPosition, 2);
+        }
+            
     }
 
     //add IndicatorData for the given GameObjects into the list
@@ -333,7 +362,7 @@ public class OffscreenIndicator : MonoBehaviour {
                     alterDimensionPop = 1 + (4 * (transitionIn - elapsedLastPop));
 
                 Vector2 dimensions = new Vector2(Screen.width / 20, Screen.height / 20) 
-                    * Mathf.Clamp(20 / distFromPlayers, 0.5f, 1.5f) 
+                    * Mathf.Clamp(30 / distFromPlayers, 0f, 2f) 
                     * (sizeMultiplier + 0.1f * (Mathf.Sin(pulseSpeed*Time.time)))
                     * alterDimensionPop;
                 
