@@ -107,7 +107,10 @@ public class FollowCam : MonoBehaviour {
             centerOfAttention = (pOneAlive) ? playerOne.position : playerTwo.position;
         }
         //Collider[] nearbyElements = Physics.OverlapSphere(centerOfAttention, catchElementsRadius, layerMask);
-        List<GameObject> agents = AIAgentManager.getActiveAgents().FindAll(x => (x.transform.position-centerOfAttention).sqrMagnitude<Mathf.Pow(catchElementsRadius,2));
+        List<GameObject> agents = AIAgentManager.getActiveAgents();
+        //remove null references
+        agents.RemoveAll(x => (!x));
+        agents = agents.FindAll(x => (x.transform.position-centerOfAttention).sqrMagnitude<Mathf.Pow(catchElementsRadius,2));
         int sumOfLevels = 1; //Importance level of both players
         Vector3 elementsBarycenter = centerOfAttention;
         foreach(GameObject a in agents)
