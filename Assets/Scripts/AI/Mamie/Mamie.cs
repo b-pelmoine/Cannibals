@@ -517,9 +517,9 @@ namespace AI
                             AkSoundEngine.SetSwitch("Objects", "Can", gameObject);
                             AkSoundEngine.PostEvent("granny_objects", gameObject);
                             Grab(can);
-                            canetteCounter++;
+                            
                         });
-                        take.Next = Stop;
+                        take.Next = () => { canetteCounter++; Stop(); };
                     };
                 };
                 
