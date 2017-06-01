@@ -19,8 +19,8 @@ public class Machine : MonoBehaviour, IActivable {
     int produced = 0;
     bool finished = false;
 
-    bool hasCan = false;
-    GameObject can = null;
+    int hasCan = 0;
+    List<GameObject> can = new List<GameObject>();
 
     public bool poisoned = false;
 
@@ -55,8 +55,8 @@ public class Machine : MonoBehaviour, IActivable {
                 {
                     timer = 0;
                 }
-                can = newCan;
-                hasCan = true;
+                can.Add(newCan);
+                hasCan ++;
                 //poisoned = true;
             }
             else if(timer > time)
@@ -69,13 +69,15 @@ public class Machine : MonoBehaviour, IActivable {
 
     public GameObject takeCan()
     {
-        hasCan = false;
-        return can;
+        hasCan--;
+        GameObject c = can[can.Count - 1];
+        can.Remove(c);
+        return c;
     }
 
     public bool CanReady()
     {
-        return hasCan;
+        return hasCan>0;
     }
 
 

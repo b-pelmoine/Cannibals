@@ -527,7 +527,7 @@ namespace AI
                             Grab(can);
                             
                         });
-                        take.Next = () => { canetteCounter++; Stop(); };
+                        take.Next = () => {  canetteCounter++; Stop(); };
                     };
                 };
                 
