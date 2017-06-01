@@ -349,6 +349,7 @@ namespace AI
 
         void OnBottleShaked(Bottle bot)
         {
+            if (bot == null) return;
             if (Vector3.SqrMagnitude(bot.transform.position - this.transform.position) < Mathf.Pow(los.getSeeDistance(),2))
             {
                 if (CurrentAction != null)
