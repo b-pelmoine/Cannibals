@@ -122,6 +122,7 @@ namespace AI
 
         protected bool SeeCannibal()
         {
+            Debug.Log("alert " + alert);
             List<SightInfo> sightedCannibals = los.sighted.FindAll(x => {
                 Cannibal can = x.target.GetComponentInParent<Cannibal>();
                 return can != null && !can.IsDead() && (alert || can.isCoverOfBlood);
@@ -145,8 +146,10 @@ namespace AI
         protected bool SeeCorpse()
         {
             SightInfo corpse = los.sighted.Find(x => x.target.GetComponent<Corpse>() != null && los.getDetectRate(x) > 0.9f);
-            if (corpse != null)
+            if (corpse != null && alert==false)
+            {
                 return true;
+            }
             return false;
         }
 

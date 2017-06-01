@@ -487,7 +487,7 @@ namespace AI
                 () => SeeCannibal() && Vector3.Distance((CurrentAction.callData as SightInfo).target.transform.position, machine.transform.position) < machineRadius
                 , Hit);
             //Canette fini
-            if (canetteCounter == machineCanetteNumber)
+            if (canetteCounter == machineCanetteNumber-1)
                 action.Next = () =>
                 {
                     EatCanette();
