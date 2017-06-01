@@ -88,7 +88,7 @@ public class Machine : MonoBehaviour, IActivable {
             if (Working)
             {
                 animator.Play("ToOn");
-                AkSoundEngine.PostEvent("machine_gen", gameObject);
+                AkSoundEngine.PostEvent("machine_work", gameObject);
             }
         }
         else
@@ -112,7 +112,7 @@ public class Machine : MonoBehaviour, IActivable {
         if (On)
         {
             animator.Play("ToOn");
-            AkSoundEngine.PostEvent("machine_gen", gameObject);
+            AkSoundEngine.PostEvent("machine_work", gameObject);
         }
     }
 
