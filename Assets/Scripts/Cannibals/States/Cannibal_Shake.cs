@@ -10,7 +10,9 @@ public class Cannibal_Shake :ActionState, ICannibal_State
     protected override void OnUpdate()
     {
         base.OnUpdate();
-        ((IShakable)m_cannibal.value.m_cannibalSkill.m_cannibalObject).Shake();
+
+        if (m_cannibal.value.m_cannibalSkill.m_cannibalObject)
+            ((IShakable)m_cannibal.value.m_cannibalSkill.m_cannibalObject).Shake();
     }
 
     /// <summary>

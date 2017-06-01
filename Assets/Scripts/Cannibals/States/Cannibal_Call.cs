@@ -10,7 +10,9 @@ public class Cannibal_Call : ActionState, ICannibal_State {
     protected override void OnUpdate()
     {
         base.OnUpdate();
-        ((ICall)m_cannibal.value.m_cannibalSkill.m_cannibalObject).Use();
+
+        if (m_cannibal.value.m_cannibalSkill.m_cannibalObject)
+            ((ICall)m_cannibal.value.m_cannibalSkill.m_cannibalObject).Use();
     }
 
     /// <summary>

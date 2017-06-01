@@ -12,8 +12,12 @@ public class Cannibal_LaunchObject : ActionState, ICannibal_State {
     protected override void OnEnter()
     {
         base.OnEnter();
-        ((IDropable)m_cannibal.value.m_cannibalSkill.m_cannibalObject).Throw(force, m_cannibal.value.m_cannibalAppearence.m_appearenceTransform.forward);
-        m_cannibal.value.m_cannibalSkill.LooseCannibalObject();
+
+        if (m_cannibal.value.m_cannibalSkill.m_cannibalObject)
+        {
+            ((IDropable)m_cannibal.value.m_cannibalSkill.m_cannibalObject).Throw(force, m_cannibal.value.m_cannibalAppearence.m_appearenceTransform.forward);
+            m_cannibal.value.m_cannibalSkill.LooseCannibalObject();
+        }
     }
 
     /// <summary>
