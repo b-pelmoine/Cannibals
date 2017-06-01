@@ -211,28 +211,36 @@ namespace AI
         {
             if(!stun)
             {
+                ActionTask hit = new ActionTask();
                 agent.speed = runSpeed;
                 SightInfo target = CurrentAction.callData as SightInfo;
-                if(MoveTo(target.target.transform.position, 2))
+                hit.OnExecute = () =>
                 {
-                    animator.Play("Hit");
-                    AkSoundEngine.PostEvent("granny_whoosh_hit", gameObject);
-                    Wait(0.1f).Next = () =>
+                    if(MoveTo(target.target.transform.position, 2))
                     {
-                        anim_call_count = 0;
-                        Wait(animator.GetCurrentAnimatorStateInfo(0).length,
-                        () => LookAt(target.target.transform.position)).callbacks.Add(0, () =>
+                        animator.Play("Hit");
+                        AkSoundEngine.PostEvent("granny_whoosh_hit", gameObject);
+                        Wait(0.1f).Next = () =>
                         {
-                        
-                            if ((target.target.transform.position - transform.position).sqrMagnitude < 2 * 2)
+                            anim_call_count = 0;
+                            ActionTask f = Wait(animator.GetCurrentAnimatorStateInfo(0).length,
+                            () => LookAt(target.target.transform.position));
+                            f.callbacks.Add(0, () =>
                             {
-                                AkSoundEngine.PostEvent("granny_hit", gameObject);
-                                Cannibal can = target.target.GetComponentInParent<Cannibal>();
-                                if (can != null) can.Kill();
-                            }
-                        });
-                    };
-                }
+                        
+                                if ((target.target.transform.position - transform.position).sqrMagnitude < 2 * 2)
+                                {
+                                    AkSoundEngine.PostEvent("granny_hit", gameObject);
+                                    Cannibal can = target.target.GetComponentInParent<Cannibal>();
+                                    if (can != null) can.Kill();
+                                }
+                            });
+                            f.Next = Stop;
+                        };
+                    }
+                };
+                hit.AddReaction(() => !los.sighted.Contains(target), Stop);
+                Play(hit);
             }
         }
 
