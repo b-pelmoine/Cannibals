@@ -751,6 +751,7 @@ namespace AI
                             stun = true;
                             drink = false;
                             koFX.SetActive(true);
+                            bot.gameObject.SetActive(false);
                             PlayAnimFor("IdleToKo", 10, () =>
                             {
                                 PlayAnim("KoToIdle", () =>
