@@ -24,6 +24,8 @@ namespace AI
         public float defendRange = 10;
         
         public ParticleSystem fireBurst;
+        public ParticleSystem woodBurst;
+        public ParticleSystem bloodBurst;
 
         int anim_speedId = Animator.StringToHash("Speed");
         int anim_shoot = Animator.StringToHash("Shoot");
@@ -295,12 +297,17 @@ namespace AI
             {
                 if(hit.collider.gameObject.layer == 31)
                 {//Particle tree
-
+                    woodBurst.transform.position = hit.point;
+                    woodBurst.transform.LookAt(hit.point + hit.normal);
+                    woodBurst.Play();
                 }
                 AIAgent agent = hit.collider.gameObject.GetComponent<AIAgent>();
                 if (agent != null)
                 {
                     //Particle sang
+                    bloodBurst.transform.position = hit.point;
+                    bloodBurst.transform.LookAt(hit.point + hit.normal);
+                    bloodBurst.Play();
                     agent.Kill();
                 }
                 else
