@@ -278,12 +278,28 @@ namespace AI
             fireBurst.Play();
             Vector3 position = agent.transform.position;
             Vector3 direction = agent.transform.forward;
-            RaycastHit hit;
-            if (Physics.Raycast(position, direction, out hit, shootingRange, shootingMask))
+            ShootRay(position, direction, shootingRange);
+            Collider[] cols = Physics.OverlapSphere(agent.transform.position, 2);
+            foreach(Collider col in cols)
             {
+                Cannibal c = col.GetComponentInParent<Cannibal>();
+                c.Kill();
+            }
+        }
+
+        void ShootRay(Vector3 position, Vector3 direction, float distance)
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(position, direction, out hit, distance, shootingMask))
+            {
+                if(hit.collider.gameObject.layer == 31)
+                {//Particle tree
+
+                }
                 AIAgent agent = hit.collider.gameObject.GetComponent<AIAgent>();
                 if (agent != null)
                 {
+                    //Particle sang
                     agent.Kill();
                 }
                 else
@@ -299,16 +315,14 @@ namespace AI
                         Bush bush = hit.collider.gameObject.GetComponent<Bush>();
                         if (bush != null)
                         {
-                            bush.KillACannibal();
+                            if (!bush.KillACannibal())
+                            {
+                                float nd = distance - Vector3.Distance(agent.transform.position, bush.transform.position);
+                                ShootRay(bush.transform.position, direction, nd);
+                            }
                         }
                     }
                 }
-            }
-            Collider[] cols = Physics.OverlapSphere(agent.transform.position, 2);
-            foreach(Collider col in cols)
-            {
-                Cannibal c = col.GetComponentInParent<Cannibal>();
-                c.Kill();
             }
         }
 
