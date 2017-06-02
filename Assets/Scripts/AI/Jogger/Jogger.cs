@@ -69,6 +69,7 @@ namespace AI
         {
             base.Kill();
             animator.Play("Die");
+            ResetPath();
             StopAll();
         }
 
