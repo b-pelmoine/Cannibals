@@ -631,6 +631,7 @@ namespace AI
             Kill();
             AkSoundEngine.PostEvent("granny_death", gameObject);
             animator.Play("Die");
+            Bottle.OnBottleShaked -= OnDrink;
             state = AIState.DEAD;
             Wait(0.1f).Next = () =>
             {
