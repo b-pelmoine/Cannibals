@@ -65,6 +65,13 @@ namespace AI
             return true;
         }
 
+        public override void Kill()
+        {
+            base.Kill();
+            animator.Play("Die");
+            StopAll();
+        }
+
         public void KnifeKill()
         {
             Kill();
