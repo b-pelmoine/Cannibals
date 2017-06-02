@@ -168,7 +168,7 @@ public class Corpse : MonoBehaviour {
 
     public void Move(bool b)
     {
-        animator.SetBool("move", b);
+       // animator.SetBool("move", b);
     }
 
 
