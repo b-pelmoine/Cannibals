@@ -305,5 +305,11 @@ namespace AI
             LineOfSight.UnRegister(gameObject);
             Destroy(gameObject);
         }
+
+        public void ResetPath()
+        {
+            agent.ResetPath();
+            lastRequest = null;
+        }
     }
 }

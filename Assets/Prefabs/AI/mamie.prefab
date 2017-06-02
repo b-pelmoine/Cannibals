@@ -3881,6 +3881,7 @@ GameObject:
   - component: {fileID: 136633369126245338}
   - component: {fileID: 114441760920387766}
   - component: {fileID: 114217993369753140}
+  - component: {fileID: 135888781933251982}
   m_Layer: 9
   m_Name: mamie
   m_TagString: Untagged
@@ -29481,7 +29482,7 @@ Transform:
   m_GameObject: {fileID: 1250908627582642}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -24.5, y: 0.086, z: 14}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children:
   - {fileID: 4547055167725360}
   - {fileID: 4268089074594040}
@@ -32476,6 +32477,18 @@ MonoBehaviour:
   animator: {fileID: 95560931699675588}
   scoutHand: {fileID: 4963742124183980}
   cookie: {fileID: 1001815362176264, guid: 56c3f4ebe40621943ba6c8c6f1805d2c, type: 2}
+--- !u!135 &135888781933251982
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1250908627582642}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.1102206
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136261347571291066
 CapsuleCollider:
   m_ObjectHideFlags: 1

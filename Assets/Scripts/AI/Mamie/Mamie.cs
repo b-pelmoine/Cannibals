@@ -353,6 +353,7 @@ namespace AI
             ActionTask action = new ActionTask();
             action.OnExecute = () =>
             {
+                Debug.Log("positionCanard:" + position);
                 if(MoveTo(position, 2f))
                 {
                     feeded = 0;
@@ -552,8 +553,17 @@ namespace AI
                     {
                         anim_call_count = 0;
                         ActionTask wait = Wait(animator.GetCurrentAnimatorStateInfo(0).length);
-                        wait.callbacks.Add(0, generateur.Switch);
-                        wait.Next = Stop;
+                        wait.callbacks.Add(0, () => {
+                            generateur.Switch();
+                        }
+                        );
+                        wait.Next = () =>
+                        {
+                            if (generateur.electric)
+                                Die();
+                            else
+                                Stop();
+                        };
                     };
                 }
             };
@@ -628,7 +638,7 @@ namespace AI
 
         protected void Die()
         {
-            Kill();
+           // Kill();
             AkSoundEngine.PostEvent("granny_death", gameObject);
             animator.Play("Die");
             Bottle.OnBottleShaked -= OnDrink;
@@ -697,6 +707,10 @@ namespace AI
         {
             g.transform.parent = mamieHand;
             g.transform.localPosition = Vector3.zero;
+
+            Rigidbody rigid = g.GetComponent<Rigidbody>();
+            if (rigid != null)
+                rigid.isKinematic = true;
             if(carry.Count>0)
                 carry[carry.Count - 1].SetActive(false);
             Collider c = g.GetComponentInChildren<Collider>();
@@ -739,13 +753,15 @@ namespace AI
                 return;
             if (drink && Vector3.Distance(bot.transform.position, transform.position) < los.getSeeDistance())
             {
+                drink = false;
                 ActionTask task = new ActionTask();
                 task.OnExecute = () =>
                 {
+                    Debug.Log("drinking");
                     if(MoveTo(bot.transform.position, 1.5f))
                     {
                         Stop();
-                        agent.ResetPath();
+                        ResetPath();
                         bot.linkedCannibal.LooseCannibalObject();
                         Grab(bot.gameObject);
                         ActionTask drinkAnim = PlayAnim("Drink", () => {
@@ -761,6 +777,7 @@ namespace AI
                                     stun = false;
                                     drink = true;
                                     koFX.SetActive(false);
+                                    Debug.Log("retour à la normal");
                                 });
                             });
                         });

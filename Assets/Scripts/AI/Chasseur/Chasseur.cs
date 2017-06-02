@@ -247,6 +247,10 @@ namespace AI
                     if(bottle.linkedCannibal!=null)
                         bottle.linkedCannibal.LooseCannibalObject();
                     bottle.transform.parent = hand;
+                    bottle.transform.localPosition = Vector3.zero;
+                    Rigidbody rigid = bottle.GetComponent<Rigidbody>();
+                    if (rigid != null)
+                        rigid.isKinematic = true;
                     PlayAnim("Drink", () =>
                     {
                         bottle.gameObject.SetActive(false);

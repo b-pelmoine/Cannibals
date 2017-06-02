@@ -7,6 +7,7 @@ using UnityEngine;
 public class Generateur : MonoBehaviour, IActivable {
     public IconDisplayer icon;
     public bool On = true;
+    public bool electric = false;
     public Machine machine;
     private Animator animator;
 
@@ -46,7 +47,18 @@ public class Generateur : MonoBehaviour, IActivable {
 
     public void Activate(CannibalObject cannibal)
     {
-        Switch();
+        if(cannibal!=null && cannibal is Bottle)
+        {
+            electric = true;
+            cannibal.linkedCannibal.LooseCannibalObject();
+            cannibal.gameObject.SetActive(false);
+            if (On)
+                Switch();
+        }
+        else
+        {
+            Switch();
+        }
     }
 
     public void ShowIcon()
