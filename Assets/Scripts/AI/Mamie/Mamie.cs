@@ -659,7 +659,7 @@ namespace AI
         //Calls
         public override void Kill()
         {
-            StopAll();
+            Die();
         }
 
         public bool IsKnifeVulnerable()

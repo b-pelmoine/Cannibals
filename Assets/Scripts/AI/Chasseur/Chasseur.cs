@@ -283,7 +283,8 @@ namespace AI
             foreach(Collider col in cols)
             {
                 Cannibal c = col.GetComponentInParent<Cannibal>();
-                c.Kill();
+                if(c!=null)
+                    c.Kill();
             }
         }
 
