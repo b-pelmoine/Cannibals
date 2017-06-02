@@ -13851,6 +13851,13 @@
 							<ChildrenList>
 								<RandomSequenceContainer Name="Ducks" ID="{7F1B24E6-8ADE-4023-BC8E-414DECE5BBDB}" ShortID="666235602">
 									<PropertyList>
+										<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
+										<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+										<Property Name="MaxSoundPerInstance" Type="int16">
+											<ValueList>
+												<Value>1</Value>
+											</ValueList>
+										</Property>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
 										<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64">
@@ -13862,6 +13869,11 @@
 										</Property>
 										<Property Name="PositioningType" Type="int16" Value="1"/>
 										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="25"/>
+										<Property Name="UseMaxSoundPerInstance" Type="bool">
+											<ValueList>
+												<Value>True</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Attenuation">
@@ -19692,6 +19704,11 @@
 									<ChildrenList>
 										<RandomSequenceContainer Name="Bone" ID="{128449E9-4EBA-4D64-91C5-58D0C9DA7123}" ShortID="88466537">
 											<PropertyList>
+												<Property Name="MakeUpGain" Type="Real64">
+													<ValueList>
+														<Value>-25</Value>
+													</ValueList>
+												</Property>
 												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
 											</PropertyList>
 											<ReferenceList>
@@ -19764,6 +19781,11 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Bottle" ID="{16E9322C-86DB-4213-8379-F927908A1712}" ShortID="370151068">
 											<PropertyList>
+												<Property Name="MakeUpGain" Type="Real64">
+													<ValueList>
+														<Value>-25</Value>
+													</ValueList>
+												</Property>
 												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
 											</PropertyList>
 											<ReferenceList>
@@ -19836,6 +19858,11 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Can" ID="{966E9C3C-B703-4C85-85E5-B730F7F07DA5}" ShortID="310122204">
 											<PropertyList>
+												<Property Name="MakeUpGain" Type="Real64">
+													<ValueList>
+														<Value>-25</Value>
+													</ValueList>
+												</Property>
 												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
 											</PropertyList>
 											<ReferenceList>
@@ -19908,6 +19935,11 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Duck" ID="{51F5C022-BA5A-44F1-A2C8-62684C0D1470}" ShortID="496832039">
 											<PropertyList>
+												<Property Name="MakeUpGain" Type="Real64">
+													<ValueList>
+														<Value>-25</Value>
+													</ValueList>
+												</Property>
 												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
 											</PropertyList>
 											<ReferenceList>
@@ -19980,6 +20012,11 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Duck Plastic" ID="{EDBDDA14-931D-41F7-AF84-65E6579A9667}" ShortID="332749844">
 											<PropertyList>
+												<Property Name="MakeUpGain" Type="Real64">
+													<ValueList>
+														<Value>-25</Value>
+													</ValueList>
+												</Property>
 												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
 											</PropertyList>
 											<ReferenceList>
@@ -20052,6 +20089,11 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Shrooms" ID="{893A1434-7816-4069-9D5B-D9AD84FD4EF3}" ShortID="566537806">
 											<PropertyList>
+												<Property Name="MakeUpGain" Type="Real64">
+													<ValueList>
+														<Value>-25</Value>
+													</ValueList>
+												</Property>
 												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
 											</PropertyList>
 											<ReferenceList>
@@ -20124,6 +20166,11 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Cookie" ID="{D90B3765-7751-47FB-9703-73EB58C3F233}" ShortID="680790354">
 											<PropertyList>
+												<Property Name="MakeUpGain" Type="Real64">
+													<ValueList>
+														<Value>-25</Value>
+													</ValueList>
+												</Property>
 												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
 											</PropertyList>
 											<ReferenceList>
@@ -20196,6 +20243,11 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Rope" ID="{A7619BFB-1C1C-4DAB-B857-018E5DC853ED}" ShortID="777484601">
 											<PropertyList>
+												<Property Name="MakeUpGain" Type="Real64">
+													<ValueList>
+														<Value>-25</Value>
+													</ValueList>
+												</Property>
 												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
 											</PropertyList>
 											<ReferenceList>
@@ -20268,6 +20320,11 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Granny" ID="{6BABF4AF-A2D8-4D1B-8BDC-DF1133780615}" ShortID="152633789">
 											<PropertyList>
+												<Property Name="MakeUpGain" Type="Real64">
+													<ValueList>
+														<Value>-25</Value>
+													</ValueList>
+												</Property>
 												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
 											</PropertyList>
 											<ReferenceList>
@@ -20433,7 +20490,7 @@
 									<PropertyList>
 										<Property Name="MakeUpGain" Type="Real64">
 											<ValueList>
-												<Value>-6</Value>
+												<Value>-10</Value>
 											</ValueList>
 										</Property>
 										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="4"/>
@@ -22500,8 +22557,8 @@
 															<Modifier Name="" ID="{CE203AA4-5CD2-41C1-8054-B0476F79E9F1}">
 																<PropertyList>
 																	<Property Name="Enabled" Type="bool" Value="True"/>
-																	<Property Name="Max" Type="Real64" Value="100"/>
-																	<Property Name="Min" Type="Real64" Value="-100"/>
+																	<Property Name="Max" Type="Real64" Value="200"/>
+																	<Property Name="Min" Type="Real64" Value="-200"/>
 																</PropertyList>
 															</Modifier>
 														</ModifierInfo>
@@ -23662,6 +23719,11 @@
 									<ChildrenList>
 										<RandomSequenceContainer Name="Bottle" ID="{26B53AD0-994B-4D88-B97B-68C5B0DA4064}" ShortID="642226309">
 											<PropertyList>
+												<Property Name="MakeUpGain" Type="Real64">
+													<ValueList>
+														<Value>-12</Value>
+													</ValueList>
+												</Property>
 												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
 											</PropertyList>
 											<ReferenceList>
@@ -24309,6 +24371,11 @@
 								</RandomSequenceContainer>
 								<Sound Name="Reload" ID="{15271366-BA57-4EB6-A6C5-DCC47482FDB3}" ShortID="904887267" Type="SoundFX">
 									<PropertyList>
+										<Property Name="MakeUpGain" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
 										<Property Name="PositioningType" Type="int16" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
@@ -27858,6 +27925,11 @@
 									<ChildrenList>
 										<RandomSequenceContainer Name="Can" ID="{AFE3846B-3947-4469-B63A-9757FC3E72CC}" ShortID="978273373">
 											<PropertyList>
+												<Property Name="MakeUpGain" Type="Real64">
+													<ValueList>
+														<Value>-12</Value>
+													</ValueList>
+												</Property>
 												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
 											</PropertyList>
 											<ReferenceList>
@@ -27930,6 +28002,11 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Duck" ID="{CDAC5033-6867-469D-853E-06DF723652AD}" ShortID="975464377">
 											<PropertyList>
+												<Property Name="MakeUpGain" Type="Real64">
+													<ValueList>
+														<Value>-12</Value>
+													</ValueList>
+												</Property>
 												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
 											</PropertyList>
 											<ReferenceList>
@@ -28002,6 +28079,11 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Shrooms" ID="{FF7F3377-D819-4E93-9C8B-F787397963A8}" ShortID="502406084">
 											<PropertyList>
+												<Property Name="MakeUpGain" Type="Real64">
+													<ValueList>
+														<Value>-12</Value>
+													</ValueList>
+												</Property>
 												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
 											</PropertyList>
 											<ReferenceList>
@@ -28074,6 +28156,11 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Cookie" ID="{407AD6F6-3256-46DB-9569-4D741558566C}" ShortID="379102038">
 											<PropertyList>
+												<Property Name="MakeUpGain" Type="Real64">
+													<ValueList>
+														<Value>-12</Value>
+													</ValueList>
+												</Property>
 												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
 											</PropertyList>
 											<ReferenceList>
@@ -29395,6 +29482,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<SwitchContainer Name="Steps" ID="{E7E6F2AF-64F4-4994-B4B5-FEE349A061DD}" ShortID="411714306">
+									<PropertyList>
+										<Property Name="MakeUpGain" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
@@ -30640,7 +30734,7 @@
 									</ChildrenList>
 									<GroupingInfo>
 										<GroupRef Name="Steps" ID="{E59B9C2B-E14E-4841-985F-0CE4AAE17B9F}"/>
-										<DefaultSwitchRef Name="" ID="{00000000-0000-0000-0000-000000000000}"/>
+										<DefaultSwitchRef Name="Gravel" ID="{F391142F-4F8A-49D5-84BC-5605072A7CEC}"/>
 										<GroupingBehaviorList>
 											<GroupingBehavior>
 												<ItemRef Name="Step sequence" ID="{A7F563A6-A0F7-4990-9757-DBE58C0FD8FC}"/>
@@ -32082,6 +32176,9 @@
 						</Sound>
 						<RandomSequenceContainer Name="Générateur" ID="{B9941FC7-494F-4789-9A3A-C5F832AC5EDD}" ShortID="21285760">
 							<PropertyList>
+								<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="2"/>
+								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 								<Property Name="RandomOrSequence" Type="int16" Value="0"/>
 							</PropertyList>
 							<ReferenceList>
