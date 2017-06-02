@@ -754,10 +754,13 @@ namespace AI
             if (drink && Vector3.Distance(bot.transform.position, transform.position) < los.getSeeDistance())
             {
                 drink = false;
+                Transform parent = bot.transform.parent;
                 ActionTask task = new ActionTask();
                 task.OnExecute = () =>
                 {
                     Debug.Log("drinking");
+                    if (parent != bot.transform.parent)
+                        Stop();
                     if(MoveTo(bot.transform.position, 1.5f))
                     {
                         Stop();

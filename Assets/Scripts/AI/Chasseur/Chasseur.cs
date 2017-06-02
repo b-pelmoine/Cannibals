@@ -236,10 +236,13 @@ namespace AI
         protected void Drink()
         {
             Bottle bottle = CurrentAction.callData as Bottle;
+            Transform parent = bottle.transform.parent;
             AkSoundEngine.PostEvent("hunter_bottle", gameObject);
             ActionTask drink = new ActionTask();
             drink.OnExecute = () =>
             {
+                if (parent != bottle.transform.parent)
+                    Stop();
                 if (MoveTo(bottle.transform.position, 2))
                 {
                     Stop();
@@ -251,6 +254,9 @@ namespace AI
                     Rigidbody rigid = bottle.GetComponent<Rigidbody>();
                     if (rigid != null)
                         rigid.isKinematic = true;
+                    Collider c = bottle.GetComponent<Collider>();
+                    if (c != null)
+                        c.enabled = false;
                     PlayAnim("Drink", () =>
                     {
                         bottle.gameObject.SetActive(false);
