@@ -29498,7 +29498,7 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<RandomSequenceContainer Name="Step sequence" ID="{A7F563A6-A0F7-4990-9757-DBE58C0FD8FC}" ShortID="385100224">
+										<RandomSequenceContainer Name="Steps Gravel" ID="{A7F563A6-A0F7-4990-9757-DBE58C0FD8FC}" ShortID="385100224">
 											<PropertyList>
 												<Property Name="OutputBusHighpass" Type="int16">
 													<ValueList>
@@ -30731,20 +30731,477 @@
 												<ItemRef Name="Gravel left" ID="{A59EFA0F-61F4-4570-989C-31A76BC4D85F}"/>
 											</Playlist>
 										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Steps Wood" ID="{5339DFF8-8154-4B87-BBCD-1D8829CEDAEA}" ShortID="751001796">
+											<PropertyList>
+												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<RandomSequenceContainer Name="Wood left" ID="{5DD99295-4798-4389-B0E0-DEEEA467E851}" ShortID="579319706">
+													<PropertyList>
+														<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="5"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<Sound Name="Wood humpf_1" ID="{36A7C9D2-41FB-492C-A084-3066050E3CDB}" ShortID="1021093159" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="REC M2_02" ID="{CC1ED5A9-0B06-4CF1-852A-FADCAA618058}" ShortID="736723887">
+																	<Language>SFX</Language>
+																	<AudioFile>REC M2_02.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="REC M2_02" ID="{CC1ED5A9-0B06-4CF1-852A-FADCAA618058}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Wood humpf_2" ID="{F17CE8F4-7A67-422C-BEF4-3AA7130CD8DC}" ShortID="241583285" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="REC M2_163" ID="{6FBB38EC-E514-495C-8332-1BAD662D59C7}" ShortID="461988968">
+																	<Language>SFX</Language>
+																	<AudioFile>REC M2_163.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="REC M2_163" ID="{6FBB38EC-E514-495C-8332-1BAD662D59C7}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Wood humpf_3" ID="{1E678F9C-2E03-4747-AFC1-E03B2FCB9457}" ShortID="428025716" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="REC M2_164" ID="{8E6DAE9C-8A96-4802-B5BD-3A0C2D5E44AA}" ShortID="449000165">
+																	<Language>SFX</Language>
+																	<AudioFile>REC M2_164.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="REC M2_164" ID="{8E6DAE9C-8A96-4802-B5BD-3A0C2D5E44AA}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Wood humpf_4" ID="{73A0ADBB-AFBC-4133-8428-A7FEE58EDACD}" ShortID="571749980" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="REC M2_165" ID="{D803D0DB-20F5-40B5-83F4-3E9246B15D12}" ShortID="782688247">
+																	<Language>SFX</Language>
+																	<AudioFile>REC M2_165.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="REC M2_165" ID="{D803D0DB-20F5-40B5-83F4-3E9246B15D12}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Wood humpf_5" ID="{8AAB3B62-8E18-4D15-955A-C1460C682874}" ShortID="293407400" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="REC M2_166" ID="{328EA30F-76A5-4B19-9D8E-F57C56AD873C}" ShortID="191037132">
+																	<Language>SFX</Language>
+																	<AudioFile>REC M2_166.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="REC M2_166" ID="{328EA30F-76A5-4B19-9D8E-F57C56AD873C}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Wood humpf_6" ID="{ED1F86AC-FF26-4FA0-9F62-2576545E0FC3}" ShortID="231359250" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="REC M2_167" ID="{91E311B8-A541-4EB3-9BC4-425190D58393}" ShortID="995144768">
+																	<Language>SFX</Language>
+																	<AudioFile>REC M2_167.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="REC M2_167" ID="{91E311B8-A541-4EB3-9BC4-425190D58393}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Wood humpf_7" ID="{940DF688-F4D1-4F74-AF40-73A0BAC062B7}" ShortID="633402279" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="REC M2_168" ID="{E45683FA-CB13-4980-BC6B-950DF797CC7C}" ShortID="979214078">
+																	<Language>SFX</Language>
+																	<AudioFile>REC M2_168.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="REC M2_168" ID="{E45683FA-CB13-4980-BC6B-950DF797CC7C}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Wood humpf_8" ID="{A11C5301-6916-4F4D-B28B-B0BAECCB399E}" ShortID="1030775558" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="REC M2_169" ID="{8F24627D-C6BD-46C9-AF58-C1394C8F5F2C}" ShortID="684276943">
+																	<Language>SFX</Language>
+																	<AudioFile>REC M2_169.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="REC M2_169" ID="{8F24627D-C6BD-46C9-AF58-C1394C8F5F2C}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Wood humpf_9" ID="{489FBD09-64AF-4BBD-B637-174306B62D8E}" ShortID="1037061305" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="REC M2_170" ID="{1FEF1555-AD56-4E2E-B857-E7A22D94BC98}" ShortID="357995819">
+																	<Language>SFX</Language>
+																	<AudioFile>REC M2_170.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="REC M2_170" ID="{1FEF1555-AD56-4E2E-B857-E7A22D94BC98}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Wood humpf_10" ID="{9ACB04E9-C90E-4F5E-A6CE-E81A5E582719}" ShortID="503184207" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="REC M2_171" ID="{91E1C783-906A-4C8F-B0B9-EB2F0CB30E5D}" ShortID="556714095">
+																	<Language>SFX</Language>
+																	<AudioFile>REC M2_171.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="REC M2_171" ID="{91E1C783-906A-4C8F-B0B9-EB2F0CB30E5D}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+													</ChildrenList>
+												</RandomSequenceContainer>
+												<RandomSequenceContainer Name="Wood right" ID="{E4FBAB55-5379-4C51-9E69-3839E9FC0F92}" ShortID="442593048">
+													<PropertyList>
+														<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="6"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<Sound Name="Wood_1" ID="{C50F18D6-07DF-4083-A624-9C83EC365D7F}" ShortID="60402777" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="REC M2_173" ID="{F5F1BC2E-FA0E-4BE1-9CA2-13EB504008FC}" ShortID="65209758">
+																	<Language>SFX</Language>
+																	<AudioFile>REC M2_173.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="REC M2_173" ID="{F5F1BC2E-FA0E-4BE1-9CA2-13EB504008FC}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Wood_2" ID="{7753056D-603E-4725-B471-6A35D148ED0D}" ShortID="297109218" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="REC M2_174" ID="{5E9A2DA2-3F26-4553-B23E-891D275EC5F5}" ShortID="134490667">
+																	<Language>SFX</Language>
+																	<AudioFile>REC M2_174.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="REC M2_174" ID="{5E9A2DA2-3F26-4553-B23E-891D275EC5F5}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Wood_3" ID="{EF8C0504-83EA-4AC0-8ADA-262572D7974A}" ShortID="669393643" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="REC M2_175" ID="{E41EF105-4EA9-4929-8350-2B3F52BC9466}" ShortID="436293653">
+																	<Language>SFX</Language>
+																	<AudioFile>REC M2_175.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="REC M2_175" ID="{E41EF105-4EA9-4929-8350-2B3F52BC9466}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Wood_4" ID="{EF011475-AADC-4FEF-8461-EAC8387B9DC4}" ShortID="475160686" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="REC M2_176" ID="{DDB15AA5-D3DA-4503-8097-B0312D731009}" ShortID="40853912">
+																	<Language>SFX</Language>
+																	<AudioFile>REC M2_176.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="REC M2_176" ID="{DDB15AA5-D3DA-4503-8097-B0312D731009}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Wood_5" ID="{07028B90-7DF1-47E6-B4F1-CAE080E393D0}" ShortID="97074958" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="REC M2_177" ID="{99F7C343-E2FC-4EF6-B40F-4B13C8B24F4C}" ShortID="377010650">
+																	<Language>SFX</Language>
+																	<AudioFile>REC M2_177.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="REC M2_177" ID="{99F7C343-E2FC-4EF6-B40F-4B13C8B24F4C}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Wood_6" ID="{1F8C4221-E843-4C82-B1F4-D3D207AE9821}" ShortID="195442415" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="REC M2_178" ID="{74BB5DF3-1C28-4A17-88BE-D5E4627E40CC}" ShortID="237873154">
+																	<Language>SFX</Language>
+																	<AudioFile>REC M2_178.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="REC M2_178" ID="{74BB5DF3-1C28-4A17-88BE-D5E4627E40CC}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Wood_7" ID="{335F0F3F-DE15-4A8C-84CC-EF1CB5A823F5}" ShortID="780820043" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="REC M2_179" ID="{DFE94878-1A23-441C-B3D8-E6853D970716}" ShortID="699981042">
+																	<Language>SFX</Language>
+																	<AudioFile>REC M2_179.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="REC M2_179" ID="{DFE94878-1A23-441C-B3D8-E6853D970716}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Wood_8" ID="{D7C13635-15B8-4C44-B315-2CDBDB2D0B9E}" ShortID="532294699" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="REC M2_180" ID="{12CC47A1-EF74-42A1-8ED5-FA61F2C6B4F5}" ShortID="586799851">
+																	<Language>SFX</Language>
+																	<AudioFile>REC M2_180.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="REC M2_180" ID="{12CC47A1-EF74-42A1-8ED5-FA61F2C6B4F5}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Wood_9" ID="{CD6382CD-0191-4DC3-B4E5-CF36DF939A73}" ShortID="957982719" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="REC M2_181" ID="{53B154B0-A0C6-44B1-91C6-D1E5A4A82DC2}" ShortID="719198714">
+																	<Language>SFX</Language>
+																	<AudioFile>REC M2_181.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="REC M2_181" ID="{53B154B0-A0C6-44B1-91C6-D1E5A4A82DC2}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Wood_10" ID="{FDDEFB91-901A-4728-9780-C4BB0378FA28}" ShortID="69361858" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="REC M2_182" ID="{98CF83ED-8161-4C6A-A031-63232E4B0BC0}" ShortID="689515634">
+																	<Language>SFX</Language>
+																	<AudioFile>REC M2_182.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="REC M2_182" ID="{98CF83ED-8161-4C6A-A031-63232E4B0BC0}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Wood_11" ID="{443AFC9A-3D38-4260-A2BC-098E9E8A06FB}" ShortID="801290783" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="REC M2_183" ID="{CD2B9D21-BD5F-4651-B3CE-AC626868FE1D}" ShortID="854024122">
+																	<Language>SFX</Language>
+																	<AudioFile>REC M2_183.wav</AudioFile>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="REC M2_183" ID="{CD2B9D21-BD5F-4651-B3CE-AC626868FE1D}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+													</ChildrenList>
+												</RandomSequenceContainer>
+											</ChildrenList>
+											<Playlist>
+												<ItemRef Name="Wood right" ID="{E4FBAB55-5379-4C51-9E69-3839E9FC0F92}"/>
+												<ItemRef Name="Wood left" ID="{5DD99295-4798-4389-B0E0-DEEEA467E851}"/>
+											</Playlist>
+										</RandomSequenceContainer>
 									</ChildrenList>
 									<GroupingInfo>
 										<GroupRef Name="Steps" ID="{E59B9C2B-E14E-4841-985F-0CE4AAE17B9F}"/>
-										<DefaultSwitchRef Name="Gravel" ID="{F391142F-4F8A-49D5-84BC-5605072A7CEC}"/>
+										<DefaultSwitchRef Name="" ID="{00000000-0000-0000-0000-000000000000}"/>
 										<GroupingBehaviorList>
 											<GroupingBehavior>
-												<ItemRef Name="Step sequence" ID="{A7F563A6-A0F7-4990-9757-DBE58C0FD8FC}"/>
+												<ItemRef Name="Steps Gravel" ID="{A7F563A6-A0F7-4990-9757-DBE58C0FD8FC}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Steps Wood" ID="{5339DFF8-8154-4B87-BBCD-1D8829CEDAEA}"/>
 											</GroupingBehavior>
 										</GroupingBehaviorList>
 										<GroupingList>
 											<Grouping>
 												<SwitchRef Name="Gravel" ID="{F391142F-4F8A-49D5-84BC-5605072A7CEC}"/>
 												<ItemList>
-													<ItemRef Name="Step sequence" ID="{A7F563A6-A0F7-4990-9757-DBE58C0FD8FC}"/>
+													<ItemRef Name="Steps Gravel" ID="{A7F563A6-A0F7-4990-9757-DBE58C0FD8FC}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="Wood" ID="{C3623FCC-9DC4-40BF-B559-2A2E6BF32A29}"/>
+												<ItemList>
+													<ItemRef Name="Steps Wood" ID="{5339DFF8-8154-4B87-BBCD-1D8829CEDAEA}"/>
 												</ItemList>
 											</Grouping>
 										</GroupingList>
