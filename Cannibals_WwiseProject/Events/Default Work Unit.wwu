@@ -825,6 +825,24 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="jogger_death" ID="{AC210B50-4101-4FC1-B42F-11FDA1671EA9}">
+					<ChildrenList>
+						<Action Name="Play" ID="{FFFFC70F-A3C4-4DC5-89F1-D0EF4BF5D750}" ShortID="131586412" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{B56324E1-B40B-40BA-9A30-B20D036927E4}" Global="false">
+									<ObjectRef Name="Death" ID="{A88FFFB4-E1D4-4214-BFF7-EDD9E8B3258A}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Stop" ID="{7B269D74-BF71-41D9-A202-80EC399A2D61}" ShortID="668817007" Type="Stop" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{4950B5BB-DA47-47B3-81B2-089310479E5E}" Global="false">
+									<ObjectRef Name="Steps" ID="{E7E6F2AF-64F4-4994-B4B5-FEE349A061DD}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
