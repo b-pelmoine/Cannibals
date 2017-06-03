@@ -146,11 +146,10 @@ public class GameManager : MonoBehaviour {
 
     IEnumerator EndGame()
     {
-        Debug.Log("end game gg");
         yield return new WaitForSeconds(2f);
         sceneController.displayEndGameScreen(true);
         yield return new WaitForSeconds(.5f);
-        while (!Input.GetKeyDown("joystick button 0")) { yield return new WaitForSeconds(.01f); }
+        while (!Input.GetKeyDown("joystick button 0")) { yield return new WaitForEndOfFrame(); }
         yield return new WaitForSeconds(.5f);
         sceneController.displayEndGameScreen(false);
         state = GameState.MENU;
