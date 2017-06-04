@@ -843,6 +843,20 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="menu_amb" ID="{9FB89099-9F5A-4470-8F38-93F3236CE551}">
+					<ChildrenList>
+						<Action Name="Play" ID="{2E0A90C0-46A1-48C1-A19A-5251C39CF53E}" ShortID="1036126130" Type="Play" Scope="One" Global="false">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="5"/>
+							</PropertyList>
+							<ElementList>
+								<Element ID="{C8C839D4-6B05-4CE2-8191-507EA517AF12}" Global="false">
+									<ObjectRef Name="Menu Amb" ID="{26CAED3D-4E9D-4EBF-BC7B-9600A5272DFF}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
