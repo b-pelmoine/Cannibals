@@ -869,10 +869,8 @@ namespace EquilibreGames
 
                 // By reducing the initial SphereCast's radius by Tolerance, our casted sphere no longer fits with
                 // our controller's shape. Reconstruct the sphere cast with the proper radius
-                SimulateCircleCast(hit.normal, out hit);
+                SimulateCircleCast(hit.normal, ref hit);
 
-                if (!hit)
-                    return;
 
                 if (hit.collider.isTrigger || ignoredColliders2D.Contains(hit.collider))
                     return;
@@ -1002,9 +1000,9 @@ namespace EquilibreGames
 
                 currentGroundTransform = hit.transform;
 
-                RaycastHit2D sphereCastHit;
+                RaycastHit2D sphereCastHit = default(RaycastHit2D);
 
-                if (SimulateCircleCast(hit.normal, out sphereCastHit))
+                if (SimulateCircleCast(hit.normal, ref sphereCastHit))
                 {
                     primaryGround = new GroundHit(sphereCastHit.point, sphereCastHit.normal, sphereCastHit.distance);
                 }
@@ -1059,7 +1057,7 @@ namespace EquilibreGames
 
                 // By reducing the initial SphereCast's radius by Tolerance, our casted sphere no longer fits with
                 // our controller's shape. Reconstruct the sphere cast with the proper radius
-                SimulateSphereCast(hit.normal, out hit);
+                SimulateSphereCast(hit.normal, ref hit);
 
                 if (hit.collider.isTrigger || ignoredColliders3D.Contains(hit.collider))
                     return;
@@ -1119,9 +1117,9 @@ namespace EquilibreGames
 
                     if (Physics.Raycast(flushOrigin, v, out flushHit, Mathf.Infinity, walkableLayer))
                     {
-                        RaycastHit sphereCastHit;
+                        RaycastHit sphereCastHit = default(RaycastHit);
 
-                        if (SimulateSphereCast(flushHit.normal, out sphereCastHit))
+                        if (SimulateSphereCast(flushHit.normal, ref sphereCastHit))
                         {
                             flushGround = new GroundHit(sphereCastHit.point, sphereCastHit.normal, sphereCastHit.distance);
                         }
@@ -1178,9 +1176,9 @@ namespace EquilibreGames
 
                 currentGroundTransform = hit.transform;
 
-                RaycastHit sphereCastHit;
+                RaycastHit sphereCastHit = default(RaycastHit);
 
-                if (SimulateSphereCast(hit.normal, out sphereCastHit))
+                if (SimulateSphereCast(hit.normal, ref sphereCastHit))
                 {
                     primaryGround = new GroundHit(sphereCastHit.point, sphereCastHit.normal, sphereCastHit.distance);
                 }
@@ -1193,7 +1191,7 @@ namespace EquilibreGames
         #endregion
 
         #region SimulateCircleCast
-        private bool SimulateCircleCast(Vector2 groundNormal, out RaycastHit2D hit)
+        private bool SimulateCircleCast(Vector2 groundNormal, ref RaycastHit2D hit)
         {
             ColliderInfo feetCollider = characterControllerColliders[circleConfigurationIndex].colliders[feetIndex];
 
@@ -1218,9 +1216,12 @@ namespace EquilibreGames
                 secondaryOrigin += projection;
             }
 
-            if (hit = Physics2D.Raycast(secondaryOrigin, -feetCollider.up, Mathf.Infinity, walkableLayer))
+            RaycastHit2D hit2;
+
+            if (hit2 = Physics2D.Raycast(secondaryOrigin, -feetCollider.up, Mathf.Infinity, walkableLayer))
             {
                 // Remove the tolerance from the distance travelled
+                hit = hit2;
                 hit.distance -= toleranceConst;
                 return true;
             }
@@ -1241,7 +1242,7 @@ namespace EquilibreGames
         /// <param name="groundNormal">Normal of a triangle assumed to be directly below the controller</param>
         /// <param name="hit">Simulated SphereCast data</param>
         /// <returns>True if the raycast is successful</returns>
-        private bool SimulateSphereCast(Vector3 groundNormal, out RaycastHit hit)
+        private bool SimulateSphereCast(Vector3 groundNormal, ref RaycastHit hit)
         {
 
             ColliderInfo feetCollider = characterControllerColliders[circleConfigurationIndex].colliders[feetIndex];
@@ -1261,9 +1262,12 @@ namespace EquilibreGames
                 secondaryOrigin += ExtendedMath.ProjectVectorOnPlane(feetCollider.up, v2).normalized * horizontal + feetCollider.up * vertical;
             }
 
-            if (Physics.Raycast(secondaryOrigin, -feetCollider.up, out hit, Mathf.Infinity, walkableLayer))
+            RaycastHit hit2;
+
+            if (Physics.Raycast(secondaryOrigin, -feetCollider.up, out hit2, Mathf.Infinity, walkableLayer))
             {
                 // Remove the tolerance from the distance travelled
+                hit = hit2;
                 hit.distance -= toleranceConst;
 
                 return true;
