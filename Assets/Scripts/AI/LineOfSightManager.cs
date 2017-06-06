@@ -9,10 +9,13 @@ public class LineOfSightManager : MonoBehaviour {
     int turn = 0;
     public List<GameObject> players;
     public float render_distance = 30;
+    public Terrain terrain;
+    float detailDistance;
 
     // Use this for initialization
     void Awake () {
         agents_sight = new List<LineOfSight>();
+        detailDistance = terrain.detailObjectDistance;
         StartCoroutine(Detect());
     }
 
@@ -42,7 +45,9 @@ public class LineOfSightManager : MonoBehaviour {
                     break;
                 }
             }
+            terrain.detailObjectDistance = 0;
             agents_sight[turn].Rendering();
+            terrain.detailObjectDistance = detailDistance;
             yield return new WaitForSeconds(1 / (framerate*agents_sight.Count));
             if (turn >= agents_sight.Count) turn = 0;
             agents_sight[turn].Analyse();
