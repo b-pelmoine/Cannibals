@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class EndDetector : MonoBehaviour {
 
-    public List<Cannibal> cannibals;
-    public Corpse m_corpse;
+    public GameObject Villagers;
+    public GameObject NewVillagers;
+    public ParticleSystem ps;
+
+    private List<Cannibal> cannibals;
+    private Corpse m_corpse;
 
     private bool end = false;
     private bool calledOnce = false;
@@ -23,14 +27,36 @@ public class EndDetector : MonoBehaviour {
             if (cannibals.Count == 2) end = true;
         }
 
-        if(end)
+        if(end || Input.GetKeyDown(KeyCode.V))
         {
             if(!calledOnce)
             {
-                GameObject.FindObjectOfType<GameManager>().setEndConditionState(true);
+                Villagers.SetActive(false);
+                NewVillagers.SetActive(true);
+                float i = .5f;
+                foreach (Transform t in NewVillagers.transform)
+                {
+                    Animator anim = t.GetComponent<Animator>();
+                    if(anim)
+                    {
+                        StartCoroutine(PlayDelayedAnim(anim, Random.Range(i, i + .5f)));
+                        i += Random.Range(.5f, 1f);
+                    }
+                }
+                ps.Play();
+                AkSoundEngine.PostEvent("village_chaudron", gameObject);
+                GameManager manager = GameObject.FindObjectOfType<GameManager>();
+                if(manager)
+                    manager.setEndConditionState(true);
                 calledOnce = true;
             }
         }
+    }
+
+    IEnumerator PlayDelayedAnim(Animator anim, float delayInSeconds)
+    {
+        yield return new WaitForSeconds(delayInSeconds);
+        anim.SetTrigger("Active");
     }
 
     void OnTriggerEnter(Collider c)
