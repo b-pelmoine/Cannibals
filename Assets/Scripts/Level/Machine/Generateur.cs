@@ -11,6 +11,8 @@ public class Generateur : MonoBehaviour, IActivable {
     public Machine machine;
     private Animator animator;
 
+    public GameObject sparkle;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -42,7 +44,10 @@ public class Generateur : MonoBehaviour, IActivable {
 
     public bool IsActivable(CannibalObject cannibal)
     {
-        return true;
+        if (electric)
+            return false;
+        else
+            return true;
     }
 
     public void Activate(CannibalObject cannibal)
@@ -50,6 +55,7 @@ public class Generateur : MonoBehaviour, IActivable {
         if(cannibal!=null && cannibal is Bottle)
         {
             electric = true;
+            if(sparkle != null) Instantiate(sparkle,transform);
             cannibal.linkedCannibal.LooseCannibalObject();
             cannibal.gameObject.SetActive(false);
             if (On)
