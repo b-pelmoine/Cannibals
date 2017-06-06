@@ -126,7 +126,7 @@ public class ScanTerrain : MonoBehaviour
         else
         {
             elapsed += Time.deltaTime;
-            if (3f - elapsed > 0)
+            if (UIManager.DecaytransitionDuration - elapsed > 0)
                 ScanDistance += Time.deltaTime * OnePlayerSpeed/2;
             else
                 ScanDistance = 0;

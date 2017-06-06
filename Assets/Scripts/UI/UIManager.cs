@@ -13,8 +13,7 @@ public class UIManager : MonoBehaviour
     private float elapsedTime;
     [Range(0.2f, 3f)]
     public float transitionDuration;
-    [Range(0.5f, 5f)]
-    public float DecaytransitionDuration;
+    static public float DecaytransitionDuration = 5f;
     [Range(0.1f, 1f)]
     public float HuntSenseFinalIntensity;
     [Space(30)]
