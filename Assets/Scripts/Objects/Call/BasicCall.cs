@@ -26,6 +26,8 @@ public class BasicCall : CannibalObject, ICall {
     public void Use()
     {
         m_audioSource.Play();
+        if(!AkSoundEngine.GetIsGameObjectActive(gameObject))
+            AkSoundEngine.PostEvent("duck", gameObject);
 
         if (OnBasicCallUsed != null)
             OnBasicCallUsed(this);
