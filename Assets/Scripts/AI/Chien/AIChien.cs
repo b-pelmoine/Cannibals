@@ -66,7 +66,8 @@ namespace AI
                 {
                     LookAt(target.transform.position);
                     animator.Play("Bark");
-                    hunter.Call(target);
+                    if(target.GetComponent<Bush>()!=null)
+                        hunter.Call(target, true);
                     Stop();
                     Wait(1);
                 }

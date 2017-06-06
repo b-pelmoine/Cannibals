@@ -31,6 +31,7 @@ namespace AI
         int anim_shoot = Animator.StringToHash("Shoot");
 
         GameObject shootTarget = null;
+        bool killTarget = false;
         Cannibal cannibalTarget = null;
 
         public bool alerte = false;
@@ -194,20 +195,29 @@ namespace AI
 
         protected void GoTo()
         {
-            Vector3 position = (CurrentAction.callData as GameObject).transform.position;
+            GameObject obj = (CurrentAction.callData as GameObject);
+            Vector3 position = obj.transform.position;
             ActionTask action = new ActionTask();
             action.OnExecute = () =>
              {
                  if (MoveTo(position, 3))
                  {
                      Stop();
-                     ActionTask wait = new ActionTask();
-                     wait.timer=2;
-                     wait.AddReaction(SeeCannibal, Chase);
-                     wait.callbacks.Add(APPEAU, QuickShootOn);
-                     wait.callbacks.Add(DOG_CALL, CurrentAction.callbacks[DOG_CALL]);
-                     wait.callbacks.Add(BOTTLE_CALL, Drink);
-                     Play(wait);
+                     if (killTarget)
+                     {
+                         CurrentAction.callData = obj;
+                         ShootOn();
+                     }
+                     else
+                     {
+                         ActionTask wait = new ActionTask();
+                         wait.timer=2;
+                         wait.AddReaction(SeeCannibal, Chase);
+                         wait.callbacks.Add(APPEAU, QuickShootOn);
+                         wait.callbacks.Add(DOG_CALL, CurrentAction.callbacks[DOG_CALL]);
+                         wait.callbacks.Add(BOTTLE_CALL, Drink);
+                         Play(wait);
+                     }
                  }
              };
             action.AddReaction(SeeCannibal, Chase);
@@ -243,11 +253,14 @@ namespace AI
             ActionTask shoot = new ActionTask();
             shoot.target = target;
             agent.ResetPath();
+            agent.enabled = false;
             animator.Play("QuickShoot");
-            LookAt(target.transform.position);
+            
             Wait(0.1f).Next = () => {
+                LookAt(target.transform.position);
                 shoot.timer = animator.GetCurrentAnimatorStateInfo(0).length;
                 Play(shoot);
+                agent.enabled = true;
             };
             return;
         }
@@ -372,9 +385,10 @@ namespace AI
         /// <summary>
         /// The dog calls the hunter
         /// </summary>
-        public void Call(GameObject target)
+        public void Call(GameObject target, bool bush = false)
         {
             shootTarget = target;
+            killTarget = bush;
             if (CurrentAction != null)
             {
                 CurrentAction.callData = target;
