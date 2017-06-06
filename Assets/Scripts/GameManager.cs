@@ -162,7 +162,10 @@ public class GameManager : MonoBehaviour {
         bool dead = true;
         foreach(var c in cannibals)
         {
-            if (!c.IsDead()) dead = false;
+            if(c)
+            {
+                if (!c.IsDead()) dead = false;
+            }
         }
         return dead;
     }

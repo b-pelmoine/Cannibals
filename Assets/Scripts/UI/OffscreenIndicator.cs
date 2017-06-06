@@ -255,7 +255,7 @@ public class OffscreenIndicator : MonoBehaviour {
         if(showTarget)
         {
             pSpeed = (pulse_Targets) ? pulseSpeed : 0;
-            addIndicatorForGameObjects(TargetOnScreenPositions, Targets.ToArray(), TargetsSizeMultiplier, false, pSpeed);
+            addIndicatorForGameObjects(TargetOnScreenPositions, Targets.ToArray(), TargetsSizeMultiplier, false, pSpeed*2);
         }
         if(showPlayers)
         {
@@ -287,13 +287,13 @@ public class OffscreenIndicator : MonoBehaviour {
                     Targets.Add(corpseRAW);
                 }
             }
-            addIndicatorForGameObjects(endPositions, endPosition, 2);
+            addIndicatorForGameObjects(endPositions, endPosition, 2, false, 0, true);
         }
             
     }
 
     //add IndicatorData for the given GameObjects into the list
-    void addIndicatorForGameObjects(List<IndicatorData> list, RawGO[] targets, float sizeMultiplier = 1.0f, bool displayOnScreen = false, float pulseSpeed = 0f)
+    void addIndicatorForGameObjects(List<IndicatorData> list, RawGO[] targets, float sizeMultiplier = 1.0f, bool displayOnScreen = false, float pulseSpeed = 0f, bool hasMinSize = false)
     {
         Vector3 playersCenter = Vector3.Lerp(Players[0].go.transform.position, Players[1].go.transform.position, .5f);
         //loop through AI_Agents
@@ -365,11 +365,16 @@ public class OffscreenIndicator : MonoBehaviour {
                 if (lastAIID == go.go.GetInstanceID() && elapsedLastPop < transitionIn)
                     alterDimensionPop = 1 + (4 * (transitionIn - elapsedLastPop));
 
-                Vector2 dimensions = new Vector2(Screen.width / 20, Screen.height / 20) 
+                Vector2 screenBaseDimension = new Vector2(Screen.width / 20, Screen.height / 20);
+                Vector2 dimensions = screenBaseDimension
                     * Mathf.Clamp(30 / distFromPlayers, 0f, 2f) 
                     * (sizeMultiplier + 0.1f * (Mathf.Sin(pulseSpeed*Time.time)))
                     * alterDimensionPop;
                 
+                if(hasMinSize)
+                {
+                    if (dimensions.sqrMagnitude < screenBaseDimension.sqrMagnitude) dimensions = screenBaseDimension;
+                }
 
                 Vector2 position = new Vector2(screenPos.x, screenPos.y) - dimensions / 2;
 
