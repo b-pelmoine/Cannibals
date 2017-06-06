@@ -68,6 +68,7 @@ namespace AI
                     Destroy();
                 }
             };
+            Play(task);
         }
 
         public bool IsKnifeVulnerable()
