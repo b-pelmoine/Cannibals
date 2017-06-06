@@ -695,6 +695,8 @@ namespace AI
         {
             g.transform.parent = mamieHand;
             g.transform.localPosition = Vector3.zero;
+            AkSoundEngine.SetSwitch("Objects", "Cookies", gameObject);
+            AkSoundEngine.PostEvent("granny_objects", gameObject);
             Cookies rigid = g.GetComponent<Cookies>();
             if (rigid != null)
                 rigid.m_rigidbody.isKinematic = true;
