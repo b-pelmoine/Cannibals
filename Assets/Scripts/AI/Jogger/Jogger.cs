@@ -10,8 +10,12 @@ namespace AI
         public IconDisplayer icon;
         Vector3 startPosition;
 
+        public float baseSpeed = 3.0f;
+        public float fleeSpeed = 6.0f;
+
 	    new void Start () {
             base.Start();
+            agent.speed = baseSpeed;
             startPosition = transform.position;
             if (waypoints == null || waypoints.points.Count==0)
             {
@@ -49,6 +53,7 @@ namespace AI
 
         void Panic()
         {
+            agent.speed = fleeSpeed;
             ActionTask task = new ActionTask();
             task.OnExecute = () =>
             {
@@ -69,6 +74,7 @@ namespace AI
         {
             base.Kill();
             animator.Play("Die");
+            AkSoundEngine.PostEvent("jogger_death", gameObject);
             ResetPath();
             StopAll();
         }
@@ -76,8 +82,6 @@ namespace AI
         public void KnifeKill()
         {
             Kill();
-            animator.Play("Die");
-            StopAll();
         }
 
         public void ShowKnifeIcon()
