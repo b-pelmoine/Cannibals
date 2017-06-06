@@ -708,6 +708,7 @@ GameObject:
   - component: {fileID: 223571567893900178}
   - component: {fileID: 114562574338844864}
   - component: {fileID: 114955784699442378}
+  - component: {fileID: 114480827656827004}
   m_Layer: 13
   m_Name: Canvas
   m_TagString: Untagged
@@ -1402,8 +1403,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1375605370188922}
   m_LocalRotation: {x: -0, y: -0.6230628, z: -0, w: 0.78217185}
-  m_LocalPosition: {x: 143.89235, y: 10.227348, z: 91.69653}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 240.49567, y: 10.78, z: 171.33891}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
   m_Children:
   - {fileID: 4811082412270446}
   - {fileID: 4734767891692966}
@@ -1411,7 +1412,7 @@ Transform:
   - {fileID: 224706605080476832}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -77.08, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -70.048004, z: 0}
 --- !u!4 &4184450527387956
 Transform:
   m_ObjectHideFlags: 1
@@ -2309,6 +2310,20 @@ MonoBehaviour:
   - name: Gravel
     aera: Gravel
     mask: 0
+--- !u!114 &114480827656827004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1504926125948180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb3e4fe1309abd94da177635fa2602f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 223571567893900178}
+  offset: 2.5
+  transformToFollow: {fileID: 4181879646738162}
 --- !u!114 &114561905505022314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2419,19 +2434,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points:
   - tag: 1
-    position: {x: 161.25876, y: 10.001221, z: 152.86592}
+    position: {x: 166.1048, y: 10.001221, z: 161.84232}
     links: 01000000
   - tag: 2
-    position: {x: 153.30307, y: 10.008338, z: 177.52733}
+    position: {x: 140.93588, y: 10.050052, z: 128.52173}
     links: 02000000
   - tag: 3
-    position: {x: 91.30504, y: 10.001221, z: 167.12218}
+    position: {x: 110.8877, y: 10.001221, z: 118.42603}
     links: 03000000
   - tag: 4
-    position: {x: 93.93874, y: 10.001221, z: 132.5192}
+    position: {x: 79.94977, y: 10.001221, z: 139.8986}
     links: 04000000
   - tag: 5
-    position: {x: 141.16193, y: 10.050052, z: 128.35799}
+    position: {x: 95.80263, y: 10.001221, z: 170.39427}
+    links: 05000000
+  - tag: 6
+    position: {x: 142.36357, y: 10.001221, z: 177.32439}
     links: 
   currentDestination: {x: 0, y: 0, z: 0}
 --- !u!114 &114954629752016210
@@ -2488,7 +2506,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: a4115e708544b76479987bd7abbdb011, type: 2}
+  - {fileID: 2100000, guid: 0b9f422730ac1e74b94e730972de8e1a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
