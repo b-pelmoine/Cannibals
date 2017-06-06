@@ -13,6 +13,8 @@ namespace AI
         public float baseSpeed = 3.0f;
         public float fleeSpeed = 6.0f;
 
+        public float startTime = 3;
+
 	    new void Start () {
             base.Start();
             agent.speed = baseSpeed;
@@ -30,7 +32,10 @@ namespace AI
                 }
             };
             root.AddReaction(SeeDanger, Panic);
-            Play(root);
+            Wait(startTime).Next = () =>
+            {
+                Play(root);
+            };
 	    }
 
         new void Update()
