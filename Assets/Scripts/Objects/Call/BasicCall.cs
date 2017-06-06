@@ -33,7 +33,7 @@ public class BasicCall : CannibalObject, ICall {
 #if UNITY_EDITOR
         if (debug)
         {
-            Debug.Log("Appeau");
+            //Debug.Log("Appeau");
         }
 #endif
     }

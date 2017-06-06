@@ -353,7 +353,7 @@ namespace AI
             ActionTask action = new ActionTask();
             action.OnExecute = () =>
             {
-                Debug.Log("positionCanard:" + position);
+                //Debug.Log("positionCanard:" + position);
                 if(MoveTo(position, 2f))
                 {
                     feeded = 0;

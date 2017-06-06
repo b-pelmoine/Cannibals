@@ -215,10 +215,13 @@ public class OffscreenIndicator : MonoBehaviour {
         if (showTarget)
         {
             if(granny)
-            foreach (IndicatorData data in TargetOnScreenPositions)
             {
-                GUI.DrawTexture(data._pos, getTextureFromType(data._type), ScaleMode.ScaleToFit);
+                foreach (IndicatorData data in TargetOnScreenPositions)
+                {
+                    GUI.DrawTexture(data._pos, getTextureFromType(data._type), ScaleMode.ScaleToFit);
+                }
             }
+            
         }
         if(showPlayers)
         {
@@ -298,7 +301,8 @@ public class OffscreenIndicator : MonoBehaviour {
         foreach (RawGO go in targets)
         {
             //jump to the next one if not active + TODO if dead
-            if (!go.go.activeInHierarchy) continue;
+            if (!go.go) break;
+            if (!go.go.activeInHierarchy) break;
 
             screenPos = Camera.main.WorldToScreenPoint(go.go.transform.position);
 
