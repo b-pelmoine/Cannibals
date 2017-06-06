@@ -2254,7 +2254,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.5
-  far clip plane: 20
+  far clip plane: 7
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -2421,6 +2421,9 @@ MonoBehaviour:
   animator: {fileID: 95726355576162960}
   waypoints: {fileID: 114829139847473522}
   icon: {fileID: 114651603788728946}
+  baseSpeed: 5
+  fleeSpeed: 8
+  startTime: 3
 --- !u!114 &114829139847473522
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2574,7 +2577,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.37
-  m_Speed: 3.5
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
