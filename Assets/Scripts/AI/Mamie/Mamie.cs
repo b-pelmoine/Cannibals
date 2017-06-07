@@ -803,6 +803,13 @@ namespace AI
         public void DieByDebug() {
             Die();
         }
+
+        void OnDestroy()
+        {
+            Bottle.OnBottleShaked -= OnDrink;
+            Destroy();
+        }
         
     }
+
 }
