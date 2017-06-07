@@ -130,6 +130,7 @@ public class GameManager : MonoBehaviour {
     void OnPhaseTwoStart()
     {
         corpse = GameObject.FindObjectOfType<Corpse>();
+        AkSoundEngine.PostEvent("ambiance_return", gameObject);
         setEndConditionState(false);
     }
 

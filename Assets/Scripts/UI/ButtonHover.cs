@@ -32,7 +32,7 @@ public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         {
             Button btn = GetComponent<Button>();
             btn.onClick.RemoveAllListeners();
-            btn.onClick.AddListener(() => { controller.LoadScene(1); });
+            btn.onClick.AddListener(() => { GetComponent<IntroAnim>().PlayAnimation(); });
         }
         else
         {
