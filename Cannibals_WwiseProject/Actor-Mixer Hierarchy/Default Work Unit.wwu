@@ -32893,6 +32893,25 @@
 								<ActiveSource Name="Microwave Oven in OperMOD-01_M" ID="{66E20A95-C23D-43B8-8A5F-10E70E6A2935}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<Sound Name="Gen cassé" ID="{795EF769-0477-450F-99A1-7A6753C0E6CE}" ShortID="1025277447" Type="SoundFX">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="REC M2_184" ID="{B5052260-A7AF-48D6-A9A6-4F139429A673}" ShortID="704602221">
+									<Language>SFX</Language>
+									<AudioFile>REC M2_184.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="REC M2_184" ID="{B5052260-A7AF-48D6-A9A6-4F139429A673}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</ActorMixer>
 			</ChildrenList>
