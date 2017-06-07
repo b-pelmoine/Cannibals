@@ -22,7 +22,7 @@ public class EndDetector : MonoBehaviour {
             if (cannibals.Count == 2) end = true;
         }
 
-        if(end || Input.GetKeyDown(KeyCode.V))
+        if(end)
         {
             if(!calledOnce)
             {
