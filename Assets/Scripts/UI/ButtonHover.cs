@@ -65,7 +65,6 @@ public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void displayForSelected(string selected)
     {
-        Debug.Log(selected);
         switch(selected)
         {
             case "play":

@@ -73,7 +73,13 @@ public class MoveAlongRiver : MonoBehaviour {
             else
                 distToNearDown = Mathf.Infinity;
 
-            nearests[1] = (distToNearUp > distToNearDown) ? CheckpointPositions[nearestIndex - 1] : CheckpointPositions[nearestIndex + 1] ;
+            if(nearestIndex + 1 < CheckpointPositions.Length)
+                nearests[1] = (distToNearUp > distToNearDown) ? CheckpointPositions[nearestIndex - 1] : CheckpointPositions[nearestIndex + 1] ;
+            else
+            {
+                nearests[1] = (distToNearUp > distToNearDown) ? CheckpointPositions[nearestIndex - 1] : CheckpointPositions[nearestIndex];
+            }
+                
         }
         transform.position = Vector3.Lerp(getPosOnLine(nearests),prevPosition,Time.deltaTime*dragfactor);
         prevPosition = transform.position;
