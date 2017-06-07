@@ -19,6 +19,10 @@ public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     private bool state;
 
+    public TriggerPopUp article;
+    public TriggerPopUp credits;
+    public TriggerPopUp controls;
+
     public void Awake()
     {
         StartCoroutine(skipFirstAnim());
@@ -59,6 +63,42 @@ public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         }
     }
 
+    public void displayForSelected(string selected)
+    {
+        Debug.Log(selected);
+        switch(selected)
+        {
+            case "play":
+                {
+                    article.setBool(true);
+                    controls.setBool(false);
+                    credits.setBool(false);
+                }
+                break;
+            case "controls":
+                {
+                    article.setBool(false);
+                    credits.setBool(false);
+                    controls.setBool(true);
+                }
+                break;
+            case "credit":
+                {
+                    article.setBool(false);
+                    credits.setBool(true);
+                    controls.setBool(false);
+                }
+                break;
+            case "quit":
+                {
+                    article.setBool(false);
+                    credits.setBool(false);
+                    controls.setBool(false);
+                }
+                break;
+        }
+    }
+
     IEnumerator skipFirstAnim()
     {
         anim.speed = 50000000f;
@@ -71,6 +111,7 @@ public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         AkSoundEngine.PostEvent("menu_scroll", gameObject);
         anim.SetBool("Hover", true);
         buttonImage.sprite = ImageHover;
+        displayForSelected(gameObject.name);
     }
 
     public void OnPointerExit(PointerEventData eventData)

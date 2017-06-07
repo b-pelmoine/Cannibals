@@ -47,6 +47,7 @@ public class IntroAnim : MonoBehaviour {
         if (!playing)
         {
             playing = true;
+            AkSoundEngine.StopAll();
             StartCoroutine(PrepareVideo(
                 () =>
                 {
