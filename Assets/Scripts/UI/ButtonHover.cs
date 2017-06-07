@@ -36,7 +36,7 @@ public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         {
             Button btn = GetComponent<Button>();
             btn.onClick.RemoveAllListeners();
-            btn.onClick.AddListener(() => { GetComponent<IntroAnim>().PlayAnimation(); });
+            btn.onClick.AddListener(() => { GameObject.Find("Video Player").GetComponent<IntroAnim>().PlayAnimation(); });
         }
         else
         {

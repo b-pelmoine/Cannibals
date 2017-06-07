@@ -52,6 +52,7 @@ public class IntroAnim : MonoBehaviour {
                 () =>
                 {
                     StartCoroutine(FadeCanvas(menu, 1, 0, .5f, () => {
+                        AkSoundEngine.PostEvent("cinematic", Camera.main.gameObject);
                         player.Play();
                         StartCoroutine(SkipIntro());
                     }));
