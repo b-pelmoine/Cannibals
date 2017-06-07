@@ -80,7 +80,7 @@ namespace AI
         public void Take(GameObject can)
         {
             AkSoundEngine.SetSwitch("Objects", "Can", gameObject);
-            AkSoundEngine.PostEvent("granny_objects", gameObject);
+            AkSoundEngine.PostEvent("scout_objects", gameObject);
             can.transform.parent = scoutHand;
             can.SetActive(false);
         }
