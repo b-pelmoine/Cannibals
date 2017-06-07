@@ -398,6 +398,8 @@ namespace AI
 
         public void OnCall(BasicCall obj)
         {
+            if (obj == null) return;
+            Debug.Log(obj + "called to " + gameObject);
             Vector3 pos = obj.transform.position;
             pos.y = transform.position.y;
             if (Vector3.Distance(pos, transform.position) > los.getSeeDistance())
