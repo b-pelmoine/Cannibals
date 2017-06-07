@@ -10,7 +10,8 @@ namespace AI
         public enum StartState
         {
             Feeding,
-            Generateur
+            Generateur,
+            Echange
         }
 
         public StartState startState = StartState.Feeding;
@@ -70,6 +71,10 @@ namespace AI
             {
                 case StartState.Generateur:
                     Fabrique();
+                    break;
+
+                case StartState.Echange:
+                    Echanger();
                     break;
 
                 case StartState.Feeding:

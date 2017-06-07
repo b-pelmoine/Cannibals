@@ -16,7 +16,7 @@ namespace AI
             ActionTask root = new ActionTask();
             root.OnExecute = () =>
             {
-                if (WanderAround(basePosition, 4))
+                if (WanderAround(basePosition, 5, 0.2f))
                 {
                     Wait(1).callbacks.Add(10, EchangerAvecMamie);
                 }
@@ -39,6 +39,7 @@ namespace AI
 
         protected void EchangerAvecMamie()
         {
+            ResetPath();
             Debug.Log("Echange avec mamie");
             Mamie mamie = (CurrentAction.callData as Mamie);
             ActionTask task = new ActionTask();
@@ -53,8 +54,6 @@ namespace AI
                      {
                          Wait(0).callbacks.Add(10, () =>
                          {
-                             AkSoundEngine.SetSwitch("Objects", "Can", gameObject);
-                             AkSoundEngine.PostEvent("scout_objects", gameObject);
                              Stop();
                              GameObject c = Instantiate(cookie);
                              c.transform.parent = scoutHand;
@@ -80,6 +79,8 @@ namespace AI
 
         public void Take(GameObject can)
         {
+            AkSoundEngine.SetSwitch("Objects", "Can", gameObject);
+            AkSoundEngine.PostEvent("granny_objects", gameObject);
             can.transform.parent = scoutHand;
             can.SetActive(false);
         }
