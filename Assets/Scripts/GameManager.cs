@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour {
     public GameState state, prevState;
 
     bool endCondition;
+    bool ending = false;
     bool Reload_CR_Running = false;
 
     void Awake()
@@ -62,7 +63,7 @@ public class GameManager : MonoBehaviour {
 
     void Update()
     {
-        if(sceneController)
+        if(sceneController && !ending)
         {
             bool inMenu = sceneController.currentScene == 0;
             if (inMenu)
@@ -89,6 +90,16 @@ public class GameManager : MonoBehaviour {
                 }
             }
             prevState = state;
+        }
+        else
+        {
+            if(sceneController.currentScene == 0)
+            {
+                endCondition = false;
+                ending = false;
+                state = GameState.MENU;
+                prevState = GameState.MENU;
+            }
         }
         switch(state)
         {
@@ -142,6 +153,7 @@ public class GameManager : MonoBehaviour {
 
     void OnPhaseTwoEnd()
     {
+        ending = true;
         StartCoroutine(EndGame());
     }
 
@@ -150,7 +162,7 @@ public class GameManager : MonoBehaviour {
         yield return new WaitForSeconds(2f);
         sceneController.displayEndGameScreen(true);
         yield return new WaitForSeconds(.5f);
-        while (!Input.GetKeyDown("joystick button 0")) { yield return new WaitForEndOfFrame(); }
+        while (!Input.GetKeyDown("joystick button 0")) { yield return new WaitForFixedUpdate(); }
         yield return new WaitForSeconds(.5f);
         sceneController.displayEndGameScreen(false);
         state = GameState.MENU;
