@@ -452,5 +452,12 @@ namespace AI
         {
             icon.Show();
         }
+
+        void OnDestroy()
+        {
+            Destroy();
+            Bottle.OnBottleShaked -= OnBottleShaked;
+            BasicCall.OnBasicCallUsed -= OnCall;
+        }
     }
 }
