@@ -31208,6 +31208,13 @@
 									</GroupingInfo>
 								</SwitchContainer>
 								<RandomSequenceContainer Name="Death" ID="{A88FFFB4-E1D4-4214-BFF7-EDD9E8B3258A}" ShortID="563687803">
+									<PropertyList>
+										<Property Name="MakeUpGain" Type="Real64">
+											<ValueList>
+												<Value>3</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
@@ -31309,6 +31316,11 @@
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="Scared" ID="{59E4B51C-AD63-4938-B476-8F0EF6076697}" ShortID="966647174">
 									<PropertyList>
+										<Property Name="MakeUpGain" Type="Real64">
+											<ValueList>
+												<Value>-3</Value>
+											</ValueList>
+										</Property>
 										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="3"/>
 									</PropertyList>
 									<ReferenceList>
@@ -32548,6 +32560,32 @@
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="hiiii end" ID="{662651B2-AD1C-4E7D-8FF2-8080528ABDAA}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Non lethal spotted" ID="{F39FE5C5-3C4D-41BA-95A6-EA18D40FC21F}" ShortID="147866079" Type="SoundFX">
+									<PropertyList>
+										<Property Name="MakeUpGain" Type="Real64">
+											<ValueList>
+												<Value>-4</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Audio 1_28" ID="{4FA4A0C0-03CC-4BFA-8488-1B8B1174FD04}" ShortID="297692410">
+											<Language>SFX</Language>
+											<AudioFile>Audio 1_28.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Audio 1_28" ID="{4FA4A0C0-03CC-4BFA-8488-1B8B1174FD04}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
