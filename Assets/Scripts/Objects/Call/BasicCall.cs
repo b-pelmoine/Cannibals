@@ -44,6 +44,9 @@ public class BasicCall : CannibalObject, ICall {
     {
         base.Take(c, newParent);
         m_collider.enabled = false;
+
+        AkSoundEngine.SetSwitch("Objects", "Plastic_duck", c.m_cannibalMovement.gameObject);
+        AkSoundEngine.PostEvent("cannibal_objects", c.m_cannibalMovement.gameObject);
     }
 
 
