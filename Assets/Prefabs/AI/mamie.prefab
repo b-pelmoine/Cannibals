@@ -10072,6 +10072,7 @@ GameObject:
   - component: {fileID: 136261347571291066}
   - component: {fileID: 114995991681702478}
   - component: {fileID: 114487418115128826}
+  - component: {fileID: 114040770126029352}
   m_Layer: 9
   m_Name: Scout
   m_TagString: Untagged
@@ -31916,6 +31917,29 @@ MonoBehaviour:
   mesh: {fileID: 0}
   debug: 0
   col: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &114040770126029352
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1619583461298162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58a2393de5a34264a8b36ac7fb32a53b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debug: 0
+  switchName: Steps
+  switchStates:
+  - name: Wood
+    aera: Wood
+    mask: 0
+  - name: Gravel
+    aera: Gravel
+    mask: 0
+  - name: Grass
+    aera: Grass
+    mask: 0
 --- !u!114 &114076450482771698
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -32394,7 +32418,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 114355719046559188}
   On: 1
+  electric: 0
   machine: {fileID: 114203685608951796}
+  sparkle: {fileID: 1351029940013054, guid: 8a3b3149038166e479f9711129bbd9ea, type: 2}
 --- !u!114 &114925141678010682
 MonoBehaviour:
   m_ObjectHideFlags: 1
