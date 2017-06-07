@@ -296,6 +296,7 @@ GameObject:
   m_Component:
   - component: {fileID: 113302248}
   - component: {fileID: 113302249}
+  - component: {fileID: 113302250}
   m_Layer: 0
   m_Name: Video Player
   m_TagString: Untagged
@@ -345,6 +346,23 @@ VideoPlayer:
   m_Looping: 0
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
+--- !u!114 &113302250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 113302247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14abf0b31130c264fbda8bc5d81fdfcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skipIndication: {fileID: 53372613}
+  movie: {fileID: 32900000, guid: e8f4faa9a90b3604f8e8f599d64f8ece, type: 3}
+  player: {fileID: 113302249}
+  menu: {fileID: 1016010118}
+  cinematic: {fileID: 2010182991}
+  videoDisplayer: {fileID: 495233791}
 --- !u!1 &142570825
 GameObject:
   m_ObjectHideFlags: 0
@@ -1965,7 +1983,6 @@ GameObject:
   - component: {fileID: 1255094781}
   - component: {fileID: 1255094785}
   - component: {fileID: 1255094784}
-  - component: {fileID: 1255094786}
   m_Layer: 0
   m_Name: play
   m_TagString: Untagged
@@ -2030,7 +2047,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1255094786}
+      - m_Target: {fileID: 113302250}
         m_MethodName: PlayAnimation
         m_Mode: 1
         m_Arguments:
@@ -2111,23 +2128,6 @@ MonoBehaviour:
   article: {fileID: 401743894}
   credits: {fileID: 386739688}
   controls: {fileID: 347170645}
---- !u!114 &1255094786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1255094779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14abf0b31130c264fbda8bc5d81fdfcb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skipIndication: {fileID: 53372613}
-  movie: {fileID: 32900000, guid: e8f4faa9a90b3604f8e8f599d64f8ece, type: 3}
-  player: {fileID: 113302249}
-  menu: {fileID: 1016010118}
-  cinematic: {fileID: 2010182991}
-  videoDisplayer: {fileID: 495233791}
 --- !u!1 &1355558014
 GameObject:
   m_ObjectHideFlags: 0
