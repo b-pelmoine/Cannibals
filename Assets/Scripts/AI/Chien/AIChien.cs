@@ -40,6 +40,7 @@ namespace AI
                 }
             };
             brain.AddReaction(SeeBone, EatBone);
+            brain.AddReaction(SeeCorpse, Bark);
             brain.AddReaction(SeeCannibal, Bark);
             brain.AddReaction(SeeBuisson, Bark);
             Play(brain);
@@ -134,6 +135,21 @@ namespace AI
                 else
                     currentTarget = null;
                 CurrentAction.callData = cannibal;
+                return true;
+            }
+            return false;
+        }
+
+        bool SeeCorpse()
+        {
+            SightInfo corpse = los.FindNearest(x =>
+            {
+                Corpse c = x.target.GetComponent<Corpse>();
+                return c != null;
+            });
+            if(corpse != null)
+            {
+                CurrentAction.callData = corpse;
                 return true;
             }
             return false;
