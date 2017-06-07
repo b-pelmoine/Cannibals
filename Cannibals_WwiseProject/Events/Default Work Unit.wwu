@@ -866,6 +866,20 @@
 								</Element>
 							</ElementList>
 						</Action>
+						<Action Name="Stop" ID="{49672E4B-0911-4F6F-A0A2-5556BD6FA94A}" ShortID="859376711" Type="Stop" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{C1ABC893-DD80-4BF4-B6E7-2586F5A4BD40}" Global="false">
+									<ObjectRef Name="Machine" ID="{21778361-5589-4FDE-A3FC-2771AA59BF4B}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Play" ID="{113FB7B9-45B4-4604-8B04-8EDBA138A8F8}" ShortID="896009960" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{6A392E59-5187-4886-8F88-87C54E34F662}" Global="false">
+									<ObjectRef Name="Machine end" ID="{F92BC55B-A3C8-44E3-A710-34F2C4675206}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
 					</ChildrenList>
 				</Event>
 			</ChildrenList>
