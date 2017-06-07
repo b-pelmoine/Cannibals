@@ -31307,6 +31307,135 @@
 										</Sound>
 									</ChildrenList>
 								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="Scared" ID="{59E4B51C-AD63-4938-B476-8F0EF6076697}" ShortID="966647174">
+									<PropertyList>
+										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="3"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="Scared_1" ID="{9A7F556A-776F-4A6A-9D1E-2E5F1ED28FBE}" ShortID="48363541" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Vincent_07" ID="{06FA140D-94BD-49FB-B2A3-D259D170B9FE}" ShortID="743079071">
+													<Language>SFX</Language>
+													<AudioFile>Vincent_07.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Vincent_07" ID="{06FA140D-94BD-49FB-B2A3-D259D170B9FE}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Scared_2" ID="{09DB5FAD-AA6F-438A-8DE1-4BED20605139}" ShortID="242462661" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Vincent_08" ID="{D2EFB541-94FC-4F06-A99A-41E094EC3E30}" ShortID="873104954">
+													<Language>SFX</Language>
+													<AudioFile>Vincent_08.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Vincent_08" ID="{D2EFB541-94FC-4F06-A99A-41E094EC3E30}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Scared_3" ID="{812FA9E9-BAAE-4AC3-9960-7593E687D1AB}" ShortID="74882442" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Vincent_09" ID="{4F374F43-5275-4203-9E37-5E28AB9593EA}" ShortID="838389730">
+													<Language>SFX</Language>
+													<AudioFile>Vincent_09.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Vincent_09" ID="{4F374F43-5275-4203-9E37-5E28AB9593EA}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Scared_4" ID="{4C0AFC5E-B1C6-4CE5-97B8-65681B6FC442}" ShortID="99898391" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Vincent_10" ID="{431EDAE1-2FEB-4C72-A6BA-4366B764D330}" ShortID="472692496">
+													<Language>SFX</Language>
+													<AudioFile>Vincent_10.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Vincent_10" ID="{431EDAE1-2FEB-4C72-A6BA-4366B764D330}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Scared_5" ID="{9F083E3E-757F-455C-8A63-BE3A8B2769EF}" ShortID="519067017" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Vincent_11" ID="{B76E8805-AEAF-4330-8F37-7C5BD15AEB0F}" ShortID="516784747">
+													<Language>SFX</Language>
+													<AudioFile>Vincent_11.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Vincent_11" ID="{B76E8805-AEAF-4330-8F37-7C5BD15AEB0F}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Scared_6" ID="{FFE70532-8A37-4CFA-8918-050932CD176C}" ShortID="500926884" Type="SoundFX">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Vincent_12" ID="{923A6991-ACFE-4086-881D-7C23555AFFF8}" ShortID="414705032">
+													<Language>SFX</Language>
+													<AudioFile>Vincent_12.wav</AudioFile>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Vincent_12" ID="{923A6991-ACFE-4086-881D-7C23555AFFF8}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
 							</ChildrenList>
 						</ActorMixer>
 						<RandomSequenceContainer Name="Duck" ID="{574726F2-27AE-4C32-8271-CDEF1E570AC4}" ShortID="437568342">

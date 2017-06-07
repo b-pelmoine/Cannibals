@@ -893,6 +893,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="jogger_scared" ID="{40F2273C-04E2-4B5F-ACA5-687631CC3B6C}">
+					<ChildrenList>
+						<Action Name="Play" ID="{EECD42F3-3EF7-4385-8676-2DE84F9EE2A6}" ShortID="691325175" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{F190C2D4-CF95-4495-8E5E-12314E1BE3CD}" Global="false">
+									<ObjectRef Name="Scared" ID="{59E4B51C-AD63-4938-B476-8F0EF6076697}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
