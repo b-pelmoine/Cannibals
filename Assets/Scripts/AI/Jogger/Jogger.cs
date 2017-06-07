@@ -59,6 +59,7 @@ namespace AI
         void Panic()
         {
             agent.speed = fleeSpeed;
+            AkSoundEngine.PostEvent("jogger_scared", gameObject);
             ActionTask task = new ActionTask();
             task.OnExecute = () =>
             {

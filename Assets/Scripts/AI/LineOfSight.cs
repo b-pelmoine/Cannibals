@@ -227,7 +227,7 @@ public class LineOfSight : MonoBehaviour {
         SightInfo result = null;
         foreach(SightInfo si in sighted)
         {
-            if (p(si) && (result == null || (si.target.transform.position - transform.position).sqrMagnitude < (result.target.transform.position).sqrMagnitude))
+            if (si.target!=null && p(si) && (result == null || (si.target.transform.position - transform.position).sqrMagnitude < (result.target.transform.position).sqrMagnitude))
                 result = si;
         }
         return result;
