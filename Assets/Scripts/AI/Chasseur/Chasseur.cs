@@ -149,7 +149,7 @@ namespace AI
 
         protected bool SeeCorpse()
         {
-            SightInfo corpse = los.sighted.Find(x => x.target.GetComponent<Corpse>() != null && los.getDetectRate(x) > 0.9f);
+            SightInfo corpse = los.sighted.Find(x => x.target && x.target.GetComponent<Corpse>() != null && los.getDetectRate(x) > 0.9f);
             if (corpse != null && alert==false)
             {
                 return true;

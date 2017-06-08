@@ -54,11 +54,19 @@ public class GameManager : MonoBehaviour {
         sceneController = GameObject.FindObjectOfType<SceneController>();
         if (sceneController.currentScene == 0)
             state = prevState = GameState.MENU;
+        if(state == GameState.PHASE_TWO)
+        {   
+            state = GameState.PHASE_ONE;
+            prevState = GameState.PHASE_TWO;
+            OnPhaseOneStart();
+        }
+        /*
         switch(state)
         {
             case GameState.PHASE_ONE: OnPhaseOneStart(); break;
             case GameState.PHASE_TWO: OnPhaseTwoStart(); break;
         }
+        */
     }
 
     void Update()
@@ -97,6 +105,7 @@ public class GameManager : MonoBehaviour {
             {
                 endCondition = false;
                 ending = false;
+                AI.Chasseur.alert = false;
                 state = GameState.MENU;
                 prevState = GameState.MENU;
             }
@@ -110,6 +119,7 @@ public class GameManager : MonoBehaviour {
 
     void OnPhaseOneStart()
     {
+        Debug.Log("Phase 1");
         cannibals = GameObject.FindObjectsOfType<Cannibal>();
         granny = GameObject.FindObjectOfType<AI.Mamie>();
 
@@ -140,6 +150,7 @@ public class GameManager : MonoBehaviour {
 
     void OnPhaseTwoStart()
     {
+        Debug.Log("Phase 2");
         corpse = GameObject.FindObjectOfType<Corpse>();
         AkSoundEngine.PostEvent("ambiance_return", gameObject);
         setEndConditionState(false);
@@ -186,7 +197,14 @@ public class GameManager : MonoBehaviour {
     IEnumerator reloadCurrentPhase()
     {
         Reload_CR_Running = true;
+        AI.Chasseur.alert = false;
         yield return new WaitForSeconds(3f);
         sceneController.LoadScene(1);
     }
+
+    void OnLevelWasLoaded()
+    {
+        Start();
+    }
+
 }
