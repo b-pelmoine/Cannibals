@@ -238,8 +238,6 @@ namespace AI
             ActionTask shoot = new ActionTask();
             shoot.target = target;
             agent.ResetPath();
-            agent.enabled = false;
-            agent.ResetPath();
             animator.Play("Shoot");
             LookAt(target.transform.position);
             Wait(0.1f).Next = () =>
