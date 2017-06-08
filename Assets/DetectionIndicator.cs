@@ -15,6 +15,7 @@ public class DetectionIndicator : MonoBehaviour {
 
     private float prevHighest = 0f;
     public bool chaseMode = false;
+    private bool alert = false;
 
     [Header("Display Settings")]
     [Range(1.7f, 3f)]
@@ -82,7 +83,7 @@ public class DetectionIndicator : MonoBehaviour {
                     //update arrow
                     GameObject AITarget = data.agent.getCurrentTarget();
                     bool isTargeted = GameObject.ReferenceEquals(AITarget, playerTransforms[i].gameObject);
-                    if (isTargeted)
+                    if (isTargeted && data.agent.type == AIType.Hunter)
                     {
                         isOnePlayerChased = true;
                         if (data.agent.type == AIType.Hunter)
@@ -91,10 +92,17 @@ public class DetectionIndicator : MonoBehaviour {
                                 isTargeted = false;
                         }
                     }
-                    placeArrowFromDataAtPosition(data, playerTransforms[i], isTargeted);
-                    if (data.detectRate > highestDetectionLevel) highestDetectionLevel = data.detectRate;
+                    if(data.agent.type != AIType.Target_Alive)
+                        placeArrowFromDataAtPosition(data, playerTransforms[i], isTargeted);
+                    if (data.detectRate > highestDetectionLevel && data.agent.type == AIType.Hunter) highestDetectionLevel = data.detectRate;
                 }
             }
+        }
+
+        if(!alert && AI.Chasseur.alert)
+        {
+            AkSoundEngine.PostEvent("spotted_non_lethal", Camera.main.gameObject);
+            alert = true;
         }
         
         if(!chaseMode)
