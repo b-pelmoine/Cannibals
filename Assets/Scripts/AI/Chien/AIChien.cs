@@ -149,7 +149,12 @@ namespace AI
                 Corpse c = x.target.GetComponent<Corpse>();
                 return c != null;
             });
-            if(corpse != null)
+            SightInfo can = los.FindNearest(x =>
+            {
+                Cannibal c = x.target.GetComponentInParent<Cannibal>();
+                return c != null;
+            });
+            if(corpse != null && can != null)
             {
                 CurrentAction.callData = corpse;
                 return true;

@@ -126,7 +126,9 @@ namespace AI
         protected bool SeeCannibal()
         {
             List<SightInfo> sightedCannibals = los.sighted.FindAll(x => {
-                Cannibal can = x.target.GetComponentInParent<Cannibal>();
+                Cannibal can = null;
+                if (x.target)
+                    can = x.target.GetComponentInParent<Cannibal>();
                 return can != null && !can.IsDead() && (alert || can.isCoverOfBlood);
             });
             SightInfo bestTarget = null;
@@ -200,7 +202,7 @@ namespace AI
             ActionTask action = new ActionTask();
             action.OnExecute = () =>
              {
-                 if (MoveTo(position, 3))
+                 if (MoveTo(position, killTarget?shootingRange:3))
                  {
                      Stop();
                      if (killTarget)
