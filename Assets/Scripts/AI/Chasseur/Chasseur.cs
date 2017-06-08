@@ -129,7 +129,7 @@ namespace AI
                 Cannibal can = null;
                 if (x.target)
                     can = x.target.GetComponentInParent<Cannibal>();
-                return can != null && !can.IsDead() && (alert || can.isCoverOfBlood);
+                return can != null && !can.IsDead() && los.getDetectRate(x)>0.9 && (alert || can.isCoverOfBlood);
             });
             SightInfo bestTarget = null;
             foreach (SightInfo si in sightedCannibals)

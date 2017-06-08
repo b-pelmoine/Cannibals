@@ -119,11 +119,13 @@ public class Waypoint : MonoBehaviour {
             points[key].position=value;
         }
     }
-    /*
-    void OnDrawGizmos() {
-        for (int i = 1; i < points.Count; i++) {
-            Gizmos.DrawLine(points[i-1].position + Vector3.up, points[i].position + Vector3.up);
+    
+    void OnDrawGizmos()
+    {
+        for (int i = 1; i < points.Count; i++)
+        {
+            Gizmos.DrawLine(points[i - 1].position + Vector3.up, points[i].position + Vector3.up);
         }
-        Gizmos.DrawLine(points[0].position, points[points.Count-1].position);
-    }*/
+        Gizmos.DrawLine(points[0].position + Vector3.up, points[points.Count - 1].position + Vector3.up);
+    }
 }

@@ -6077,7 +6077,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1443385088526980}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 100.75718, y: 10.001221, z: 83.97596}
+  m_LocalPosition: {x: 153.55591, y: 10.006727, z: 69.74586}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4789305613664332}
@@ -6608,7 +6608,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1956400642573850}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.3, y: 0.853, z: -11.5}
+  m_LocalPosition: {x: 10.08, y: 0.853, z: 0.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4388013786035306}
@@ -7624,7 +7624,7 @@ MonoBehaviour:
   on: 1
   type: 2
   radius: 8
-  detectTime: 5
+  detectTime: 7
 --- !u!114 &114414130804494420
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7685,26 +7685,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points:
   - tag: 1
-    position: {x: 80.02513, y: 10.314352, z: 72.807785}
+    position: {x: 156.2011, y: 10.050052, z: 104.571945}
     links: 01000000
   - tag: 2
-    position: {x: 93.03119, y: 10.033938, z: 88.41313}
+    position: {x: 142.94058, y: 10.109365, z: 105.4222}
     links: 02000000
   - tag: 3
-    position: {x: 114.99015, y: 10.001221, z: 86.85861}
+    position: {x: 135.90833, y: 10.314872, z: 97.727325}
     links: 03000000
   - tag: 4
-    position: {x: 122.78362, y: 10.4944315, z: 79.629906}
+    position: {x: 143.7322, y: 10.149204, z: 88.74833}
     links: 04000000
   - tag: 5
-    position: {x: 124.026054, y: 10.373295, z: 72.288246}
+    position: {x: 156.5723, y: 10.050052, z: 88.92282}
     links: 05000000
   - tag: 6
-    position: {x: 100.70182, y: 10.455084, z: 68.043495}
+    position: {x: 160.6827, y: 10.001221, z: 76.45738}
     links: 06000000
   - tag: 7
-    position: {x: 84.768265, y: 10.305679, z: 66.08114}
+    position: {x: 141.23442, y: 10.199597, z: 71.642624}
     links: 07000000
+  - tag: 8
+    position: {x: 146.85251, y: 10.001221, z: 58.420567}
+    links: 08000000
+  - tag: 9
+    position: {x: 167.06378, y: 10.001221, z: 60.416103}
+    links: 09000000
+  - tag: 10
+    position: {x: 156.60841, y: 10.050052, z: 88.5068}
+    links: 
   currentDestination: {x: 0, y: 0, z: 0}
 --- !u!114 &114580166646768798
 MonoBehaviour:
@@ -7747,7 +7756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 5
-  LevelOfImportance: 0
+  LevelOfImportance: 10
   agent: {fileID: 195448385931607524}
   animator: {fileID: 95985014088886306}
   icon: {fileID: 114217164227184358}
@@ -7815,7 +7824,7 @@ MonoBehaviour:
   on: 1
   type: 0
   radius: 3
-  detectTime: 5
+  detectTime: 50
 --- !u!136 &136087379642080698
 CapsuleCollider:
   m_ObjectHideFlags: 1
