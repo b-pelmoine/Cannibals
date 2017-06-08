@@ -222,6 +222,7 @@ namespace AI
                      }
                  }
              };
+            action.AddReaction(SeeCorpse, () => alert = true);
             action.AddReaction(SeeCannibal, Chase);
             action.callbacks.Add(APPEAU, QuickShootOn);
             action.callbacks.Add(DOG_CALL, CurrentAction.callbacks[DOG_CALL]);

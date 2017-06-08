@@ -40,8 +40,8 @@ namespace AI
                 }
             };
             brain.AddReaction(SeeBone, EatBone);
-            brain.AddReaction(SeeCorpse, Bark);
             brain.AddReaction(SeeCannibal, Bark);
+            brain.AddReaction(SeeCorpse, Bark);
             brain.AddReaction(SeeBuisson, Bark);
             Play(brain);
         }
@@ -156,7 +156,7 @@ namespace AI
             });
             if(corpse != null && can != null)
             {
-                CurrentAction.callData = corpse;
+                CurrentAction.callData = can;
                 return true;
             }
             return false;
