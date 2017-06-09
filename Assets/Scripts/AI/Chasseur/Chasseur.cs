@@ -238,12 +238,14 @@ namespace AI
             ActionTask shoot = new ActionTask();
             shoot.target = target;
             agent.ResetPath();
+            agent.enabled = false;
             animator.Play("Shoot");
             LookAt(target.transform.position);
             Wait(0.1f).Next = () =>
             {
                 shoot.timer = animator.GetCurrentAnimatorStateInfo(0).length;
                 Play(shoot);
+                agent.enabled = true;
             };
             return;
         }
