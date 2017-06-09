@@ -29291,6 +29291,18 @@
 													<ItemRef Name="Grass" ID="{6D30B119-5975-4A20-A351-6CA0A5FFC827}"/>
 												</ItemList>
 											</Grouping>
+											<Grouping>
+												<SwitchRef Name="Grass" ID="{A4BFD645-2711-467D-8057-3F9DE85F67B2}"/>
+												<ItemList>
+													<ItemRef Name="Grass" ID="{6D30B119-5975-4A20-A351-6CA0A5FFC827}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="Wood" ID="{C3623FCC-9DC4-40BF-B559-2A2E6BF32A29}"/>
+												<ItemList>
+													<ItemRef Name="Grass" ID="{6D30B119-5975-4A20-A351-6CA0A5FFC827}"/>
+												</ItemList>
+											</Grouping>
 										</GroupingList>
 									</GroupingInfo>
 								</SwitchContainer>
@@ -34591,31 +34603,37 @@
 										<ActiveSource Name="REC M2_125" ID="{40B9A3A9-010F-4CB7-8681-D7CE14F0F617}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
+								<Sound Name="Machine end" ID="{F92BC55B-A3C8-44E3-A710-34F2C4675206}" ShortID="869349008" Type="SoundFX">
+									<PropertyList>
+										<Property Name="PositioningType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Waterfall" ID="{09E10853-3D58-405B-A3D4-8FE270A130B0}" WorkUnitID="{D49E8AC8-F75C-42C2-9D03-ECF68261003A}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Machine end" ID="{7F33C844-B652-404D-811B-7A1F95462BF8}" ShortID="150078008">
+											<Language>SFX</Language>
+											<AudioFile>Machine end.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Machine end" ID="{7F33C844-B652-404D-811B-7A1F95462BF8}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 							<Playlist>
 								<ItemRef Name="Machine begin" ID="{9B008FFF-47E9-4F70-BC92-3DF9BCAE091B}"/>
 								<ItemRef Name="Machine loop" ID="{0A54B38E-5A92-4717-8D64-0FF9F90EDC33}"/>
 							</Playlist>
 						</RandomSequenceContainer>
-						<Sound Name="Machine end" ID="{F92BC55B-A3C8-44E3-A710-34F2C4675206}" ShortID="869349008" Type="SoundFX">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Machine end" ID="{7F33C844-B652-404D-811B-7A1F95462BF8}" ShortID="150078008">
-									<Language>SFX</Language>
-									<AudioFile>Machine end.wav</AudioFile>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="Machine end" ID="{7F33C844-B652-404D-811B-7A1F95462BF8}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
 						<RandomSequenceContainer Name="Générateur" ID="{B9941FC7-494F-4789-9A3A-C5F832AC5EDD}" ShortID="21285760">
 							<PropertyList>
 								<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
