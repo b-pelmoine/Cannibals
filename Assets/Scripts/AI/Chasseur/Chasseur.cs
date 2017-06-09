@@ -435,6 +435,11 @@ namespace AI
             AkSoundEngine.PostEvent("hunter_steps", gameObject);
         }
 
+        void IdleSound()
+        {
+            AkSoundEngine.PostEvent("hunter_idle", gameObject);
+        }
+
         public bool IsKnifeVulnerable()
         {
             if (stun)

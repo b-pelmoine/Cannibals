@@ -20,11 +20,11 @@ public class gateTrigger : MonoBehaviour {
         m_corpse = null;
 
         int n = 1;
-        AkSoundEngine.SetSwitch("Going_and_coming", "Going", gameObject);
         foreach (Transform t in Villagers.transform)
         {
             if (n <= 3)
             {
+                AkSoundEngine.SetSwitch("Going_and_coming", "Going", t.gameObject);
                 AkSoundEngine.PostEvent("cannibals_village_" + n, t.gameObject);
             } 
             ++n;
@@ -42,11 +42,19 @@ public class gateTrigger : MonoBehaviour {
         {
             if (!calledOnce)
             {
-                AkSoundEngine.SetSwitch("Going_and_coming", "Coming", gameObject);
+                int n = 1;
+                foreach (Transform t in Villagers.transform)
+                {
+                    if (n <= 3)
+                    {
+                        AkSoundEngine.StopAll(t.gameObject);
+                    }
+                    ++n;
+                }
                 Villagers.SetActive(false);
                 NewVillagers.SetActive(true);
                 float i = .5f;
-                int n = 1;
+                n = 1;
                 foreach (Transform t in NewVillagers.transform)
                 {
                     Animator anim = t.GetComponent<Animator>();
@@ -57,7 +65,8 @@ public class gateTrigger : MonoBehaviour {
                     }
                     if(n <= 3)
                     {
-                       //AkSoundEngine.PostEvent("cannibals_village_" + n, t.gameObject);
+                        AkSoundEngine.SetSwitch("Going_and_coming", "Coming", t.gameObject);
+                       AkSoundEngine.PostEvent("cannibals_village_" + n, t.gameObject);
                     }
                     ++n;
                 }

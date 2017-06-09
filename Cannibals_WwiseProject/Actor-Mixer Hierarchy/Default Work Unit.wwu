@@ -31857,7 +31857,352 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<SwitchContainer Name="Cannibals mood" ID="{7F76A9C2-8558-4663-ACE4-77E1B1CDB83B}" ShortID="658471099">
+								<SwitchContainer Name="Cannibals mood 1" ID="{7F76A9C2-8558-4663-ACE4-77E1B1CDB83B}" ShortID="658471099">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<RandomSequenceContainer Name="Pleurs_Bao" ID="{11086F8A-0413-42BB-BB11-0D2D7415FA71}" ShortID="708547487">
+											<PropertyList>
+												<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="3"/>
+												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+												<Property Name="PositioningType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Characters" ID="{D62CDAA8-1496-4FEE-B0DB-E8F6D574A2D1}" WorkUnitID="{D49E8AC8-F75C-42C2-9D03-ECF68261003A}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{D3C3252A-A46D-453F-B2E2-9A2EAB3A4AB3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+												<Reference Name="UserAuxSend0">
+													<ObjectRef Name="Rverb_forest" ID="{BEE1AC0B-971A-4A04-9056-545507F906A1}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="Bao Linh_01" ID="{5D388B7F-2557-472C-B67F-6D14CF7548C0}" ShortID="233108310" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Bao Linh_01" ID="{6A67BA5F-F0F8-41A7-BDBC-407B159CDF5B}" ShortID="553251581">
+															<Language>SFX</Language>
+															<AudioFile>Bao Linh_01.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Bao Linh_01" ID="{6A67BA5F-F0F8-41A7-BDBC-407B159CDF5B}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Bao Linh_09" ID="{04FE5988-8F6A-49AC-B249-8A408181872B}" ShortID="730835279" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Bao Linh_09" ID="{E5CA89CF-FCF2-41ED-AD35-3A684AFA92CD}" ShortID="333635239">
+															<Language>SFX</Language>
+															<AudioFile>Bao Linh_09.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Bao Linh_09" ID="{E5CA89CF-FCF2-41ED-AD35-3A684AFA92CD}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Bao Linh_10" ID="{2E204C4F-CD4D-4CA4-8C31-B77F9E2199F0}" ShortID="138881477" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Bao Linh_10" ID="{5CE5224F-B093-463D-ADEE-9EA8352B3DD2}" ShortID="184836760">
+															<Language>SFX</Language>
+															<AudioFile>Bao Linh_10.wav</AudioFile>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Bao Linh_10" ID="{5CE5224F-B093-463D-ADEE-9EA8352B3DD2}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Conten" ID="{DF3D4990-7E94-4FD2-9454-B56FCEE5607F}" ShortID="703598195">
+											<PropertyList>
+												<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
+												<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="3"/>
+												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+												<Property Name="PositioningType" Type="int16" Value="1"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="5"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Characters" ID="{D62CDAA8-1496-4FEE-B0DB-E8F6D574A2D1}" WorkUnitID="{D49E8AC8-F75C-42C2-9D03-ECF68261003A}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{D3C3252A-A46D-453F-B2E2-9A2EAB3A4AB3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+												<Reference Name="UserAuxSend0">
+													<ObjectRef Name="Rverb_forest" ID="{BEE1AC0B-971A-4A04-9056-545507F906A1}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="Idle 2-NORM_03-07" ID="{CF61E2BE-1B17-48DE-AC7F-9A47D341796F}" ShortID="424658978" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Idle 2-NORM_03-07" ID="{0D7EF80F-D225-40C2-B2A1-865F4FE39293}" ShortID="928195143">
+															<Language>SFX</Language>
+															<AudioFile>Idle 2-NORM_03-07.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="910956160"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Idle 2-NORM_03-07" ID="{0D7EF80F-D225-40C2-B2A1-865F4FE39293}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Idle 2-NORM_04-09" ID="{0B3EFEDD-81D4-4518-90B2-BD82C8E54212}" ShortID="376964009" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Idle 2-NORM_04-09" ID="{23F0BF4F-8747-4F22-8B60-9B2BC49B3EEB}" ShortID="808174166">
+															<Language>SFX</Language>
+															<AudioFile>Idle 2-NORM_04-09.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="247850391"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Idle 2-NORM_04-09" ID="{23F0BF4F-8747-4F22-8B60-9B2BC49B3EEB}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Idle 2-NORM_05-11" ID="{3BA474EC-12CB-4F7E-9D1D-86974352DD7C}" ShortID="788184941" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Idle 2-NORM_05-11" ID="{044B7B79-DFB3-4575-AEC0-293217EDC84A}" ShortID="7882709">
+															<Language>SFX</Language>
+															<AudioFile>Idle 2-NORM_05-11.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="867905881"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Idle 2-NORM_05-11" ID="{044B7B79-DFB3-4575-AEC0-293217EDC84A}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Idle 2-NORM_06-15" ID="{62FF4896-91B9-4C9F-8080-0E7EB8930D16}" ShortID="611331100" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Idle 2-NORM_06-15" ID="{1AD459A1-A34D-4BF2-B5BB-904A410A078B}" ShortID="213001548">
+															<Language>SFX</Language>
+															<AudioFile>Idle 2-NORM_06-15.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="410516861"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Idle 2-NORM_06-15" ID="{1AD459A1-A34D-4BF2-B5BB-904A410A078B}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Idle 2-NORM_07-17" ID="{824D4F76-850D-4869-8E85-12BB1F3C8C95}" ShortID="1051839589" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Idle 2-NORM_07-17" ID="{1C75FF51-11D7-4DED-9492-3B88209CA76C}" ShortID="1059131404">
+															<Language>SFX</Language>
+															<AudioFile>Idle 2-NORM_07-17.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="183443289"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Idle 2-NORM_07-17" ID="{1C75FF51-11D7-4DED-9492-3B88209CA76C}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Idle 2-NORM_08-19" ID="{4FF1262F-3B7F-45E6-8555-F931834BDA74}" ShortID="621146862" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Idle 2-NORM_08-19" ID="{F05CEC96-F129-480E-922B-C38EC15466E5}" ShortID="467576305">
+															<Language>SFX</Language>
+															<AudioFile>Idle 2-NORM_08-19.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="880844523"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Idle 2-NORM_08-19" ID="{F05CEC96-F129-480E-922B-C38EC15466E5}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Idle 2-NORM_11-12" ID="{81608C35-4A5A-488D-8BE4-1FCCA79BE8E2}" ShortID="903830687" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Idle 2-NORM_11-12" ID="{DFD17247-3190-44E0-B3FD-4E76B35F835C}" ShortID="411051378">
+															<Language>SFX</Language>
+															<AudioFile>Idle 2-NORM_11-12.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="643858512"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Idle 2-NORM_11-12" ID="{DFD17247-3190-44E0-B3FD-4E76B35F835C}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Idle 2-NORM_12-14" ID="{20C61562-DA9D-47B7-B096-C18557406C87}" ShortID="73812648" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Idle 2-NORM_12-14" ID="{DBB00517-9E5B-43CF-B20A-66343864C5C1}" ShortID="303715270">
+															<Language>SFX</Language>
+															<AudioFile>Idle 2-NORM_12-14.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="828008557"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Idle 2-NORM_12-14" ID="{DBB00517-9E5B-43CF-B20A-66343864C5C1}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Idle 2-NORM_13-16" ID="{D8C3FABA-9AFD-48A7-BB0A-9862A22BE90A}" ShortID="934762629" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Idle 2-NORM_13-16" ID="{8D453F4B-585D-450B-88B6-F2FAC1723694}" ShortID="708007001">
+															<Language>SFX</Language>
+															<AudioFile>Idle 2-NORM_13-16.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="257444607"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Idle 2-NORM_13-16" ID="{8D453F4B-585D-450B-88B6-F2FAC1723694}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+									</ChildrenList>
+									<GroupingInfo>
+										<GroupRef Name="Going_and_coming" ID="{4EE0FF81-A0F5-4EB2-8349-207E9B407E96}"/>
+										<DefaultSwitchRef Name="Going" ID="{778119EF-0A3C-45CA-A8CF-0924D408559D}"/>
+										<GroupingBehaviorList>
+											<GroupingBehavior>
+												<ItemRef Name="Pleurs_Bao" ID="{11086F8A-0413-42BB-BB11-0D2D7415FA71}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Conten" ID="{DF3D4990-7E94-4FD2-9454-B56FCEE5607F}"/>
+											</GroupingBehavior>
+										</GroupingBehaviorList>
+										<GroupingList>
+											<Grouping>
+												<SwitchRef Name="Coming" ID="{B6315B50-3C3F-4F07-B66D-5C91A3D90AF5}"/>
+												<ItemList>
+													<ItemRef Name="Conten" ID="{DF3D4990-7E94-4FD2-9454-B56FCEE5607F}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="Going" ID="{778119EF-0A3C-45CA-A8CF-0924D408559D}"/>
+												<ItemList>
+													<ItemRef Name="Pleurs_Bao" ID="{11086F8A-0413-42BB-BB11-0D2D7415FA71}"/>
+												</ItemList>
+											</Grouping>
+										</GroupingList>
+									</GroupingInfo>
+								</SwitchContainer>
+								<SwitchContainer Name="Cannibals mood 2" ID="{8B1ABB5D-6625-4663-8495-009266ECE2DA}" ShortID="904947088">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
@@ -31869,12 +32214,14 @@
 									<ChildrenList>
 										<RandomSequenceContainer Name="Paconten_Timtim" ID="{FEABA6EA-A1D6-490A-AA68-8BA5D1F3B577}" ShortID="780680045">
 											<PropertyList>
+												<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 												<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
 												<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
 												<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="3"/>
 												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 												<Property Name="PositioningType" Type="int16" Value="1"/>
 												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+												<Property Name="RestartBeginningOrBackward" Type="int16" Value="0"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Attenuation">
@@ -32303,362 +32650,28 @@
 												<ItemRef Name="Paconten_3" ID="{AA4B0AF0-DE71-4BD3-B641-F37F103C1285}"/>
 											</Playlist>
 										</RandomSequenceContainer>
-										<RandomSequenceContainer Name="Paconten_Bao" ID="{36CA97EE-5557-4C40-8998-7415099CBD66}" ShortID="728109876">
-											<PropertyList>
-												<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
-												<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
-												<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="3"/>
-												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
-												<Property Name="PositioningType" Type="int16" Value="1"/>
-												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="Characters" ID="{D62CDAA8-1496-4FEE-B0DB-E8F6D574A2D1}" WorkUnitID="{D49E8AC8-F75C-42C2-9D03-ECF68261003A}"/>
-												</Reference>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="SFX" ID="{D3C3252A-A46D-453F-B2E2-9A2EAB3A4AB3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-												</Reference>
-												<Reference Name="UserAuxSend0">
-													<ObjectRef Name="Rverb_forest" ID="{BEE1AC0B-971A-4A04-9056-545507F906A1}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<RandomSequenceContainer Name="Paconten_1" ID="{7557913A-3283-40D2-8561-02A661347A7A}" ShortID="115943121">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<Sound Name="Bao Linh_11" ID="{3490653B-5623-4141-B37F-22055D28C58B}" ShortID="560253768" Type="SoundFX">
-															<ReferenceList>
-																<Reference Name="Conversion">
-																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
-																</Reference>
-																<Reference Name="OutputBus">
-																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-																</Reference>
-															</ReferenceList>
-															<ChildrenList>
-																<AudioFileSource Name="Bao Linh_11" ID="{EDDF9AE8-73FA-4E1B-945E-A020B3F3DDDD}" ShortID="341433675">
-																	<Language>SFX</Language>
-																	<AudioFile>Bao Linh_11.wav</AudioFile>
-																</AudioFileSource>
-															</ChildrenList>
-															<ActiveSourceList>
-																<ActiveSource Name="Bao Linh_11" ID="{EDDF9AE8-73FA-4E1B-945E-A020B3F3DDDD}" Platform="Linked"/>
-															</ActiveSourceList>
-														</Sound>
-														<Sound Name="Bao Linh_12" ID="{935277EB-EBF1-47C9-A812-535B952759A9}" ShortID="485961038" Type="SoundFX">
-															<ReferenceList>
-																<Reference Name="Conversion">
-																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
-																</Reference>
-																<Reference Name="OutputBus">
-																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-																</Reference>
-															</ReferenceList>
-															<ChildrenList>
-																<AudioFileSource Name="Bao Linh_12" ID="{5E7D2B3E-8372-442B-9459-7FDF8583C2F1}" ShortID="128533213">
-																	<Language>SFX</Language>
-																	<AudioFile>Bao Linh_12.wav</AudioFile>
-																</AudioFileSource>
-															</ChildrenList>
-															<ActiveSourceList>
-																<ActiveSource Name="Bao Linh_12" ID="{5E7D2B3E-8372-442B-9459-7FDF8583C2F1}" Platform="Linked"/>
-															</ActiveSourceList>
-														</Sound>
-														<Sound Name="Bao Linh_13" ID="{54893898-A55B-45C0-A125-CD7EAF2713F4}" ShortID="100983360" Type="SoundFX">
-															<ReferenceList>
-																<Reference Name="Conversion">
-																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
-																</Reference>
-																<Reference Name="OutputBus">
-																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-																</Reference>
-															</ReferenceList>
-															<ChildrenList>
-																<AudioFileSource Name="Bao Linh_13" ID="{7D7EBEE0-5883-4A51-BFB4-DF79F62173CF}" ShortID="340060614">
-																	<Language>SFX</Language>
-																	<AudioFile>Bao Linh_13.wav</AudioFile>
-																</AudioFileSource>
-															</ChildrenList>
-															<ActiveSourceList>
-																<ActiveSource Name="Bao Linh_13" ID="{7D7EBEE0-5883-4A51-BFB4-DF79F62173CF}" Platform="Linked"/>
-															</ActiveSourceList>
-														</Sound>
-													</ChildrenList>
-												</RandomSequenceContainer>
-												<RandomSequenceContainer Name="Paconten_2" ID="{BEE8C566-4458-472E-AA84-0CB45D6AE222}" ShortID="874474895">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<Sound Name="Bao Linh_11" ID="{8B39FD59-B653-4AA2-93B5-308CF6DBC8AE}" ShortID="891851479" Type="SoundFX">
-															<ReferenceList>
-																<Reference Name="Conversion">
-																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
-																</Reference>
-																<Reference Name="OutputBus">
-																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-																</Reference>
-															</ReferenceList>
-															<ChildrenList>
-																<AudioFileSource Name="Bao Linh_11" ID="{E78A567D-E05F-4BAA-92A3-B339355ADC47}" ShortID="102088063">
-																	<Language>SFX</Language>
-																	<AudioFile>Bao Linh_11.wav</AudioFile>
-																	<ConvertedFileIDList>
-																		<File ID="341433675"/>
-																	</ConvertedFileIDList>
-																</AudioFileSource>
-															</ChildrenList>
-															<ActiveSourceList>
-																<ActiveSource Name="Bao Linh_11" ID="{E78A567D-E05F-4BAA-92A3-B339355ADC47}" Platform="Linked"/>
-															</ActiveSourceList>
-														</Sound>
-														<Sound Name="Bao Linh_12" ID="{8DE06570-C21C-4F49-AA97-7B7905B9C2D4}" ShortID="957285863" Type="SoundFX">
-															<ReferenceList>
-																<Reference Name="Conversion">
-																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
-																</Reference>
-																<Reference Name="OutputBus">
-																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-																</Reference>
-															</ReferenceList>
-															<ChildrenList>
-																<AudioFileSource Name="Bao Linh_12" ID="{39464D4B-54A0-43DF-BADB-8DA87DEC3647}" ShortID="319457065">
-																	<Language>SFX</Language>
-																	<AudioFile>Bao Linh_12.wav</AudioFile>
-																	<ConvertedFileIDList>
-																		<File ID="128533213"/>
-																	</ConvertedFileIDList>
-																</AudioFileSource>
-															</ChildrenList>
-															<ActiveSourceList>
-																<ActiveSource Name="Bao Linh_12" ID="{39464D4B-54A0-43DF-BADB-8DA87DEC3647}" Platform="Linked"/>
-															</ActiveSourceList>
-														</Sound>
-														<Sound Name="Bao Linh_13" ID="{7017BB71-CC50-4559-83A9-1C9F60D51D1F}" ShortID="917383332" Type="SoundFX">
-															<ReferenceList>
-																<Reference Name="Conversion">
-																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
-																</Reference>
-																<Reference Name="OutputBus">
-																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-																</Reference>
-															</ReferenceList>
-															<ChildrenList>
-																<AudioFileSource Name="Bao Linh_13" ID="{9B5A94D5-0AAD-47F1-8857-270DE31D9F47}" ShortID="386827762">
-																	<Language>SFX</Language>
-																	<AudioFile>Bao Linh_13.wav</AudioFile>
-																	<ConvertedFileIDList>
-																		<File ID="340060614"/>
-																	</ConvertedFileIDList>
-																</AudioFileSource>
-															</ChildrenList>
-															<ActiveSourceList>
-																<ActiveSource Name="Bao Linh_13" ID="{9B5A94D5-0AAD-47F1-8857-270DE31D9F47}" Platform="Linked"/>
-															</ActiveSourceList>
-														</Sound>
-													</ChildrenList>
-												</RandomSequenceContainer>
-												<RandomSequenceContainer Name="Paconten_3" ID="{E84765B1-1E8D-42CF-8AB8-EFE8F23A1A2C}" ShortID="374863312">
-													<PropertyList>
-														<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
-														<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
-														<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="3"/>
-														<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<Sound Name="Bao Linh_11" ID="{66F0E567-AABD-4839-8AF9-C5283C4A86F2}" ShortID="673580977" Type="SoundFX">
-															<ReferenceList>
-																<Reference Name="Conversion">
-																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
-																</Reference>
-																<Reference Name="OutputBus">
-																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-																</Reference>
-															</ReferenceList>
-															<ChildrenList>
-																<AudioFileSource Name="Bao Linh_11" ID="{9DF018CF-3E80-4BD2-986D-1612AE63D591}" ShortID="183382135">
-																	<Language>SFX</Language>
-																	<AudioFile>Bao Linh_11.wav</AudioFile>
-																	<ConvertedFileIDList>
-																		<File ID="341433675"/>
-																	</ConvertedFileIDList>
-																</AudioFileSource>
-															</ChildrenList>
-															<ActiveSourceList>
-																<ActiveSource Name="Bao Linh_11" ID="{9DF018CF-3E80-4BD2-986D-1612AE63D591}" Platform="Linked"/>
-															</ActiveSourceList>
-														</Sound>
-														<Sound Name="Bao Linh_12" ID="{BC3A5801-53B4-4713-BD41-542005275A64}" ShortID="57537852" Type="SoundFX">
-															<ReferenceList>
-																<Reference Name="Conversion">
-																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
-																</Reference>
-																<Reference Name="OutputBus">
-																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-																</Reference>
-															</ReferenceList>
-															<ChildrenList>
-																<AudioFileSource Name="Bao Linh_12" ID="{2F8451D0-D73D-48F6-B28F-1D378232629C}" ShortID="536542489">
-																	<Language>SFX</Language>
-																	<AudioFile>Bao Linh_12.wav</AudioFile>
-																	<ConvertedFileIDList>
-																		<File ID="128533213"/>
-																	</ConvertedFileIDList>
-																</AudioFileSource>
-															</ChildrenList>
-															<ActiveSourceList>
-																<ActiveSource Name="Bao Linh_12" ID="{2F8451D0-D73D-48F6-B28F-1D378232629C}" Platform="Linked"/>
-															</ActiveSourceList>
-														</Sound>
-														<Sound Name="Bao Linh_13" ID="{27FC8308-8DAC-4A64-8DA6-6765B44E58A2}" ShortID="52806835" Type="SoundFX">
-															<ReferenceList>
-																<Reference Name="Conversion">
-																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
-																</Reference>
-																<Reference Name="OutputBus">
-																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-																</Reference>
-															</ReferenceList>
-															<ChildrenList>
-																<AudioFileSource Name="Bao Linh_13" ID="{3BA8F0EA-A0B5-4CC3-B10D-B92D1F3463DF}" ShortID="643895282">
-																	<Language>SFX</Language>
-																	<AudioFile>Bao Linh_13.wav</AudioFile>
-																	<ConvertedFileIDList>
-																		<File ID="340060614"/>
-																	</ConvertedFileIDList>
-																</AudioFileSource>
-															</ChildrenList>
-															<ActiveSourceList>
-																<ActiveSource Name="Bao Linh_13" ID="{3BA8F0EA-A0B5-4CC3-B10D-B92D1F3463DF}" Platform="Linked"/>
-															</ActiveSourceList>
-														</Sound>
-													</ChildrenList>
-												</RandomSequenceContainer>
-											</ChildrenList>
-											<Playlist>
-												<ItemRef Name="Paconten_1" ID="{7557913A-3283-40D2-8561-02A661347A7A}"/>
-												<ItemRef Name="Paconten_2" ID="{BEE8C566-4458-472E-AA84-0CB45D6AE222}"/>
-												<ItemRef Name="Paconten_3" ID="{E84765B1-1E8D-42CF-8AB8-EFE8F23A1A2C}"/>
-											</Playlist>
-										</RandomSequenceContainer>
-										<RandomSequenceContainer Name="Pleurs_Bao" ID="{11086F8A-0413-42BB-BB11-0D2D7415FA71}" ShortID="708547487">
-											<PropertyList>
-												<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
-												<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="3"/>
-												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
-												<Property Name="PositioningType" Type="int16" Value="1"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="Characters" ID="{D62CDAA8-1496-4FEE-B0DB-E8F6D574A2D1}" WorkUnitID="{D49E8AC8-F75C-42C2-9D03-ECF68261003A}"/>
-												</Reference>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="SFX" ID="{D3C3252A-A46D-453F-B2E2-9A2EAB3A4AB3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-												</Reference>
-												<Reference Name="UserAuxSend0">
-													<ObjectRef Name="Rverb_forest" ID="{BEE1AC0B-971A-4A04-9056-545507F906A1}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<Sound Name="Bao Linh_01" ID="{5D388B7F-2557-472C-B67F-6D14CF7548C0}" ShortID="233108310" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Bao Linh_01" ID="{6A67BA5F-F0F8-41A7-BDBC-407B159CDF5B}" ShortID="553251581">
-															<Language>SFX</Language>
-															<AudioFile>Bao Linh_01.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Bao Linh_01" ID="{6A67BA5F-F0F8-41A7-BDBC-407B159CDF5B}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="Bao Linh_09" ID="{04FE5988-8F6A-49AC-B249-8A408181872B}" ShortID="730835279" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Bao Linh_09" ID="{E5CA89CF-FCF2-41ED-AD35-3A684AFA92CD}" ShortID="333635239">
-															<Language>SFX</Language>
-															<AudioFile>Bao Linh_09.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Bao Linh_09" ID="{E5CA89CF-FCF2-41ED-AD35-3A684AFA92CD}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="Bao Linh_10" ID="{2E204C4F-CD4D-4CA4-8C31-B77F9E2199F0}" ShortID="138881477" Type="SoundFX">
-													<ReferenceList>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Bao Linh_10" ID="{5CE5224F-B093-463D-ADEE-9EA8352B3DD2}" ShortID="184836760">
-															<Language>SFX</Language>
-															<AudioFile>Bao Linh_10.wav</AudioFile>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Bao Linh_10" ID="{5CE5224F-B093-463D-ADEE-9EA8352B3DD2}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-											</ChildrenList>
-										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Conten" ID="{46CC435E-2113-4BB9-9246-E4613DF933A5}" ShortID="803272383">
 											<PropertyList>
+												<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 												<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
 												<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
 												<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="3"/>
 												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+												<Property Name="PositioningType" Type="int16" Value="1"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="5"/>
 											</PropertyList>
 											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Characters" ID="{D62CDAA8-1496-4FEE-B0DB-E8F6D574A2D1}" WorkUnitID="{D49E8AC8-F75C-42C2-9D03-ECF68261003A}"/>
+												</Reference>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+													<ObjectRef Name="SFX" ID="{D3C3252A-A46D-453F-B2E2-9A2EAB3A4AB3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+												<Reference Name="UserAuxSend0">
+													<ObjectRef Name="Rverb_forest" ID="{BEE1AC0B-971A-4A04-9056-545507F906A1}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
@@ -32865,19 +32878,13 @@
 									</ChildrenList>
 									<GroupingInfo>
 										<GroupRef Name="Going_and_coming" ID="{4EE0FF81-A0F5-4EB2-8349-207E9B407E96}"/>
-										<DefaultSwitchRef Name="" ID="{00000000-0000-0000-0000-000000000000}"/>
+										<DefaultSwitchRef Name="Going" ID="{778119EF-0A3C-45CA-A8CF-0924D408559D}"/>
 										<GroupingBehaviorList>
 											<GroupingBehavior>
 												<ItemRef Name="Conten" ID="{46CC435E-2113-4BB9-9246-E4613DF933A5}"/>
 											</GroupingBehavior>
 											<GroupingBehavior>
-												<ItemRef Name="Pleurs_Bao" ID="{11086F8A-0413-42BB-BB11-0D2D7415FA71}"/>
-											</GroupingBehavior>
-											<GroupingBehavior>
 												<ItemRef Name="Paconten_Timtim" ID="{FEABA6EA-A1D6-490A-AA68-8BA5D1F3B577}"/>
-											</GroupingBehavior>
-											<GroupingBehavior>
-												<ItemRef Name="Paconten_Bao" ID="{36CA97EE-5557-4C40-8998-7415099CBD66}"/>
 											</GroupingBehavior>
 										</GroupingBehaviorList>
 										<GroupingList>
@@ -32891,8 +32898,542 @@
 												<SwitchRef Name="Going" ID="{778119EF-0A3C-45CA-A8CF-0924D408559D}"/>
 												<ItemList>
 													<ItemRef Name="Paconten_Timtim" ID="{FEABA6EA-A1D6-490A-AA68-8BA5D1F3B577}"/>
-													<ItemRef Name="Paconten_Bao" ID="{36CA97EE-5557-4C40-8998-7415099CBD66}"/>
-													<ItemRef Name="Pleurs_Bao" ID="{11086F8A-0413-42BB-BB11-0D2D7415FA71}"/>
+												</ItemList>
+											</Grouping>
+										</GroupingList>
+									</GroupingInfo>
+								</SwitchContainer>
+								<SwitchContainer Name="Cannibals mood 3" ID="{91874385-6601-4194-9445-62ACE24F817B}" ShortID="997845188">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<RandomSequenceContainer Name="Conten" ID="{C2481D3A-7F28-4010-BD4B-1D4191B38144}" ShortID="661336131">
+											<PropertyList>
+												<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
+												<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="3"/>
+												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+												<Property Name="PositioningType" Type="int16" Value="1"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="5"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Characters" ID="{D62CDAA8-1496-4FEE-B0DB-E8F6D574A2D1}" WorkUnitID="{D49E8AC8-F75C-42C2-9D03-ECF68261003A}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{D3C3252A-A46D-453F-B2E2-9A2EAB3A4AB3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+												<Reference Name="UserAuxSend0">
+													<ObjectRef Name="Rverb_forest" ID="{BEE1AC0B-971A-4A04-9056-545507F906A1}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="Idle 2-NORM_03-07" ID="{9936E772-C713-40C7-9147-9B4A214BA435}" ShortID="9568944" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Idle 2-NORM_03-07" ID="{BE9E2FBE-8F9C-42AF-919B-EB1344929FE0}" ShortID="95361995">
+															<Language>SFX</Language>
+															<AudioFile>Idle 2-NORM_03-07.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="910956160"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Idle 2-NORM_03-07" ID="{BE9E2FBE-8F9C-42AF-919B-EB1344929FE0}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Idle 2-NORM_04-09" ID="{27545F72-3750-47F2-9DEB-28C31A5A1869}" ShortID="988488392" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Idle 2-NORM_04-09" ID="{8084F59E-4AF4-49DC-BCED-C3A728C5E02A}" ShortID="659020387">
+															<Language>SFX</Language>
+															<AudioFile>Idle 2-NORM_04-09.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="247850391"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Idle 2-NORM_04-09" ID="{8084F59E-4AF4-49DC-BCED-C3A728C5E02A}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Idle 2-NORM_05-11" ID="{D46ED14D-5BC0-4190-B2AB-97504A688AC6}" ShortID="449617098" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Idle 2-NORM_05-11" ID="{3D7FDC45-64F7-4B85-8883-F96C55BD070D}" ShortID="452580987">
+															<Language>SFX</Language>
+															<AudioFile>Idle 2-NORM_05-11.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="867905881"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Idle 2-NORM_05-11" ID="{3D7FDC45-64F7-4B85-8883-F96C55BD070D}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Idle 2-NORM_06-15" ID="{D4E81892-9984-4CAF-8A6A-9597D0C6E312}" ShortID="763608679" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Idle 2-NORM_06-15" ID="{DED3CF5F-535A-4DA3-92D9-D8E34868A923}" ShortID="746848800">
+															<Language>SFX</Language>
+															<AudioFile>Idle 2-NORM_06-15.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="410516861"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Idle 2-NORM_06-15" ID="{DED3CF5F-535A-4DA3-92D9-D8E34868A923}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Idle 2-NORM_07-17" ID="{B3DAB1A2-10F7-4E6D-9B3C-C2F5AE19FF15}" ShortID="216891758" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Idle 2-NORM_07-17" ID="{3AAE945C-99E1-49FF-B8F4-6907CB10041C}" ShortID="676068522">
+															<Language>SFX</Language>
+															<AudioFile>Idle 2-NORM_07-17.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="183443289"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Idle 2-NORM_07-17" ID="{3AAE945C-99E1-49FF-B8F4-6907CB10041C}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Idle 2-NORM_08-19" ID="{13F78CEC-5285-4D74-B0F0-B893C8A1A089}" ShortID="215011782" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Idle 2-NORM_08-19" ID="{25B20630-F67D-4E12-9725-F49D0F634261}" ShortID="333718155">
+															<Language>SFX</Language>
+															<AudioFile>Idle 2-NORM_08-19.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="880844523"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Idle 2-NORM_08-19" ID="{25B20630-F67D-4E12-9725-F49D0F634261}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Idle 2-NORM_11-12" ID="{40A432B6-9EE5-4C06-BC0C-CF797074941E}" ShortID="278661202" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Idle 2-NORM_11-12" ID="{D23973B1-26FC-4471-B911-7CBD3A3925B3}" ShortID="164233804">
+															<Language>SFX</Language>
+															<AudioFile>Idle 2-NORM_11-12.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="643858512"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Idle 2-NORM_11-12" ID="{D23973B1-26FC-4471-B911-7CBD3A3925B3}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Idle 2-NORM_12-14" ID="{FA44F4D0-139B-4DCD-A524-E1CE88B8833D}" ShortID="976507639" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Idle 2-NORM_12-14" ID="{51CF4E4D-5CBD-4B43-BD9B-3A593BC67FCA}" ShortID="775354141">
+															<Language>SFX</Language>
+															<AudioFile>Idle 2-NORM_12-14.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="828008557"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Idle 2-NORM_12-14" ID="{51CF4E4D-5CBD-4B43-BD9B-3A593BC67FCA}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Idle 2-NORM_13-16" ID="{6B9FF450-4FA8-4008-ADE9-6846D0B80993}" ShortID="577063314" Type="SoundFX">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Idle 2-NORM_13-16" ID="{2C83589A-04B4-429D-B630-3BE12340F82B}" ShortID="756300866">
+															<Language>SFX</Language>
+															<AudioFile>Idle 2-NORM_13-16.wav</AudioFile>
+															<ConvertedFileIDList>
+																<File ID="257444607"/>
+															</ConvertedFileIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Idle 2-NORM_13-16" ID="{2C83589A-04B4-429D-B630-3BE12340F82B}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Paconten_Bao" ID="{5A6F2921-F0A9-49FC-873D-5DB2273CE6B1}" ShortID="820844460">
+											<PropertyList>
+												<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
+												<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="3"/>
+												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+												<Property Name="PositioningType" Type="int16" Value="1"/>
+												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+												<Property Name="RestartBeginningOrBackward" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Characters" ID="{D62CDAA8-1496-4FEE-B0DB-E8F6D574A2D1}" WorkUnitID="{D49E8AC8-F75C-42C2-9D03-ECF68261003A}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{D3C3252A-A46D-453F-B2E2-9A2EAB3A4AB3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+												<Reference Name="UserAuxSend0">
+													<ObjectRef Name="Rverb_forest" ID="{BEE1AC0B-971A-4A04-9056-545507F906A1}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<RandomSequenceContainer Name="Paconten_1" ID="{28A835B1-BD3A-427A-B14D-270FDDE5EC1C}" ShortID="369513004">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<Sound Name="Bao Linh_11" ID="{C58FBA54-795C-4AC9-AA2B-9E7D9DF5F71A}" ShortID="818919653" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Bao Linh_11" ID="{7C4E8EE1-7A8D-4C81-8A9E-4F15FB9D55C4}" ShortID="695345376">
+																	<Language>SFX</Language>
+																	<AudioFile>Bao Linh_11.wav</AudioFile>
+																	<ConvertedFileIDList>
+																		<File ID="341433675"/>
+																	</ConvertedFileIDList>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Bao Linh_11" ID="{7C4E8EE1-7A8D-4C81-8A9E-4F15FB9D55C4}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Bao Linh_12" ID="{4C56E22D-FBA2-4877-94FA-948731A7C024}" ShortID="701378139" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Bao Linh_12" ID="{59BFF597-714A-4F92-AB12-B75D77617DA1}" ShortID="315980134">
+																	<Language>SFX</Language>
+																	<AudioFile>Bao Linh_12.wav</AudioFile>
+																	<ConvertedFileIDList>
+																		<File ID="128533213"/>
+																	</ConvertedFileIDList>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Bao Linh_12" ID="{59BFF597-714A-4F92-AB12-B75D77617DA1}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Bao Linh_13" ID="{8775D002-3B9C-46B9-B581-0095BD6E504C}" ShortID="1004228611" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Bao Linh_13" ID="{05407DAD-7687-4EF8-A6E0-8641C132A5EE}" ShortID="304233296">
+																	<Language>SFX</Language>
+																	<AudioFile>Bao Linh_13.wav</AudioFile>
+																	<ConvertedFileIDList>
+																		<File ID="340060614"/>
+																	</ConvertedFileIDList>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Bao Linh_13" ID="{05407DAD-7687-4EF8-A6E0-8641C132A5EE}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+													</ChildrenList>
+												</RandomSequenceContainer>
+												<RandomSequenceContainer Name="Paconten_2" ID="{B6647BCB-6514-4119-BD26-8FC8602775D1}" ShortID="63429990">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<Sound Name="Bao Linh_11" ID="{F03F8D07-A307-4B94-87EE-2597530FDBCB}" ShortID="803821958" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Bao Linh_11" ID="{28A01B5E-AD56-4EEC-8A9F-B4D63DC9A110}" ShortID="327366761">
+																	<Language>SFX</Language>
+																	<AudioFile>Bao Linh_11.wav</AudioFile>
+																	<ConvertedFileIDList>
+																		<File ID="341433675"/>
+																	</ConvertedFileIDList>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Bao Linh_11" ID="{28A01B5E-AD56-4EEC-8A9F-B4D63DC9A110}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Bao Linh_12" ID="{7E801FC5-EB20-424F-A432-94D4F3465A4E}" ShortID="129326417" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Bao Linh_12" ID="{4A9598D4-E7E5-4B32-8236-8B0E1D7247C9}" ShortID="756921095">
+																	<Language>SFX</Language>
+																	<AudioFile>Bao Linh_12.wav</AudioFile>
+																	<ConvertedFileIDList>
+																		<File ID="128533213"/>
+																	</ConvertedFileIDList>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Bao Linh_12" ID="{4A9598D4-E7E5-4B32-8236-8B0E1D7247C9}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Bao Linh_13" ID="{4C7A4CFB-E70C-4A04-947D-C8216DDB9F1D}" ShortID="214967420" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Bao Linh_13" ID="{0A4186CB-E694-49D8-ACB1-E2271DC412DA}" ShortID="951302340">
+																	<Language>SFX</Language>
+																	<AudioFile>Bao Linh_13.wav</AudioFile>
+																	<ConvertedFileIDList>
+																		<File ID="340060614"/>
+																	</ConvertedFileIDList>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Bao Linh_13" ID="{0A4186CB-E694-49D8-ACB1-E2271DC412DA}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+													</ChildrenList>
+												</RandomSequenceContainer>
+												<RandomSequenceContainer Name="Paconten_3" ID="{84F7F550-5BA2-4D69-9C06-DD2C5672D024}" ShortID="385509525">
+													<PropertyList>
+														<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+														<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
+														<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="3"/>
+														<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<Sound Name="Bao Linh_11" ID="{E7ABADAD-D57E-41E6-AD40-F35D9D7F552C}" ShortID="216542224" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Bao Linh_11" ID="{3D79E446-BC3B-41A4-BE49-35794085943B}" ShortID="641180407">
+																	<Language>SFX</Language>
+																	<AudioFile>Bao Linh_11.wav</AudioFile>
+																	<ConvertedFileIDList>
+																		<File ID="341433675"/>
+																	</ConvertedFileIDList>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Bao Linh_11" ID="{3D79E446-BC3B-41A4-BE49-35794085943B}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Bao Linh_12" ID="{4D429CB5-D837-4BC5-9FA9-4003D885E53A}" ShortID="269055344" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Bao Linh_12" ID="{3417CEB0-49AD-4FBC-8212-D7DCDD9F454F}" ShortID="666897161">
+																	<Language>SFX</Language>
+																	<AudioFile>Bao Linh_12.wav</AudioFile>
+																	<ConvertedFileIDList>
+																		<File ID="128533213"/>
+																	</ConvertedFileIDList>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Bao Linh_12" ID="{3417CEB0-49AD-4FBC-8212-D7DCDD9F454F}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Bao Linh_13" ID="{7C51F29D-727F-4E80-B856-3F2FABC25606}" ShortID="1052530948" Type="SoundFX">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis Quality High" ID="{53A9DE0F-3F4F-4B59-8614-3F9E3C7358FC}" WorkUnitID="{F6B2880C-85E5-47FA-A126-645B5DFD9ACC}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{068960D6-A717-493E-B90F-BE62835606C7}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Bao Linh_13" ID="{EB19FA80-F613-4CE8-B919-F64690E9310A}" ShortID="97062391">
+																	<Language>SFX</Language>
+																	<AudioFile>Bao Linh_13.wav</AudioFile>
+																	<ConvertedFileIDList>
+																		<File ID="340060614"/>
+																	</ConvertedFileIDList>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Bao Linh_13" ID="{EB19FA80-F613-4CE8-B919-F64690E9310A}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+													</ChildrenList>
+												</RandomSequenceContainer>
+											</ChildrenList>
+											<Playlist>
+												<ItemRef Name="Paconten_1" ID="{28A835B1-BD3A-427A-B14D-270FDDE5EC1C}"/>
+												<ItemRef Name="Paconten_2" ID="{B6647BCB-6514-4119-BD26-8FC8602775D1}"/>
+												<ItemRef Name="Paconten_3" ID="{84F7F550-5BA2-4D69-9C06-DD2C5672D024}"/>
+											</Playlist>
+										</RandomSequenceContainer>
+									</ChildrenList>
+									<GroupingInfo>
+										<GroupRef Name="Going_and_coming" ID="{4EE0FF81-A0F5-4EB2-8349-207E9B407E96}"/>
+										<DefaultSwitchRef Name="Going" ID="{778119EF-0A3C-45CA-A8CF-0924D408559D}"/>
+										<GroupingBehaviorList>
+											<GroupingBehavior>
+												<ItemRef Name="Paconten_Bao" ID="{5A6F2921-F0A9-49FC-873D-5DB2273CE6B1}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Conten" ID="{C2481D3A-7F28-4010-BD4B-1D4191B38144}"/>
+											</GroupingBehavior>
+										</GroupingBehaviorList>
+										<GroupingList>
+											<Grouping>
+												<SwitchRef Name="Coming" ID="{B6315B50-3C3F-4F07-B66D-5C91A3D90AF5}"/>
+												<ItemList>
+													<ItemRef Name="Conten" ID="{C2481D3A-7F28-4010-BD4B-1D4191B38144}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="Going" ID="{778119EF-0A3C-45CA-A8CF-0924D408559D}"/>
+												<ItemList>
+													<ItemRef Name="Paconten_Bao" ID="{5A6F2921-F0A9-49FC-873D-5DB2273CE6B1}"/>
 												</ItemList>
 											</Grouping>
 										</GroupingList>
@@ -33689,6 +34230,11 @@
 							<ChildrenList>
 								<RandomSequenceContainer Name="Menu Click" ID="{4C458D0F-C742-43A8-9057-290F6CDA7506}" ShortID="286508226">
 									<PropertyList>
+										<Property Name="MakeUpGain" Type="Real64">
+											<ValueList>
+												<Value>6</Value>
+											</ValueList>
+										</Property>
 										<Property Name="OutputBusHighpass" Type="int16">
 											<ValueList>
 												<Value>22</Value>
@@ -33864,6 +34410,11 @@
 										<Sound Name="Loop" ID="{961F08B6-4D37-4475-985D-3ED418C9734F}" ShortID="644729403" Type="SoundFX">
 											<PropertyList>
 												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+												<Property Name="MakeUpGain" Type="Real64">
+													<ValueList>
+														<Value>6</Value>
+													</ValueList>
+												</Property>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
