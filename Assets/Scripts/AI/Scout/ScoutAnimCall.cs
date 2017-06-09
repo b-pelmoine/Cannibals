@@ -12,6 +12,6 @@ public class ScoutAnimCall : MonoBehaviour {
 
     void FootSteps()
     {
-        AkSoundEngine.PostEvent("scout_steps", gameObject);
+        AkSoundEngine.PostEvent("scout_steps", scout.gameObject);
     }
 }
