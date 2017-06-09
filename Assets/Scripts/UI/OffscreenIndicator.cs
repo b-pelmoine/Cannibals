@@ -168,7 +168,7 @@ public class OffscreenIndicator : MonoBehaviour {
                 elapsedTime = 0;
             foreach (RawGO go in AIAgents) oldAgents.Add(go);
             AIAgents.Clear();
-            Targets.Remove(grannyRAW);
+            Targets.RemoveAll(x => { return ReferenceEquals(x.go, grannyRAW.go); });
         }
     }
 
