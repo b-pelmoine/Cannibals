@@ -32,20 +32,11 @@ public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void Start()
     {
-        if (gameObject.name == "play")
+        if(gameObject.name == "quit")
         {
             Button btn = GetComponent<Button>();
             btn.onClick.RemoveAllListeners();
-            btn.onClick.AddListener(() => { GameObject.Find("Video Player").GetComponent<IntroAnim>().PlayAnimation(); });
-        }
-        else
-        {
-            if(gameObject.name == "quit")
-            {
-                Button btn = GetComponent<Button>();
-                btn.onClick.RemoveAllListeners();
-                btn.onClick.AddListener(() => { FindObjectOfType<GameManager>().Quit(); });
-            }
+            btn.onClick.AddListener(() => { FindObjectOfType<GameManager>().Quit(); });
         }
     }
 

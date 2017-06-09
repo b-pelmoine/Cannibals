@@ -18,6 +18,17 @@ public class gateTrigger : MonoBehaviour {
     void Start () {
         cannibals = new List<Cannibal>();
         m_corpse = null;
+
+        int n = 1;
+        AkSoundEngine.SetSwitch("Going_and_coming", "Going", gameObject);
+        foreach (Transform t in Villagers.transform)
+        {
+            if (n <= 3)
+            {
+                AkSoundEngine.PostEvent("cannibals_village_" + n, t.gameObject);
+            } 
+            ++n;
+        }
     }
 	
 	// Update is called once per frame
@@ -27,13 +38,15 @@ public class gateTrigger : MonoBehaviour {
             if (cannibals.Count == 2) end = true;
         }
 
-        if (end)
+        if (end || Input.GetKeyDown(KeyCode.V))
         {
             if (!calledOnce)
             {
+                AkSoundEngine.SetSwitch("Going_and_coming", "Coming", gameObject);
                 Villagers.SetActive(false);
                 NewVillagers.SetActive(true);
                 float i = .5f;
+                int n = 1;
                 foreach (Transform t in NewVillagers.transform)
                 {
                     Animator anim = t.GetComponent<Animator>();
@@ -42,6 +55,11 @@ public class gateTrigger : MonoBehaviour {
                         StartCoroutine(PlayDelayedAnim(anim, Random.Range(i, i + .5f)));
                         i += Random.Range(.5f, 1f);
                     }
+                    if(n <= 3)
+                    {
+                       //AkSoundEngine.PostEvent("cannibals_village_" + n, t.gameObject);
+                    }
+                    ++n;
                 }
                 ps.Play();
                 AkSoundEngine.PostEvent("village_chaudron", gameObject);
