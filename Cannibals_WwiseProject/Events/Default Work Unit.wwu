@@ -355,6 +355,34 @@
 				</Event>
 				<Event Name="granny_death" ID="{D2E8ED5C-76C6-4146-969E-E3B1AE031DD9}">
 					<ChildrenList>
+						<Action Name="Stop" ID="{4F7DB422-1923-4D3E-860E-D1C682657CFD}" ShortID="910024120" Type="Stop" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{D24BA82D-7945-4365-B7BE-45FF7ADF0693}" Global="false">
+									<ObjectRef Name="Steps" ID="{12664412-CA0D-4F3C-8BCB-2C9EDBDBDCBA}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Stop" ID="{683752BF-989E-4DEE-BAD7-49B6C0875510}" ShortID="890571966" Type="Stop" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{7713EAA3-AE98-4D95-81C0-15876D7C56EE}" Global="false">
+									<ObjectRef Name="Objects" ID="{572C630A-0CB1-4A61-B289-3397A91BB0F0}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Stop" ID="{F07D4707-45AA-4250-9ECA-9677AAA9A3F0}" ShortID="631797781" Type="Stop" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{53042DB7-C14D-44B7-AB9E-B074907C382C}" Global="false">
+									<ObjectRef Name="Whoosh Hit" ID="{F8C28B5B-A19B-4100-ABAB-048673A43C3A}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Stop" ID="{11017177-4F96-4356-9BB2-C76EC4AA03AF}" ShortID="670268465" Type="Stop" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{91CD6125-F8CF-4881-8314-B1E15BCF5338}" Global="false">
+									<ObjectRef Name="Idle" ID="{95AA0BE4-5D82-45A8-B9C7-C6CDDF8DCC57}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
 						<Action Name="Play" ID="{5DBED8B6-B9E5-44CA-AD46-3B138BB4543C}" ShortID="535923148" Type="Play" Scope="One" Global="false">
 							<ElementList>
 								<Element ID="{FD3A06A2-55B9-4809-9C22-D499439CB967}" Global="false">
@@ -607,13 +635,6 @@
 				</Event>
 				<Event Name="hunter_death" ID="{861876B4-1462-4B90-9A58-A00E54BEB008}">
 					<ChildrenList>
-						<Action Name="Play" ID="{056C86AB-9A6F-4277-961E-7B4CC2387158}" ShortID="55600619" Type="Play" Scope="One" Global="false">
-							<ElementList>
-								<Element ID="{D254216F-DA99-4E17-8940-00B0D53A5D7D}" Global="false">
-									<ObjectRef Name="Death" ID="{57625EF3-81E5-408A-B979-BEC995D99CBF}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
-								</Element>
-							</ElementList>
-						</Action>
 						<Action Name="Stop" ID="{0C698141-F565-4E5D-A34C-220700A0BDF9}" ShortID="555603100" Type="Stop" Scope="One" Global="false">
 							<ElementList>
 								<Element ID="{7A209756-3C70-4018-8896-53CE385DC2DD}" Global="false">
@@ -646,6 +667,13 @@
 							<ElementList>
 								<Element ID="{714E4737-DFAA-4BC2-8282-D96E4475A6C1}" Global="false">
 									<ObjectRef Name="Drink" ID="{247383AE-D60B-431B-A891-AD8C6339738C}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Play" ID="{056C86AB-9A6F-4277-961E-7B4CC2387158}" ShortID="55600619" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{D254216F-DA99-4E17-8940-00B0D53A5D7D}" Global="false">
+									<ObjectRef Name="Death" ID="{57625EF3-81E5-408A-B979-BEC995D99CBF}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
 								</Element>
 							</ElementList>
 						</Action>
@@ -827,10 +855,10 @@
 				</Event>
 				<Event Name="jogger_death" ID="{AC210B50-4101-4FC1-B42F-11FDA1671EA9}">
 					<ChildrenList>
-						<Action Name="Play" ID="{FFFFC70F-A3C4-4DC5-89F1-D0EF4BF5D750}" ShortID="131586412" Type="Play" Scope="One" Global="false">
+						<Action Name="Stop" ID="{C4C01167-8E9B-4117-B427-D34E4F9B94A6}" ShortID="523919805" Type="Stop" Scope="One" Global="false">
 							<ElementList>
-								<Element ID="{B56324E1-B40B-40BA-9A30-B20D036927E4}" Global="false">
-									<ObjectRef Name="Death" ID="{A88FFFB4-E1D4-4214-BFF7-EDD9E8B3258A}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								<Element ID="{A75C1F1B-BE95-449D-A162-CB37AB2BC384}" Global="false">
+									<ObjectRef Name="Scared" ID="{59E4B51C-AD63-4938-B476-8F0EF6076697}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
 								</Element>
 							</ElementList>
 						</Action>
@@ -838,6 +866,13 @@
 							<ElementList>
 								<Element ID="{4950B5BB-DA47-47B3-81B2-089310479E5E}" Global="false">
 									<ObjectRef Name="Steps" ID="{E7E6F2AF-64F4-4994-B4B5-FEE349A061DD}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Play" ID="{FFFFC70F-A3C4-4DC5-89F1-D0EF4BF5D750}" ShortID="131586412" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{B56324E1-B40B-40BA-9A30-B20D036927E4}" Global="false">
+									<ObjectRef Name="Death" ID="{A88FFFB4-E1D4-4214-BFF7-EDD9E8B3258A}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
 								</Element>
 							</ElementList>
 						</Action>
@@ -961,6 +996,20 @@
 				</Event>
 				<Event Name="scout_death" ID="{2C7F932C-ED27-46E8-A156-32F1BA26CD9C}">
 					<ChildrenList>
+						<Action Name="Stop" ID="{02331594-CE9E-4D21-80BC-FFC8E676C5F9}" ShortID="942645483" Type="Stop" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{4A71DAE8-380C-4CED-BCD8-D54B98413C13}" Global="false">
+									<ObjectRef Name="Objects" ID="{9661DB19-2943-466E-A3BF-CA645A66C9D2}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Stop" ID="{7BA52188-639A-4AF7-B6D9-003336F3D011}" ShortID="945264914" Type="Stop" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{9E2B5553-5626-4E3E-B945-3707225A8012}" Global="false">
+									<ObjectRef Name="Steps" ID="{3641D4E3-3647-4E6D-9762-B5D33AA32E5F}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
 						<Action Name="Play" ID="{F40439C5-A3A0-4795-8B21-8F2C50068DE5}" ShortID="933886035" Type="Play" Scope="One" Global="false">
 							<ElementList>
 								<Element ID="{E14C4646-DA96-4B8F-A592-FA1A8AB51029}" Global="false">
