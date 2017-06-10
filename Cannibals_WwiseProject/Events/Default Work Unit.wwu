@@ -959,6 +959,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="scout_death" ID="{2C7F932C-ED27-46E8-A156-32F1BA26CD9C}">
+					<ChildrenList>
+						<Action Name="Play" ID="{F40439C5-A3A0-4795-8B21-8F2C50068DE5}" ShortID="933886035" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{E14C4646-DA96-4B8F-A592-FA1A8AB51029}" Global="false">
+									<ObjectRef Name="Death" ID="{D48EDBEF-CA12-4B42-8A61-5CFEDFF12FD1}" WorkUnitID="{0DF98D8F-FA0F-46C1-B280-29209E13D306}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
